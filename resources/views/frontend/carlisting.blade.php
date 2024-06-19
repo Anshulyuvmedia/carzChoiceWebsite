@@ -68,7 +68,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carspot" src="images/posting/17.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/17.jpg')}}" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>

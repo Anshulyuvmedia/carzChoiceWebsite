@@ -180,277 +180,547 @@
                         <h1>Latest <span class="heading-color"> Featured</span> Ads</h1>
                     </div>
                 </div>
-                <!-- Middle Content Box -->
-                <div class="row grid-style-2 ">
-                    <div class="col-md-12 col-xs-12 col-sm-12">
-                        <!-- Ads Archive -->
-                        <div class="col-md-4 col-xs-12 col-sm-6">
-                            <div class="category-grid-box-1">
-                                <div class="featured-ribbon">
-                                    <span>Featured</span>
-                                </div>
-                                <div class="image">
-                                    <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/2.jpg') }}"
-                                        class="img-responsive">
-                                    <div class="ribbon popular"></div>
-                                    <div class="price-tag">
-                                        <div class="price"><span>$920,000</span></div>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                    <li class="nav-item active">
+                        <a class="nav-link" data-toggle="tab" href="#trending">Trending </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#popular">Popular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#pcoming">Upcoming</a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content clearfix">
+                    <div class="tab-pane fade in active" id="trending">
+                        <!-- Middle Content Box -->
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="row">
+                                <div class="featured-slider container owl-carousel owl-theme">
+                                    <div class="item">
+                                        <div class="grid-style-2">
+                                            <!-- Listing Ad Grid -->
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="category-grid-box-1">
+                                                    <div class="featured-ribbon">
+                                                        <span>Featured</span>
+                                                    </div>
+                                                    <div class="image">
+                                                        <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg')}}"
+                                                            class="img-responsive">
+                                                        <div class="ribbon popular"></div>
+                                                        <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="short-description-1 clearfix">
+                                                        <div class="category-title"> <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div>
+                                                        <h3><a title="" href="single-page-listing.html">Honda
+                                                                Civic 2017 Sports Edition</a></h3>
+                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
+                                                            Town Link Road London</p>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-dashboard"></i>35,000 km</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-car-2"></i>SUV</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-cogwheel-outline"></i>White</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ad-info-1">
+                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
+                                                                ago</span> </p>
+                                                        <ul class="pull-right">
+                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
+                                                            </li>
+                                                            <li> <a href="#"><i
+                                                                        class="flaticon-message"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- Listing Ad Grid -->
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="short-description-1 clearfix">
-                                    <div class="category-title"> <span><a href="#">Car & Bikes</a></span> </div>
-                                    <h3><a title="" href="single-page-listing.html">Porsche 911 Carrera 2017
-                                        </a>
-                                    </h3>
-                                    <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London
-                                    </p>
-                                    <ul class="list-unstyled">
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-gas-station-1"></i>Diesel</a></li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-dashboard"></i>35,000
-                                                km</a>
-                                        </li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-engine-2"></i>1800 cc</a>
-                                        </li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-car-2"></i>SUV</a></li>
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-cogwheel-outline"></i>White</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ad-info-1">
-                                    <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days ago</span> </p>
-                                    <ul class="pull-right">
-                                        <li> <a href="#"><i class="flaticon-like-1"></i></a> </li>
-                                        <li> <a href="#"><i class="flaticon-message"></i></a></li>
-                                    </ul>
+                                    <div class="item">
+                                        <div class="grid-style-2">
+                                            <!-- Listing Ad Grid -->
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="category-grid-box-1">
+                                                    <div class="featured-ribbon">
+                                                        <span>Featured</span>
+                                                    </div>
+                                                    <div class="image">
+                                                        <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/2.jpg')}}"
+                                                            class="img-responsive">
+                                                        <div class="ribbon popular"></div>
+                                                        <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="short-description-1 clearfix">
+                                                        <div class="category-title"> <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div>
+                                                        <h3><a title="" href="single-page-listing.html">Honda
+                                                                Civic 2017 Sports Edition</a></h3>
+                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
+                                                            Town Link Road London</p>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-dashboard"></i>35,000 km</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-car-2"></i>SUV</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-cogwheel-outline"></i>White</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ad-info-1">
+                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
+                                                                ago</span> </p>
+                                                        <ul class="pull-right">
+                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
+                                                            </li>
+                                                            <li> <a href="#"><i
+                                                                        class="flaticon-message"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- Listing Ad Grid -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="grid-style-2">
+                                            <!-- Listing Ad Grid -->
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="category-grid-box-1">
+                                                    <div class="featured-ribbon">
+                                                        <span>Featured</span>
+                                                    </div>
+                                                    <div class="image">
+                                                        <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/3.jpg')}}"
+                                                            class="img-responsive">
+                                                        <div class="ribbon popular"></div>
+                                                        <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="short-description-1 clearfix">
+                                                        <div class="category-title"> <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div>
+                                                        <h3><a title="" href="single-page-listing.html">Honda
+                                                                Civic 2017 Sports Edition</a></h3>
+                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
+                                                            Town Link Road London</p>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-dashboard"></i>35,000 km</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-car-2"></i>SUV</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-cogwheel-outline"></i>White</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ad-info-1">
+                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
+                                                                ago</span> </p>
+                                                        <ul class="pull-right">
+                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
+                                                            </li>
+                                                            <li> <a href="#"><i
+                                                                        class="flaticon-message"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- Listing Ad Grid -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
-                            <!-- Listing Ad Grid -->
                         </div>
-                        <!-- /col -->
-                        <div class="col-md-4 col-xs-12 col-sm-6">
-                            <div class="category-grid-box-1">
-                                <div class="featured-ribbon">
-                                    <span>Featured</span>
-                                </div>
-                                <div class="image">
-                                    <img alt="Carspot"
-                                        src="{{ asset('assets/frontend-assets/images/posting/3.jpg') }}"
-                                        class="img-responsive">
-                                    <div class="ribbon popular"></div>
-                                    <div class="price-tag">
-                                        <div class="price"><span>$117,000</span></div>
+                        <!-- Middle Content Box End -->
+                    </div>
+
+
+                    <div class="tab-pane fade" id="popular">
+                        <!-- Middle Content Box -->
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="row">
+                                <div class="featured-slider container owl-carousel owl-theme">
+                                    <div class="item">
+                                        <div class="grid-style-2">
+                                            <!-- Listing Ad Grid -->
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="category-grid-box-1">
+                                                    <div class="featured-ribbon">
+                                                        <span>Featured</span>
+                                                    </div>
+                                                    <div class="image">
+                                                        <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg')}}"
+                                                            class="img-responsive">
+                                                        <div class="ribbon popular"></div>
+                                                        <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="short-description-1 clearfix">
+                                                        <div class="category-title"> <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div>
+                                                        <h3><a title="" href="single-page-listing.html">Honda
+                                                                Civic 2017 Sports Edition</a></h3>
+                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
+                                                            Town Link Road London</p>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-dashboard"></i>35,000 km</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-car-2"></i>SUV</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-cogwheel-outline"></i>White</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ad-info-1">
+                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
+                                                                ago</span> </p>
+                                                        <ul class="pull-right">
+                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
+                                                            </li>
+                                                            <li> <a href="#"><i
+                                                                        class="flaticon-message"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- Listing Ad Grid -->
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="short-description-1 clearfix">
-                                    <div class="category-title"> <span><a href="#">Car & Bikes</a></span> </div>
-                                    <h3><a title="" href="single-page-listing.html">2014 Ford Shelby GT500
-                                            Coupe</a></h3>
-                                    <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London
-                                    </p>
-                                    <ul class="list-unstyled">
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-gas-station-1"></i>Diesel</a></li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-dashboard"></i>35,000
-                                                km</a>
-                                        </li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-engine-2"></i>1800 cc</a>
-                                        </li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-car-2"></i>SUV</a></li>
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-cogwheel-outline"></i>White</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ad-info-1">
-                                    <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days ago</span> </p>
-                                    <ul class="pull-right">
-                                        <li> <a href="#"><i class="flaticon-like-1"></i></a> </li>
-                                        <li> <a href="#"><i class="flaticon-message"></i></a></li>
-                                    </ul>
+                                    <div class="item">
+                                        <div class="grid-style-2">
+                                            <!-- Listing Ad Grid -->
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="category-grid-box-1">
+                                                    <div class="featured-ribbon">
+                                                        <span>Featured</span>
+                                                    </div>
+                                                    <div class="image">
+                                                        <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/2.jpg')}}"
+                                                            class="img-responsive">
+                                                        <div class="ribbon popular"></div>
+                                                        <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="short-description-1 clearfix">
+                                                        <div class="category-title"> <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div>
+                                                        <h3><a title="" href="single-page-listing.html">Honda
+                                                                Civic 2017 Sports Edition</a></h3>
+                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
+                                                            Town Link Road London</p>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-dashboard"></i>35,000 km</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-car-2"></i>SUV</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-cogwheel-outline"></i>White</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ad-info-1">
+                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
+                                                                ago</span> </p>
+                                                        <ul class="pull-right">
+                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
+                                                            </li>
+                                                            <li> <a href="#"><i
+                                                                        class="flaticon-message"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- Listing Ad Grid -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="grid-style-2">
+                                            <!-- Listing Ad Grid -->
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="category-grid-box-1">
+                                                    <div class="featured-ribbon">
+                                                        <span>Featured</span>
+                                                    </div>
+                                                    <div class="image">
+                                                        <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/3.jpg')}}"
+                                                            class="img-responsive">
+                                                        <div class="ribbon popular"></div>
+                                                        <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="short-description-1 clearfix">
+                                                        <div class="category-title"> <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div>
+                                                        <h3><a title="" href="single-page-listing.html">Honda
+                                                                Civic 2017 Sports Edition</a></h3>
+                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
+                                                            Town Link Road London</p>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-dashboard"></i>35,000 km</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-car-2"></i>SUV</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-cogwheel-outline"></i>White</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ad-info-1">
+                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
+                                                                ago</span> </p>
+                                                        <ul class="pull-right">
+                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
+                                                            </li>
+                                                            <li> <a href="#"><i
+                                                                        class="flaticon-message"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- Listing Ad Grid -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
-                            <!-- Listing Ad Grid -->
                         </div>
-                        <!-- /col -->
-                        <div class="col-md-4 col-xs-12 col-sm-6">
-                            <div class="category-grid-box-1">
-                                <div class="featured-ribbon">
-                                    <span>Featured</span>
-                                </div>
-                                <div class="image">
-                                    <img alt="Carspot"
-                                        src="{{ asset('assets/frontend-assets/images/posting/6.jpg') }}"
-                                        class="img-responsive">
-                                    <div class="ribbon popular"></div>
-                                    <div class="price-tag">
-                                        <div class="price"><span>$77,000</span></div>
+                        <!-- Middle Content Box End -->
+                    </div>
+
+                    <div class="tab-pane fade" id="upcoming">
+                        <!-- Middle Content Box -->
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="row">
+                                <div class="featured-slider container owl-carousel owl-theme">
+                                    <div class="item">
+                                        <div class="grid-style-2">
+                                            <!-- Listing Ad Grid -->
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="category-grid-box-1">
+                                                    <div class="featured-ribbon">
+                                                        <span>Featured</span>
+                                                    </div>
+                                                    <div class="image">
+                                                        <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg')}}"
+                                                            class="img-responsive">
+                                                        <div class="ribbon popular"></div>
+                                                        <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="short-description-1 clearfix">
+                                                        <div class="category-title"> <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div>
+                                                        <h3><a title="" href="single-page-listing.html">Honda
+                                                                Civic 2017 Sports Edition</a></h3>
+                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
+                                                            Town Link Road London</p>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-dashboard"></i>35,000 km</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-car-2"></i>SUV</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-cogwheel-outline"></i>White</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ad-info-1">
+                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
+                                                                ago</span> </p>
+                                                        <ul class="pull-right">
+                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
+                                                            </li>
+                                                            <li> <a href="#"><i
+                                                                        class="flaticon-message"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- Listing Ad Grid -->
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="short-description-1 clearfix">
-                                    <div class="category-title"> <span><a href="#">Car & Bikes</a></span> </div>
-                                    <h3><a title="" href="single-page-listing.html">McLaren F1 Sports Car</a>
-                                    </h3>
-                                    <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London
-                                    </p>
-                                    <ul class="list-unstyled">
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-gas-station-1"></i>Diesel</a></li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-dashboard"></i>35,000
-                                                km</a></li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-engine-2"></i>1800 cc</a>
-                                        </li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-car-2"></i>SUV</a></li>
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-cogwheel-outline"></i>White</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ad-info-1">
-                                    <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days ago</span> </p>
-                                    <ul class="pull-right">
-                                        <li> <a href="#"><i class="flaticon-like-1"></i></a> </li>
-                                        <li> <a href="#"><i class="flaticon-message"></i></a></li>
-                                    </ul>
+                                    <div class="item">
+                                        <div class="grid-style-2">
+                                            <!-- Listing Ad Grid -->
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="category-grid-box-1">
+                                                    <div class="featured-ribbon">
+                                                        <span>Featured</span>
+                                                    </div>
+                                                    <div class="image">
+                                                        <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/2.jpg')}}"
+                                                            class="img-responsive">
+                                                        <div class="ribbon popular"></div>
+                                                        <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="short-description-1 clearfix">
+                                                        <div class="category-title"> <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div>
+                                                        <h3><a title="" href="single-page-listing.html">Honda
+                                                                Civic 2017 Sports Edition</a></h3>
+                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
+                                                            Town Link Road London</p>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-dashboard"></i>35,000 km</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-car-2"></i>SUV</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-cogwheel-outline"></i>White</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ad-info-1">
+                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
+                                                                ago</span> </p>
+                                                        <ul class="pull-right">
+                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
+                                                            </li>
+                                                            <li> <a href="#"><i
+                                                                        class="flaticon-message"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- Listing Ad Grid -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="grid-style-2">
+                                            <!-- Listing Ad Grid -->
+                                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="category-grid-box-1">
+                                                    <div class="featured-ribbon">
+                                                        <span>Featured</span>
+                                                    </div>
+                                                    <div class="image">
+                                                        <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/3.jpg')}}"
+                                                            class="img-responsive">
+                                                        <div class="ribbon popular"></div>
+                                                        <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="short-description-1 clearfix">
+                                                        <div class="category-title"> <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div>
+                                                        <h3><a title="" href="single-page-listing.html">Honda
+                                                                Civic 2017 Sports Edition</a></h3>
+                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
+                                                            Town Link Road London</p>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-dashboard"></i>35,000 km</a>
+                                                            </li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-car-2"></i>SUV</a></li>
+                                                            <li><a href="javascript:void(0)"><i
+                                                                        class="flaticon-cogwheel-outline"></i>White</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="ad-info-1">
+                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
+                                                                ago</span> </p>
+                                                        <ul class="pull-right">
+                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
+                                                            </li>
+                                                            <li> <a href="#"><i
+                                                                        class="flaticon-message"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- Listing Ad Grid -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
-                            <!-- Listing Ad Grid -->
                         </div>
-                        <!-- /col -->
-                        <div class="col-md-4 col-xs-12 col-sm-6">
-                            <div class="category-grid-box-1">
-                                <div class="featured-ribbon">
-                                    <span>Featured</span>
-                                </div>
-                                <div class="image">
-                                    <img alt="Carspot"
-                                        src="{{ asset('assets/frontend-assets/images/posting/13.jpg') }}"
-                                        class="img-responsive">
-                                    <div class="ribbon popular"></div>
-                                    <div class="price-tag">
-                                        <div class="price"><span>$50,00</span></div>
-                                    </div>
-                                </div>
-                                <div class="short-description-1 clearfix">
-                                    <div class="category-title"> <span><a href="#">Car & Bikes</a></span> </div>
-                                    <h3><a title="" href="single-page-listing.html">2017 Audi A4 quattro
-                                            Premium</a></h3>
-                                    <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London
-                                    </p>
-                                    <ul class="list-unstyled">
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-gas-station-1"></i>Diesel</a></li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-dashboard"></i>35,000
-                                                km</a></li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-engine-2"></i>1800 cc</a>
-                                        </li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-car-2"></i>SUV</a></li>
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-cogwheel-outline"></i>White</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ad-info-1">
-                                    <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days ago</span> </p>
-                                    <ul class="pull-right">
-                                        <li> <a href="#"><i class="flaticon-like-1"></i></a> </li>
-                                        <li> <a href="#"><i class="flaticon-message"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Listing Ad Grid -->
-                        </div>
-                        <!-- /col -->
-                        <div class="col-md-4 col-xs-12 col-sm-6">
-                            <div class="category-grid-box-1">
-                                <div class="featured-ribbon">
-                                    <span>Featured</span>
-                                </div>
-                                <div class="image">
-                                    <img alt="Carspot"
-                                        src="{{ asset('assets/frontend-assets/images/posting/14.jpg') }}"
-                                        class="img-responsive">
-                                    <div class="ribbon popular"></div>
-                                    <div class="price-tag">
-                                        <div class="price"><span>$999,000</span></div>
-                                    </div>
-                                </div>
-                                <div class="short-description-1 clearfix">
-                                    <div class="category-title"> <span><a href="#">Car & Bikes</a></span> </div>
-                                    <h3><a title="" href="single-page-listing.html">Bugatti Veyron Super Sport
-                                        </a></h3>
-                                    <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London
-                                    </p>
-                                    <ul class="list-unstyled">
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-gas-station-1"></i>Diesel</a></li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-dashboard"></i>35,000
-                                                km</a></li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-engine-2"></i>1800 cc</a>
-                                        </li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-car-2"></i>SUV</a></li>
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-cogwheel-outline"></i>White</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ad-info-1">
-                                    <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days ago</span> </p>
-                                    <ul class="pull-right">
-                                        <li> <a href="#"><i class="flaticon-like-1"></i></a> </li>
-                                        <li> <a href="#"><i class="flaticon-message"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Listing Ad Grid -->
-                        </div>
-                        <!-- /col -->
-                        <div class="col-md-4 col-xs-12 col-sm-6">
-                            <div class="category-grid-box-1">
-                                <div class="featured-ribbon">
-                                    <span>Featured</span>
-                                </div>
-                                <div class="image">
-                                    <img alt="Carspot"
-                                        src="{{ asset('assets/frontend-assets/images/posting/8.jpg') }}"
-                                        class="img-responsive">
-                                    <div class="ribbon popular"></div>
-                                    <div class="price-tag">
-                                        <div class="price"><span>$205,000</span></div>
-                                    </div>
-                                </div>
-                                <div class="short-description-1 clearfix">
-                                    <div class="category-title"> <span><a href="#">Car & Bikes</a></span> </div>
-                                    <h3><a title="" href="single-page-listing.html">Honda Civic 2017 Sports
-                                            Edition</a></h3>
-                                    <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London
-                                    </p>
-                                    <ul class="list-unstyled">
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-gas-station-1"></i>Diesel</a></li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-dashboard"></i>35,000
-                                                km</a></li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-engine-2"></i>1800 cc</a>
-                                        </li>
-                                        <li><a href="javascript:void(0)"><i class="flaticon-car-2"></i>SUV</a></li>
-                                        <li><a href="javascript:void(0)"><i
-                                                    class="flaticon-cogwheel-outline"></i>White</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ad-info-1">
-                                    <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days ago</span> </p>
-                                    <ul class="pull-right">
-                                        <li> <a href="#"><i class="flaticon-like-1"></i></a> </li>
-                                        <li> <a href="#"><i class="flaticon-message"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Listing Ad Grid -->
-                        </div>
-                        <!-- /col -->
+                        <!-- Middle Content Box End -->
                     </div>
                 </div>
-                <!-- Middle Content Box End -->
+                <!-- Row End -->
             </div>
-            <!-- Row End -->
-        </div>
-        <!-- Main Container End -->
+            <!-- Main Container End -->
     </section>
     <!-- =-=-=-=-=-=-= Featured Ads End =-=-=-=-=-=-= -->
 
