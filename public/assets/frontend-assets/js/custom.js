@@ -172,26 +172,28 @@ Designed and Development by: ScriptsBundle
             transitionDuration: '0.3s'
         });
     });
-    /* ======= Featured Carousel 1 ======= */
-    $('.featured-slider').owlCarousel({
-		 items:3,
-         loop:true,
-		 nav: true,
-		 dots: false,
-		 responsiveClass: true, // Optional helper class. Add 'owl-reponsive-' + 'breakpoint' class to main element.
-        navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-		responsive: {
-            0: {
-                items: 1,
-            },
-            600: {
-                items: 2,
-            },
-            1000: {
-                items: 3,
-            }
-        }		
-    });
+    /* ======= trending Carousel 1 ======= */
+    // $('.featured-slider').owlCarousel({
+	// 	 items:3,
+    //      loop:true,
+	// 	 nav: true,
+	// 	 dots: false,
+	// 	 responsiveClass: true, // Optional helper class. Add 'owl-reponsive-' + 'breakpoint' class to main element.
+    //     navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+	// 	responsive: {
+    //         0: {
+    //             items: 1,
+    //         },
+    //         600: {
+    //             items: 2,
+    //         },
+    //         1000: {
+    //             items: 3,
+    //         }
+    //     }		
+    // });
+   
+
 	/* ======= Ad Carousel Single ======= */
     $('.featured-slider-single').owlCarousel({
          loop:true,
