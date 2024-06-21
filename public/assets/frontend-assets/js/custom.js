@@ -9,46 +9,46 @@ Designed and Development by: ScriptsBundle
 [ CSS TABLE CONTENT ]
 ------------------------------------
     1.0 -  Page Preloader
-	2.0 -  Counter FunFacts
+    2.0 -  Counter FunFacts
     3.0 -  List Grid Style Switcher
-	4.0 -  Sticky Ads
-	5.0 -  Accordion Panels
+    4.0 -  Sticky Ads
+    5.0 -  Accordion Panels
     6.0 -  Accordion Style 2
-	7.0 -  Jquery CheckBoxes
-	8.0 -  Jquery Select Dropdowns
+    7.0 -  Jquery CheckBoxes
+    8.0 -  Jquery Select Dropdowns
     9.0 -  Profile Image Upload
     10.0 - Masonry Grid System
-	11.0 - Featured Carousel 1
+    11.0 - Featured Carousel 1
     12.0 - Featured Carousel 2
-	12.0 - Featured Carousel 3
-	13.0 - Category Carousel
-	14.0 - Background Image Rotator Carousel
-	15.0 - Single Ad Slider Carousel
-	16.0 - Single Page SLider With Thumb
-	17.0 - Price Range Slider
-	18.0 - Template MegaMenu
-	19.0 - Back To Top
-	20.0 - Tooltip
-	21.0 - Quick Overview Modal
+    12.0 - Featured Carousel 3
+    13.0 - Category Carousel
+    14.0 - Background Image Rotator Carousel
+    15.0 - Single Ad Slider Carousel
+    16.0 - Single Page SLider With Thumb
+    17.0 - Price Range Slider
+    18.0 - Template MegaMenu
+    19.0 - Back To Top
+    20.0 - Tooltip
+    21.0 - Quick Overview Modal
 -------------------------------------
 [ END JQUERY TABLE CONTENT ]
 =====================================
 */
-(function($) {
+(function ($) {
     "use strict";
 
     /* ======= Preloader ======= */
-	$('.preloader').delay(500).fadeOut(500);
-			 
-   /* ======= Progress bars ======= */
-    $('.progress-bar > span').each(function() {
+    $('.preloader').delay(500).fadeOut(500);
+
+    /* ======= Progress bars ======= */
+    $('.progress-bar > span').each(function () {
         var $this = $(this);
         var width = $(this).data('percent');
         $this.css({
             'transition': 'width 3s'
         });
-        setTimeout(function() {
-            $this.appear(function() {
+        setTimeout(function () {
+            $this.appear(function () {
                 $this.css('width', width + '%');
             });
         }, 500);
@@ -56,14 +56,14 @@ Designed and Development by: ScriptsBundle
     /* ======= Counter FunFacts ======= */
     var timer = $('.timer');
     if (timer.length) {
-        timer.appear(function() {
+        timer.appear(function () {
             timer.countTo();
         });
     }
     /* ======= Accordion Panels ======= */
-	$('.accordion li').first().addClass('open');
-	$('.accordion li .accordion-content').first().css('display','block').slideDown(400);
-    $('.accordion-title a').on('click', function(event) {
+    $('.accordion li').first().addClass('open');
+    $('.accordion li .accordion-content').first().css('display', 'block').slideDown(400);
+    $('.accordion-title a').on('click', function (event) {
         event.preventDefault();
         if ($(this).parents('li').hasClass('open')) {
             $(this).parents('li').removeClass('open').find('.accordion-content').slideUp(400);
@@ -75,7 +75,7 @@ Designed and Development by: ScriptsBundle
     });
 
     /* ======= Accordion Style 2 ======= */
-    $('#accordion').on('shown.bs.collapse', function() {
+    $('#accordion').on('shown.bs.collapse', function () {
         var offset = $('.panel.panel-default > .panel-collapse.in').offset();
         if (offset) {
             $('html,body').animate({
@@ -94,59 +94,59 @@ Designed and Development by: ScriptsBundle
     $("select").select2({
         width: '100%'
     });
-	$(".ad-post-status").select2({
+    $(".ad-post-status").select2({
         width: '100%',
-		theme: "classic"
+        theme: "classic"
     });
-	$(".search-price-min").select2({
-	  placeholder: "Select Pice : Min",
-	  width: '100%'
-	});
-	$(".search-price-max").select2({
-	  placeholder: "Select Pice : Max",
-	  width: '100%'
-	});
-	$(".search-loaction").select2({
-	  placeholder: "Select Location : Any location",
-	  width: '100%'
-	});
-	$(".make").select2({
-	  placeholder: "Select Make : Any make",
-	  width: '100%'
-	});
-	$(".model").select2({
-	  placeholder: "Select Model : Any model",
-	  width: '100%'
-	});
-	$(".bodytype").select2({
-	  placeholder: "Body Type : Select body type",
-	  width: '100%'
-	});
-	$(".search-year").select2({
-	  placeholder: "Select Year : Any Year",
-	  allowClear: true,
-	  width: '100%'
-	});
-  /* ======= Animation ======= */
-	if($('.wow').length){
-		var wow = new WOW(
-		  {
-			boxClass:     'wow',      // animated element css class (default is wow)
-			animateClass: 'animated', // animation css class (default is animated)
-			offset:       0,          // distance to the element when triggering the animation (default is 0)
-			mobile:       false,       // trigger animations on mobile devices (default is true)
-			live:         true       // act on asynchronously loaded content (default is true)
-		  }
-		);
-		wow.init();
-	}
+    $(".search-price-min").select2({
+        placeholder: "Select Pice : Min",
+        width: '100%'
+    });
+    $(".search-price-max").select2({
+        placeholder: "Select Pice : Max",
+        width: '100%'
+    });
+    $(".search-loaction").select2({
+        placeholder: "Select Location : Any location",
+        width: '100%'
+    });
+    $(".make").select2({
+        placeholder: "Select Make : Any make",
+        width: '100%'
+    });
+    $(".model").select2({
+        placeholder: "Select Model : Any model",
+        width: '100%'
+    });
+    $(".bodytype").select2({
+        placeholder: "Body Type : Select body type",
+        width: '100%'
+    });
+    $(".search-year").select2({
+        placeholder: "Select Year : Any Year",
+        allowClear: true,
+        width: '100%'
+    });
+    /* ======= Animation ======= */
+    if ($('.wow').length) {
+        var wow = new WOW(
+            {
+                boxClass: 'wow',      // animated element css class (default is wow)
+                animateClass: 'animated', // animation css class (default is animated)
+                offset: 0,          // distance to the element when triggering the animation (default is 0)
+                mobile: false,       // trigger animations on mobile devices (default is true)
+                live: true       // act on asynchronously loaded content (default is true)
+            }
+        );
+        wow.init();
+    }
     /* ======= Profile Image Upload ======= */
-    $(document).on('change', '.btn-file :file', function() {
+    $(document).on('change', '.btn-file :file', function () {
         var input = $(this),
             label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
         input.trigger('fileselect', [label]);
     });
-    $('.btn-file :file').on('fileselect', function(event, label) {
+    $('.btn-file :file').on('fileselect', function (event, label) {
         var input = $(this).parents('.input-group').find(':text'),
             log = label;
         if (input.length) {
@@ -156,95 +156,73 @@ Designed and Development by: ScriptsBundle
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 $('#img-upload').attr('src', e.target.result);
             };
             reader.readAsDataURL(input.files[0]);
         }
     }
-    $("#imgInp").change(function() {
+    $("#imgInp").change(function () {
         readURL(this);
     });
     /* ======= Masonry Grid System ======= */
-    $('.posts-masonry').imagesLoaded(function() {
+    $('.posts-masonry').imagesLoaded(function () {
         $('.posts-masonry').isotope({
             layoutMode: 'masonry',
             transitionDuration: '0.3s'
         });
     });
     /* ======= trending Carousel 1 ======= */
-    // $('.featured-slider').owlCarousel({
-	// 	 items:3,
-    //      loop:true,
-	// 	 nav: true,
-	// 	 dots: false,
-	// 	 responsiveClass: true, // Optional helper class. Add 'owl-reponsive-' + 'breakpoint' class to main element.
-    //     navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-	// 	responsive: {
-    //         0: {
-    //             items: 1,
-    //         },
-    //         600: {
-    //             items: 2,
-    //         },
-    //         1000: {
-    //             items: 3,
-    //         }
-    //     }		
-    // });
-   
-
-	/* ======= Ad Carousel Single ======= */
-    $('.featured-slider-single').owlCarousel({
-         loop:true,
-		 nav: true,
-		 dots: false,
-		 responsiveClass: true, // Optional helper class. Add 'owl-reponsive-' + 'breakpoint' class to main element.
-        navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-		responsive: {
-            0: {
-                items: 1,
-            },
-            600: {
-                items: 2,
-            },
-            1000: {
-                items: 2,
-            }
-        }		
-    });
-	/* ======= testimonial Carousel ======= */
-		 $(".owl-testimonial-2").owlCarousel({
-       	  autoplay:true,
-    autoplayTimeout:3000,
-    autoplayHoverPause:true,
-         dots: false,
-		 responsiveClass: true,
-        loop: true,
-        items: 3,
-       responsive: {
-            0: {
-                items: 1,
-            },
-            600: {
-                items: 2,
-            },
-            1000: {
+    $(document).ready(function () {
+        // Function to initialize Owl Carousel
+        function initializeOwl(element) {
+            element.owlCarousel({
                 items: 3,
+                loop: false,
+                nav: true,
+                dots: false,
+                responsiveClass: true, // Optional helper class. Add 'owl-responsive-' + 'breakpoint' class to main element.
+                navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    600: {
+                        items: 2,
+                    },
+                    1000: {
+                        items: 3,
+                    }
+                }
+            });
+        }
+
+        // Initialize Owl Carousel for the initially active tab
+        initializeOwl($('.tab-pane.active .featured-slider'));
+
+        // Reinitialize Owl Carousel when a tab is shown
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var target = $(e.target).attr("href"); // activated tab
+            var $targetCarousel = $(target).find('.featured-slider');
+
+            if ($targetCarousel.data('owl.carousel')) {
+                $targetCarousel.owlCarousel('destroy'); // Destroy existing Owl Carousel instance
             }
-        }		,
-        stopOnHover: true
+
+            initializeOwl($targetCarousel); // Reinitialize Owl Carousel
+        });
     });
-		 /* ======= testimonial Carousel ======= */
-		  $(".owl-testimonial-1").owlCarousel({
-       	  autoplay:true,
-    autoplayTimeout:3000,
-    autoplayHoverPause:true,
-         dots: false,
-		 responsiveClass: true,
-        loop: true,
-        items: 2,
-       responsive: {
+
+
+    /* ======= Ad Carousel Single ======= */
+    $('.popular-slider').owlCarousel({
+        items: 4,
+        loop: false,
+        nav: false,
+        dots: false,
+        responsiveClass: true, // Optional helper class. Add 'owl-responsive-' + 'breakpoint' class to main element.
+        navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+        responsive: {
             0: {
                 items: 1,
             },
@@ -252,20 +230,19 @@ Designed and Development by: ScriptsBundle
                 items: 2,
             },
             1000: {
-                items: 2,
+                items: 4,
             }
-        }		,
-        stopOnHover: true
+        }
     });
-    /* ======= Featured Carousel 2 ======= */
-    $('.featured-slider-1').owlCarousel({
-        margin:-10,
+    /* ======= Ad Carousel Single ======= */
+    $('.comapare-slider').owlCarousel({
+        items: 3,
+        loop: false,
+        nav: false,
         dots: false,
-		loop: true,
-		nav: true,
-        responsiveClass: true, // Optional helper class. Add 'owl-reponsive-' + 'breakpoint' class to main element.
+        responsiveClass: true, // Optional helper class. Add 'owl-responsive-' + 'breakpoint' class to main element.
         navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-		responsive: {
+        responsive: {
             0: {
                 items: 1,
             },
@@ -276,7 +253,90 @@ Designed and Development by: ScriptsBundle
                 items: 3,
             }
         }
-        
+    });
+    /* ======= Ad Carousel Single ======= */
+    $('.featured-slider-single').owlCarousel({
+        loop: true,
+        nav: true,
+        dots: false,
+        responsiveClass: true, // Optional helper class. Add 'owl-reponsive-' + 'breakpoint' class to main element.
+        navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
+                items: 2,
+            }
+        }
+    });
+    /* ======= testimonial Carousel ======= */
+    $(".owl-testimonial-2").owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        dots: false,
+        responsiveClass: true,
+        loop: true,
+        items: 3,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
+                items: 3,
+            }
+        },
+        stopOnHover: true
+    });
+    /* ======= testimonial Carousel ======= */
+    $(".owl-testimonial-1").owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        dots: false,
+        responsiveClass: true,
+        loop: true,
+        items: 2,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
+                items: 2,
+            }
+        },
+        stopOnHover: true
+    });
+    /* ======= Featured Carousel 2 ======= */
+    $('.featured-slider-1').owlCarousel({
+        margin: -10,
+        dots: false,
+        loop: true,
+        nav: true,
+        responsiveClass: true, // Optional helper class. Add 'owl-reponsive-' + 'breakpoint' class to main element.
+        navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
+                items: 3,
+            }
+        }
+
     });
     /* ======= Background Image Rotator Carousel ======= */
     $('.background-rotator-slider').owlCarousel({
@@ -301,16 +361,16 @@ Designed and Development by: ScriptsBundle
             }
         }
     });
-	/* ======= Our CLients ======= */
-	 $(".clients-list").owlCarousel({
-		 loop: true,
-		  nav: false,
-		 dots: false,
-         items: 5,
-		  autoplay:true,
-    autoplayTimeout:2000,
-    autoplayHoverPause:true,
-		 responsive: {
+    /* ======= Our CLients ======= */
+    $(".clients-list").owlCarousel({
+        loop: true,
+        nav: false,
+        dots: false,
+        items: 5,
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        responsive: {
             0: {
                 items: 2,
             },
@@ -321,9 +381,9 @@ Designed and Development by: ScriptsBundle
                 items: 5,
             }
         }
-   });
+    });
     /*==========  Single Page SLider With Thumb ==========*/
-	 $('#carousel').flexslider({
+    $('#carousel').flexslider({
         animation: "slide",
         controlNav: false,
         animationLoop: false,
@@ -331,17 +391,17 @@ Designed and Development by: ScriptsBundle
         itemWidth: 160,
         itemMargin: 5,
         asNavFor: '#single-slider'
-      });
+    });
 
-      $('#single-slider').flexslider({
+    $('#single-slider').flexslider({
         animation: "slide",
         controlNav: false,
         animationLoop: false,
         slideshow: false,
         sync: "#carousel",
-      
-      });
-	 /*==========  Price Range Slider  ==========*/
+
+    });
+    /*==========  Price Range Slider  ==========*/
     $('#price-slider').noUiSlider({
         connect: true,
         behaviour: 'tap',
@@ -353,48 +413,48 @@ Designed and Development by: ScriptsBundle
             'max': 150000
         }
     });
-		$('#price-slider').Link('lower').to($('#price-min'), null, wNumb({
-			decimals: 0
-		}));
-		$('#price-slider').Link('upper').to($('#price-max'), null, wNumb({
-			decimals: 0
-		}));
-		 /*==========  Month Range Slider  ==========*/
-		
-		$('#month-slider').noUiSlider({
-       start: 8,
-    step: 1,
-    connect: "lower",
+    $('#price-slider').Link('lower').to($('#price-min'), null, wNumb({
+        decimals: 0
+    }));
+    $('#price-slider').Link('upper').to($('#price-max'), null, wNumb({
+        decimals: 0
+    }));
+    /*==========  Month Range Slider  ==========*/
+
+    $('#month-slider').noUiSlider({
+        start: 8,
+        step: 1,
+        connect: "lower",
         range: {
             'min': 0,
             'max': 12
         }
     });
-		$('#month-slider').Link('lower').to($('#month-min'), null, wNumb({
-			decimals: 0
-		}));
-		
-  $('#year-slider .slider').on('change', function(){
-		highlightLabel($(this).val());
-	});
-  
-  $('#year-slider .slider').on('slide', function(){
-    highlightLabel($(this).val());
-  });
-  
-  $("#year-slider .slider-labels").on("click", "li", function() { 
-    $('#year-slider .slider').val($(this).index());
-    highlightLabel($(this).index());
-  });
-  
-  function highlightLabel($this) {
-    $('#year-slider .slider-labels li').removeClass('active');
-    var index = parseInt($this,10) + 1;
-    var selector = '#year-slider .slider-labels li:nth-child(' + index + ')';
-    $(selector).addClass('active');
-  }
-		
-		$('.primary-header-1 #menu-1').megaMenu({
+    $('#month-slider').Link('lower').to($('#month-min'), null, wNumb({
+        decimals: 0
+    }));
+
+    $('#year-slider .slider').on('change', function () {
+        highlightLabel($(this).val());
+    });
+
+    $('#year-slider .slider').on('slide', function () {
+        highlightLabel($(this).val());
+    });
+
+    $("#year-slider .slider-labels").on("click", "li", function () {
+        $('#year-slider .slider').val($(this).index());
+        highlightLabel($(this).index());
+    });
+
+    function highlightLabel($this) {
+        $('#year-slider .slider-labels li').removeClass('active');
+        var index = parseInt($this, 10) + 1;
+        var selector = '#year-slider .slider-labels li:nth-child(' + index + ')';
+        $(selector).addClass('active');
+    }
+
+    $('.primary-header-1 #menu-1').megaMenu({
         // DESKTOP MODE SETTINGS
         logo_align: 'left', // align the logo left or right. options (left) or (right)
         links_align: 'right', // align the links left or right. options (left) or (right)
@@ -421,8 +481,8 @@ Designed and Development by: ScriptsBundle
             sticky_header_height: 200 // sticky header height top of the screen. activate sticky header when meet the height. option change the height in px value.
         }
     });
-		
-   /* ======= Template MegaMenu  ======= */
+
+    /* ======= Template MegaMenu  ======= */
     $('#menu-1').megaMenu({
         // DESKTOP MODE SETTINGS
         logo_align: 'left', // align the logo left or right. options (left) or (right)
@@ -450,30 +510,30 @@ Designed and Development by: ScriptsBundle
             sticky_header_height: 200 // sticky header height top of the screen. activate sticky header when meet the height. option change the height in px value.
         }
     });
-   
+
 
     /*==========  Back To Top  ==========*/
-    	var offset = 300,
+    var offset = 300,
         offset_opacity = 1200,
         //duration of the top scrolling animation (in ms)
         scroll_top_duration = 700,
         //grab the "back to top" link
         $back_to_top = $('.cd-top');
-		//hide or show the "back to top" link
-		$(window).scroll(function() {
-			($(this).scrollTop() > offset) ? $back_to_top.addClass('cd-is-visible'): $back_to_top.removeClass('cd-is-visible cd-fade-out');
-			if ($(this).scrollTop() > offset_opacity) {
-				$back_to_top.addClass('cd-fade-out');
-			}
-		});
-    	//smooth scroll to top
-		$back_to_top.on('click', function(event) {
-	
-			event.preventDefault();
-			$('body,html').animate({
-				scrollTop: 0,
-			}, scroll_top_duration);
-		});
+    //hide or show the "back to top" link
+    $(window).scroll(function () {
+        ($(this).scrollTop() > offset) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+        if ($(this).scrollTop() > offset_opacity) {
+            $back_to_top.addClass('cd-fade-out');
+        }
+    });
+    //smooth scroll to top
+    $back_to_top.on('click', function (event) {
+
+        event.preventDefault();
+        $('body,html').animate({
+            scrollTop: 0,
+        }, scroll_top_duration);
+    });
 
     /*==========  Tooltip  ==========*/
     $('[data-toggle="tooltip"]').tooltip();

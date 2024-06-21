@@ -167,594 +167,1084 @@
         </div>
     </div>
     <!-- =-=-=-=-=-=-= Advanced Search End =-=-=-=-=-=-= -->
+    
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding gray">
         <!-- Main Container -->
-        <div class="container">
+        <div class="container featured-cars">
             <!-- Row -->
             <div class="row">
                 <!-- Heading Area -->
                 <div class="heading-panel">
                     <div class="col-xs-12 col-md-12 col-sm-12 left-side">
                         <!-- Main Title -->
-                        <h1>Latest <span class="heading-color"> Featured</span> Ads</h1>
+                        <h1> <span class="heading-color"> Featured</span> Cars</h1>
                     </div>
                 </div>
 
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs">
-                    <li class="nav-item active">
-                        <a class="nav-link" data-toggle="tab" href="#trending">Trending </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#popular">Popular</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#pcoming">Upcoming</a>
-                    </li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content clearfix">
-                    <div class="tab-pane fade in active" id="trending">
-                        <!-- Middle Content Box -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <div class=" featured-slider container owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carspot"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
+                <div class="card">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="nav-item active">
+                            <a class="nav-link" aria-controls="trending" role="tab" data-toggle="tab"
+                                href="#trending">Trending </a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" aria-controls="popular" role="tab" data-toggle="tab"
+                                href="#popular">Popular</a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" aria-controls="upcoming" role="tab" data-toggle="tab"
+                                href="#upcoming">Upcoming</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content clearfix">
+                        <div class="tab-pane fade in active" style="margin-top: 20px;" id="trending">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <div class=" featured-slider owl-carousel owl-theme">
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
                                                             <div class="price"><span>$205,000</span></div>
                                                         </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <div class="category-title"> <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div>
-                                                        <h3><a title="" href="single-page-listing.html">Mahindra
-                                                                XUV 3XO</a></h3>
-                                                        <p class="location"><i class="fa fa-map-marker"></i>On-Road
-                                                            Price, Delhi</p>
-                                                        <span class="ad-price">Rs. 110,000 <span
-                                                                class="text-muted ps-2">onwards</span></span>
-                                                        <a class="btn btn-sm btn-theme pull-right"><i
-                                                                class="fa fa-phone"></i> View Details.</a>
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
 
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
 
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Middle Content Box End -->
-                    </div>
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
 
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
 
-                    <div class="tab-pane fade" id="popular">
-                        <!-- Middle Content Box -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <div class=" featured-slider container owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carspot"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
                                                         </div>
                                                     </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <div class="category-title"> <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div>
-                                                        <h3><a title="" href="single-page-listing.html">Honda
-                                                                Civic 2017 Sports Edition</a></h3>
-                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
-                                                            Town Link Road London</p>
-                                                        <ul class="list-unstyled">
-                                                            <li><a href="javascript:void(0)"><i
-                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
-                                                            </li>
-                                                            <li><a href="javascript:void(0)"><i
-                                                                        class="flaticon-dashboard"></i>35,000 km</a>
-                                                            </li>
-                                                            <li><a href="javascript:void(0)"><i
-                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
-                                                            <li><a href="javascript:void(0)"><i
-                                                                        class="flaticon-car-2"></i>SUV</a></li>
-                                                            <li><a href="javascript:void(0)"><i
-                                                                        class="flaticon-cogwheel-outline"></i>White</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="ad-info-1">
-                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
-                                                                ago</span> </p>
-                                                        <ul class="pull-right">
-                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
-                                                            </li>
-                                                            <li> <a href="#"><i
-                                                                        class="flaticon-message"></i></a></li>
-                                                        </ul>
-                                                    </div>
+                                                    <!-- Listing Ad Grid -->
                                                 </div>
-                                                <!-- Listing Ad Grid -->
                                             </div>
                                         </div>
-                                    </div>
 
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Middle Content Box End -->
-                    </div>
-
-                    <div class="tab-pane fade" id="upcoming">
-                        <!-- Middle Content Box -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <div class=" featured-slider container owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carspot"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        <div class="price-tag">
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
                                                             <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
                                                         </div>
                                                     </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <div class="category-title"> <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div>
-                                                        <h3><a title="" href="single-page-listing.html">Honda
-                                                                Civic 2017 Sports Edition</a></h3>
-                                                        <p class="location"><i class="fa fa-map-marker"></i> Model
-                                                            Town Link Road London</p>
-                                                        <ul class="list-unstyled">
-                                                            <li><a href="javascript:void(0)"><i
-                                                                        class="flaticon-gas-station-1"></i>Diesel</a>
-                                                            </li>
-                                                            <li><a href="javascript:void(0)"><i
-                                                                        class="flaticon-dashboard"></i>35,000 km</a>
-                                                            </li>
-                                                            <li><a href="javascript:void(0)"><i
-                                                                        class="flaticon-engine-2"></i>1800 cc</a></li>
-                                                            <li><a href="javascript:void(0)"><i
-                                                                        class="flaticon-car-2"></i>SUV</a></li>
-                                                            <li><a href="javascript:void(0)"><i
-                                                                        class="flaticon-cogwheel-outline"></i>White</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="ad-info-1">
-                                                        <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days
-                                                                ago</span> </p>
-                                                        <ul class="pull-right">
-                                                            <li> <a href="#"><i class="flaticon-like-1"></i></a>
-                                                            </li>
-                                                            <li> <a href="#"><i
-                                                                        class="flaticon-message"></i></a></li>
-                                                        </ul>
-                                                    </div>
+                                                    <!-- Listing Ad Grid -->
                                                 </div>
-                                                <!-- Listing Ad Grid -->
                                             </div>
                                         </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
-
-
                                 </div>
                             </div>
+                            <!-- Middle Content Box End -->
                         </div>
-                        <!-- Middle Content Box End -->
+
+                        <div class="tab-pane fade" style="margin-top: 20px;" id="popular">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <div class=" featured-slider owl-carousel owl-theme">
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Middle Content Box End -->
+                        </div>
+
+                        <div class="tab-pane fade" style="margin-top: 20px;" id="upcoming">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <div class=" featured-slider owl-carousel owl-theme">
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Featured</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <img alt="Carspot"
+                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                            {{-- <div class="price-tag">
+                                                            <div class="price"><span>$205,000</span></div>
+                                                        </div> --}}
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+                                                            {{-- <div class="category-title"> 
+                                                            <span><a href="#">Sports &
+                                                                    Equipment</a></span> </div> --}}
+
+                                                            <h3>
+                                                                <a title="" href="single-page-listing.html">
+                                                                    Mahindra XUV 3XO
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. 110,000
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class="" href="#">
+                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                    <i class="fa fa-phone"></i>
+                                                                    View Details.
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <!-- Listing Ad Grid -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Middle Content Box End -->
+                        </div>
                     </div>
+                    <!-- Row End -->
                 </div>
-                <!-- Row End -->
             </div>
             <!-- Main Container End -->
+        </div>
     </section>
     <!-- =-=-=-=-=-=-= Featured Ads End =-=-=-=-=-=-= -->
 
-    <!-- =-=-=-=-=-=-= Services Section  =-=-=-=-=-=-= -->
-    <section class="section-padding services-center">
-        <div class="container">
-            <!-- Heading Area -->
-            <div class="heading-panel">
-                <div class="col-xs-12 col-md-12 col-sm-12 text-center">
-                    <!-- Main Title -->
-                    <h1>Our <span class="heading-color"> Feature </span> Services</h1>
-                    <!-- Short Description -->
-                    <p class="heading-text">Eu delicata rationibus usu. Vix te putant utroque, ludus fabellas duo eu,
-                        his dico ut debet consectetuer.</p>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <!--Left Column-->
-                <div class="col-md-4 col-sm-6 col-xs-12 pull-left">
-                    <!--Service Block -->
-                    <div class="services-grid">
-                        <div class="icons icon-right"><i class="flaticon-engine-4"></i></div>
-                        <h4>Engine Upgrades</h4>
-                        <p>We have the right caring, experience and dedicated professional for you.</p>
-                    </div>
-                    <!--Service Block -->
-                    <div class="services-grid">
-                        <div class="icons icon-right"><i class="flaticon-settings"></i></div>
-                        <h4>Car Inspection</h4>
-                        <p>We have the right caring, experience and dedicated professional for you.</p>
-                    </div>
-                    <!--Service Block -->
-
-
-                </div>
-
-                <!--Right Column-->
-                <div class="col-md-4 col-sm-6 col-xs-12 pull-right">
-                    <!--Service Block-->
-
-
-                    <div class="services-grid">
-                        <div class="icons icon-left"><i class="flaticon-vehicle-3"></i></div>
-                        <h4>Car Oil Change</h4>
-                        <p>We have the right caring, experience and dedicated professional for you.</p>
-                    </div>
-                    <!--Service Block-->
-                    <div class="services-grid">
-                        <div class="icons icon-left"><i class="flaticon-car-steering-wheel"></i></div>
-                        <h4>Power steering</h4>
-                        <p>We have the right caring, experience and dedicated professional for you.</p>
-                    </div>
-
-                </div>
-                <!--Image Column-->
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                    <figure class="wow zoomIn  animated" data-wow-delay="0ms" data-wow-duration="3500ms">
-                        <img class="center-block" src="{{ asset('assets/frontend-assets/images/service-car.png') }}"
-                            alt="">
-                    </figure>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-    <!-- =-=-=-=-=-=-=  Services Section End =-=-=-=-=-=-= -->
-
-
-
-    <!-- =-=-=-=-=-=-= Testimonials =-=-=-=-=-=-= -->
-    <section class="section-padding parallex bg-img-3">
-        <div class="container">
+    <!-- =-=-=-=-=-=-= Popular Cars Ads =-=-=-=-=-=-= -->
+    <section class="custom-padding ">
+        <!-- Main Container -->
+        <div class="container popular-cars">
+            <!-- Row -->
             <div class="row">
-                <div class="owl-testimonial-2">
-                    <!--Testimonial Column-->
-                    <div class="single_testimonial">
-                        <div class="textimonial-content">
-                            <h4>Just fabulous</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod tempor enim minim
-                                veniam quis notru.</p>
-                        </div>
-                        <div class="testimonial-meta-box">
-                            <img src="{{ asset('assets/frontend-assets/images/users/1.jpg') }}" alt="">
-                            <div class="testimonial-meta">
-                                <h3 class="">Jhon Emily Copper </h3>
-                                <p> Developer</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Testimonial Column-->
-                    <div class="single_testimonial">
-                        <div class="textimonial-content">
-                            <h4>Awesome ! Loving It</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod tempor enim minim
-                                veniam quis notru.</p>
-                        </div>
-                        <div class="testimonial-meta-box">
-                            <img src="{{ asset('assets/frontend-assets/images/users/2.jpg') }}" alt="">
-                            <div class="testimonial-meta">
-                                <h3 class="">Hania Sheikh </h3>
-                                <p> CEO Pvt. Inc.</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Testimonial Column-->
-                    <div class="single_testimonial">
-                        <div class="textimonial-content">
-                            <h4>Very quick and Fast</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod tempor enim minim
-                                veniam quis notru.</p>
-                        </div>
-                        <div class="testimonial-meta-box">
-                            <img src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}" alt="">
-                            <div class="testimonial-meta">
-                                <h3 class="">Jaccica Albana </h3>
-                                <p> CTO Albana Inc.</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Testimonial Column-->
-                    <div class="single_testimonial">
-                        <div class="textimonial-content">
-                            <h4>Done in 3 Months! Awesome</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod tempor enim minim
-                                veniam quis notru.</p>
-                        </div>
-                        <div class="testimonial-meta-box">
-                            <img src="{{ asset('assets/frontend-assets/images/users/4.jpg') }}" alt="">
-                            <div class="testimonial-meta">
-                                <h3 class="">Humayun Sarfraz </h3>
-                                <p> CTO Glixen Technologies.</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Testimonial Column-->
-                    <div class="single_testimonial">
-                        <div class="textimonial-content">
-                            <h4>Find It Quit Professional</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod tempor enim minim
-                                veniam quis notru.</p>
-                        </div>
-                        <div class="testimonial-meta-box">
-                            <img src="{{ asset('assets/frontend-assets/images/users/4.jpg') }}" alt="">
-                            <div class="testimonial-meta">
-                                <h3 class="">Massica O'Brain </h3>
-                                <p> Audit Officer </p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Testimonial Column-->
-                    <div class="single_testimonial">
-                        <div class="textimonial-content">
-                            <h4>Just fabulous</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod tempor enim minim
-                                veniam quis notru.</p>
-                        </div>
-                        <div class="testimonial-meta-box">
-                            <img src="{{ asset('assets/frontend-assets/images/users/1.jpg') }}" alt="">
-                            <div class="testimonial-meta">
-                                <h3 class="">Jhon Emily Copper </h3>
-                                <p> Developer</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Testimonial Column-->
-                    <div class="single_testimonial">
-                        <div class="textimonial-content">
-                            <h4>Awesome ! Loving It</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod tempor enim minim
-                                veniam quis notru.</p>
-                        </div>
-                        <div class="testimonial-meta-box">
-                            <img src="{{ asset('assets/frontend-assets/images/users/2.jpg') }}" alt="">
-                            <div class="testimonial-meta">
-                                <h3 class="">Hania Sheikh </h3>
-                                <p> CEO Pvt. Inc.</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Testimonial Column-->
-                    <div class="single_testimonial">
-                        <div class="textimonial-content">
-                            <h4>Very quick and Fast</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod tempor enim minim
-                                veniam quis notru.</p>
-                        </div>
-                        <div class="testimonial-meta-box">
-                            <img src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}" alt="">
-                            <div class="testimonial-meta">
-                                <h3 class="">Jaccica Albana </h3>
-                                <p> CTO Albana Inc.</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Testimonial Column-->
-                    <div class="single_testimonial">
-                        <div class="textimonial-content">
-                            <h4>Done in 3 Months! Awesome</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod tempor enim minim
-                                veniam quis notru.</p>
-                        </div>
-                        <div class="testimonial-meta-box">
-                            <img src="{{ asset('assets/frontend-assets/images/users/4.jpg') }}" alt="">
-                            <div class="testimonial-meta">
-                                <h3 class="">Humayun Sarfraz </h3>
-                                <p> CTO Glixen Tech.</p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Testimonial Column-->
-                    <div class="single_testimonial">
-                        <div class="textimonial-content">
-                            <h4>Find It Quit Professional</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elitsed eiusmod tempor enim minim
-                                veniam quis notru.</p>
-                        </div>
-                        <div class="testimonial-meta-box">
-                            <img src="{{ asset('assets/frontend-assets/images/users/4.jpg') }}" alt="">
-                            <div class="testimonial-meta">
-                                <h3 class="">Massica O'Brain </h3>
-                                <p> Audit Officer </p>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- =-=-=-=-=-=-= Testimonials Section End =-=-=-=-=-=-= -->
-
-
-    <!-- =-=-=-=-=-=-= Expert Reviews Section =-=-=-=-=-=-= -->
-    <section class="news section-padding">
-        <div class="container">
-            <div class="row">
+                <!-- Heading Area -->
                 <div class="heading-panel">
                     <div class="col-xs-12 col-md-12 col-sm-12 left-side">
                         <!-- Main Title -->
-                        <h1>Expert <span class="heading-color"> Reviews</span> Feedback</h1>
-                        <!-- Short Description -->
-                        <p class="heading-text">Eu delicata rationibus usu. Vix te putant utroque, ludus fabellas duo
-                            eu, his dico ut debet consectetuer.</p>
+                        <h1>Get <span class="heading-color"> Offers</span> on Popular Cars</h1>
                     </div>
                 </div>
-                <div class="col-md-7 col-sm-12 col-xs-12">
-                    <div class="mainimage">
-                        <a>
-                            <img alt="" class="img-responsive"
-                                src="{{ asset('assets/frontend-assets/images/blog/1.jpg') }}">
-                            <div class="overlay">
-                                <h2>Eight Things You Should Know About The Mercedes-Benz E-Class LWB</h2>
+
+
+
+                <!-- Middle Content Box -->
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                    <div class="row">
+                        <div class=" popular-slider container owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                <img alt="Carspot"
+                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Mahindra XUV 3XO
+                                                    </a>
+                                                </h3>
+
+                                                <span class="ad-price">Rs. 110,000 <span
+                                                        class="text-muted ps-2">onwards</span></span>
+                                                <a class=" pull-left">
+                                                    <button class="btn btn-outline-danger">
+                                                        Get Offer
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
                             </div>
-                        </a>
-                        <div class="clearfix"></div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                <img alt="Carspot"
+                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Mahindra XUV 3XO
+                                                    </a>
+                                                </h3>
+
+                                                <span class="ad-price">Rs. 110,000 <span
+                                                        class="text-muted ps-2">onwards</span></span>
+                                                <a class=" pull-left">
+                                                    <button class="btn btn-outline-danger">
+                                                        Get Offer
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                <img alt="Carspot"
+                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Mahindra XUV 3XO
+                                                    </a>
+                                                </h3>
+
+                                                <span class="ad-price">Rs. 110,000 <span
+                                                        class="text-muted ps-2">onwards</span></span>
+                                                <a class=" pull-left">
+                                                    <button class="btn btn-outline-danger">
+                                                        Get Offer
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                <img alt="Carspot"
+                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Mahindra XUV 3XO
+                                                    </a>
+                                                </h3>
+
+                                                <span class="ad-price">Rs. 110,000 <span
+                                                        class="text-muted ps-2">onwards</span></span>
+                                                <a class=" pull-left">
+                                                    <button class="btn btn-outline-danger">
+                                                        Get Offer
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                <img alt="Carspot"
+                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Mahindra XUV 3XO
+                                                    </a>
+                                                </h3>
+
+                                                <span class="ad-price">Rs. 110,000 <span
+                                                        class="text-muted ps-2">onwards</span></span>
+                                                <a class=" pull-left">
+                                                    <button class="btn btn-outline-danger">
+                                                        Get Offer
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-5 col-sm-12 col-xs-12">
-                    <div class="newslist">
-                        <ul>
-                            <li>
-                                <div class="imghold"> <a><img
-                                            src="{{ asset('assets/frontend-assets/images/blog/s1.jpg') }}"
-                                            alt=""></a> </div>
-                                <div class="texthold">
-                                    <h4><a>2017 Honda City: Which Variant Suits You? </a></h4>
-                                    <p>With the 2017 facelifted avatar, the Honda City has significantly upped its
-                                        game...&nbsp;</p>
-                                </div>
-                                <div class="clear"></div>
-                            </li>
-                            <li>
-                                <div class="imghold"> <a><img
-                                            src="{{ asset('assets/frontend-assets/images/blog/s2.jpg') }}"
-                                            alt=""></a> </div>
-                                <div class="texthold">
-                                    <h4><a>Honda City Facelift &ndash; Expected Prices </a></h4>
-                                    <p>Honda will launch the City facelift in India on Feb 14, 2017 and it promises
-                                        to...&nbsp;</p>
-                                </div>
-                                <div class="clear"></div>
-                            </li>
-                            <li>
-                                <div class="imghold"> <a><img
-                                            src="{{ asset('assets/frontend-assets/images/blog/s3.jpg') }}"
-                                            alt=""></a> </div>
-                                <div class="texthold">
-                                    <h4><a>Audi A4 Diesel Launched In India At Rs 40.20 Lakh </a></h4>
-                                    <p>Audi India has launched a powerful diesel variant of its A4 sedan at Rs 40.20
-                                        la...&nbsp;</p>
-                                </div>
-                                <div class="clear"></div>
-                            </li>
-                            <li>
-                                <div class="imghold"> <a><img
-                                            src="{{ asset('assets/frontend-assets/images/blog/s4.jpg') }}"
-                                            alt=""></a> </div>
-                                <div class="texthold">
-                                    <h4><a>Audi A4 Diesel Launched In India At Rs 40.20 Lakh </a></h4>
-                                    <p>Audi India has launched a powerful diesel variant of its A4 sedan at Rs 40.20
-                                        la...&nbsp;</p>
-                                </div>
-                                <div class="clear"></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <!-- Middle Content Box End -->
+
+                <!-- Row End -->
             </div>
-            <div class="clearfix"></div>
+            <!-- Main Container End -->
         </div>
     </section>
-    <!-- =-=-=-=-=-=-= Expert Reviews End =-=-=-=-=-=-= -->
+    <!-- =-=-=-=-=-=-= Popular Cars Ads End =-=-=-=-=-=-= -->
+
     <!-- =-=-=-=-=-=-= Our Clients =-=-=-=-=-=-= -->
     <section class="client-section gray">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                    <div class="margin-top-30">
-                        <h3>Why Choose Us</h3>
-                        <h2>Our premium Clients</h2>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="">
+                        <h2>All Brands</h2>
                     </div>
                 </div>
-                <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="brand-logo-area clients-bg">
                         <div class="clients-list">
                             <div class="client-logo">
@@ -814,132 +1304,1445 @@
         </div>
     </section>
     <!-- =-=-=-=-=-=-= Our Clients End =-=-=-=-=-=-= -->
-    <!-- =-=-=-=-=-=-= Car Inspection =-=-=-=-=-=-= -->
-    <section class="car-inspection section-padding">
-        <div class="container">
+
+    <!-- =-=-=-=-=-=-= Cars Of Your Choice =-=-=-=-=-=-= -->
+    <section class="custom-padding featured-cars rounded-3">
+        <!-- Main Container -->
+        <div class="container ">
+            <!-- Row -->
             <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 nopadding hidden-sm">
-                    <div class="call-to-action-img-section-right">
-                        <img src="{{ asset('assets/frontend-assets/images/car-in-red.png') }}"
-                            class="wow slideInLeft img-responsive" data-wow-delay="0ms" data-wow-duration="3000ms"
-                            alt="">
+                <!-- Heading Area -->
+                <div class="heading-panel">
+                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                        <!-- Main Title -->
+                        <h1>Find The Cars Of <span class="heading-color"> Your Choice</span> </h1>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-12 col-xs-12 nopadding">
-                    <div class="call-to-action-detail-section">
-                        <div class="heading-2">
-                            <h3> Want To Sale Your Car ?</h3>
-                            <h2>Car Inspection</h2>
+
+                <div class="card ">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="nav-item active">
+                            <a class="nav-link" aria-controls="budget" role="tab" data-toggle="tab"
+                                href="#budget">Budget </a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" aria-controls="bodytype" role="tab" data-toggle="tab"
+                                href="#bodytype">Body Type</a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" aria-controls="upcoming" role="tab" data-toggle="tab"
+                                href="#fueltype">Fuel Type</a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" aria-controls="transmission" role="tab" data-toggle="tab"
+                                href="#transmission">Transmission</a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" aria-controls="seatingcapacity" role="tab" data-toggle="tab"
+                                href="#seatingcapacity">Seating Capacity</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content clearfix py-5 ">
+                        <div class="tab-pane fade in active" id="budget">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row ">
+                                    <div class="d-flex flex-row flex-wrap">
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">Under 5
+                                                Lakh</button>
+                                        </a>
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">Under 6
+                                                Lakh</button>
+                                        </a>
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">Under 7
+                                                Lakh</button>
+                                        </a>
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">Under 8
+                                                Lakh</button>
+                                        </a>
+                                        <a class="me-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">Under 10
+                                                Lakh</button>
+                                        </a>
+                                        <a class="me-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">Under 15
+                                                Lakh</button>
+                                        </a>
+                                        <a class="me-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">Under 20
+                                                Lakh</button>
+                                        </a>
+                                        <a class="me-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">Under 25
+                                                Lakh</button>
+                                        </a>
+                                        <a class="me-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">Under 30
+                                                Lakh</button>
+                                        </a>
+                                        <a class="me-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">Luxury
+                                                Cars</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Middle Content Box End -->
                         </div>
-                        <p> Our CarSure experts inspect the car on over 200 checkpoints so you get complete satisfaction
-                            and peace of mind before buying. </p>
-                        <div class="row">
-                            <ul>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Transmission</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Steering</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Engine</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Tires</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Lighting</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Interior</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Suspension</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Exterior</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Brakes</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Air Conditioning</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Engine Diagnostics</li>
-                                <li class="col-sm-4"> <i class="fa fa-check"></i> Wheel Alignment</li>
-                            </ul>
+
+                        <div class="tab-pane fade" id="bodytype">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Convertible"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/1.png') }}">
+                                                <h4>Convertible</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Coupe"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/2.png') }}">
+                                                <h4>Coupe</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Sedan"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/3.png') }}">
+                                                <h4>Sedan</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Van/Minivan"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/4.png') }}">
+                                                <h4>Van/Minivan</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Truck"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/5.png') }}">
+                                                <h4>Truck</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="SUV"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
+                                                <h4>SUV</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Hatchback"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
+                                                <h4>Hatchback</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Compact SUV"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
+                                                <h4>Compact SUV</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Convertible"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
+                                                <h4>Convertible</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Compact Sedan"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
+                                                <h4>Compact Sedan</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Station Wagon"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
+                                                <h4>Station Wagon</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="MUV"
+                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
+                                                <h4>MUV</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Middle Content Box End -->
                         </div>
-                        <a href="#" class="btn-theme btn-lg btn">Schedule Inspection <i
-                                class="fa fa-angle-right"></i></a>
+
+                        <div class="tab-pane fade" id="fueltype">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <div class="row">
+                                        <!-- Body Type -->
+                                        <div class="col-md-2 col-sm-3 col-xs-4">
+                                            <div class="box">
+                                                <a href="#">
+                                                    <img alt="Petrol" width="75"
+                                                        src="{{ asset('assets/frontend-assets/images/fueltype/petrol.svg') }}">
+                                                    <h4>Petrol</h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Body Type -->
+                                        <div class="col-md-2 col-sm-3 col-xs-4">
+                                            <div class="box">
+                                                <a href="#">
+                                                    <img alt="Diesel" width="75"
+                                                        src="{{ asset('assets/frontend-assets/images/fueltype/diesel.svg') }}">
+                                                    <h4>Diesel</h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Body Type -->
+                                        <div class="col-md-2 col-sm-3 col-xs-4">
+                                            <div class="box">
+                                                <a href="#">
+                                                    <img alt="CNG" width="75"
+                                                        src="{{ asset('assets/frontend-assets/images/fueltype/cng.svg') }}">
+                                                    <h4>CNG</h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Body Type -->
+                                        <div class="col-md-2 col-sm-3 col-xs-4">
+                                            <div class="box">
+                                                <a href="#">
+                                                    <img alt="Electric" width="75"
+                                                        src="{{ asset('assets/frontend-assets/images/fueltype/electric.svg') }}">
+                                                    <h4>Electric</h4>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Body Type -->
+                                        <div class="col-md-2 col-sm-3 col-xs-4">
+                                            <div class="box">
+                                                <a href="#">
+                                                    <img alt="Hybrid" width="75"
+                                                        src="{{ asset('assets/frontend-assets/images/fueltype/h-filter-without-background.svg') }}">
+                                                    <h4>Hybrid</h4>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Middle Content Box End -->
+                        </div>
+                        <div class="tab-pane fade" id="transmission">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Automatic" width="50"
+                                                    src="{{ asset('assets/frontend-assets/images/fueltype/automatic_clr.svg') }}">
+                                                <h4>Automatic</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Body Type -->
+                                    <div class="col-md-2 col-sm-3 col-xs-4">
+                                        <div class="box">
+                                            <a href="#">
+                                                <img alt="Manual" width="50"
+                                                    src="{{ asset('assets/frontend-assets/images/fueltype/manual_clr.svg') }}">
+                                                <h4>Manual</h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Middle Content Box End -->
+                        </div>
+                        <div class="tab-pane fade" id="seatingcapacity">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <div class="d-flex flex-row flex-wrap">
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill">5
+                                                Seater</button>
+                                        </a>
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill"> 6
+                                                Seater</button>
+                                        </a>
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill"> 7
+                                                Seater</button>
+                                        </a>
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default rounded-pill"> 8
+                                                Seater</button>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Middle Content Box End -->
+                        </div>
+                    </div>
+                    <!-- Row End -->
+                </div>
+            </div>
+            <!-- Main Container End -->
+        </div>
+    </section>
+    <!-- =-=-=-=-=-=-= Cars Of Your Choice End =-=-=-=-=-=-= -->
+
+
+    <!-- =-=-=-=-=-=-= Top Cars In India  =-=-=-=-=-=-= -->
+    <section class="custom-padding ">
+        <!-- Main Container -->
+        <div class="container popular-cars">
+            <!-- Row -->
+            <div class="row">
+                <!-- Heading Area -->
+                <div class="heading-panel">
+                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                        <!-- Main Title -->
+                        <h1>Top Cars <span class="heading-color"> In India</span> </h1>
+                    </div>
+                </div>
+
+
+
+                <!-- Middle Content Box -->
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                    <div class="row">
+                        <div class=" popular-slider container owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carspot"
+                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Top SUVs in India
+                                                    </a>
+                                                </h3>
+
+                                                <p class="text-muted ps-2">
+                                                    Hyundai Creta, Mahindra Scorpio
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carspot"
+                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Top SUVs in India
+                                                    </a>
+                                                </h3>
+
+                                                <p class="text-muted ps-2">
+                                                    Hyundai Creta, Mahindra Scorpio
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carspot"
+                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Top SUVs in India
+                                                    </a>
+                                                </h3>
+
+                                                <p class="text-muted ps-2">
+                                                    Hyundai Creta, Mahindra Scorpio
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carspot"
+                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Top SUVs in India
+                                                    </a>
+                                                </h3>
+
+                                                <p class="text-muted ps-2">
+                                                    Hyundai Creta, Mahindra Scorpio
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carspot"
+                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Top SUVs in India
+                                                    </a>
+                                                </h3>
+
+                                                <p class="text-muted ps-2">
+                                                    Hyundai Creta, Mahindra Scorpio
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Middle Content Box End -->
+
+                <!-- Row End -->
+            </div>
+            <!-- Main Container End -->
+        </div>
+    </section>
+    <!-- =-=-=-=-=-=-= Top Cars In India End =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-=  On-Road Price  =-=-=-=-=-=-= -->
+    <section class="section-padding-120 our-services">
+        <!--Image One-->
+        {{-- <div class="background-1"></div> --}}
+        <!--Image Two-->
+        <div class="background-2"></div>
+        <img class="img-responsive wow slideInRight custom-img" data-wow-delay="0ms" data-wow-duration="2000ms"
+            src="images/sell-1.png" alt="">
+        <div class="container">
+            <div class="row clearfix">
+                <!--Left Column-->
+                <div class="left-column col-lg-6 col-md-6 col-md-12">
+
+                </div>
+                <!--Transparent Column-->
+                <div class="service-column col-lg-6 col-md-6">
+                    <div class="inner-box wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="row clearfix">
+                            <!--Icon Column-->
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="services-grid-3">
+                                    <div class="content-area">
+                                        <h4>Check On-Road Price</h4>
+                                        <form>
+                                            <div class="search-form ">
+                                                <div class="search-form-inner ">
+                                                    <div class="col-md-12 no-padding">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Eg Honda Civic , Audi , Ford." />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group pull-right">
+                                                    <button type="submit" value="submit"
+                                                        class="btn btn-lg btn-theme">Search</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <p>Check the on road price in your city</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- =-=-=-=-=-=-= Car Inspection End =-=-=-=-=-=-= -->
-    <!-- =-=-=-=-=-=-= Buy Or Sale =-=-=-=-=-=-= -->
-    <section class="sell-box padding-top-70">
+    <!-- =-=-=-=-=-=-=  On-Road Price end =-=-=-=-=-=-= -->
+
+
+    <!-- =-=-=-=-=-=-= Compare Cars =-=-=-=-=-=-= -->
+    <section class="custom-padding ">
+        <!-- Main Container -->
         <div class="container">
+            <!-- Row -->
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
-                    <div class="sell-box-grid">
-                        <div class="short-info">
-                            <h3> Want To Sale Your Car ?</h3>
-                            <h2><a href="#">Are you looking for a car?</a></h2>
-                            <p>Search your car in our Inventory and request a quote on the vehicle of your choosing.
-                            </p>
-                        </div>
-                        <div class="text-center">
-                            <img class="img-responsive wow slideInLeft center-block" data-wow-delay="0ms"
-                                data-wow-duration="2000ms" src="assets/frontend-assets/images/sell.png"
-                                alt="">
-                        </div>
+                <!-- Heading Area -->
+                <div class="heading-panel">
+                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                        <!-- Main Title -->
+                        <h1>Compare <span class="heading-color"> Cars</span> </h1>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
-                    <div class="sell-box-grid">
-                        <div class="short-info">
-                            <h3> Want To Sale Your Car ?</h3>
-                            <h2> <a href="#">Do you want to sell your car?</a></h2>
-                            <p>Request search your car in our Inventory and a quote on the vehicle of your choosing.
-                            </p>
+
+
+
+                <!-- Middle Content Box -->
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                    <div class="row">
+                        <div class=" comapare-slider container owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="grid-style-2">
+
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="comparison-box">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="compare-grid">
+                                                    <a href="#" class="">
+                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
+                                                            alt="" class="img-responsive">
+                                                    </a>
+                                                    <div>
+                                                        <div class="text-muted">Mahindra </div>
+                                                        <div class=""><a href="#">XUV 3XO</a></div>
+                                                        <span class="ad-price">Rs. 110,000
+                                                            <span class="text-muted ps-2">onwards</span>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="vsbox">vs</div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="compare-grid">
+                                                    <a href="#" class="">
+                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
+                                                            alt="" class="img-responsive">
+                                                    </a>
+                                                    <div>
+                                                        <div class="text-muted">Tata </div>
+                                                        <div class=""><a href="#">Nexon</a></div>
+                                                        <span class="ad-price">Rs. 110,000
+                                                            <span class="text-muted ps-2">onwards</span>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <a href="#">
+                                                <button
+                                                    class="btn btn-outline btn-danger btn-lg btn-block margin-bottom-10">Compare
+                                                    Now</button>
+                                            </a>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="comparison-box">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="compare-grid">
+                                                    <a href="#" class="">
+                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
+                                                            alt="" class="img-responsive">
+                                                    </a>
+                                                    <div>
+                                                        <div class="text-muted">Mahindra </div>
+                                                        <div class=""><a href="#">XUV 3XO</a></div>
+                                                        <span class="ad-price">Rs. 110,000
+                                                            <span class="text-muted ps-2">onwards</span>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="vsbox">vs</div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="compare-grid">
+                                                    <a href="#" class="">
+                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
+                                                            alt="" class="img-responsive">
+                                                    </a>
+                                                    <div>
+                                                        <div class="text-muted">Tata </div>
+                                                        <div class=""><a href="#">Nexon</a></div>
+                                                        <span class="ad-price">Rs. 110,000
+                                                            <span class="text-muted ps-2">onwards</span>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <a href="#">
+                                                <button
+                                                    class="btn btn-outline btn-danger btn-lg btn-block margin-bottom-10">Compare
+                                                    Now</button>
+                                            </a>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="comparison-box">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="compare-grid">
+                                                    <a href="#" class="">
+                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
+                                                            alt="" class="img-responsive">
+                                                    </a>
+                                                    <div>
+                                                        <div class="text-muted">Mahindra </div>
+                                                        <div class=""><a href="#">XUV 3XO</a></div>
+                                                        <span class="ad-price">Rs. 110,000
+                                                            <span class="text-muted ps-2">onwards</span>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="vsbox">vs</div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="compare-grid">
+                                                    <a href="#" class="">
+                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
+                                                            alt="" class="img-responsive">
+                                                    </a>
+                                                    <div>
+                                                        <div class="text-muted">Tata </div>
+                                                        <div class=""><a href="#">Nexon</a></div>
+                                                        <span class="ad-price">Rs. 110,000
+                                                            <span class="text-muted ps-2">onwards</span>
+                                                        </span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <a href="#">
+                                                <button
+                                                    class="btn btn-outline btn-danger btn-lg btn-block margin-bottom-10">Compare
+                                                    Now</button>
+                                            </a>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="text-center">
-                            <img class="img-responsive wow slideInRight center-block" data-wow-delay="0ms"
-                                data-wow-duration="2000ms" src="assets/frontend-assets/images/sell-1.png"
-                                alt="">
-                        </div>
+                        <a href="/compareresult" class=" margin-bottom-10">
+                            Compare Cars of Your Choice >
+                        </a>
                     </div>
                 </div>
+                <!-- Middle Content Box End -->
+
+                <!-- Row End -->
             </div>
+            <!-- Main Container End -->
         </div>
     </section>
-    <!-- =-=-=-=-=-=-= Buy Or Sale End =-=-=-=-=-=-= -->
+    <!-- =-=-=-=-=-=-= Compare Cars End =-=-=-=-=-=-= -->
+
+
+    <!-- =-=-=-=-=-=-= Top Cars In India  =-=-=-=-=-=-= -->
+    <section class="custom-padding used-cars">
+        <!-- Main Container -->
+        <div class="container popular-cars">
+            <!-- Row -->
+            <div class="row">
+                <!-- Heading Area -->
+                <div class="heading-panel">
+                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                        <!-- Main Title -->
+                        <h1>Used cars <span class="heading-color"> In India</span> </h1>
+                    </div>
+                </div>
+
+
+
+                <!-- Middle Content Box -->
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                    <div class="row">
+                        <div class=" popular-slider container owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carspot"
+                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/134287/city-exterior-right-front-three-quarter-76.jpeg?isig=0"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Used Honda City
+                                                    </a>
+                                                </h3>
+
+                                                <span class="ad-price">Rs. 1.2 Lakh
+                                                    <span class="text-muted ps-2">Starting Price</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carspot"
+                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/102663/baleno-exterior-right-front-three-quarter-66.jpeg?isig=0"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Used Hyundai Creta
+                                                    </a>
+                                                </h3>
+
+                                                <span class="ad-price">Rs. 4.9 Lakh
+                                                    <span class="text-muted ps-2">Starting Price</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carspot"
+                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/112947/wagon-r-2022-exterior-right-front-three-quarter-3.jpeg?isig=0"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Used Maruti Suzuki Baleno
+                                                    </a>
+                                                </h3>
+
+                                                <span class="ad-price">Rs. 3.5 Lakh
+                                                    <span class="text-muted ps-2">Starting Price</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carspot"
+                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/141115/creta-exterior-right-front-three-quarter-16.jpeg?isig=0"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Used Maruti Suzuki Wagon R
+                                                    </a>
+                                                </h3>
+
+                                                <span class="ad-price">Rs. 75,000
+                                                    <span class="text-muted ps-2">Starting Price</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
+                                                <span>Featured</span>
+                                            </div> --}}
+                                            <div class="image">
+                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carspot"
+                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/159099/swift-exterior-right-front-three-quarter.jpeg?isig=0"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
+                                                        <div class="price"><span>$205,000</span></div>
+                                                    </div> --}}
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title"> 
+                                                        <span><a href="#">Sports &
+                                                                Equipment</a></span> </div> --}}
+
+                                                <h3>
+                                                    <a title="" href="single-page-listing.html">
+                                                        Used Maruti Suzuki Swift
+                                                    </a>
+                                                </h3>
+
+                                                <span class="ad-price">Rs. 1 Lakh
+                                                    <span class="text-muted ps-2">Starting Price</span>
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                        <!-- Listing Ad Grid -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Middle Content Box End -->
+
+                <!-- Row End -->
+            </div>
+            <!-- Main Container End -->
+        </div>
+    </section>
+    <!-- =-=-=-=-=-=-= Top Cars In India End =-=-=-=-=-=-= -->
+
+
+    <!-- =-=-=-=-=-=-= Latest Car Updates  Ads =-=-=-=-=-=-= -->
+    <section class="custom-padding gray">
+        <!-- Main Container -->
+        <div class="container featured-cars">
+            <!-- Row -->
+            <div class="row">
+                <!-- Heading Area -->
+                <div class="heading-panel">
+                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                        <!-- Main Title -->
+                        <h1>Latest Car <span class="heading-color"> Updates</span> </h1>
+                    </div>
+                </div>
+
+                <div class="card">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="nav-item active">
+                            <a class="nav-link" aria-controls="trending" role="tab" data-toggle="tab"
+                                href="#carnews">Car News </a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" aria-controls="popular" role="tab" data-toggle="tab"
+                                href="#expertreviews">Expert Reviews</a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" aria-controls="upcoming" role="tab" data-toggle="tab"
+                                href="#video">Video</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content clearfix">
+                        <div class="tab-pane fade in active" style="margin-top: 20px;" id="carnews">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <div class=" featured-slider owl-carousel owl-theme">
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Middle Content Box End -->
+                        </div>
+
+                        <div class="tab-pane fade" style="margin-top: 20px;" id="expertreviews">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <div class=" featured-slider owl-carousel owl-theme">
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Middle Content Box End -->
+                        </div>
+
+                        <div class="tab-pane fade" style="margin-top: 20px;" id="video">
+                            <!-- Middle Content Box -->
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <div class="row">
+                                    <div class=" featured-slider owl-carousel owl-theme">
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                    <div class="blog-post">
+                                                        <div class="post-img">
+                                                            <a href="#"> <img class="img-responsive"
+                                                                    alt=""
+                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
+                                                            </a>
+
+                                                        </div>
+                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
+                                                                deliveries commence across India</a> </h3>
+                                                            <div class="post-info"> <a href="#">By Car
+                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
+                                                            </div>
+                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
+                                                                consectetur adipisicing elit.
+                                                                <a href="#"><strong>Read More</strong></a>
+                                                            </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Middle Content Box End -->
+                        </div>
+                    </div>
+                    <!-- Row End -->
+                </div>
+            </div>
+            <!-- Main Container End -->
+        </div>
+    </section>
+    <!-- =-=-=-=-=-=-= Latest Car Updates End =-=-=-=-=-=-= -->
+
     <!-- Main Content Area End -->
 </div>
 
-
-
-
-<script>
-    /* ======= trending Carousel 1 ======= */
-    function initializeOwl(element) {
-        element.owlCarousel({
-            items: 3,
-            loop: true,
-            nav: true,
-            dots: false,
-            responsiveClass: true, // Optional helper class. Add 'owl-reponsive-' + 'breakpoint' class to main element.
-            navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                600: {
-                    items: 2,
-                },
-                1000: {
-                    items: 3,
-                }
-            }
-        });
-    }
-
-    // Initialize Owl Carousel for the initially active tab
-    $(document).ready(function () {
-        initializeOwl($('.tab-pane.active .featured-slider'));
-
-        // Reinitialize Owl Carousel when a tab is shown
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            var target = $(e.target).attr("href"); // activated tab
-            var $targetCarousel = $(target).find('.featured-slider');
-
-            if ($targetCarousel.data('owl.carousel')) {
-                $targetCarousel.owlCarousel('destroy'); // Destroy existing Owl Carousel instance
-            }
-
-            initializeOwl($targetCarousel); // Reinitialize Owl Carousel
-        });
-    });
-</script>
 @endsection
