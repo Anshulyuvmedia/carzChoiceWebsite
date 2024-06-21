@@ -25,8 +25,8 @@ class frontViewController extends Controller
     public function compareresult() {
         return view('frontend.compareresult');
     }
-    public function login() {
-        return view('frontend.login');
+    public function loginuser() {
+        return view('frontend.loginuser');
     }
     public function registration() {
         return view('frontend.registration');

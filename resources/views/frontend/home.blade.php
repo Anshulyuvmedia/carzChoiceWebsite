@@ -87,7 +87,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group pull-right">
+                                        <div class="form-group  ">
                                             <button type="submit" value="submit" class="btn btn-lg btn-theme">Search
                                                 Now</button>
                                         </div>
@@ -1040,10 +1040,11 @@
                                                     </a>
                                                 </h3>
 
-                                                <span class="ad-price">Rs. 110,000 <span
-                                                        class="text-muted ps-2">onwards</span></span>
-                                                <a class=" pull-left">
-                                                    <button class="btn btn-outline-danger">
+                                                <div class="ad-price">Rs. 110,000 
+                                                    <span class="text-muted ps-2">onwards</span>
+                                                </div>
+                                                <a class="  ">
+                                                    <button class="btn btn-outline btn-danger btn-sm ">
                                                         Get Offer
                                                     </button>
                                                 </a>
@@ -1082,10 +1083,10 @@
                                                     </a>
                                                 </h3>
 
-                                                <span class="ad-price">Rs. 110,000 <span
-                                                        class="text-muted ps-2">onwards</span></span>
-                                                <a class=" pull-left">
-                                                    <button class="btn btn-outline-danger">
+                                                <div class="ad-price">Rs. 110,000 <span
+                                                        class="text-muted ps-2">onwards</span></div>
+                                                <a class="  ">
+                                                    <button class="btn btn-outline btn-danger btn-sm ">
                                                         Get Offer
                                                     </button>
                                                 </a>
@@ -1124,10 +1125,10 @@
                                                     </a>
                                                 </h3>
 
-                                                <span class="ad-price">Rs. 110,000 <span
-                                                        class="text-muted ps-2">onwards</span></span>
-                                                <a class=" pull-left">
-                                                    <button class="btn btn-outline-danger">
+                                                <div class="ad-price">Rs. 110,000 <span
+                                                        class="text-muted ps-2">onwards</span></div>
+                                                <a class="  ">
+                                                    <button class="btn btn-outline btn-danger btn-sm ">
                                                         Get Offer
                                                     </button>
                                                 </a>
@@ -1166,10 +1167,10 @@
                                                     </a>
                                                 </h3>
 
-                                                <span class="ad-price">Rs. 110,000 <span
-                                                        class="text-muted ps-2">onwards</span></span>
-                                                <a class=" pull-left">
-                                                    <button class="btn btn-outline-danger">
+                                                <div class="ad-price">Rs. 110,000 <span
+                                                        class="text-muted ps-2">onwards</span></div>
+                                                <a class="  ">
+                                                    <button class="btn btn-outline btn-danger btn-sm ">
                                                         Get Offer
                                                     </button>
                                                 </a>
@@ -1208,10 +1209,10 @@
                                                     </a>
                                                 </h3>
 
-                                                <span class="ad-price">Rs. 110,000 <span
-                                                        class="text-muted ps-2">onwards</span></span>
-                                                <a class=" pull-left">
-                                                    <button class="btn btn-outline-danger">
+                                                <div class="ad-price">Rs. 110,000 <span
+                                                        class="text-muted ps-2">onwards</span></div>
+                                                <a class="  ">
+                                                    <button class="btn btn-outline btn-danger btn-sm ">
                                                         Get Offer
                                                     </button>
                                                 </a>
@@ -1917,7 +1918,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group pull-right">
+                                                <div class="form-group  ">
                                                     <button type="submit" value="submit"
                                                         class="btn btn-lg btn-theme">Search</button>
                                                 </div>

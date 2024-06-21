@@ -25,7 +25,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('reviewsdetails', 'reviewsdetails');
     Route::get('compare', 'compare');
     Route::get('compareresult', 'compareresult');
-    Route::get('login', 'login');
+    Route::get('loginuser', 'loginuser');
     Route::get('registration', 'registration');
     Route::get('postyourad', 'postyourad');
 
