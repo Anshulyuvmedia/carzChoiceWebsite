@@ -179,13 +179,13 @@ Designed and Development by: ScriptsBundle
             element.owlCarousel({
                 items: 3,
                 loop: false,
-                nav: true,
+                nav: false,
                 dots: false,
                 responsiveClass: true, // Optional helper class. Add 'owl-responsive-' + 'breakpoint' class to main element.
                 navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
                 responsive: {
                     0: {
-                        items: 1,
+                        items: 2,
                     },
                     600: {
                         items: 2,
@@ -224,7 +224,7 @@ Designed and Development by: ScriptsBundle
         navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
         responsive: {
             0: {
-                items: 1,
+                items: 2,
             },
             600: {
                 items: 2,
@@ -372,7 +372,7 @@ Designed and Development by: ScriptsBundle
         autoplayHoverPause: true,
         responsive: {
             0: {
-                items: 2,
+                items: 4,
             },
             600: {
                 items: 4,

@@ -209,7 +209,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -259,7 +259,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -309,7 +309,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -359,7 +359,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -409,7 +409,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -470,7 +470,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -520,7 +520,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -570,7 +570,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -620,7 +620,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -670,7 +670,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -731,7 +731,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -781,7 +781,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -831,7 +831,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -881,7 +881,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -931,7 +931,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
                                                             <span>Featured</span>
@@ -1015,7 +1015,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -1057,7 +1057,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -1099,7 +1099,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -1141,7 +1141,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -1183,7 +1183,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -1352,43 +1352,43 @@
                                 <div class="row ">
                                     <div class="d-flex flex-row flex-wrap">
                                         <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">Under 5
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 5
                                                 Lakh</button>
                                         </a>
                                         <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">Under 6
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 6
                                                 Lakh</button>
                                         </a>
                                         <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">Under 7
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 7
                                                 Lakh</button>
                                         </a>
                                         <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">Under 8
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 8
                                                 Lakh</button>
                                         </a>
-                                        <a class="me-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">Under 10
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 10
                                                 Lakh</button>
                                         </a>
-                                        <a class="me-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">Under 15
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 15
                                                 Lakh</button>
                                         </a>
-                                        <a class="me-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">Under 20
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 20
                                                 Lakh</button>
                                         </a>
-                                        <a class="me-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">Under 25
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 25
                                                 Lakh</button>
                                         </a>
-                                        <a class="me-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">Under 30
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 30
                                                 Lakh</button>
                                         </a>
-                                        <a class="me-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">Luxury
+                                        <a class="me-3 mb-3" href="#" role="button">
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Luxury
                                                 Cars</button>
                                         </a>
                                     </div>
@@ -1621,19 +1621,19 @@
                                 <div class="row">
                                     <div class="d-flex flex-row flex-wrap">
                                         <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill">5
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">5
                                                 Seater</button>
                                         </a>
                                         <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill"> 6
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill"> 6
                                                 Seater</button>
                                         </a>
                                         <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill"> 7
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill"> 7
                                                 Seater</button>
                                         </a>
                                         <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default rounded-pill"> 8
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill"> 8
                                                 Seater</button>
                                         </a>
 
@@ -1675,7 +1675,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -1715,7 +1715,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -1755,7 +1755,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -1795,7 +1795,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -1835,7 +1835,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -1963,7 +1963,7 @@
 
                                     <div class="col-md-12 col-xs-12 col-sm-12">
                                         <div class="comparison-box">
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <div class="compare-grid">
                                                     <a href="#" class="">
                                                         <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
@@ -1980,7 +1980,7 @@
                                                 </div>
                                             </div>
                                             <div class="vsbox">vs</div>
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <div class="compare-grid">
                                                     <a href="#" class="">
                                                         <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
@@ -2012,7 +2012,7 @@
 
                                     <div class="col-md-12 col-xs-12 col-sm-12">
                                         <div class="comparison-box">
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <div class="compare-grid">
                                                     <a href="#" class="">
                                                         <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
@@ -2029,7 +2029,7 @@
                                                 </div>
                                             </div>
                                             <div class="vsbox">vs</div>
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <div class="compare-grid">
                                                     <a href="#" class="">
                                                         <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
@@ -2061,7 +2061,7 @@
 
                                     <div class="col-md-12 col-xs-12 col-sm-12">
                                         <div class="comparison-box">
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <div class="compare-grid">
                                                     <a href="#" class="">
                                                         <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
@@ -2078,7 +2078,7 @@
                                                 </div>
                                             </div>
                                             <div class="vsbox">vs</div>
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <div class="compare-grid">
                                                     <a href="#" class="">
                                                         <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
@@ -2143,7 +2143,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -2183,7 +2183,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -2223,7 +2223,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -2263,7 +2263,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -2303,7 +2303,7 @@
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
@@ -2394,7 +2394,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2420,7 +2420,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2446,7 +2446,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2472,7 +2472,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2510,7 +2510,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2536,7 +2536,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2562,7 +2562,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2588,7 +2588,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2626,7 +2626,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2652,7 +2652,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2678,7 +2678,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
@@ -2704,7 +2704,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
                                                             <a href="#"> <img class="img-responsive"
