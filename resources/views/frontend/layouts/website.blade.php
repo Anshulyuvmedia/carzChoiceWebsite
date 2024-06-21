@@ -113,8 +113,8 @@
                         <div class="header-right col-md-6 col-sm-6 col-xs-12 ">
                             <div class="pull-right">
                                 <ul class="listnone">
-                                    <li><a href="login.html"><i class="fa fa-sign-in"></i> Log in</a></li>
-                                    <li class="hidden-xs hidden-sm"><a href="register.html"><i class="fa fa-unlock"
+                                    <li><a href="/login"><i class="fa fa-sign-in"></i> Log in</a></li>
+                                    <li class="hidden-xs hidden-sm"><a href="/register"><i class="fa fa-unlock"
                                                 aria-hidden="true"></i> Register</a></li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -488,7 +488,7 @@
                     <div class="col-md-3  col-sm-6 col-xs-12">
                         <!-- Info Widget -->
                         <div class="widget">
-                            <div class="logo"> 
+                            <div class="logo">
                                 {{-- <img alt="" src="{{ asset('assets/frontend-assets/images/logo.png') }}"> --}}
                                 Car Choice
                              </div>

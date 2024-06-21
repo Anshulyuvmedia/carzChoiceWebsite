@@ -36,17 +36,17 @@
                 <!--  Form -->
                 <div class="form-grid">
                    <form>
-                   
+
                      <a class="btn btn-lg btn-block btn-social btn-facebook">
                            <span class="fa fa-facebook"></span> Sign in with Facebook
                        </a>
-                     
+
                      <a class="btn btn-lg btn-block btn-social btn-google">
                            <span class="fa fa-google"></span> Sign in with Facebook
                        </a>
-                     
+
                      <h2 class="no-span"><b>(OR)</b></h2>
-                   
+
                       <div class="form-group">
                          <label>Email</label>
                          <input placeholder="Your Email" class="form-control" type="email">
@@ -81,7 +81,7 @@
        <!-- Main Container End -->
     </section>
     <!-- =-=-=-=-=-=-= Ads Archives End =-=-=-=-=-=-= -->
-    
+
  </div>
  <!-- Main Content Area End -->
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2024 at 02:54 PM
+-- Generation Time: Jun 21, 2024 at 01:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,8 +38,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('d3160cf376dcbf1f85bde27048f7d2e8', 'i:1;', 1717843681),
-('d3160cf376dcbf1f85bde27048f7d2e8:timer', 'i:1717843681;', 1717843681);
+('d3160cf376dcbf1f85bde27048f7d2e8', 'i:1;', 1718967707),
+('d3160cf376dcbf1f85bde27048f7d2e8:timer', 'i:1718967707;', 1718967707);
 
 -- --------------------------------------------------------
 
@@ -52,6 +52,38 @@ CREATE TABLE `cache_locks` (
   `owner` varchar(255) NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company_profiles`
+--
+
+CREATE TABLE `company_profiles` (
+  `id` int(11) NOT NULL,
+  `companyname` varchar(255) DEFAULT NULL,
+  `companylogo` text DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phonenumber` varchar(255) DEFAULT NULL,
+  `citystateprovince` varchar(255) DEFAULT NULL,
+  `postalcode` varchar(255) DEFAULT NULL,
+  `fburl` varchar(255) DEFAULT NULL,
+  `igurl` varchar(255) DEFAULT NULL,
+  `yturl` varchar(255) DEFAULT NULL,
+  `twurl` varchar(255) DEFAULT NULL,
+  `linkurl` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `company_profiles`
+--
+
+INSERT INTO `company_profiles` (`id`, `companyname`, `companylogo`, `email`, `phonenumber`, `citystateprovince`, `postalcode`, `fburl`, `igurl`, `yturl`, `twurl`, `linkurl`, `address`, `created_at`, `updated_at`) VALUES
+(7, 'abc', 'logos/moZ5XzG9TgwEJS4jeTLoasPmzm3gCjUh9KnoUmEU.png', 'abc@gmail.com', '1234567894', 'Ajmer, Rajasthan', '305001', 'https://www.google.co.in/', 'https://www.google.co.in/', 'https://www.google.co.in/', 'https://www.google.co.in', 'https://www.google.co.in/', 'fsddfdsfffffffffffffffff', '2024-06-21 01:45:36', '2024-06-21 01:45:36'),
+(8, 'abcd', 'logos/7bxTijfJgawnkkq6aXhQM9R64i9hF0DY280aspwj.jpg', 'admin@ananttvs.in', '1234567899', 'Ajmer, Rajasthan', '305001', 'https://www.google.co.in/', 'https://www.google.co.in/', 'https://www.google.co.in/', 'https://www.google.co.in/', 'https://www.google.co.in/', 'dfsdfdsfdsfds', '2024-06-21 05:21:43', '2024-06-21 05:21:43');
 
 -- --------------------------------------------------------
 
@@ -103,6 +135,37 @@ CREATE TABLE `job_batches` (
   `created_at` int(11) NOT NULL,
   `finished_at` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `masters`
+--
+
+CREATE TABLE `masters` (
+  `id` int(11) NOT NULL,
+  `label` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  `type` varchar(255) NOT NULL DEFAULT 'Master',
+  `iconimage` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `masters`
+--
+
+INSERT INTO `masters` (`id`, `label`, `value`, `type`, `iconimage`, `created_at`, `updated_at`) VALUES
+(3, 'Trucks', 'Trucks', 'Master', '', '2024-06-21 02:24:53', '2024-06-21 02:24:53'),
+(4, 'Mopeds', 'Mopeds', 'Master', '', '2024-06-21 02:32:45', '2024-06-21 02:32:45'),
+(6, 'Cars', 'Cars', 'Master', '', '2024-06-21 03:41:11', '2024-06-21 03:41:11'),
+(7, 'Bikes', 'Bikes', 'Master', '', '2024-06-21 03:41:18', '2024-06-21 03:41:18'),
+(9, 'Taxi', 'Taxi', 'Mopeds', '', '2024-06-21 04:20:53', '2024-06-21 04:20:53'),
+(11, 'Eicher', 'Eicher', 'Trucks', '', '2024-06-21 04:23:47', '2024-06-21 04:23:47'),
+(12, 'TATA', 'TATA', 'Trucks', '', '2024-06-21 04:42:55', '2024-06-21 04:42:55'),
+(24, 'E-Commerce', 'E-Commerce', 'Mopeds', '1718969247_logo.png', '2024-06-21 05:57:27', '2024-06-21 11:29:39'),
+(25, 'demo', 'demo', 'Mopeds', '1718969332_wp6537938-lord-shiva-desktop-4k-wallpapers.jpg', '2024-06-21 05:58:52', '2024-06-21 05:58:52');
 
 -- --------------------------------------------------------
 
@@ -178,9 +241,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('2Wj4qNz6Xp5ANK9bX0IUQN7OOHXnM68WZpBSzUjk', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:126.0) Gecko/20100101 Firefox/126.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoicHNuQ1M2Rm9PVklqWjZlNXNKOHc3TUtjYzlXZktWdkZ1emc0SHU4ZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1718454600),
-('sIEto3Kowzdsa4HP4qg913ZUKsLK9UsEhV7c0MGh', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:126.0) Gecko/20100101 Firefox/126.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibEd6cGlpZ3puUUpTRVpNVzlveXVNMW5xanNNWWVsY3pUTTBHWWFBTyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jYXJsaXN0aW5nZGV0YWlscyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1718449577),
-('UNCPbkcbld22T960FsovpWAZ2tei5X17HFv3c372', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:126.0) Gecko/20100101 Firefox/126.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRGFoR01EOVFYY3dscDlNaHdpdmR6OW4zRmdidmJXS1c2c1hxRnh3MSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1718455396);
+('cyuYKOGN0s9hzLlZoA3L6PEo9ddVIjn2rlIt1Cbw', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwL3N1Ym1hc3RlciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NjoiX3Rva2VuIjtzOjQwOiJFcUxpM0Y2UnczWUdnNk0zSjFaQVJRUG93bUlRd3V2VU02c3V1WDRDIjtzOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEyJGJ5VmE3VnZyc0hPVGNxcGFFY2pNbk9XV08yWnZUdnpPVkJCU0tOQUJxUzBkd1VQVXFnV2E2Ijt9', 1718969384);
 
 -- --------------------------------------------------------
 
@@ -209,7 +270,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'support@carchoice.com', NULL, '$2y$12$9saEIBBvyGqfhgaa9hBjJu.SBdX4a/DrLNO9gdXhnUkccHCfLsp3G', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-08 05:04:23', '2024-06-08 05:04:23');
+(1, 'Mukesh', 'support@carchoice.com', NULL, '$2y$12$byVa7VvrsHOTcqpaEcjMnOWWO2ZvTvzOVBBSKNABqS0dwUPUqgWa6', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-08 05:04:23', '2024-06-20 23:34:00');
 
 --
 -- Indexes for dumped tables
@@ -226,6 +287,12 @@ ALTER TABLE `cache`
 --
 ALTER TABLE `cache_locks`
   ADD PRIMARY KEY (`key`);
+
+--
+-- Indexes for table `company_profiles`
+--
+ALTER TABLE `company_profiles`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -245,6 +312,12 @@ ALTER TABLE `jobs`
 -- Indexes for table `job_batches`
 --
 ALTER TABLE `job_batches`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `masters`
+--
+ALTER TABLE `masters`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -287,6 +360,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `company_profiles`
+--
+ALTER TABLE `company_profiles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -297,6 +376,12 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `masters`
+--
+ALTER TABLE `masters`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `migrations`
