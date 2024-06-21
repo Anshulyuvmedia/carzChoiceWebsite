@@ -67,7 +67,7 @@ Route::controller(AdminView::class)->group(function() {
 
 //Admin Store & Delete Routes
 Route::controller(Store::class)->group(function() {
-    Route::post('storecompanyprofile', 'storecompanyprofile')->name('storecompanyprofile');
+    Route::post('updatecompanyprofile/{id}', 'updatecompanyprofile')->name('updatecompanyprofile');
     Route::post('storemaster', 'storemaster')->name('storemaster');
     Route::get('deletemaster/{id}', 'deletemaster')->name('deletemaster');
     Route::post('storesubmaster', 'storesubmaster')->name('storesubmaster');

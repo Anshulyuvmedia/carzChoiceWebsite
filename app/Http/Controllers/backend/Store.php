@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Store extends Controller
 {
-    public function storecompanyprofile(Request $req)
+    public function updatecompanyprofile(Request $req, $id)
     {
         try {
             $companyprofiledata = $req->validate([
@@ -32,17 +32,33 @@ class Store extends Controller
                 'linkurl' => 'url|max:255',
                 'address' => 'required|max:255',
             ]);
+
+            // Retrieve the existing CompanyProfile record by $id
+            $companyProfile = CompanyProfile::findOrFail($id);
+            // dd($companyProfile);
+            $companyProfile->companyname = $companyprofiledata['companyname'];
+            $companyProfile->email = $companyprofiledata['email'];
+            $companyProfile->phonenumber = $companyprofiledata['phonenumber'];
+            $companyProfile->citystateprovince = $companyprofiledata['citystateprovince'];
+            $companyProfile->postalcode = $companyprofiledata['postalcode'];
+            $companyProfile->fburl = $companyprofiledata['fburl'];
+            $companyProfile->igurl = $companyprofiledata['igurl'];
+            $companyProfile->yturl = $companyprofiledata['yturl'];
+            $companyProfile->twurl = $companyprofiledata['twurl'];
+            $companyProfile->linkurl = $companyprofiledata['linkurl'];
+            $companyProfile->address = $companyprofiledata['address'];
             if ($req->hasFile('companylogo')) {
-                $companyprofiledata['companylogo'] = $req->file('companylogo')->store('logos', 'public');
+                $companyProfile->companylogo = $req->file('companylogo')->store('logos', 'public');
             }
-            CompanyProfile::create($companyprofiledata);
-            return back()->with('success', 'Profile Added..!!!!');
+            $companyProfile->save();
+
+            return back()->with('success', 'Profile Updated successfully.');
 
         } catch (Exception $e) {
-            //return redirect()->route('companyprofile')->with('error', $e->getMessage());
-            return redirect()->route('companyprofile')->with('error', 'Not Added Try Again...!!!!');
+            return back()->with('error', 'Failed to update profile. ' . $e->getMessage());
         }
     }
+
 
     public function storemaster(Request $req)
     {

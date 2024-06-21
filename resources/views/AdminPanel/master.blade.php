@@ -68,7 +68,7 @@
                                     <td>{{$row->value}}</td>
                                     <td>{{$row->type}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-danger waves-effect waves-light btn-sm"
+                                        <button  type="button" class="btn btn-danger waves-effect waves-light btn-sm"
                                             onclick="confirmDelete('{{ $row->id }}')">
                                             <i class="uil-trash-alt"></i>
                                         </button>
