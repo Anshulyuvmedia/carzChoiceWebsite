@@ -1,6 +1,6 @@
 @extends('frontend.layouts.website')
 @section('content')
-@section('title', 'Login')
+@section('title', 'User Login')
 
 <!-- =-=-=-=-=-=-= Breadcrumb =-=-=-=-=-=-= -->
 <div class="page-header-area-2 gray">
