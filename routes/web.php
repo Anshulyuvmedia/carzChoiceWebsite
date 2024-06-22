@@ -30,7 +30,10 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('loginuser', 'loginuser');
     Route::get('registration', 'registration');
     Route::get('postyourad', 'postyourad');
-    Route::get('newcars', 'newcars');
+    Route::get('new-cars', 'newcars');
+    Route::get('upcoming-car', 'upcomingcar');
+    Route::get('new-car-launches', 'newcarlaunches');
+    Route::get('electric-car', 'electriccar');
 
     //when user logged in
     Route::get('userprofile', 'userprofile');

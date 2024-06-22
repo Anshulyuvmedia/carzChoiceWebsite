@@ -125,7 +125,7 @@
                                                 alt=""
                                                 src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
                                             <span class="myname hidden-xs"> Admin </span> <span
-                                                class="caret"></span></a>
+                                                class=""></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="/userprofile">User Profile</a></li>
                                             <li><a href="/userarchive">Archives</a></li>
@@ -180,10 +180,10 @@
                                                 <div class="grid-col-2">
                                                     <h3>Condition</h3>
                                                     <ul>
-                                                        <li><a href="/newcars">Find New Cars</a></li>
-                                                        <li><a href="/carlisting">Upcoming Cars</a></li>
-                                                        <li><a href="/carlisting">New Launches </a></li>
-                                                        <li><a href="/carlisting">Electric Cars </a></li>
+                                                        <li><a href="/new-cars">Explore Used Cars</a></li>
+                                                        <li><a href="/upcoming-car">Upcoming Cars</a></li>
+                                                        <li><a href="/new-car-launches">New Launches </a></li>
+                                                        <li><a href="/electric-car">Electric Cars </a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="grid-col-6">
@@ -314,13 +314,13 @@
                                                     <h3>Condition</h3>
                                                     <ul>
                                                         <li><a href="/newcars">Explore Used Cars</a></li>
-                                                        <li><a href="/carlisting">Upcoming Cars</a></li>
-                                                        <li><a href="/carlisting">New Launches </a></li>
-                                                        <li><a href="/carlisting">Electric Cars </a></li>
+                                                        <li><a href="/upcomingcar">Upcoming Cars</a></li>
+                                                        <li><a href="/new-car-launches">New Launches </a></li>
+                                                        <li><a href="/electric-car">Electric Cars </a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="grid-col-6">
-                                                    <h3>Brands</h3>
+                                                    <h3>Search Used Cars by Brands</h3>
                                                     <ul class="by-make list-inline">
                                                         <li>
                                                             <a href="#">
@@ -385,7 +385,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="grid-col-4">
-                                                    <h3>Body Type</h3>
+                                                    <h3>Search Used Cars by Body Type</h3>
                                                     <ul class="list-inline by-category ">
                                                         <li>
                                                             <a href="#">

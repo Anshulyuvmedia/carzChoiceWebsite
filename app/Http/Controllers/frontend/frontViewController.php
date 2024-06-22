@@ -73,5 +73,14 @@ class frontViewController extends Controller
     public function newcars() {
         return view('frontend.newcars');
     }
+    public function upcomingcar() {
+        return view('frontend.upcomingcar');
+    }
+    public function newcarlaunches() {
+        return view('frontend.newcarlaunches');
+    }
+    public function electriccar() {
+        return view('frontend.electriccar');
+    }
 
 }
