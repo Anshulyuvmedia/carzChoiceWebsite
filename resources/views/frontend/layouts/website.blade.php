@@ -169,8 +169,9 @@
                                     <li>
                                         <a href="/">Home</a>
                                     </li>
+                                    
                                     <li>
-                                        <a href="javascript:void(0)"> Cars <i
+                                        <a href="javascript:void(0)">New Cars <i
                                                 class="fa fa-angle-down fa-indicator"></i></a>
                                         <div class="drop-down grid-col-12">
                                             <!--grid row-->
@@ -179,10 +180,10 @@
                                                 <div class="grid-col-2">
                                                     <h3>Condition</h3>
                                                     <ul>
-                                                        <li><a href="/carlisting">New</a></li>
-                                                        <li><a href="/carlisting">Used</a></li>
-                                                        <li><a href="/carlisting">Reconditioned </a></li>
-                                                        <li><a href="/carlisting">Featured Cars </a></li>
+                                                        <li><a href="/newcars">Find New Cars</a></li>
+                                                        <li><a href="/carlisting">Upcoming Cars</a></li>
+                                                        <li><a href="/carlisting">New Launches </a></li>
+                                                        <li><a href="/carlisting">Electric Cars </a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="grid-col-6">
@@ -301,51 +302,140 @@
                                             </div>
                                         </div>
                                     </li>
-                                    {{-- <li>
-                                        <a href="javascript:void(0)">Listing <i
+
+                                    <li>
+                                        <a href="javascript:void(0)">Used Cars <i
                                                 class="fa fa-angle-down fa-indicator"></i></a>
-                                        <!-- drop down multilevel  -->
-                                        <ul class="drop-down-multilevel">
-                                            <li>
-                                                <a href="javascript:void(0)">Grid Style<i
-                                                        class="fa fa-angle-right fa-indicator"></i> </a>
-                                                <!-- drop down second level -->
-                                                <ul class="drop-down-multilevel">
-                                                    <li><a href="listing.html"> Grid Style (Defualt)</a></li>
-                                                    <li><a href="listing-1.html"> Grid Style 1</a></li>
-                                                    <li><a href="listing-2.html"> Grid Style 2</a></li>
-                                                    <li><a href="listing-3.html"> Grid Style 3</a></li>
-                                                    <li><a href="listing-4.html"> Grid Style 4</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">List Style<i
-                                                        class="fa fa-angle-right fa-indicator"></i> </a>
-                                                <!-- drop down second level -->
-                                                <ul class="drop-down-multilevel">
-                                                    <li><a href="#">List View 1</a></li>
-                                                    <li><a href="listing-6.html">List View 2</a></li>
-                                                    <li><a href="listing-7.html">List View 3</a></li>
-                                                    <li><a href="listing-8.html">List View 4</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">Single Ad<i
-                                                        class="fa fa-angle-right fa-indicator"></i></a>
-                                                <!-- drop down second level -->
-                                                <ul class="drop-down-multilevel">
-                                                    <li><a href="single-page-listing.html">Single Ad Detail</a></li>
-                                                    <li><a href="single-page-listing-1.html">Single Ad (Gallery)</a>
-                                                    </li>
-                                                    <li><a href="single-page-listing-2.html">Single Ad (Gallery 2)</a>
-                                                    </li>
-                                                    <li><a href="single-page-listing-3.html">Single Ad Variation</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="icons.html">Template Icons </a></li>
-                                        </ul>
-                                    </li> --}}
+                                        <div class="drop-down grid-col-12">
+                                            <!--grid row-->
+                                            <div class="grid-row">
+                                                <!--grid column 3-->
+                                                <div class="grid-col-2">
+                                                    <h3>Condition</h3>
+                                                    <ul>
+                                                        <li><a href="/newcars">Explore Used Cars</a></li>
+                                                        <li><a href="/carlisting">Upcoming Cars</a></li>
+                                                        <li><a href="/carlisting">New Launches </a></li>
+                                                        <li><a href="/carlisting">Electric Cars </a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="grid-col-6">
+                                                    <h3>Brands</h3>
+                                                    <ul class="by-make list-inline">
+                                                        <li>
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/frontend-assets/images/brands/1.png') }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/frontend-assets/images/brands/2.png') }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/frontend-assets/images/brands/3.png') }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/frontend-assets/images/brands/4.png') }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/frontend-assets/images/brands/5.png') }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/frontend-assets/images/brands/6.png') }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/frontend-assets/images/brands/7.png') }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/frontend-assets/images/brands/8.png') }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/frontend-assets/images/brands/9.png') }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/frontend-assets/images/brands/11.png') }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="grid-col-4">
+                                                    <h3>Body Type</h3>
+                                                    <ul class="list-inline by-category ">
+                                                        <li>
+                                                            <a href="#">
+                                                                <img alt="Hybrid"
+                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/1.png') }}">
+                                                                Convertible
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img alt="Hybrid"
+                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/2.png') }}">
+                                                                Coupe
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img alt="Hybrid"
+                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/3.png') }}">
+                                                                Sedan
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img alt="Hybrid"
+                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/4.png') }}">
+                                                                Van/Minivan
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img alt="Hybrid"
+                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/5.png') }}">
+                                                                Truck
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">
+                                                                <img alt="Hybrid"
+                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
+                                                                Hybrid
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
                                     <li>
                                         <a href="javascript:void(0)">News <i
                                                 class="fa fa-angle-down fa-indicator"></i></a>

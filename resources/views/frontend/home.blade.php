@@ -1236,7 +1236,7 @@
     </section>
     <!-- =-=-=-=-=-=-= Popular Cars Ads End =-=-=-=-=-=-= -->
 
-    <!-- =-=-=-=-=-=-= Our Clients =-=-=-=-=-=-= -->
+    <!-- =-=-=-=-=-=-= All Brands =-=-=-=-=-=-= -->
     <section class="client-section gray">
         <div class="container">
             <div class="row">
@@ -1304,7 +1304,7 @@
             </div>
         </div>
     </section>
-    <!-- =-=-=-=-=-=-= Our Clients End =-=-=-=-=-=-= -->
+    <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
 
     <!-- =-=-=-=-=-=-= Cars Of Your Choice =-=-=-=-=-=-= -->
     <section class="custom-padding featured-cars rounded-3">

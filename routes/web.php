@@ -28,6 +28,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('loginuser', 'loginuser');
     Route::get('registration', 'registration');
     Route::get('postyourad', 'postyourad');
+    Route::get('newcars', 'newcars');
 
     Route::get('userprofile', 'userprofile');
     Route::get('userarchive', 'userarchive');

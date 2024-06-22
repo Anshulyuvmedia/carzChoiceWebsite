@@ -6540,9 +6540,9 @@ fieldset[disabled] .btn-purple.active {
 
 .sigle-clients-brand {
     float: left;
-    padding-left: 30px;
+    /* padding-left: 30px; */
     width: 20%;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .sigle-clients-brand a {
@@ -10477,4 +10477,9 @@ footer.footer-bg {
     color: #232323;
     font-size: 14px;
     text-transform: capitalize;
+  }
+
+  .accordion-button {
+    font-size: 1.6rem !important;
+    line-height: 24px;
   }
