@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2024 at 01:32 PM
+-- Generation Time: Jun 22, 2024 at 12:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,6 +24,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` int(11) NOT NULL,
+  `categorytype` varchar(255) DEFAULT NULL,
+  `blogtitle` varchar(255) DEFAULT NULL,
+  `description` varchar(255) NOT NULL,
+  `blogpost` text DEFAULT NULL,
+  `vurl` varchar(255) DEFAULT NULL,
+  `blogimg` varchar(255) DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `categorytype`, `blogtitle`, `description`, `blogpost`, `vurl`, `blogimg`, `status`, `created_at`, `updated_at`) VALUES
+(3, 'Car News', 'CAR OF THE YEAR', 'fdsgdf', '<p>gffdsgfd</p>', 'https://www.youtube.com/watch?v=spGSAeqxVUc', '1719047765_logo.png', '0', '2024-06-22 03:17:33', '2024-06-22 04:31:27'),
+(4, 'Videos', 'THIS IS My BLOG', 'THIS IS My BLOG', '<p>THIS IS My BLOG</p>', 'https://www.youtube.com/watch?v=__2bjWbetsA', '1719048634_logo.png', '0', '2024-06-22 03:47:08', '2024-06-22 04:33:28');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cache`
 --
 
@@ -38,8 +65,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('d3160cf376dcbf1f85bde27048f7d2e8', 'i:1;', 1718967707),
-('d3160cf376dcbf1f85bde27048f7d2e8:timer', 'i:1718967707;', 1718967707);
+('d3160cf376dcbf1f85bde27048f7d2e8', 'i:2;', 1719033129),
+('d3160cf376dcbf1f85bde27048f7d2e8:timer', 'i:1719033129;', 1719033129);
 
 -- --------------------------------------------------------
 
@@ -82,8 +109,7 @@ CREATE TABLE `company_profiles` (
 --
 
 INSERT INTO `company_profiles` (`id`, `companyname`, `companylogo`, `email`, `phonenumber`, `citystateprovince`, `postalcode`, `fburl`, `igurl`, `yturl`, `twurl`, `linkurl`, `address`, `created_at`, `updated_at`) VALUES
-(7, 'abc', 'logos/moZ5XzG9TgwEJS4jeTLoasPmzm3gCjUh9KnoUmEU.png', 'abc@gmail.com', '1234567894', 'Ajmer, Rajasthan', '305001', 'https://www.google.co.in/', 'https://www.google.co.in/', 'https://www.google.co.in/', 'https://www.google.co.in', 'https://www.google.co.in/', 'fsddfdsfffffffffffffffff', '2024-06-21 01:45:36', '2024-06-21 01:45:36'),
-(8, 'abcd', 'logos/7bxTijfJgawnkkq6aXhQM9R64i9hF0DY280aspwj.jpg', 'admin@ananttvs.in', '1234567899', 'Ajmer, Rajasthan', '305001', 'https://www.google.co.in/', 'https://www.google.co.in/', 'https://www.google.co.in/', 'https://www.google.co.in/', 'https://www.google.co.in/', 'dfsdfdsfdsfds', '2024-06-21 05:21:43', '2024-06-21 05:21:43');
+(1, 'Mukesh Private Limited', 'logos/PGshtUOJh3qF0qdDU0acnCa1twoQxBk5HdagxfXY.png', 'abc@gmail.com', '1234567899', 'Ajmer,Raj', '305001', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'dasdsadas', '2024-06-21 12:34:26', '2024-06-21 07:30:22');
 
 -- --------------------------------------------------------
 
@@ -161,11 +187,12 @@ INSERT INTO `masters` (`id`, `label`, `value`, `type`, `iconimage`, `created_at`
 (4, 'Mopeds', 'Mopeds', 'Master', '', '2024-06-21 02:32:45', '2024-06-21 02:32:45'),
 (6, 'Cars', 'Cars', 'Master', '', '2024-06-21 03:41:11', '2024-06-21 03:41:11'),
 (7, 'Bikes', 'Bikes', 'Master', '', '2024-06-21 03:41:18', '2024-06-21 03:41:18'),
-(9, 'Taxi', 'Taxi', 'Mopeds', '', '2024-06-21 04:20:53', '2024-06-21 04:20:53'),
-(11, 'Eicher', 'Eicher', 'Trucks', '', '2024-06-21 04:23:47', '2024-06-21 04:23:47'),
-(12, 'TATA', 'TATA', 'Trucks', '', '2024-06-21 04:42:55', '2024-06-21 04:42:55'),
 (24, 'E-Commerce', 'E-Commerce', 'Mopeds', '1718969247_logo.png', '2024-06-21 05:57:27', '2024-06-21 11:29:39'),
-(25, 'demo', 'demo', 'Mopeds', '1718969332_wp6537938-lord-shiva-desktop-4k-wallpapers.jpg', '2024-06-21 05:58:52', '2024-06-21 05:58:52');
+(25, 'demo', 'demo', 'Mopeds', '1718969332_wp6537938-lord-shiva-desktop-4k-wallpapers.jpg', '2024-06-21 05:58:52', '2024-06-21 05:58:52'),
+(26, 'TATA', 'TATA', 'Trucks', '1718969720_logo.png', '2024-06-21 06:05:20', '2024-06-21 06:05:20'),
+(27, 'Blog', 'Blog', 'Master', NULL, '2024-06-22 00:15:46', '2024-06-22 00:15:46'),
+(29, 'Car News', 'Car News', 'Blog', NULL, '2024-06-22 00:17:00', '2024-06-22 00:17:00'),
+(30, 'Videos', 'Videos', 'Blog', NULL, '2024-06-22 00:17:09', '2024-06-22 00:17:09');
 
 -- --------------------------------------------------------
 
@@ -241,7 +268,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('cyuYKOGN0s9hzLlZoA3L6PEo9ddVIjn2rlIt1Cbw', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozMToiaHR0cDovLzEyNy4wLjAuMTo4MDAwL3N1Ym1hc3RlciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NjoiX3Rva2VuIjtzOjQwOiJFcUxpM0Y2UnczWUdnNk0zSjFaQVJRUG93bUlRd3V2VU02c3V1WDRDIjtzOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEyJGJ5VmE3VnZyc0hPVGNxcGFFY2pNbk9XV08yWnZUdnpPVkJCU0tOQUJxUzBkd1VQVXFnV2E2Ijt9', 1718969384);
+('dV2RdrvbiubCpjcoTKtKKUDpWAfdvf36nQ1Xzkq5', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiakFaUjhEOXVIemNERlpkekJlUWoxS1VyNGVNNjV3eWw0OHZxSFdzRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ibG9nbGlzdCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTIkYnlWYTdWdnJzSE9UY3FwYUVjak1uT1dXTzJadlR2ek9WQkJTS05BQnFTMGR3VVBVcWdXYTYiO30=', 1719051612);
 
 -- --------------------------------------------------------
 
@@ -275,6 +302,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `tw
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cache`
@@ -360,6 +393,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `company_profiles`
 --
 ALTER TABLE `company_profiles`
@@ -381,7 +420,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `masters`
 --
 ALTER TABLE `masters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `migrations`

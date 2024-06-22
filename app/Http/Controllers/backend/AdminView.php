@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\CompanyProfile;
 use App\Models\Master;
 use Illuminate\Http\Request;
@@ -25,5 +26,22 @@ class AdminView extends Controller
     public function submaster(){
         $submasterdata = Master::where('type', '=', 'Master')->get();
         return view('AdminPanel.submaster',compact('submasterdata'));
+    }
+
+    public function addblog(){
+        $blogdata = Master::where('type', '=', 'Blog')->get();
+        return view('AdminPanel.addblog',compact('blogdata'));
+    }
+
+    public function bloglist(){
+        $bloglistdata = Blog::orderBy('created_at','desc')->get();
+        return view('AdminPanel.bloglist',compact('bloglistdata'));
+    }
+
+    public function editblog($id){
+        $blogdata = Blog::find($id);
+        $masterdata = Master::where('type', '=', 'Blog')->get();
+        // dd($blogdata);
+        return view('AdminPanel.editblog',compact('blogdata','masterdata'));
     }
 }

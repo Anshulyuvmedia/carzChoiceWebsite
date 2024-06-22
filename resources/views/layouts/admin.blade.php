@@ -8,23 +8,27 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('assets/backend-assets/images/car.png')}}">
+    <link rel="shortcut icon" href="{{ asset('assets/backend-assets/images/car.png') }}">
 
     <!-- Bootstrap Css -->
-    <link href="{{asset('assets/backend-assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet"
+    <link href="{{ asset('assets/backend-assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
         type="text/css" />
     <!-- Icons Css -->
-    <link href="{{asset('assets/backend-assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/backend-assets/css/line.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/backend-assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/backend-assets/css/line.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{asset('assets/backend-assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/backend-assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
 
     <!-- DataTables -->
-    <link href="{{asset('assets/backend-assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/backend-assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/backend-assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/backend-assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/backend-assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link
+        href="{{ asset('assets/backend-assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
+        rel="stylesheet" type="text/css" />
     @stack('styles')
 </head>
 
@@ -42,19 +46,19 @@
                     <div class="navbar-brand-box">
                         <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="22">
+                                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{asset('assets/images/logo-dark.png')}}" alt="" height="20">
+                                <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="20">
                             </span>
                         </a>
 
                         <a href="index.html" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="22">
+                                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="20">
+                                <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="20">
                             </span>
                         </a>
                     </div>
@@ -112,10 +116,10 @@
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle header-profile-user"
-                                src="{{asset('assets/backend-assets/images/defaultuser.png')}}" alt="Header Avatar">
+                                src="{{ asset('assets/backend-assets/images/defaultuser.png') }}" alt="Header Avatar">
                             @if (Auth::user())
-                            <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Welcome {{
-                                Auth::user()->name }}</span>
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Welcome
+                                {{ Auth::user()->name }}</span>
                             @else
                             <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Guest User</span>
                             @endif
@@ -214,6 +218,17 @@
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-blogger-alt"></i>
+                                <span>Blog</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('addblog') }}">Add Blog</a></li>
+                                <li><a href="{{ route('bloglist') }}">Blogs List</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="uil-setting"></i>
                                 <span>Settings</span>
                             </a>
@@ -232,10 +247,16 @@
 
         <div class="main-content">
             @yield('main-section')
-
             <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-            @stack('scripts')
+            <script src="{{ asset('assets/backend-assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
+            <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
+            <script>
+                console.log("CKEditor script loaded:", typeof ClassicEditor);
+            </script>
 
+            <!-- Custom Initialization Script -->
+            <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
+            @stack('scripts')
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -260,30 +281,34 @@
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
-    <script src="{{asset('assets/backend-assets/libs/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/libs/metismenu/metisMenu.min.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/libs/simplebar/simplebar.min.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/libs/node-waves/waves.min.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/libs/waypoints/lib/jquery.waypoints.min.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/libs/jquery.counterup/jquery.counterup.min.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/libs/apexcharts/apexcharts.min.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/js/pages/dashboard.init.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/js/app.js')}}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/waypoints/lib/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/jquery.counterup/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/js/pages/dashboard.init.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/js/app.js') }}"></script>
 
-     <!-- Required datatable js -->
-     <script src="{{asset('assets/backend-assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-     <script src="{{asset('assets/backend-assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-     <!-- Buttons examples -->
-     <script src="{{asset('assets/backend-assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-     <script src="{{asset('assets/backend-assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
-     <script src="{{asset('assets/backend-assets/libs/jszip/jszip.min.js')}}"></script>
-     <script src="{{asset('assets/backend-assets/libs/pdfmake/build/pdfmake.min.js')}}"></script>
-     <script src="{{asset('assets/backend-assets/libs/pdfmake/build/vfs_fonts.js')}}"></script>
-     <script src="{{asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-     <script src="{{asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-     {{-- <script src="{{asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script> --}}
-     <script src="{{asset('assets/backend-assets/js/pages/datatables.init.js')}}"></script>
+    <!-- Required datatable js -->
+    <script src="{{ asset('assets/backend-assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <!-- Buttons examples -->
+    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}">
+    </script>
+    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}">
+    </script>
+    <script src="{{ asset('assets/backend-assets/libs/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    {{-- <script src="{{asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
+    --}}
+    <script src="{{ asset('assets/backend-assets/js/pages/datatables.init.js') }}"></script>
+    <script src="{{asset('assets/js/pages/form-advanced.init.js')}}"></script>
 </body>
 
 </html>

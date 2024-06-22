@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\CompanyProfile;
 use App\Models\Master;
 use App\Models\SubMaster;
@@ -58,7 +59,6 @@ class Store extends Controller
             return back()->with('error', 'Failed to update profile. ' . $e->getMessage());
         }
     }
-
 
     public function storemaster(Request $req)
     {
@@ -117,5 +117,93 @@ class Store extends Controller
         $data = Master::where('type', '=', $selectedCat)->get();
         return response()->json($data);
 
+    }
+
+    public function insertblog(Request $req)
+    {
+        try {
+            $blogdata = $req->validate([
+                'categorytype' => 'required',
+                'blogtitle' => 'required',
+                'blogpost' => 'required',
+            ]);
+
+            $blogdata = new Blog();
+            $blogdata->categorytype = $req->categorytype;
+            $blogdata->blogtitle = $req->blogtitle;
+            $blogdata->blogpost = $req->blogpost;
+            $blogdata->description = $req->description;
+            $blogdata->vurl = $req->vurl;
+
+            if ($req->hasFile('blogimg')) {
+                $req->validate([
+                    'blogimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $file = $req->file('blogimg');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/backend-assets/images'), $filename);
+                $blogdata['blogimg'] = $filename;
+            }
+            // dd($blogdata);
+            $blogdata->save();
+            Log::info('Blod Inserted Successfully: ', ['user' => $blogdata]);
+            return back()->with('success', 'Blog Added..!!!!');
+
+        } catch (Exception $e) {
+            //return redirect()->route('addblog')->with('error', $e->getMessage());
+            return redirect()->route('addblog')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deleteblog($id)
+    {
+        $data = Blog::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function updateblog(Request $req){
+
+        try {
+            $blogdata = $req->validate([
+                'categorytype' => 'required',
+                'blogtitle' => 'required',
+                'blogpost' => 'required',
+            ]);
+
+            $blogdatanew = Blog::findOrFail($req->blogid);
+            $blogdatanew->categorytype =  $req->categorytype;
+            $blogdatanew->blogtitle = $req->blogtitle;
+            $blogdatanew->description = $req->description;
+            $blogdatanew->blogpost = $req->blogpost;
+            $blogdatanew->vurl = $req->vurl;
+
+            if ($req->hasFile('blogimg')) {
+                $req->validate([
+                    'blogimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $file = $req->file('blogimg');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/backend-assets/images'), $filename);
+                $blogdatanew['blogimg'] = $filename;
+            }
+            $blogdatanew->save();
+
+            return back()->with('success', 'Blog Updated successfully.');
+
+        } catch (Exception $e) {
+            return back()->with('error', 'Failed to update profile. ' . $e->getMessage());
+        }
+    }
+
+    public function updateblogstatus(Request $request)
+    {
+        $blog = Blog::find($request->id);
+        if ($blog) {
+            $blog->status = $request->status;
+            $blog->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
     }
 }

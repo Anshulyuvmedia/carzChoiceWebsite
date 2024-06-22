@@ -62,6 +62,9 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('companyprofile', 'companyprofile')->name('companyprofile');
     Route::get('master', 'master')->name('master');
     Route::get('submaster', 'submaster')->name('submaster');
+    Route::get('addblog', 'addblog')->name('addblog');
+    Route::get('bloglist', 'bloglist')->name('bloglist');
+    Route::get('editblog/{id}', 'editblog')->name('editblog');
 });
 
 
@@ -72,5 +75,11 @@ Route::controller(Store::class)->group(function() {
     Route::get('deletemaster/{id}', 'deletemaster')->name('deletemaster');
     Route::post('storesubmaster', 'storesubmaster')->name('storesubmaster');
     Route::get('getsubmasterajax/{selectedCat}', 'getsubmasterajax')->name('getsubmasterajax');
+    Route::post('insertblog', 'insertblog')->name('insertblog');
+    Route::get('deleteblog/{id}', 'deleteblog')->name('deleteblog');
+    Route::post('updateblog', 'updateblog')->name('updateblog');
+    Route::post('/updateblogstatus', 'updateblogstatus')->name('updateblogstatus');
+
+
 });
 
