@@ -98,7 +98,6 @@ class Store extends Controller
                 ]);
                 $file = $req->file('iconimage');
                 $filename = time() . '_' . $file->getClientOriginalName();
-                // $filepath = 'assets/backend-assets/images/' . $filename;
                 $file->move(public_path('assets/backend-assets/images'), $filename);
                 $submasterdata['iconimage'] = $filename;
             }

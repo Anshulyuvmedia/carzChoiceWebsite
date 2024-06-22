@@ -1,3 +1,4 @@
+
 {{--“सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।”--}}
 @extends('layouts.admin')
 @section('main-section')
@@ -25,7 +26,8 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{route('updatecompanyprofile',['id'=>'1'])}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('updatecompanyprofile',['id'=>'1'])}}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3 row">
                                 <label for="example-text-input" class="col-md-2 col-form-label">Company Name</label>
@@ -61,7 +63,8 @@
                                     class="col-md-2 col-form-label">City/State/Province</label>
                                 <div class="col-md-10">
                                     <input class="form-control" placeholder="city/state/province"
-                                        name="citystateprovince" value="{{$data->citystateprovince}}" type="text" value="" id="example-email-input">
+                                        name="citystateprovince" value="{{$data->citystateprovince}}" type="text"
+                                        value="" id="example-email-input">
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -124,9 +127,9 @@
                 <div class="card">
                     <div class="card-body">
                         @if($data->companylogo)
-                            <img src="{{ asset('storage/' . $data->companylogo) }}" class="img-fluid" alt="">
+                        <img src="{{ asset('storage/' . $data->companylogo) }}" class="img-fluid" alt="">
                         @else
-                            <img src="{{ asset('storage/logos' . '/defaultuser.png') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('storage/logos' . '/defaultuser.png') }}" class="img-fluid" alt="">
                         @endif
                     </div>
                 </div>
