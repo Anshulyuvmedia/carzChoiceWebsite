@@ -158,8 +158,7 @@
                                 <ul class="menu-logo">
                                     <li>
                                         <a href="/" class="">
-                                            {{-- <img src="{{ asset('assets/frontend-assets/images/logo.png') }}" alt="logo"> --}}
-                                             CAR CHOICE
+                                            <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo" width="120">
                                             </a>
                                     </li>
                                 </ul>
@@ -582,8 +581,8 @@
                         <!-- Info Widget -->
                         <div class="widget">
                             <div class="logo">
-                                {{-- <img alt="" src="{{ asset('assets/frontend-assets/images/logo.png') }}"> --}}
-                                Car Choice
+                                <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo" width="120">
+
                              </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et dolor eget erat
                                 fringilla port.</p>

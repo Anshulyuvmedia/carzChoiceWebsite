@@ -3322,7 +3322,7 @@ div.boxicon:last-child {
 
 .recent-ads .recent-ads-list-image {
     display: table-cell;
-    width: 96px;
+    width: 65px;
 }
 
 .recent-ads .recent-ads-list-image img {
@@ -3333,12 +3333,12 @@ div.boxicon:last-child {
 }
 
 .recent-ads .recent-ads-list-image-inner {
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: white;
     display: block;
     height: 60px;
     margin: 0 16px 0 0;
     position: relative;
-    width: 100px;
+    width: 50px;
 }
 
 .recent-ads .recent-ads-list-content {
