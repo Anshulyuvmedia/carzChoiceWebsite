@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2024 at 12:23 PM
+-- Generation Time: Jun 24, 2024 at 02:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,8 +45,8 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `categorytype`, `blogtitle`, `description`, `blogpost`, `vurl`, `blogimg`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'Car News', 'CAR OF THE YEAR', 'fdsgdf', '<p>gffdsgfd</p>', 'https://www.youtube.com/watch?v=spGSAeqxVUc', '1719047765_logo.png', '0', '2024-06-22 03:17:33', '2024-06-22 04:31:27'),
-(4, 'Videos', 'THIS IS My BLOG', 'THIS IS My BLOG', '<p>THIS IS My BLOG</p>', 'https://www.youtube.com/watch?v=__2bjWbetsA', '1719048634_logo.png', '0', '2024-06-22 03:47:08', '2024-06-22 04:33:28');
+(3, 'Car News', 'CAR OF THE YEAR', 'fdsgdf', '<p>gffdsgfd</p>', 'https://www.youtube.com/watch?v=spGSAeqxVUc', '1719047765_logo.png', '0', '2024-06-22 03:17:33', '2024-06-22 06:59:24'),
+(4, 'Videos', 'THIS IS HOSPITAL BLOG', 'THIS IS HOSPITAL BLOG', '<p>THIS IS HOSPITAL BLOG</p>', 'https://www.youtube.com/watch?v=__2bjWbetsA', '1719048634_logo.png', '0', '2024-06-22 03:47:08', '2024-06-24 05:03:25');
 
 -- --------------------------------------------------------
 
@@ -65,8 +65,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('d3160cf376dcbf1f85bde27048f7d2e8', 'i:2;', 1719033129),
-('d3160cf376dcbf1f85bde27048f7d2e8:timer', 'i:1719033129;', 1719033129);
+('d3160cf376dcbf1f85bde27048f7d2e8', 'i:1;', 1719226690),
+('d3160cf376dcbf1f85bde27048f7d2e8:timer', 'i:1719226690;', 1719226690);
 
 -- --------------------------------------------------------
 
@@ -130,6 +130,31 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `form_attributes`
+--
+
+CREATE TABLE `form_attributes` (
+  `id` int(11) NOT NULL,
+  `cartype` varchar(255) DEFAULT NULL,
+  `formlabels` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  `inputtype` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `form_attributes`
+--
+
+INSERT INTO `form_attributes` (`id`, `cartype`, `formlabels`, `value`, `inputtype`, `created_at`, `updated_at`) VALUES
+(5, 'Old Car', 'Engine & Transmission', 'Max Speed', 'text', '2024-06-24 01:01:41', '2024-06-24 04:59:42'),
+(8, 'Old Car', 'Engine & Transmission', 'Max Power (bhp@rpm)', 'text', '2024-06-24 05:00:35', '2024-06-24 05:00:35'),
+(9, 'Old Car', 'Capacity', 'Doors', 'text', '2024-06-24 05:04:35', '2024-06-24 05:04:35');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jobs`
 --
 
@@ -183,16 +208,18 @@ CREATE TABLE `masters` (
 --
 
 INSERT INTO `masters` (`id`, `label`, `value`, `type`, `iconimage`, `created_at`, `updated_at`) VALUES
-(3, 'Trucks', 'Trucks', 'Master', '', '2024-06-21 02:24:53', '2024-06-21 02:24:53'),
-(4, 'Mopeds', 'Mopeds', 'Master', '', '2024-06-21 02:32:45', '2024-06-21 02:32:45'),
-(6, 'Cars', 'Cars', 'Master', '', '2024-06-21 03:41:11', '2024-06-21 03:41:11'),
-(7, 'Bikes', 'Bikes', 'Master', '', '2024-06-21 03:41:18', '2024-06-21 03:41:18'),
 (24, 'E-Commerce', 'E-Commerce', 'Mopeds', '1718969247_logo.png', '2024-06-21 05:57:27', '2024-06-21 11:29:39'),
 (25, 'demo', 'demo', 'Mopeds', '1718969332_wp6537938-lord-shiva-desktop-4k-wallpapers.jpg', '2024-06-21 05:58:52', '2024-06-21 05:58:52'),
 (26, 'TATA', 'TATA', 'Trucks', '1718969720_logo.png', '2024-06-21 06:05:20', '2024-06-21 06:05:20'),
 (27, 'Blog', 'Blog', 'Master', NULL, '2024-06-22 00:15:46', '2024-06-22 00:15:46'),
 (29, 'Car News', 'Car News', 'Blog', NULL, '2024-06-22 00:17:00', '2024-06-22 00:17:00'),
-(30, 'Videos', 'Videos', 'Blog', NULL, '2024-06-22 00:17:09', '2024-06-22 00:17:09');
+(30, 'Videos', 'Videos', 'Blog', NULL, '2024-06-22 00:17:09', '2024-06-22 00:17:09'),
+(34, 'Old Car', 'Old Car', 'Master', NULL, '2024-06-23 23:45:28', '2024-06-23 23:45:28'),
+(35, 'New Car', 'New Car', 'Master', NULL, '2024-06-23 23:45:36', '2024-06-23 23:45:36'),
+(36, 'Engine & Transmission', 'Engine & Transmission', 'Old Car', NULL, '2024-06-23 23:47:19', '2024-06-23 23:47:19'),
+(37, 'Dimensions & Weight', 'Dimensions & Weight', 'Old Car', NULL, '2024-06-23 23:50:00', '2024-06-23 23:50:00'),
+(38, 'Capacity', 'Capacity', 'Old Car', NULL, '2024-06-23 23:50:10', '2024-06-23 23:50:10'),
+(39, 'Suspensions, Brakes, Steering & Tyres', 'Suspensions, Brakes, Steering & Tyres', 'Old Car', NULL, '2024-06-23 23:50:21', '2024-06-23 23:50:21');
 
 -- --------------------------------------------------------
 
@@ -268,7 +295,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('dV2RdrvbiubCpjcoTKtKKUDpWAfdvf36nQ1Xzkq5', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiakFaUjhEOXVIemNERlpkekJlUWoxS1VyNGVNNjV3eWw0OHZxSFdzRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ibG9nbGlzdCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTIkYnlWYTdWdnJzSE9UY3FwYUVjak1uT1dXTzJadlR2ek9WQkJTS05BQnFTMGR3VVBVcWdXYTYiO30=', 1719051612);
+('Y6jkwRx1yowp5NsK9WpSEOpPWOuom6fkRDHl28wn', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czoyNzoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2xvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo2OiJfdG9rZW4iO3M6NDA6ImYzb1J2c2dCRVZMYTM4bUZBTHJXZUpjSnhVemxUdG5GcjEyQVhhZ0siO3M6MzoidXJsIjthOjE6e3M6ODoiaW50ZW5kZWQiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO319', 1719226642);
 
 -- --------------------------------------------------------
 
@@ -333,6 +360,12 @@ ALTER TABLE `company_profiles`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `form_attributes`
+--
+ALTER TABLE `form_attributes`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `jobs`
@@ -411,6 +444,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `form_attributes`
+--
+ALTER TABLE `form_attributes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -420,7 +459,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `masters`
 --
 ALTER TABLE `masters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `migrations`

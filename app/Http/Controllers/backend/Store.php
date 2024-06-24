@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\CompanyProfile;
+use App\Models\FormAttribute;
 use App\Models\Master;
 use App\Models\SubMaster;
 use Illuminate\Http\Request;
@@ -205,5 +206,61 @@ class Store extends Controller
             return response()->json(['success' => true]);
         }
         return response()->json(['success' => false], 404);
+    }
+
+    public function filteroldcar($selectedtype)
+    {
+        $master = Master::where('type', $selectedtype)->get();
+        return response()->json(['master' => $master]);
+    }
+
+    public function insertformattributes(Request $rq){
+        try {
+            $data = $rq->validate([
+                'cartype' => 'required',
+                'formlabels' => 'required',
+                'value' => 'required',
+                'inputtype' => 'required',
+            ]);
+
+            FormAttribute::create([
+                'cartype' => $rq->cartype,
+                'formlabels' => $rq->formlabels,
+                'value' => $rq->value,
+                'inputtype' => $rq->inputtype,
+            ]);
+            Log::info('Form Attributes Inserted Successfully: ', ['user' => $data]);
+            return back()->with('success', 'Attributes Added..!!!!');
+
+        } catch (Exception $e) {
+            //return redirect()->route('formattributes')->with('error', $e->getMessage());
+            return redirect()->route('formattributes')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deleteattribute($id){
+        $data = FormAttribute::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function getattributesajax($selectedcartype, $selectedformlabel){
+        Log::info("Selected Car Type: $selectedcartype, Selected Form Label: $selectedformlabel");
+        $data = FormAttribute::whereRaw('cartype = ? AND formlabels = ?', [$selectedcartype, $selectedformlabel])->get();
+        return response()->json(['data' => $data]);
+    }
+
+    public function updateattributes(Request $request){
+        try {
+            $attributes  = FormAttribute::where('id', $request->attributeid)->update([
+                'value' => $request->value,
+                'inputtype' => $request->inputtype,
+            ]);
+            Log::info('Attributes Updated Successfully: ', ['attributes' => $attributes]);
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+             return back()->with('error', $e->getMessage());
+            //return back()->with('error', 'Not Updated..Try Again.....');
+        }
     }
 }

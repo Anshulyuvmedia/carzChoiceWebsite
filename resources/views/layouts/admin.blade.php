@@ -8,7 +8,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/backend-assets/images/car.png') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/backend-assets/images/logowhite.jpg') }}">
 
     <!-- Bootstrap Css -->
     <link href="{{ asset('assets/backend-assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
@@ -30,6 +30,7 @@
         href="{{ asset('assets/backend-assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
         rel="stylesheet" type="text/css" />
     @stack('styles')
+
 </head>
 
 <body>
@@ -37,8 +38,6 @@
 
     <!-- Begin page -->
     <div id="layout-wrapper">
-
-
         <header id="page-topbar">
             <div class="navbar-header">
                 <div class="d-flex">
@@ -162,25 +161,25 @@
 
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo logo-dark">
+                <a href="{{ route('Admindashboard') }}" class="logo logo-dark">
                     <span class="logo-sm">
                         {{-- <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="22"> --}}
                         <h1 class="text-black fw-bold mt-4 me-2">C</h1>
                     </span>
                     <span class="logo-lg">
-                        {{-- <img src="{{asset('assets/images/logo-dark.png')}}" alt="" height="20"> --}}
-                        <h1 class="text-black fw-bold fs-2 mt-4 me-2">Car Choice</h1>
+                        <img src="{{asset('assets/backend-assets/images/logowhite.jpg')}}" alt="" height="80">
+                        {{-- <h1 class="text-black fw-bold fs-2 mt-4 me-2">Car Choice</h1> --}}
                     </span>
                 </a>
 
-                <a href="index.html" class="logo logo-light">
+                <a href="{{ route('Admindashboard') }}" class="logo logo-light">
                     <span class="logo-sm">
                         {{-- <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="22"> --}}
                         <h1 class="text-black fw-bold mt-4 me-2">C</h1>
                     </span>
                     <span class="logo-lg">
-                        {{-- <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="20"> --}}
-                        <h1 class="text-black fw-bold fs-2 mt-4 me-2">Car Choice</h1>
+                        <img src="{{asset('assets/backend-assets/images/logowhite.jpg')}}" alt="" height="80">
+                        {{-- //<h1 class="text-black fw-bold fs-2 mt-4 me-2">Car Choice</h1> --}}
                     </span>
                 </a>
             </div>
@@ -235,6 +234,7 @@
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('master') }}">Master</a></li>
                                 <li><a href="{{ route('submaster') }}">Sub-Master</a></li>
+                                <li><a href="{{ route('formattributes')}}">Add Form Attributes</a></li>
                             </ul>
                         </li>
 
@@ -250,9 +250,6 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
             <script src="{{ asset('assets/backend-assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
-            <script>
-                console.log("CKEditor script loaded:", typeof ClassicEditor);
-            </script>
 
             <!-- Custom Initialization Script -->
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>

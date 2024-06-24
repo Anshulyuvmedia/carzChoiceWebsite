@@ -65,6 +65,7 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('addblog', 'addblog')->name('addblog');
     Route::get('bloglist', 'bloglist')->name('bloglist');
     Route::get('editblog/{id}', 'editblog')->name('editblog');
+    Route::get('formattributes', 'formattributes')->name('formattributes');
 });
 
 
@@ -79,7 +80,10 @@ Route::controller(Store::class)->group(function() {
     Route::get('deleteblog/{id}', 'deleteblog')->name('deleteblog');
     Route::post('updateblog', 'updateblog')->name('updateblog');
     Route::post('/updateblogstatus', 'updateblogstatus')->name('updateblogstatus');
-
-
+    Route::get('/filteroldcar/{selectedtype}', 'filteroldcar')->name('filteroldcar');
+    Route::post('/insertformattributes', 'insertformattributes')->name('insertformattributes');
+    Route::get('/deleteattribute/{id}', 'deleteattribute')->name('deleteattribute');
+    Route::get('/getattributesajax/{selectedSubCat}/{selectedAnother}', 'getattributesajax')->name('getattributesajax');
+    Route::post('/updateattributes', 'updateattributes')->name('updateattributes');
 });
 

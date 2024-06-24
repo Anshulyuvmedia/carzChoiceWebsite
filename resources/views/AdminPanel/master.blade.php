@@ -29,12 +29,12 @@
                                 <div class="col-lg-4">
                                     <label for="example-text-input" class="">Label</label>
                                     <input class="form-control" placeholder="enter label" name="label" type="text"
-                                        value="" id="example-text-input">
+                                        value="" id="example-text-input" required>
                                 </div>
                                 <div class="col-lg-4">
                                     <label for="example-search-input" class="">Value</label>
                                     <input class="form-control" placeholder="enter value" name="value" type="text"
-                                        value="" id="example-search-input">
+                                        value="" id="example-search-input" required>
                                 </div>
                                 <div class="col-lg-4 d-flex align-items-end">
                                     <button type="submit" class="btn btn-success waves-effect waves-light">Add</button>
@@ -68,7 +68,7 @@
                                     <td>{{$row->value}}</td>
                                     <td>{{$row->type}}</td>
                                     <td>
-                                        <button  type="button" class="btn btn-danger waves-effect waves-light btn-sm"
+                                        <button type="button" class="btn btn-danger waves-effect waves-light btn-sm"
                                             onclick="confirmDelete('{{ $row->id }}')">
                                             <i class="uil-trash-alt"></i>
                                         </button>

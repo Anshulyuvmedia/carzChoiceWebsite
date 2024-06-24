@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\CompanyProfile;
+use App\Models\FormAttribute;
 use App\Models\Master;
 use Illuminate\Http\Request;
 use Auth;
@@ -43,5 +44,11 @@ class AdminView extends Controller
         $masterdata = Master::where('type', '=', 'Blog')->get();
         // dd($blogdata);
         return view('AdminPanel.editblog',compact('blogdata','masterdata'));
+    }
+
+    public function formattributes(){
+        $masterdata = Master::where('type', '=', 'Form Type')->get();
+        $attributesdata = FormAttribute::get();
+        return view('AdminPanel.formattributes',compact('masterdata','attributesdata'));
     }
 }

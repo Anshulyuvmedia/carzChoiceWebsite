@@ -28,7 +28,7 @@
                             <div class="mb-3 row">
                                 <div class="col-lg-3">
                                     <label class="">Select Master Category</label>
-                                    <select name="type" class="form-select" id="subcategory">
+                                    <select name="type" class="form-select" id="subcategory" required>
                                         <option value="">--select master category--</option>
                                         @foreach ($submasterdata as $row)
                                             <option value="{{ $row->label }}">{{ $row->label }}</option>
@@ -38,12 +38,12 @@
                                 <div class="col-lg-3">
                                     <label for="example-search-input" class="">Label</label>
                                     <input class="form-control" placeholder="enter value" name="label" type="text"
-                                        value="" id="labelval" onchange="labelValue()">
+                                        value="" id="labelval" onchange="labelValue()" required>
                                 </div>
                                 <div class="col-lg-3 d-none">
                                     <label for="example-search-input" class="">Value</label>
                                     <input class="form-control" placeholder="enter value" name="value" type="text"
-                                        value="" id="valueval">
+                                        value="" id="valueval" required>
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="example-search-input" class="">Icon Image</label>
