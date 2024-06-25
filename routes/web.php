@@ -34,6 +34,9 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('upcoming-car', 'upcomingcar');
     Route::get('new-car-launches', 'newcarlaunches');
     Route::get('electric-car', 'electriccar');
+    Route::get('used-car', 'usedcar');
+    Route::get('usedcar-bylocation', 'usedcarbylocation');
+    Route::get('car-loan', 'carloan');
 
     //when user logged in
     Route::get('userprofile', 'userprofile');

@@ -29,8 +29,6 @@
     </section>
     <!-- =-=-=-=-=-=-= Featured Ads End =-=-=-=-=-=-= -->
 
-
-
     <!-- =-=-=-=-=-=-= Electric Cars Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
         <!-- Main Container -->

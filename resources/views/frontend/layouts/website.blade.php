@@ -96,20 +96,7 @@
                         <div class="header-top-left col-md-6 col-sm-6 col-xs-12 hidden-xs">
                             <ul class="listnone">
                                 <li><a href="/about"><i class="fa fa-heart-o" aria-hidden="true"></i> About</a></li>
-                                {{-- <li><a href="faqs.html"><i class="fa fa-folder-open-o" aria-hidden="true"></i> FAQS</a> --}}
-                                </li>
-                                {{-- <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                        aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"
-                                            aria-hidden="true"></i> Language <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">Swedish</a></li>
-                                        <li><a href="#">Arabic</a></li>
-                                        <li><a href="#">Russian</a></li>
-                                        <li><a href="#">chinese</a></li>
-                                    </ul>
-                                </li> --}}
+                                
                             </ul>
                         </div>
                         <!-- Header Top Right Social -->
@@ -170,8 +157,9 @@
                                     </li>
                                     
                                     <li>
-                                        <a href="javascript:void(0)">New Cars <i
-                                                class="fa fa-angle-down fa-indicator"></i></a>
+                                        <a href="javascript:void(0)">New Cars 
+                                            <i class="fa fa-angle-down fa-indicator"></i>
+                                        </a>
                                         <div class="drop-down grid-col-12">
                                             <!--grid row-->
                                             <div class="grid-row">
@@ -183,8 +171,10 @@
                                                         <li><a href="/upcoming-car">Upcoming Cars</a></li>
                                                         <li><a href="/new-car-launches">New Launches </a></li>
                                                         <li><a href="/electric-car">Electric Cars </a></li>
+                                                        <li><a href="/car-loan">Car Loan </a></li>
                                                     </ul>
                                                 </div>
+
                                                 <div class="grid-col-6">
                                                     <h3>Brands</h3>
                                                     <ul class="by-make list-inline">
@@ -250,6 +240,7 @@
                                                         </li>
                                                     </ul>
                                                 </div>
+
                                                 <div class="grid-col-4">
                                                     <h3>Body Type</h3>
                                                     <ul class="list-inline by-category ">
@@ -312,10 +303,10 @@
                                                 <div class="grid-col-2">
                                                     <h3>Condition</h3>
                                                     <ul>
-                                                        <li><a href="/newcars">Explore Used Cars</a></li>
-                                                        <li><a href="/upcomingcar">Upcoming Cars</a></li>
-                                                        <li><a href="/new-car-launches">New Launches </a></li>
-                                                        <li><a href="/electric-car">Electric Cars </a></li>
+                                                        <li><a href="/used-car">Explore Used Cars</a></li>
+                                                        <li><a href="/usedcar-bylocation">Usedcar bylocation</a></li>
+                                                        {{-- <li><a href="/new-car-launches">New Launches </a></li> --}}
+                                                        {{-- <li><a href="/electric-car">Electric Cars </a></li>  --}}
                                                     </ul>
                                                 </div>
                                                 <div class="grid-col-6">

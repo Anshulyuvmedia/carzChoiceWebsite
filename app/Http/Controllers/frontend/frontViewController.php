@@ -71,16 +71,25 @@ class frontViewController extends Controller
         return view('frontend.services');
     }
     public function newcars() {
-        return view('frontend.newcars');
+        return view('frontend.newcarslayouts.newcars');
     }
     public function upcomingcar() {
-        return view('frontend.upcomingcar');
+        return view('frontend.newcarslayouts.upcomingcar');
     }
     public function newcarlaunches() {
-        return view('frontend.newcarlaunches');
+        return view('frontend.newcarslayouts.newcarlaunches');
     }
     public function electriccar() {
-        return view('frontend.electriccar');
+        return view('frontend.newcarslayouts.electriccar');
+    }
+    public function usedcar() {
+        return view('frontend.usedcarslayouts.usedcar');
+    }
+    public function usedcarbylocation() {
+        return view('frontend.usedcarslayouts.usedcarbylocation');
+    }
+    public function carloan() {
+        return view('frontend.newcarslayouts.carloan');
     }
 
 }
