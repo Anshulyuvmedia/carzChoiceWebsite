@@ -10483,3 +10483,41 @@ footer.footer-bg {
     font-size: 1.6rem !important;
     line-height: 24px;
   }
+
+  svg:not(:root) {
+    overflow: hidden;
+  }
+  .o-euTeMg {
+    outline: none;
+  }
+  .o-cpNAVm {
+    color: #484848;
+  }
+  @media screen and (min-width: 800px) {
+    .o-fsBtSY {
+      height: 24px;
+    }
+  }
+  .o-emJYLF {
+    height: 16px;
+  }
+  @media screen and (min-width: 800px) {
+    .o-cybDoH {
+      width: 24px;
+    }
+  }
+  .o-bUlUGg {
+    width: 16px;
+  }
+  .o-cqgkZn {
+    -webkit-flex-basis: auto;
+    flex-basis: auto;
+  }
+  .o-eoatGj {
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+  }
+  .o-dlrcWp {
+    -webkit-flex-grow: 0;
+    flex-grow: 0;
+  }
