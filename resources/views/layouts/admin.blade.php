@@ -34,8 +34,6 @@
 </head>
 
 <body>
-
-
     <!-- Begin page -->
     <div id="layout-wrapper">
         <header id="page-topbar">
@@ -77,7 +75,6 @@
                 </div>
 
                 <div class="d-flex">
-
                     <div class="dropdown d-inline-block d-lg-none ms-2">
                         <button type="button" class="btn header-item noti-icon waves-effect"
                             id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -158,7 +155,6 @@
         </header>
         <!-- ========== Left Sidebar Start ========== -->
         <div class="vertical-menu">
-
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <a href="{{ route('Admindashboard') }}" class="logo logo-dark">
@@ -238,6 +234,12 @@
                             </ul>
                         </li>
 
+                        <li>
+                            <a href="{{ route('leadmanagement') }}">
+                                <i class="uil-user-check"></i>
+                                <span>Lead Management</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- Sidebar -->
@@ -250,6 +252,7 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
             <script src="{{ asset('assets/backend-assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
+            <script src="{{asset('assets/backend-assets/libs/flatpickr/flatpickr.min.js')}}">
 
             <!-- Custom Initialization Script -->
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
@@ -265,7 +268,7 @@
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
                                 Design & Developed by <i class="mdi mdi-heart text-danger"></i> by <a
-                                    href="https://themesbrand.com/" target="_blank" class="text-reset">YUVMEDIA</a>
+                                    href="https://yuvmedia.in/" target="_blank" class="text-reset">YUVMEDIA</a>
                             </div>
                         </div>
                     </div>
@@ -277,7 +280,8 @@
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
 
-    <!-- JAVASCRIPT -->
+
+    <!-- JAVASCRIPTS -->
     <script src="{{ asset('assets/backend-assets/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/metismenu/metisMenu.min.js') }}"></script>
@@ -288,15 +292,10 @@
     <script src="{{ asset('assets/backend-assets/libs/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/js/pages/dashboard.init.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/js/app.js') }}"></script>
-
-    <!-- Required datatable js -->
     <script src="{{ asset('assets/backend-assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <!-- Buttons examples -->
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}">
-    </script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}">
-    </script>
+    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/jszip/jszip.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
@@ -306,6 +305,12 @@
     --}}
     <script src="{{ asset('assets/backend-assets/js/pages/datatables.init.js') }}"></script>
     <script src="{{asset('assets/js/pages/form-advanced.init.js')}}"></script>
+
+
+    <script src="{{asset('assets/backend-assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{asset('assets/backend-assets/libs/%40chenfengyuan/datepicker/datepicker.min.js')}}"></script>
+    <script src="{{asset('assets/backend-assets/libs/select2/js/select2.min.js')}}"></script>
+    <script src="{{asset('assets/backend-assets/js/pages/form-advanced.init.js')}}"></script>
 </body>
 
 </html>

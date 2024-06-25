@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\CompanyProfile;
 use App\Models\FormAttribute;
+use App\Models\Lead;
 use App\Models\Master;
 use Illuminate\Http\Request;
 use Auth;
@@ -50,5 +51,10 @@ class AdminView extends Controller
         $masterdata = Master::where('type', '=', 'Form Type')->get();
         $attributesdata = FormAttribute::get();
         return view('AdminPanel.formattributes',compact('masterdata','attributesdata'));
+    }
+
+    public function leadmanagement(){
+        $leaddata = Lead::orderby('created_at','desc')->get();
+        return view('AdminPanel.leadmanagement',compact('leaddata'));
     }
 }

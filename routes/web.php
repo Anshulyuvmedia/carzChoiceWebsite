@@ -66,6 +66,7 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('bloglist', 'bloglist')->name('bloglist');
     Route::get('editblog/{id}', 'editblog')->name('editblog');
     Route::get('formattributes', 'formattributes')->name('formattributes');
+    Route::get('leadmanagement', 'leadmanagement')->name('leadmanagement');
 });
 
 
@@ -85,5 +86,12 @@ Route::controller(Store::class)->group(function() {
     Route::get('/deleteattribute/{id}', 'deleteattribute')->name('deleteattribute');
     Route::get('/getattributesajax/{selectedSubCat}/{selectedAnother}', 'getattributesajax')->name('getattributesajax');
     Route::post('/updateattributes', 'updateattributes')->name('updateattributes');
+    Route::post('/insertlead', 'insertlead')->name('insertlead');
+    Route::get('deletelead/{id}', 'deletelead')->name('deletelead');
+    Route::post('/updatelead', 'updatelead')->name('updatelead');
+    Route::post('/insertremarks', 'insertremarks')->name('insertremarks');
+    Route::get('/getremarks/{id}', 'getremarks')->name('getremarks');
+    Route::post('/updateleadstatus', 'updateleadstatus')->name('updateleadstatus');
+    Route::post('/datefilterleads', 'datefilterleads')->name('datefilterleads');
 });
 

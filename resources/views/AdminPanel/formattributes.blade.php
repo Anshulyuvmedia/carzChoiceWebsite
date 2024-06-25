@@ -1,3 +1,4 @@
+
 {{-- “सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।” --}}
 @extends('layouts.admin')
 @section('main-section')
@@ -14,7 +15,6 @@
                             <li class="breadcrumb-item active">@yield('title')</li>
                         </ol>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body table-responsive">
-                        <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
+                        <table id="datatable-buttons" class="table  table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>

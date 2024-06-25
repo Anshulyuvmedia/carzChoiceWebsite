@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\CompanyProfile;
 use App\Models\FormAttribute;
+use App\Models\Lead;
 use App\Models\Master;
+use App\Models\Remark;
 use App\Models\SubMaster;
 use Illuminate\Http\Request;
 use Exception;
@@ -163,7 +165,8 @@ class Store extends Controller
         return back()->with('success', "Deleted....!!!");
     }
 
-    public function updateblog(Request $req){
+    public function updateblog(Request $req)
+    {
 
         try {
             $blogdata = $req->validate([
@@ -173,7 +176,7 @@ class Store extends Controller
             ]);
 
             $blogdatanew = Blog::findOrFail($req->blogid);
-            $blogdatanew->categorytype =  $req->categorytype;
+            $blogdatanew->categorytype = $req->categorytype;
             $blogdatanew->blogtitle = $req->blogtitle;
             $blogdatanew->description = $req->description;
             $blogdatanew->blogpost = $req->blogpost;
@@ -214,7 +217,8 @@ class Store extends Controller
         return response()->json(['master' => $master]);
     }
 
-    public function insertformattributes(Request $rq){
+    public function insertformattributes(Request $rq)
+    {
         try {
             $data = $rq->validate([
                 'cartype' => 'required',
@@ -238,29 +242,143 @@ class Store extends Controller
         }
     }
 
-    public function deleteattribute($id){
+    public function deleteattribute($id)
+    {
         $data = FormAttribute::find($id);
         $data->delete();
         return back()->with('success', "Deleted....!!!");
     }
 
-    public function getattributesajax($selectedcartype, $selectedformlabel){
+    public function getattributesajax($selectedcartype, $selectedformlabel)
+    {
         Log::info("Selected Car Type: $selectedcartype, Selected Form Label: $selectedformlabel");
         $data = FormAttribute::whereRaw('cartype = ? AND formlabels = ?', [$selectedcartype, $selectedformlabel])->get();
         return response()->json(['data' => $data]);
     }
 
-    public function updateattributes(Request $request){
+    public function updateattributes(Request $request)
+    {
         try {
-            $attributes  = FormAttribute::where('id', $request->attributeid)->update([
+            $attributes = FormAttribute::where('id', $request->attributeid)->update([
                 'value' => $request->value,
                 'inputtype' => $request->inputtype,
             ]);
             Log::info('Attributes Updated Successfully: ', ['attributes' => $attributes]);
             return back()->with('success', "Updated..!!!");
         } catch (Exception $e) {
-             return back()->with('error', $e->getMessage());
+            return back()->with('error', $e->getMessage());
             //return back()->with('error', 'Not Updated..Try Again.....');
         }
+    }
+
+    public function insertlead(Request $request)
+    {
+        try {
+            $data = $request->validate([
+                'fullname' => 'required',
+                'mobile' => 'required',
+                'email' => 'required|email',
+                'city' => 'required',
+                'state' => 'required',
+                'vehicle' => 'required',
+            ]);
+            $nonRequiredFields = [
+                'remarks' => $request->input('remarks'),
+            ];
+            $input = array_merge($data, $nonRequiredFields); //merging two arrays
+            $leads = Lead::create($input);
+            Log::info('Lead Inserted Successfully: ', ['lead' => $leads]);
+            return back()->with('success', 'Lead Added..!!!!');
+
+        } catch (Exception $e) {
+            return redirect()->route('leadmanagement')->with('error', $e->getMessage());
+            //return redirect()->route('leadmanagement')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deletelead($id)
+    {
+        $data = Lead::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function updatelead(Request $request)
+    {
+        try {
+            $leads = Lead::where('id', $request->leadid)->update([
+                'fullname' => $request->fullname,
+                'mobile' => $request->mobile,
+                'email' => $request->email,
+                'city' => $request->city,
+                'state' => $request->state,
+                'vehicle' => $request->vehicle,
+                'remarks' => $request->remarks,
+            ]);
+            Log::info('Lead Updated Successfully: ', ['attributes' => $leads]);
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            //return back()->with('error', $e->getMessage());
+            return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
+
+    public function insertremarks(Request $request)
+    {
+        try {
+            $data = $request->validate([
+                'remarktext' => 'required',
+            ]);
+
+            Remark::create([
+                'leadid' => $request->input('leadid'),
+                'remarktext' => $request->input('remarktext'),
+            ]);
+            Log::info('Remark Inserted Successfully: ', ['user' => $data]);
+
+            $jsondata = Remark::where('leadid', $request->leadid)->get();
+            // dd($jsondata);
+            return response()->json($jsondata);
+
+        } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+            //return back()->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function getremarks($id)
+    {
+        $jsondata = Remark::where('leadid', $id)->get();
+        // dd($jsondata);
+        return response()->json($jsondata);
+    }
+
+    public function updateleadstatus(Request $req)
+    {
+        $leadstatus = Lead::find($req->record_id);
+        if ($leadstatus) {
+            $leadstatus->leadstatus = $req->status;
+            $leadstatus->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
+
+    public function datefilterleads(Request $req)
+    {
+
+        $datefrom = $req->input('datefrom');
+        $dateto = $req->input('dateto');
+        try {
+            $datefrom = \DateTime::createFromFormat('d M, Y', $datefrom)->format('Y-m-d');
+            $dateto = \DateTime::createFromFormat('d M, Y', $dateto)->format('Y-m-d');
+        } catch (Exception $e) {
+            return response()->json(['error' => 'Invalid date format. Please ensure dates are in "d M, Y" format.'], 400);
+        }
+        $leaddata = Lead::whereDate('created_at', '>=', $datefrom)
+            ->whereDate('created_at', '<=', $dateto)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return response()->json($leaddata);
     }
 }
