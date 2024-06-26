@@ -4932,7 +4932,7 @@ label {
 
 .accordion > li {
     border-bottom: 1px solid #f3f3f3;
-    padding: 18px 0;
+    padding: 10px 0;
 }
 
 .gray .accordion > li {
@@ -10674,3 +10674,42 @@ textarea {
 .table-responsive {
     overflow-x: auto;
 }
+
+.header-bg {
+    animation: bL2bso 120s linear infinite;
+    background-image: url("https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/skyline-bg.svg");
+    height: 51px;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.3;
+}
+
+.modal-header {
+    width: 100%;
+    background-color: #efefef;
+    color: #333;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    position: relative;
+    /* min-height: 86px; */
+}
+
+@keyframes bL2bso {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 4096px 0;
+    }
+}
+
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - var(--bs-modal-margin) * -50);
+  } 

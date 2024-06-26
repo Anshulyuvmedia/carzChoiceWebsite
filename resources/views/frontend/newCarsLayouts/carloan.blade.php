@@ -186,18 +186,14 @@
                                 <div class="col-md-6 gray rounded-3  ">
                                     <div class=" postdetails p-0 ">
                                         <form class="submit-form">
-                                            <!-- Title  -->
+
                                             <div class="row">
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                                                     <label class="control-label">Car </label>
-                                                    <select class=" form-control Car">
-                                                        <option label="Any Car">Select a Car</option>
-                                                        <option>BMW</option>
-                                                        <option>Honda </option>
-                                                        <option>Hyundai </option>
-                                                        <option>Nissan </option>
-                                                        <option>Mercedes Benz </option>
-                                                    </select>
+                                                    <input placeholder="Select A Car >" type="text"
+                                                        class=" form-control Car" data-bs-target="#selectBrand"
+                                                        data-bs-toggle="modal" type="button">
+                                                    </input>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -237,7 +233,9 @@
                                             </button>
                                             <div class="mb-3">
                                                 <i class="text-muted  fs-5">
-                                                    By proceeding ahead you agree to CarChoice Visitor Agreement, Privacy Policy and Terms and Conditions. This site is protected by reCAPTCHA and Google Terms of Service apply
+                                                    By proceeding ahead you agree to CarChoice Visitor Agreement,
+                                                    Privacy Policy and Terms and Conditions. This site is protected by
+                                                    reCAPTCHA and Google Terms of Service apply
                                                 </i>
                                             </div>
                                         </form>
@@ -328,7 +326,7 @@
                                 <div class="col-md-6 gray rounded-3  ">
                                     <div class=" postdetails p-0 ">
                                         <form class="submit-form">
-                                            
+
                                             <div class="row">
 
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
@@ -366,7 +364,9 @@
                                             </button>
                                             <div class="mb-3">
                                                 <i class="text-muted  fs-5">
-                                                    By proceeding ahead you agree to CarChoice Visitor Agreement, Privacy Policy and Terms and Conditions. This site is protected by reCAPTCHA and Google Terms of Service apply
+                                                    By proceeding ahead you agree to CarChoice Visitor Agreement,
+                                                    Privacy Policy and Terms and Conditions. This site is protected by
+                                                    reCAPTCHA and Google Terms of Service apply
                                                 </i>
                                             </div>
                                         </form>
@@ -852,6 +852,278 @@
 
 
 
+
+<div class="modal fade" id="selectBrand" aria-hidden="true" aria-labelledby="selectBrandlabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="selectBrandlabel">Select Your Brand </h3>
+                <div class="header-bg"></div>
+                {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <!-- content goes here -->
+                    <form>
+                        <div class="form-group col-md-12">
+                            <label>Your Car</label>
+                            <input type="text" class="form-control" placeholder="Enter Your Name">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                                <h6 class="pb-3">POPULAR BRANDS</h6>
+                                <ul class="accordion">
+                                    <li>
+                                        <h3 class="accordion-title">
+                                            <a href="#" >
+                                                <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/10/brands/logos/maruti-suzuki1647009823420.jpg?v=1647009823707"
+                                                    alt="Maruti Suzuki Logo" class="img-fluid" width="50" />
+                                                <span>Maruti Suzuki</span>
+                                            </a>
+                                        </h3>
+                                        <div class="accordion-content">
+                                            <div class="list-group">
+                                                <a href="#" data-bs-data="Fronx" data-bs-target="#selectCar" data-bs-toggle="modal"
+                                                    class="list-group-item list-group-item-action">
+                                                    Fronx
+                                                </a>
+                                                <a href="#" data-bs-data="Swift" data-bs-target="#selectCar" data-bs-toggle="modal"
+                                                    class="list-group-item list-group-item-action">
+                                                    Swift
+                                                </a>
+                                                <a href="#" data-bs-data="Grand
+                                                    Vitara" data-bs-target="#selectCar" data-bs-toggle="modal" class="list-group-item list-group-item-action">
+                                                    Grand Vitara
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h3 class="accordion-title">
+                                            <a href="#">
+                                                <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/16/brands/logos/tata.jpg?v=1629973276336"
+                                                    alt="Tata" class="img-fluid" width="50" />
+                                                <span>Tata</span>
+                                            </a>
+                                        </h3>
+                                        <div class="accordion-content">
+                                            <div class="list-group">
+                                                <a href="#" data-bs-data="Nexon" data-bs-target="#selectCar" data-bs-toggle="modal"
+                                                    class="list-group-item list-group-item-action">Nexon</a>
+                                                <a href="#" data-bs-data="Punch" data-bs-target="#selectCar" data-bs-toggle="modal"
+                                                    class="list-group-item list-group-item-action">Punch</a>
+                                                <a href="#" data-bs-data="Altroz" data-bs-target="#selectCar" data-bs-toggle="modal"
+                                                    class="list-group-item list-group-item-action">Altroz</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h3 class="accordion-title">
+                                            <a href="#">
+                                                <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/17/brands/logos/toyota.jpg?v=1630055705330"
+                                                    alt="Toyota Logo" class="img-fluid" width="50" />
+                                                <span>Toyota</span>
+                                            </a>
+                                        </h3>
+                                        <div class="accordion-content">
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item list-group-item-action">A
+                                                    second link item</a>
+                                                <a href="#" class="list-group-item list-group-item-action">A
+                                                    third link item</a>
+                                                <a href="#" class="list-group-item list-group-item-action">A
+                                                    fourth link item</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h3 class="accordion-title">
+                                            <a href="#">
+                                                <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/8/brands/logos/hyundai.jpg?v=1629973193722"
+                                                    alt="Hyundai Logo" class="img-fluid" width="50" />
+                                                <span>Hyundai</span>
+                                            </a>
+                                        </h3>
+                                        <div class="accordion-content">
+                                            <div class="list-group">
+                                                <a href="#" class="list-group-item list-group-item-action">A
+                                                    second link item</a>
+                                                <a href="#" class="list-group-item list-group-item-action">A
+                                                    third link item</a>
+                                                <a href="#" class="list-group-item list-group-item-action">A
+                                                    fourth link item</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
+                                <button class="btn btn-theme btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open second modal</button>
+                            </div> --}}
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12 margin-bottom-20 margin-top-20">
+                    <button class="btn btn-theme btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open second modal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- second modal --}}
+<div class="modal fade" id="selectCar" aria-hidden="true" aria-labelledby="selectedCarlabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="selectedCarlabel">Select Car Model</h3>
+                <div class="header-bg"></div>
+                {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+            </div>
+            <div class="modal-body">
+                <!-- content goes here -->
+                <form>
+                    <div class="form-group col-md-12">
+                        <label>Your Car</label>
+                        <input type="text" id="CarrName" class="form-control" placeholder="Enter Your Car Name">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="d-flex mb-3">
+                                <div class="me-3">
+                                    <input  type="checkbox" class="btn-check " id="btn-check-1-outlined" 
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-success border rounded-3"
+                                        for="btn-check-1-outlined">Petrol</label>
+
+                                </div>
+                                <div class="me-3">
+                                    <input type="checkbox" class="btn-check " id="btn-check-2-outlined" 
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-success border rounded-3"
+                                        for="btn-check-2-outlined">CNG</label>
+
+                                </div>
+                                <div class="me-3">
+                                    <input type="checkbox" class="btn-check " id="btn-check-3-outlined" 
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-success border rounded-3"
+                                        for="btn-check-3-outlined">Manual</label>
+
+                                </div>
+                                <div class="me-3">
+                                    <input type="checkbox" class="btn-check " id="btn-check-4-outlined" 
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-success border rounded-3"
+                                        for="btn-check-4-outlined">Automatic</label>
+
+                                </div>
+                            </div>
+
+                            <h6 class="pb-3">POPULAR BRANDS</h6>
+                            <div>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5  class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
+                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
+                                    </div>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div class="mb-1">
+                                            <ul class="d-flex">
+                                                <li class="me-2">
+                                                    Petrol
+                                                </li>
+                                                <li class="me-2">
+                                                    Manual
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-body-secondary">On-Road</small>
+                                    </div>
+
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5  class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
+                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
+                                    </div>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div class="mb-1">
+                                            <ul class="d-flex">
+                                                <li class="me-2">
+                                                    Petrol
+                                                </li>
+                                                <li class="me-2">
+                                                    Manual
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-body-secondary">On-Road</small>
+                                    </div>
+
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5  class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
+                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
+                                    </div>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div class="mb-1">
+                                            <ul class="d-flex">
+                                                <li class="me-2">
+                                                    Petrol
+                                                </li>
+                                                <li class="me-2">
+                                                    Manual
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-body-secondary">On-Road</small>
+                                    </div>
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
+                        <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
+                            class="btn btn-theme btn-block">Select Brand</button>
+                    </div> --}}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12 margin-bottom-20 margin-top-20">
+                    <button type="button"  data-bs-target="#selectBrand" data-bs-toggle="modal"
+                        class="btn btn-theme btn-block">Select Brand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const selectBrandModal = document.getElementById('selectBrand');
+    const selectCarModal = document.getElementById('selectCar');
+    
+    if (selectBrandModal) {
+        selectBrandModal.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const carModel = button.getAttribute('data-bs-data');
+            
+            if (carModel) {
+                const modalBodyInput = selectCarModal.querySelector('#CarrName');
+                modalBodyInput.value = carModel;
+            }
+        });
+    }
+});
+
+</script>
 
 
 <!-- EMI Calculator Widget START -->
