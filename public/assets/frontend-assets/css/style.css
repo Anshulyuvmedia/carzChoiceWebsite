@@ -5717,7 +5717,7 @@ h2.no-span:after {
     font-size: 14px;
     line-height: 1.42857;
     width: 100%;
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
 }
 
 .form-control:focus {
@@ -10665,8 +10665,8 @@ textarea {
 .bank-logo {
     max-width: 100%;
     /* height: auto; */
-    height: 43px;
-  width: 103px;
+    height: 30px;
+    width: 100px;
 }
 .bank-container {
     text-align: center;

@@ -1951,44 +1951,29 @@
                 <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
-                        <div class="accordion" id="accordionPanelsStayOpenExample">
-                            <div class="accordion-item">
-                              <h1 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                    Q: Which are the popular new cars available in India in 2024?
-                                </button>
-                              </h1>
-                              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                                <div class="accordion-body">
-                                  Top 3 popular new cars available in India in 2024 are Mahindra XUV 3XO, Toyota Urban Cruiser Taisor and Maruti Suzuki Fronx. Check out all popular models.
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                    Q: Which are popular cars brands in India?
-                                </button>
-                              </h2>
-                              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-                                <div class="accordion-body">
-                                    Top 3 popular car brands in India are Mahindra, Toyota and Maruti Suzuki.
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                    Q: Are there any upcoming cars in India?
-                                </button>
-                              </h2>
-                              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-                                <div class="accordion-body">
-                                    Yes. There are upcoming cars in India. Top 3 upcoming cars which are going to launch soon in India are: Maruti Suzuki New Dzire, Mahindra Five-door Thar and MG Cloud EV. Check out all upcoming cars.
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+
+                        <ul class="accordion">
+                            <li>
+                               <h3 class="accordion-title"><a href="#">Q: Which are the popular new cars available in India in 2024?</a></h3>
+                               <div class="accordion-content">
+                                  <p>Top 3 popular new cars available in India in 2024 are Mahindra XUV 3XO, Toyota Urban Cruiser Taisor and Maruti Suzuki Fronx. Check out all popular models.</p>
+                               </div>
+                            </li>
+                            <li>
+                               <h3 class="accordion-title"><a href="#">Q: Which are popular cars brands in India?</a></h3>
+                               <div class="accordion-content">
+                                  <p>Top 3 popular car brands in India are Mahindra, Toyota and Maruti Suzuki.</p>
+                               </div>
+                            </li>
+                            <li>
+                               <h3 class="accordion-title"><a href="#">Q: Are there any upcoming cars in India?</a></h3>
+                               <div class="accordion-content">
+                                  <p>Yes. There are upcoming cars in India. Top 3 upcoming cars which are going to launch soon in India are: Maruti Suzuki New Dzire, Mahindra Five-door Thar and MG Cloud EV. Check out all upcoming cars.</p>
+                               </div>
+                            </li>
+                            
+                        </ul>
+                        
                     </div>
                 </div>
                 <!-- Middle Content Box End -->

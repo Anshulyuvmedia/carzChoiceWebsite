@@ -1378,50 +1378,28 @@
                 <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
-                        <div class="accordion" id="accordionPanelsStayOpenExample">
-                            <div class="accordion-item">
-                                <h1 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                        aria-controls="panelsStayOpen-collapseOne">
-                                        Q: Which are the popular electric cars in India
-                                    </button>
-                                </h1>
-                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                                    <div class="accordion-body">
-                                        Top 3 popular electric cars in India are Tata Punch EV, BYD Seal and MG Comet EV. To checkout the complete list of electric cars, click here
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
-                                        aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                        Q: Are there any hybrid cars available in India
-                                    </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-                                    <div class="accordion-body">
-                                        Yes. There are hybrid cars available in India. Top 3 hybrid cars are Maruti Suzuki Grand Vitara, Toyota Urban Cruiser Hyryder and Toyota Innova Hycross. To checkout the complete list of hybrid cars, click here
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree"
-                                        aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                        Q: Are there any upcoming electric cars in India
-                                    </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-                                    <div class="accordion-body">
-                                        Yes. There are upcoming electric cars in India. Tata Harrier EV, Fisker Ocean EV and Tata Altroz EV are the upcoming electric cars which are planned to launch soon in India. To checkout the complete list of all electric cars, click here
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        <ul class="accordion">
+                            <li>
+                               <h3 class="accordion-title"><a href="#">Q: Which are the popular electric cars in India</a></h3>
+                               <div class="accordion-content">
+                                  <p>Top 3 popular electric cars in India are Tata Punch EV, BYD Seal and MG Comet EV. To checkout the complete list of electric cars, click here</p>
+                               </div>
+                            </li>
+                            <li>
+                               <h3 class="accordion-title"><a href="#">Q: Are there any hybrid cars available in India</a></h3>
+                               <div class="accordion-content">
+                                  <p>Yes. There are hybrid cars available in India. Top 3 hybrid cars are Maruti Suzuki Grand Vitara, Toyota Urban Cruiser Hyryder and Toyota Innova Hycross. To checkout the complete list of hybrid cars.</p>
+                               </div>
+                            </li>
+                            <li>
+                               <h3 class="accordion-title"><a href="#">Q: Are there any upcoming electric cars in India</a></h3>
+                               <div class="accordion-content">
+                                  <p> Yes. There are upcoming electric cars in India. Tata Harrier EV, Fisker Ocean EV and Tata Altroz EV are the upcoming electric cars which are planned to launch soon in India. To checkout the complete list of all electric cars.</p>
+                               </div>
+                            </li>
+                            
+                        </ul>
                     </div>
                 </div>
                 <!-- Middle Content Box End -->
