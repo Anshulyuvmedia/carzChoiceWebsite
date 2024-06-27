@@ -6240,7 +6240,7 @@ button.close {
 }
 .modal-open .modal {
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 .modal-dialog {
     position: relative;
@@ -6270,7 +6270,7 @@ button.close {
 }
 .modal-backdrop.fade {
     filter: alpha(opacity=0);
-    opacity: 0;
+    opacity: 0.5;
 }
 .modal-backdrop.in {
     filter: alpha(opacity=50);

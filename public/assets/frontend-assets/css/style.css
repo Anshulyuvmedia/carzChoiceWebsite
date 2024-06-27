@@ -10713,3 +10713,9 @@ textarea {
     align-items: center;
     min-height: calc(100% - var(--bs-modal-margin) * -50);
   } 
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+  }
