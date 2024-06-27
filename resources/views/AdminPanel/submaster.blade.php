@@ -26,7 +26,7 @@
                         <form action="{{ route('storesubmaster') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3 row">
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label class="">Select Master Category</label>
                                     <select name="type" class="form-select" id="subcategory" required>
                                         <option value="">--select master category--</option>
@@ -35,22 +35,22 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label for="example-search-input" class="">Label</label>
                                     <input class="form-control" placeholder="enter value" name="label" type="text"
                                         value="" id="labelval" onchange="labelValue()" required>
                                 </div>
-                                <div class="col-lg-3 d-none">
+                                <div class="col-lg-2">
                                     <label for="example-search-input" class="">Value</label>
                                     <input class="form-control" placeholder="enter value" name="value" type="text"
                                         value="" id="valueval" required>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label for="example-search-input" class="">Icon Image</label>
                                     <input class="form-control" placeholder="enter value" name="iconimage"
                                         type="file" value="">
                                 </div>
-                                <div class="col-lg-3 d-flex align-items-end">
+                                <div class="col-lg-2 d-flex align-items-end">
                                     <button type="submit" class="btn btn-success waves-effect waves-light">Add</button>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                 <div class="card">
                     <div class="card-body table-responsive">
                         <table id="datatable-buttons" class="table  table-bordered dt-responsive nowrap"
-                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
                                     <th>S.No</th>

@@ -231,6 +231,7 @@
                                 <li><a href="{{ route('master') }}">Master</a></li>
                                 <li><a href="{{ route('submaster') }}">Sub-Master</a></li>
                                 <li><a href="{{ route('formattributes')}}">Add Form Attributes</a></li>
+                                <li><a href="{{ route('faqs')}}">FAQ's</a></li>
                             </ul>
                         </li>
 
@@ -238,6 +239,12 @@
                             <a href="{{ route('leadmanagement') }}">
                                 <i class="uil-user-check"></i>
                                 <span>Lead Management</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('vehicleimages') }}">
+                                <i class="uil-car"></i>
+                                <span>Add Vehicle Images</span>
                             </a>
                         </li>
                     </ul>

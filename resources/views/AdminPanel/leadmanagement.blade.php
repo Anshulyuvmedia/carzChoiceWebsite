@@ -36,22 +36,26 @@
                                         <div class="col-lg-4">
                                             <label for="example-text-input" class="">Full Name</label>
                                             <input class="form-control mb-3" placeholder="enter your fullname"
-                                                name="fullname" type="text" value="" id="example-text-input" required>
+                                                name="fullname" type="text" value="" id="example-text-input"
+                                                required>
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="example-search-input" class="">Mobile</label>
                                             <input class="form-control mb-3" placeholder="enter mobile no."
-                                                name="mobile" type="tel" value="" id="example-search-input" required>
+                                                name="mobile" type="tel" value="" id="example-search-input"
+                                                required>
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="example-search-input" class="">Email</label>
                                             <input class="form-control mb-3" placeholder="enter email address"
-                                                name="email" type="email" value="" id="example-search-input" required>
+                                                name="email" type="email" value="" id="example-search-input"
+                                                required>
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="example-search-input" class="">City</label>
-                                            <input class="form-control mb-3" placeholder="enter your city" name="city"
-                                                type="text" value="" id="example-search-input" required>
+                                            <input class="form-control mb-3" placeholder="enter your city"
+                                                name="city" type="text" value="" id="example-search-input"
+                                                required>
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="example-search-input" class="">State</label>
@@ -70,8 +74,7 @@
                                         <div class="col-lg-12">
                                             <label for="example-email-input"
                                                 class="col-md-2 col-form-label">Remarks</label>
-                                            <textarea rows="3" name="remarks" class="form-control resize-none"
-                                                placeholder="enter remarks..."></textarea>
+                                            <textarea rows="3" name="remarks" class="form-control resize-none" placeholder="enter remarks..."></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 d-flex align-items-center justify-content-end">
@@ -97,8 +100,8 @@
                                         <div class="input-daterange input-group" id="datepicker6"
                                             data-date-format="dd M, yyyy" data-date-autoclose="true"
                                             data-provide="datepicker" data-date-container='#datepicker6'>
-                                            <input type="text" class="form-control" name="startdate" id="startdate"
-                                                placeholder="Start Date" />
+                                            <input type="text" class="form-control" name="startdate"
+                                                id="startdate" placeholder="Start Date" />
                                             <input type="text" class="form-control" name="enddate" id="enddate"
                                                 placeholder="End Date" />
                                         </div>
@@ -148,58 +151,64 @@
                             </thead>
                             <tbody id="table-body">
                                 @foreach ($leaddata as $index => $row)
-                                <tr>
-                                    <td>{{ $index + 1 }}</td>
-                                    <td>{{ $row->created_at->format('d/M/y') }}</td>
-                                    <td>{{ $row->fullname }}</td>
-                                    <td>{{ $row->mobile }}</td>
-                                    <td>{{ $row->email }}</td>
-                                    <td>{{ $row->city }}</td>
-                                    <td>{{ $row->state }}</td>
-                                    <td>{{ $row->vehicle }}</td>
-                                    <td>
-                                        <select name="status" class="form-select leadstatus"
-                                            id="inputGroupSelect01_{{ $row->id }}" required>
-                                            <option value="">--select lead status--</option>
-                                            <option value="intrested" {{ $row->leadstatus == 'intrested' ? 'selected' :
-                                                '' }}>Intrested
-                                            </option>
-                                            <option value="not intrested" {{ $row->leadstatus == 'not intrested' ?
-                                                'selected' : '' }}>Not
-                                                Intrested</option>
-                                            <option value="cancel" {{ $row->leadstatus == 'cancel' ? 'selected' : ''
-                                                }}>Cancel
-                                            </option>
-                                            <option value="final" {{ $row->leadstatus == 'final' ? 'selected' : ''
-                                                }}>Final</option>
-                                        </select>
-                                        <input type="hidden" name="leadid" value="{{ $row->id }}" class="leadid">
-                                    </td>
-                                    <td>
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
-                                                    data-record-view="{{ json_encode($row) }}"
-                                                    class="px-2 text-primary viewbtnmodal"><i
-                                                        class="uil-eye font-size-18" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="View Details"></i></a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                    data-record="{{ json_encode($row) }}"
-                                                    class="px-2 text-primary editbtnmodal"><i
-                                                        class="uil uil-pen font-size-18" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Edit"></i></a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#" onclick="confirmDelete('{{ $row->id }}')"
-                                                    class="px-2 text-danger" data-bs-toggle="tooltip"
-                                                    data-bs-placement="top" data-bs-title="Delete"><i
-                                                        class="uil uil-trash-alt font-size-18"></i></a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ $row->created_at->format('d/M/y') }}</td>
+                                        <td>{{ $row->fullname }}</td>
+                                        <td>{{ $row->mobile }}</td>
+                                        <td>{{ $row->email }}</td>
+                                        <td>{{ $row->city }}</td>
+                                        <td>{{ $row->state }}</td>
+                                        <td>{{ $row->vehicle }}</td>
+                                        <td>
+                                            <select name="status" class="form-select leadstatus"
+                                                id="inputGroupSelect01_{{ $row->id }}" required>
+                                                <option value="">--select lead status--</option>
+                                                <option value="intrested"
+                                                    {{ $row->leadstatus == 'intrested' ? 'selected' : '' }}>
+                                                    Intrested
+                                                </option>
+                                                <option value="not intrested"
+                                                    {{ $row->leadstatus == 'not intrested' ? 'selected' : '' }}>
+                                                    Not
+                                                    Intrested</option>
+                                                <option value="cancel"
+                                                    {{ $row->leadstatus == 'cancel' ? 'selected' : '' }}>Cancel
+                                                </option>
+                                                <option value="final"
+                                                    {{ $row->leadstatus == 'final' ? 'selected' : '' }}>Final</option>
+                                            </select>
+                                            <input type="hidden" name="leadid" value="{{ $row->id }}"
+                                                class="leadid">
+                                        </td>
+                                        <td>
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item">
+                                                    <a href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#viewmodal"
+                                                        data-record-view="{{ json_encode($row) }}"
+                                                        class="px-2 text-primary viewbtnmodal"><i
+                                                            class="uil-eye font-size-18" data-bs-toggle="tooltip"
+                                                            data-bs-placement="top"
+                                                            data-bs-title="View Details"></i></a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal"
+                                                        data-record="{{ json_encode($row) }}"
+                                                        class="px-2 text-primary editbtnmodal"><i
+                                                            class="uil uil-pen font-size-18" data-bs-toggle="tooltip"
+                                                            data-bs-placement="top" data-bs-title="Edit"></i></a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a href="#" onclick="confirmDelete('{{ $row->id }}')"
+                                                        class="px-2 text-danger" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" data-bs-title="Delete"><i
+                                                            class="uil uil-trash-alt font-size-18"></i></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -252,15 +261,15 @@
 
 @push('scripts')
 @if (session('success'))
-<script>
-    swal("Success", "{{ session('success') }}", "success");
-</script>
+    <script>
+        swal("Success", "{{ session('success') }}", "success");
+    </script>
 @endif
 
 @if (session('error'))
-<script>
-    swal("Error", "{{ session('error') }}", "error");
-</script>
+    <script>
+        swal("Error", "{{ session('error') }}", "error");
+    </script>
 @endif
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -531,11 +540,12 @@
 {{-- Date Filter Functionality --}}
 <script>
     $(document).ready(function() {
+
         $('.datebtn').on('click', function() {
             var datefrom = $('#startdate').val();
             var dateto = $('#enddate').val();
             console.log(datefrom, dateto);
-
+            var dataTableCustomer = $('#datatable-buttons').DataTable();
             $.ajax({
                 url: '/datefilterleads',
                 method: 'POST',
@@ -546,6 +556,7 @@
                 },
                 success: function(response) {
                     console.log(response);
+                    dataTableCustomer.clear().destroy();
                     $('#table-body').empty();
                     response.forEach(function(row) {
                         var formattedDate = new Date(row.created_at)
@@ -565,7 +576,7 @@
                                 <td>${row.city}</td>
                                 <td>${row.state}</td>
                                 <td>${row.vehicle}</td>
-                                <td>
+                               <td>
                                     <select class="form-select leadstatus" id="inputGroupSelect01_${row.id}">
                                         <option selected>Choose...</option>
                                         <option value="intrested" ${row.leadstatus == 'intrested' ? 'selected' : ''}>Interested</option>
@@ -605,6 +616,16 @@
                             </tr>`;
                         $('#table-body').append(newRow);
                     });
+                    dataTableCustomer = $("#datatable-buttons")
+                        .DataTable({
+                            lengthChange: !1,
+                            buttons: ["copy", "excel", "pdf", "colvis"],
+                        })
+                        .buttons()
+                        .container()
+                        .appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)"),
+                        $(".dataTables_length select").addClass(
+                            "form-select form-select-sm");
                 }
             });
         });

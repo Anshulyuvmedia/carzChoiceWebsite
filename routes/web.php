@@ -67,10 +67,12 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('editblog/{id}', 'editblog')->name('editblog');
     Route::get('formattributes', 'formattributes')->name('formattributes');
     Route::get('leadmanagement', 'leadmanagement')->name('leadmanagement');
+    Route::get('faqs', 'faqs')->name('faqs');
+    Route::get('vehicleimages', 'vehicleimages')->name('vehicleimages');
 });
 
 
-//Admin Store & Delete Routes
+//Admin Store, Update & Delete Routes
 Route::controller(Store::class)->group(function() {
     Route::post('updatecompanyprofile/{id}', 'updatecompanyprofile')->name('updatecompanyprofile');
     Route::post('storemaster', 'storemaster')->name('storemaster');
@@ -93,5 +95,12 @@ Route::controller(Store::class)->group(function() {
     Route::get('/getremarks/{id}', 'getremarks')->name('getremarks');
     Route::post('/updateleadstatus', 'updateleadstatus')->name('updateleadstatus');
     Route::post('/datefilterleads', 'datefilterleads')->name('datefilterleads');
+    Route::post('/storefaq', 'storefaq')->name('storefaq');
+    Route::get('deletefaq/{id}', 'deletefaq')->name('deletefaq');
+    Route::post('updatefaq', 'updatefaq')->name('updatefaq');
+    Route::post('insertvehicleimages', 'insertvehicleimages')->name('insertvehicleimages');
+    Route::get('deletevehicleimg/{id}', 'deletevehicleimg')->name('deletevehicleimg');
+    Route::post('updatevehicleimgs', 'updatevehicleimgs')->name('updatevehicleimgs');
+
 });
 

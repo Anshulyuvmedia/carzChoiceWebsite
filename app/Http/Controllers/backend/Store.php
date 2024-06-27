@@ -5,11 +5,13 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\CompanyProfile;
+use App\Models\faqs;
 use App\Models\FormAttribute;
 use App\Models\Lead;
 use App\Models\Master;
 use App\Models\Remark;
 use App\Models\SubMaster;
+use App\Models\VehicleImage;
 use Illuminate\Http\Request;
 use Exception;
 use Illuminate\Support\Facades\Auth;
@@ -380,5 +382,114 @@ class Store extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
         return response()->json($leaddata);
+    }
+
+    public function storefaq(Request $req){
+        // dd($req->all());
+        try{
+            $data = $req->validate([
+                'faqcategory' => 'required',
+                'faqlabel' => 'required',
+                'faqvalue' => 'required',
+            ]);
+
+            faqs::create([
+                'category' => $req->input('faqcategory'),
+                'faqlabel' => $req->input('faqlabel'),
+                'faqvalue' => $req->input('faqvalue'),
+            ]);
+            Log::info('FAQ Inserted Successfully: ', ['faq' => $data]);
+            return back()->with('success', 'FAQ Added..!!!!');
+        }catch(Exception $f){
+            return back()->with('error', $f->getMessage());
+            //return back()->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deletefaq($id)
+    {
+        $data = faqs::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function updatefaq(Request $request){
+        try {
+            $faqs = faqs::where('id', $request->faqid)->update([
+                'category' => $request->faqcategory,
+                'faqlabel' => $request->faqlabel,
+                'faqvalue' => $request->faqvalue,
+            ]);
+            Log::info('FAQ Updated Successfully: ', ['attributes' => $faqs]);
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            //return back()->with('error', $e->getMessage());
+            return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
+
+    public function insertvehicleimages(Request $request){
+        try {
+            // Validate request data
+            $data = $request->validate([
+                'type' => 'required',
+                'vehicle' => 'required',
+                'title' => 'required',
+                'mediatype' => 'required',
+                'addimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'videourl' => 'required',
+                'color' => 'required',
+            ]);
+
+            // Handle image upload if file is present
+            if ($request->hasFile('addimage')) {
+                $file = $request->file('addimage');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/backend-assets/images'), $filename);
+                $data['addimage'] = $filename;
+            }
+            $vehicleimages = VehicleImage::create($data);
+            Log::info('Inserted Successfully: ', ['lead' => $vehicleimages]);
+
+            return back()->with('success', 'Inserted Successfully..!!!!');
+        } catch (Exception $e) {
+            Log::error('Insert Failed: ', ['error' => $e->getMessage()]);
+            return redirect()->route('vehicleimages')->with('error', $e->getMessage());
+        }
+    }
+
+    public function deletevehicleimg($id){
+        $data = VehicleImage::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function updatevehicleimgs(Request $request){
+        // dd($request->all());
+        try {
+            $vehicledata = VehicleImage::findOrFail($request->vehicleimgid);
+            $vehicledata->type = $request->type;
+            $vehicledata->color = $request->color;
+            $vehicledata->vehicle = $request->vehicle;
+            $vehicledata->title = $request->title;
+            $vehicledata->mediatype = $request->mediatype;
+            $vehicledata->videourl = $request->videourl;
+
+            if ($request->hasFile('addimage')) {
+                $request->validate([
+                    'addimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $file = $request->file('addimage');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/backend-assets/images'), $filename);
+                $vehicledata['addimage'] = $filename;
+            }
+            $vehicledata->save();
+            Log::info('Updated Successfully: ', ['attributes' => $vehicledata]);
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            return back()->with('error', $e->getMessage());
+            //return back()->with('error', 'Not Updated..Try Again.....');
+        }
     }
 }

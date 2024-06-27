@@ -5,9 +5,11 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\CompanyProfile;
+use App\Models\faqs;
 use App\Models\FormAttribute;
 use App\Models\Lead;
 use App\Models\Master;
+use App\Models\VehicleImage;
 use Illuminate\Http\Request;
 use Auth;
 class AdminView extends Controller
@@ -56,5 +58,18 @@ class AdminView extends Controller
     public function leadmanagement(){
         $leaddata = Lead::orderby('created_at','desc')->get();
         return view('AdminPanel.leadmanagement',compact('leaddata'));
+    }
+
+    public function faqs(){
+        $masterdata = Master::where('type', '=', 'FAQ')->get();
+        $faqdataa = faqs::get();
+        return view('AdminPanel.faq',compact('masterdata','faqdataa'));
+    }
+
+    public function vehicleimages(){
+        $masterdata = Master::where('type', '=', 'Vehicle Image')->get();
+        $mastercolordata = Master::where('type', '=', 'Color')->get();
+        $vehicleimgdata = VehicleImage::orderBy('created_at','desc')->get();
+        return view('AdminPanel.vehicleimages',compact('masterdata','vehicleimgdata','mastercolordata'));
     }
 }
