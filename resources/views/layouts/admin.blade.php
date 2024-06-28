@@ -29,6 +29,7 @@
     <link
         href="{{ asset('assets/backend-assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
         rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/backend-assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
     @stack('styles')
 
 </head>
@@ -247,6 +248,17 @@
                                 <span>Add Vehicle Images</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-car-sideview"></i>
+                                <span>Cars</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('addcarlist') }}">Add Car List</a></li>
+                                <li><a href="{{ route('addvariant') }}">Add Variant</a></li>
+                                <li><a href="{{ route('variantslist') }}">Variants List</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <!-- Sidebar -->
@@ -260,8 +272,6 @@
             <script src="{{ asset('assets/backend-assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
             <script src="{{asset('assets/backend-assets/libs/flatpickr/flatpickr.min.js')}}">
-
-            <!-- Custom Initialization Script -->
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
             @stack('scripts')
             <footer class="footer">
@@ -299,25 +309,24 @@
     <script src="{{ asset('assets/backend-assets/libs/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/js/pages/dashboard.init.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/js/app.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    {{-- <script src="{{asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
-    --}}
-    <script src="{{ asset('assets/backend-assets/js/pages/datatables.init.js') }}"></script>
-    <script src="{{asset('assets/js/pages/form-advanced.init.js')}}"></script>
+
+
 
 
     <script src="{{asset('assets/backend-assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/backend-assets/libs/%40chenfengyuan/datepicker/datepicker.min.js')}}"></script>
     <script src="{{asset('assets/backend-assets/libs/select2/js/select2.min.js')}}"></script>
     <script src="{{asset('assets/backend-assets/js/pages/form-advanced.init.js')}}"></script>
+
+
+     <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.0/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.html5.min.js"></script>
+
 </body>
 
 </html>

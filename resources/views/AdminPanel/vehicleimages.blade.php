@@ -48,9 +48,9 @@
                                     <label class="">Select Vehicle</label>
                                     <select name="vehicle" class="form-select" id="" required>
                                         <option value="">--select vehicle--</option>
-                                        <option value="a">a</option>
-                                        <option value="b">b</option>
-                                        <option value="c">c</option>
+                                        @foreach ($carlistdata as $row)
+                                            <option value="{{ $row->carname }}">{{ $row->carname }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-lg-2">
@@ -244,6 +244,9 @@
     // Edit Functionality
     var masterdata = @json($masterdata);
     var mastercolordata = @json($mastercolordata);
+    console.log(mastercolordata);
+    var carlistdata = @json($carlistdata);
+
     $('#table-body').on('click', '.editbtnmodal', function() {
         var vehicledata = $(this).data('record');
         console.log(vehicledata);
@@ -254,10 +257,17 @@
             options +=
                 `<option value="${row.label}" ${vehicledata.type === row.label ? 'selected' : ''}>${row.label}</option>`;
         });
+
         var color = `<option value="">--select color--</option>`;
         mastercolordata.forEach(function(row) {
             color +=
                 `<option value="${row.label}" ${vehicledata.color === row.label ? 'selected' : ''}>${row.label}</option>`;
+        });
+
+        var carnames = `<option value="">--select color--</option>`;
+        carlistdata.forEach(function(row) {
+            carnames +=
+                `<option value="${row.carname}" ${vehicledata.vehicle === row.carname ? 'selected' : ''}>${row.carname}</option>`;
         });
 
         var modalbody = `
@@ -273,10 +283,7 @@
                         <label for="exampleDataList" class="form-label">Select Vehicle</label>
                         <div>
                             <select name="vehicle" class="form-select mb-3" required>
-                                <option value="" ${vehicledata.vehicle == '' ? 'selected' : ''}>--select vehicle--</option>
-                                <option value="a" ${vehicledata.vehicle == 'a' ? 'selected' : ''}>a</option>
-                                <option value="b" ${vehicledata.vehicle == 'b' ? 'selected' : ''}>b</option>
-                                <option value="c" ${vehicledata.vehicle == 'c' ? 'selected' : ''}>c</option>
+                                ${carnames}
                             </select>
                         </div>
                          <div>

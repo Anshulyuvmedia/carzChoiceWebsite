@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2024 at 09:44 AM
+-- Generation Time: Jun 28, 2024 at 02:07 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `carchoice`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `add_variants`
+--
+
+CREATE TABLE `add_variants` (
+  `id` int(11) NOT NULL,
+  `carname` varchar(255) DEFAULT NULL,
+  `carmodalname` varchar(255) DEFAULT NULL,
+  `availabelstatus` varchar(255) DEFAULT NULL,
+  `price` varchar(255) DEFAULT NULL,
+  `pricetype` varchar(255) DEFAULT NULL,
+  `mileage` varchar(255) DEFAULT NULL,
+  `engine` varchar(255) DEFAULT NULL,
+  `fueltype` varchar(255) DEFAULT NULL,
+  `transmission` varchar(255) DEFAULT NULL,
+  `seatingcapacity` varchar(255) DEFAULT NULL,
+  `userreportedmilage` varchar(255) DEFAULT NULL,
+  `keyfeatures` text DEFAULT NULL,
+  `summary` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `add_variants`
+--
+
+INSERT INTO `add_variants` (`id`, `carname`, `carmodalname`, `availabelstatus`, `price`, `pricetype`, `mileage`, `engine`, `fueltype`, `transmission`, `seatingcapacity`, `userreportedmilage`, `keyfeatures`, `summary`, `created_at`, `updated_at`) VALUES
+(2, 'Omni', 'MM10444', NULL, '90,000 INR/-', 'Lakh', '89', '300', '[\"Petrol\",\"Diesel\",\"Electric\"]', '[\"Automatic\",\"Manual\"]', '5', '66', '<p>this is nexon</p>', '<p>it ok and good</p>', '2024-06-28 03:33:15', '2024-06-28 04:12:06');
 
 -- --------------------------------------------------------
 
@@ -45,7 +77,7 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `categorytype`, `blogtitle`, `description`, `blogpost`, `vurl`, `blogimg`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'Car News', 'CAR OF THE YEAR', 'fdsgdf', '<p>gffdsgfd</p>', 'https://www.youtube.com/watch?v=spGSAeqxVUc', '1719047765_logo.png', '0', '2024-06-22 03:17:33', '2024-06-27 00:58:14'),
+(3, 'Car News', 'CAR OF THE YEAR', 'fdsgdf', '<p>gffdsgfd</p>', 'https://www.youtube.com/watch?v=spGSAeqxVUc', '1719047765_logo.png', '1', '2024-06-22 03:17:33', '2024-06-28 05:05:50'),
 (4, 'Videos', 'THIS IS HOSPITAL BLOG', 'THIS IS HOSPITAL BLOG', '<p>THIS IS HOSPITAL BLOG</p>', 'https://www.youtube.com/watch?v=__2bjWbetsA', '1719048634_logo.png', '0', '2024-06-22 03:47:08', '2024-06-24 05:03:25');
 
 -- --------------------------------------------------------
@@ -65,8 +97,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('d3160cf376dcbf1f85bde27048f7d2e8', 'i:1;', 1719468371),
-('d3160cf376dcbf1f85bde27048f7d2e8:timer', 'i:1719468371;', 1719468371);
+('d3160cf376dcbf1f85bde27048f7d2e8', 'i:1;', 1719549693),
+('d3160cf376dcbf1f85bde27048f7d2e8:timer', 'i:1719549693;', 1719549693);
 
 -- --------------------------------------------------------
 
@@ -79,6 +111,29 @@ CREATE TABLE `cache_locks` (
   `owner` varchar(255) NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `car_lists`
+--
+
+CREATE TABLE `car_lists` (
+  `id` int(11) NOT NULL,
+  `carname` varchar(255) DEFAULT NULL,
+  `brandname` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `car_lists`
+--
+
+INSERT INTO `car_lists` (`id`, `carname`, `brandname`, `created_at`, `updated_at`) VALUES
+(2, 'Omni', 'Maruti Suzuki', '2024-06-28 00:19:58', '2024-06-28 00:38:55'),
+(3, 'Nexon', 'Tata', '2024-06-28 01:00:26', '2024-06-28 01:00:26'),
+(4, 'Thar', 'Mahindra', '2024-06-28 05:35:54', '2024-06-28 05:35:54');
 
 -- --------------------------------------------------------
 
@@ -109,7 +164,7 @@ CREATE TABLE `company_profiles` (
 --
 
 INSERT INTO `company_profiles` (`id`, `companyname`, `companylogo`, `email`, `phonenumber`, `citystateprovince`, `postalcode`, `fburl`, `igurl`, `yturl`, `twurl`, `linkurl`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'Mukesh Private Limited', 'logos/PGshtUOJh3qF0qdDU0acnCa1twoQxBk5HdagxfXY.png', 'abc@gmail.com', '1234567899', 'Ajmer,Raj', '305001', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'dasdsadas', '2024-06-21 12:34:26', '2024-06-21 07:30:22');
+(1, 'Mukesh Private Limited', 'logos/bQaWP5yrNM7Yunjvb4ODKjO9O65pKjdIZtBCRpjS.jpg', 'abc@gmail.com', '1234567899', 'Ajmer,Raj', '305001', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'https://www.flaticon.com/', 'dasdsadas', '2024-06-21 12:34:26', '2024-06-28 04:36:25');
 
 -- --------------------------------------------------------
 
@@ -148,8 +203,7 @@ CREATE TABLE `faqs` (
 
 INSERT INTO `faqs` (`id`, `category`, `faqlabel`, `faqvalue`, `created_at`, `updated_at`) VALUES
 (5, 'Car Loan', 'this is car loan update', 'this is car loan update', '2024-06-26 01:14:07', '2024-06-26 01:40:39'),
-(7, 'New Car', 'new faq uo', 'new faq uo', '2024-06-26 01:41:22', '2024-06-26 01:41:36'),
-(8, 'Old Car', 'this is car loan old', 'this is car loan old', '2024-06-26 01:59:27', '2024-06-26 01:59:27');
+(7, 'New Car', 'new faq uo', 'new faq uo', '2024-06-26 01:41:22', '2024-06-26 01:41:36');
 
 -- --------------------------------------------------------
 
@@ -236,11 +290,11 @@ CREATE TABLE `leads` (
 --
 
 INSERT INTO `leads` (`id`, `fullname`, `mobile`, `email`, `city`, `state`, `vehicle`, `remarks`, `leadstatus`, `created_at`, `updated_at`) VALUES
-(8, 'Avengers', '1234567897', 'nb@gmail.com', 'Ajmer', 'Rajasthan', 'c', 'This is Remarks and it is good', 'final', '2024-06-25 01:37:54', '2024-06-25 05:54:38'),
+(8, 'Avengers', '1234567897', 'nb@gmail.com', 'Ajmer', 'Rajasthan', 'c', 'This is Remarks and it is good', 'intrested', '2024-06-25 01:37:54', '2024-06-28 04:34:40'),
 (9, 'ABC', '2222222222', 'admin@ananttvs.in', 'Ajmer', 'Rajasthan', 'a', 'dfsdfsdsdf', 'final', '2024-06-25 05:12:56', '2024-06-25 05:40:10'),
 (10, 'ABC', '2222222222', 'admin@ananttvs.in', 'Ajmer', 'Rajasthan', 'a', 'dfsdfsdsdf', 'intrested', '2024-06-19 05:12:56', '2024-06-26 00:26:14'),
-(11, 'ABCDD', '2', 'admin@anantt', 'Ajmer', 'Rajasthan', 'a', 'dfsdfhjmhjkhsdf', 'intrested', '2024-06-19 05:12:56', '2024-06-26 00:26:08'),
-(12, 'ABCDD', '2', 'admin@anantt', 'Ajmer', 'Rajasthan', 'a', 'dfsdfhjmhjkhsdf', 'intrested', '2024-06-28 05:12:56', '2024-06-26 02:06:09'),
+(11, 'ABCDD', '2', 'admin@anantt', 'Ajmer', 'Rajasthan', 'a', 'dfsdfhjmhjkhsdf', 'final', '2024-06-19 05:12:56', '2024-06-27 23:13:42'),
+(12, 'ABCDD', '2', 'admin@anantt', 'Ajmer', 'Rajasthan', 'a', 'dfsdfhjmhjkhsdf', 'intrested', '2024-06-28 05:12:56', '2024-06-27 02:30:06'),
 (13, 'ABCDDFFF', '34243232432', 'admin@anngmail.com\r\n', 'Ajmer', 'Rajasthan', 'a', 'dfsdfhjmhjkhsdf', 'final', '2024-06-28 05:12:56', '2024-06-28 05:40:10');
 
 -- --------------------------------------------------------
@@ -313,7 +367,13 @@ INSERT INTO `masters` (`id`, `label`, `value`, `type`, `iconimage`, `created_at`
 (76, 'Beige', '#F5F5DC', 'Color', NULL, '2024-06-27 01:15:13', '2024-06-27 01:15:13'),
 (77, 'Gold', '#FFD700', 'Color', NULL, '2024-06-27 01:15:35', '2024-06-27 01:15:35'),
 (78, 'Bronze', '#CD7F32', 'Color', NULL, '2024-06-27 01:16:02', '2024-06-27 01:16:02'),
-(79, 'Copper', '#B87333', 'Color', NULL, '2024-06-27 01:16:33', '2024-06-27 01:16:33');
+(79, 'Copper', '#B87333', 'Color', NULL, '2024-06-27 01:16:33', '2024-06-27 01:16:33'),
+(80, 'Brand', 'Brand', 'Master', NULL, '2024-06-27 23:59:39', '2024-06-27 23:59:39'),
+(81, 'Maruti Suzuki', 'Maruti Suzuki', 'Brand', '1719552616_maruti-suzuki1647009823420.jpg', '2024-06-28 00:00:16', '2024-06-28 00:00:16'),
+(82, 'Tata', 'Tata', 'Brand', '1719552760_tata.jpg', '2024-06-28 00:02:40', '2024-06-28 00:02:40'),
+(83, 'Toyota', 'Toyota', 'Brand', '1719552790_toyota.jpg', '2024-06-28 00:03:10', '2024-06-28 00:03:10'),
+(84, 'Hyundai', 'Hyundai', 'Brand', '1719552820_hyundai.jpg', '2024-06-28 00:03:40', '2024-06-28 00:03:40'),
+(85, 'Mahindra', 'Mahindra', 'Brand', '1719552844_mahindra.jpg', '2024-06-28 00:04:04', '2024-06-28 00:04:04');
 
 -- --------------------------------------------------------
 
@@ -414,8 +474,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('EJwpkg7G32CtBpWFOeS4s0nYxYyDluoOGAVyjkaH', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUFUwb0RlRTBiVHRJaU5jRlA0YVhybHI0WEhVRlE1N2xzTjlFaHBtTCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC92ZWhpY2xlaW1hZ2VzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMiRieVZhN1Z2cnNIT1RjcXBhRWNqTW5PV1dPMlp2VHZ6T1ZCQlNLTkFCcVMwZHdVUFVxZ1dhNiI7fQ==', 1719406928),
-('WW7LTGlBSv2XLr7xKLJVJ65uf0EPDgalqbB8Pm7X', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoibHhIWWJmd2NEd2UweEI2NEFyN0hReGU0d1VTYlZBVEFTZGFFaVdOQyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sZWFkbWFuYWdlbWVudCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTIkYnlWYTdWdnJzSE9UY3FwYUVjak1uT1dXTzJadlR2ek9WQkJTS05BQnFTMGR3VVBVcWdXYTYiO30=', 1719473954);
+('H5xjcxd5kkLtWaLTHZ3MM8akjU9lW6eB06UHtXc8', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiSTFKakpBdTI4OEl1RWwzNGxxck55a0NjMXVBNzZUVEtwVXdad2libCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC92ZWhpY2xlaW1hZ2VzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMiRieVZhN1Z2cnNIT1RjcXBhRWNqTW5PV1dPMlp2VHZ6T1ZCQlNLTkFCcVMwZHdVUFVxZ1dhNiI7fQ==', 1719576459);
 
 -- --------------------------------------------------------
 
@@ -470,11 +529,17 @@ CREATE TABLE `vehicle_images` (
 --
 
 INSERT INTO `vehicle_images` (`id`, `type`, `color`, `vehicle`, `title`, `mediatype`, `addimage`, `videourl`, `created_at`, `updated_at`) VALUES
-(7, 'Seat & seat adjustments', 'White', 'b', 'Front Row Seats', 'image', '1719473870_logo.png', 'https://dummy.com', '2024-06-27 01:38:30', '2024-06-27 02:07:50');
+(8, 'Seat & seat adjustments', 'White', 'Omni', 'Front Row Seats', 'image', '1719575342__a95329a8-fe8d-4c26-8d12-b1fb9f11d3cb.jpeg', 'https://dummy.com', '2024-06-28 06:19:02', '2024-06-28 06:19:02');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `add_variants`
+--
+ALTER TABLE `add_variants`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `blogs`
@@ -493,6 +558,12 @@ ALTER TABLE `cache`
 --
 ALTER TABLE `cache_locks`
   ADD PRIMARY KEY (`key`);
+
+--
+-- Indexes for table `car_lists`
+--
+ALTER TABLE `car_lists`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `company_profiles`
@@ -596,9 +667,21 @@ ALTER TABLE `vehicle_images`
 --
 
 --
+-- AUTO_INCREMENT for table `add_variants`
+--
+ALTER TABLE `add_variants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `car_lists`
+--
+ALTER TABLE `car_lists`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -641,7 +724,7 @@ ALTER TABLE `leads`
 -- AUTO_INCREMENT for table `masters`
 --
 ALTER TABLE `masters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -671,7 +754,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vehicle_images`
 --
 ALTER TABLE `vehicle_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

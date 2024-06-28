@@ -3,6 +3,15 @@
 @section('main-section')
 @section('title', 'All Blogs')
 <div class="page-content">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css">
+    <style>
+        table.dataTable th.dt-type-numeric,
+        table.dataTable th.dt-type-date,
+        table.dataTable td.dt-type-numeric,
+        table.dataTable td.dt-type-date {
+            text-align: left !important;
+        }
+    </style>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -23,7 +32,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body table-responsive">
-                        <table id="datatable-buttons" class="table  table-bordered dt-responsive nowrap"
+                        <table id="example" class="table  table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
@@ -117,7 +126,18 @@
         });
     }
 </script>
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable({
+        layout: {
+            topStart: {
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            }
+        },
 
+    });
+});
+</script>
 {{--Updating Blog Status--}}
 <script>
     $(document).ready(function() {

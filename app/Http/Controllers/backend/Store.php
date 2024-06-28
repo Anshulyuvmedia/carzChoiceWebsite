@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\CarList;
 use App\Models\CompanyProfile;
 use App\Models\faqs;
 use App\Models\FormAttribute;
@@ -11,6 +12,7 @@ use App\Models\Lead;
 use App\Models\Master;
 use App\Models\Remark;
 use App\Models\SubMaster;
+use App\Models\AddVariant;
 use App\Models\VehicleImage;
 use Illuminate\Http\Request;
 use Exception;
@@ -169,7 +171,6 @@ class Store extends Controller
 
     public function updateblog(Request $req)
     {
-
         try {
             $blogdata = $req->validate([
                 'categorytype' => 'required',
@@ -384,9 +385,10 @@ class Store extends Controller
         return response()->json($leaddata);
     }
 
-    public function storefaq(Request $req){
+    public function storefaq(Request $req)
+    {
         // dd($req->all());
-        try{
+        try {
             $data = $req->validate([
                 'faqcategory' => 'required',
                 'faqlabel' => 'required',
@@ -400,7 +402,7 @@ class Store extends Controller
             ]);
             Log::info('FAQ Inserted Successfully: ', ['faq' => $data]);
             return back()->with('success', 'FAQ Added..!!!!');
-        }catch(Exception $f){
+        } catch (Exception $f) {
             return back()->with('error', $f->getMessage());
             //return back()->with('error', 'Not Added Try Again...!!!!');
         }
@@ -413,7 +415,8 @@ class Store extends Controller
         return back()->with('success', "Deleted....!!!");
     }
 
-    public function updatefaq(Request $request){
+    public function updatefaq(Request $request)
+    {
         try {
             $faqs = faqs::where('id', $request->faqid)->update([
                 'category' => $request->faqcategory,
@@ -428,7 +431,8 @@ class Store extends Controller
         }
     }
 
-    public function insertvehicleimages(Request $request){
+    public function insertvehicleimages(Request $request)
+    {
         try {
             // Validate request data
             $data = $request->validate([
@@ -458,13 +462,15 @@ class Store extends Controller
         }
     }
 
-    public function deletevehicleimg($id){
+    public function deletevehicleimg($id)
+    {
         $data = VehicleImage::find($id);
         $data->delete();
         return back()->with('success', "Deleted....!!!");
     }
 
-    public function updatevehicleimgs(Request $request){
+    public function updatevehicleimgs(Request $request)
+    {
         // dd($request->all());
         try {
             $vehicledata = VehicleImage::findOrFail($request->vehicleimgid);
@@ -489,6 +495,122 @@ class Store extends Controller
             return back()->with('success', "Updated..!!!");
         } catch (Exception $e) {
             return back()->with('error', $e->getMessage());
+            //return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
+
+    public function insertcarlist(Request $request)
+    {
+
+        try {
+            $request->validate([
+                'carname' => 'required',
+                'brandname' => 'required',
+            ]);
+            CarList::create([
+                'carname' => $request->carname,
+                'brandname' => $request->brandname,
+            ]);
+            return back()->with('success', 'Car List Added..!!!!');
+        } catch (Exception $e) {
+            return redirect()->route('addcarlist')->with('error', $e->getMessage());
+            //return redirect()->route('addcarlist')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deletecarlist($id)
+    {
+        $data = CarList::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function updatecarlist(Request $request)
+    {
+        try {
+            $carlist = CarList::where('id', $request->carlistid)->update([
+                'carname' => $request->carname,
+                'brandname' => $request->brandname,
+            ]);
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            //return back()->with('error', $e->getMessage());
+            return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
+
+    public function insertvariants(Request $rq)
+    {
+        // dd($rq->all());
+        try {
+            $data = $rq->validate([
+                'carname' => 'required',
+                'carmodalname' => 'required',
+                'availabelstatus' => 'required',
+                'price' => 'required',
+                'pricetype' => 'required',
+                'mileage' => 'required',
+                'engine' => 'required',
+                'fueltype' => 'required',
+                'transmission' => 'required',
+                'seatingcapacity' => 'required',
+                'userreportedmilage' => 'required',
+            ]);
+
+            AddVariant::create([
+                'carname' => $rq->carname,
+                'carmodalname' => $rq->carmodalname,
+                'availabelstatus' => $rq->availabelstatus,
+                'price' => $rq->price,
+                'pricetype' => $rq->pricetype,
+                'mileage' => $rq->mileage,
+                'engine' => $rq->engine,
+                'fueltype' => json_encode($rq->fueltype),    //These values are coming from multiple dropown and storing as ARRAY...
+                'transmission' => json_encode($rq->transmission),
+                'seatingcapacity' => $rq->seatingcapacity,
+                'userreportedmilage' => $rq->userreportedmilage,
+                'keyfeatures' => $rq->keyfeatures,
+                'summary' => $rq->summary,
+
+            ]);
+            Log::info('Variant Inserted Successfully: ', ['user' => $data]);
+            return back()->with('success', 'Variant Added..!!!!');
+
+        } catch (Exception $e) {
+            //return redirect()->route('addvariant')->with('error', $e->getMessage());
+            return redirect()->route('addvariant')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deletevariants($id)
+    {
+        $data = AddVariant::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function updatevariants(Request $req)
+    {
+        try {
+            $variantdata = AddVariant::findOrFail($req->variantid);
+            $variantdata->carname = $req->carname;
+            $variantdata->carmodalname = $req->carmodalname;
+            $variantdata->availabelstatus = $req->availabelstatus;
+            $variantdata->price = $req->price;
+            $variantdata->pricetype = $req->pricetype;
+            $variantdata->mileage = $req->mileage;
+            $variantdata->engine = $req->engine;
+            $variantdata->fueltype = $req->fueltype;
+            $variantdata->transmission = $req->transmission;
+            $variantdata->seatingcapacity = $req->seatingcapacity;
+            $variantdata->userreportedmilage = $req->userreportedmilage;
+            $variantdata->keyfeatures = $req->keyfeatures;
+            $variantdata->summary = $req->summary;
+            $variantdata->save();
+            return back()->with('success', 'Variant Updated successfully.');
+
+        } catch (Exception $e) {
+            return back()->with('error', 'Failed to update profile. ' . $e->getMessage());
             //return back()->with('error', 'Not Updated..Try Again.....');
         }
     }

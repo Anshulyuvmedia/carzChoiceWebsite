@@ -615,6 +615,7 @@
                                 </td>
                             </tr>`;
                         $('#table-body').append(newRow);
+                        $(`#inputGroupSelect01_${row.id}`).val(row.leadstatus);
                     });
                     dataTableCustomer = $("#datatable-buttons")
                         .DataTable({
@@ -634,33 +635,41 @@
 <script>
     $(document).ready(function() {
         var leadid;
-        $('.leadstatus').change(function() {
+        $('#table-body').on('change', '.leadstatus', function() {
             var selectedStatus = $(this).val();
-            leadid = $(this).closest('td').find('.leadid').val();
-            console.log(leadid);
-            console.log(selectedStatus);
-
-            //Updating Lead Status
-            $.ajax({
-                url: '/updateleadstatus',
-                method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    status: selectedStatus,
-                    record_id: leadid
-                },
-                success: function(response) {
-                    if (response.success) {
-                        swal("Success", "Lead status updated successfully.", "success");
-                    } else {
-                        swal("Error", "Failed to update Lead status.", "error");
-                    }
-                },
-                error: function() {
-                    swal("Error", "An error occurred.", "error");
+            leadid = $(this).closest('tr').find('.leadid').val();
+            swal({
+                title: "Update Lead Status",
+                text: "Are you sure you want to update the lead status?",
+                icon: "info",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willUpdate) => {
+                if (willUpdate) {
+                    $.ajax({
+                        url: '/updateleadstatus',
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            status: selectedStatus,
+                            record_id: leadid
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                swal("Success", "Lead status updated successfully.", "success");
+                            } else {
+                                swal("Error", "Failed to update Lead status.", "error");
+                            }
+                        },
+                        error: function() {
+                            swal("Error", "An error occurred.", "error");
+                        }
+                    });
                 }
             });
         });
     });
 </script>
+
 @endpush

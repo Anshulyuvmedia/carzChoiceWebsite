@@ -69,6 +69,11 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('leadmanagement', 'leadmanagement')->name('leadmanagement');
     Route::get('faqs', 'faqs')->name('faqs');
     Route::get('vehicleimages', 'vehicleimages')->name('vehicleimages');
+    Route::get('addcarlist', 'addcarlist')->name('addcarlist');
+    Route::get('addvariant', 'addvariant')->name('addvariant');
+    Route::get('variantslist', 'variantslist')->name('variantslist');
+    Route::get('editvariant/{id}', 'editvariant')->name('editvariant');
+
 });
 
 
@@ -101,6 +106,12 @@ Route::controller(Store::class)->group(function() {
     Route::post('insertvehicleimages', 'insertvehicleimages')->name('insertvehicleimages');
     Route::get('deletevehicleimg/{id}', 'deletevehicleimg')->name('deletevehicleimg');
     Route::post('updatevehicleimgs', 'updatevehicleimgs')->name('updatevehicleimgs');
+    Route::post('insertcarlist', 'insertcarlist')->name('insertcarlist');
+    Route::get('deletecarlist/{id}', 'deletecarlist')->name('deletecarlist');
+    Route::post('updatecarlist', 'updatecarlist')->name('updatecarlist');
+    Route::post('insertvariants', 'insertvariants')->name('insertvariants');
+    Route::get('deletevariants/{id}', 'deletevariants')->name('deletevariants');
+    Route::post('updatevariants', 'updatevariants')->name('updatevariants');
 
 });
 
