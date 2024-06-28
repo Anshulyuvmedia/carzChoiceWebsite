@@ -166,7 +166,7 @@
                             <span class="author-name">Muhammad Umair</span>
                             <em>5 days ago</em>
                          </div>
-                         <h2><a href="single-page-listing.html">2017 Audi A4 sport Auto MY17 For Sale</a></h2>
+                         <h2><a href="#">2017 Audi A4 sport Auto MY17 For Sale</a></h2>
                          <ul class="messages">
                             <li class="friend-message clearfix">
                                <figure class="profile-picture">

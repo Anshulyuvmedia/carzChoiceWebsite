@@ -79,7 +79,7 @@
                                <!-- Short Description -->
                                <div class="short-description-1 ">
                                   <h3>
-                                     <a title="" href="single-page-listing.html">Honda Civic 2017 Sports Edition</a>
+                                     <a title="" href="#">Honda Civic 2017 Sports Edition</a>
                                   </h3>
                                   <!-- Location -->
                                   <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -107,7 +107,7 @@
                                <!-- Short Description -->
                                <div class="short-description-1 ">
                                   <h3>
-                                     <a title="" href="single-page-listing.html">2012 Bugatti Veyron</a>
+                                     <a title="" href="#">2012 Bugatti Veyron</a>
                                   </h3>
                                   <!-- Location -->
                                   <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -135,7 +135,7 @@
                                <!-- Short Description -->
                                <div class="short-description-1 ">
                                   <h3>
-                                     <a title="" href="single-page-listing.html">2017 Audi A4 quattro Premium</a>
+                                     <a title="" href="#">2017 Audi A4 quattro Premium</a>
                                   </h3>
                                   <!-- Location -->
                                   <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -163,7 +163,7 @@
                                <!-- Short Description -->
                                <div class="short-description-1 ">
                                   <h3>
-                                     <a title="" href="single-page-listing.html">2017 Bugatti Veyron GTR</a>
+                                     <a title="" href="#">2017 Bugatti Veyron GTR</a>
                                   </h3>
                                   <!-- Location -->
                                   <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -191,7 +191,7 @@
                                <!-- Short Description -->
                                <div class="short-description-1 ">
                                   <h3>
-                                     <a title="" href="single-page-listing.html">2011 Bugatti Veyron Super Sport </a>
+                                     <a title="" href="#">2011 Bugatti Veyron Super Sport </a>
                                   </h3>
                                   <!-- Location -->
                                   <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -219,7 +219,7 @@
                                <!-- Short Description -->
                                <div class="short-description-1 ">
                                   <h3>
-                                     <a title="" href="single-page-listing.html">Audi Q5 2.0T quattro Premium </a>
+                                     <a title="" href="#">Audi Q5 2.0T quattro Premium </a>
                                   </h3>
                                   <!-- Location -->
                                   <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -247,7 +247,7 @@
                                <!-- Short Description -->
                                <div class="short-description-1 ">
                                   <h3>
-                                     <a title="" href="single-page-listing.html">BMW I8 1.5 Auto 4X4 2dr </a>
+                                     <a title="" href="#">BMW I8 1.5 Auto 4X4 2dr </a>
                                   </h3>
                                   <!-- Location -->
                                   <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -275,7 +275,7 @@
                                <!-- Short Description -->
                                <div class="short-description-1 ">
                                   <h3>
-                                     <a title="" href="single-page-listing.html">Lamborghini Huracan 5.2 LP 2dr</a>
+                                     <a title="" href="#">Lamborghini Huracan 5.2 LP 2dr</a>
                                   </h3>
                                   <!-- Location -->
                                   <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>

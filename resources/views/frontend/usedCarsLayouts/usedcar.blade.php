@@ -798,7 +798,7 @@
 
 
                                             <h3>
-                                                <a title="" href="single-page-listing.html">
+                                                <a title="" href="#">
                                                     Used Honda City
                                                 </a>
                                             </h3>
@@ -837,7 +837,7 @@
 
 
                                             <h3>
-                                                <a title="" href="single-page-listing.html">
+                                                <a title="" href="#">
                                                     Used Hyundai Creta
                                                 </a>
                                             </h3>
@@ -873,7 +873,7 @@
 
 
                                             <h3>
-                                                <a title="" href="single-page-listing.html">
+                                                <a title="" href="#">
                                                     Used Maruti Suzuki Wagon R
                                                 </a>
                                             </h3>
@@ -909,7 +909,7 @@
 
 
                                             <h3>
-                                                <a title="" href="single-page-listing.html">
+                                                <a title="" href="#">
                                                     Used Maruti Suzuki Ertiga
                                                 </a>
                                             </h3>
@@ -947,7 +947,7 @@
 
 
                                             <h3>
-                                                <a title="" href="single-page-listing.html">
+                                                <a title="" href="#">
                                                     Used Mercedes-Benz E-Class
                                                 </a>
                                             </h3>
@@ -1081,7 +1081,7 @@
 
                                             <h3>
                                                 <a title="" class="text-truncate col-2"
-                                                    href="single-page-listing.html">
+                                                    href="#">
                                                     <?php
                                                     echo substr('Used Mercedes-Benz GLS 400d 4MATIC [2020-2023]', 0, 20);
                                                     ?>
@@ -1116,7 +1116,7 @@
 
                                             <h3>
                                                 <a title="" class="text-truncate col-2"
-                                                    href="single-page-listing.html">
+                                                    href="#">
                                                     <?php
                                                     echo substr('Used Mercedes-Benz GLS 400d 4MATIC [2020-2023]', 0, 20);
                                                     ?>
@@ -1151,7 +1151,7 @@
 
                                             <h3>
                                                 <a title="" class="text-truncate col-2"
-                                                    href="single-page-listing.html">
+                                                    href="#">
                                                     <?php
                                                     echo substr('Used Mercedes-Benz GLS 400d 4MATIC [2020-2023]', 0, 20);
                                                     ?>
@@ -1186,7 +1186,7 @@
 
                                             <h3>
                                                 <a title="" class="text-truncate col-2"
-                                                    href="single-page-listing.html">
+                                                    href="#">
                                                     <?php
                                                     echo substr('Used Mercedes-Benz GLS 400d 4MATIC [2020-2023]', 0, 20);
                                                     ?>

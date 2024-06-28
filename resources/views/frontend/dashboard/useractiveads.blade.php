@@ -135,7 +135,7 @@
                    </div>
                    <div class="short-description-1 clearfix">
                       <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
-                      <h3><a title="" href="single-page-listing.html">Honda Civic 2017 Sports Edition</a></h3>
+                      <h3><a title="" href="#">Honda Civic 2017 Sports Edition</a></h3>
                       <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
                       <ul class="list-unstyled">
                          <li><a href="javascript:void(0)"><i class="flaticon-gas-station-1"></i>Diesel</a></li>
@@ -171,7 +171,7 @@
                    </div>
                    <div class="short-description-1 clearfix">
                       <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
-                      <h3><a title="" href="single-page-listing.html">2015 Lamborghini Huracan</a></h3>
+                      <h3><a title="" href="#">2015 Lamborghini Huracan</a></h3>
                       <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
                       <ul class="list-unstyled">
                          <li><a href="javascript:void(0)"><i class="flaticon-gas-station-1"></i>Diesel</a></li>
@@ -206,7 +206,7 @@
                    </div>
                    <div class="short-description-1 clearfix">
                       <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
-                      <h3><a title="" href="single-page-listing.html">BMW I8 1.5 Auto 4X4 2dr </a></h3>
+                      <h3><a title="" href="#">BMW I8 1.5 Auto 4X4 2dr </a></h3>
                       <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
                       <ul class="list-unstyled">
                          <li><a href="javascript:void(0)"><i class="flaticon-gas-station-1"></i>Diesel</a></li>
@@ -238,7 +238,7 @@
                    </div>
                    <div class="short-description-1 clearfix">
                       <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
-                      <h3><a title="" href="single-page-listing.html">2017 Audi A4 sport Auto MY17</a></h3>
+                      <h3><a title="" href="#">2017 Audi A4 sport Auto MY17</a></h3>
                       <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
                       <ul class="list-unstyled">
                          <li><a href="javascript:void(0)"><i class="flaticon-gas-station-1"></i>Diesel</a></li>
@@ -277,7 +277,7 @@
                    </div>
                    <div class="short-description-1 clearfix">
                       <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
-                      <h3><a title="" href="single-page-listing.html">2015 Ferrari 458 Italia Convertibleo</a></h3>
+                      <h3><a title="" href="#">2015 Ferrari 458 Italia Convertibleo</a></h3>
                       <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
                       <ul class="list-unstyled">
                          <li><a href="javascript:void(0)"><i class="flaticon-gas-station-1"></i>Diesel</a></li>
@@ -309,7 +309,7 @@
                    </div>
                    <div class="short-description-1 clearfix">
                       <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
-                      <h3><a title="" href="single-page-listing.html">Ford Focus 1.6 TDCi Edge 5dr</a></h3>
+                      <h3><a title="" href="#">Ford Focus 1.6 TDCi Edge 5dr</a></h3>
                       <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
                       <ul class="list-unstyled">
                          <li><a href="javascript:void(0)"><i class="flaticon-gas-station-1"></i>Diesel</a></li>

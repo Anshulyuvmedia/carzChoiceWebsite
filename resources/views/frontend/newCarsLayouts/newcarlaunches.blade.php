@@ -9,12 +9,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="small-breadcrumb">
-                    {{-- <div class=" breadcrumb-link">
-                   <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
-                      <li><a class="active" href="#">Listing</a></li>
-                   </ul>
-                </div> --}}
+                   
                 <div class="header-page">
                     <h1>New Car Launches</h1>
                     <p>More than 75 upcoming cars that will launch in India are covered here. All these new upcoming cars are listed with their expected launch date and estimated launch price. The popular upcoming car is Kia Carnival whereas the most recent upcoming electric car is Tata Harrier EV.</p>

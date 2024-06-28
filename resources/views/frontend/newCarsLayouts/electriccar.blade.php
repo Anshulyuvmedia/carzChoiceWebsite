@@ -65,7 +65,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Tata Punch EV
                                                     </a>
                                                 </h3>
@@ -97,7 +97,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         BYD Seal
                                                     </a>
                                                 </h3>
@@ -129,7 +129,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         MG Comet EV
                                                     </a>
                                                 </h3>
@@ -161,7 +161,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Tata Nexon EV
                                                     </a>
                                                 </h3>
@@ -193,7 +193,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Hyundai Ioniq 5
                                                     </a>
                                                 </h3>
@@ -257,7 +257,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Maruti Suzuki Grand Vitara
                                                     </a>
                                                 </h3>
@@ -289,7 +289,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Toyota Urban Cruiser Hyryder
                                                     </a>
                                                 </h3>
@@ -321,7 +321,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Toyota Innova Hycross
                                                     </a>
                                                 </h3>
@@ -353,7 +353,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Maruti Suzuki Invicto
                                                     </a>
                                                 </h3>
@@ -385,7 +385,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Toyota Vellfire
                                                     </a>
                                                 </h3>
@@ -1069,8 +1069,7 @@
                                             <div class="short-description-1 clearfix">
 
                                                 <div class="text-muted">Tata </div>
-                                                <div
-                                                    class=" fs-3 fw-bold d-flex justify-content-between align-content-center ">
+                                                <div class=" fs-3 fw-bold d-flex justify-content-between align-content-center ">
                                                     <a title="" href="#">
                                                         Seal
                                                     </a>

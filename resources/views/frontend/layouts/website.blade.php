@@ -172,6 +172,9 @@
                                                         <li><a href="/new-car-launches">New Launches </a></li>
                                                         <li><a href="/electric-car">Electric Cars </a></li>
                                                         <li><a href="/car-loan">Car Loan </a></li>
+                                                        <li><a href="/car-view-images">Car different Views </a></li>
+                                                        <li><a href="/car-images">Car Images </a></li>
+                                                        
                                                     </ul>
                                                 </div>
 
@@ -179,62 +182,74 @@
                                                     <h3>Brands</h3>
                                                     <ul class="by-make list-inline">
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/1.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/10/brands/logos/maruti-suzuki1647009823420.jpg?v=1647009823707&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/2.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/16/brands/logos/tata.jpg?v=1629973276336&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/3.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/17/brands/logos/toyota.jpg?v=1630055705330&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/4.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/8/brands/logos/hyundai.jpg?v=1629973193722&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/5.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/9/brands/logos/mahindra.jpg?v=1629973668273&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/6.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/1/brands/logos/bmw.jpg?v=1629973130013&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/7.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/11/brands/logos/mercedes-benz.jpg?v=1629973270530&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/8.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/18/brands/logos/audi.jpg?v=1630055874070&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/9.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/23/brands/logos/land-rover1647236056893.jpg?v=1647236057234&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/11.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/72/brands/logos/mg.jpg?v=1631163895654&q=80"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/30/brands/logos/lamborghini.jpg?v=1631163814246&q=80"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/44/brands/logos/jaguar.jpg?v=1631163525508&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
@@ -309,71 +324,85 @@
                                                         {{-- <li><a href="/electric-car">Electric Cars </a></li>  --}}
                                                     </ul>
                                                 </div>
+
                                                 <div class="grid-col-6">
                                                     <h3>Search Used Cars by Brands</h3>
                                                     <ul class="by-make list-inline">
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/1.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/10/brands/logos/maruti-suzuki1647009823420.jpg?v=1647009823707&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/2.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/16/brands/logos/tata.jpg?v=1629973276336&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/3.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/17/brands/logos/toyota.jpg?v=1630055705330&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/4.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/8/brands/logos/hyundai.jpg?v=1629973193722&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/5.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/9/brands/logos/mahindra.jpg?v=1629973668273&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/6.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/1/brands/logos/bmw.jpg?v=1629973130013&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/7.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/11/brands/logos/mercedes-benz.jpg?v=1629973270530&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/8.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/18/brands/logos/audi.jpg?v=1630055874070&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/9.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/23/brands/logos/land-rover1647236056893.jpg?v=1647236057234&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/frontend-assets/images/brands/11.png') }}"
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/72/brands/logos/mg.jpg?v=1631163895654&q=80"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/30/brands/logos/lamborghini.jpg?v=1631163814246&q=80"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/find-car">
+                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/44/brands/logos/jaguar.jpg?v=1631163525508&q=80"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
                                                     </ul>
                                                 </div>
+
                                                 <div class="grid-col-4">
                                                     <h3>Search Used Cars by Body Type</h3>
                                                     <ul class="list-inline by-category ">
@@ -693,6 +722,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    
 </body>
 
 </html>

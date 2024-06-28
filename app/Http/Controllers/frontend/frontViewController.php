@@ -91,5 +91,14 @@ class frontViewController extends Controller
     public function carloan() {
         return view('frontend.newcarslayouts.carloan');
     }
+    public function findcar() {
+        return view('frontend.findcar');
+    }
+    public function carviewimages() {
+        return view('frontend.carLayouts.carviewimages');
+    }
+    public function carimages() {
+        return view('frontend.carLayouts.carimages');
+    }
 
 }

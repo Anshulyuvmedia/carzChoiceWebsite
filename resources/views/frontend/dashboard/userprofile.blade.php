@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class=" breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="#">Home Page</a></li>
                       <li><a class="active" href="#">Profile</a></li>
                    </ul>
                 </div>
@@ -40,7 +40,7 @@
                          <div class="col-md-5 col-sm-12 col-xs-12">
                             <h4 class="search-result-item-heading"><a href="#">Umair</a></h4>
                             <p class="info">
-                               <span><a href="profile.html"><i class="fa fa-user "></i>Profile </a></span>
+                               <span><a href="#"><i class="fa fa-user "></i>Profile </a></span>
                                <span><a href="javascript:void(0)"><i class="fa fa-edit"></i>Edit Profile </a></span>
                             </p>
                             <p class="description">You last logged in at: 14-01-2017 6:40 AM [ USA time (GMT + 6:00hrs)</p>
@@ -75,7 +75,7 @@
                 <div class="dashboard-menu-container">
                    <ul>
                       <li class="active">
-                         <a href="profile.html">
+                         <a href="#">
                             <div class="menu-name"> Profile </div>
                          </a>
                       </li>

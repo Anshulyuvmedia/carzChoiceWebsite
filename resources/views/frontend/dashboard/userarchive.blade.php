@@ -138,7 +138,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">2016 BMW 3 Series 328i</a>
+                               <a title="" href="#">2016 BMW 3 Series 328i</a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -178,7 +178,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">2014 Ford Shelby GT500 Coupe</a>
+                               <a title="" href="#">2014 Ford Shelby GT500 Coupe</a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -218,7 +218,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">Porsche 911 Carrera 2017 </a>
+                               <a title="" href="#">Porsche 911 Carrera 2017 </a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -258,7 +258,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">2017 Audi A4 quattro Premium</a>
+                               <a title="" href="#">2017 Audi A4 quattro Premium</a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -298,7 +298,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">McLaren F1 Sports Car</a>
+                               <a title="" href="#">McLaren F1 Sports Car</a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -338,7 +338,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">Lamborghini Gallardo 5.0 V10 2dr</a>
+                               <a title="" href="#">Lamborghini Gallardo 5.0 V10 2dr</a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
