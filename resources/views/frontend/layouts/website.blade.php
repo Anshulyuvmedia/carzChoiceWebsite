@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="ScriptsBundle">
 
-    <title>@yield('title') | Carchoice</title>
+    <title>@yield('title') | Carz Choice</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -604,8 +604,7 @@
                                 <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo" width="120">
 
                              </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et dolor eget erat
-                                fringilla port.</p>
+                            
                             <ul class="apps-donwloads">
                                 <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}"
                                         alt=""></li>

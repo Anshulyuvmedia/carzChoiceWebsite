@@ -153,7 +153,7 @@
                 <div class="small-breadcrumb">
                     <div class="header-page">
                         <h1>Looking for a Car Loan?</h1>
-                        <p>CarChoice makes applying for a car loan online quick and simple. All you need to do is
+                        <p>Carz Choice makes applying for a car loan online quick and simple. All you need to do is
                             furnish some details on the website and submit your application. Once this is done, the bank
                             automatically takes over and you have your loan quotes ready.</p>
                     </div>
@@ -229,7 +229,7 @@
                                             </button>
                                             <div class="mb-3">
                                                 <i class="text-muted  fs-5">
-                                                    By proceeding ahead you agree to CarChoice Visitor Agreement,
+                                                    By proceeding ahead you agree to Carz Choice Visitor Agreement,
                                                     Privacy Policy and Terms and Conditions. This site is protected by
                                                     reCAPTCHA and Google Terms of Service apply
                                                 </i>
@@ -356,7 +356,7 @@
                                             </button>
                                             <div class="mb-3">
                                                 <i class="text-muted  fs-5">
-                                                    By proceeding ahead you agree to CarChoice Visitor Agreement,
+                                                    By proceeding ahead you agree to Carz Choice Visitor Agreement,
                                                     Privacy Policy and Terms and Conditions. This site is protected by
                                                     reCAPTCHA and Google Terms of Service apply
                                                 </i>
@@ -475,7 +475,7 @@
                         <p>EMIs make your loan repayment much easier and a peaceful process but a car loan EMI is
                             somewhat capable of making a dent in your monthly budget. Therefore, you need to calculate
                             the EMI amount ahead of time to ensure that you can actually afford to take a loan for the
-                            desired amount. Our user-friendly CarChoice car loan EMI calculator instantly provides you
+                            desired amount. Our user-friendly Carz Choice car loan EMI calculator instantly provides you
                             with the monthly amount you would be required to pay based on the loan amount, term and
                             interest rate provided by you.</p>
                     </div>
@@ -751,7 +751,7 @@
                     <ul class="accordion">
                         <li>
                             <h3 class="accordion-title"><a href="#">Why should you apply for car loan through
-                                    CarChoice?</a></h3>
+                                    Carz Choice?</a></h3>
                             <div class="accordion-content">
                                 <p>CarWale brings you instant custom-fit car loans from leading banks in India to help
                                     you get a loan to purchase your dream car. Just fill the form once and get custom
@@ -773,7 +773,7 @@
                         </li>
                         <li>
                             <h3 class="accordion-title"><a href="#">What will be the interest rate for car Loan
-                                    on CarChoice?</a></h3>
+                                    on Carz Choice?</a></h3>
                             <div class="accordion-content">
                                 <p> The interest rates vary on the basis of car models, tenure selected and your
                                     preferred banking partner. We provide offers starting from 9.5% per annum. Your

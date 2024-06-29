@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class=" breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Listing</a></li>
                    </ul>
                 </div>
@@ -68,7 +68,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/17.jpg')}}" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/17.jpg')}}" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -96,7 +96,7 @@
                          <div class="col-md-6  col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carspot" src="images/posting/18.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="images/posting/18.jpg" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -124,7 +124,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carspot" src="images/posting/16.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="images/posting/16.jpg" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -152,7 +152,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carspot" src="images/posting/15.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="images/posting/15.jpg" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -180,7 +180,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carspot" src="images/posting/14.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="images/posting/14.jpg" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -208,7 +208,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carspot" src="images/posting/13.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="images/posting/13.jpg" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -236,7 +236,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carspot" src="images/posting/12.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="images/posting/12.jpg" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -264,7 +264,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carspot" src="images/posting/7.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="images/posting/7.jpg" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>

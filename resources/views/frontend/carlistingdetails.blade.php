@@ -24,7 +24,7 @@
                <div class="col-md-12 col-xs-12 col-sm-12">
                   <div class=" breadcrumb-link">
                      <ul>
-                        <li><a href="index-2.html">Cars & Bikes</a></li>
+                        <li><a href="/">Cars & Bikes</a></li>
                         <li><a class="active" href="#">Ad Details</a></li>
                      </ul>
                   </div>

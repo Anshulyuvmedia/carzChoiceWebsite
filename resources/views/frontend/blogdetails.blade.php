@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class=" breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Blog</a></li>
                    </ul>
                 </div>
@@ -37,7 +37,7 @@
                    <!-- Blog Archive -->
                    <div class="blog-post">
                       <div class="post-img">
-                         <a href="images/blog/2.jpg" data-fancybox="group" > <img class="img-responsive large-img" alt="" src="images/blog/2.jpg"> </a>
+                         <a href="{{ asset('assets/frontend-assets/images/blog/2.jpg')}}" data-fancybox="group" > <img class="img-responsive large-img" alt="" src="{{ asset('assets/frontend-assets/images/blog/2.jpg')}}"> </a>
                       </div>
                       <div class="post-info"> <a href="#">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
                       <h3 class="post-title"> <a href="#"> AUDI A4 Saloon 3.0 TDI Sport 4dr S Tronic </a> </h3>
@@ -55,10 +55,10 @@
                          <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat sed lorem dictum ullamcorper. Sed vel elit sed nunc ornare auctor. Suspendisse id ullamcorper purus, sed cursus dui. Sed eget elit magna. Morbi pellentesque gravida vehicula. Nunc ullamcorper rutrum nunc, non consectetur ante egestas non. Donec elementum est at velit accumsan, nec accumsan neque porta. Nunc iaculis condimentum ipsum, eget molestie nulla.
                          </p>
-                         <p><img src="images/blog/left-align.jpg" alt="" class="alignleft img-responsive"> Aliquam placerat lacinia purus vitae sodales. Nulla egestas mauris eu rutrum fringilla. Nunc malesuada, tortor bibendum feugiat pharetra, dolor mauris porttitor eros, sed dapibus eros diam vitae purus. Mauris rutrum ullamcorper nisi id semper. Maecenas sit amet libero sit amet velit auctor feugiat. Suspendisse libero massa, vestibulum ut luctus eu, convallis nec enim. Donec quis tincidunt est. Ut egestas,</p>
+                         <p><img src="{{ asset('assets/frontend-assets/images/blog/left-align.jpg')}}" alt="" class="alignleft img-responsive"> Aliquam placerat lacinia purus vitae sodales. Nulla egestas mauris eu rutrum fringilla. Nunc malesuada, tortor bibendum feugiat pharetra, dolor mauris porttitor eros, sed dapibus eros diam vitae purus. Mauris rutrum ullamcorper nisi id semper. Maecenas sit amet libero sit amet velit auctor feugiat. Suspendisse libero massa, vestibulum ut luctus eu, convallis nec enim. Donec quis tincidunt est. Ut egestas,</p>
                          <p> dui vitae vulputate congue, ipsum odio congue urna, vel posuere orci ante eget dui. In vestibulum ligula nec interdum suscipit. Proin massa arcu, porta eget odio eget, porttitor ultrices tellus. Cras sed ipsum hendrerit, mattis neque scelerisque, accumsan metus. Vestibulum vulputate dolor sed nulla molestie iaculis. Mauris ornare tellus sit amet mi pharetra laoreet. Donec ac molestie dui, et feugiat turpis.
                          </p>
-                         <p><img src="images/blog/right-align.jpg" alt="" class="alignright img-responsive"> Proin rhoncus magna sollicitudin aliquam interdum. Nullam accumsan, lectus vel rutrum convallis, lacus tellus elementum nisl, vel tincidunt nulla lacus non elit. Integer ultricies dui leo, ac egestas nulla aliquet vitae. Ut nec rutrum purus, sed dignissim metus. Cras consectetur mi sapien, eu sodales enim euismod sit amet. </p>
+                         <p><img src="{{ asset('assets/frontend-assets/images/blog/right-align.jpg')}}" alt="" class="alignright img-responsive"> Proin rhoncus magna sollicitudin aliquam interdum. Nullam accumsan, lectus vel rutrum convallis, lacus tellus elementum nisl, vel tincidunt nulla lacus non elit. Integer ultricies dui leo, ac egestas nulla aliquet vitae. Ut nec rutrum purus, sed dignissim metus. Cras consectetur mi sapien, eu sodales enim euismod sit amet. </p>
                          <p> dui vitae vulputate congue, ipsum odio congue urna, vel posuere orci ante eget dui. In vestibulum ligula nec interdum suscipit. Proin massa arcu, porta eget odio eget, porttitor ultrices tellus. Cras sed ipsum hendrerit, mattis neque scelerisque, accumsan metus. Vestibulum vulputate dolor sed nulla molestie iaculis. Mauris ornare tellus sit amet mi pharetra laoreet. Donec ac molestie dui, et feugiat turpis.
                          </p>
                          <p>Donec malesuada volutpat varius. Quisque eu mauris in ipsum consequat tincidunt vel sit amet justo. In tincidunt ex scelerisque arcu varius, nec blandit nibh vestibulum.</p>
@@ -92,7 +92,7 @@
                                <!-- comment-list    -->
                                <li class="comment">
                                   <div class="comment-info">
-                                     <img class="pull-left hidden-xs img-circle" src="images/blog/c1.png" alt="author">
+                                     <img class="pull-left hidden-xs img-circle" src="{{('assets/frontend-assets/images/blog/c1.png')}}" alt="author">
                                      <div class="author-desc">
                                         <div class="author-title">
                                            <strong>Curt Alex</strong>
@@ -109,7 +109,7 @@
                                   <ol class="children">
                                      <li class="comment">
                                         <div class="comment-info">
-                                           <img class="pull-left hidden-xs img-circle" src="images/blog/c2.png" alt="author">
+                                           <img class="pull-left hidden-xs img-circle" src="{{('assets/frontend-assets/images/blog/c2.png')}}" alt="author">
                                            <div class="author-desc">
                                               <div class="author-title">
                                                  <strong>Emilly Copper</strong>
@@ -131,7 +131,7 @@
                                <!-- comment -->
                                <li class="comment">
                                   <div class="comment-info">
-                                     <img class="pull-left hidden-xs img-circle" src="images/blog/c3.png" alt="author">
+                                     <img class="pull-left hidden-xs img-circle" src="{{('assets/frontend-assets/images/blog/c3.png')}}" alt="author">
                                      <div class="author-desc">
                                         <div class="author-title">
                                            <strong>Ricky John</strong>
@@ -223,7 +223,7 @@
                             <div class="recent-ads-container">
                                <div class="recent-ads-list-image">
                                   <a href="#" class="recent-ads-list-image-inner">
-                                  <img src="images/posting/thumb-1.jpg" alt="">
+                                  <img src="{{ asset('assets/frontend-assets/images/posting/thumb-1.jpg')}}" alt="">
                                   </a><!-- /.recent-ads-list-image-inner -->
                                </div>
                                <!-- /.recent-ads-list-image -->
@@ -245,7 +245,7 @@
                             <div class="recent-ads-container">
                                <div class="recent-ads-list-image">
                                   <a href="#" class="recent-ads-list-image-inner">
-                                  <img src="images/posting/thumb-2.jpg" alt="">
+                                  <img src="{{ asset('assets/frontend-assets/images/posting/thumb-2.jpg')}}" alt="">
                                   </a><!-- /.recent-ads-list-image-inner -->
                                </div>
                                <!-- /.recent-ads-list-image -->
@@ -267,7 +267,7 @@
                             <div class="recent-ads-container">
                                <div class="recent-ads-list-image">
                                   <a href="#" class="recent-ads-list-image-inner">
-                                  <img src="images/posting/thumb-3.jpg" alt="">
+                                  <img src="{{ asset('assets/frontend-assets/images/posting/thumb-3.jpg')}}" alt="">
                                   </a><!-- /.recent-ads-list-image-inner -->
                                </div>
                                <!-- /.recent-ads-list-image -->
@@ -288,7 +288,7 @@
                             <div class="recent-ads-container">
                                <div class="recent-ads-list-image">
                                   <a href="#" class="recent-ads-list-image-inner">
-                                  <img src="images/posting/thumb-4.jpg" alt="">
+                                  <img src="{{ asset('assets/frontend-assets/images/posting/thumb-4.jpg')}}" alt="">
                                   </a><!-- /.recent-ads-list-image-inner -->
                                </div>
                                <!-- /.recent-ads-list-image -->
@@ -309,7 +309,7 @@
                             <div class="recent-ads-container">
                                <div class="recent-ads-list-image">
                                   <a href="#" class="recent-ads-list-image-inner">
-                                  <img src="images/posting/thumb-5.jpg" alt="">
+                                  <img src="{{ asset('assets/frontend-assets/images/posting/thumb-5.jpg')}}" alt="">
                                   </a><!-- /.recent-ads-list-image-inner -->
                                </div>
                                <!-- /.recent-ads-list-image -->
@@ -349,29 +349,29 @@
                       </div>
                       <div class="widget-content gallery">
                          <div class="gallery-image">
-                            <a href="#"><img alt="" src="images/blog/small-5.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-5.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-6.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-6.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-7.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-7.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-8.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-8.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-9.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-9.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-10.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-10.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-1.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-1.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-2.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-2.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-3.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-3.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-4.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-4.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-11.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-11.png')}}">
                             </a>
-                            <a href="#"><img alt="" src="images/blog/small-12.png">
+                            <a href="#"><img alt="" src="{{ asset('assets/frontend-assets/images/blog/small-12.png')}}">
                             </a>
                          </div>
                       </div>

@@ -56,7 +56,7 @@
                                         <div class="category-grid-box-1">
 
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/310x174/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -88,7 +88,7 @@
                                         <div class="category-grid-box-1">
 
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/310x174/n/cw/ec/139619/seal-exterior-right-front-three-quarter-9.png?isig=0&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -120,7 +120,7 @@
                                         <div class="category-grid-box-1">
 
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/310x174/n/cw/ec/125193/comet-ev-exterior-right-side-view-23.jpeg?isig=0&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -152,7 +152,7 @@
                                         <div class="category-grid-box-1">
 
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/310x174/n/cw/ec/149123/nexon-ev-exterior-right-front-three-quarter-3.jpeg?isig=0&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -184,7 +184,7 @@
                                         <div class="category-grid-box-1">
 
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/310x174/n/cw/ec/110289/ioniq-5-exterior-right-front-three-quarter-95.jpeg?isig=0&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -248,7 +248,7 @@
                                         <div class="category-grid-box-1">
 
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/310x174/n/cw/ec/123185/grand-vitara-exterior-right-front-three-quarter-4.jpeg?isig=0&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -280,7 +280,7 @@
                                         <div class="category-grid-box-1">
 
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/310x174/n/cw/ec/124027/urban-cruiser-hyryder-exterior-right-front-three-quarter-72.jpeg?isig=0&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -312,7 +312,7 @@
                                         <div class="category-grid-box-1">
 
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/310x174/n/cw/ec/115025/innova-hycross-exterior-right-front-three-quarter-73.jpeg?isig=0&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -344,7 +344,7 @@
                                         <div class="category-grid-box-1">
 
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/310x174/n/cw/ec/147201/invicto-exterior-right-front-three-quarter-69.jpeg?isig=0&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -376,7 +376,7 @@
                                         <div class="category-grid-box-1">
 
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/310x174/n/cw/ec/154483/vellfire-exterior-right-front-three-quarter-2.jpeg?isig=0&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1016,7 +1016,7 @@
                                             <div class="row m-0">
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1024,7 +1024,7 @@
                                                 </div>
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-2.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1032,7 +1032,7 @@
                                                 </div>
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-4.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1042,13 +1042,13 @@
                                             <div class="row m-0">
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image pb-3">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-7.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
                                                     </div>
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-rear-three-quarter.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1056,7 +1056,7 @@
                                                 </div>
                                                 <div class="col-md-8 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-side-view.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1099,7 +1099,7 @@
                                             <div class="row m-0">
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1107,7 +1107,7 @@
                                                 </div>
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-2.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1115,7 +1115,7 @@
                                                 </div>
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-4.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1125,13 +1125,13 @@
                                             <div class="row m-0">
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image pb-3">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-7.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
                                                     </div>
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-rear-three-quarter.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1139,7 +1139,7 @@
                                                 </div>
                                                 <div class="col-md-8 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-side-view.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1183,7 +1183,7 @@
                                             <div class="row m-0">
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1191,7 +1191,7 @@
                                                 </div>
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-2.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1199,7 +1199,7 @@
                                                 </div>
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-4.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1209,13 +1209,13 @@
                                             <div class="row m-0">
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image pb-3">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-7.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
                                                     </div>
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-rear-three-quarter.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1223,7 +1223,7 @@
                                                 </div>
                                                 <div class="col-md-8 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-side-view.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1267,7 +1267,7 @@
                                             <div class="row m-0">
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1275,7 +1275,7 @@
                                                 </div>
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-2.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1283,7 +1283,7 @@
                                                 </div>
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-4.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1293,13 +1293,13 @@
                                             <div class="row m-0">
                                                 <div class=" col-md-4 p-2">
                                                     <div class="image pb-3">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-7.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
                                                     </div>
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-rear-three-quarter.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -1307,7 +1307,7 @@
                                                 </div>
                                                 <div class="col-md-8 p-2">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/211x211/n/cw/ec/148309/punch-ev-exterior-right-side-view.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>

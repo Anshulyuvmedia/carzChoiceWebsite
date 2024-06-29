@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class="breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Compare</a></li>
                    </ul>
                 </div>
@@ -41,7 +41,7 @@
                          <div class="comparison-box">
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                   <a href="#" class=""><img src="images/compare/2.png" alt="" class="img-responsive"></a>
+                                   <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/2.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2016 Ford Escape cape  </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(4)</span>
@@ -51,7 +51,7 @@
                             <div class="vsbox">vs</div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                   <a href="#" class=""><img src="images/compare/1.png" alt="" class="img-responsive"></a>
+                                   <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/1.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2017 Chevrolet Camaro </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -66,7 +66,7 @@
                          <div class="comparison-box">
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/3.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/3.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2017 Chevrolet Corvette </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -76,7 +76,7 @@
                             <div class="vsbox">vs</div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/4.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/4.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2017 Honda Accord Sedan </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -91,7 +91,7 @@
                          <div class="comparison-box">
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                   <a href="#" class=""><img src="images/compare/5.png" alt="" class="img-responsive"></a>
+                                   <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/5.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">Mercedes-Benz C-Class </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -101,7 +101,7 @@
                             <div class="vsbox">vs</div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/6.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/6.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2017 Honda CR-V </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -116,7 +116,7 @@
                          <div class="comparison-box">
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/7.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/7.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2016 Ford Mustang</a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -126,7 +126,7 @@
                             <div class="vsbox">vs</div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/8.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/8.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2017 Toyota RAV4 </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -141,7 +141,7 @@
                          <div class="comparison-box">
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/9.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/9.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2016 Ford Mustang</a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -151,7 +151,7 @@
                             <div class="vsbox">vs</div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/10.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/10.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2017 Toyota RAV4 </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -166,7 +166,7 @@
                          <div class="comparison-box">
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/11.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/11.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2016 Ford Mustang</a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -176,7 +176,7 @@
                             <div class="vsbox">vs</div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/12.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/12.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2017 Toyota RAV4 </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -191,7 +191,7 @@
                          <div class="comparison-box">
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/7.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/7.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2016 Ford Mustang</a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -201,7 +201,7 @@
                             <div class="vsbox">vs</div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/8.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/8.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2017 Toyota RAV4 </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -216,7 +216,7 @@
                          <div class="comparison-box">
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                  <a href="#" class=""><img src="images/compare/7.png" alt="" class="img-responsive"></a>
+                                  <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/7.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2016 Ford Mustang</a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>
@@ -226,7 +226,7 @@
                             <div class="vsbox">vs</div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                <div class="compare-grid">
-                                   <a href="#" class=""><img src="images/compare/8.png" alt="" class="img-responsive"></a>
+                                   <a href="#" class=""><img src="{{ asset('assets/frontend-assets/images/compare/8.png')}}" alt="" class="img-responsive"></a>
                                   <h2><a href="#">2017 Toyota RAV4 </a></h2>
                                   <div class="rating">
                                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(3)</span>

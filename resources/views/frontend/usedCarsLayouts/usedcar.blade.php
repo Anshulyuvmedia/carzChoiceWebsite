@@ -788,7 +788,7 @@
                                             <span>Featured</span>
                                         </div> --}}
                                         <div class="image">
-                                            <img alt="Carspot"
+                                            <img alt="Carz Choice"
                                                 src="https://imgd.aeplcdn.com/370x208/n/cw/ec/134287/city-exterior-right-front-three-quarter-76.jpeg?isig=0"
                                                 class="img-responsive">
                                             <div class="ribbon popular"></div>
@@ -827,7 +827,7 @@
                                             <span>Featured</span>
                                         </div> --}}
                                         <div class="image">
-                                            <img alt="Carspot"
+                                            <img alt="Carz Choice"
                                                 src="https://imgd.aeplcdn.com/370x208/n/cw/ec/141115/creta-exterior-right-front-three-quarter-16.jpeg?isig=0"
                                                 class="img-responsive">
                                             <div class="ribbon popular"></div>
@@ -863,7 +863,7 @@
                                     <div class="category-grid-box-1">
 
                                         <div class="image">
-                                            <img alt="Carspot"
+                                            <img alt="Carz Choice"
                                                 src="https://imgd.aeplcdn.com/370x208/n/cw/ec/112947/wagon-r-2022-exterior-right-front-three-quarter-3.jpeg?isig=0"
                                                 class="img-responsive">
                                             <div class="ribbon popular"></div>
@@ -899,7 +899,7 @@
                                     <div class="category-grid-box-1">
 
                                         <div class="image">
-                                            <img alt="Carspot"
+                                            <img alt="Carz Choice"
                                                 src="https://imgd.aeplcdn.com/370x208/n/cw/ec/115777/ertiga-exterior-right-front-three-quarter-5.jpeg?isig=0"
                                                 class="img-responsive">
                                             <div class="ribbon popular"></div>
@@ -937,7 +937,7 @@
                                             <span>Featured</span>
                                         </div> --}}
                                         <div class="image">
-                                            <img alt="Carspot"
+                                            <img alt="Carz Choice"
                                                 src="https://imgd.aeplcdn.com/370x208/n/cw/ec/98399/amg-e63-exterior-right-front-three-quarter-3.jpeg?isig=0"
                                                 class="img-responsive">
                                             <div class="ribbon popular"></div>
@@ -1070,7 +1070,7 @@
                                     <div class="category-grid-box-1">
 
                                         <div class="image">
-                                            <img alt="Carspot"
+                                            <img alt="Carz Choice"
                                                 src="https://imgd.aeplcdn.com/640X480/cw/ucp/stockApiImg/NWMXQ72_h33k2093_1_42894654.jpg"
                                                 class="img-responsive">
                                             <div class="ribbon popular"></div>
@@ -1105,7 +1105,7 @@
                                     <div class="category-grid-box-1">
 
                                         <div class="image">
-                                            <img alt="Carspot"
+                                            <img alt="Carz Choice"
                                                 src="https://imgd.aeplcdn.com/640X480/cw/ucp/stockApiImg/NWMXQ72_h33k2093_1_42894654.jpg"
                                                 class="img-responsive">
                                             <div class="ribbon popular"></div>
@@ -1140,7 +1140,7 @@
                                     <div class="category-grid-box-1">
 
                                         <div class="image">
-                                            <img alt="Carspot"
+                                            <img alt="Carz Choice"
                                                 src="https://imgd.aeplcdn.com/640X480/cw/ucp/stockApiImg/NWMXQ72_h33k2093_1_42894654.jpg"
                                                 class="img-responsive">
                                             <div class="ribbon popular"></div>
@@ -1175,7 +1175,7 @@
                                     <div class="category-grid-box-1">
 
                                         <div class="image">
-                                            <img alt="Carspot"
+                                            <img alt="Carz Choice"
                                                 src="https://imgd.aeplcdn.com/640X480/cw/ucp/stockApiImg/NWMXQ72_h33k2093_1_42894654.jpg"
                                                 class="img-responsive">
                                             <div class="ribbon popular"></div>

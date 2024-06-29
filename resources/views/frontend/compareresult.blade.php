@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class="breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Compare</a></li>
                    </ul>
                 </div>
@@ -74,7 +74,7 @@
                                   <option>2016</option>
                                </select>
                             </div>
-                            <img src="images/compare/3.png" alt="" class="center-block" > 
+                            <img src="{{ asset('assets/frontend-assets/images/compare/3.png')}}" alt="" class="center-block" > 
                              <h4>Honda Accord Sedan</h4>                                           
                          </td>
                          <td>
@@ -101,7 +101,7 @@
                                   <option>2016</option>
                                </select>
                             </div>
-                            <img src="images/compare/1.png" alt="" class="center-block" > 
+                            <img src="{{ asset('assets/frontend-assets/images/compare/1.png')}}" alt="" class="center-block" > 
                             <h4>2017 Chevrolet Corvette</h4>                                          
                          </td>
                       </tr>

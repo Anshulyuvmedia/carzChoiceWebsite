@@ -75,7 +75,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -100,7 +100,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -125,7 +125,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-3.png?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -160,7 +160,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-front-row-seats.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -185,7 +185,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-seat-adjustment-manual-for-driver.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -210,7 +210,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-seat-adjustment-manual-for-front-passenger.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -260,7 +260,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -285,7 +285,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -310,7 +310,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-3.png?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -368,7 +368,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-front-row-seats.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -393,7 +393,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-seat-adjustment-manual-for-driver.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -418,7 +418,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-seat-adjustment-manual-for-front-passenger.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -455,7 +455,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -480,7 +480,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/74u5gdb_1735917.jpg?q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>
@@ -505,7 +505,7 @@
                                             <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="image">
-                                                        <img alt="Carspot"
+                                                        <img alt="Carz Choice"
                                                             src="https://imgd.aeplcdn.com/370x208/n/4qasgdb_1735921.jpg?q=80"
                                                             class="img-responsive">
                                                         <div class="ribbon popular"></div>

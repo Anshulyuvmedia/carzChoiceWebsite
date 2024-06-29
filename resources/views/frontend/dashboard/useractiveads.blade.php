@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class=" breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Profile</a></li>
                    </ul>
                 </div>
@@ -34,7 +34,7 @@
              <!-- Middle Content Area -->
              <div class="col-md-12 col-xs-12 col-sm-12">
                 <section class="search-result-item">
-                   <a class="image-link" href="#"><img class="image center-block" alt="" src="images/users/9.jpg"> </a>
+                   <a class="image-link" href="#"><img class="image center-block" alt="" src="{{ asset('assets/frontend-assets/images/users/9.jpg')}}"> </a>
                    <div class="search-result-item-body">
                       <div class="row">
                          <div class="col-md-5 col-sm-12 col-xs-12">
@@ -73,43 +73,43 @@
                    </div>
                 </section>
                 <div class="dashboard-menu-container">
-                   <ul>
-                      <li>
-                         <a href="profile.html">
-                            <div class="menu-name"> Profile </div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="archives.html">
-                            <div class="menu-name">Archives</div>
-                         </a>
-                      </li>
-                      <li  class="active">
-                         <a href="active-ads.html">
-                            <div class="menu-name">My Ads</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="favourite.html">
-                            <div class="menu-name">Favourites Ads</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="messages.html">
-                            <div class="menu-name">Messages</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="#">
-                            <div class="menu-name">Close Account</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="#">
-                            <div class="menu-name">Logout</div>
-                         </a>
-                      </li>
-                   </ul>
+                  <ul>
+                     <li >
+                        <a href="/userprofile">
+                           <div class="menu-name"> Profile </div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/userarchive">
+                           <div class="menu-name">Archives</div>
+                        </a>
+                     </li>
+                     <li class="active">
+                        <a href="/useractiveads">
+                           <div class="menu-name">My Ads</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/userfavourites">
+                           <div class="menu-name">Favourites Ads</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/usermessages">
+                           <div class="menu-name">Messages</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/userdeactive">
+                           <div class="menu-name">Close Account</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#">
+                           <div class="menu-name">Logout</div>
+                        </a>
+                     </li>
+                  </ul>
                 </div>
              </div>
              <!-- Middle Content Area  End -->
@@ -123,7 +123,7 @@
                       <span>Featured</span>
                    </div>
                    <div class="image">
-                      <img alt="Carspot" src="images/posting/10.jpg" class="img-responsive">
+                      <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/10.jpg')}}" class="img-responsive">
                       <div class="ribbon popular"></div>
                       <div class="price-tag">
                          <div class="price"><span>$45,00</span></div>
@@ -159,7 +159,7 @@
              <div class="col-md-4 col-xs-12 col-sm-6">
                 <div class="category-grid-box-1">
                    <div class="image">
-                      <img alt="Carspot" src="images/posting/7.jpg" class="img-responsive">
+                      <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/7.jpg')}}" class="img-responsive">
                       <div class="ribbon popular"></div>
                       <div class="price-tag">
                          <div class="price"><span>$77,000</span></div>
@@ -198,7 +198,7 @@
                       <span>Featured</span>
                    </div>
                    <div class="image">
-                      <img alt="Carspot" src="images/posting/12.jpg" class="img-responsive">
+                      <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/12.jpg')}}" class="img-responsive">
                       <div class="ribbon popular"></div>
                       <div class="price-tag">
                          <div class="price"><span>$23,000</span></div>
@@ -230,7 +230,7 @@
              <div class="col-md-4 col-xs-12 col-sm-6">
                 <div class="category-grid-box-1">
                    <div class="image">
-                      <img alt="Carspot" src="images/posting/13.jpg" class="img-responsive">
+                      <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/13.jpg')}}" class="img-responsive">
                       <div class="ribbon popular"></div>
                       <div class="price-tag">
                          <div class="price"><span>$77,000</span></div>
@@ -265,7 +265,7 @@
                       <span>Featured</span>
                    </div>
                    <div class="image">
-                      <img alt="Carspot" src="images/posting/2.jpg" class="img-responsive">
+                      <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/2.jpg')}}" class="img-responsive">
                       <div class="ribbon popular"></div>
                       <div class="price-tag">
                          <div class="price"><span>$22,000</span></div>
@@ -301,7 +301,7 @@
              <div class="col-md-4 col-xs-12 col-sm-6">
                 <div class="category-grid-box-1">
                    <div class="image">
-                      <img alt="Carspot" src="images/posting/3.jpg" class="img-responsive">
+                      <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/3.jpg')}}" class="img-responsive">
                       <div class="ribbon popular"></div>
                       <div class="price-tag">
                          <div class="price"><span>$205,000</span></div>

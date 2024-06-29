@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class="breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Ad Posting</a></li>
                    </ul>
                 </div>
@@ -261,7 +261,7 @@
                          <h4 class="panel-title"><a>Saftey Tips </a></h4>
                       </div>
                       <div class="widget-content">
-                         <p class="lead">Posting an ad on <a href="#">Carspot</a> is free! However, all ads must follow our rules:</p>
+                         <p class="lead">Posting an ad on <a href="#">Carz Choice</a> is free! However, all ads must follow our rules:</p>
                          <ol>
                             <li>Make sure you post in the correct category.</li>
                             <li>Do not post the same ad more than once or repost an ad within 48 hours.</li>

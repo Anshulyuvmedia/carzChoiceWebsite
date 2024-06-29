@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class="breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">About</a></li>
                    </ul>
                 </div>
@@ -25,7 +25,7 @@
  <!-- =-=-=-=-=-=-= Breadcrumb End =-=-=-=-=-=-= --> 
  <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
  <div class="main-content-area clearfix">
-    <!-- =-=-=-=-=-=-= About CarSpot =-=-=-=-=-=-= -->
+    <!-- =-=-=-=-=-=-= About Carz Choice =-=-=-=-=-=-= -->
     <section class="custom-padding about-us">
        <div class="container">
           <div class="row">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="content">
                    <p class="service-summary">Everything you need to build an amazing dealership automotive responsive website</p>
-                   <p>Carspot is not only a hub where buyers and sellers can interact, it is also a comprehensive automotive portal with a forum dedicated to all automotive discussions, a blog that keeps the users up to date with the latest happenings in the automotive industry.</p>
+                   <p>Carz Choice is not only a hub where buyers and sellers can interact, it is also a comprehensive automotive portal with a forum dedicated to all automotive discussions, a blog that keeps the users up to date with the latest happenings in the automotive industry.</p>
                 </div>
              </div>
              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -78,7 +78,7 @@
           </div>
        </div>
     </section>
- <!-- =-=-=-=-=-=-= About CarSpot End =-=-=-=-=-=-= -->
+ <!-- =-=-=-=-=-=-= About Carz Choice End =-=-=-=-=-=-= -->
 <!-- =-=-=-=-=-=-= Services Section  =-=-=-=-=-=-= -->
     <section class="padding-top-90 gray services-center">
        <div class="container">
@@ -492,7 +492,7 @@
                    <!-- col-md-12 -->
                    <div class="col-md-12">
                       <!-- section-title -->
-                      <div class="section-title"> <span>Download CarSpot App</span> </div>
+                      <div class="section-title"> <span>Download Carz Choice App</span> </div>
                       <!-- /section-title -->
                    </div>
                    <!-- /col-md-12 -->

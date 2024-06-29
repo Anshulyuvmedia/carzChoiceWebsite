@@ -495,7 +495,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -545,7 +545,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -595,7 +595,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -645,7 +645,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -695,7 +695,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -756,7 +756,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -806,7 +806,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -856,7 +856,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -906,7 +906,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -956,7 +956,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -1017,7 +1017,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -1067,7 +1067,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -1117,7 +1117,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -1167,7 +1167,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -1217,7 +1217,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -1302,7 +1302,7 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1345,7 +1345,7 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1387,7 +1387,7 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1429,7 +1429,7 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1471,7 +1471,7 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1547,8 +1547,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1587,8 +1587,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1627,8 +1627,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1667,8 +1667,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1707,8 +1707,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>

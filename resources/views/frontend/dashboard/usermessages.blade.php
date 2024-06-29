@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class=" breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Messages</a></li>
                    </ul>
                 </div>
@@ -44,7 +44,7 @@
                             <li class="message-grid">
                                <a href="#">
                                   <div class="image">
-                                     <img src="images/users/1.jpg" alt="">
+                                     <img src="{{ asset('assets/frontend-assets/images/users/1.jpg')}}" alt="">
                                   </div>
                                   <div class="user-name">
                                      <div class="author">
@@ -63,7 +63,7 @@
                             <li class="message-grid">
                                <a href="#">
                                   <div class="image">
-                                     <img src="images/users/2.jpg" alt="">
+                                     <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" alt="">
                                   </div>
                                   <div class="user-name">
                                      <div class="author">
@@ -82,7 +82,7 @@
                             <li class="message-grid">
                                <a href="#">
                                   <div class="image">
-                                     <img src="images/users/3.jpg" alt="">
+                                     <img src="{{ asset('assets/frontend-assets/images/users/3.jpg')}}" alt="">
                                   </div>
                                   <div class="user-name">
                                      <div class="author">
@@ -101,7 +101,7 @@
                             <li class="active">
                                <a href="#">
                                   <div class="image">
-                                     <img src="images/users/4.jpg" alt="">
+                                     <img src="{{ asset('assets/frontend-assets/images/users/4.jpg')}}" alt="">
                                   </div>
                                   <div class="user-name">
                                      <div class="author">
@@ -120,7 +120,7 @@
                             <li class="message-grid">
                                <a href="#">
                                   <div class="image">
-                                     <img src="images/users/5.jpg" alt="">
+                                     <img src="{{ asset('assets/frontend-assets/images/users/5.jpg')}}" alt="">
                                   </div>
                                   <div class="user-name">
                                      <div class="author">
@@ -139,7 +139,7 @@
                             <li>
                                <a href="#">
                                   <div class="image">
-                                     <img src="images/users/6.jpg" alt="">
+                                     <img src="{{ asset('assets/frontend-assets/images/users/6.jpg')}}" alt="">
                                   </div>
                                   <div class="user-name">
                                      <div class="author">
@@ -161,7 +161,7 @@
                       <div class="message-details">
                          <div class="author">
                             <div class="image">
-                               <img src="images/users/3.jpg" alt="">
+                               <img src="{{ asset('assets/frontend-assets/images/users/3.jpg')}}" alt="">
                             </div>
                             <span class="author-name">Muhammad Umair</span>
                             <em>5 days ago</em>
@@ -170,7 +170,7 @@
                          <ul class="messages">
                             <li class="friend-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/1.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/1.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   Morning! How are you doing today?
@@ -179,7 +179,7 @@
                             </li>
                             <li class="my-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/2.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   Hey! I am doing good! What about you?
@@ -188,7 +188,7 @@
                             </li>
                             <li class="friend-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/1.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/1.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   Doing great!
@@ -197,7 +197,7 @@
                             </li>
                             <li class="friend-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/2.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   We just received a new project.
@@ -206,7 +206,7 @@
                             </li>
                             <li class="my-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/1.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/1.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   Sweet! What is it about?
@@ -215,7 +215,7 @@
                             </li>
                             <li class="friend-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/2.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   An Android and IOS app for client X.
@@ -224,7 +224,7 @@
                             </li>
                             <li class="my-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/1.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/1.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   Is it a complex project? What is the deadline?
@@ -233,7 +233,7 @@
                             </li>
                             <li class="friend-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/2.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   Nah! Rather simple for the team. We have 3 months to deliver the final product.
@@ -242,7 +242,7 @@
                             </li>
                             <li class="friend-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/1.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/1.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   The client has a budget of $5000 btw.
@@ -251,7 +251,7 @@
                             </li>
                             <li class="my-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/2.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   That is awesome!
@@ -260,7 +260,7 @@
                             </li>
                             <li class="my-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/1.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/1.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   With that budget we can make something pretty powerful. As soon as I get to the office we can start the team briefing!
@@ -269,7 +269,7 @@
                             </li>
                             <li class="friend-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/2.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   Absolutely! Can't wait to get started!
@@ -278,7 +278,7 @@
                             </li>
                             <li class="my-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/1.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/1.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   I am just grabbing the coffee and doughnuts. I will be at the office ASAP.
@@ -287,7 +287,7 @@
                             </li>
                             <li class="friend-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/2.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   Sure. We are wrapping up the previous project, you have some time.
@@ -296,7 +296,7 @@
                             </li>
                             <li class="my-message clearfix">
                                <figure class="profile-picture">
-                                  <img src="images/users/1.jpg" class="img-circle" alt="Profile Pic">
+                                  <img src="{{ asset('assets/frontend-assets/images/users/1.jpg')}}" class="img-circle" alt="Profile Pic">
                                </figure>
                                <div class="message">
                                   Alrighty, cool!
