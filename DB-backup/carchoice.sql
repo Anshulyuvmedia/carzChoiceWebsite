@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2024 at 02:07 PM
+-- Generation Time: Jun 29, 2024 at 06:17 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,7 +34,7 @@ CREATE TABLE `add_variants` (
   `availabelstatus` varchar(255) DEFAULT NULL,
   `price` varchar(255) DEFAULT NULL,
   `pricetype` varchar(255) DEFAULT NULL,
-  `mileage` varchar(255) DEFAULT NULL,
+  `mileage` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`mileage`)),
   `engine` varchar(255) DEFAULT NULL,
   `fueltype` varchar(255) DEFAULT NULL,
   `transmission` varchar(255) DEFAULT NULL,
@@ -51,7 +51,9 @@ CREATE TABLE `add_variants` (
 --
 
 INSERT INTO `add_variants` (`id`, `carname`, `carmodalname`, `availabelstatus`, `price`, `pricetype`, `mileage`, `engine`, `fueltype`, `transmission`, `seatingcapacity`, `userreportedmilage`, `keyfeatures`, `summary`, `created_at`, `updated_at`) VALUES
-(2, 'Omni', 'MM10444', NULL, '90,000 INR/-', 'Lakh', '89', '300', '[\"Petrol\",\"Diesel\",\"Electric\"]', '[\"Automatic\",\"Manual\"]', '5', '66', '<p>this is nexon</p>', '<p>it ok and good</p>', '2024-06-28 03:33:15', '2024-06-28 04:12:06');
+(4, 'Omni', 'MM101', 'Available', '00000', 'Lakh', '{\"Hybrid\":\"12\"}', '200', '[\"Hybrid\"]', '[\"Automatic\"]', '1', '44', '<p>sdafsd</p>', '<p>sadfsad</p>', '2024-06-28 07:16:41', '2024-06-28 07:16:41'),
+(5, 'Omni', 'MM101', 'Available', '00000', 'Lakh', '{\"Petrol\":\"12\"}', '200', '[\"Petrol\"]', '[\"Manual\"]', '1', '44', '<p>asd</p>', '<p>asddddddddddddddddd</p>', '2024-06-28 07:18:21', '2024-06-28 07:18:21'),
+(6, 'Nexon', 'MM101', 'Not Available', '00000', 'Lakh', '{\"Hybrid\":\"12\",\"Petrol\":\"32\",\"CNG\":\"32\"}', '200', '[\"Hybrid\",\"Petrol\",\"CNG\"]', '[\"Manual\"]', '2', '44', '<p>sdfffffffffffffffff</p>', '<p>dsf</p>', '2024-06-28 07:19:45', '2024-06-28 07:19:45');
 
 -- --------------------------------------------------------
 
@@ -474,7 +476,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('H5xjcxd5kkLtWaLTHZ3MM8akjU9lW6eB06UHtXc8', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiSTFKakpBdTI4OEl1RWwzNGxxck55a0NjMXVBNzZUVEtwVXdad2libCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC92ZWhpY2xlaW1hZ2VzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMiRieVZhN1Z2cnNIT1RjcXBhRWNqTW5PV1dPMlp2VHZ6T1ZCQlNLTkFCcVMwZHdVUFVxZ1dhNiI7fQ==', 1719576459);
+('H5xjcxd5kkLtWaLTHZ3MM8akjU9lW6eB06UHtXc8', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiSTFKakpBdTI4OEl1RWwzNGxxck55a0NjMXVBNzZUVEtwVXdad2libCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9lZGl0dmFyaWFudC82Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMiRieVZhN1Z2cnNIT1RjcXBhRWNqTW5PV1dPMlp2VHZ6T1ZCQlNLTkFCcVMwZHdVUFVxZ1dhNiI7fQ==', 1719579859);
 
 -- --------------------------------------------------------
 
@@ -670,7 +672,7 @@ ALTER TABLE `vehicle_images`
 -- AUTO_INCREMENT for table `add_variants`
 --
 ALTER TABLE `add_variants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `blogs`
