@@ -8,7 +8,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/backend-assets/images/car.png') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/backend-assets/images/logowhite.jpg') }}">
 
     <!-- Bootstrap Css -->
     <link href="{{ asset('assets/backend-assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
@@ -29,16 +29,14 @@
     <link
         href="{{ asset('assets/backend-assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
         rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/backend-assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
     @stack('styles')
+
 </head>
 
 <body>
-
-
     <!-- Begin page -->
     <div id="layout-wrapper">
-
-
         <header id="page-topbar">
             <div class="navbar-header">
                 <div class="d-flex">
@@ -78,7 +76,6 @@
                 </div>
 
                 <div class="d-flex">
-
                     <div class="dropdown d-inline-block d-lg-none ms-2">
                         <button type="button" class="btn header-item noti-icon waves-effect"
                             id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -159,28 +156,27 @@
         </header>
         <!-- ========== Left Sidebar Start ========== -->
         <div class="vertical-menu">
-
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo logo-dark">
+                <a href="{{ route('Admindashboard') }}" class="logo logo-dark">
                     <span class="logo-sm">
                         {{-- <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="22"> --}}
                         <h1 class="text-black fw-bold mt-4 me-2">C</h1>
                     </span>
                     <span class="logo-lg">
-                        {{-- <img src="{{asset('assets/images/logo-dark.png')}}" alt="" height="20"> --}}
-                        <h1 class="text-black fw-bold fs-2 mt-4 me-2">Car Choice</h1>
+                        <img src="{{asset('assets/backend-assets/images/logowhite.jpg')}}" alt="" height="80">
+                        {{-- <h1 class="text-black fw-bold fs-2 mt-4 me-2">Car Choice</h1> --}}
                     </span>
                 </a>
 
-                <a href="index.html" class="logo logo-light">
+                <a href="{{ route('Admindashboard') }}" class="logo logo-light">
                     <span class="logo-sm">
                         {{-- <img src="{{asset('assets/images/logo-sm.png')}}" alt="" height="22"> --}}
                         <h1 class="text-black fw-bold mt-4 me-2">C</h1>
                     </span>
                     <span class="logo-lg">
-                        {{-- <img src="{{asset('assets/images/logo-light.png')}}" alt="" height="20"> --}}
-                        <h1 class="text-black fw-bold fs-2 mt-4 me-2">Car Choice</h1>
+                        <img src="{{asset('assets/backend-assets/images/logowhite.jpg')}}" alt="" height="80">
+                        {{-- //<h1 class="text-black fw-bold fs-2 mt-4 me-2">Car Choice</h1> --}}
                     </span>
                 </a>
             </div>
@@ -235,9 +231,34 @@
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('master') }}">Master</a></li>
                                 <li><a href="{{ route('submaster') }}">Sub-Master</a></li>
+                                <li><a href="{{ route('formattributes')}}">Add Form Attributes</a></li>
+                                <li><a href="{{ route('faqs')}}">FAQ's</a></li>
                             </ul>
                         </li>
 
+                        <li>
+                            <a href="{{ route('leadmanagement') }}">
+                                <i class="uil-user-check"></i>
+                                <span>Lead Management</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('vehicleimages') }}">
+                                <i class="uil-car"></i>
+                                <span>Add Vehicle Images</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-car-sideview"></i>
+                                <span>Cars</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('addcarlist') }}">Add Car List</a></li>
+                                <li><a href="{{ route('addvariant') }}">Add Variant</a></li>
+                                <li><a href="{{ route('variantslist') }}">Variants List</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <!-- Sidebar -->
@@ -250,11 +271,7 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
             <script src="{{ asset('assets/backend-assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
-            <script>
-                console.log("CKEditor script loaded:", typeof ClassicEditor);
-            </script>
-
-            <!-- Custom Initialization Script -->
+            <script src="{{asset('assets/backend-assets/libs/flatpickr/flatpickr.min.js')}}">
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
             @stack('scripts')
             <footer class="footer">
@@ -268,7 +285,7 @@
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
                                 Design & Developed by <i class="mdi mdi-heart text-danger"></i> by <a
-                                    href="https://themesbrand.com/" target="_blank" class="text-reset">YUVMEDIA</a>
+                                    href="https://yuvmedia.in/" target="_blank" class="text-reset">YUVMEDIA</a>
                             </div>
                         </div>
                     </div>
@@ -280,7 +297,8 @@
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
 
-    <!-- JAVASCRIPT -->
+
+    <!-- JAVASCRIPTS -->
     <script src="{{ asset('assets/backend-assets/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/metismenu/metisMenu.min.js') }}"></script>
@@ -292,23 +310,23 @@
     <script src="{{ asset('assets/backend-assets/js/pages/dashboard.init.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/js/app.js') }}"></script>
 
-    <!-- Required datatable js -->
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <!-- Buttons examples -->
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}">
-    </script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}">
-    </script>
-    <script src="{{ asset('assets/backend-assets/libs/jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    {{-- <script src="{{asset('assets/backend-assets/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
-    --}}
-    <script src="{{ asset('assets/backend-assets/js/pages/datatables.init.js') }}"></script>
-    <script src="{{asset('assets/js/pages/form-advanced.init.js')}}"></script>
+
+
+
+    <script src="{{asset('assets/backend-assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{asset('assets/backend-assets/libs/%40chenfengyuan/datepicker/datepicker.min.js')}}"></script>
+    <script src="{{asset('assets/backend-assets/libs/select2/js/select2.min.js')}}"></script>
+    <script src="{{asset('assets/backend-assets/js/pages/form-advanced.init.js')}}"></script>
+
+
+     <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.0/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.html5.min.js"></script>
+
 </body>
 
 </html>

@@ -75,10 +75,19 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('addblog', 'addblog')->name('addblog');
     Route::get('bloglist', 'bloglist')->name('bloglist');
     Route::get('editblog/{id}', 'editblog')->name('editblog');
+    Route::get('formattributes', 'formattributes')->name('formattributes');
+    Route::get('leadmanagement', 'leadmanagement')->name('leadmanagement');
+    Route::get('faqs', 'faqs')->name('faqs');
+    Route::get('vehicleimages', 'vehicleimages')->name('vehicleimages');
+    Route::get('addcarlist', 'addcarlist')->name('addcarlist');
+    Route::get('addvariant', 'addvariant')->name('addvariant');
+    Route::get('variantslist', 'variantslist')->name('variantslist');
+    Route::get('editvariant/{id}', 'editvariant')->name('editvariant');
+
 });
 
 
-//Admin Store & Delete Routes
+//Admin Store, Update & Delete Routes
 Route::controller(Store::class)->group(function() {
     Route::post('updatecompanyprofile/{id}', 'updatecompanyprofile')->name('updatecompanyprofile');
     Route::post('storemaster', 'storemaster')->name('storemaster');
@@ -89,7 +98,30 @@ Route::controller(Store::class)->group(function() {
     Route::get('deleteblog/{id}', 'deleteblog')->name('deleteblog');
     Route::post('updateblog', 'updateblog')->name('updateblog');
     Route::post('/updateblogstatus', 'updateblogstatus')->name('updateblogstatus');
-
+    Route::get('/filteroldcar/{selectedtype}', 'filteroldcar')->name('filteroldcar');
+    Route::post('/insertformattributes', 'insertformattributes')->name('insertformattributes');
+    Route::get('/deleteattribute/{id}', 'deleteattribute')->name('deleteattribute');
+    Route::get('/getattributesajax/{selectedSubCat}/{selectedAnother}', 'getattributesajax')->name('getattributesajax');
+    Route::post('/updateattributes', 'updateattributes')->name('updateattributes');
+    Route::post('/insertlead', 'insertlead')->name('insertlead');
+    Route::get('deletelead/{id}', 'deletelead')->name('deletelead');
+    Route::post('/updatelead', 'updatelead')->name('updatelead');
+    Route::post('/insertremarks', 'insertremarks')->name('insertremarks');
+    Route::get('/getremarks/{id}', 'getremarks')->name('getremarks');
+    Route::post('/updateleadstatus', 'updateleadstatus')->name('updateleadstatus');
+    Route::post('/datefilterleads', 'datefilterleads')->name('datefilterleads');
+    Route::post('/storefaq', 'storefaq')->name('storefaq');
+    Route::get('deletefaq/{id}', 'deletefaq')->name('deletefaq');
+    Route::post('updatefaq', 'updatefaq')->name('updatefaq');
+    Route::post('insertvehicleimages', 'insertvehicleimages')->name('insertvehicleimages');
+    Route::get('deletevehicleimg/{id}', 'deletevehicleimg')->name('deletevehicleimg');
+    Route::post('updatevehicleimgs', 'updatevehicleimgs')->name('updatevehicleimgs');
+    Route::post('insertcarlist', 'insertcarlist')->name('insertcarlist');
+    Route::get('deletecarlist/{id}', 'deletecarlist')->name('deletecarlist');
+    Route::post('updatecarlist', 'updatecarlist')->name('updatecarlist');
+    Route::post('insertvariants', 'insertvariants')->name('insertvariants');
+    Route::get('deletevariants/{id}', 'deletevariants')->name('deletevariants');
+    Route::post('updatevariants', 'updatevariants')->name('updatevariants');
 
 });
 
