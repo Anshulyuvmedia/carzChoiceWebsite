@@ -541,7 +541,7 @@ class Store extends Controller
 
     public function insertvariants(Request $rq)
     {
-        // dd($rq->all());
+        //dd($rq->all());
         try {
             $data = $rq->validate([
                 'carname' => 'required',
@@ -563,7 +563,7 @@ class Store extends Controller
                 'availabelstatus' => $rq->availabelstatus,
                 'price' => $rq->price,
                 'pricetype' => $rq->pricetype,
-                'mileage' => $rq->mileage,
+                'mileage' => json_encode($rq->mileage),
                 'engine' => $rq->engine,
                 'fueltype' => json_encode($rq->fueltype),    //These values are coming from multiple dropown and storing as ARRAY...
                 'transmission' => json_encode($rq->transmission),

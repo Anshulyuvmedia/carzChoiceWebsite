@@ -71,11 +71,19 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="col-lg-3">
+
                                     <label for="example-text-input" class="">Mileage</label>
-                                    <input class="form-control mb-3" placeholder="enter mileage" name="mileage"
-                                        type="text" value="{{$variantdata->mileage}}" id="example-text-input">
-                                </div>
+                                    @php
+                                    $mileages = json_decode($variantdata
+                                    ->mileage, true);
+                                    @endphp
+                                    @foreach($mileages as $fuelType => $mileage)
+                                    <div class="col-lg-4">
+                                        <label for="mileage-{{$fuelType}}" class="mt-3">Mileage for {{$fuelType}}</label>
+                                        <input class="form-control ms-2" value="{{$mileage}}" placeholder="enter mileage for {{$fuelType}}" name="mileage[{{$fuelType}}]" type="text" id="mileage-{{$fuelType}}" required>
+                                    </div>
+                                    @endforeach
+
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Engine</label>
                                     <input class="form-control mb-3" placeholder="enter engine" name="engine"

@@ -63,36 +63,11 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
-                                    <label for="example-text-input" class="">Mileage</label>
-                                    <input class="form-control mb-3" placeholder="enter mileage" name="mileage" type="text"
-                                        value="" id="example-text-input" required>
-                                </div>
-                                <div class="col-lg-3">
                                     <label for="example-text-input" class="">Engine</label>
                                     <input class="form-control mb-3" placeholder="enter engine" name="engine" type="text"
                                         value="" id="example-text-input" required>
                                 </div>
                                 <div class="col-lg-3">
-                                    <label class="form-label">Fuel Type</label>
-                                    <select name="fueltype[]" class="select2 form-control select2-multiple mb-3" multiple="multiple"
-                                        data-placeholder="Choose fuel type ...">
-                                        <option value="Hybrid">Hybrid</option>
-                                        <option value="Petrol">Petrol</option>
-                                        <option value="Diesel">Diesel</option>
-                                        <option value="CNG">CNG</option>
-                                        <option value="Electric">Electric</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-4">
-                                    <label class="form-label">Transmission</label>
-                                    <select name="transmission[]" class="select2 form-control select2-multiple" multiple="multiple"
-                                        data-placeholder="Choose type...">
-                                        <option value="Automatic">Automatic</option>
-                                        <option value="Manual">Manual</option>
-                                        <option value="Clutchless Manual">Clutchless Manual</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-4">
                                     <label class="">Seating Capacity</label>
                                     <select name="seatingcapacity" class="form-select" id="subcategory" required>
                                         <option value="">--select seates capacity--</option>
@@ -103,12 +78,35 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
+                                    <label class="form-label">Transmission</label>
+                                    <select name="transmission[]" class="select2 form-control select2-multiple mb-3" multiple="multiple"
+                                        data-placeholder="Choose type...">
+                                        <option value="Automatic">Automatic</option>
+                                        <option value="Manual">Manual</option>
+                                        <option value="Clutchless Manual">Clutchless Manual</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4">
                                     <label for="example-text-input" class="">User Report Mileage</label>
                                     <input class="form-control" placeholder="enter user report mileage" name="userreportedmilage" type="text"
                                         value="" id="example-text-input" required>
                                 </div>
                                 <div class="col-lg-12">
-                                    <label for="example-email-input" class="col-md-2 col-form-label">Key Features</label>
+                                    <label class="form-label">Fuel Type</label>
+                                    <select name="fueltype[]" class="select2 form-control select2-multiple mb-3" multiple="multiple"
+                                        data-placeholder="Choose fuel type ..." id="fueltype">
+                                        <option value="Hybrid">Hybrid</option>
+                                        <option value="Petrol">Petrol</option>
+                                        <option value="Diesel">Diesel</option>
+                                        <option value="CNG">CNG</option>
+                                        <option value="Electric">Electric</option>
+                                    </select>
+                                </div>
+                                <div id="mileageInputs" class="col-lg-12 d-flex flex-wrap">
+                                    <!-- Mileage inputs will be appended here -->
+                                </div>
+                                <div class="col-lg-12">
+                                    <label for="example-email-input" class="col-md-2 col-form-label mt-3">Key Features</label>
                                     <div class="">
                                         <textarea name="keyfeatures" id="classic-editor"></textarea>
                                     </div>
@@ -197,5 +195,22 @@
     .catch( error => {
         console.error( error );
     } );
+</script>
+<script>
+    $(document).ready(function() {
+    $('#fueltype').on('change', function() {
+        // Get selected fuel types
+        let selectedFuelTypes = $(this).val();
+        $('#mileageInputs').empty();
+        selectedFuelTypes.forEach(function(fuelType) {
+            $('#mileageInputs').append(`
+                <div class="col-lg-4">
+                    <label for="mileage-${fuelType}" class="mt-3">Mileage for ${fuelType}</label>
+                    <input class="form-control ms-2" placeholder="enter mileage for ${fuelType}" name="mileage[${fuelType}]" type="text" id="mileage-${fuelType}" required>
+                </div>
+            `);
+        });
+    });
+});
 </script>
 @endpush

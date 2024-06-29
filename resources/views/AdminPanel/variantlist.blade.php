@@ -51,9 +51,30 @@
                                     <td>{{$row->availabelstatus}}</td>
                                     <td>{{$row->price}}</td>
                                     <td>{{$row->pricetype}}</td>
-                                    <td>{{$row->mileage}}</td>
+                                    <td>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Fuel Type</th>
+                                                    <th>Mileage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @php
+                                                $mileages = json_decode($row->mileage, true);
+                                                @endphp
+                                                @foreach($mileages as $fuelType => $mileage)
+                                                <tr>
+                                                    <td>{{ $fuelType }}</td>
+                                                    <td>{{ $mileage }}</td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </td>
                                     <td>{{$row->engine}}</td>
-                                    <td>{{ implode(', ', json_decode($row->fueltype)) }}</td>     {{--decoding JSON and merging Array Values--}}
+                                    <td>{{ implode(', ', json_decode($row->fueltype)) }}</td> {{--decoding JSON and
+                                    merging Array Values--}}
                                     <td>{{ implode(', ', json_decode($row->transmission)) }}</td>
                                     <td>{{$row->seatingcapacity}}</td>
                                     <td>{{$row->userreportedmilage}}</td>
