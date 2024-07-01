@@ -26,7 +26,7 @@
  <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
  <div class="main-content-area clearfix">
     <!-- =-=-=-=-=-=-= Registration Form =-=-=-=-=-=-= -->
-    
+
     <section class="section-padding no-top gray">
        <!-- Main Container -->
        <div class="container">
@@ -37,15 +37,15 @@
                 <!--  Form -->
                 <div class="form-grid">
                    <form>
-                   
+
                      <a class="btn btn-lg btn-block btn-social btn-facebook">
                            <span class="fa fa-facebook"></span> Sign up with Facebook
                        </a>
-                     
+
                      <a class="btn btn-lg btn-block btn-social btn-google">
                            <span class="fa fa-google"></span> Sign up with Facebook
                        </a>
-                     
+
                      <h2 class="no-span"><b>(OR)</b></h2>
                      <div class="form-group">
                          <label>Name</label>
@@ -82,7 +82,7 @@
                          </div>
                       </div>
                       <button class="btn btn-theme btn-lg btn-block">Register</button>
-                    
+
                    </form>
                 </div>
                 <!-- Form -->
@@ -122,6 +122,6 @@
        </div>
     </div>
  </div>
- <!-- Main Content Area End --> 
+ <!-- Main Content Area End -->
 
 @endsection

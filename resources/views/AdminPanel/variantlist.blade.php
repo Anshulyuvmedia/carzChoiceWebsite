@@ -52,7 +52,8 @@
                                     <td>{{$row->price}}</td>
                                     <td>{{$row->pricetype}}</td>
                                     <td>
-                                        <table class="table table-bordered">
+                                        <button  class="btn btn-transparent text-info" onclick="toggleTable(this)">View Mileages</button>
+                                        <table class="table table-bordered" style="display: none;">
                                             <thead>
                                                 <tr>
                                                     <th>Fuel Type</th>
@@ -135,5 +136,14 @@
             }
         });
     }
+
+    function toggleTable(button) {
+    const table = button.nextElementSibling;
+    if (table.style.display === "none") {
+        table.style.display = "table";
+    } else {
+        table.style.display = "none";
+    }
+}
 </script>
 @endpush
