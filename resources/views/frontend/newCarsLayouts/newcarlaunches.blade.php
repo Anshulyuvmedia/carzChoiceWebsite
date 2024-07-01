@@ -97,7 +97,7 @@
                                         <div class="ad-price-simple fs-3">Rs. 67.63 Lakh <span class="fs-5 text-dark">onwards </span></div>
                                         <!-- Ad History -->
                                         <div class="category-title">On-Road Price, Ahmedabad</div>
-                                        <div class="btn">Get Best Offer</div>
+                                        <div class="btn btn-danger">Get Best Offer</div>
                                        </div>
                                     <!-- Ad Desc End -->
                                 </div>

@@ -40,6 +40,9 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('find-car', 'findcar');
     Route::get('car-view-images', 'carviewimages');
     Route::get('car-images', 'carimages');
+    Route::get('find-dealer', 'finddealer');
+    Route::get('dealer-profile', 'dealerprofile');
+
 
     //when user logged in
     Route::get('userprofile', 'userprofile');

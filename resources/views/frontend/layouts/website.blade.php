@@ -12,6 +12,7 @@
     <title>@yield('title') | Carz Choice</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
     <link rel="icon" href="{{ asset('assets/frontend-assets/images/favicon.ico') }}" type="image/x-icon" />
@@ -66,26 +67,7 @@
     <header>
         <!-- =-=-=-=-=-=-= Preloader =-=-=-=-=-=-= -->
         {{-- <div class="preloader"></div> --}}
-        <!-- =-=-=-=-=-=-= Color Switcher =-=-=-=-=-=-= -->
-        {{-- <div class="color-switcher" id="choose_color">
-            <a href="#." class="picker_close"><i class="fa fa-gear"></i></a>
-            <h5>STYLE SWITCHER</h5>
-            <div class="theme-colours">
-                <p> Choose Colour style </p>
-                <ul>
-                    <li>
-                        <a href="#." class="defualt" id="defualt"></a>
-                    </li>
-                    <li>
-                        <a href="#." class="green" id="green"></a>
-                    </li>
-                    <li>
-                        <a href="#." class="purple" id="purple"></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
-        </div> --}}
+       
         <!-- =-=-=-=-=-=-= Main Header =-=-=-=-=-=-= -->
         <div class="colored-header">
             <!-- Top Bar -->
@@ -155,7 +137,7 @@
                                     <li>
                                         <a href="/">Home</a>
                                     </li>
-                                    
+                                    {{-- New Cars  --}}
                                     <li>
                                         <a href="javascript:void(0)">New Cars 
                                             <i class="fa fa-angle-down fa-indicator"></i>
@@ -307,7 +289,7 @@
                                             </div>
                                         </div>
                                     </li>
-
+                                    {{-- Used Cars --}}
                                     <li>
                                         <a href="javascript:void(0)">Used Cars <i
                                                 class="fa fa-angle-down fa-indicator"></i></a>
@@ -319,9 +301,9 @@
                                                     <h3>Condition</h3>
                                                     <ul>
                                                         <li><a href="/used-car">Explore Used Cars</a></li>
-                                                        <li><a href="/usedcar-bylocation">Usedcar bylocation</a></li>
-                                                        {{-- <li><a href="/new-car-launches">New Launches </a></li> --}}
-                                                        {{-- <li><a href="/electric-car">Electric Cars </a></li>  --}}
+                                                        <li><a href="/usedcar-bylocation">Usedcar by location</a></li>
+                                                        <li><a href="/find-dealer">Find Dealer </a></li>
+                                                        <li><a href="/dealer-profile">Dealer Profile</a></li> 
                                                     </ul>
                                                 </div>
 
@@ -464,6 +446,7 @@
                                             <li><a href="/blogdetails">News Detial</a></li>
                                         </ul>
                                     </li>
+
                                     <li>
                                         <a href="javascript:void(0)">Compare <i
                                                 class="fa fa-angle-down fa-indicator"></i></a>
@@ -473,92 +456,7 @@
                                             <li><a href="/compareresult">Comparison Result</a></li>
                                         </ul>
                                     </li>
-                                    {{-- <li>
-                                        <a href="javascript:void(0)">Dashboard <i
-                                                class="fa fa-angle-down fa-indicator"></i></a>
-                                        <!-- drop down multilevel  -->
-                                        <ul class="drop-down-multilevel">
-                                            <li><a href="/userprofile">User Profile</a></li>
-                                            <li><a href="/userarchive">Archives</a></li>
-                                            <li><a href="/useractiveads">Active Ads</a></li>
-                                            <li><a href="/userfavourites">Favourite Ads</a></li>
-                                            <li><a href="/usermessages">Message Panel</a></li>
-                                            <li><a href="/userdeactive">Account Deactivation</a></li>
-                                        </ul>
-                                    </li> --}}
-                                    {{-- <li>
-                                        <a href="javascript:void(0)">Pages <i
-                                                class="fa fa-angle-down fa-indicator"></i></a>
-                                        <!-- drop down full width -->
-                                        <div class="drop-down grid-col-12">
-                                            <!--grid row-->
-                                            <div class="grid-row">
-                                                <!--grid column 2-->
-                                                <div class="grid-col-2">
-                                                    <h4>Blog</h4>
-                                                    <ul>
-                                                        <li><a href="blog.html"> Right Sidebar</a></li>
-                                                        <li><a href="blog-1.html"> Masonry Style</a></li>
-                                                        <li><a href="blog-2.html"> Without Sidebar</a></li>
-                                                        <li><a href="blog-details.html">Single Blog </a></li>
-                                                    </ul>
-                                                </div>
-                                                <!--grid column 2-->
-                                                <div class="grid-col-2">
-                                                    <h4>Miscellaneous</h4>
-                                                    <ul>
-                                                        <li><a href="about.html">About Us</a></li>
-                                                        <li><a href="about-1.html">About Us 2</a></li>
-                                                        <li><a href="cooming-soon.html">Comming Soon</a></li>
-                                                        <li><a href="elements.html">Shortcodes</a></li>
-
-                                                    </ul>
-                                                </div>
-                                                <!--grid column 2-->
-                                                <div class="grid-col-2">
-                                                    <h4>Others</h4>
-                                                    <ul>
-                                                        <li><a href="error.html">404 Page</a></li>
-                                                        <li><a href="faqs.html">FAQS</a></li>
-                                                        <li><a href="login.html">Login</a></li>
-                                                        <li><a href="register.html">Register</a></li>
-
-                                                    </ul>
-                                                </div>
-                                                <!--grid column 2-->
-                                                <div class="grid-col-2">
-                                                    <h4>Extra Page</h4>
-                                                    <ul>
-                                                        <li><a href="post-ad-1.html">Post Ad</a></li>
-                                                        <li><a href="pricing.html">Pricing</a></li>
-                                                        <li><a href="site-map.html">Site Map</a></li>
-                                                        <li><a href="contact.html">Contact Us</a></li>
-                                                    </ul>
-                                                </div>
-                                                <!--grid column 2-->
-                                                <div class="grid-col-2">
-                                                    <h4>Services Page</h4>
-                                                    <ul>
-                                                        <li><a href="services.html">Services</a></li>
-                                                        <li><a href="services-1.html">Services 2</a></li>
-                                                        <li><a href="profile.html">Profile</a></li>
-                                                        <li><a href="messages.html">Messages</a></li>
-                                                    </ul>
-                                                </div>
-                                                <!--grid column 2-->
-                                                <div class="grid-col-2">
-                                                    <h4>Trending</h4>
-                                                    <ul>
-                                                        <li><a href="reviews.html">Reviews</a></li>
-                                                        <li><a href="review-detail.html">Review Detail</a></li>
-                                                        <li><a href="compare.html">Compare</a></li>
-                                                        <li><a href="compare-2.html">Comapre Detail</a></li>
-                                                    </ul>
-                                                </div>
-                                                <!--grid column 2-->
-                                            </div>
-                                        </div>
-                                    </li> --}}
+                                    
                                 </ul>
                                 <ul class="menu-search-bar">
                                     <li>
