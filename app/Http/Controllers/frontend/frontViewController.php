@@ -4,103 +4,141 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 class frontViewController extends Controller
 {
-    public function carlistingdetails() {
+    public function carlistingdetails()
+    {
         return view('frontend.carlistingdetails');
     }
-    public function carlisting() {
+    public function carlisting()
+    {
         return view('frontend.carlisting');
     }
-    public function reviews() {
+    public function reviews()
+    {
         return view('frontend.reviews');
     }
-    public function reviewsdetails() {
+    public function reviewsdetails()
+    {
         return view('frontend.reviewsdetails');
     }
-    public function compare() {
+    public function compare()
+    {
         return view('frontend.compare');
     }
-    public function compareresult() {
+    public function compareresult()
+    {
         return view('frontend.compareresult');
     }
-    public function loginuser() {
+    public function loginuser()
+    {
         return view('frontend.loginuser');
     }
-    public function registration() {
+    public function registration()
+    {
         return view('frontend.registration');
     }
-    public function postyourad() {
+    public function postyourad()
+    {
         return view('frontend.postyourad');
     }
-    public function userprofile() {
-        return view('frontend.dashboard.userprofile');
+    public function userprofile()
+    {
+        if (Auth::guard('registeruser')->check()) {
+            $user = Auth::guard('registeruser')->user();
+            return view('frontend.dashboard.userprofile',compact('user'));
+        }else {
+            return view('frontend.loginuser');
+        }
     }
-    public function userarchive() {
+    public function userarchive()
+    {
         return view('frontend.dashboard.userarchive');
     }
-    public function useractiveads() {
+    public function useractiveads()
+    {
         return view('frontend.dashboard.useractiveads');
     }
-    public function userfavourites() {
+    public function userfavourites()
+    {
         return view('frontend.dashboard.userfavourites');
     }
-    public function usermessages() {
+    public function usermessages()
+    {
         return view('frontend.dashboard.usermessages');
     }
-    public function userdeactive() {
+    public function userdeactive()
+    {
         return view('frontend.dashboard.userdeactive');
     }
-    public function pricing() {
+    public function pricing()
+    {
         return view('frontend.pricing');
     }
-    public function blogs() {
+    public function blogs()
+    {
         return view('frontend.blogs');
     }
-    public function blogdetails() {
+    public function blogdetails()
+    {
         return view('frontend.blogdetails');
     }
-    public function about() {
+    public function about()
+    {
         return view('frontend.about');
     }
-    public function error404() {
+    public function error404()
+    {
         return view('frontend.error404');
     }
-    public function contactus() {
+    public function contactus()
+    {
         return view('frontend.contactus');
     }
-    public function services() {
+    public function services()
+    {
         return view('frontend.services');
     }
-    public function newcars() {
+    public function newcars()
+    {
         return view('frontend.newCarsLayouts.newcars');
     }
-    public function upcomingcar() {
+    public function upcomingcar()
+    {
         return view('frontend.newCarsLayouts.upcomingcar');
     }
-    public function newcarlaunches() {
+    public function newcarlaunches()
+    {
         return view('frontend.newCarsLayouts.newcarlaunches');
     }
-    public function electriccar() {
+    public function electriccar()
+    {
         return view('frontend.newCarsLayouts.electriccar');
     }
-    public function usedcar() {
+    public function usedcar()
+    {
         return view('frontend.usedCarsLayouts.usedcar');
     }
-    public function usedcarbylocation() {
+    public function usedcarbylocation()
+    {
         return view('frontend.usedCarsLayouts.usedcarbylocation');
     }
-    public function carloan() {
+    public function carloan()
+    {
         return view('frontend.newCarsLayouts.carloan');
     }
-    public function findcar() {
+    public function findcar()
+    {
         return view('frontend.findcar');
     }
-    public function carviewimages() {
+    public function carviewimages()
+    {
         return view('frontend.carLayouts.carviewimages');
     }
-    public function carimages() {
+    public function carimages()
+    {
         return view('frontend.carLayouts.carimages');
     }
 

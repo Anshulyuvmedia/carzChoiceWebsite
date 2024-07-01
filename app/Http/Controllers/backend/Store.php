@@ -10,6 +10,7 @@ use App\Models\faqs;
 use App\Models\FormAttribute;
 use App\Models\Lead;
 use App\Models\Master;
+use App\Models\RegisterUser;
 use App\Models\Remark;
 use App\Models\SubMaster;
 use App\Models\AddVariant;
@@ -613,5 +614,23 @@ class Store extends Controller
             return back()->with('error', 'Failed to update profile. ' . $e->getMessage());
             //return back()->with('error', 'Not Updated..Try Again.....');
         }
+    }
+
+    public function updateloginstatus(Request $request)
+    {
+        $login = RegisterUser::find($request->id);
+        if ($login) {
+            $login->loginstatus = $request->status;
+            $login->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
+
+    public function deleteuser($id)
+    {
+        $data = RegisterUser::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
     }
 }

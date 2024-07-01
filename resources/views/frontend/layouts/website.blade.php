@@ -96,7 +96,7 @@
                         <div class="header-top-left col-md-6 col-sm-6 col-xs-12 hidden-xs">
                             <ul class="listnone">
                                 <li><a href="/about"><i class="fa fa-heart-o" aria-hidden="true"></i> About</a></li>
-                                
+
                             </ul>
                         </div>
                         <!-- Header Top Right Social -->
@@ -155,9 +155,9 @@
                                     <li>
                                         <a href="/">Home</a>
                                     </li>
-                                    
+
                                     <li>
-                                        <a href="javascript:void(0)">New Cars 
+                                        <a href="javascript:void(0)">New Cars
                                             <i class="fa fa-angle-down fa-indicator"></i>
                                         </a>
                                         <div class="drop-down grid-col-12">
@@ -174,7 +174,7 @@
                                                         <li><a href="/car-loan">Car Loan </a></li>
                                                         <li><a href="/car-view-images">Car different Views </a></li>
                                                         <li><a href="/car-images">Car Images </a></li>
-                                                        
+
                                                     </ul>
                                                 </div>
 
@@ -454,7 +454,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    
+
                                     <li>
                                         <a href="javascript:void(0)">News <i
                                                 class="fa fa-angle-down fa-indicator"></i></a>
@@ -588,6 +588,8 @@
 
     <div class="main-content-area clearfix">
         @yield('content')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+        @stack('scripts')
     </div>
 
 
@@ -604,7 +606,7 @@
                                 <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo" width="120">
 
                              </div>
-                            
+
                             <ul class="apps-donwloads">
                                 <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}"
                                         alt=""></li>
@@ -717,12 +719,12 @@
 
     <script type="text/javascript" src="{{ asset('assets/frontend-assets/js/perfect-scrollbar.min.js') }}"></script>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
-    
+
 </body>
 
 </html>

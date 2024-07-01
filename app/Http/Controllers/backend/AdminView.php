@@ -11,6 +11,7 @@ use App\Models\faqs;
 use App\Models\FormAttribute;
 use App\Models\Lead;
 use App\Models\Master;
+use App\Models\RegisterUser;
 use App\Models\VehicleImage;
 use Illuminate\Http\Request;
 use Auth;
@@ -96,5 +97,10 @@ class AdminView extends Controller
         $variantdata = AddVariant::find($id);
         $carlistdata = CarList::get();
         return view('AdminPanel.editvariant',compact('variantdata','carlistdata'));
+    }
+
+    public function userslist(){
+        $registeredusers = RegisterUser::orderBy('created_at','desc')->get();
+        return view('AdminPanel.userslist',compact('registeredusers'));
     }
 }

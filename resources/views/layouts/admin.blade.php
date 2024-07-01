@@ -259,6 +259,12 @@
                                 <li><a href="{{ route('variantslist') }}">Variants List</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="{{ route('userslist') }}">
+                                <i class="uil-list-ul"></i>
+                                <span>Users List</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- Sidebar -->

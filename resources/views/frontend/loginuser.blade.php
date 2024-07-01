@@ -22,38 +22,22 @@
        </div>
     </div>
  </div>
- <!-- =-=-=-=-=-=-= Breadcrumb End =-=-=-=-=-=-= -->
- <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
  <div class="main-content-area clearfix">
-    <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
     <section class="section-padding no-top gray">
-       <!-- Main Container -->
        <div class="container">
           <!-- Row -->
           <div class="row">
-             <!-- Middle Content Area -->
              <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                <!--  Form -->
                 <div class="form-grid">
-                   <form>
-
-                     <a class="btn btn-lg btn-block btn-social btn-facebook">
-                           <span class="fa fa-facebook"></span> Sign in with Facebook
-                       </a>
-
-                     <a class="btn btn-lg btn-block btn-social btn-google">
-                           <span class="fa fa-google"></span> Sign in with Facebook
-                       </a>
-
-                     <h2 class="no-span"><b>(OR)</b></h2>
-
+                   <form action="{{ route('loginuser') }}" method="POST">
+                    @csrf
                       <div class="form-group">
                          <label>Email</label>
-                         <input placeholder="Your Email" class="form-control" type="email">
+                         <input placeholder="Your Email" name="email" class="form-control" type="email">
                       </div>
                       <div class="form-group">
                          <label>Password</label>
-                         <input placeholder="Your Password" class="form-control" type="password">
+                         <input placeholder="Your Password" name="password" class="form-control" type="password">
                       </div>
                       <div class="form-group">
                          <div class="row">
@@ -69,20 +53,12 @@
                             </div>
                          </div>
                       </div>
-                      <button class="btn btn-theme btn-lg btn-block">Login With Us</button>
+                      <button type="submit" class="btn btn-theme btn-lg btn-block">Login With Us</button>
                    </form>
                 </div>
-                <!-- Form -->
              </div>
-             <!-- Middle Content Area  End -->
           </div>
-          <!-- Row End -->
        </div>
-       <!-- Main Container End -->
     </section>
-    <!-- =-=-=-=-=-=-= Ads Archives End =-=-=-=-=-=-= -->
-
  </div>
- <!-- Main Content Area End -->
-
 @endsection

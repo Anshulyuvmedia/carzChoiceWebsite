@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\AdminView;
 use App\Http\Controllers\backend\Authentication;
 use App\Http\Controllers\backend\Store;
+use App\Http\Controllers\frontend\FrontendStore;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\frontViewController;
 
@@ -27,8 +28,8 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('reviewsdetails', 'reviewsdetails');
     Route::get('compare', 'compare');
     Route::get('compareresult', 'compareresult');
-    Route::get('loginuser', 'loginuser');
-    Route::get('registration', 'registration');
+    Route::get('loginuser', 'loginuser')->name('loginuser');
+    Route::get('registration', 'registration')->name('registration');
     Route::get('postyourad', 'postyourad');
     Route::get('new-cars', 'newcars');
     Route::get('upcoming-car', 'upcomingcar');
@@ -42,7 +43,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('car-images', 'carimages');
 
     //when user logged in
-    Route::get('userprofile', 'userprofile');
+    Route::get('userprofile', 'userprofile')->name('userprofile');
     Route::get('userarchive', 'userarchive');
     Route::get('useractiveads', 'useractiveads');
     Route::get('userfavourites', 'userfavourites');
@@ -59,6 +60,17 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('services', 'services');
 
 });
+
+//Frontend Functionality Routes
+Route::controller(FrontendStore::class)->group(function() {
+    Route::post('register_customer', 'register_customer')->name('registercustomer');
+    Route::post('verifyregisterotp', 'verifyregisterotp')->name('verifyregisterotp');
+    Route::post('loginuser', 'loginuser')->name('loginuser');
+    Route::get('logoutuserfront', 'logoutuserfront')->name('logoutuserfront');
+
+});
+
+
 
 
 //Admin Panel Routes
@@ -83,6 +95,7 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('addvariant', 'addvariant')->name('addvariant');
     Route::get('variantslist', 'variantslist')->name('variantslist');
     Route::get('editvariant/{id}', 'editvariant')->name('editvariant');
+    Route::get('userslist', 'userslist')->name('userslist');
 
 });
 
@@ -122,6 +135,11 @@ Route::controller(Store::class)->group(function() {
     Route::post('insertvariants', 'insertvariants')->name('insertvariants');
     Route::get('deletevariants/{id}', 'deletevariants')->name('deletevariants');
     Route::post('updatevariants', 'updatevariants')->name('updatevariants');
+    Route::post('/updateloginstatus', 'updateloginstatus')->name('updateloginstatus');
+    Route::get('deleteuser/{id}', 'deleteuser')->name('deleteuser');
 
 });
+
+
+
 
