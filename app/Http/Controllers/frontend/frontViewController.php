@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class frontViewController extends Controller
 {
     public function carlistingdetails() {
-        return view('frontend.carlistingdetails');
+        return view('frontend.carLayouts.carlistingdetails');
     }
     public function carlisting() {
         return view('frontend.carlisting');

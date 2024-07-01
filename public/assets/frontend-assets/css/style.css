@@ -10778,3 +10778,32 @@ textarea {
 .carbodytype .image-checkbox-checked .fa {
     display: block !important;
 }
+
+.nav-underline .nav-link {
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 2px solid transparent;
+    color: #000;
+}
+
+.nav-underline .nav-link.active, .nav-underline .show > .nav-link {
+    font-weight: 700;
+    color: #E52D27;
+    border-bottom-color: #E52D27;
+  }
+
+  .nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #eee0;
+  }
+
+  .nav > li {
+    white-space: nowrap;
+  }
+
+  .nav {
+    width: 100%; 
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 20px;
+  }
