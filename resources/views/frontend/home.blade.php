@@ -215,7 +215,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -229,7 +229,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -265,7 +265,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -279,7 +279,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -315,7 +315,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -329,7 +329,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -365,7 +365,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -379,7 +379,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -415,7 +415,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -429,7 +429,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -476,7 +476,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -490,7 +490,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -526,7 +526,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -540,7 +540,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -576,7 +576,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -590,7 +590,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -626,7 +626,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -640,7 +640,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -676,7 +676,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -690,7 +690,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -737,7 +737,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -751,7 +751,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -787,7 +787,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -801,7 +801,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -837,7 +837,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -851,7 +851,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -887,7 +887,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -901,7 +901,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -937,7 +937,7 @@
                                                             <span>Featured</span>
                                                         </div>
                                                         <div class="image">
-                                                            <img alt="Carspot"
+                                                            <img alt="Carz Choice"
                                                                 src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
@@ -951,7 +951,7 @@
                                                                     Equipment</a></span> </div> --}}
 
                                                             <h3>
-                                                                <a title="" href="single-page-listing.html">
+                                                                <a title="" href="#">
                                                                     Mahindra XUV 3XO
                                                                 </a>
                                                             </h3>
@@ -1021,7 +1021,7 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1035,7 +1035,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Mahindra XUV 3XO
                                                     </a>
                                                 </h3>
@@ -1064,7 +1064,7 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1078,7 +1078,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Mahindra XUV 3XO
                                                     </a>
                                                 </h3>
@@ -1106,7 +1106,7 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1120,7 +1120,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Mahindra XUV 3XO
                                                     </a>
                                                 </h3>
@@ -1148,7 +1148,7 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1162,7 +1162,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Mahindra XUV 3XO
                                                     </a>
                                                 </h3>
@@ -1190,7 +1190,7 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                <img alt="Carspot"
+                                                <img alt="Carz Choice"
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1204,7 +1204,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Mahindra XUV 3XO
                                                     </a>
                                                 </h3>
@@ -1236,7 +1236,7 @@
     </section>
     <!-- =-=-=-=-=-=-= Popular Cars Ads End =-=-=-=-=-=-= -->
 
-    <!-- =-=-=-=-=-=-= Our Clients =-=-=-=-=-=-= -->
+    <!-- =-=-=-=-=-=-= All Brands =-=-=-=-=-=-= -->
     <section class="client-section gray">
         <div class="container">
             <div class="row">
@@ -1304,7 +1304,7 @@
             </div>
         </div>
     </section>
-    <!-- =-=-=-=-=-=-= Our Clients End =-=-=-=-=-=-= -->
+    <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
 
     <!-- =-=-=-=-=-=-= Cars Of Your Choice =-=-=-=-=-=-= -->
     <section class="custom-padding featured-cars rounded-3">
@@ -1682,8 +1682,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1697,7 +1697,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Top SUVs in India
                                                     </a>
                                                 </h3>
@@ -1722,8 +1722,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1737,7 +1737,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Top SUVs in India
                                                     </a>
                                                 </h3>
@@ -1762,8 +1762,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1777,7 +1777,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Top SUVs in India
                                                     </a>
                                                 </h3>
@@ -1802,8 +1802,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1817,7 +1817,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Top SUVs in India
                                                     </a>
                                                 </h3>
@@ -1842,8 +1842,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -1857,7 +1857,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Top SUVs in India
                                                     </a>
                                                 </h3>
@@ -2150,8 +2150,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/134287/city-exterior-right-front-three-quarter-76.jpeg?isig=0"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -2165,7 +2165,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Used Honda City
                                                     </a>
                                                 </h3>
@@ -2190,8 +2190,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/102663/baleno-exterior-right-front-three-quarter-66.jpeg?isig=0"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -2205,7 +2205,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Used Hyundai Creta
                                                     </a>
                                                 </h3>
@@ -2230,8 +2230,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/112947/wagon-r-2022-exterior-right-front-three-quarter-3.jpeg?isig=0"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -2245,7 +2245,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Used Maruti Suzuki Baleno
                                                     </a>
                                                 </h3>
@@ -2270,8 +2270,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/141115/creta-exterior-right-front-three-quarter-16.jpeg?isig=0"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -2285,7 +2285,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Used Maruti Suzuki Wagon R
                                                     </a>
                                                 </h3>
@@ -2310,8 +2310,8 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carspot" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carspot"
+                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/159099/swift-exterior-right-front-three-quarter.jpeg?isig=0"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
@@ -2325,7 +2325,7 @@
                                                                 Equipment</a></span> </div> --}}
 
                                                 <h3>
-                                                    <a title="" href="single-page-listing.html">
+                                                    <a title="" href="#">
                                                         Used Maruti Suzuki Swift
                                                     </a>
                                                 </h3>

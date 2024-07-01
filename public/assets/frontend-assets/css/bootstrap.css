@@ -3565,7 +3565,7 @@ input[type="button"].btn-block {
     width: 100%;
 }
 .fade {
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: opacity 0.15s linear;
     -o-transition: opacity 0.15s linear;
     transition: opacity 0.15s linear;
@@ -4163,7 +4163,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
     .nav-tabs.nav-justified > li {
         display: table-cell;
-        width: 1%;
+        width: 25%;
     }
     .nav-tabs.nav-justified > li > a {
         margin-bottom: 0;
@@ -6240,7 +6240,7 @@ button.close {
 }
 .modal-open .modal {
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 .modal-dialog {
     position: relative;
@@ -6270,7 +6270,7 @@ button.close {
 }
 .modal-backdrop.fade {
     filter: alpha(opacity=0);
-    opacity: 0;
+    opacity: 0.5;
 }
 .modal-backdrop.in {
     filter: alpha(opacity=50);

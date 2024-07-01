@@ -40,6 +40,9 @@ class frontViewController extends Controller
     public function userarchive() {
         return view('frontend.dashboard.userarchive');
     }
+    public function useractiveads() {
+        return view('frontend.dashboard.useractiveads');
+    }
     public function userfavourites() {
         return view('frontend.dashboard.userfavourites');
     }
@@ -69,6 +72,36 @@ class frontViewController extends Controller
     }
     public function services() {
         return view('frontend.services');
+    }
+    public function newcars() {
+        return view('frontend.newCarsLayouts.newcars');
+    }
+    public function upcomingcar() {
+        return view('frontend.newCarsLayouts.upcomingcar');
+    }
+    public function newcarlaunches() {
+        return view('frontend.newCarsLayouts.newcarlaunches');
+    }
+    public function electriccar() {
+        return view('frontend.newCarsLayouts.electriccar');
+    }
+    public function usedcar() {
+        return view('frontend.usedCarsLayouts.usedcar');
+    }
+    public function usedcarbylocation() {
+        return view('frontend.usedCarsLayouts.usedcarbylocation');
+    }
+    public function carloan() {
+        return view('frontend.newCarsLayouts.carloan');
+    }
+    public function findcar() {
+        return view('frontend.findcar');
+    }
+    public function carviewimages() {
+        return view('frontend.carLayouts.carviewimages');
+    }
+    public function carimages() {
+        return view('frontend.carLayouts.carimages');
     }
 
 }

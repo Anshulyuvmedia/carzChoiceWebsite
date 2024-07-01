@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class=" breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Acount Deactivation</a></li>
                    </ul>
                 </div>
@@ -34,7 +34,7 @@
              <!-- Middle Content Area -->
              <div class="col-md-12 col-xs-12 col-sm-12">
                 <section class="search-result-item">
-                   <a class="image-link" href="#"><img class="image center-block" alt="" src="images/users/9.jpg"> </a>
+                   <a class="image-link" href="#"><img class="image center-block" alt="" src="{{ asset('assets/frontend-assets/images/users/9.jpg')}}"> </a>
                    <div class="search-result-item-body">
                       <div class="row">
                          <div class="col-md-5 col-sm-12 col-xs-12">
@@ -73,43 +73,43 @@
                    </div>
                 </section>
                 <div class="dashboard-menu-container">
-                   <ul>
-                      <li>
-                         <a href="profile.html">
-                            <div class="menu-name"> Profile </div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="archives.html">
-                            <div class="menu-name">Archives</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="active-ads.html">
-                            <div class="menu-name">My Ads</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="favourite.html">
-                            <div class="menu-name">Favourites Ads</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="messages.html">
-                            <div class="menu-name">Messages</div>
-                         </a>
-                      </li>
-                      <li   class="active">
-                         <a href="deactive.html">
-                            <div class="menu-name">Close Account</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="#">
-                            <div class="menu-name">Logout</div>
-                         </a>
-                      </li>
-                   </ul>
+                  <ul>
+                     <li >
+                        <a href="/userprofile">
+                           <div class="menu-name"> Profile </div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/userarchive">
+                           <div class="menu-name">Archives</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/useractiveads">
+                           <div class="menu-name">My Ads</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/userfavourites">
+                           <div class="menu-name">Favourites Ads</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/usermessages">
+                           <div class="menu-name">Messages</div>
+                        </a>
+                     </li>
+                     <li class="active">
+                        <a href="/userdeactive">
+                           <div class="menu-name">Close Account</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#">
+                           <div class="menu-name">Logout</div>
+                        </a>
+                     </li>
+                  </ul>
                 </div>
              </div>
              <!-- Middle Content Area  End -->
@@ -169,24 +169,24 @@
                 <div class="flexslider single-page-slider">
                    <div class="flex-viewport">
                       <ul class="slides slide-main">
-                         <li class=""><img alt="" src="images/single-page/1.jpg" title=""></li>
-                         <li><img alt="" src="images/single-page/2.jpg" title=""></li>
-                         <li class="flex-active-slide"><img alt="" src="images/single-page/3.jpg" title=""></li>
-                         <li><img alt="" src="images/single-page/4.jpg" title=""></li>
-                         <li><img alt="" src="images/single-page/5.jpg" title=""></li>
-                         <li><img alt="" src="images/single-page/6.jpg" title=""></li>
+                         <li class=""><img alt="" src="{{ asset('assets/frontend-assets/images/single-page/1')}}.jpg" title=""></li>
+                         <li><img alt="" src="{{ asset('assets/frontend-assets/images/single-page/2')}}.jpg" title=""></li>
+                         <li class="flex-active-slide"><img alt="" src="{{ asset('assets/frontend-assets/images/single-page/3')}}.jpg" title=""></li>
+                         <li><img alt="" src="{{ asset('assets/frontend-assets/images/single-page/4')}}.jpg" title=""></li>
+                         <li><img alt="" src="{{ asset('assets/frontend-assets/images/single-page/5')}}.jpg" title=""></li>
+                         <li><img alt="" src="{{ asset('assets/frontend-assets/images/single-page/6')}}.jpg" title=""></li>
                       </ul>
                    </div>
                 </div>
                 <div class="flexslider" id="carousels">
                    <div class="flex-viewport">
                       <ul class="slides slide-thumbnail">
-                         <li><img alt="" draggable="false" src="images/single-page/1_thumb.jpg"></li>
-                         <li><img alt="" draggable="false" src="images/single-page/2_thumb.jpg"></li>
-                         <li class="flex-active-slide"><img alt="" draggable="false" src="images/single-page/3_thumb.jpg"> </li>
-                         <li><img alt="" draggable="false" src="images/single-page/4_thumb.jpg"></li>
-                         <li><img alt="" draggable="false" src="images/single-page/5_thumb.jpg"></li>
-                         <li><img alt="" draggable="false" src="images/single-page/6_thumb.jpg"></li>
+                         <li><img alt="" draggable="false" src="{{ asset('assets/frontend-assets/images/single-page/1_thumb')}}.jpg"></li>
+                         <li><img alt="" draggable="false" src="{{ asset('assets/frontend-assets/images/single-page/2_thumb')}}.jpg"></li>
+                         <li class="flex-active-slide"><img alt="" draggable="false" src="{{ asset('assets/frontend-assets/images/single-page/3_thumb')}}.jpg"> </li>
+                         <li><img alt="" draggable="false" src="{{ asset('assets/frontend-assets/images/single-page/4_thumb')}}.jpg"></li>
+                         <li><img alt="" draggable="false" src="{{ asset('assets/frontend-assets/images/single-page/5_thumb')}}.jpg"></li>
+                         <li><img alt="" draggable="false" src="{{ asset('assets/frontend-assets/images/single-page/6_thumb')}}.jpg"></li>
                          <!-- items mirrored twice, total of 12 -->
                       </ul>
                    </div>

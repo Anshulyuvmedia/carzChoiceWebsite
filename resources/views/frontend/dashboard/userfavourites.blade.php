@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class=" breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Favourite</a></li>
                    </ul>
                 </div>
@@ -34,7 +34,7 @@
              <!-- Middle Content Area -->
              <div class="col-md-12 col-xs-12 col-sm-12">
                 <section class="search-result-item">
-                   <a class="image-link" href="#"><img class="image center-block" alt="" src="images/users/9.jpg"> </a>
+                   <a class="image-link" href="#"><img class="image center-block" alt="" src="{{ asset('assets/frontend-assets/images/users/9.jpg')}}"> </a>
                    <div class="search-result-item-body">
                       <div class="row">
                          <div class="col-md-5 col-sm-12 col-xs-12">
@@ -73,43 +73,43 @@
                    </div>
                 </section>
                 <div class="dashboard-menu-container">
-                   <ul>
-                      <li>
-                         <a href="profile.html">
-                            <div class="menu-name"> Profile </div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="archives.html">
-                            <div class="menu-name">Archives</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="active-ads.html">
-                            <div class="menu-name">My Ads</div>
-                         </a>
-                      </li>
-                      <li  class="active">
-                         <a href="favourite.html">
-                            <div class="menu-name">Favourites Ads</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="messages.html">
-                            <div class="menu-name">Messages</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="deactive.html">
-                            <div class="menu-name">Close Account</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="#">
-                            <div class="menu-name">Logout</div>
-                         </a>
-                      </li>
-                   </ul>
+                  <ul>
+                     <li>
+                        <a href="/userprofile">
+                           <div class="menu-name"> Profile </div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/userarchive">
+                           <div class="menu-name">Archives</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/useractiveads">
+                           <div class="menu-name">My Ads</div>
+                        </a>
+                     </li>
+                     <li class="active">
+                        <a href="/userfavourites">
+                           <div class="menu-name">Favourites Ads</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/usermessages">
+                           <div class="menu-name">Messages</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/userdeactive">
+                           <div class="menu-name">Close Account</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#">
+                           <div class="menu-name">Logout</div>
+                        </a>
+                     </li>
+                  </ul>
                 </div>
              </div>
              <!-- Middle Content Area  End -->
@@ -127,14 +127,14 @@
                          <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
                             <!-- Image Box -->
                             <div class="img-box">
-                               <img src="images/posting/25.jpg" class="img-responsive" alt="">
+                               <img src="{{ asset('assets/frontend-assets/images/posting/25.jpg')}}" class="img-responsive" alt="">
                                <div class="total-images"><strong>8</strong> photos </div>
                                <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
                             </div>
                             <!-- Ad Status --><span class="ad-status"> Featured </span>
                             <!-- User Preview -->
                             <div class="user-preview">
-                               <a href="#"> <img src="images/users/2.jpg" class="avatar avatar-small" alt=""> </a>
+                               <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="avatar avatar-small" alt=""> </a>
                             </div>
                          </div>
                          <div class="col-md-9 col-sm-7 col-xs-12">
@@ -185,14 +185,14 @@
                          <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
                             <!-- Image Box -->
                             <div class="img-box">
-                               <img src="images/posting/26.jpg" class="img-responsive" alt="">
+                               <img src="{{ asset('assets/frontend-assets/images/posting/26.jpg')}}" class="img-responsive" alt="">
                                <div class="total-images"><strong>4</strong> photos </div>
                                <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
                             </div>
                             <!-- Ad Status --><span class="ad-status"> Featured </span>
                             <!-- User Preview -->
                             <div class="user-preview">
-                               <a href="#"> <img src="images/users/6.jpg" class="avatar avatar-small" alt=""> </a>
+                               <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/6.jpg')}}" class="avatar avatar-small" alt=""> </a>
                             </div>
                          </div>
                          <div class="col-md-9 col-sm-7 col-xs-12">
@@ -244,13 +244,13 @@
                          <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
                             <!-- Image Box -->
                             <div class="img-box">
-                               <img src="images/posting/7.jpg" class="img-responsive" alt="">
+                               <img src="{{ asset('assets/frontend-assets/images/posting/7.jpg')}}" class="img-responsive" alt="">
                                <div class="total-images"><strong>5</strong> photos </div>
                                <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
                             </div>
                             <!-- User Preview -->
                             <div class="user-preview">
-                               <a href="#"> <img src="images/users/5.jpg" class="avatar avatar-small" alt=""> </a>
+                               <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/5.jpg')}}" class="avatar avatar-small" alt=""> </a>
                             </div>
                          </div>
                          <div class="col-md-9 col-sm-7 col-xs-12">
@@ -301,13 +301,13 @@
                          <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
                             <!-- Image Box -->
                             <div class="img-box">
-                               <img src="images/posting/2.jpg" class="img-responsive" alt="">
+                               <img src="{{ asset('assets/frontend-assets/images/posting/2.jpg')}}" class="img-responsive" alt="">
                                <div class="total-images"><strong>3</strong> photos </div>
                                <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
                             </div>
                             <!-- User Preview -->
                             <div class="user-preview">
-                               <a href="#"> <img src="images/users/3.jpg" class="avatar avatar-small" alt=""> </a>
+                               <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/3.jpg')}}" class="avatar avatar-small" alt=""> </a>
                             </div>
                          </div>
                          <div class="col-md-9 col-sm-7 col-xs-12">
@@ -358,14 +358,14 @@
                          <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
                             <!-- Image Box -->
                             <div class="img-box">
-                               <img src="images/posting/15.jpg" class="img-responsive" alt="">
+                               <img src="{{ asset('assets/frontend-assets/images/posting/15.jpg')}}" class="img-responsive" alt="">
                                <div class="total-images"><strong>4</strong> photos </div>
                                <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
                             </div>
                             <!-- Ad Status --><span class="ad-status"> Featured </span>
                             <!-- User Preview -->
                             <div class="user-preview">
-                               <a href="#"> <img src="images/users/7.jpg" class="avatar avatar-small" alt=""> </a>
+                               <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/7.jpg')}}" class="avatar avatar-small" alt=""> </a>
                             </div>
                          </div>
                          <div class="col-md-9 col-sm-7 col-xs-12">
@@ -416,14 +416,14 @@
                          <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
                             <!-- Image Box -->
                             <div class="img-box">
-                               <img src="images/posting/28.jpg" class="img-responsive" alt="">
+                               <img src="{{ asset('assets/frontend-assets/images/posting/28.jpg')}}" class="img-responsive" alt="">
                                <div class="total-images"><strong>4</strong> photos </div>
                                <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
                             </div>
                             <!-- Ad Status --><span class="ad-status"> Featured </span>
                             <!-- User Preview -->
                             <div class="user-preview">
-                               <a href="#"> <img src="images/users/6.jpg" class="avatar avatar-small" alt=""> </a>
+                               <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/6.jpg')}}" class="avatar avatar-small" alt=""> </a>
                             </div>
                          </div>
                          <div class="col-md-9 col-sm-7 col-xs-12">
@@ -474,14 +474,14 @@
                          <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
                             <!-- Image Box -->
                             <div class="img-box">
-                               <img src="images/posting/13.jpg" class="img-responsive" alt="">
+                               <img src="{{ asset('assets/frontend-assets/images/posting/13.jpg')}}" class="img-responsive" alt="">
                                <div class="total-images"><strong>4</strong> photos </div>
                                <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
                             </div>
                             <!-- Ad Status --><span class="ad-status"> Featured </span>
                             <!-- User Preview -->
                             <div class="user-preview">
-                               <a href="#"> <img src="images/users/7.jpg" class="avatar avatar-small" alt=""> </a>
+                               <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/7.jpg')}}" class="avatar avatar-small" alt=""> </a>
                             </div>
                          </div>
                          <div class="col-md-9 col-sm-7 col-xs-12">
@@ -532,14 +532,14 @@
                          <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
                             <!-- Image Box -->
                             <div class="img-box">
-                               <img src="images/posting/27.jpg" class="img-responsive" alt="">
+                               <img src="{{ asset('assets/frontend-assets/images/posting/27.jpg')}}" class="img-responsive" alt="">
                                <div class="total-images"><strong>4</strong> photos </div>
                                <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
                             </div>
                             <!-- Ad Status --><span class="ad-status"> Featured </span>
                             <!-- User Preview -->
                             <div class="user-preview">
-                               <a href="#"> <img src="images/users/4.jpg" class="avatar avatar-small" alt=""> </a>
+                               <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/4.jpg')}}" class="avatar avatar-small" alt=""> </a>
                             </div>
                          </div>
                          <div class="col-md-9 col-sm-7 col-xs-12">
@@ -640,8 +640,8 @@
                 <div class="clearfix"></div>
                 <div id="single-slider" class="flexslider">
                    <ul class="slides">
-                      <li><img alt="" src="images/single-page/1.jpg" /></li>
-                      <li><img alt="" src="images/single-page/2.jpg" /></li>
+                      <li><img alt="" src="{{ asset('assets/frontend-assets/images/single-page/1')}}.jpg" /></li>
+                      <li><img alt="" src="{{ asset('assets/frontend-assets/images/single-page/2')}}.jpg" /></li>
                       <li><img alt="" src="images/single-page/3.jpg" /></li>
                       <li><img alt="" src="images/single-page/4.jpg" /></li>
                       <li><img alt="" src="images/single-page/5.jpg" /></li>

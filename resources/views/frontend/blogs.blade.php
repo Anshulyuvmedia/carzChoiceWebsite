@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class=" breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Blog</a></li>
                    </ul>
                 </div>
@@ -40,9 +40,9 @@
                       <div class="col-md-4 col-sm-6 col-xs-12">
                          <div class="blog-post">
                             <div class="post-img">
-                               <a href="#"> <img class="img-responsive" alt="" src="images/posting/15.jpg"> </a>
+                               <a href="#"> <img class="img-responsive" alt="" src="{{ asset('assets/frontend-assets/images/posting/15.jpg')}}"> </a>
                                <div class="user-preview">
-                                  <a href="#"> <img src="images/users/2.jpg" class="avatar avatar-small" alt=""> </a>
+                                  <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="avatar avatar-small" alt=""> </a>
                                </div>
                             </div>
                             <div class="post-info"> <a href="#">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
@@ -55,9 +55,9 @@
                       <div class="col-md-4  col-sm-6 col-xs-12">
                          <div class="blog-post">
                             <div class="post-img">
-                               <a href="#"> <img class="img-responsive" alt="" src="images/posting/27.jpg"> </a>
+                               <a href="#"> <img class="img-responsive" alt="" src="{{ asset('assets/frontend-assets/images/posting/27.jpg')}}"> </a>
                                <div class="user-preview">
-                                  <a href="#"> <img src="images/users/2.jpg" class="avatar avatar-small" alt=""> </a>
+                                  <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="avatar avatar-small" alt=""> </a>
                                </div>
                             </div>
                             <div class="post-info"> <a href="#">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
@@ -70,9 +70,9 @@
                       <div class="col-md-4  col-sm-6 col-xs-12">
                          <div class="blog-post">
                             <div class="post-img">
-                               <a href="#"> <img class="img-responsive" alt="" src="images/posting/9.jpg"> </a>
+                               <a href="#"> <img class="img-responsive" alt="" src="{{ asset('assets/frontend-assets/images/posting/9.jpg')}}"> </a>
                                <div class="user-preview">
-                                  <a href="#"> <img src="images/users/2.jpg" class="avatar avatar-small" alt=""> </a>
+                                  <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="avatar avatar-small" alt=""> </a>
                                </div>
                             </div>
                             <div class="post-info"> <a href="#">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
@@ -86,9 +86,9 @@
                       <div class="col-md-4  col-sm-6 col-xs-12">
                          <div class="blog-post">
                             <div class="post-img">
-                               <a href="#"> <img class="img-responsive" alt="" src="images/posting/4.jpg"> </a>
+                               <a href="#"> <img class="img-responsive" alt="" src="{{ asset('assets/frontend-assets/images/posting/4.jpg')}}"> </a>
                                <div class="user-preview">
-                                  <a href="#"> <img src="images/users/2.jpg" class="avatar avatar-small" alt=""> </a>
+                                  <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="avatar avatar-small" alt=""> </a>
                                </div>
                             </div>
                             <div class="post-info"> <a href="#">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
@@ -102,9 +102,9 @@
                       <div class="col-md-4  col-sm-6 col-xs-12">
                          <div class="blog-post">
                             <div class="post-img">
-                               <a href="#"> <img class="img-responsive" alt="" src="images/posting/6.jpg"> </a>
+                               <a href="#"> <img class="img-responsive" alt="" src="{{ asset('assets/frontend-assets/images/posting/6.jpg')}}"> </a>
                                <div class="user-preview">
-                                  <a href="#"> <img src="images/users/2.jpg" class="avatar avatar-small" alt=""> </a>
+                                  <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="avatar avatar-small" alt=""> </a>
                                </div>
                             </div>
                             <div class="post-info"> <a href="#">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
@@ -118,9 +118,9 @@
                       <div class="col-md-4  col-sm-6 col-xs-12">
                          <div class="blog-post">
                             <div class="post-img">
-                               <a href="#"> <img class="img-responsive" alt="" src="images/posting/7.jpg"> </a>
+                               <a href="#"> <img class="img-responsive" alt="" src="{{ asset('assets/frontend-assets/images/posting/7.jpg')}}"> </a>
                                <div class="user-preview">
-                                  <a href="#"> <img src="images/users/2.jpg" class="avatar avatar-small" alt=""> </a>
+                                  <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="avatar avatar-small" alt=""> </a>
                                </div>
                             </div>
                             <div class="post-info"> <a href="#">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
@@ -134,9 +134,9 @@
                       <div class="col-md-4  col-sm-6 col-xs-12">
                          <div class="blog-post">
                             <div class="post-img">
-                               <a href="#"> <img class="img-responsive" alt="" src="images/posting/8.jpg"> </a>
+                               <a href="#"> <img class="img-responsive" alt="" src="{{ asset('assets/frontend-assets/images/posting/8.jpg')}}"> </a>
                                <div class="user-preview">
-                                  <a href="#"> <img src="images/users/2.jpg" class="avatar avatar-small" alt=""> </a>
+                                  <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="avatar avatar-small" alt=""> </a>
                                </div>
                             </div>
                             <div class="post-info"> <a href="#">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
@@ -150,9 +150,9 @@
                       <div class="col-md-4  col-sm-6 col-xs-12">
                          <div class="blog-post">
                             <div class="post-img">
-                               <a href="#"> <img class="img-responsive" alt="" src="images/posting/9.jpg"> </a>
+                               <a href="#"> <img class="img-responsive" alt="" src="{{ asset('assets/frontend-assets/images/posting/9.jpg')}}"> </a>
                                <div class="user-preview">
-                                  <a href="#"> <img src="images/users/2.jpg" class="avatar avatar-small" alt=""> </a>
+                                  <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="avatar avatar-small" alt=""> </a>
                                </div>
                             </div>
                             <div class="post-info"> <a href="#">Aug 30, 2017</a> <a href="#">23 comments</a> </div>
@@ -166,9 +166,9 @@
                       <div class="col-md-4  col-sm-6 col-xs-12">
                          <div class="blog-post">
                             <div class="post-img">
-                               <a href="#"> <img class="img-responsive" alt="" src="images/posting/10.jpg"> </a>
+                               <a href="#"> <img class="img-responsive" alt="" src="{{ asset('assets/frontend-assets/images/posting/10.jpg')}}"> </a>
                                <div class="user-preview">
-                                  <a href="#"> <img src="images/users/2.jpg" class="avatar avatar-small" alt=""> </a>
+                                  <a href="#"> <img src="{{ asset('assets/frontend-assets/images/users/2.jpg')}}" class="avatar avatar-small" alt=""> </a>
                                </div>
                             </div>
                             <div class="post-info"> <a href="#">Aug 30, 2017</a> <a href="#">23 comments</a> </div>

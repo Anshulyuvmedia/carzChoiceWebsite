@@ -1,5 +1,5 @@
 /*
-Template: Carspot | Car Dealership - Vehicle Marketplace And Car Services
+Template: Carz Choice | Car Dealership - Vehicle Marketplace And Car Services
 Author: ScriptsBundle
 Version: 1.0
 Designed and Development by: ScriptsBundle

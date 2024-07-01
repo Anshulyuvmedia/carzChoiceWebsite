@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class=" breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Profile</a></li>
                    </ul>
                 </div>
@@ -34,7 +34,7 @@
              <!-- Middle Content Area -->
              <div class="col-md-12 col-xs-12 col-sm-12">
                 <section class="search-result-item">
-                   <a class="image-link" href="#"><img class="image center-block" alt="" src="images/users/9.jpg"> </a>
+                   <a class="image-link" href="#"><img class="image center-block" alt="" src="{{ asset('assets/frontend-assets/images/users/9.jpg')}}"> </a>
                    <div class="search-result-item-body">
                       <div class="row">
                          <div class="col-md-5 col-sm-12 col-xs-12">
@@ -73,43 +73,43 @@
                    </div>
                 </section>
                 <div class="dashboard-menu-container">
-                   <ul>
-                      <li>
-                         <a href="profile.html">
-                            <div class="menu-name"> Profile </div>
-                         </a>
-                      </li>
-                      <li class="active">
-                         <a href="archives.html">
-                            <div class="menu-name">Archives</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="active-ads.html">
-                            <div class="menu-name">My Ads</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="favourite.html">
-                            <div class="menu-name">Favourites Ads</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="messages.html">
-                            <div class="menu-name">Messages</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="#">
-                            <div class="menu-name">Close Account</div>
-                         </a>
-                      </li>
-                      <li>
-                         <a href="#">
-                            <div class="menu-name">Logout</div>
-                         </a>
-                      </li>
-                   </ul>
+                  <ul>
+                     <li >
+                        <a href="/userprofile">
+                           <div class="menu-name"> Profile </div>
+                        </a>
+                     </li>
+                     <li class="active">
+                        <a href="/userarchive">
+                           <div class="menu-name">Archives</div>
+                        </a>
+                     </li>
+                     <li >
+                        <a href="/useractiveads">
+                           <div class="menu-name">My Ads</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/userfavourites">
+                           <div class="menu-name">Favourites Ads</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/usermessages">
+                           <div class="menu-name">Messages</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/userdeactive">
+                           <div class="menu-name">Close Account</div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#">
+                           <div class="menu-name">Logout</div>
+                        </a>
+                     </li>
+                  </ul>
                 </div>
              </div>
              <!-- Middle Content Area  End -->
@@ -126,7 +126,7 @@
                          <!-- Image Box -->
                          <div class="image">
                             <div class="ribbon status_active">Active</div>
-                            <img alt="Carspot" src="images/posting/4.jpg" class="img-responsive">
+                            <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/4.jpg')}}" class="img-responsive">
                             <div class="notification msgs">
                                <a class="round-btn" href="javascript:void(0);"><i class="fa fa-envelope-o"></i></a>
                                <span>7</span>
@@ -138,7 +138,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">2016 BMW 3 Series 328i</a>
+                               <a title="" href="#">2016 BMW 3 Series 328i</a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -170,7 +170,7 @@
                          <!-- Image Box -->
                          <div class="image">
                             <div class="ribbon status_active">Active</div>
-                            <img alt="Carspot" src="images/posting/3.jpg" class="img-responsive">
+                            <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/3.jpg')}}" class="img-responsive">
                          </div>
                          <!-- Short Description -->
                          <div class="short-description-1 ">
@@ -178,7 +178,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">2014 Ford Shelby GT500 Coupe</a>
+                               <a title="" href="#">2014 Ford Shelby GT500 Coupe</a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -210,7 +210,7 @@
                          <!-- Image Box -->
                          <div class="image">
                             <div class="ribbon status_sold">Sold</div>
-                            <img alt="Carspot" src="images/posting/2.jpg" class="img-responsive">
+                            <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/2.jpg')}}" class="img-responsive">
                          </div>
                          <!-- Short Description -->
                          <div class="short-description-1 ">
@@ -218,7 +218,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">Porsche 911 Carrera 2017 </a>
+                               <a title="" href="#">Porsche 911 Carrera 2017 </a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -250,7 +250,7 @@
                          <!-- Image Box -->
                          <div class="image">
                             <div class="ribbon status_sold">Sold</div>
-                            <img alt="Carspot" src="images/posting/1.jpg" class="img-responsive">
+                            <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/1.jpg')}}" class="img-responsive">
                          </div>
                          <!-- Short Description -->
                          <div class="short-description-1 ">
@@ -258,7 +258,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">2017 Audi A4 quattro Premium</a>
+                               <a title="" href="#">2017 Audi A4 quattro Premium</a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -290,7 +290,7 @@
                          <!-- Image Box -->
                          <div class="image">
                             <div class="ribbon status_expired">Expired</div>
-                            <img alt="Carspot" src="images/posting/6.jpg" class="img-responsive">
+                            <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/6.jpg')}}" class="img-responsive">
                          </div>
                          <!-- Short Description -->
                          <div class="short-description-1 ">
@@ -298,7 +298,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">McLaren F1 Sports Car</a>
+                               <a title="" href="#">McLaren F1 Sports Car</a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>
@@ -330,7 +330,7 @@
                          <!-- Image Box -->
                          <div class="image">
                             <div class="ribbon status_expired">Expired</div>
-                            <img alt="Carspot" src="images/posting/7.jpg" class="img-responsive">
+                            <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/7.jpg')}}" class="img-responsive">
                          </div>
                          <!-- Short Description -->
                          <div class="short-description-1 ">
@@ -338,7 +338,7 @@
                             <div class="category-title"> <span><a href="#">Sports & Equipment</a></span> </div>
                             <!-- Ad Title -->
                             <h3>
-                               <a title="" href="single-page-listing.html">Lamborghini Gallardo 5.0 V10 2dr</a>
+                               <a title="" href="#">Lamborghini Gallardo 5.0 V10 2dr</a>
                             </h3>
                             <!-- Location -->
                             <p class="location"><i class="fa fa-map-marker"></i> Model Town Link Road London</p>

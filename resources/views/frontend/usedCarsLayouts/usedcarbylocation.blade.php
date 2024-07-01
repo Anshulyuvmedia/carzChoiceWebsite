@@ -1,6 +1,6 @@
 @extends('frontend.layouts.website')
 @section('content')
-@section('title', 'Listing ')
+@section('title', 'Used Car by Location ')
 
 <!-- =-=-=-=-=-=-= Breadcrumb =-=-=-=-=-=-= -->
 <div class="page-header-area-2 gray">
@@ -10,12 +10,12 @@
              <div class="small-breadcrumb">
                 <div class=" breadcrumb-link">
                    <ul>
-                      <li><a href="/">Home </a></li>
-                      <li><a class="active" href="#">Listing</a></li>
+                      <li><a href="#">Home</a></li>
+                      <li><a class="active" href="#">Delhi</a></li>
                    </ul>
                 </div>
                 <div class="header-page">
-                   <h1>Grid Listing - (5)</h1>
+                   <h1>Used Cars in Delhi</h1>
                 </div>
              </div>
           </div>
@@ -41,8 +41,8 @@
                       <div class="listingTopFilterBar">
                          <div class="col-md-7 col-xs-12 col-sm-7 no-padding">
                             <ul class="filterAdType">
-                               <li class="active"><a href="#">All ads <small>(1)</small></a> </li>
-                               <li class=""><a href="#">Featured <small>(35)</small></a> </li>
+                               {{-- <li class="active"><a href="#">All ads <small>(1)</small></a> </li> --}}
+                               {{-- <li class=""><a href="#">Featured <small>(35)</small></a> </li> --}}
                             </ul>
                          </div>
                          <div class="col-md-5 col-xs-12 col-sm-5 no-padding">
@@ -96,7 +96,7 @@
                          <div class="col-md-6  col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carz Choice" src="images/posting/18.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/18.jpg')}}" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -124,7 +124,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carz Choice" src="images/posting/16.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/16.jpg')}}" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -152,7 +152,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carz Choice" src="images/posting/15.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg')}}" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -180,7 +180,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carz Choice" src="images/posting/14.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/14.jpg')}}" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -208,7 +208,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carz Choice" src="images/posting/13.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/13.jpg')}}" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -236,7 +236,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carz Choice" src="images/posting/12.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/12.jpg')}}" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -264,7 +264,7 @@
                          <div class="col-md-6 col-sm-6 col-xs-12  ">
                             <div class="white category-grid-box-1 ">
                                <!-- Image Box -->
-                               <div class="image"> <img alt="Carz Choice" src="images/posting/7.jpg" class="img-responsive"></div>
+                               <div class="image"> <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/7.jpg')}}" class="img-responsive"></div>
                                <div class="ad-info-1">
                                   <ul>
                                      <li><i class="flaticon-fuel-1"></i>Diesel</li>
@@ -369,7 +369,7 @@
                                         <label for="minimal-checkbox-8">Acura </label>
                                      </li>
                                   </ul>
-                                  <a href=".html" data-toggle="modal" class="pull-right"><strong>View All</strong></a>
+                                  <a href="#" data-toggle="modal" class="pull-right"><strong>View All</strong></a>
                                </div>
                                <!-- Brands List End -->                 
                             </div>
@@ -565,7 +565,7 @@
                                   <div class="recent-ads-container">
                                      <div class="recent-ads-list-image">
                                         <a href="#" class="recent-ads-list-image-inner">
-                                        <img src="images/posting/thumb-1.jpg" alt="">
+                                        <img src="{{ asset('assets/frontend-assets/images/posting/thumb-1')}}.jpg" alt="">
                                         </a><!-- /.recent-ads-list-image-inner -->
                                      </div>
                                      <!-- /.recent-ads-list-image -->
@@ -591,7 +591,7 @@
                                   <div class="recent-ads-container">
                                      <div class="recent-ads-list-image">
                                         <a href="#" class="recent-ads-list-image-inner">
-                                        <img src="images/posting/thumb-2.jpg" alt="">
+                                        <img src="{{ asset('assets/frontend-assets/images/posting/thumb-2')}}.jpg" alt="">
                                         </a><!-- /.recent-ads-list-image-inner -->
                                      </div>
                                      <!-- /.recent-ads-list-image -->
@@ -617,7 +617,7 @@
                                   <div class="recent-ads-container">
                                      <div class="recent-ads-list-image">
                                         <a href="#" class="recent-ads-list-image-inner">
-                                        <img src="images/posting/thumb-3.jpg" alt="">
+                                        <img src="{{ asset('assets/frontend-assets/images/posting/thumb-3')}}.jpg" alt="">
                                         </a><!-- /.recent-ads-list-image-inner -->
                                      </div>
                                      <!-- /.recent-ads-list-image -->
@@ -643,7 +643,7 @@
                                   <div class="recent-ads-container">
                                      <div class="recent-ads-list-image">
                                         <a href="#" class="recent-ads-list-image-inner">
-                                        <img src="images/posting/thumb-4.jpg" alt="">
+                                        <img src="{{ asset('assets/frontend-assets/images/posting/thumb-4')}}.jpg" alt="">
                                         </a><!-- /.recent-ads-list-image-inner -->
                                      </div>
                                      <!-- /.recent-ads-list-image -->
@@ -669,7 +669,7 @@
                                   <div class="recent-ads-container">
                                      <div class="recent-ads-list-image">
                                         <a href="#" class="recent-ads-list-image-inner">
-                                        <img src="images/posting/thumb-5.jpg" alt="">
+                                        <img src="{{ asset('assets/frontend-assets/images/posting/thumb-5')}}.jpg" alt="">
                                         </a><!-- /.recent-ads-list-image-inner -->
                                      </div>
                                      <!-- /.recent-ads-list-image -->

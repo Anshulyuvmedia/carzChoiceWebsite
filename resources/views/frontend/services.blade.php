@@ -10,7 +10,7 @@
              <div class="small-breadcrumb">
                 <div class="breadcrumb-link">
                    <ul>
-                      <li><a href="index-2.html">Home Page</a></li>
+                      <li><a href="/">Home </a></li>
                       <li><a class="active" href="#">Services</a></li>
                    </ul>
                 </div>
@@ -80,7 +80,7 @@
              <!--Image Column-->
              <div class="col-md-4 col-sm-12 col-xs-12">
                 <figure class="wow zoomIn  animated" data-wow-delay="0ms" data-wow-duration="3500ms" >
-                   <img class="center-block" src="images/service-car.png" alt="">
+                   <img class="center-block" src="{{ asset('assets/frontend-assets/images/service-car.png')}}" alt="">
                 </figure>
              </div>
           </div>
@@ -113,7 +113,7 @@
                       nobis eius, deleniti dicta molestiae atque. Exercitationem odit dolor cumque facilis natus recusandae id, dolorum modi ducimus minus.
                    </p>
                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue justo scelerisque mattis iaculis. Maecenas vestibulum faucibus enim scelerisque egestas. Praesent aliquet id hendrerit id, hendrerit ac odio. In dui mauris, auctor vel vestibulum vitae, tincidunt id mi. </p>
-                   <img src="images/mechanic.png" alt="">
+                   <img src="{{ asset('assets/frontend-assets/images/mechanic.png')}}" alt="">
                 </div>
                 <!-- /.right-side -->
              </div>
@@ -162,7 +162,7 @@
        <div class="background-1"></div>
        <!--Image Two-->
        <div class="background-2"></div>
-       <img class="img-responsive wow slideInRight custom-img" data-wow-delay="0ms" data-wow-duration="2000ms" src="images/sell-1.png" alt="">
+       <img class="img-responsive wow slideInRight custom-img" data-wow-delay="0ms" data-wow-duration="2000ms" src="{{ asset('assets/frontend-assets/images/sell-1.png')}}" alt="">
        <div class="container">
           <div class="row clearfix">
              <!--Left Column-->

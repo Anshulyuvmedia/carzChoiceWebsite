@@ -13,18 +13,18 @@
             return ('<div class="category-grid-box-1"><div class="image"><img alt="' + adTitle + '" src="' + adImg + '" class="img-responsive"><div class="featured-ribbon"><span>' + isFeatured + '</span></div><div class="price-tag"><div class="price"><span>' + adPrice + ' </span></div></div></div><div class="short-description-1 clearfix"><div class="category-title"> <span><a href="' + categoryLink + ' ">' + categorytitle + '</a></span> </div><h3><a href="' + adlink + '">' + adTitle + '</a></h3><p class="location"><i class="fa fa-map-marker"></i> '+ addLocation +'</p></div><div class="ad-info-1"><p><i class="flaticon-calendar"></i> &nbsp;<span></span>'+ adTime+' </p></div></div>');
         }
         var locations = [
-			[locationData('images/posting/2.jpg','$27,00','Featured','#','Car & Bikes','2015 Ferrari 458 Italia Convertible','Model Town Link Road London','single-page-listing.html','5 Days ago'), 39.739236, -104.990251, 1, markerImage],
-			[locationData('images/posting/3.jpg','$66,000','Featured','#','Car & Bikes','Ford Focus 1.6 TDCi Edge 5dr','Model Town Link Road London','single-page-listing.html','1 Days ago'), 39.742119, -104.987036, 2, markerImage],
-			[locationData('images/posting/4.jpg','$77,00','Featured','#','Car & Bikes','BMW 5 SERIES 2.0 520d M Sport','Model Town Link Road London','single-page-listing.html','2 Days ago'), 39.742069, -104.995619, 3, markerImage],
-			[locationData('images/posting/5.jpg','$15,000','Featured','#','Car & Bikes','Honda Civic 2017 Sports Edition','Model Town Link Road London','single-page-listing.html','1 Days ago'), 39.741832, -104.974687, 4, markerImage],
-			[locationData('images/posting/6.jpg','$555,00','Featured','#','Car & Bikes','McLaren F1 Sports Car','Model Town Link Road London','single-page-listing.html','1 Days ago'), 39.720600, -104.945065, 5, markerImage],
-			[locationData('images/posting/7.jpg','$100,00','Featured','#','Car & Bikes','2015 Lamborghini Huracan','Model Town Link Road London','single-page-listing.html','2 Days ago'), 39.099727, -94.578567, 6, markerImage],
-			[locationData('images/posting/8.jpg','$77,00','Featured','#','Car & Bikes','Honda Civic 2017 Sports Edition','Model Town Link Road London','single-page-listing.html','5 Days ago'), 41.5817, -90.3434615, 7, markerImage],
-			[locationData('images/posting/9.jpg','$47,00','Featured','#','Car & Bikes','2017 Audi A4 quattro Premium','Model Town Link Road London','single-page-listing.html','1 Days ago'), 40.15972196, -115.50853729, 8, markerImage],
-			[locationData('images/posting/11.jpg','$127,00','Featured','#','Car & Bikes','2017 BMW 520d Luxury G30 Auto','Model Town Link Road London','single-page-listing.html','2 Days ago'), 36.1699412, -115.1398296, 9, markerImage],
-			[locationData('images/posting/14.jpg','$970,00','Featured','#','Car & Bikes','2011 Bugatti Veyron Super Sport ','Model Town Link Road London','single-page-listing.html','1 Days ago'), 37.0965278, -113.5684164, 10, markerImage],
-			[locationData('images/posting/15.jpg','$27,00','Featured','#','Car & Bikes','2015 Ferrari 458 Italia Convertible','Model Town Link Road London','single-page-listing.html','5 Days ago'), 40.7607793, -111.8910474, 11, markerImage],
-			[locationData('images/posting/16.jpg','$17,00','Featured','#','Car & Bikes','Audi Q5 2.0T quattro Premium ','Model Town Link Road London','single-page-listing.html','2 Days ago'), 40.75746511, -111.8908596, 12, markerImage],
+			[locationData('images/posting/2.jpg','$27,00','Featured','#','Car & Bikes','2015 Ferrari 458 Italia Convertible','Model Town Link Road London','#','5 Days ago'), 39.739236, -104.990251, 1, markerImage],
+			[locationData('images/posting/3.jpg','$66,000','Featured','#','Car & Bikes','Ford Focus 1.6 TDCi Edge 5dr','Model Town Link Road London','#','1 Days ago'), 39.742119, -104.987036, 2, markerImage],
+			[locationData('images/posting/4.jpg','$77,00','Featured','#','Car & Bikes','BMW 5 SERIES 2.0 520d M Sport','Model Town Link Road London','#','2 Days ago'), 39.742069, -104.995619, 3, markerImage],
+			[locationData('images/posting/5.jpg','$15,000','Featured','#','Car & Bikes','Honda Civic 2017 Sports Edition','Model Town Link Road London','#','1 Days ago'), 39.741832, -104.974687, 4, markerImage],
+			[locationData('images/posting/6.jpg','$555,00','Featured','#','Car & Bikes','McLaren F1 Sports Car','Model Town Link Road London','#','1 Days ago'), 39.720600, -104.945065, 5, markerImage],
+			[locationData('images/posting/7.jpg','$100,00','Featured','#','Car & Bikes','2015 Lamborghini Huracan','Model Town Link Road London','#','2 Days ago'), 39.099727, -94.578567, 6, markerImage],
+			[locationData('images/posting/8.jpg','$77,00','Featured','#','Car & Bikes','Honda Civic 2017 Sports Edition','Model Town Link Road London','#','5 Days ago'), 41.5817, -90.3434615, 7, markerImage],
+			[locationData('images/posting/9.jpg','$47,00','Featured','#','Car & Bikes','2017 Audi A4 quattro Premium','Model Town Link Road London','#','1 Days ago'), 40.15972196, -115.50853729, 8, markerImage],
+			[locationData('images/posting/11.jpg','$127,00','Featured','#','Car & Bikes','2017 BMW 520d Luxury G30 Auto','Model Town Link Road London','#','2 Days ago'), 36.1699412, -115.1398296, 9, markerImage],
+			[locationData('images/posting/14.jpg','$970,00','Featured','#','Car & Bikes','2011 Bugatti Veyron Super Sport ','Model Town Link Road London','#','1 Days ago'), 37.0965278, -113.5684164, 10, markerImage],
+			[locationData('images/posting/15.jpg','$27,00','Featured','#','Car & Bikes','2015 Ferrari 458 Italia Convertible','Model Town Link Road London','#','5 Days ago'), 40.7607793, -111.8910474, 11, markerImage],
+			[locationData('images/posting/16.jpg','$17,00','Featured','#','Car & Bikes','Audi Q5 2.0T quattro Premium ','Model Town Link Road London','#','2 Days ago'), 40.75746511, -111.8908596, 12, markerImage],
             
         ];
         var mapZoomAttr = $('#map').attr('data-map-zoom');

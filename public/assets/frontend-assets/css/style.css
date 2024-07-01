@@ -1,5 +1,5 @@
 /*
-Template: Carspot Car Dealership And Car Services
+Template: Carz Choice Car Dealership And Car Services
 Author: ScriptsBundle
 Version: 1.0
 Designed and Development by: ScriptsBundle
@@ -974,8 +974,8 @@ img.resize {
     content: "";
 }
 .mega-menu .drop-down ul.by-make li a img {
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 110px;
 }
 .mega-menu .drop-down ul.by-category li {
     margin-bottom: 10px;
@@ -1583,7 +1583,7 @@ img.resize {
     color: #232323;
     font-weight: 500;
 }
-.category-grid-box-1 .short-description-1  .btn-theme  {
+.category-grid-box-1 .short-description-1 .btn-theme {
     color: #ffffff;
     font-weight: 500;
 }
@@ -3257,7 +3257,7 @@ div.boxicon:last-child {
 
 .panel-body {
     background-color: #fff;
-    padding: 20px 25px;
+    padding: 10px 15px;
 }
 
 .search-widget {
@@ -3322,7 +3322,7 @@ div.boxicon:last-child {
 
 .recent-ads .recent-ads-list-image {
     display: table-cell;
-    width: 96px;
+    width: 65px;
 }
 
 .recent-ads .recent-ads-list-image img {
@@ -3333,12 +3333,12 @@ div.boxicon:last-child {
 }
 
 .recent-ads .recent-ads-list-image-inner {
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: white;
     display: block;
     height: 60px;
     margin: 0 16px 0 0;
     position: relative;
-    width: 100px;
+    width: 50px;
 }
 
 .recent-ads .recent-ads-list-content {
@@ -4932,7 +4932,7 @@ label {
 
 .accordion > li {
     border-bottom: 1px solid #f3f3f3;
-    padding: 18px 0;
+    padding: 10px 0;
 }
 
 .gray .accordion > li {
@@ -5717,7 +5717,7 @@ h2.no-span:after {
     font-size: 14px;
     line-height: 1.42857;
     width: 100%;
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
 }
 
 .form-control:focus {
@@ -6540,9 +6540,9 @@ fieldset[disabled] .btn-purple.active {
 
 .sigle-clients-brand {
     float: left;
-    padding-left: 30px;
+    /* padding-left: 30px; */
     width: 20%;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .sigle-clients-brand a {
@@ -10430,40 +10430,38 @@ footer.footer-bg {
     color: black;
 }
 
-.featured-cars .card{
-    background: #F6F6F6;
-  box-shadow: none;
-  margin-bottom: 0px;
-  border: none;
- 
+.featured-cars .card {
+    background: #f6f6f6;
+    box-shadow: none;
+    margin-bottom: 0px;
+    border: none;
 }
 
 .featured-cars .card .tab-content {
     padding: 0px;
-  }
+}
 .featured-cars .card .tab-pane {
     padding: 0px 0;
-  }
+}
 
-  .popular-cars .img-responsive {
+.popular-cars .img-responsive {
     /* height: 150px !important; */
-  object-fit: cover;
-  }
+    object-fit: cover;
+}
 
-  .popular-cars .btn:hover {
+.popular-cars .btn:hover {
     color: #ffffff;
 }
-  .popular-cars .btn {
+.popular-cars .btn {
     padding: 5px 10px;
 }
-
 
 .comapare-slider .comparison-box {
     padding: 5px 5px;
 }
 
 .comparison-box .compare-grid div,
-.compare-grid span{
+.compare-grid span {
     font-size: 14px;
 }
 
@@ -10477,4 +10475,306 @@ footer.footer-bg {
     color: #232323;
     font-size: 14px;
     text-transform: capitalize;
-  }
+}
+
+.accordion-button {
+    font-size: 1.6rem !important;
+    line-height: 24px;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+.o-euTeMg {
+    outline: none;
+}
+.o-cpNAVm {
+    color: #484848;
+}
+@media screen and (min-width: 800px) {
+    .o-fsBtSY {
+        height: 24px;
+    }
+}
+.o-emJYLF {
+    height: 16px;
+}
+@media screen and (min-width: 800px) {
+    .o-cybDoH {
+        width: 24px;
+    }
+}
+.o-bUlUGg {
+    width: 16px;
+}
+.o-cqgkZn {
+    -webkit-flex-basis: auto;
+    flex-basis: auto;
+}
+.o-eoatGj {
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+}
+.o-dlrcWp {
+    -webkit-flex-grow: 0;
+    flex-grow: 0;
+}
+
+.main-search .main-search-title {
+    padding-top: 100px;
+}
+
+.used-budget-box {
+    width: 100%;
+    float: left;
+    color: #a8afb3;
+    position: relative;
+}
+
+#minMaxContainer {
+    /* padding: 9px 13px; */
+    line-height: 1.4;
+    border-left: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#budgetBtn {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 90%;
+    text-align: left;
+}
+.leftfloat {
+    float: left;
+}
+
+#cw-top-navbar .nav-li-active .fa-caret-down,
+#minMaxContainer.open .fa-angle-down {
+    -moz-transform: rotateZ(180deg);
+    -webkit-transform: rotateZ(180deg);
+    -o-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+
+#cw-top-navbar li .fa-caret-down,
+#minMaxContainer .fa-angle-down,
+#minMaxContainer.open .fa-angle-down {
+    transition: transform 0.3s;
+    -moz-transition: transform 0.3s;
+    -webkit-transition: transform 0.3s;
+    -o-transition: transform 0.3s;
+    -ms-transition: transform 0.3s;
+}
+#upDownArrow.fa-angle-down {
+    transition: all 0.5s ease-in-out 0s;
+    font-size: 20px;
+}
+
+.clear {
+    clear: both;
+}
+
+.show {
+    display: block;
+}
+.budget-box__list-container {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    margin: -1px 0 0 1px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(204, 204, 204);
+    border-top: 0;
+    border-radius: 0 0 2px 2px;
+}
+
+#userBudgetInput {
+    background: #e2e2e2;
+}
+
+#userBudgetInput .priceBox {
+    border: 1px solid #fff;
+    display: inline-block;
+    margin: 10px;
+    padding: 8px;
+    width: 43%;
+}
+.form-control,
+input,
+select,
+textarea {
+    color: #666;
+
+    font-family: inherit;
+}
+
+.cw-blackbg-tooltip-search-error {
+    right: -150px;
+    top: 50px;
+    width: 357px;
+}
+.cw-blackbg-tooltip {
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    padding: 3px 5px;
+    position: absolute;
+    right: 0;
+    top: 37px;
+    z-index: 2;
+}
+.hide {
+    display: none;
+}
+.budget-box__list-container li {
+    display: block;
+    padding: 7px 12px;
+    color: #666;
+    cursor: pointer;
+}
+
+.budget-box__list-container li:hover {
+    background: #f5f5f5;
+}
+
+.used-cars .search-section {
+    height: auto;
+    outline: medium none;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+.used-cars .card-img-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.5s;
+}
+.used-cars .card-img-overlay:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.bank-logo {
+    max-width: 100%;
+    /* height: auto; */
+    height: 30px;
+    width: 100px;
+}
+.bank-container {
+    text-align: center;
+}
+.table-responsive {
+    overflow-x: auto;
+}
+
+.header-bg {
+    animation: bL2bso 120s linear infinite;
+    background-image: url("https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/skyline-bg.svg");
+    height: 51px;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.3;
+}
+
+.modal-header {
+    width: 100%;
+    background-color: #efefef;
+    color: #333;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    position: relative;
+    /* min-height: 86px; */
+}
+
+@keyframes bL2bso {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 4096px 0;
+    }
+}
+
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - var(--bs-modal-margin) * -50);
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+}
+.carbodytype .nopad {
+    padding: 0 !important;
+}
+
+.carbodytype .image-checkbox {
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 4px solid transparent;
+    margin: 5px;
+    outline: 0;
+    position: relative;
+    border: 1px solid gray;
+    background-position: center;
+    transition: background 0.8s;
+    border-radius: 5px;
+    width: 90%;
+    padding: 10px 0 0 0;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+}
+.ripple:hover {
+    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+        center/15000%;
+}
+
+.carbodytype .image-checkbox:active {
+    background-color: #f76e6e;
+    background-size: 100%;
+    transition: background 0s;
+}
+.carbodytype .image-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.carbodytype .image-checkbox-checked {
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: #ffd3d3;
+}
+.carbodytype .image-checkbox img {
+    width: 80%;
+}
+
+.carbodytype .image-checkbox .fa {
+    position: absolute;
+    color: red;
+    background-color: #fff;
+    padding: 2px;
+    top: -5px;
+    right: -7px;
+    display: none;
+}
+
+.carbodytype .image-checkbox-checked .fa {
+    display: block !important;
+}
