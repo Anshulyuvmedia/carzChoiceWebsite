@@ -159,32 +159,117 @@
                         <div class="col-md-6 col-xs-12 col-sm-12 ">
                             <div class="row border ">
                                 <div class="col-md-6 col-xs-12 col-sm-12 border-end">
-                                    <div class="d-flex justify-content-between align-items-center p-2">
-                                        <div>
-                                            <small>Varient</small>
-                                            <div class="fw-bold fs-4 text-black">Select Varient</div>
+                                    <a href="#" data-target="#selectCar" data-toggle="modal">
+                                        <div class="d-flex justify-content-between align-items-center p-2">
+                                            <div>
+                                                <small>Varient</small>
+                                                <div class="fw-bold fs-4 text-black">Select Varient</div>
+                                            </div>
+                                            <div>
+                                                <i class="bi bi-chevron-compact-right"></i>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <i class="bi bi-chevron-compact-right"></i>
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div class="col-md-6 col-xs-12 col-sm-12 ">
-                                 <div class="d-flex justify-content-between align-items-center p-2">
-                                    <div>
-                                        <small>City</small>
-                                        <div class="fw-bold fs-4 text-black">City Name</div>
-                                    </div>
-                                    <div>
-                                        <i class="bi bi-chevron-compact-right"></i>
-                                    </div>
-                                </div>
+                                    <a href="#" data-target="#selectLocation" data-toggle="modal">
+                                        <div class="d-flex justify-content-between align-items-center p-2">
+                                            <div>
+                                                <small>City</small>
+                                                <div class="fw-bold fs-4 text-black">City Name</div>
+                                            </div>
+                                            <div>
+                                                <i class="bi bi-chevron-compact-right"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+
                                 </div>
                             </div>
-                            <div class="p-3">
-                              <div class="fs-1 fw-bold text-dark">
-                                 Rs. 16.62 - 29.92 Lakh
-                              </div>
+                            <div class="row ">
+                                <div class="col-md-12 col-xs-12 col-sm-12 p-4 ">
+                                    <div class="fs-1 fw-bold text-dark">
+                                        Rs. 16.62 - 29.92 Lakh
+                                        <span><a class="text-danger fs-5"> View Price Breakup</a></span>
+                                    </div>
+                                    <div>
+                                        On-Road Price, Panvel
+                                    </div>
+                                    <div class="my-3 p-3 rounded-3 shadow-sm d-flex justify-content-between"
+                                        style="background-color: #F9F9F9">
+                                        <div>
+                                            EMI Rs. 26,488
+                                            <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-html="true"
+                                                data-bs-title="<span class='text-start'>EMI Calculated basis <br />
+                                                Down Payment - Rs. 2,06,853,<br />
+                                                Interest Rate - 10% p.a.,<br />
+                                                Tenure - 5 Years.<br />
+                                                For exact EMI quotes please get in touch Authorized Dealer<br />
+                                                Fill in your details and get best loan deals visit Carz Choice Car Loan page    </span>">
+                                            </i>
+                                            <span class="ms-2">For 5 Years</span>
+                                            <div>
+                                                <a href="#" data-target="#share-ad" data-toggle="modal">EMI
+                                                    Calculator</a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="btn btn-outline btn-danger btn-sm rounded-3"
+                                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                                                aria-controls="offcanvasWithBothOptions">
+                                                Get EMI Offers
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-clock"></i> Waiting Period: 7-14 Weeks
+                                    </div>
+                                    <div class="mt-5">
+                                        <a href="#" class="btn btn-danger btn-block rounded-3"
+                                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                                            aria-controls="offcanvasWithBothOptions">Get Offer</a>
+                                    </div>
+                                    <div class="mt-5">
+
+                                        <div class="d-flex justify-content-between p-3 shadow-sm rounded-3">
+                                            <a class="text-secondary text-center" title="Scorpio N Colour Images"
+                                                href="">
+                                                <svg class="" style="width: 15%;" viewBox="0 0 16 16"
+                                                    fill="currentcolor" tabindex="-1" focusable="false"
+                                                    aria-hidden="true" role="img">
+                                                    <path
+                                                        d="M8.08 15.9a6.76 6.76 0 01-2.3-.4 4.65 4.65 0 01-2.54-2.06A3.76 3.76 0 013 10.58 4.16 4.16 0 015 8.5c.54-.33.86-.54.85-.77a.79.79 0 00-.58-.65c-.12 0-.34.39-.49.66a2.62 2.62 0 01-1.52 1.51 2.51 2.51 0 01-2.52-1C-.12 7 0 5.34 1.19 3.52A7 7 0 014.8.69a8.27 8.27 0 016.33.09 8.14 8.14 0 014.39 5.06 8.23 8.23 0 01-1 6.5 7.92 7.92 0 01-3.58 3 7.91 7.91 0 01-2.86.56zM5.31 6.08a1.75 1.75 0 011.58 1.63c0 .81-.66 1.23-1.33 1.64A3.32 3.32 0 004 10.92 2.84 2.84 0 004.13 13a3.69 3.69 0 002 1.57 6.48 6.48 0 004.48-.15 7 7 0 003.12-2.61 7.22 7.22 0 00.84-5.68 7.12 7.12 0 00-3.84-4.43 7.32 7.32 0 00-5.56-.07A6 6 0 002.07 4c-.57.9-1.34 2.49-.51 3.66A1.55 1.55 0 003 8.28c.42-.1.67-.55.94-1s.64-1.16 1.34-1.17zm0 .5zm3.6 6.74a2.05 2.05 0 112-2.05 2.05 2.05 0 01-2.01 2.05zm0-3.1a1 1 0 101 1 1 1 0 00-1.01-1zM12 10a2 2 0 112-2 2 2 0 01-2 2zm0-3.09a1 1 0 101 1.05 1 1 0 00-1-1.07zM8.9 5.69a2 2 0 112-2.05 2.05 2.05 0 01-2 2.05zm0-3.09a1 1 0 101 1 1 1 0 00-1-1z">
+                                                    </path>
+                                                </svg>
+                                                <span class="">Colours</span>
+                                            </a>
+                                            <a class="text-secondary text-center" title="Scorpio N Images"
+                                                href="#">
+                                                <svg class="" style="width: 15%;" viewBox="0 0 16 16"
+                                                    fill="currentcolor" tabindex="-1" focusable="false"
+                                                    aria-hidden="true" role="img">
+                                                    <path
+                                                        d="M13 15.5H3A2.48 2.48 0 01.5 13V3A2.48 2.48 0 013 .5h10A2.48 2.48 0 0115.5 3v10a2.48 2.48 0 01-2.5 2.5zM3 1.5A1.47 1.47 0 001.5 3v10A1.47 1.47 0 003 14.5h10a1.47 1.47 0 001.5-1.5V3A1.47 1.47 0 0013 1.5zm9.08 11.87H4a1 1 0 01-.81-.43 1 1 0 01-.1-.92L4.29 9a1 1 0 01.81-.61 1 1 0 01.9.46l1.06 1.62L9 5a1 1 0 01.95-.65 1 1 0 01.91.69l2.16 7a1 1 0 01-.14.87 1 1 0 01-.83.46zm-6.87-4L4 12.4h8l-2.15-7L8 10.81a1 1 0 01-.8.64 1 1 0 01-.96-.45zM3.7 8.33a.52.52 0 01-.39-.19 3.19 3.19 0 01.52-4.47 3.25 3.25 0 014.55.47.5.5 0 11-.78.62 2.23 2.23 0 00-3.14-.31 2.18 2.18 0 00-.37 3.06.51.51 0 01-.09.71.54.54 0 01-.3.11z">
+                                                    </path>
+                                                </svg>
+                                                <span class="">Images</span>
+                                            </a>
+                                            <a href="#" class="text-secondary text-center" title="">
+                                                <svg class="" style="width: 15%;" viewBox="0 0 16 16"
+                                                    fill="currentcolor" tabindex="-1" focusable="false"
+                                                    aria-hidden="true" role="img">
+                                                    <path
+                                                        d="M7.67 6.1l-.18.22a1.73 1.73 0 01.32-.11 1.5 1.5 0 01.37 0 1.82 1.82 0 01.56.09 1.33 1.33 0 01.47.29 1.48 1.48 0 01.46 1.13 1.69 1.69 0 01-.49 1.21 1.85 1.85 0 01-1.3.49 1.72 1.72 0 01-1.27-.49 1.74 1.74 0 01-.47-1.28 2.2 2.2 0 01.14-.74 16.9 16.9 0 011.66-2.4.44.44 0 01.18-.14.64.64 0 01.28-.06h.77zm.2 2.58a1.22 1.22 0 00.38-.07 1 1 0 00.49-.49 1.16 1.16 0 00.07-.37.94.94 0 00-.26-.69.79.79 0 00-.29-.18 1.07 1.07 0 00-.75 0 .84.84 0 00-.51.49 1.2 1.2 0 000 .75.77.77 0 00.46.49.94.94 0 00.41.07zm5.92-1.88a4.36 4.36 0 01-.14 1.2 1.89 1.89 0 01-1 1.28 1.88 1.88 0 01-1.47 0 1.89 1.89 0 01-1-1.28 5 5 0 010-2.3 1.84 1.84 0 011-1.28 1.77 1.77 0 011.47 0 1.87 1.87 0 011 1.28 4.25 4.25 0 01.14 1.1zm-.89 0a3.82 3.82 0 00-.09-.91 1.18 1.18 0 00-.52-.89.83.83 0 00-.72 0 1.23 1.23 0 00-.52.88 5.56 5.56 0 000 1.82 1.16 1.16 0 00.52.87.76.76 0 00.72 0 1.24 1.24 0 00.52-.87 3.82 3.82 0 00.09-.9zM7 14.86a.61.61 0 01-.32-.08.63.63 0 01-.31-.54v-2.42a.63.63 0 01.31-.54.64.64 0 01.63 0l2.11 1.21a.63.63 0 010 1.08l-2.1 1.21a.6.6 0 01-.32.08zm.27-2.56v1.46L8.56 13zm1.7 1zm-3.39.26C2.11 13.2 0 12 0 10.33a2 2 0 01.82-1.54.45.45 0 01.63.06.46.46 0 01-.06.64 1.13 1.13 0 00-.52.84c0 .89 1.49 2 4.77 2.3a.45.45 0 01.4.49.45.45 0 01-.45.41zm4.82-.06a.45.45 0 01-.05-.9c3.19-.37 4.65-1.4 4.65-2.27a1.23 1.23 0 00-.56-.87.48.48 0 01-.09-.65.44.44 0 01.61-.1 2 2 0 01.92 1.59c0 1.6-2 2.78-5.42 3.14zm3.32-9.2a1.2 1.2 0 111.2-1.2 1.2 1.2 0 01-1.19 1.17zm0-1.5a.3.3 0 00-.3.3.29.29 0 00.3.3.3.3 0 00.3-.3.31.31 0 00-.29-.33zm-11 3c.16 0 .27 0 .37-.29a1.09 1.09 0 01.33-.43 1 1 0 01.91 0c.42.28.22.91.22.91-.22.56-1 .45-1 .45v.62a1.24 1.24 0 01.88.16c.46.27.23.93.23.93a.85.85 0 01-.82.52A1 1 0 012.85 8c-.09-.17-.37-.11-.37-.11L2 8a2 2 0 00.6 1 2.11 2.11 0 002.3 0 1.46 1.46 0 00.59-1.21 1.21 1.21 0 00-.9-1.18 1.1 1.1 0 00.81-1.07 1.37 1.37 0 00-1.51-1.33 1.71 1.71 0 00-1.76 1.47 4 4 0 00.56.09z">
+                                                    </path>
+                                                </svg>
+                                                <span class="">View</span>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -192,71 +277,270 @@
 
 
                 <!-- Middle Content Area -->
-                <div class="col-md-8 col-xs-12 col-sm-12">
+                <div class="col-md-8 col-xs-12 col-sm-12 p-0">
                     <!-- Single Ad -->
                     <div class="singlepage-detail ">
 
-                        <div class="key-features">
-                            <div class="boxicon">
-                                <i class="flaticon-gas-station-1 petrol"></i>
-                                <p>Petrol</p>
-                            </div>
-                            <div class="boxicon">
-                                <i class="flaticon-dashboard-1 kilo-meter"></i>
-                                <p>35,000 km</p>
-                            </div>
-                            <div class="boxicon">
-                                <i class="flaticon-tool engile-capacity"></i>
-                                <p>1800 cc</p>
-                            </div>
-                            <div class="boxicon">
-                                <i class="flaticon-calendar reg-year"></i>
-                                <p>2014</p>
-                            </div>
-                            <div class="boxicon">
-                                <i class="flaticon-gearshift transmission"></i>
-                                <p>Automatic</p>
-                            </div>
-                            <div class="boxicon">
-                                <i class="flaticon-transport-1 body-type"></i>
-                                <p>Sedan</p>
-                            </div>
-                            <div class="boxicon">
-                                <i class="flaticon-cogwheel-outline car-color"></i>
-                                <p>Blue</p>
+                        <!-- Heading Area -->
+                        <div class="heading-panel">
+                            <h3 class="main-title text-left">
+                                5 Things to Know About Scorpio N
+                            </h3>
+                        </div>
+                        <div class="row">
+
+                            <div class=" comapare-slider container owl-carousel owl-theme">
+                                <div class="item">
+                                    <div class="grid-style-2">
+                                        <!-- Listing Ad Grid -->
+                                        <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                            <div class="category-grid-box-1">
+                                                <div class="image">
+                                                    <img alt="Carz Choice"
+                                                        src="https://imgd.aeplcdn.com/310x174/n/cw/ec/40432/scorpio-n-exterior-left-rear-three-quarter-3.jpeg?isig=0&q=80&q=80"
+                                                        class="img-responsive">
+                                                    <div class="ribbon popular"></div>
+                                                </div>
+                                                <div class="short-description-1 clearfix">
+                                                    <a title="" href="#">
+                                                        <p class="fs-5">
+                                                            The Mahindra Scorpio N is slightly tall for igress or
+                                                            egress.
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="grid-style-2">
+                                        <!-- Listing Ad Grid -->
+                                        <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                            <div class="category-grid-box-1">
+                                                <div class="image">
+                                                    <img alt="Carz Choice"
+                                                        src="https://imgd.aeplcdn.com/310x174/n/cw/ec/40432/scorpio-n-exterior-front-view-2.jpeg?isig=0&q=80&q=80"
+                                                        class="img-responsive">
+                                                    <div class="ribbon popular"></div>
+                                                </div>
+                                                <div class="short-description-1 clearfix">
+                                                    <a title="" href="#">
+                                                        <p class="fs-5">
+                                                            The ride quality is quite flat and absorbent.
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="grid-style-2">
+                                        <!-- Listing Ad Grid -->
+                                        <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                            <div class="category-grid-box-1">
+                                                <div class="image">
+                                                    <img alt="Carz Choice"
+                                                        src="https://imgd.aeplcdn.com/310x174/n/cw/ec/40432/scorpio-n-interior-bootspace-rear-seat-folded.jpeg?isig=0&q=80"
+                                                        class="img-responsive">
+                                                    <div class="ribbon popular"></div>
+                                                </div>
+                                                <div class="short-description-1 clearfix">
+                                                    <a title="" href="#">
+                                                        <p class="fs-5">
+                                                            Fold the second and third rows for up to 786 litres of boot
+                                                            space.
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="grid-style-2">
+                                        <!-- Listing Ad Grid -->
+                                        <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                            <div class="category-grid-box-1">
+                                                <div class="image">
+                                                    <img alt="Carz Choice"
+                                                        src="https://imgd.aeplcdn.com/310x174/n/cw/ec/40432/scorpio-n-interior-second-row-seats-2.jpeg?isig=0&q=80"
+                                                        class="img-responsive">
+                                                    <div class="ribbon popular"></div>
+                                                </div>
+                                                <div class="short-description-1 clearfix">
+                                                    <a title="" href="#">
+                                                        <p class="fs-5">
+                                                            The third-row seats hardly have any knee room and are best
+                                                            for children.
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                         <div class="content-box-grid">
                             <!-- Heading Area -->
                             <div class="short-features">
                                 <!-- Heading Area -->
                                 <div class="heading-panel">
                                     <h3 class="main-title text-left">
-                                        Description
+                                        Mahindra Scorpio N Price
                                     </h3>
                                 </div>
                                 <p>
-                                    Bank Leased 5 Year plan 2013 Honda Civic 1.8 Vti Oriel Prosmatec Automatic ( New
-                                    Shape ) Attractive Silver Color 1 year installments paid Lahore Reg number Well
-                                    Maintained Insurance + tracker etc included Options: Sunroof
+                                    Mahindra Scorpio N price for the base model starts at Rs. 16.62 Lakh and the top
+                                    model price goes upto Rs. 29.92 Lakh (on-road Navi Mumbai). Scorpio N price for 34
+                                    variants is listed below.
                                 </p>
-                                <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                    <span><strong>Condition</strong> :</span> Used
+                                <div>
+                                    <i class="bi bi-funnel"></i> Filter By Fuel type & Transmission
                                 </div>
-                                <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                    <span><strong>Brand</strong> :</span> Nokia
-                                </div>
-                                <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                    <span><strong>Model</strong> :</span> Lumia 625
-                                </div>
-                                <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                    <span><strong>Product Type</strong>:</span> Mobile
-                                </div>
-                                <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                    <span><strong>Date</strong> :</span> 2014-10-06
-                                </div>
-                                <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                    <span><strong>Price</strong> :</span> Rs. 22,000
+                                <div>
+                                    {{-- filters --}}
+                                    <div class="d-flex pb-3" style=" overflow-x: auto;">
+                                        <div class="me-3">
+                                            <input type="checkbox" class="btn-check " id="btn-check-1-outlined"
+                                                autocomplete="off">
+                                            <label class="btn btn-outline-success border rounded-3"
+                                                for="btn-check-1-outlined">Petrol</label>
+
+                                        </div>
+                                        <div class="me-3">
+                                            <input type="checkbox" class="btn-check " id="btn-check-2-outlined"
+                                                autocomplete="off">
+                                            <label class="btn btn-outline-success border rounded-3"
+                                                for="btn-check-2-outlined">CNG</label>
+
+                                        </div>
+                                        <div class="me-3">
+                                            <input type="checkbox" class="btn-check " id="btn-check-3-outlined"
+                                                autocomplete="off">
+                                            <label class="btn btn-outline-success border rounded-3"
+                                                for="btn-check-3-outlined">Manual</label>
+
+                                        </div>
+                                        <div class="me-3">
+                                            <input type="checkbox" class="btn-check " id="btn-check-4-outlined"
+                                                autocomplete="off">
+                                            <label class="btn btn-outline-success border rounded-3"
+                                                for="btn-check-4-outlined">Automatic</label>
+
+                                        </div>
+                                    </div>
+                                    {{-- table --}}
+                                    <table class="table table-light border rounded-3 table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="text-muted">Variants</th>
+                                                <th scope="col" class="text-muted">On-Road Price</th>
+                                                <th scope="col" class="text-end text-muted">Compare</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        Scorpio N Z2 Petrol MT 7 STR
+                                                    </div>
+                                                    <div class="text-muted fs-4">
+                                                        1997 cc, Petrol, Manual, 200 bhp
+                                                    </div>
+                                                </td>
+                                                <td class="fw-bold">Rs. 16.62 Lakh</td>
+                                                <td>
+                                                    <div class="form-check form-check-reverse">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Add to compare
+                                                        </label>
+                                                        <input class="form-check-input" type="checkbox"
+                                                            value="" id="flexCheckDefault">
+                                                    </div>
+                                                    <div class="text-end">
+                                                        <span><a href="#" class="text-danger fs-5"> View Price
+                                                                Breakup</a></span> | <span><a href="#"
+                                                                class="text-danger fs-5" data-bs-toggle="offcanvas"
+                                                                data-bs-target="#offcanvasWithBothOptions"
+                                                                aria-controls="offcanvasWithBothOptions"> Get
+                                                                Offers</a></span>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        Scorpio N Z2 Petrol MT 7 STR
+                                                    </div>
+                                                    <div class="text-muted fs-4">
+                                                        1997 cc, Petrol, Manual, 200 bhp
+                                                    </div>
+                                                </td>
+                                                <td class="fw-bold">Rs. 16.62 Lakh</td>
+                                                <td>
+                                                    <div class="form-check form-check-reverse">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Add to compare
+                                                        </label>
+                                                        <input class="form-check-input" type="checkbox"
+                                                            value="" id="flexCheckDefault">
+                                                    </div>
+                                                    <div class="text-end">
+                                                        <span><a href="#" class="text-danger fs-5"> View Price
+                                                                Breakup</a></span> | <span><a href="#"
+                                                                class="text-danger fs-5" data-bs-toggle="offcanvas"
+                                                                data-bs-target="#offcanvasWithBothOptions"
+                                                                aria-controls="offcanvasWithBothOptions"> Get
+                                                                Offers</a></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        Scorpio N Z2 Petrol MT 7 STR
+                                                    </div>
+                                                    <div class="text-muted fs-4">
+                                                        1997 cc, Petrol, Manual, 200 bhp
+                                                    </div>
+                                                </td>
+                                                <td class="fw-bold">Rs. 16.62 Lakh</td>
+                                                <td>
+                                                    <div class="form-check form-check-reverse">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            Add to compare
+                                                        </label>
+                                                        <input class="form-check-input" type="checkbox"
+                                                            value="" id="flexCheckDefault">
+                                                    </div>
+                                                    <div class="text-end">
+                                                        <span><a href="#" class="text-danger fs-5"> View Price
+                                                                Breakup</a></span> | <span><a href="#"
+                                                                class="text-danger fs-5" data-bs-toggle="offcanvas"
+                                                                data-bs-target="#offcanvasWithBothOptions"
+                                                                aria-controls="offcanvasWithBothOptions"> Get
+                                                                Offers</a></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="float-end">
+                                        <a href="#" class="btn btn-outline btn-danger btn-sm rounded-3"
+                                            data-bs-toggle="offcanvas" data-bs-target="#compareOffcanvas"
+                                            aria-controls="offcanvasBottom">
+                                            Compare Cars
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Short Features  -->
@@ -1038,6 +1322,517 @@
 </div>
 
 
+{{-- get offer offcanvas --}}
+
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold fs-4" id="offcanvasWithBothOptionsLabel">Mahindra Scorpio N</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <p>Provide your contact details for Test Drive, EMI options, Offers & Exchange Benefits</p>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Contact Number</label>
+            <input type="tel" class="form-control" id="formGroupExampleInput" placeholder="Enter Mobile Number">
+            <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once</div>
+            <button class="btn btn-theme btn-lg btn-block">Register</button>
+        </div>
+
+    </div>
+</div>
+
+
+{{-- emi calc modal --}}
+<div class="modal fade share-ad" id="share-ad" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Car EMI Calculator</h3>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body emi-calc">
+                <div id="ecww-widgetwrapper" style="min-width:250px;width:100%;">
+                    <div id="ecww-widget"
+                        style="position:relative;padding-top:0;padding-bottom:0px;height:0;overflow:hidden;">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{-- car variant --}}
+
+<div class="modal fade" id="selectCar" aria-hidden="true" aria-labelledby="selectedCarlabel" tabindex="-1">
+    <div class="modal-dialog  ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="selectedCarlabel">Select Car Model</h3>
+                <div class="header-bg"></div>
+                {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+            </div>
+            <div class="modal-body">
+                <!-- content goes here -->
+                <form>
+                    <div class="form-group col-md-12">
+                        <label>Your Car</label>
+                        <input type="text" id="CarrName" class="form-control" placeholder="Enter Your Car Name">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="d-flex pb-3" style=" overflow-x: auto;">
+                                <div class="me-3">
+                                    <input type="checkbox" class="btn-check " id="btn-check-1-outlined"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-success border rounded-3"
+                                        for="btn-check-1-outlined">Petrol</label>
+
+                                </div>
+                                <div class="me-3">
+                                    <input type="checkbox" class="btn-check " id="btn-check-2-outlined"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-success border rounded-3"
+                                        for="btn-check-2-outlined">CNG</label>
+
+                                </div>
+                                <div class="me-3">
+                                    <input type="checkbox" class="btn-check " id="btn-check-3-outlined"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-success border rounded-3"
+                                        for="btn-check-3-outlined">Manual</label>
+
+                                </div>
+                                <div class="me-3">
+                                    <input type="checkbox" class="btn-check " id="btn-check-4-outlined"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-success border rounded-3"
+                                        for="btn-check-4-outlined">Automatic</label>
+
+                                </div>
+                            </div>
+
+                            <h6 class="pb-3">Select a variant</h6>
+                            <div>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
+                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
+                                    </div>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div class="mb-1">
+                                            <ul class="d-flex">
+                                                <li class="me-2">
+                                                    Petrol
+                                                </li>
+                                                <li class="me-2">
+                                                    Manual
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-body-secondary">On-Road</small>
+                                    </div>
+
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
+                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
+                                    </div>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div class="mb-1">
+                                            <ul class="d-flex">
+                                                <li class="me-2">
+                                                    Petrol
+                                                </li>
+                                                <li class="me-2">
+                                                    Manual
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-body-secondary">On-Road</small>
+                                    </div>
+
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
+                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
+                                    </div>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div class="mb-1">
+                                            <ul class="d-flex">
+                                                <li class="me-2">
+                                                    Petrol
+                                                </li>
+                                                <li class="me-2">
+                                                    Manual
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-body-secondary">On-Road</small>
+                                    </div>
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
+                        <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
+                            class="btn btn-theme btn-block">Select Brand</button>
+                    </div> --}}
+                </form>
+            </div>
+            {{-- <div class="modal-footer">
+                <div class="col-md-12 margin-bottom-20 margin-top-20">
+                    <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
+                        class="btn btn-theme btn-block rounded-3">Go Back</button>
+                </div>
+            </div> --}}
+        </div>
+    </div>
+</div>
+
+
+{{-- car selectLocation --}}
+
+<div class="modal fade selectLocation" id="selectLocation" aria-hidden="true" aria-labelledby="selectBrandlabel"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h3 class="modal-title " id="selectBrandlabel">Select Your City </h3>
+                <div class="header-bg"></div>
+                {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+            </div>
+
+            <div class="modal-body">
+                <!-- content goes here -->
+                <form>
+                    <div class=" text-center">
+                        <a href="#">
+                            <i class="bi bi-crosshair"></i>
+                            Detect my location
+                        </a>
+                    </div>
+                    <div class="form-group col-md-12">
+
+                        <input type="text" id="carLocation" class="form-control" placeholder="Enter Your Name">
+                    </div>
+
+
+                    <div class="row mt-3">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <h6 class="pb-3 text-center">Popular Cities</h6>
+
+                            <div class="row flex-wrap justify-content-center">
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal" data-bs-location="Mumbai"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/ergk3sa_1483598.jpg" alt="Mumbai">
+                                        <div class="fs-6 text-muted">Mumbai</div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal" data-bs-location="Bangalore"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/k88k3sa_1483601.jpg" alt="Bangalore">
+                                        <div class="fs-6 text-muted">Bangalore</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal" data-bs-location="Delhi"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/1jnk3sa_1483607.jpg" alt="Delhi">
+                                        <div class="fs-6 text-muted">Delhi</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal" data-bs-location="Pune"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/53hk3sa_1483599.jpg" alt="Pune">
+                                        <div class="fs-6 text-muted">Pune</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal"
+                                        data-bs-location="Navi M data-bs-target="#selectCity"
+                                        data-bs-toggle="modal"umbai">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg"
+                                            alt="Navi Mumbai">
+                                        <div class="mt-2 fs-6 text-muted" style="line-height: 1.3em;">Navi Mumbai
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <div class="row flex-wrap justify-content-center mt-3">
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" data-bs-location="Hyderabad" data-bs-target="#selectCity"
+                                        data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/sj7k3sa_1483605.jpg"
+                                            alt="Hyderabad">
+                                        <div class="fs-6 text-muted">Hyderabad</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" data-bs-location="Ahmedabad" data-bs-target="#selectCity"
+                                        data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/z2fk3sa_1483597.jpg"
+                                            alt="Ahmedabad">
+                                        <div class="fs-6 text-muted">Ahmedabad</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" data-bs-location="Chennai" data-bs-target="#selectCity"
+                                        data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/zhlk3sa_1483604.jpg"
+                                            alt="Chennai">
+                                        <div class="fs-6 text-muted">Chennai</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" data-bs-location="Kolkata" data-bs-target="#selectCity"
+                                        data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/9omk3sa_1483606.jpg"
+                                            alt="Kolkata">
+                                        <div class="fs-6 text-muted">Kolkata</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" data-bs-location="Chandigarh" data-bs-target="#selectCity"
+                                        data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg"
+                                            alt="Chandigarh">
+                                        <div class="fs-6 text-muted">Chandigarh</div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 class="py-3 fs-3 text-center">All Cities</h6>
+                            <div class="list-group " style="height: 150px; overflow-y: auto;">
+                                <a href="#" data-bs-location="A&N Islands, Andaman Nicobar"
+                                    data-bs-target="#selectCity" data-bs-toggle="modal"
+                                    class="list-group-item list-group-item-action">
+                                    A&N Islands, Andaman Nicobar
+                                </a>
+
+                                <a href="#" data-bs-location="Abohar, Punjab" data-bs-target="#selectCity"
+                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
+                                    Abohar, Punjab
+                                </a>
+                                <a href="#" data-bs-location="Abu, Rajasthan" data-bs-target="#selectCity"
+                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
+                                    Abu, Rajasthan
+                                </a>
+                                <a href="#" data-bs-location="Abu, Rajasthan" data-bs-target="#selectCity"
+                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
+                                    Abu, Rajasthan
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            {{-- <div class="modal-footer">
+                <div class="col-md-12 margin-bottom-20 margin-top-20">
+                    <button class="btn btn-theme btn-block" data-bs-target="#selectCity" data-bs-toggle="modal">Open
+                        City Modal</button>
+                </div>
+            </div> --}}
+        </div>
+    </div>
+</div>
+
+
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="compareOffcanvas"
+    aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header ">
+        <div class="d-grid justify-content-center w-100 border-bottom pb-3">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasBottomLabel">Compare Cars</h5>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body ">
+        <div class="container">
+            <div class="row d-flex " style="overflow: auto; flex-wrap: nowrap">
+
+                <div class="col-md-2 col-xs-6 col-sm-6 px-2">
+                    <span class="vs-compare">VS</span>
+
+                    <div class="category-grid-box-1">
+                        <button type="button" class="btn-close compare-close"></button>
+                        <div class="image">
+                            <img alt="Carz Choice"
+                                src="https://imgd.aeplcdn.com/272x153/n/cw/ec/40432/scorpio-n-exterior-right-front-three-quarter-75.jpeg?isig=0&q=80"
+                                class="img-responsive">
+                            <div class="ribbon popular"></div>
+                        </div>
+                        <div class="short-description-1 clearfix">
+
+                            <a title="" href="#">
+                                <h3 class="fs-5">
+                                    Mahindra XUV 3XO
+                                </h3>
+                            </a>
+                            <div class="category-title">
+                                <span><a href="#">Z2 Petrol MT 7 STR</a></span>
+                            </div>
+                            <div class="ad-price fs-5">Rs. 110,000
+                                <span class="text-muted ps-2">onwards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-6 col-sm-6 px-2">
+                    <span class="vs-compare">VS</span>
+                    <div class="category-grid-box-1">
+                        <button type="button" class="btn-close compare-close"></button>
+                        
+                        <div class="image">
+                            <img alt="Carz Choice"
+                                src="https://imgd.aeplcdn.com/272x153/n/cw/ec/40432/scorpio-n-exterior-right-front-three-quarter-75.jpeg?isig=0&q=80"
+                                class="img-responsive">
+                            <div class="ribbon popular"></div>
+                        </div>
+                        <div class="short-description-1 clearfix">
+
+                            <a title="" href="#">
+                                <h3 class="fs-5">
+                                    Mahindra XUV 3XO
+                                </h3>
+                            </a>
+                            <div class="category-title">
+                                <span><a href="#">Z2 Petrol MT 7 STR</a></span>
+                            </div>
+                            <div class="ad-price fs-5">Rs. 110,000
+                                <span class="text-muted ps-2">onwards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-6 col-sm-6 px-2">
+                    <span class="vs-compare">VS</span>
+
+                    <div class="category-grid-box-1">
+                        <button type="button" class="btn-close compare-close"></button>
+
+                        <div class="image">
+                            <img alt="Carz Choice"
+                                src="https://imgd.aeplcdn.com/272x153/n/cw/ec/40432/scorpio-n-exterior-right-front-three-quarter-75.jpeg?isig=0&q=80"
+                                class="img-responsive">
+                            <div class="ribbon popular"></div>
+                        </div>
+                        <div class="short-description-1 clearfix">
+
+                            <a title="" href="#">
+                                <h3 class="fs-5">
+                                    Mahindra XUV 3XO
+                                </h3>
+                            </a>
+                            <div class="category-title">
+                                <span><a href="#">Z2 Petrol MT 7 STR</a></span>
+                            </div>
+                            <div class="ad-price fs-5">Rs. 110,000
+                                <span class="text-muted ps-2">onwards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-6 col-sm-6 px-2">
+                    <div class="category-grid-box-1">
+                        <button type="button" class="btn-close compare-close"></button>
+
+                        <div class="image">
+                            <img alt="Carz Choice"
+                                src="https://imgd.aeplcdn.com/272x153/n/cw/ec/40432/scorpio-n-exterior-right-front-three-quarter-75.jpeg?isig=0&q=80"
+                                class="img-responsive">
+                            <div class="ribbon popular"></div>
+                        </div>
+                        <div class="short-description-1 clearfix">
+
+                            <a title="" href="#">
+                                <h3 class="fs-5">
+                                    Mahindra XUV 3XO
+                                </h3>
+                            </a>
+                            <div class="category-title">
+                                <span><a href="#">Z2 Petrol MT 7 STR</a></span>
+                            </div>
+                            <div class="ad-price fs-5">Rs. 110,000
+                                <span class="text-muted ps-2">onwards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12 col-sm-12 px-2 text-center my-auto">
+                    <a href="/compare">
+                        <button class="btn btn-theme btn-block rounded-3">Compare</button>
+                    </a>
+                
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('hidden.bs.modal', () => {
+            const backdrops = document.querySelectorAll('.modal-backdrop');
+            backdrops.forEach(backdrop => backdrop.remove());
+        });
+    });
+</script>
+
+<!-- EMI Calculator Widget START -->
+
+<script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
+
 <!-- For This Page Only -->
 <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZSlJlfrrEUkTRY-6Vn0LmV-gRy8LwT6E&amp;sensor=false"></script>
@@ -1067,5 +1862,17 @@
         });
     })(jQuery);
 </script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    });
+</script>
+
+
 
 @endsection

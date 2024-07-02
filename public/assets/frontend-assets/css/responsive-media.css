@@ -1977,4 +1977,12 @@
         position: relative;
         font-size: 14px;
       }
+
+      .emi-calc {
+        height: 700px;
+        overflow-y: auto;
+      }
+      .offcanvas.offcanvas-bottom {
+        height: 43% !important;
+    }
 }

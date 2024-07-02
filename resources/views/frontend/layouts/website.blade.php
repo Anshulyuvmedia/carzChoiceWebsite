@@ -145,7 +145,7 @@
                                             <!--grid row-->
                                             <div class="grid-row">
                                                 <!--grid column 3-->
-                                                <div class="grid-col-2">
+                                                <div class="grid-col-3">
                                                     <h3>Condition</h3>
                                                     <ul>
                                                         <li><a href="/new-cars">Explore Used Cars</a></li>
@@ -153,8 +153,15 @@
                                                         <li><a href="/new-car-launches">New Launches </a></li>
                                                         <li><a href="/electric-car">Electric Cars </a></li>
                                                         <li><a href="/car-loan">Car Loan </a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="grid-col-3">
+                                                    <ul>
                                                         <li><a href="/car-view-images">Car different Views </a></li>
                                                         <li><a href="/car-images">Car Images </a></li>
+                                                        <li><a href="/dealer-showroom">Find Dealer </a></li>
+                                                        <li><a href="/dealer-location">Find Dealer </a></li>
                                                         
                                                     </ul>
                                                 </div>
@@ -237,54 +244,7 @@
                                                     </ul>
                                                 </div>
 
-                                                <div class="grid-col-4">
-                                                    <h3>Body Type</h3>
-                                                    <ul class="list-inline by-category ">
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/1.png') }}">
-                                                                Convertible
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/2.png') }}">
-                                                                Coupe
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/3.png') }}">
-                                                                Sedan
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/4.png') }}">
-                                                                Van/Minivan
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/5.png') }}">
-                                                                Truck
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                                                Hybrid
-                                                            </a>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </li>

@@ -109,5 +109,11 @@ class frontViewController extends Controller
     public function dealerprofile() {
         return view('frontend.dealerlayouts.dealerprofile');
     }
+    public function dealershowroom() {
+        return view('frontend.newCarsLayouts.dealershowroom');
+    }
+    public function dealerbylocation() {
+        return view('frontend.newCarsLayouts.dealerbylocation');
+    }
 
 }
