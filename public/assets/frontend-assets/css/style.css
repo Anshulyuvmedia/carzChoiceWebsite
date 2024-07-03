@@ -10848,3 +10848,115 @@ textarea {
     font-size: 14px;
 }
 
+.alert-box-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.compare-table {
+    border-left-color: rgb(0, 133, 122);
+    border-top-right-radius: 5px;
+    border-collapse: separate !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border-color: #e1e1e1;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    width: 100%;
+    overflow-x: scroll;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+}
+
+.compare-body {
+    width: max-content;
+    display: block;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.compare-tablerow {
+    display: table-row;
+    border-top-right-radius: 5px;
+    box-shadow: rgb(210, 210, 213) 2px 0px 4px 0px;
+    border-color: #00857a;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    background-color: #fff;
+    height: 8px;
+    left: 0px;
+    top: 4px;
+    position: absolute;
+    vertical-align: middle;
+}
+@media screen and (min-width: 800px) {
+    .compare-tablerow {
+        border-top-left-radius: 5px;
+        max-width: 191px;
+        min-width: 191px;
+        width: 191px;
+    }
+}
+
+.imagebox {
+    vertical-align: middle;
+    display: table-row;
+}
+
+.comparedivision {
+    clip-path: inset(0px -15px 0px 0px);
+    border-right-color: rgb(0, 133, 122);
+    box-shadow: rgb(210, 210, 213) 2px 2px 4px 0px;
+    position: sticky;
+    max-width: 190px;
+    min-width: 190px;
+    width: 190px;
+    border-color: #e1e1e1;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    font-weight: 700;
+    padding: 16px 8px;
+    z-index: 1;
+    left: 0px;
+    vertical-align: middle;
+}
+.stickydivision {
+    clip-path: inset(0px -15px 0px 0px);
+    border-right-color: rgb(0, 133, 122);
+    box-shadow: rgb(210, 210, 213) 2px 2px 4px 0px;
+    position: sticky;
+    max-width: 190px;
+    min-width: 190px;
+    width: 190px;
+    border-color: #e1e1e1;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    background-color: #fff;
+    color: #333;
+    text-align: start;
+    font-weight: 700;
+    padding: 16px 8px;
+    z-index: 10;
+    left: 0px;
+    vertical-align: middle;
+}
+
+@media screen and (min-width: 800px) {
+    .comparedivision {
+        font-size: 15px;
+    }
+}
