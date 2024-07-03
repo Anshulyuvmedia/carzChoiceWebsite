@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddVariant;
+use App\Models\AdPost;
+use App\Models\Master;
 use App\Models\CarList;
 use App\Models\PostOffices;
 use Illuminate\Http\Request;
@@ -50,8 +53,9 @@ class frontViewController extends Controller
     {
         if (Auth::guard('registeruser')->check()) {
             $user = Auth::guard('registeruser')->user();
+            $addpostcount = AdPost::count();
             $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-            return view('frontend.dashboard.userprofile',compact('user','statedata'));
+            return view('frontend.dashboard.userprofile',compact('user','statedata','addpostcount'));
         }else {
             return view('frontend.loginuser');
         }
@@ -64,7 +68,9 @@ class frontViewController extends Controller
     {
         if(Auth::guard('registeruser')->check()){
             $user = Auth::guard('registeruser')->user();
-            return view('frontend.dashboard.useractiveads',compact('user'));
+            $addpostcount = AdPost::count();
+            $adposts = AdPost::orderBy('created_at','desc')->get();
+            return view('frontend.dashboard.useractiveads',compact('user','adposts','addpostcount'));
         }else {
             return view('frontend.loginuser');
         }
@@ -151,9 +157,25 @@ class frontViewController extends Controller
     }
 
     public function addadshow(){
-        $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-        $carlistdata = CarList::get();
-        return view('frontend.dashboard.addadshow',compact('statedata','carlistdata'));
+        if(Auth::guard('registeruser')->check()){
+            $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+            $carlistdata = CarList::get();
+            return view('frontend.dashboard.addadshow',compact('statedata','carlistdata'));
+        }else {
+            return view('frontend.loginuser');
+        }
+    }
+
+    public function editadshow($id){
+        if (Auth::guard('registeruser')->check()) {
+            $adshowdata = AdPost::find($id);
+            $brandname = Master::where('type','=','Brand')->get();
+            $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+            $variantdata = AddVariant::get();
+            return view('frontend.dashboard.editadshow',compact('adshowdata','statedata','brandname'));
+        }else {
+            return view('frontend.loginuser');
+        }
     }
 
 }

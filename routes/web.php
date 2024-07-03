@@ -50,6 +50,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('usermessages', 'usermessages');
     Route::get('userdeactive', 'userdeactive');
     Route::get('addadshow', 'addadshow')->name('addadshow');
+    Route::get('editadshow/{id}', 'editadshow')->name('editadshow');
 
 
     Route::get('pricing', 'pricing');
@@ -77,10 +78,10 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::get('filterbrandname/{selectedbrandname}', 'filterbrandname')->name('filterbrandname');
     Route::get('filtermodalname/{selectedcar}', 'filtermodalname')->name('filtermodalname');
     Route::post('insertadpost', 'insertadpost')->name('insertadpost');
+    Route::get('deleteadpost/{id}', 'deleteadpost')->name('deleteadpost');
+
 
 });
-
-
 
 
 //Admin Panel Routes

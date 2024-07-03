@@ -152,12 +152,12 @@
                                 <div class="col-md-4 col-sm-4 col-xs-4">
                                     <label>New Passoword <span class="color-red">*</span></label>
                                     <input type="text" class="form-control margin-bottom-20" value=""
-                                        name="newpassword" placeholder="new passoword">
+                                        name="newpassword" placeholder="new passoword" required>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-4">
                                     <label>Confirm Password</label>
                                     <input type="text" placeholder="confirm passoword" class="form-control margin-bottom-20"
-                                        value=""  id="" name="confirmpassword">
+                                        value=""  id="" name="confirmpassword" required>
                                 </div>
                             </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 text-right">

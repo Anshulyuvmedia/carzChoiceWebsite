@@ -24,7 +24,7 @@ $user = json_decode($data);
                    <div class="row ad-history  d-flex justify-content-end">
                       <div class="col-md-4 col-sm-4 col-xs-12">
                          <div class="user-stats">
-                            <h2>374</h2>
+                            <h2>{{$addpostcount}}</h2>
                             <small>Total Ads</small>
                          </div>
                       </div>

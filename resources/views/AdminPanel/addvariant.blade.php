@@ -26,18 +26,26 @@
                             @csrf
                             <div class="mb-3 row">
                                 <div class="col-lg-3">
-                                    <label class="">Select Car Name</label>
-                                    <select name="carname" class="form-select mb-3" id="subcategory" required>
+                                    <label class="">Brand Name</label>
+                                    <select name="brandname" class="form-select mb-3" id="dynamic_selectbrandname"
+                                        required>
                                         <option value="">--select car--</option>
                                         @foreach ($cardata as $row)
-                                        <option value="{{ $row->carname }}">{{ $row->carname }}</option>
+                                            <option value="{{ $row->brandname }}">{{ $row->brandname }}</option>
                                         @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="">Car Name</label>
+                                    <select name="carname" class="form-select mb-3" id="carnamelabel" required>
+                                        <option value="">--select car--</option>
+                                        <!--Append here car name-->
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Car Modal Name</label>
                                     <input class="form-control mb-3" placeholder="enter modal name" name="carmodalname"
-                                        type="text" value="" id="example-text-input" required>
+                                        type="text" value="" id="carmodal" required>
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Select Status</label>
@@ -50,8 +58,8 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Price</label>
-                                    <input class="form-control mb-3" placeholder="enter car price" name="price" type="text"
-                                        value="" id="example-text-input" required>
+                                    <input class="form-control mb-3" placeholder="enter car price" name="price"
+                                        type="text" value="" id="example-text-input" required>
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Price Type</label>
@@ -63,23 +71,23 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Engine</label>
-                                    <input class="form-control mb-3" placeholder="enter engine" name="engine" type="text"
-                                        value="" id="example-text-input" required>
+                                    <input class="form-control mb-3" placeholder="enter engine" name="engine"
+                                        type="text" value="" id="example-text-input" required>
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Seating Capacity</label>
                                     <select name="seatingcapacity" class="form-select" id="subcategory" required>
                                         <option value="">--select seates capacity--</option>
-                                        @for ($i=1; $i<=8; $i++)
+                                        @for ($i = 1; $i <= 8; $i++)
                                             <option value="{{ $i }}">{{ $i }}</option>
                                         @endfor
-                                            <option value="8+">8+</option>
+                                        <option value="8+">8+</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
                                     <label class="form-label">Transmission</label>
-                                    <select name="transmission[]" class="select2 form-control select2-multiple mb-3" multiple="multiple"
-                                        data-placeholder="Choose type...">
+                                    <select name="transmission[]" class="select2 form-control select2-multiple mb-3"
+                                        multiple="multiple" data-placeholder="Choose type...">
                                         <option value="Automatic">Automatic</option>
                                         <option value="Manual">Manual</option>
                                         <option value="Clutchless Manual">Clutchless Manual</option>
@@ -87,13 +95,14 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <label for="example-text-input" class="">User Report Mileage</label>
-                                    <input class="form-control" placeholder="enter user report mileage" name="userreportedmilage" type="text"
-                                        value="" id="example-text-input" required>
+                                    <input class="form-control" placeholder="enter user report mileage"
+                                        name="userreportedmilage" type="text" value=""
+                                        id="example-text-input" required>
                                 </div>
                                 <div class="col-lg-12">
                                     <label class="form-label">Fuel Type</label>
-                                    <select name="fueltype[]" class="select2 form-control select2-multiple mb-3" multiple="multiple"
-                                        data-placeholder="Choose fuel type ..." id="fueltype">
+                                    <select name="fueltype[]" class="select2 form-control select2-multiple mb-3"
+                                        multiple="multiple" data-placeholder="Choose fuel type ..." id="fueltype">
                                         <option value="Hybrid">Hybrid</option>
                                         <option value="Petrol">Petrol</option>
                                         <option value="Diesel">Diesel</option>
@@ -105,7 +114,8 @@
                                     <!-- Mileage inputs will be appended here -->
                                 </div>
                                 <div class="col-lg-12">
-                                    <label for="example-email-input" class="col-md-2 col-form-label mt-3">Key Features</label>
+                                    <label for="example-email-input" class="col-md-2 col-form-label mt-3">Key
+                                        Features</label>
                                     <div class="">
                                         <textarea name="keyfeatures" id="classic-editor"></textarea>
                                     </div>
@@ -151,15 +161,15 @@
 
 @push('scripts')
 @if (session('success'))
-<script>
-    swal("Success", "{{ session('success') }}", "success");
-</script>
+    <script>
+        swal("Success", "{{ session('success') }}", "success");
+    </script>
 @endif
 
 @if (session('error'))
-<script>
-    swal("Error", "{{ session('error') }}", "error");
-</script>
+    <script>
+        swal("Error", "{{ session('error') }}", "error");
+    </script>
 @endif
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
@@ -183,33 +193,79 @@
 </script>
 <script>
     ClassicEditor
-    .create( document.querySelector( '#classic-editor' ) )
-    .catch( error => {
-        console.error( error );
-    } );
+        .create(document.querySelector('#classic-editor'))
+        .catch(error => {
+            console.error(error);
+        });
 </script>
 <script>
     ClassicEditor
-    .create( document.querySelector( '#classic-editor1' ) )
-    .catch( error => {
-        console.error( error );
-    } );
+        .create(document.querySelector('#classic-editor1'))
+        .catch(error => {
+            console.error(error);
+        });
 </script>
 <script>
     $(document).ready(function() {
-    $('#fueltype').on('change', function() {
-        // Get selected fuel types
-        let selectedFuelTypes = $(this).val();
-        $('#mileageInputs').empty();
-        selectedFuelTypes.forEach(function(fuelType) {
-            $('#mileageInputs').append(`
+        $('#fueltype').on('change', function() {
+            // Get selected fuel types
+            let selectedFuelTypes = $(this).val();
+            $('#mileageInputs').empty();
+            selectedFuelTypes.forEach(function(fuelType) {
+                $('#mileageInputs').append(`
                 <div class="col-lg-4">
                     <label for="mileage-${fuelType}" class="mt-3">Mileage for ${fuelType}</label>
                     <input class="form-control ms-2" placeholder="enter mileage for ${fuelType}" name="mileage[${fuelType}]" type="text" id="mileage-${fuelType}" required>
                 </div>
             `);
+            });
         });
     });
-});
+</script>
+<script>
+    $(function() {
+        $('#dynamic_selectbrandname').on('change', function() {
+            var selectedbrandname = $(this).val();
+            console.log(selectedbrandname);
+            $.ajax({
+                url: "/filterbrandname/" + selectedbrandname,
+                type: "GET",
+                success: function(data) {
+                    console.log(data);
+                    var dropdown1 = $('#carnamelabel');
+                    dropdown1.empty();
+                    dropdown1.append($('<option selected>Choose...</option>'));
+                    data.forEach(function(item) {
+                        dropdown1.append($('<option value="' + item.carname + '">' +
+                            item.carname +
+                            '</option>'));
+                    });
+                }
+            });
+        });
+    });
+
+    $(function() {
+        $('#carnamelabel').on('change', function() {
+            var selectedcar = $(this).val();
+            console.log(selectedcar);
+            $.ajax({
+                url: "/filtermodalname/" + selectedcar,
+                type: "GET",
+                success: function(response) {
+                    console.log(response);
+                    var dropdown1 = $('#carmodal');
+                    dropdown1.empty();
+                    dropdown1.append($('<option selected>Choose...</option>'));
+                    response.forEach(function(item) {
+                        dropdown1.append($('<option value="' + item.carmodalname +
+                            '">' +
+                            item.carmodalname +
+                            '</option>'));
+                    });
+                }
+            });
+        });
+    });
 </script>
 @endpush

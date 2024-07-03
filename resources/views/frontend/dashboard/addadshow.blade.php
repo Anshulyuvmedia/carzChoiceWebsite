@@ -238,6 +238,16 @@
                         <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                             <h2 id="heading">Add Your Post Here</h2>
                             <p>Fill all form field to go to next step</p>
+                            @if ($mymess = Session::get('success'))
+                            <div class="alert border-0 alert-success text-center" role="alert" id="successAlert">
+                                <strong>{{ $mymess }}</strong>
+                            </div>
+                            @endif
+                            @if ($mymess = Session::get('error'))
+                            <div class="alert border-0 alert-danger text-center" role="alert" id="dangerAlert">
+                                <strong>{{ $mymess }}</strong>
+                            </div>
+                            @endif
                             <form action="{{ route('insertadpost') }}" method="POST" enctype="multipart/form-data"
                                 class="stepperForm" id="msform">
                                 @csrf

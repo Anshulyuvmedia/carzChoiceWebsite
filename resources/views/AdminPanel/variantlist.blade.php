@@ -28,7 +28,8 @@
                             <thead>
                                 <tr>
                                     <th>S.No</th>
-                                    <th>Car Name</th>
+                                    <th>Brand</th>
+                                    <th>Car</th>
                                     <th>Modal</th>
                                     <th>Status</th>
                                     <th>Price</th>
@@ -46,6 +47,7 @@
                                 @foreach ($variantlist as $index => $row)
                                 <tr>
                                     <td>{{$index + 1}}</td>
+                                    <td>{{$row->brandname}}</td>
                                     <td>{{$row->carname}}</td>
                                     <td>{{$row->carmodalname}}</td>
                                     <td>{{$row->availabelstatus}}</td>

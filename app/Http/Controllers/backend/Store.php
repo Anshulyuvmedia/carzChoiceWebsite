@@ -547,6 +547,7 @@ class Store extends Controller
             $data = $rq->validate([
                 'carname' => 'required',
                 'carmodalname' => 'required',
+                'brandname' => 'required',
                 'availabelstatus' => 'required',
                 'price' => 'required',
                 'pricetype' => 'required',
@@ -560,6 +561,7 @@ class Store extends Controller
 
             AddVariant::create([
                 'carname' => $rq->carname,
+                'brandname' => $rq->brandname,
                 'carmodalname' => $rq->carmodalname,
                 'availabelstatus' => $rq->availabelstatus,
                 'price' => $rq->price,

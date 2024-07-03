@@ -235,6 +235,7 @@ class FrontendStore extends Controller
             ]);
             $positions = $rq->input('positions');
             $files = $rq->file('images');
+            $imageData = [];
             if ($files) {
                 foreach ($files as $index => $file) {
                     if ($file->isValid()) {
@@ -246,11 +247,15 @@ class FrontendStore extends Controller
                         $file->move(public_path($uploaded_path), $image_fullname);
 
                         $position = $positions[$index];
-                        $imageData[$position] = $image_url;
+                        $imageData[] = [
+                            'label' => $position,
+                            'imageurl' => $uploaded_path . $image_fullname,
+                        ];
                     }
                 }
 
             }
+
             $jsonImageData = json_encode($imageData);
             AdPost::create([
                 'brandname' => $rq->brandname,
@@ -270,7 +275,7 @@ class FrontendStore extends Controller
                 'insurance' => $rq->insurance,
                 'registertype' => $rq->registertype,
                 'lastupdated' => $rq->lastupdated,
-                'images' => $jsonImageData,
+                'images' => $jsonImageData
 
             ]);
             Log::info('Add Post Inserted Successfully: ', ['adpost' => $data]);
@@ -280,5 +285,12 @@ class FrontendStore extends Controller
             return redirect()->route('addadshow')->with('error', $e->getMessage());
             //return redirect()->route('addadshow')->with('error', 'Not Added Try Again...!!!!');
         }
+    }
+
+    public function deleteadpost($id)
+    {
+        $data = AdPost::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
     }
 }
