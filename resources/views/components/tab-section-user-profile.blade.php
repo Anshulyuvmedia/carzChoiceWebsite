@@ -28,17 +28,17 @@
                             <dd>
                                 India
                             </dd>
-                            <dt><strong>City </strong></dt>
+                            <dt><strong>District </strong></dt>
                             <dd>
-                                Ajmer
+                                {{$user->district}}
                             </dd>
-                            <dt><strong>You are a </strong></dt>
+                            <dt><strong>Pincode </strong></dt>
                             <dd>
-                                Customer
+                                {{$user->pincode}}
                             </dd>
                             <dt><strong>Address </strong></dt>
                             <dd>
-                                Ajmer,Rajasthan
+                                {{$user->addresss}}
                             </dd>
                         </dl>
                     </div>
@@ -46,12 +46,14 @@
                         <h2 class="heading-md">Edit your Profile</h2>
                         <p>Details Below</p>
                         <div class="clearfix"></div>
-                        <form>
+                        <form action="{{ route('edituserprofile') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <label>Your Name </label>
                                     <input type="text" class="form-control margin-bottom-20" value="{{$user->fullname}}"
                                         disabled>
+                                    <input type="hidden" name="userid" value="{{$user->id}}">
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <label>Email Address <span class="color-red">*</span></label>
@@ -63,31 +65,28 @@
                                     <input type="text" class="form-control margin-bottom-20"
                                         value="{{$user->contactno}}" disabled>
                                 </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12 margin-bottom-20">
-                                    <label>Country <span class="color-red">*</span></label>
-                                    <select class="form-control">
-                                        <option value="0">SriLanka</option>
-                                        <option value="1">Australia</option>
-                                        <option value="2">Bahrain</option>
-                                        <option value="3">Canada</option>
-                                        <option value="4">Denmark</option>
-                                        <option value="5">Germany</option>
+                                <div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-20">
+                                    <label>District <span class="color-red">*</span></label>
+                                    <select class="form-control" id="dynamic_select" name="district">
+                                        <option value="">--select district--</option>
+                                        @foreach ($statedata as $row)
+                                        <option value="{{$row->District}}" {{ $row->District == $user->district ? 'selected' : '' }}>{{ $row->District }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12 margin-bottom-20">
-                                    <label>City <span class="color-red">*</span></label>
-                                    <select class="form-control">
-                                        <option value="0">London</option>
-                                        <option value="1">Edinburgh</option>
-                                        <option value="2">Wales</option>
-                                        <option value="3">Cardiff</option>
-                                        <option value="4">Bradford</option>
-                                        <option value="5">Cambridge</option>
-                                    </select>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <label>State</label>
+                                    <input type="text" placeholder="your state" class="form-control margin-bottom-20"
+                                        value="{{$user->state}}" readonly id="stateid" name="state">
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <label>Pincode</label>
+                                    <input type="text" placeholder="your pincode" class="form-control margin-bottom-20"
+                                        value="{{$user->pincode}}"  id="pincodeid" name="pincode">
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label>Address <span class="color-red">*</span></label>
-                                    <textarea class="form-control margin-bottom-20" rows="3"></textarea>
+                                    <textarea name="addresss" class="form-control margin-bottom-20" rows="3">{{$user->addresss}}</textarea>
                                 </div>
                             </div>
                             <div class="row margin-bottom-20">
@@ -96,7 +95,7 @@
                                         <div class="input-group">
                                             <span class="input-group-btn">
                                                 <span class="btn btn-default btn-file">
-                                                    Browse… <input type="file" id="imgInp">
+                                                    Browse… <input type="file" id="imgInp" name="dp">
                                                 </span>
                                             </span>
                                             <input type="text" class="form-control" readonly>
@@ -129,40 +128,73 @@
                         </form>
                     </div>
                     <div class="profile-edit tab-pane fade" id="payment">
-                        <h2 class="heading-md">Manage your Package Settings</h2>
-                        <p>Below are the payment options for your account.</p>
+                        <h2 class="heading-md">Change your Password</h2>
+                        <p>Enter details to change</p>
                         <br>
-                        <form action="#" id="sky-form" class="sky-form" novalidate>
-                            <!--Checkout-Form-->
-                            <dl class="dl-horizontal">
-                                <dt><strong>Current Plan</strong></dt>
-                                <dd>
-                                    Premium
-                                </dd>
-                                <dt><strong>Expiration Date </strong></dt>
-                                <dd>
-                                    2nd January 2017
-                                </dd>
-                            </dl>
+                        @if ($message = Session::get('success'))
+                            <div class="alert border-0 alert-success text-center" role="alert" id="successAlert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @endif
+                        @if ($message = Session::get('failure'))
+                            <div class="alert border-0 alert-danger text-center" role="alert" id="dangerAlert">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @endif
+                        <form action="{{ route('changeuserpassword') }}" method="POST">
+                            @csrf
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 margin-bottom-20">
-                                    <label>Select Plan You Want To Change<span class="color-red">*</span></label>
-                                    <select class="form-control">
-                                        <option value="0">Free</option>
-                                        <option value="1">Premium</option>
-                                        <option value="2">Advanced</option>
-                                    </select>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <label>Old Password</label>
+                                    <input type="text" class="form-control margin-bottom-20" value=""
+                                        name="oldpassword" placeholder="old passoword">
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <label>New Passoword <span class="color-red">*</span></label>
+                                    <input type="text" class="form-control margin-bottom-20" value=""
+                                        name="newpassword" placeholder="new passoword">
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                    <label>Confirm Password</label>
+                                    <input type="text" placeholder="confirm passoword" class="form-control margin-bottom-20"
+                                        value=""  id="" name="confirmpassword">
                                 </div>
                             </div>
-                            <button class="btn btn-sm btn-default" type="button">Cancel</button>
-                            <button type="submit" class="btn btn-sm btn-theme">Save Changes</button>
-                            <!--End Checkout-Form-->
+                                <div class="col-md-4 col-sm-4 col-xs-12 text-right">
+                                    <button type="submit" class="btn btn-theme btn-sm">Change My Password</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Row End -->
     </div>
-    <!-- Middle Content Area  End -->
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(function() {
+        $('#dynamic_select').on('change', function() {
+            var selecteddistrict = $(this).val();
+            console.log(selecteddistrict);
+            $.ajax({
+                url: "/showstatepincode/" + selecteddistrict,
+                type: "GET",
+                success: function(data) {
+                    console.log(data);
+                    $('#stateid').val(data.StateName);
+                    $('#pincodeid').val(data.Pincode);
+                }
+            });
+        });
+    });
+</script>
+<script>
+    setTimeout(function() {
+        $('#successAlert').fadeOut('slow');
+    }, 2000);
+
+    setTimeout(function() {
+        $('#dangerAlert').fadeOut('slow');
+    }, 2000);
+</script>

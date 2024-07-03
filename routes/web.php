@@ -45,10 +45,11 @@ Route::controller(frontViewController::class)->group(function () {
     //when user logged in
     Route::get('userprofile', 'userprofile')->name('userprofile');
     Route::get('userarchive', 'userarchive');
-    Route::get('useractiveads', 'useractiveads');
+    Route::get('useractiveads', 'useractiveads')->name('useractiveads');
     Route::get('userfavourites', 'userfavourites');
     Route::get('usermessages', 'usermessages');
     Route::get('userdeactive', 'userdeactive');
+    Route::get('addadshow', 'addadshow')->name('addadshow');
 
 
     Route::get('pricing', 'pricing');
@@ -67,6 +68,15 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('verifyregisterotp', 'verifyregisterotp')->name('verifyregisterotp');
     Route::post('loginuser', 'loginuser')->name('loginuser');
     Route::get('logoutuserfront', 'logoutuserfront')->name('logoutuserfront');
+    Route::get('showstatepincode/{selecteddistrict}', 'showstatepincode')->name('showstatepincode');
+    Route::post('changeuserpassword', 'changeuserpassword')->name('changeuserpassword');
+    Route::post('resetpassworduser', 'resetpassworduser')->name('resetpassworduser');
+    Route::post('verifyotp', 'verifyotp')->name('verifyotp');
+    Route::post('updatePassword', 'updatePassword')->name('updatePassword');
+    Route::post('edituserprofile', 'edituserprofile')->name('edituserprofile');
+    Route::get('filterbrandname/{selectedbrandname}', 'filterbrandname')->name('filterbrandname');
+    Route::get('filtermodalname/{selectedcar}', 'filtermodalname')->name('filtermodalname');
+    Route::post('insertadpost', 'insertadpost')->name('insertadpost');
 
 });
 

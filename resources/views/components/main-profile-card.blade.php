@@ -5,31 +5,27 @@ $user = json_decode($data);
     <!-- Middle Content Area -->
     <div class="col-md-12 col-xs-12 col-sm-12">
        <section class="search-result-item">
-          <a class="image-link" href="#"><img class="image center-block" alt="" src="{{ asset('assets/frontend-assets/images/users/9.jpg')}}"> </a>
+          <a class="image-link" href="#">
+            <img class="image center-block" alt="" src="{{ asset('assets/backend-assets/images/'.$user->dp)}}">
+        </a>
           <div class="search-result-item-body">
              <div class="row">
                 <div class="col-md-5 col-sm-12 col-xs-12">
                    <h4 class="search-result-item-heading"><a href="#">{{$user->fullname}}</a></h4>
                    <p class="info">
-                      <span><a href="#"><i class="fa fa-user "></i>Profile </a></span>
-                      <span><a href="javascript:void(0)"><i class="fa fa-edit"></i>Edit Profile </a></span>
+                      <span><a href="#"><i class="fa fa-email "></i>{{$user->email}}</a></span>
+                      <span><a href="javascript:void(0)"><i class="fa fa-phone"></i>{{$user->contactno}}</a></span>
                    </p>
-                   <p class="description">You last logged in at: 14-01-2017 6:40 AM [ USA time (GMT + 6:00hrs)</p>
-                   <span class="label label-warning">Paid Package</span>
-                   <span class="label label-success">Dealer</span>
+                   {{-- <p class="description">You last logged in at: 14-01-2017 6:40 AM [ USA time (GMT + 6:00hrs)</p> --}}
+                   {{-- <span class="label label-warning">Paid Package</span> --}}
+                   <span class="label label-success">User</span>
                 </div>
                 <div class="col-md-7 col-sm-12 col-xs-12">
-                   <div class="row ad-history">
+                   <div class="row ad-history  d-flex justify-content-end">
                       <div class="col-md-4 col-sm-4 col-xs-12">
                          <div class="user-stats">
                             <h2>374</h2>
-                            <small>Ad Sold</small>
-                         </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4 col-xs-12">
-                         <div class="user-stats">
-                            <h2>980</h2>
-                            <small>Total Listings</small>
+                            <small>Total Ads</small>
                          </div>
                       </div>
                       <div class="col-md-4 col-sm-4 col-xs-12">
@@ -45,7 +41,7 @@ $user = json_decode($data);
        </section>
        <div class="dashboard-menu-container">
           <ul>
-             <li class="active">
+             <li class="{{ Request::routeIs('userprofile') ? 'active' : '' }}">
                 <a href="/userprofile">
                    <div class="menu-name"> Profile </div>
                 </a>
@@ -55,7 +51,7 @@ $user = json_decode($data);
                    <div class="menu-name">Archives</div>
                 </a>
              </li>
-             <li>
+             <li  class="{{ Request::routeIs('useractiveads') ? 'active' : '' }}">
                 <a href="/useractiveads">
                    <div class="menu-name">My Ads</div>
                 </a>

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CarList;
+use App\Models\PostOffices;
 use Illuminate\Http\Request;
 use Auth;
-
+use DB;
 class frontViewController extends Controller
 {
     public function carlistingdetails()
@@ -48,7 +50,8 @@ class frontViewController extends Controller
     {
         if (Auth::guard('registeruser')->check()) {
             $user = Auth::guard('registeruser')->user();
-            return view('frontend.dashboard.userprofile',compact('user'));
+            $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+            return view('frontend.dashboard.userprofile',compact('user','statedata'));
         }else {
             return view('frontend.loginuser');
         }
@@ -59,7 +62,12 @@ class frontViewController extends Controller
     }
     public function useractiveads()
     {
-        return view('frontend.dashboard.useractiveads');
+        if(Auth::guard('registeruser')->check()){
+            $user = Auth::guard('registeruser')->user();
+            return view('frontend.dashboard.useractiveads',compact('user'));
+        }else {
+            return view('frontend.loginuser');
+        }
     }
     public function userfavourites()
     {
@@ -140,6 +148,12 @@ class frontViewController extends Controller
     public function carimages()
     {
         return view('frontend.carLayouts.carimages');
+    }
+
+    public function addadshow(){
+        $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+        $carlistdata = CarList::get();
+        return view('frontend.dashboard.addadshow',compact('statedata','carlistdata'));
     }
 
 }
