@@ -293,4 +293,93 @@ class FrontendStore extends Controller
         $data->delete();
         return back()->with('success', "Deleted....!!!");
     }
+
+    public function updateadpost(Request $rq)
+    {
+        // dd($rq->all());
+        try {
+            $data = $rq->validate([
+                'brandname' => 'required',
+                'carname' => 'required',
+                'modalname' => 'required',
+                'district' => 'required',
+                'state' => 'required',
+                'pincode' => 'required',
+                'price' => 'required',
+                'kilometersdriven' => 'required',
+                'fueltype' => 'required',
+                'registeryear' => 'required',
+                'manufactureyear' => 'required',
+                'ownernumbers' => 'required',
+                'transmissiontype' => 'required',
+                'color' => 'required',
+                'insurance' => 'required',
+                'registertype' => 'required',
+                'lastupdated' => 'required',
+                'images' => 'required',
+            ]);
+
+            $positions = $rq->input('positions');
+            $imgthumbs = $rq->input('imgthumbnail');
+
+            $files = $rq->file('images');
+            $imageData = [];
+
+            if ($files) {
+                foreach ($files as $index => $file) {
+                    if ($file) {
+                        if ($file->isValid()) {
+                            $image_name = md5(rand(1000, 10000));
+                            $extension = strtolower($file->getClientOriginalExtension());
+                            $image_fullname = $image_name . '.' . $extension;
+                            $uploaded_path = "assets/backend-assets/images/";
+                            $image_url = $uploaded_path . $image_fullname;
+                            $file->move(public_path($uploaded_path), $image_fullname);
+                            $position = $positions[$index];
+                            $imageData[] = [
+                                'label' => $position,
+                                'imageurl' => $image_url,
+                            ];
+                        }
+                    }
+                }
+            }
+            foreach($positions as $index =>  $row){
+                $imgthumb = $imgthumbs[$index];
+                $imageData[] = [
+                    'label' => $row,
+                    'imageurl' => $imgthumb,
+                ];
+            }
+            $uniqueImageData = collect($imageData)->unique('label')->values()->all();
+
+            $jsonImageData = json_encode($uniqueImageData);
+            AdPost::where('id', $rq->postid)->update([
+                'brandname' => $rq->brandname,
+                'carname' => $rq->carname,
+                'modalname' => $rq->modalname,
+                'district' => $rq->district,
+                'state' => $rq->state,
+                'pincode' => $rq->pincode,
+                'price' => $rq->price,
+                'kilometersdriven' => $rq->kilometersdriven,
+                'fueltype' => $rq->fueltype,
+                'registeryear' => $rq->registeryear,
+                'manufactureyear' => $rq->manufactureyear,
+                'ownernumbers' => $rq->ownernumbers,
+                'transmissiontype' => $rq->transmissiontype,
+                'color' => $rq->color,
+                'insurance' => $rq->insurance,
+                'registertype' => $rq->registertype,
+                'lastupdated' => $rq->lastupdated,
+                'images' => $jsonImageData
+            ]);
+
+            Log::info('Ad Post Updated Successfully: ', ['adpost' => $data]);
+            return back()->with('success', 'Ad Post Updated..!!!!');
+        } catch (Exception $e) {
+            return redirect()->route('editadshow')->with('error', $e->getMessage());
+        }
+    }
+
 }

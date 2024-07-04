@@ -75,9 +75,12 @@
                             <p><i class="flaticon-calendar"></i> &nbsp;<span>5 Days ago</span> </p>
                             <ul class="pull-right">
                                 <li>
+                                    <a data-toggle="tooltip" data-placement="top" title="Add Features" data-original-title="Add Features" href="#"><i class="fa fa-plus text-success"></i></a>
+                                </li>
+                                <li>
                                     <a data-toggle="tooltip" data-placement="top" title="Edit this Ad"
                                         data-original-title="Edit this Ad" href="{{ route('editadshow', ['id' => $data->id]) }}"><i
-                                            class="fa fa-pencil edit"></i></a>
+                                            class="fa fa-pencil  text-primary"></i></a>
                                 </li>
                                 <li>
                                     <a data-toggle="tooltip" onclick="confirmDelete('{{ $data->id }}')" data-placement="top" title="Delete" data-original-title="Delete" href="#"><i class="fa fa-times delete"></i></a>

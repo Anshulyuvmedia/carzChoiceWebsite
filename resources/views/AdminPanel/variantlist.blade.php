@@ -82,7 +82,27 @@
                                     <td>{{$row->seatingcapacity}}</td>
                                     <td>{{$row->userreportedmilage}}</td>
                                     <td>
+                                        <div class="flex-shrink-0">
+                                            <div class="dropdown chat-noti-dropdown">
+                                                <button class="btn dropdown-toggle py-0" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="uil uil-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a href="{{ route('addfeatures', ['id' => $row->id]) }}" class="text-success dropdown-item">Add Features</a>
+                                                    <a href="{{ route('editvariant', ['id' => $row->id]) }}"
+                                                    class="text-primary dropdown-item">Edit</a>
+                                                    <a href="#" onclick="confirmDelete('{{ $row->id }}')"
+                                                    class="text-danger dropdown-item">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    {{-- <td>
                                         <ul class="list-inline mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="#" data-bs-toggle="Add Features"
+                                                data-bs-placement="top" data-bs-title="Add Features" class="text-success"><i class="uil-plus font-size-18"></i></a>
+                                            </li>
                                             <li class="list-inline-item">
                                                 <a href="{{ route('editvariant', ['id' => $row->id]) }}"
                                                     class="px-2 text-primary"><i
@@ -90,11 +110,11 @@
                                             </li>
                                             <li class="list-inline-item">
                                                 <a href="#" onclick="confirmDelete('{{ $row->id }}')"
-                                                    class="px-2 text-danger"><i
+                                                    class=" text-danger"><i
                                                         class="uil uil-trash-alt font-size-18"></i></a>
                                             </li>
                                         </ul>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                                 @endforeach
                             </tbody>

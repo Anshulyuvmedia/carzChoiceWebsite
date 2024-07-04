@@ -26,11 +26,11 @@
                             @csrf
                             <div class="mb-3 row">
                                 <div class="col-lg-2">
-                                    <label class="">Select Car Type</label>
+                                    <label class="">Select Type</label>
                                     <select name="cartype" class="form-select" id="cartypeid" required>
-                                        <option value="">--select car type--</option>
-                                        <option value="Old Car">Old Car</option>
-                                        <option value="New Car">New Car</option>
+                                        <option value="">--select type--</option>
+                                        <option value="features">Features</option>
+                                        <option value="specifications">Specifications</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
@@ -66,7 +66,7 @@
                             <thead>
                                 <tr>
                                     <th>S.No</th>
-                                    <th>Car Type</th>
+                                    <th>Type</th>
                                     <th>Form Labels</th>
                                     <th>Value</th>
                                     <th>Input Type</th>

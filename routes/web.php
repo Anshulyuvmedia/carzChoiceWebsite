@@ -79,8 +79,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::get('filtermodalname/{selectedcar}', 'filtermodalname')->name('filtermodalname');
     Route::post('insertadpost', 'insertadpost')->name('insertadpost');
     Route::get('deleteadpost/{id}', 'deleteadpost')->name('deleteadpost');
-
-
+    Route::post('updateadpost', 'updateadpost')->name('updateadpost');
 });
 
 
@@ -107,6 +106,7 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('variantslist', 'variantslist')->name('variantslist');
     Route::get('editvariant/{id}', 'editvariant')->name('editvariant');
     Route::get('userslist', 'userslist')->name('userslist');
+    Route::get('addfeatures', 'addfeatures')->name('addfeatures');
 
 });
 

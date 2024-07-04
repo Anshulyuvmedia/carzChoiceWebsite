@@ -103,4 +103,9 @@ class AdminView extends Controller
         $registeredusers = RegisterUser::orderBy('created_at','desc')->get();
         return view('AdminPanel.userslist',compact('registeredusers'));
     }
+
+    public function addfeatures(){
+        $features = FormAttribute::where('cartype','=','features')->get();
+        return view('AdminPanel.addfeatures',compact('features'));
+    }
 }

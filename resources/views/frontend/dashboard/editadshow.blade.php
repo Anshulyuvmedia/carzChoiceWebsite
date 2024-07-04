@@ -239,16 +239,16 @@
                             <h2 id="heading">Add Your Post Here</h2>
                             <p>Fill all form field to go to next step</p>
                             @if ($mymess = Session::get('success'))
-                            <div class="alert border-0 alert-success text-center" role="alert" id="successAlert">
-                                <strong>{{ $mymess }}</strong>
-                            </div>
+                                <div class="alert border-0 alert-success text-center" role="alert" id="successAlert">
+                                    <strong>{{ $mymess }}</strong>
+                                </div>
                             @endif
                             @if ($mymess = Session::get('error'))
-                            <div class="alert border-0 alert-danger text-center" role="alert" id="dangerAlert">
-                                <strong>{{ $mymess }}</strong>
-                            </div>
+                                <div class="alert border-0 alert-danger text-center" role="alert" id="dangerAlert">
+                                    <strong>{{ $mymess }}</strong>
+                                </div>
                             @endif
-                            <form action="{{ route('insertadpost') }}" method="POST" enctype="multipart/form-data"
+                            <form action="{{ route('updateadpost') }}" method="POST" enctype="multipart/form-data"
                                 class="stepperForm" id="msform">
                                 @csrf
                                 <ul id="progressbar">
@@ -278,10 +278,11 @@
                                                     name="brandname" required>
                                                     <option value="">--select brand name--</option>
                                                     @foreach ($brandname as $row)
-                                                    <option {{ $row->value == $adshowdata->brandname ?
-                                                        'selected' : '' }} value="{{ $row->value }}">
-                                                        {{ $row->value }}
-                                                    </option>
+                                                        <option
+                                                            {{ $row->value == $adshowdata->brandname ? 'selected' : '' }}
+                                                            value="{{ $row->value }}">
+                                                            {{ $row->value }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -304,25 +305,26 @@
                                                     required>
                                                     <option value="">--select district--</option>
                                                     @foreach ($statedata as $row)
-                                                    <option {{ $row->District == $adshowdata->district ? 'selected' : ''
-                                                        }} value="{{ $row->District }}">{{ $row->District }}
-                                                    </option>
+                                                        <option
+                                                            {{ $row->District == $adshowdata->district ? 'selected' : '' }}
+                                                            value="{{ $row->District }}">{{ $row->District }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="col-lg-4 mt-3">
                                                 <label class="fieldlabels">State</label>
-                                                <input type="text" value="{{$adshowdata->state}}" id="stateid"
+                                                <input type="text" value="{{ $adshowdata->state }}" id="stateid"
                                                     name="state" placeholder="state" required />
                                             </div>
                                             <div class="col-lg-4 mt-3">
                                                 <label class="fieldlabels">Pincode</label>
-                                                <input type="text" value="{{$adshowdata->pincode}}" id="pincodeid"
+                                                <input type="text" value="{{ $adshowdata->pincode }}" id="pincodeid"
                                                     name="pincode" placeholder="pincode" required />
                                             </div>
                                         </div>
-                                    </div> <input type="button" id="nextButton" name="next" class="next action-button"
-                                        value="Next" onclick="validateStep1()" />
+                                    </div> <input type="button" id="nextButton" name="next"
+                                        class="next action-button" value="Next" onclick="validateStep1()" />
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
@@ -337,69 +339,72 @@
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Price</label>
-                                                <input type="text" name="price" placeholder="selling price" required
-                                                    value="{{$adshowdata->price}}" />
+                                                <input type="text" name="price" placeholder="selling price"
+                                                    required value="{{ $adshowdata->price }}" />
+                                                <input type="hidden" name="postid" value="{{ $adshowdata->id }}">
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Kilometers Driven</label>
                                                 <input type="text" name="kilometersdriven"
                                                     placeholder="kilometers driven" required
-                                                    value="{{$adshowdata->kilometersdriven}}" />
+                                                    value="{{ $adshowdata->kilometersdriven }}" />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Fuel Type</label>
                                                 <input type="text" name="fueltype" placeholder="enter fuel type"
-                                                    required value="{{$adshowdata->fueltype}}" />
+                                                    required value="{{ $adshowdata->fueltype }}" />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Registration year</label>
                                                 <input type="text" name="registeryear"
                                                     placeholder="enter registration year" required
-                                                    value="{{$adshowdata->registeryear}}" />
+                                                    value="{{ $adshowdata->registeryear }}" />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Manufacturing year</label>
                                                 <input type="text" name="manufactureyear"
                                                     placeholder="enter manufacturing year" required
-                                                    value="{{$adshowdata->manufactureyear}}" />
+                                                    value="{{ $adshowdata->manufactureyear }}" />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">No. of owners</label>
                                                 <input type="text" name="ownernumbers"
                                                     placeholder="enter number of owners" required
-                                                    value="{{$adshowdata->ownernumbers}}" />
+                                                    value="{{ $adshowdata->ownernumbers }}" />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Transmission Type</label>
                                                 <input type="text" name="transmissiontype"
                                                     placeholder="enter tranmission type" required
-                                                    value="{{$adshowdata->transmissiontype}}" />
+                                                    value="{{ $adshowdata->transmissiontype }}" />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Color</label>
-                                                <input type="text" name="color" placeholder="enter color" required
-                                                    value="{{$adshowdata->color}}" />
+                                                <input type="text" name="color" placeholder="enter color"
+                                                    required value="{{ $adshowdata->color }}" />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Insurance</label>
                                                 <input type="text" name="insurance"
                                                     placeholder="enter insurance availibility" required
-                                                    value="{{$adshowdata->insurance}}" />
+                                                    value="{{ $adshowdata->insurance }}" />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Registration type</label>
                                                 <input type="text" name="registertype"
                                                     placeholder="enter registration type" required
-                                                    value="{{$adshowdata->registertype}}" />
+                                                    value="{{ $adshowdata->registertype }}" />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Last Updated</label>
-                                                <input type="text" name="lastupdated" placeholder="last updated on"
-                                                    required value="{{$adshowdata->lastupdated}}" />
+                                                <input type="text" name="lastupdated"
+                                                    placeholder="last updated on" required
+                                                    value="{{ $adshowdata->lastupdated }}" />
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="button" name="next" class="next action-button" value="Next" />
+                                    <input type="button" name="next" class="next action-button"
+                                        value="Next" />
                                     <input type="button" name="previous" class="previous action-button-previous"
                                         value="Previous" />
                                 </fieldset>
@@ -424,16 +429,57 @@
                                                 <tr>
                                                     <th>Image Position</th>
                                                     <th>Upload Image</th>
+                                                    <th>Thumbnail View</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 <tbody id="tablebody">
-                                                    {{-- Table body here --}}
+                                                    @php
+                                                        $imagearray = json_decode($adshowdata->images, true);
+
+                                                    @endphp
+                                                    @foreach ($imagearray as $index => $imgs)
+                                                        @php
+                                                            $dynamicId = 'image_' . $index . '_' . $index;
+                                                        @endphp
+                                                        <tr>
+                                                            <td class="col-md-3" style="align-items: center;">
+                                                                <select class="form-control" name="positions[]">
+                                                                    <option value="">--select image position--
+                                                                    </option>
+                                                                    <option {{ $imgs['label'] == '1' ? 'selected' : '' }}
+                                                                        value="1">1</option>
+                                                                    <option {{ $imgs['label'] == '2' ? 'selected' : '' }}
+                                                                        value="2">2</option>
+                                                                </select>
+                                                            </td>
+                                                            <td class="col-md-3" style="align-items: center;">
+                                                                <input type="file" name="images[]"
+                                                                    placeholder="state" data-id="{{ $dynamicId }}"
+                                                                    onchange="readURL(this);" />
+                                                                <input type="hidden" value="{{$imgs['imageurl']}}" name="imgthumbnail[]">
+                                                            </td>
+                                                            <td class="col-md-3" style="align-items: center;">
+                                                                <div class="">
+                                                                    <img src="{{ asset($imgs['imageurl']) }}"
+                                                                        alt="" class="img-fluid img-thumbnail"
+                                                                        id="{{ $dynamicId }}"
+                                                                        style="aspect-ratio: 16 / 9;" />
+                                                                </div>
+                                                            </td>
+                                                            <td class="col-md-1" style="align-items: center;">
+                                                                <a href="#"><button
+                                                                        class="btn btn-danger btn-sm deleteRow"
+                                                                        id="sa-warning">delete</button></a>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
 
                                         </div>
                                     </div>
-                                    <input type="submit" name="next" class="next action-button" value="Submit" />
+                                    <input type="submit" name="next" class="next action-button"
+                                        value="Submit" />
                                     <input type="button" name="previous" class="previous action-button-previous"
                                         value="Previous" />
                                 </fieldset>
@@ -484,11 +530,11 @@
         </div>
     </div>
 
-    @endsection
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+@endsection
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
+<script>
+    $(document).ready(function() {
 
         var current_fs, next_fs, previous_fs; //fieldsets
         var opacity;
@@ -595,35 +641,58 @@
         })
 
     });
-    </script>
-    <script>
-        $(document).on('click', '.addRow', function() {
-        var tr = `
-        <tr>
+</script>
+<script>
+   $(document).on('click', '.addRow', function() {
+    var tbody = document.getElementById('tablebody');
+    var tds = tbody.getElementsByTagName('tr');
+    var count = tds.length;
+    var dynamicId = 'image_' + count + '_' + new Date().getTime(); // Ensure a unique ID
+
+    var tr = `
+    <tr>
         <td>
-            <select class="form-control "
-                name="positions[]">
+            <select class="form-control" name="positions[]">
                 <option value="">--select image position--</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
             </select>
         </td>
         <td>
-            <input type="file" name="images[]" placeholder="state" />
+            <input type="file" name="images[]" placeholder="state" data-id="`+ dynamicId +`" onchange="readURL(this);" />
+             <input type="hidden" value="{{$imgs['imageurl']}}" name="imgthumbnail[]">
+        </td>
+        <td class="col-md-3" style="align-items: center;">
+            <div class="">
+                <img src=""  alt="" class="img-fluid img-thumbnail" id="`+ dynamicId +`" style="aspect-ratio: 16 / 9;" />
+            </div>
         </td>
         <td>
             <a href="#"><button class="btn btn-danger btn-sm deleteRow" id="sa-warning">delete</button></a>
         </td>
     </tr>
     `;
-        $('#tablebody').append(tr);
-    });
-    $(document).on('click', '.deleteRow', function() {
-        $(this).closest('tr').remove();
-    });
-    </script>
-    <script>
-        $(function() {
+    $('#tablebody').append(tr);
+});
+
+$(document).on('click', '.deleteRow', function() {
+    $(this).closest('tr').remove();
+});
+
+function readURL(input) {
+    var id = $(input).data('id');
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#' + id).attr('src', e.target.result);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+</script>
+<script>
+    $(function() {
         $('#dynamic_selectbrandname').on('change', function() {
             var selectedbrandname = $(this).val();
             console.log(selectedbrandname);
@@ -667,9 +736,9 @@
             });
         });
     });
-    </script>
-    <script>
-        //Dynamic State and Pincode Coming.............
+</script>
+<script>
+    //Dynamic State and Pincode Coming.............
     $(function() {
         $('#dynamic_selectdistrict').on('change', function() {
             var selecteddistrict = $(this).val();
@@ -685,4 +754,5 @@
             });
         });
     });
-    </script>
+
+</script>
