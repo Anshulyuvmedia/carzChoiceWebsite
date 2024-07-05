@@ -202,7 +202,7 @@
 
                                 </div>
                                 <a href="/used-car" class="  ">
-                                    View All Used Cars >
+                                    View All Used Cars <i class="bi bi-chevron-right"></i>
                                 </a>
                             </div>
                         </div>

@@ -35,6 +35,19 @@
   display: none;
   -webkit-backface-visibility: hidden;
 }
+.flexslider .slides div {
+  height: 40px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  margin: 10px;
+}
+.flexslider .slides div:hover {
+  box-shadow: var(--bs-box-shadow-sm) !important;
+  /* border: 1px solid rgb(0, 0, 0) !important; */
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 .flexslider .slides img {
   width: 100%;
   display: block;

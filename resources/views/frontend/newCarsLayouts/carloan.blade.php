@@ -714,7 +714,7 @@
                         </div>
                     </div>
                     <a href="/blogs" class="  ">
-                        View All News >
+                        View All New <i class="bi bi-chevron-right"></i>
                     </a>
                 </div>
                 <!-- Middle Content Box End -->

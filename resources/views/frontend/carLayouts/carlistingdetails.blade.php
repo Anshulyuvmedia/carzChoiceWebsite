@@ -772,16 +772,16 @@
                             </span>
                         </div>
 
-                        <!-- Collapsible content -->
-                        <div class="well alert-box-container margin-top-20 p-5">
+
+                        <div class="well alert-box-container pro-cons margin-top-20 p-5">
                             <h3>How is the Mahindra Scorpio N car?</h3>
                             <div class="row mt-3 px-3">
-                                <div class="col-md-5 shadow-sm  p-3 me-3 rounded-3" style="background-color: #f3f3f3">
-                                    <h5 class="fw-bold text-dark">
-                                        <i class="bi bi-hand-thumbs-up text-success fs-3"></i>
+                                <div class="col-md-5 shadow-sm  p-3 me-3 rounded-3 border">
+                                    <h5 class="fw-bold text-dark  fs-3">
+                                        <i class="bi bi-hand-thumbs-up text-success fs-1"></i>
                                         Pros
                                     </h5>
-                                    <ul class="text-dark">
+                                    <ul class="text-secondary">
                                         <li>Ride quality remains relatively flat overall.</li>
                                         <li>Impressive quick and smooth automatic gearbox.</li>
                                         <li>Tall upright seating, space-saving slim layered dashboard.</li>
@@ -789,12 +789,12 @@
                                         <li>Unbeatable road presence, ruggedness, and rich heritage.</li>
                                     </ul>
                                 </div>
-                                <div class="col-md-5 shadow-sm p-3 rounded-3" style="background-color: #f3f3f3">
-                                    <h5 class="fw-bold text-dark">
-                                        <i class="bi bi-hand-thumbs-down text-warning fs-3"></i>
+                                <div class="col-md-5 shadow-sm p-3 rounded-3 border">
+                                    <h5 class="fw-bold text-dark fs-3">
+                                        <i class="bi bi-hand-thumbs-down text-warning fs-1"></i>
                                         Cons
                                     </h5>
-                                    <ul class="text-dark">
+                                    <ul class="text-secondary">
                                         <li>Cramped third-row seating (good for children).</li>
                                         <li>Lacks some essential features.</li>
                                         <li>Top-end models are costly.</li>
@@ -802,6 +802,7 @@
                                 </div>
 
                             </div>
+
 
                             <h3 class="mt-5">Mahindra Scorpio N 2024 Verdict</h3>
                             <p>
@@ -921,9 +922,9 @@
                                 </h3>
                             </div>
                             <div class="col-xs-12 col-md-12 col-sm-12">
-                                <table class="table table-striped compare-table">
-                                    <tbody class="compare-body">
-                                        {{-- <tr class="compare-tablerow"></tr> --}}
+                                <table class="table table-striped compare-table table-borderless compare-body">
+                                    <tbody class="">
+                                        <tr class="compare-tablerow"></tr>
                                         <tr class="imagebox">
                                             <td class="stickydivision">
                                                 <div>
@@ -982,8 +983,8 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="stickydivision">
-                                                <div class="text-muted">
+                                            <td class="stickydivision" style="background-color: #F2F2F2">
+                                                <div class="text-muted fs-5">
                                                     On-Road Price, Navi Mumbai
                                                 </div>
                                             </td>
@@ -995,11 +996,52 @@
                                         <tr>
                                             <td class="stickydivision">
                                                 <div>
+                                                    Rs. 16.62 Lakh <span class="text-muted fs-5">onwards</span>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="stickydivision" style="background-color: #F2F2F2">
+                                                <div class="text-muted fs-5">
+                                                    User Rating
+                                                </div>
+
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="stickydivision">
+                                                <div>
+                                                    <i class="bi bi-star-fill text-success"></i>
+                                                    4.7
+                                                    <span class="text-muted fs-5">/5</span>
+                                                    <span class="text-muted fs-5">(699 Ratings)</span>
+                                                </div>
+
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="stickydivision" style="background-color: #F2F2F2">
+                                                <div class="text-muted fs-5">
                                                     Engine (cc)
                                                 </div>
 
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -1007,15 +1049,22 @@
                                                     1997 to 2184
                                                 </div>
                                             </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td class="stickydivision">
-                                                <div>
+                                            <td class="stickydivision" style="background-color: #F2F2F2">
+                                                <div class="text-muted fs-5">
                                                     Fuel Type
                                                 </div>
 
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -1024,16 +1073,24 @@
                                                 </div>
 
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
+                                    </tbody>
+                                    <tbody class=" collapse" id="comparetablecollapse">
                                         <tr>
-                                            <td class="stickydivision">
-                                                <div>
+                                            <td class="stickydivision" style="background-color: #F2F2F2">
+                                                <div class="text-muted fs-5">
                                                     Transmission
                                                 </div>
 
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -1042,16 +1099,22 @@
                                                 </div>
 
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td class="stickydivision">
-                                                <div>
+                                            <td class="stickydivision" style="background-color: #F2F2F2">
+                                                <div class="text-muted fs-5">
                                                     Safety
                                                 </div>
 
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td>sdf</td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -1060,34 +1123,44 @@
                                                 </div>
 
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td class="stickydivision">
-                                                <div>
+                                            <td class="stickydivision" style="background-color: #F2F2F2">
+                                                <div class="text-muted fs-5">
                                                     Power (bhp)
                                                 </div>
 
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td>sdf</td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
                                                 <div>
-                                                    130 to 200 
+                                                    130 to 200
                                                 </div>
-
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td class="stickydivision">
-                                                <div>
+                                            <td class="stickydivision" style="background-color: #F2F2F2">
+                                                <div class="text-muted fs-5">
                                                     Compare
                                                 </div>
-
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -1096,316 +1169,476 @@
                                                 </div>
 
                                             </td>
-
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
+
                                     </tbody>
+
                                 </table>
+                                <span class="pull-right">
+                                    <a data-toggle="collapse" data-target="#comparetablecollapse"
+                                        aria-expanded="false" aria-controls="comparetablecollapse"> View More</a>
+                                </span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Price Alert -->
+                    <div class="alert-box-container margin-top-30">
 
-
-
-
-
-                    <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
-                    <div class="grid-panel margin-top-30">
-                        <div class="heading-panel">
-                            <div class="col-xs-12 col-md-12 col-sm-12">
-                                <h3 class="main-title text-left">
-                                    Related Ads
-                                </h3>
-                            </div>
-                        </div>
-                        <!-- Ads Archive -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="posts-masonry">
-                                <div class="ads-list-archive">
-                                    <!-- Image Block -->
-                                    <div class="col-lg-5 col-md-5 col-sm-5 no-padding">
-                                        <!-- Img Block -->
-                                        <div class="ad-archive-img">
-                                            <a href="#">
-                                                <img class="img-responsive"
-                                                    src="{{ asset('assets/frontend-assets/images/posting/10.jpg') }}"
+                        <div class="panel-body recent-ads ">
+                            <!-- Ads -->
+                            <div class="recent-ads-list  ">
+                                <div class="recent-ads-container d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="recent-ads-list-image">
+                                            <a href="#" class="recent-ads-list-image-inner">
+                                                <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/download-2.svg"
                                                     alt="">
                                             </a>
-                                        </div>
-                                        <!-- Img Block -->
+                                        </span>
+                                        <span class="recent-ads-list-content">
+                                            <h3 class="recent-ads-list-title">
+                                                Attractive Interest Rates
+                                            </h3>
+                                        </span>
                                     </div>
-                                    <!-- Ads Listing -->
-                                    <div class="clearfix visible-xs-block"></div>
-                                    <!-- Content Block -->
-                                    <div class="col-lg-7 col-md-7 col-sm-7 no-padding">
-                                        <!-- Ad Desc -->
-                                        <div class="ad-archive-desc">
-                                            <!-- Price -->
-                                            <div class="ad-price">$387,000</div>
-                                            <!-- Title -->
-                                            <h3>2014 Honda Accord VTi-S Auto</h3>
-                                            <!-- Category -->
-                                            <div class="category-title"> <span><a href="#">Car &amp;
-                                                        Bikes</a></span> </div>
-                                            <!-- Short Description -->
-                                            <div class="clearfix visible-xs-block"></div>
-                                            <p class="hidden-sm">Lorem ipsum dolor sit amet, quem convenire interesset
-                                                ut vix, maiestatis inciderint no, eos in elit dicat.....</p>
-                                            <!-- Ad Features -->
-                                            <ul class="add_info">
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s1.jpg') }}"
-                                                            alt=""></a></li>
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s1.jpg') }}"
-                                                            alt=""></a></li>
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s1.jpg') }}"
-                                                            alt=""></a></li>
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s1.jpg') }}"
-                                                            alt=""></a></li>
-                                            </ul>
-                                            <!-- Ad History -->
-                                            <div class="clearfix archive-history">
-                                                <div class="last-updated">Last Updated: 1 day ago</div>
-                                                <div class="ad-meta"> <a class="btn save-ad"><i
-                                                            class="fa fa-heart-o"></i> Save Ad.</a> <a
-                                                        class="btn btn-success"><i class="fa fa-phone"></i> View
-                                                        Details.</a> </div>
-                                            </div>
-                                        </div>
-                                        <!-- Ad Desc End -->
+                                    <div class="col-md-3 col-xs-12 col-sm-12 ">
+                                        <a class="btn btn-theme btn-sm rounded-3 pull-left">Download Brochure</a>
                                     </div>
-                                    <!-- Content Block End -->
-                                </div>
-                                <div class="ads-list-archive">
-                                    <!-- Image Block -->
-                                    <div class="col-lg-5 col-md-5 col-sm-5 no-padding">
-                                        <!-- Img Block -->
-                                        <div class="ad-archive-img">
-                                            <a href="#">
-                                                <img class="img-responsive"
-                                                    src="{{ asset('assets/frontend-assets/images/posting/14.jpg') }}"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <!-- Img Block -->
-                                    </div>
-                                    <!-- Ads Listing -->
-                                    <div class="clearfix visible-xs-block"></div>
-                                    <!-- Content Block -->
-                                    <div class="col-lg-7 col-md-7 col-sm-7 no-padding">
-                                        <!-- Ad Desc -->
-                                        <div class="ad-archive-desc">
-                                            <!-- Price -->
-                                            <div class="ad-price">$190,000</div>
-                                            <!-- Title -->
-                                            <h3>Bugatti Veyron Super Sport </h3>
-                                            <!-- Category -->
-                                            <div class="category-title"> <span><a href="#">Car &amp;
-                                                        Bikes</a></span> </div>
-                                            <!-- Short Description -->
-                                            <div class="clearfix visible-xs-block"></div>
-                                            <p class="hidden-sm">Lorem ipsum dolor sit amet, quem convenire interesset
-                                                ut vix, maiestatis inciderint no, eos in elit dicat.....</p>
-                                            <!-- Ad Features -->
-                                            <ul class="add_info">
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s2.jpg') }}"
-                                                            alt=""></a></li>
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s1.jpg') }}"
-                                                            alt=""></a></li>
-                                            </ul>
-                                            <!-- Ad History -->
-                                            <div class="clearfix archive-history">
-                                                <div class="last-updated">Last Updated: 1 day ago</div>
-                                                <div class="ad-meta"> <a class="btn save-ad"><i
-                                                            class="fa fa-heart-o"></i> Save Ad.</a> <a
-                                                        class="btn btn-success"><i class="fa fa-phone"></i> View
-                                                        Details.</a> </div>
-                                            </div>
-                                        </div>
-                                        <!-- Ad Desc End -->
-                                    </div>
-                                    <!-- Content Block End -->
-                                </div>
-                                <div class="ads-list-archive">
-                                    <!-- Image Block -->
-                                    <div class="col-lg-5 col-md-5 col-sm-5 no-padding">
-                                        <!-- Img Block -->
-                                        <div class="ad-archive-img">
-                                            <a href="#">
-                                                <img class="img-responsive"
-                                                    src="{{ asset('assets/frontend-assets/images/posting/6.jpg') }}"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <!-- Img Block -->
-                                    </div>
-                                    <!-- Ads Listing -->
-                                    <div class="clearfix visible-xs-block"></div>
-                                    <!-- Content Block -->
-                                    <div class="col-lg-7 col-md-7 col-sm-7 no-padding">
-                                        <!-- Ad Desc -->
-                                        <div class="ad-archive-desc">
-                                            <!-- Price -->
-                                            <div class="ad-price">$130,000</div>
-                                            <!-- Title -->
-                                            <h3>2016 McLaren 570S Coupe </h3>
-                                            <!-- Category -->
-                                            <div class="category-title"> <span><a href="#">Car &amp;
-                                                        Bikes</a></span> </div>
-                                            <!-- Short Description -->
-                                            <div class="clearfix visible-xs-block"></div>
-                                            <p class="hidden-sm">Lorem ipsum dolor sit amet, quem convenire interesset
-                                                ut vix, maiestatis inciderint no, eos in elit dicat.....</p>
-                                            <!-- Ad Features -->
-                                            <ul class="add_info">
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s3.jpg') }}"
-                                                            alt=""></a></li>
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s2.jpg') }}"
-                                                            alt=""></a></li>
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s1.jpg') }}"
-                                                            alt=""></a></li>
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s4.jpg') }}"
-                                                            alt=""></a></li>
-                                            </ul>
-                                            <!-- Ad History -->
-                                            <div class="clearfix archive-history">
-                                                <div class="last-updated">Last Updated: 1 day ago</div>
-                                                <div class="ad-meta"> <a class="btn save-ad"><i
-                                                            class="fa fa-heart-o"></i> Save Ad.</a> <a
-                                                        class="btn btn-success"><i class="fa fa-phone"></i> View
-                                                        Details.</a> </div>
-                                            </div>
-                                        </div>
-                                        <!-- Ad Desc End -->
-                                    </div>
-                                    <!-- Content Block End -->
-                                </div>
-                                <div class="ads-list-archive">
-                                    <!-- Image Block -->
-                                    <div class="col-lg-5 col-md-5 col-sm-5 no-padding">
-                                        <!-- Img Block -->
-                                        <div class="ad-archive-img">
-                                            <a href="#">
-                                                <img class="img-responsive"
-                                                    src="{{ asset('assets/frontend-assets/images/posting/2.jpg') }}"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <!-- Img Block -->
-                                    </div>
-                                    <!-- Ads Listing -->
-                                    <div class="clearfix visible-xs-block"></div>
-                                    <!-- Content Block -->
-                                    <div class="col-lg-7 col-md-7 col-sm-7 no-padding">
-                                        <!-- Ad Desc -->
-                                        <div class="ad-archive-desc">
-                                            <!-- Price -->
-                                            <div class="ad-price">$77,000</div>
-                                            <!-- Title -->
-                                            <h3>Porsche 911 Carrera 2017 </h3>
-                                            <!-- Category -->
-                                            <div class="category-title"> <span><a href="#">Car &amp;
-                                                        Bikes</a></span> </div>
-                                            <!-- Short Description -->
-                                            <div class="clearfix visible-xs-block"></div>
-                                            <p class="hidden-sm">Lorem ipsum dolor sit amet, quem convenire interesset
-                                                ut vix, maiestatis inciderint no, eos in elit dicat.....</p>
-                                            <!-- Ad Features -->
-                                            <ul class="add_info">
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s1.jpg') }}"
-                                                            alt=""></a></li>
-                                            </ul>
-                                            <!-- Ad History -->
-                                            <div class="clearfix archive-history">
-                                                <div class="last-updated">Last Updated: 1 day ago</div>
-                                                <div class="ad-meta"> <a class="btn save-ad"><i
-                                                            class="fa fa-heart-o"></i> Save Ad.</a> <a
-                                                        class="btn btn-success"><i class="fa fa-phone"></i> View
-                                                        Details.</a> </div>
-                                            </div>
-                                        </div>
-                                        <!-- Ad Desc End -->
-                                    </div>
-                                    <!-- Content Block End -->
-                                </div>
-                                <div class="ads-list-archive">
-                                    <!-- Image Block -->
-                                    <div class="col-lg-5 col-md-5 col-sm-5 no-padding">
-                                        <!-- Img Block -->
-                                        <div class="ad-archive-img">
-                                            <a href="#">
-                                                <img class="img-responsive"
-                                                    src="{{ asset('assets/frontend-assets/images/posting/13.jpg') }}"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <!-- Img Block -->
-                                    </div>
-                                    <!-- Ads Listing -->
-                                    <div class="clearfix visible-xs-block"></div>
-                                    <!-- Content Block -->
-                                    <div class="col-lg-7 col-md-7 col-sm-7 no-padding">
-                                        <!-- Ad Desc -->
-                                        <div class="ad-archive-desc">
-                                            <!-- Price -->
-                                            <div class="ad-price">$45,000</div>
-                                            <!-- Title -->
-                                            <h3>2017 Audi A4 quattro Premium </h3>
-                                            <!-- Category -->
-                                            <div class="category-title"> <span><a href="#">Car &amp;
-                                                        Bikes</a></span> </div>
-                                            <!-- Short Description -->
-                                            <div class="clearfix visible-xs-block"></div>
-                                            <p class="hidden-sm">Lorem ipsum dolor sit amet, quem convenire interesset
-                                                ut vix, maiestatis inciderint no, eos in elit dicat.....</p>
-                                            <!-- Ad Features -->
-                                            <ul class="add_info">
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s4.jpg') }}"
-                                                            alt=""></a></li>
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s2.jpg') }}"
-                                                            alt=""></a></li>
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s1.jpg') }}"
-                                                            alt=""></a></li>
-                                                <li><a href="#"><img
-                                                            src="{{ asset('assets/frontend-assets/images/blog/s3.jpg') }}"
-                                                            alt=""></a></li>
-                                            </ul>
-                                            <!-- Ad History -->
-                                            <div class="clearfix archive-history">
-                                                <div class="last-updated">Last Updated: 1 day ago</div>
-                                                <div class="ad-meta"> <a class="btn save-ad"><i
-                                                            class="fa fa-heart-o"></i> Save Ad.</a> <a
-                                                        class="btn btn-success"><i class="fa fa-phone"></i> View
-                                                        Details.</a> </div>
-                                            </div>
-                                        </div>
-                                        <!-- Ad Desc End -->
-                                    </div>
-                                    <!-- Content Block End -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- =-=-=-=-=-=-= Latest Ads End =-=-=-=-=-=-= -->
+
+                    <div class="well alert-box-container margin-top-20">
+                        <h3>Mahindra Scorpio N Colours</h3>
+                        <p>
+                            Mahindra Scorpio N 2024 is available/sold in the following colours in India.
+                        </p>
+
+                        <div class="col-md-12 col-xs-12 col-sm-12 p-0">
+                            <div class="singlepage-detail">
+
+                                <div id="single-color-slider" class="flexslider p-2 mb-0 pb-0">
+                                    <ul class="slides">
+                                        <li>
+                                            <a href="images/single-page/1.jpg" data-fancybox="group">
+                                                <img alt=""
+                                                    src="https://imgd.aeplcdn.com/600x337/n/g16ns3a_1588129.jpg?q=80" />
+                                            </a>
+                                            <p class="flex-caption">Everest White</p>
+                                        </li>
+                                        <li><a href="images/single-page/2.jpg" data-fancybox="group"><img
+                                                    alt=""
+                                                    src="https://imgd.aeplcdn.com/600x337/n/bk5ns3a_1588133.jpg?q=80" /></a>
+                                            <p class="flex-caption">Dazzling Silver </p>
+
+                                        </li>
+                                        <li><a href="images/single-page/3.jpg" data-fancybox="group"><img
+                                                    alt=""
+                                                    src="https://imgd.aeplcdn.com/600x337/n/rdqns3a_1588131.jpg?q=80" /></a>
+                                            <p class="flex-caption">Red Rage </p>
+
+                                        </li>
+                                        <li><a href="images/single-page/4.jpg" data-fancybox="group"><img
+                                                    alt=""
+                                                    src="https://imgd.aeplcdn.com/600x337/n/ci5qs3a_1588253.jpg?q=80" /></a>
+                                            <p class="flex-caption">Deep Forest </p>
+                                        </li>
+                                        <li><a href="images/single-page/5.jpg" data-fancybox="group"><img
+                                                    alt=""
+                                                    src="https://imgd.aeplcdn.com/600x337/n/xiuns3a_1588137.jpg?q=80" /></a>
+                                            <p class="flex-caption">Napoli Black </p>
+                                        </li>
+                                        <li><a href="images/single-page/6.jpg" data-fancybox="group"><img
+                                                    alt=""
+                                                    src="https://imgd.aeplcdn.com/0x0/cw/static/oxygen/no-car-images.svg" /></a>
+                                            <p class="flex-caption">Midnight Black </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="carousel-color" class="flexslider p-2 mb-0">
+                                    <ul class="slides">
+                                        <li>
+                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                style="background-color: rgb(251, 251, 251)">
+
+                                            </div>
+
+                                        </li>
+                                        <li>
+                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                style="background-color: rgb(214, 213, 219)">
+
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-white"
+                                                style="background-color: rgb(173, 11, 11)">
+
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-white"
+                                                style="background-color: rgb(101, 114, 96)">
+
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-white"
+                                                style="background-color: rgb(57, 57, 57)">
+
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-white"
+                                                style="background-color: rgb(0, 2, 10)">
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="well alert-box-container margin-top-20">
+                        <h3>Mahindra Scorpio N Mileage</h3>
+                        <p>
+                            Mahindra Scorpio N mileage claimed by owners is 14.94 to 15.33 kmpl.
+                        </p>
+                        <div>
+                            <table class="table border rounded-3 table-hover">
+                                <thead>
+                                    <tr class="table-secondary">
+                                        <th scope="col">Powertrain</th>
+                                        <th scope="col">User Reported Mileage <i class="bi bi-info-circle"
+                                                data-bs-toggle="tooltip" data-bs-html="true"
+                                                data-bs-title="<span class='text-start'>Carz Choice collects mileage information from car owners to provide you with the actual mileage that you might get</span>">
+                                            </i>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Petrol - Manual <span class="text-muted fs-5">(1997 cc)</span></td>
+                                        <td>15 kmpl</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Diesel - Manual <span class="text-muted fs-5">(2184 cc)</span></td>
+                                        <td>15.33 kmpl</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Diesel - Automatic (TC) <span class="text-muted fs-5">(2184 cc) </span></td>
+                                        <td>14.94 kmpl</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <a href="#" class="">
+                                Check Scorpio N Mileage Details 
+                                <i class="bi bi-chevron-right"></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="well alert-box-container margin-top-20">
+                        <h3>Mahindra Scorpio N User Reviews</h3>
+                        
+                        <div class="border shadow-sm rounded-3 p-4 pb-5">
+                            <div class="border-bottom pb-3">                           
+                                <i class="bi bi-star-fill text-success"></i>
+                                <span class="text-dark fs-3 fw-bold">4.7</span>
+                                <span class="text-muted fs-5">/5</span>
+                                <span class="text-muted fs-5">(699 Ratings)</span> |
+                                <span class="text-muted fs-5">207 Reviews</span>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center border-bottom overflow-x-auto flex-nowrap" >
+                                <div class="p-3 col-5 col-md-auto col-md-2">
+                                    <div class="text-center text-dark">
+                                        4.7
+                                    </div>
+                                    <div class="text-center text-dark">
+                                        Exterior
+                                    </div>
+                                </div>  
+                                |
+                                <div class="p-3 col-5 col-md-auto">
+                                    <div class="text-center text-dark">
+                                        4.7
+                                    </div>
+                                    <div class="text-center text-dark">
+                                        Comfort
+                                    </div>
+                                </div>
+                                |  
+                                <div class="p-3 col-5 col-md-auto">
+                                    <div class="text-center text-dark">
+                                        4.7
+                                    </div>
+                                    <div class="text-center text-dark">
+                                        Performance
+                                    </div>
+                                </div>  
+                                |
+                                <div class="p-3 col-5 col-md-auto">
+                                    <div class="text-center text-dark">
+                                        4.7
+                                    </div>
+                                    <div class="text-center text-dark">
+                                        Fuel Economy
+                                    </div>
+                                </div>  
+                                |
+                                <div class="p-3 col-5 col-md-auto">
+                                    <div class="text-center text-dark">
+                                        4.7
+                                    </div>
+                                    <div class="text-center text-dark">
+                                        Value For Money
+                                    </div>
+                                </div>  
+
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                <div class="text-dark">
+                                    All Reviews (207)
+                                </div>
+                                <div style="width: 150px;">
+                                    <select class="form-select rounded-3" aria-label="Default select example">
+                                        <option selected>Select an option</option>
+                                        <option value="latest">Latest</option>
+                                        <option value="positive">Positive</option>
+                                        <option value="critical">Critical</option>
+                                      </select>
+                                </div>
+                            </div>
+
+                            <div class="p-2">
+                                <h3>Big Daddy scorpio n</h3>
+                                <div class="d-flex ">
+                                    <i class="bi bi-star-fill text-success"></i>
+                                    <i class="bi bi-star-fill text-success"></i>
+                                    <i class="bi bi-star-fill text-success"></i>
+                                    <i class="bi bi-star-fill text-success"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <div class="fs-5">
+                                    <span class="me-2">4 days ago</span>
+                                    |
+                                    <span class="ms-2">Adil khan</span>
+                                </div>
+                                <div>
+                                    <p>
+                                        All good buying experience to good, driving very comfortable looks great on roads and good performance in city and highways, after-sales good service and affordable maintenance cost good also, all good pros no cons
+                                    </p>
+                                </div>
+                                <div class="collapse" id="ratingList0">
+                                    <div class="text-dark fw-bold">
+                                        Rating parameters(out of 5)
+                                    </div>
+                                    <div class="my-3">
+                                        <div class="d-flex justify-content-between align-items-center border rounded-3 overflow-x-auto flex-nowrap" >
+                                            <div class="p-3 col-5 col-md-auto col-md-2">
+                                                <div class="text-center text-dark">
+                                                    5
+                                                </div>
+                                                <div class="text-center text-dark">
+                                                    Exterior
+                                                </div>
+                                            </div>  
+                                            |
+                                            <div class="p-3 col-5 col-md-auto">
+                                                <div class="text-center text-dark">
+                                                    5
+                                                </div>
+                                                <div class="text-center text-dark">
+                                                    Comfort
+                                                </div>
+                                            </div>
+                                            |  
+                                            <div class="p-3 col-5 col-md-auto">
+                                                <div class="text-center text-dark">
+                                                    5
+                                                </div>
+                                                <div class="text-center text-dark">
+                                                    Performance
+                                                </div>
+                                            </div>  
+                                            |
+                                            <div class="p-3 col-5 col-md-auto">
+                                                <div class="text-center text-dark">
+                                                    5
+                                                </div>
+                                                <div class="text-center text-dark">
+                                                    Fuel Economy
+                                                </div>
+                                            </div>  
+                                            |
+                                            <div class="p-3 col-5 col-md-auto">
+                                                <div class="text-center text-dark">
+                                                    5
+                                                </div>
+                                                <div class="text-center text-dark">
+                                                    Value For Money
+                                                </div>
+                                            </div>  
+            
+                                        </div>
+                                    </div>
+                                    <div class="text-dark fw-bold">
+                                        About the Reviewer
+                                    </div>
+                                    <div class="d-flex justify-content-between pb-3">
+                                        <div>
+                                            <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF o-cpNAVm" viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false" aria-hidden="true" role="img">
+                                                <path d="M8 15.88A7.88 7.88 0 1115.88 8 7.9 7.9 0 018 15.88zm0-15A7.12 7.12 0 1015.12 8 7.12 7.12 0 008 .88zm0 12.74a5.64 5.64 0 01-5.3-7.68.35.35 0 01.06-.19A5.68 5.68 0 018 2.32a5.93 5.93 0 01.84.06 5.67 5.67 0 013.62 2.17v.07a5.64 5.64 0 01-4.55 9zm-.37-.77a5.08 5.08 0 00.78 0v-2.27a1.18 1.18 0 01.76-1 1.16 1.16 0 01.8 0l2.11 1.09a5.24 5.24 0 00.34-.61c-.27-.12-.52-.21-.77-.3s-.71-.27-1.12-.47A1.44 1.44 0 019.88 8a1.18 1.18 0 01.37-.73l2.1-1.47a3.72 3.72 0 00-.27-.48L10 6.42a1.24 1.24 0 01-1.31-.18 1.22 1.22 0 01-.37-.74V3.09a5.21 5.21 0 00-.79 0V5.4a1.19 1.19 0 01-.77 1 1.09 1.09 0 01-.8 0L3.88 5.28a4.94 4.94 0 00-.32.55l.59.36a12.51 12.51 0 011.72 1.16 1.17 1.17 0 01.29 1.25 1.23 1.23 0 01-.54.59L3.53 10a5.45 5.45 0 00.29.53l1.06-.48 1.18-.53a1.13 1.13 0 011.59 1zm-3.35-1.67a4.93 4.93 0 002.57 1.56l.05-2.2a.36.36 0 00-.11-.22.42.42 0 00-.44-.07c-.35.17-.76.35-1.17.53zm5.23-.94H9.4a.44.44 0 00-.26.37v2.11a5 5 0 002.46-1.47l-1.95-1zm3.13-3.74l-1.92 1.34a.63.63 0 00-.1.23.68.68 0 00.25.55 9.7 9.7 0 001 .42c.25.1.5.19.77.31A4.85 4.85 0 0012.87 8a4.76 4.76 0 00-.23-1.5zm-9.36 0A5.15 5.15 0 003.07 8a4.71 4.71 0 00.2 1.36l2-.82a.46.46 0 00.15-.19.41.41 0 00-.11-.43 14.07 14.07 0 00-1.55-1.09zm5.86-3.29v2.26a.41.41 0 00.12.21.47.47 0 00.49.06l1.91-1a4.9 4.9 0 00-2.52-1.53zM4.35 4.67l2 1a.35.35 0 00.24 0 .41.41 0 00.26-.36V3.16a4.91 4.91 0 00-2.5 1.51zM8 9.41A1.44 1.44 0 119.41 8 1.44 1.44 0 018 9.41zm0-2.13a.69.69 0 10.66.72.69.69 0 00-.66-.72z">
+
+                                                </path>
+                                            </svg>
+                                                Purchase <span class="text-dark"> New </span>
+                                        </div>
+                                        <div>
+                                            <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF o-cpNAVm" viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false" aria-hidden="true" role="img">
+                                                <path d="M12.71 16H3.29a1.41 1.41 0 01-1.41-1.41V6.12a6.12 6.12 0 0112.24 0v8.47A1.41 1.41 0 0112.71 16zM8 .94a5.19 5.19 0 00-5.18 5.18v8.47a.47.47 0 00.47.47h9.42a.47.47 0 00.47-.47V6.12A5.19 5.19 0 008 .94zM5 7.43h.15a.33.33 0 00.29-.13L6.33 6a.39.39 0 01.16-.15h1L6.35 7.42l-.13.15-.14.09a.69.69 0 01.19.1.65.65 0 01.15.18L7.6 9.75h-1l-.06-.1-.06-.07-.93-1.36a.23.23 0 00-.12-.1H5v1.63h-.9v-3.9H5zm5.14 1l1.24-2.55h.94v3.9h-.8V7.15l-1 2a.29.29 0 01-.13.14 2.67 2.67 0 01-.49 0 .29.29 0 01-.13-.14l-1-2v2.6H8v-3.9h.88z">
+                                                    </path>
+                                            </svg>
+                                            Driven for <span class="text-dark"> Few thousand kilometers</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class=" pb-3">
+                                    <a class="" data-toggle="collapse" data-target="#ratingList0" aria-expanded="false"
+                                        aria-controls="ratingList0">
+                                        Read More
+                                    </a>
+                                </div>
+                                
+                            </div>
+                            <div class="p-2">
+                                <h3>Big Daddy scorpio n</h3>
+                                <div class="d-flex ">
+                                    <i class="bi bi-star-fill text-success"></i>
+                                    <i class="bi bi-star-fill text-success"></i>
+                                    <i class="bi bi-star-fill text-success"></i>
+                                    <i class="bi bi-star-fill text-success"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <div class="fs-5">
+                                    <span class="me-2">4 days ago</span>
+                                    |
+                                    <span class="ms-2">Adil khan</span>
+                                </div>
+                                <div>
+                                    <p>
+                                        All good buying experience to good, driving very comfortable looks great on roads and good performance in city and highways, after-sales good service and affordable maintenance cost good also, all good pros no cons
+                                    </p>
+                                </div>
+                                <div class="collapse" id="ratingList1">
+                                    <div class="text-dark fw-bold">
+                                        Rating parameters(out of 5)
+                                    </div>
+                                    <div class="my-3">
+                                        <div class="d-flex justify-content-between align-items-center border rounded-3 overflow-x-auto flex-nowrap" >
+                                            <div class="p-3 col-5 col-md-auto col-md-2">
+                                                <div class="text-center text-dark">
+                                                    5
+                                                </div>
+                                                <div class="text-center text-dark">
+                                                    Exterior
+                                                </div>
+                                            </div>  
+                                            |
+                                            <div class="p-3 col-5 col-md-auto">
+                                                <div class="text-center text-dark">
+                                                    5
+                                                </div>
+                                                <div class="text-center text-dark">
+                                                    Comfort
+                                                </div>
+                                            </div>
+                                            |  
+                                            <div class="p-3 col-5 col-md-auto">
+                                                <div class="text-center text-dark">
+                                                    5
+                                                </div>
+                                                <div class="text-center text-dark">
+                                                    Performance
+                                                </div>
+                                            </div>  
+                                            |
+                                            <div class="p-3 col-5 col-md-auto">
+                                                <div class="text-center text-dark">
+                                                    5
+                                                </div>
+                                                <div class="text-center text-dark">
+                                                    Fuel Economy
+                                                </div>
+                                            </div>  
+                                            |
+                                            <div class="p-3 col-5 col-md-auto">
+                                                <div class="text-center text-dark">
+                                                    5
+                                                </div>
+                                                <div class="text-center text-dark">
+                                                    Value For Money
+                                                </div>
+                                            </div>  
+            
+                                        </div>
+                                    </div>
+                                    <div class="text-dark fw-bold">
+                                        About the Reviewer
+                                    </div>
+                                    <div class="d-flex justify-content-between pb-3">
+                                        <div>
+                                            <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF o-cpNAVm" viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false" aria-hidden="true" role="img">
+                                                <path d="M8 15.88A7.88 7.88 0 1115.88 8 7.9 7.9 0 018 15.88zm0-15A7.12 7.12 0 1015.12 8 7.12 7.12 0 008 .88zm0 12.74a5.64 5.64 0 01-5.3-7.68.35.35 0 01.06-.19A5.68 5.68 0 018 2.32a5.93 5.93 0 01.84.06 5.67 5.67 0 013.62 2.17v.07a5.64 5.64 0 01-4.55 9zm-.37-.77a5.08 5.08 0 00.78 0v-2.27a1.18 1.18 0 01.76-1 1.16 1.16 0 01.8 0l2.11 1.09a5.24 5.24 0 00.34-.61c-.27-.12-.52-.21-.77-.3s-.71-.27-1.12-.47A1.44 1.44 0 019.88 8a1.18 1.18 0 01.37-.73l2.1-1.47a3.72 3.72 0 00-.27-.48L10 6.42a1.24 1.24 0 01-1.31-.18 1.22 1.22 0 01-.37-.74V3.09a5.21 5.21 0 00-.79 0V5.4a1.19 1.19 0 01-.77 1 1.09 1.09 0 01-.8 0L3.88 5.28a4.94 4.94 0 00-.32.55l.59.36a12.51 12.51 0 011.72 1.16 1.17 1.17 0 01.29 1.25 1.23 1.23 0 01-.54.59L3.53 10a5.45 5.45 0 00.29.53l1.06-.48 1.18-.53a1.13 1.13 0 011.59 1zm-3.35-1.67a4.93 4.93 0 002.57 1.56l.05-2.2a.36.36 0 00-.11-.22.42.42 0 00-.44-.07c-.35.17-.76.35-1.17.53zm5.23-.94H9.4a.44.44 0 00-.26.37v2.11a5 5 0 002.46-1.47l-1.95-1zm3.13-3.74l-1.92 1.34a.63.63 0 00-.1.23.68.68 0 00.25.55 9.7 9.7 0 001 .42c.25.1.5.19.77.31A4.85 4.85 0 0012.87 8a4.76 4.76 0 00-.23-1.5zm-9.36 0A5.15 5.15 0 003.07 8a4.71 4.71 0 00.2 1.36l2-.82a.46.46 0 00.15-.19.41.41 0 00-.11-.43 14.07 14.07 0 00-1.55-1.09zm5.86-3.29v2.26a.41.41 0 00.12.21.47.47 0 00.49.06l1.91-1a4.9 4.9 0 00-2.52-1.53zM4.35 4.67l2 1a.35.35 0 00.24 0 .41.41 0 00.26-.36V3.16a4.91 4.91 0 00-2.5 1.51zM8 9.41A1.44 1.44 0 119.41 8 1.44 1.44 0 018 9.41zm0-2.13a.69.69 0 10.66.72.69.69 0 00-.66-.72z">
+
+                                                </path>
+                                            </svg>
+                                                Purchase <span class="text-dark"> New </span>
+                                        </div>
+                                        <div>
+                                            <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF o-cpNAVm" viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false" aria-hidden="true" role="img">
+                                                <path d="M12.71 16H3.29a1.41 1.41 0 01-1.41-1.41V6.12a6.12 6.12 0 0112.24 0v8.47A1.41 1.41 0 0112.71 16zM8 .94a5.19 5.19 0 00-5.18 5.18v8.47a.47.47 0 00.47.47h9.42a.47.47 0 00.47-.47V6.12A5.19 5.19 0 008 .94zM5 7.43h.15a.33.33 0 00.29-.13L6.33 6a.39.39 0 01.16-.15h1L6.35 7.42l-.13.15-.14.09a.69.69 0 01.19.1.65.65 0 01.15.18L7.6 9.75h-1l-.06-.1-.06-.07-.93-1.36a.23.23 0 00-.12-.1H5v1.63h-.9v-3.9H5zm5.14 1l1.24-2.55h.94v3.9h-.8V7.15l-1 2a.29.29 0 01-.13.14 2.67 2.67 0 01-.49 0 .29.29 0 01-.13-.14l-1-2v2.6H8v-3.9h.88z">
+                                                    </path>
+                                            </svg>
+                                            Driven for <span class="text-dark"> Few thousand kilometers</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class=" pb-3">
+                                    <a class="" data-toggle="collapse" data-target="#ratingList1" aria-expanded="false"
+                                        aria-controls="ratingList1">
+                                        Read More
+                                    </a>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    
+
 
 
 
 
 
                 </div>
+                
 
 
 
@@ -1808,7 +2041,8 @@
         <p>Provide your contact details for Test Drive, EMI options, Offers & Exchange Benefits</p>
         <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Contact Number</label>
-            <input type="tel" class="form-control" id="formGroupExampleInput" placeholder="Enter Mobile Number">
+            <input type="tel" class="form-control" id="formGroupExampleInput"
+                placeholder="Enter Mobile Number">
             <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once</div>
             <button class="btn btn-theme btn-lg btn-block">Register</button>
         </div>
@@ -1858,7 +2092,8 @@
                 <form>
                     <div class="form-group col-md-12">
                         <label>Your Car</label>
-                        <input type="text" id="CarrName" class="form-control" placeholder="Enter Your Car Name">
+                        <input type="text" id="CarrName" class="form-control"
+                            placeholder="Enter Your Car Name">
                     </div>
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">

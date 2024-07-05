@@ -406,7 +406,7 @@
                 </div>
                 <!-- Middle Content Box End -->
                 <a href="#" class="  ">
-                    View All Hybrid Cars >
+                    View All Hybrid Cars <i class="bi bi-chevron-right"></i>
                 </a>
                 <!-- Row End -->
             </div>

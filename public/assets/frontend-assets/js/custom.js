@@ -420,6 +420,26 @@ Designed and Development by: ScriptsBundle
         sync: "#carousel",
 
     });
+
+    // color selector
+    $('#carousel-color').flexslider({
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        itemWidth: 45,
+        itemMargin: 5,
+        asNavFor: '#single-color-slider'
+    });
+
+    $('#single-color-slider').flexslider({
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        sync: "#carousel-color",
+
+    });
     /*==========  Price Range Slider  ==========*/
     $('#price-slider').noUiSlider({
         connect: true,

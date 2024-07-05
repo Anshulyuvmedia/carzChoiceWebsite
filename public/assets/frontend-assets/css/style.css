@@ -10848,7 +10848,7 @@ textarea {
     font-size: 14px;
 }
 
-.alert-box-container ul {
+.pro-cons ul {
     list-style-type: disc;
     padding-left: 20px;
 }
@@ -10874,14 +10874,15 @@ textarea {
 .compare-body {
     width: max-content;
     display: block;
-    overflow-x: scroll;
+    overflow-x: auto;
     width: 100%;
+    padding-bottom: 10px;
 }
 
 .compare-tablerow {
     display: table-row;
     border-top-right-radius: 5px;
-    box-shadow: rgb(210, 210, 213) 2px 0px 4px 0px;
+    box-shadow: rgb(210, 210, 213) 2px -3px 4px 0px;
     border-color: #00857a;
     border-left-style: solid;
     border-right-style: solid;
@@ -10889,19 +10890,22 @@ textarea {
     border-left-width: 1px;
     border-right-width: 1px;
     border-top-width: 1px;
-    background-color: #fff;
+    background-color: #fff !important;
     height: 8px;
-    left: 0px;
-    top: 4px;
+    left: 15.5px;
+    top: -6px;
     position: absolute;
     vertical-align: middle;
+    z-index: 99;
 }
 @media screen and (min-width: 800px) {
     .compare-tablerow {
         border-top-left-radius: 5px;
-        max-width: 191px;
-        min-width: 191px;
-        width: 191px;
+        max-width: 190px;
+        min-width: 190px;
+        width: 190px;
+        
+
     }
 }
 
@@ -10913,16 +10917,11 @@ textarea {
 .comparedivision {
     clip-path: inset(0px -15px 0px 0px);
     border-right-color: rgb(0, 133, 122);
-    box-shadow: rgb(210, 210, 213) 2px 2px 4px 0px;
+    /* box-shadow: rgb(210, 210, 213) 2px 2px 4px 0px; */
     position: sticky;
     max-width: 190px;
     min-width: 190px;
     width: 190px;
-    border-color: #e1e1e1;
-    border-bottom-style: solid;
-    border-right-style: solid;
-    border-bottom-width: 1px;
-    border-right-width: 1px;
     background-color: #fff;
     color: #333;
     text-align: center;
@@ -10933,18 +10932,15 @@ textarea {
     vertical-align: middle;
 }
 .stickydivision {
-    clip-path: inset(0px -15px 0px 0px);
-    border-right-color: rgb(0, 133, 122);
-    box-shadow: rgb(210, 210, 213) 2px 2px 4px 0px;
+    clip-path: inset(-1px -15px -1px 0px);
+    box-shadow: rgb(210, 210, 213) 2px 0px 5px 2px !important;
+    position: -webkit-sticky;
     position: sticky;
     max-width: 190px;
     min-width: 190px;
     width: 190px;
-    border-color: #e1e1e1;
-    border-bottom-style: solid;
-    border-right-style: solid;
-    border-bottom-width: 1px;
-    border-right-width: 1px;
+    border: 1px solid rgb(0, 133, 122);
+    border-block: 0px;
     background-color: #fff;
     color: #333;
     text-align: start;
@@ -10959,4 +10955,83 @@ textarea {
     .comparedivision {
         font-size: 15px;
     }
+}
+
+.flex-caption {
+    /* width: 96%; */
+    padding: 2%;
+    left: 0;
+    bottom: 0;
+    background: rgba(221, 221, 221, 0.5);
+    color: #000;
+    /* text-shadow: 0 -1px 0 rgb(0, 0, 0); */
+    font-size: 14px;
+    line-height: 18px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .progress {
+    width: 200px;
+    height: 200px;
+    font-size: 30px;
+    color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: #07070c;
+    text-align: center;
+    line-height: 200px;
+    margin: 20px
+}
+
+.progress::after {content: "%";}
+
+.progress .title {position: relative;z-index: 100;}
+
+.progress .overlay {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #07070c
+}
+
+.progress .left, .progress .right {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 10px solid #222235;
+    border-radius: 100px 0px 0px 100px;
+    border-right: 0;
+    transform-origin: right;
+}
+
+.progress .left {animation: load1 1s linear forwards;}
+
+.progress:nth-of-type(2) .right, .progress:nth-of-type(3) .right {animation: load2 .5s linear forwards 1s;}
+
+.progress:last-of-type .right, .progress:first-of-type .right {animation: load3 .8s linear forwards 1s;}
+
+@keyframes load1 {
+    0% {transform: rotate(0deg);}
+
+    100% {transform: rotate(180deg);}
+}
+
+@keyframes load2 {
+    0% {z-index: 100;transform: rotate(180deg);}
+
+    100% {z-index: 100;transform: rotate(270deg);}
+}
+
+@keyframes load3 {
+    0% {z-index: 100;transform: rotate(180deg);}
+
+    100% {
+        z-index: 100;transform: rotate(315deg);}
 }
