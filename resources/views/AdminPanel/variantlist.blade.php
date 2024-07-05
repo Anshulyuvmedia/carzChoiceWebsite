@@ -88,7 +88,8 @@
                                                     <i class="uil uil-ellipsis-h"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <a href="{{ route('addfeatures', ['id' => $row->id]) }}" class="text-success dropdown-item">Add Features</a>
+                                                    <a href="{{ route('addfeatures', ['id' => $row->id]) }}" class="dropdown-item">Add Features</a>
+                                                    <a href="{{ route('addspecifications', ['id' => $row->id]) }}" class=" dropdown-item">Add Specifications</a>
                                                     <a href="{{ route('editvariant', ['id' => $row->id]) }}"
                                                     class="text-primary dropdown-item">Edit</a>
                                                     <a href="#" onclick="confirmDelete('{{ $row->id }}')"

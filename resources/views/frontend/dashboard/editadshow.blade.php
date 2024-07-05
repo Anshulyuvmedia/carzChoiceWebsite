@@ -380,8 +380,14 @@
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Color</label>
-                                                <input type="text" name="color" placeholder="enter color"
-                                                    required value="{{ $adshowdata->color }}" />
+                                                <select class="form-control" name="color" required>
+                                                    <option value="">--select color--</option>
+                                                    @foreach ($color as $data)
+                                                        <option {{ $data->label == $adshowdata->color ? 'selected' : '' }} value="{{ $data->label }}">
+                                                            {{ $data->label }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Insurance</label>
@@ -479,7 +485,7 @@
                                         </div>
                                     </div>
                                     <input type="submit" name="next" class="next action-button"
-                                        value="Submit" />
+                                        value="Update" />
                                     <input type="button" name="previous" class="previous action-button-previous"
                                         value="Previous" />
                                 </fieldset>

@@ -316,7 +316,6 @@ class FrontendStore extends Controller
                 'insurance' => 'required',
                 'registertype' => 'required',
                 'lastupdated' => 'required',
-                'images' => 'required',
             ]);
 
             $positions = $rq->input('positions');
@@ -376,9 +375,9 @@ class FrontendStore extends Controller
             ]);
 
             Log::info('Ad Post Updated Successfully: ', ['adpost' => $data]);
-            return back()->with('success', 'Ad Post Updated..!!!!');
+            return back()->with('success', 'Ad Post Updated..!!!!')->with($rq->postid);
         } catch (Exception $e) {
-            return redirect()->route('editadshow')->with('error', $e->getMessage());
+            return redirect()->route('editadshow',['id' => $rq->postid])->with('error', $e->getMessage());
         }
     }
 

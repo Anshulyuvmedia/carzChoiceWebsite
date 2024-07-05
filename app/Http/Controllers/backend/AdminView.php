@@ -104,8 +104,13 @@ class AdminView extends Controller
         return view('AdminPanel.userslist',compact('registeredusers'));
     }
 
-    public function addfeatures(){
+    public function addfeatures($id){
         $features = FormAttribute::where('cartype','=','features')->get();
-        return view('AdminPanel.addfeatures',compact('features'));
+        return view('AdminPanel.addfeatures',compact('features'))->with('vehicleid', $id);
+    }
+
+    public function addspecifications($id){
+        $specifications = FormAttribute::where('cartype','=','specifications')->get();
+        return view('AdminPanel.addspecifications',compact('specifications'))->with('vehicleid', $id);
     }
 }

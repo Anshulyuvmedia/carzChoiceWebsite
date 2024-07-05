@@ -158,9 +158,10 @@ class frontViewController extends Controller
 
     public function addadshow(){
         if(Auth::guard('registeruser')->check()){
+            $color = Master::where('type','=','Color')->get();
             $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
             $carlistdata = CarList::get();
-            return view('frontend.dashboard.addadshow',compact('statedata','carlistdata'));
+            return view('frontend.dashboard.addadshow',compact('statedata','carlistdata','color'));
         }else {
             return view('frontend.loginuser');
         }
@@ -170,9 +171,10 @@ class frontViewController extends Controller
         if (Auth::guard('registeruser')->check()) {
             $adshowdata = AdPost::find($id);
             $brandname = Master::where('type','=','Brand')->get();
+            $color = Master::where('type','=','Color')->get();
             $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
             $variantdata = AddVariant::get();
-            return view('frontend.dashboard.editadshow',compact('adshowdata','statedata','brandname'));
+            return view('frontend.dashboard.editadshow',compact('adshowdata','statedata','brandname','color'));
         }else {
             return view('frontend.loginuser');
         }

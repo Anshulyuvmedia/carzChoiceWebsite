@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddFeature;
+use App\Models\AddSpecification;
 use App\Models\Blog;
 use App\Models\CarList;
 use App\Models\CompanyProfile;
@@ -634,5 +636,44 @@ class Store extends Controller
         $data = RegisterUser::find($id);
         $data->delete();
         return back()->with('success', "Deleted....!!!");
+    }
+
+    public function storefeatures(Request $req)
+    {
+        $formlabels = $req->input('formlabels');
+        $featurenames = $req->input('featurenames');
+        $values = $req->input('values');
+
+        foreach ($formlabels as $labels) {
+            $allvalues[] = [
+                'type' => $labels,
+                'label' => $featurenames[$labels],
+                'value' =>  $values[$labels],
+            ];
+        }
+        AddFeature::create([
+            'vehicleid' => $req->vehicleid,
+            'features' => json_encode($allvalues),
+        ]);
+        return back()->with('success', 'Features saved successfully.');
+    }
+
+    public function storespecifications(Request $req){
+        $formlabels = $req->input('formlabels');
+        $Specificationname = $req->input('featurenames');
+        $values = $req->input('values');
+
+        foreach ($formlabels as $labels) {
+            $allspecifications[] = [
+                'type' => $labels,
+                'label' => $Specificationname[$labels],
+                'value' =>  $values[$labels],
+            ];
+        }
+        AddSpecification::create([
+            'vehicleid' => $req->vehicleid,
+            'specifications' => json_encode($allspecifications),
+        ]);
+        return back()->with('success', 'Specifications saved successfully.');
     }
 }

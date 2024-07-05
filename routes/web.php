@@ -106,7 +106,8 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('variantslist', 'variantslist')->name('variantslist');
     Route::get('editvariant/{id}', 'editvariant')->name('editvariant');
     Route::get('userslist', 'userslist')->name('userslist');
-    Route::get('addfeatures', 'addfeatures')->name('addfeatures');
+    Route::get('addfeatures/{id}', 'addfeatures')->name('addfeatures');
+    Route::get('addspecifications/{id}', 'addspecifications')->name('addspecifications');
 
 });
 
@@ -148,7 +149,8 @@ Route::controller(Store::class)->group(function() {
     Route::post('updatevariants', 'updatevariants')->name('updatevariants');
     Route::post('/updateloginstatus', 'updateloginstatus')->name('updateloginstatus');
     Route::get('deleteuser/{id}', 'deleteuser')->name('deleteuser');
-
+    Route::post('storefeatures', 'storefeatures')->name('storefeatures');
+    Route::post('storespecifications', 'storespecifications')->name('storespecifications');
 });
 
 

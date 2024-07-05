@@ -369,8 +369,15 @@
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Color</label>
-                                                <input type="text" name="color" placeholder="enter color"
-                                                    required />
+                                                <select class="form-control"
+                                                    name="color" required>
+                                                    <option value="">--select color --</option>
+                                                    @foreach ($color as $colors)
+                                                        <option value="{{ $colors->label }}">
+                                                            {{ $colors->label }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Insurance</label>
