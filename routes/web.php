@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\AdminView;
 use App\Http\Controllers\backend\Authentication;
 use App\Http\Controllers\backend\Store;
+use App\Http\Controllers\frontend\FrontendStore;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\frontViewController;
 
@@ -27,8 +28,8 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('reviewsdetails', 'reviewsdetails');
     Route::get('compare', 'compare');
     Route::get('compareresult', 'compareresult');
-    Route::get('loginuser', 'loginuser');
-    Route::get('registration', 'registration');
+    Route::get('loginuser', 'loginuser')->name('loginuser');
+    Route::get('registration', 'registration')->name('registration');
     Route::get('postyourad', 'postyourad');
     Route::get('new-cars', 'newcars');
     Route::get('upcoming-car', 'upcomingcar');
@@ -47,12 +48,14 @@ Route::controller(frontViewController::class)->group(function () {
 
 
     //when user logged in
-    Route::get('userprofile', 'userprofile');
+    Route::get('userprofile', 'userprofile')->name('userprofile');
     Route::get('userarchive', 'userarchive');
-    Route::get('useractiveads', 'useractiveads');
+    Route::get('useractiveads', 'useractiveads')->name('useractiveads');
     Route::get('userfavourites', 'userfavourites');
     Route::get('usermessages', 'usermessages');
     Route::get('userdeactive', 'userdeactive');
+    Route::get('addadshow', 'addadshow')->name('addadshow');
+    Route::get('editadshow/{id}', 'editadshow')->name('editadshow');
 
 
     Route::get('pricing', 'pricing');
@@ -63,6 +66,25 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('contactus', 'contactus');
     Route::get('services', 'services');
 
+});
+
+//Frontend Functionality Routes
+Route::controller(FrontendStore::class)->group(function() {
+    Route::post('register_customer', 'register_customer')->name('registercustomer');
+    Route::post('verifyregisterotp', 'verifyregisterotp')->name('verifyregisterotp');
+    Route::post('loginuser', 'loginuser')->name('loginuser');
+    Route::get('logoutuserfront', 'logoutuserfront')->name('logoutuserfront');
+    Route::get('showstatepincode/{selecteddistrict}', 'showstatepincode')->name('showstatepincode');
+    Route::post('changeuserpassword', 'changeuserpassword')->name('changeuserpassword');
+    Route::post('resetpassworduser', 'resetpassworduser')->name('resetpassworduser');
+    Route::post('verifyotp', 'verifyotp')->name('verifyotp');
+    Route::post('updatePassword', 'updatePassword')->name('updatePassword');
+    Route::post('edituserprofile', 'edituserprofile')->name('edituserprofile');
+    Route::get('filterbrandname/{selectedbrandname}', 'filterbrandname')->name('filterbrandname');
+    Route::get('filtermodalname/{selectedcar}', 'filtermodalname')->name('filtermodalname');
+    Route::post('insertadpost', 'insertadpost')->name('insertadpost');
+    Route::get('deleteadpost/{id}', 'deleteadpost')->name('deleteadpost');
+    Route::post('updateadpost', 'updateadpost')->name('updateadpost');
 });
 
 
@@ -88,6 +110,9 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('addvariant', 'addvariant')->name('addvariant');
     Route::get('variantslist', 'variantslist')->name('variantslist');
     Route::get('editvariant/{id}', 'editvariant')->name('editvariant');
+    Route::get('userslist', 'userslist')->name('userslist');
+    Route::get('addfeatures/{id}', 'addfeatures')->name('addfeatures');
+    Route::get('addspecifications/{id}', 'addspecifications')->name('addspecifications');
 
 });
 
@@ -127,6 +152,15 @@ Route::controller(Store::class)->group(function() {
     Route::post('insertvariants', 'insertvariants')->name('insertvariants');
     Route::get('deletevariants/{id}', 'deletevariants')->name('deletevariants');
     Route::post('updatevariants', 'updatevariants')->name('updatevariants');
+    Route::post('/updateloginstatus', 'updateloginstatus')->name('updateloginstatus');
+    Route::get('deleteuser/{id}', 'deleteuser')->name('deleteuser');
+    Route::post('storefeatures', 'storefeatures')->name('storefeatures');
+    Route::post('storespecifications', 'storespecifications')->name('storespecifications');
+    Route::post('/updatefeatures', 'updatefeatures')->name('updatefeatures');
+    Route::post('/updatespecs', 'updatespecs')->name('updatespecs');
 
 });
+
+
+
 

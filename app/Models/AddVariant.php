@@ -9,6 +9,7 @@ class AddVariant extends Model
 {
     protected $fillable = [
         'carname',
+        'brandname',
         'carmodalname',
         'availabelstatus',
         'price',

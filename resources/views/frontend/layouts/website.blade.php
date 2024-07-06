@@ -77,7 +77,7 @@
                         <div class="header-top-left col-md-6 col-sm-6 col-xs-12 hidden-xs">
                             <ul class="listnone">
                                 <li><a href="/about"><i class="fa fa-heart-o" aria-hidden="true"></i> About</a></li>
-                                
+
                             </ul>
                         </div>
                         <!-- Header Top Right Social -->
@@ -136,9 +136,9 @@
                                     <li>
                                         <a href="/">Home</a>
                                     </li>
-                                    {{-- New Cars  --}}
+
                                     <li>
-                                        <a href="javascript:void(0)">New Cars 
+                                        <a href="javascript:void(0)">New Cars
                                             <i class="fa fa-angle-down fa-indicator"></i>
                                         </a>
                                         <div class="drop-down grid-col-12">
@@ -160,8 +160,8 @@
                                                     <ul>
                                                         <li><a href="/car-view-images">Car different Views </a></li>
                                                         <li><a href="/car-images">Car Images </a></li>
-                                                        <li><a href="/dealer-showroom">Find Dealer </a></li>
-                                                        <li><a href="/dealer-location">Find Dealer </a></li>
+                                                        <li><a href="/dealer-showroom">Find Dealer Showroom</a></li>
+                                                        <li><a href="/dealer-location">Find Dealer By Location</a></li>
                                                         
                                                     </ul>
                                                 </div>
@@ -395,7 +395,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    
+
                                     <li>
                                         <a href="javascript:void(0)">News <i
                                                 class="fa fa-angle-down fa-indicator"></i></a>
@@ -448,6 +448,8 @@
 
     <div class="main-content-area clearfix">
         @yield('content')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+        @stack('scripts')
     </div>
 
 
@@ -464,7 +466,7 @@
                                 <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo" width="120">
 
                              </div>
-                            
+
                             <ul class="apps-donwloads">
                                 <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}"
                                         alt=""></li>

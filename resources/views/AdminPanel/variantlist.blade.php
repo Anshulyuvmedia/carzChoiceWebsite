@@ -28,7 +28,8 @@
                             <thead>
                                 <tr>
                                     <th>S.No</th>
-                                    <th>Car Name</th>
+                                    <th>Brand</th>
+                                    <th>Car</th>
                                     <th>Modal</th>
                                     <th>Status</th>
                                     <th>Price</th>
@@ -46,13 +47,15 @@
                                 @foreach ($variantlist as $index => $row)
                                 <tr>
                                     <td>{{$index + 1}}</td>
+                                    <td>{{$row->brandname}}</td>
                                     <td>{{$row->carname}}</td>
                                     <td>{{$row->carmodalname}}</td>
                                     <td>{{$row->availabelstatus}}</td>
                                     <td>{{$row->price}}</td>
                                     <td>{{$row->pricetype}}</td>
                                     <td>
-                                        <table class="table table-bordered">
+                                        <button  class="btn btn-transparent text-info" onclick="toggleTable(this)">View Mileages</button>
+                                        <table class="table table-bordered" style="display: none;">
                                             <thead>
                                                 <tr>
                                                     <th>Fuel Type</th>
@@ -79,7 +82,28 @@
                                     <td>{{$row->seatingcapacity}}</td>
                                     <td>{{$row->userreportedmilage}}</td>
                                     <td>
+                                        <div class="flex-shrink-0">
+                                            <div class="dropdown chat-noti-dropdown">
+                                                <button class="btn dropdown-toggle py-0" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="uil uil-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a href="{{ route('addfeatures', ['id' => $row->id]) }}" class="dropdown-item">Add Features</a>
+                                                    <a href="{{ route('addspecifications', ['id' => $row->id]) }}" class=" dropdown-item">Add Specifications</a>
+                                                    <a href="{{ route('editvariant', ['id' => $row->id]) }}"
+                                                    class="text-primary dropdown-item">Edit</a>
+                                                    <a href="#" onclick="confirmDelete('{{ $row->id }}')"
+                                                    class="text-danger dropdown-item">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    {{-- <td>
                                         <ul class="list-inline mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="#" data-bs-toggle="Add Features"
+                                                data-bs-placement="top" data-bs-title="Add Features" class="text-success"><i class="uil-plus font-size-18"></i></a>
+                                            </li>
                                             <li class="list-inline-item">
                                                 <a href="{{ route('editvariant', ['id' => $row->id]) }}"
                                                     class="px-2 text-primary"><i
@@ -87,11 +111,11 @@
                                             </li>
                                             <li class="list-inline-item">
                                                 <a href="#" onclick="confirmDelete('{{ $row->id }}')"
-                                                    class="px-2 text-danger"><i
+                                                    class=" text-danger"><i
                                                         class="uil uil-trash-alt font-size-18"></i></a>
                                             </li>
                                         </ul>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -135,5 +159,14 @@
             }
         });
     }
+
+    function toggleTable(button) {
+    const table = button.nextElementSibling;
+    if (table.style.display === "none") {
+        table.style.display = "table";
+    } else {
+        table.style.display = "none";
+    }
+}
 </script>
 @endpush

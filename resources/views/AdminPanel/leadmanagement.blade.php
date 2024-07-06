@@ -3,6 +3,15 @@
 @section('main-section')
 @section('title', 'Lead Management')
 <div class="page-content">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css">
+    <style>
+        table.dataTable th.dt-type-numeric,
+        table.dataTable th.dt-type-date,
+        table.dataTable td.dt-type-numeric,
+        table.dataTable td.dt-type-date {
+            text-align: left !important;
+        }
+    </style>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -133,7 +142,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table id="datatable-buttons" class="table   table-bordered dt-responsive nowrap"
+                        <table id="example" class="table   table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
@@ -541,11 +550,18 @@
 <script>
     $(document).ready(function() {
 
+        var datatableleads = $('#example').DataTable({
+            layout: {
+                topStart: {
+                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                }
+            }
+        });
+
         $('.datebtn').on('click', function() {
             var datefrom = $('#startdate').val();
             var dateto = $('#enddate').val();
             console.log(datefrom, dateto);
-            var dataTableCustomer = $('#datatable-buttons').DataTable();
             $.ajax({
                 url: '/datefilterleads',
                 method: 'POST',
@@ -556,7 +572,7 @@
                 },
                 success: function(response) {
                     console.log(response);
-                    dataTableCustomer.clear().destroy();
+                    datatableleads.clear().destroy();
                     $('#table-body').empty();
                     response.forEach(function(row) {
                         var formattedDate = new Date(row.created_at)
@@ -617,16 +633,16 @@
                         $('#table-body').append(newRow);
                         $(`#inputGroupSelect01_${row.id}`).val(row.leadstatus);
                     });
-                    dataTableCustomer = $("#datatable-buttons")
-                        .DataTable({
-                            lengthChange: !1,
-                            buttons: ["copy", "excel", "pdf", "colvis"],
-                        })
-                        .buttons()
-                        .container()
-                        .appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)"),
-                        $(".dataTables_length select").addClass(
-                            "form-select form-select-sm");
+                    // Reinitialize DataTable
+                    datatableleads = $('#example').DataTable({
+                        layout: {
+                            topStart: {
+                                buttons: ['copy', 'csv', 'excel', 'pdf',
+                                    'print'
+                                ]
+                            }
+                        }
+                    });
                 }
             });
         });
@@ -639,37 +655,38 @@
             var selectedStatus = $(this).val();
             leadid = $(this).closest('tr').find('.leadid').val();
             swal({
-                title: "Update Lead Status",
-                text: "Are you sure you want to update the lead status?",
-                icon: "info",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willUpdate) => {
-                if (willUpdate) {
-                    $.ajax({
-                        url: '/updateleadstatus',
-                        method: 'POST',
-                        data: {
-                            _token: '{{ csrf_token() }}',
-                            status: selectedStatus,
-                            record_id: leadid
-                        },
-                        success: function(response) {
-                            if (response.success) {
-                                swal("Success", "Lead status updated successfully.", "success");
-                            } else {
-                                swal("Error", "Failed to update Lead status.", "error");
+                    title: "Update Lead Status",
+                    text: "Are you sure you want to update the lead status?",
+                    icon: "info",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willUpdate) => {
+                    if (willUpdate) {
+                        $.ajax({
+                            url: '/updateleadstatus',
+                            method: 'POST',
+                            data: {
+                                _token: '{{ csrf_token() }}',
+                                status: selectedStatus,
+                                record_id: leadid
+                            },
+                            success: function(response) {
+                                if (response.success) {
+                                    swal("Success", "Lead status updated successfully.",
+                                        "success");
+                                } else {
+                                    swal("Error", "Failed to update Lead status.",
+                                        "error");
+                                }
+                            },
+                            error: function() {
+                                swal("Error", "An error occurred.", "error");
                             }
-                        },
-                        error: function() {
-                            swal("Error", "An error occurred.", "error");
-                        }
-                    });
-                }
-            });
+                        });
+                    }
+                });
         });
     });
 </script>
-
 @endpush

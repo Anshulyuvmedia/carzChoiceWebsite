@@ -32,87 +32,74 @@
                                         <option value="">--select car--</option>
                                         @foreach ($carlistdata as $row)
                                         <option value="{{ $row->carname }}" {{ $row->carname == $variantdata->carname ?
-                                            'selected' : '' }}>{{ $row->carname }}</option>
+                                            'selected' : '' }}>
+                                            {{ $row->carname }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Car Modal Name</label>
                                     <input class="form-control mb-3" placeholder="enter modal name" name="carmodalname"
-                                        type="text" value="{{$variantdata->carmodalname}}" id="example-text-input"
-                                    >
-                                        <input type="hidden" name="variantid" value="{{$variantdata->id}}">
+                                        type="text" value="{{ $variantdata->carmodalname }}" id="example-text-input">
+                                    <input type="hidden" name="variantid" value="{{ $variantdata->id }}">
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Select Status</label>
-                                    <select name="availabelstatus" class="form-select mb-3" id="cartypeid" >
+                                    <select name="availabelstatus" class="form-select mb-3" id="cartypeid">
                                         <option value="">--select status--</option>
                                         <option value="Available" {{ $variantdata->availabelstatus == 'Available' ?
-                                            'selected' : '' }}>Available</option>
-                                        <option value="Not Available" {{ $variantdata->availabelstatus == 'Not
-                                            Available' ? 'selected' : '' }}>Not Available</option>
+                                            'selected' : '' }}>
+                                            Available</option>
+                                        <option value="Not Available" {{ $variantdata->availabelstatus ==
+                                            'Not
+                                            Available'
+                                            ? 'selected'
+                                            : '' }}>
+                                            Not Available</option>
                                         <option value=" Coming soon" {{ $variantdata->availabelstatus == ' Coming soon'
-                                            ? 'selected' : '' }}>Coming soon</option>
+                                            ? 'selected' : '' }}>
+                                            Coming soon</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Price</label>
                                     <input class="form-control mb-3" placeholder="enter car price" name="price"
-                                        type="text" value="{{$variantdata->price}}" id="example-text-input">
+                                        type="text" value="{{ $variantdata->price }}" id="example-text-input">
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Price Type</label>
                                     <select name="pricetype" class="form-select mb-3" id="cartypeid">
-                                        <option value="" {{ $variantdata->pricetype == '' ? 'selected' : '' }}>--select
+                                        <option value="" {{ $variantdata->pricetype == '' ? 'selected' : '' }}>
+                                            --select
                                             price type--</option>
                                         <option value="Lakh" {{ $variantdata->pricetype == 'Lakh' ? 'selected' : ''
                                             }}>Lakh</option>
-                                        <option value="Cr" {{ $variantdata->pricetype == 'Cr' ? 'selected' : '' }}>Cr
+                                        <option value="Cr" {{ $variantdata->pricetype == 'Cr' ? 'selected' : '' }}>
+                                            Cr
                                         </option>
                                     </select>
                                 </div>
-
-                                    <label for="example-text-input" class="">Mileage</label>
-                                    @php
-                                    $mileages = json_decode($variantdata
-                                    ->mileage, true);
-                                    @endphp
-                                    @foreach($mileages as $fuelType => $mileage)
-                                    <div class="col-lg-4">
-                                        <label for="mileage-{{$fuelType}}" class="mt-3">Mileage for {{$fuelType}}</label>
-                                        <input class="form-control ms-2" value="{{$mileage}}" placeholder="enter mileage for {{$fuelType}}" name="mileage[{{$fuelType}}]" type="text" id="mileage-{{$fuelType}}" required>
-                                    </div>
-                                    @endforeach
-
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Engine</label>
                                     <input class="form-control mb-3" placeholder="enter engine" name="engine"
-                                        type="text" value="{{$variantdata->engine}}" id="example-text-input">
-                                </div>
-                                <div class="col-lg-3">
-                                    @php
-                                        $selectedFuelTypes = json_decode($variantdata->fueltype, true) ?? [];
-                                    @endphp
-                                    <label class="form-label">Fuel Type</label>
-                                    <label class="form-label">Fuel Type</label>
-                                    <select name="fueltype[]" class="select2 form-control select2-multiple mb-3" multiple="multiple"
-                                        data-placeholder="Choose fuel type ...">
-                                        <option value="Hybrid" {{ in_array('Hybrid', $selectedFuelTypes) ? 'selected' : '' }}>Hybrid</option>
-                                        <option value="Petrol" {{ in_array('Petrol', $selectedFuelTypes) ? 'selected' : '' }}>Petrol</option>
-                                        <option value="Diesel" {{ in_array('Diesel', $selectedFuelTypes) ? 'selected' : '' }}>Diesel</option>
-                                        <option value="CNG" {{ in_array('CNG', $selectedFuelTypes) ? 'selected' : '' }}>CNG</option>
-                                        <option value="Electric" {{ in_array('Electric', $selectedFuelTypes) ? 'selected' : '' }}>Electric</option>
-                                    </select>
+                                        type="text" value="{{ $variantdata->engine }}" id="example-text-input">
                                 </div>
                                 <div class="col-lg-4">
                                     @php
-                                        $selectedtransmissions = json_decode($variantdata->transmission, true) ?? [];
+                                    $selectedtransmissions = json_decode($variantdata->transmission, true) ?? [];
                                     @endphp
                                     <label class="form-label">Transmission</label>
-                                    <select name="transmission[]" class="select2 form-control select2-multiple" multiple="multiple" data-placeholder="Choose type...">
-                                        <option value="Automatic" {{ in_array('Automatic', $selectedtransmissions) ? 'selected' : '' }}>Automatic</option>
-                                        <option value="Manual" {{ in_array('Manual', $selectedtransmissions) ? 'selected' : '' }}>Manual</option>
-                                        <option value="Clutchless Manual" {{ in_array('Clutchless Manual', $selectedtransmissions) ? 'selected' : '' }}>Clutchless Manual</option>
+                                    <select name="transmission[]" class="select2 form-control select2-multiple"
+                                        multiple="multiple" data-placeholder="Choose type...">
+                                        <option value="Automatic" {{ in_array('Automatic', $selectedtransmissions)
+                                            ? 'selected' : '' }}>
+                                            Automatic</option>
+                                        <option value="Manual" {{ in_array('Manual', $selectedtransmissions)
+                                            ? 'selected' : '' }}>
+                                            Manual</option>
+                                        <option value="Clutchless Manual" {{ in_array('Clutchless Manual',
+                                            $selectedtransmissions) ? 'selected' : '' }}>
+                                            Clutchless Manual</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
@@ -120,31 +107,71 @@
                                     <select name="seatingcapacity" class="form-select" id="subcategory">
                                         <option value="">--select seating capacity--</option>
                                         @for ($i = 1; $i <= 8; $i++) <option value="{{ $i }}" {{ $variantdata->
-                                            seatingcapacity == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                            seatingcapacity == $i ? 'selected' : '' }}>
+                                            {{ $i }}</option>
                                             @endfor
                                             <option value="8+" {{ $variantdata->seatingcapacity == '8+' ? 'selected' :
-                                                '' }}>8+</option>
+                                                '' }}>
+                                                8+</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
                                     <label for="example-text-input" class="">User Report Mileage</label>
                                     <input class="form-control" placeholder="enter user report mileage"
                                         name="userreportedmilage" type="text"
-                                        value="{{$variantdata->userreportedmilage}}" id="example-text-input">
+                                        value="{{ $variantdata->userreportedmilage }}" id="example-text-input">
+                                </div>
+                                <div class="col-lg-3">
+                                    @php
+                                    $selectedFuelTypes = json_decode($variantdata->fueltype, true) ?? [];
+                                    @endphp
+                                    <label class="form-label">Fuel Type</label>
+                                    <select name="fueltype[]" id="fueltype"
+                                        class="select2 form-control select2-multiple mb-3" multiple="multiple"
+                                        data-placeholder="Choose fuel type ...">
+                                        <option value="Hybrid" {{ in_array('Hybrid', $selectedFuelTypes) ? 'selected'
+                                            : '' }}>Hybrid</option>
+                                        <option value="Petrol" {{ in_array('Petrol', $selectedFuelTypes) ? 'selected'
+                                            : '' }}>Petrol</option>
+                                        <option value="Diesel" {{ in_array('Diesel', $selectedFuelTypes) ? 'selected'
+                                            : '' }}>Diesel</option>
+                                        <option value="CNG" {{ in_array('CNG', $selectedFuelTypes) ? 'selected' : '' }}>
+                                            CNG</option>
+                                        <option value="Electric" {{ in_array('Electric', $selectedFuelTypes)
+                                            ? 'selected' : '' }}>Electric</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-12 mt-3">
+                                    <label for="example-text-input" class="">Mileages</label>
+                                    @php
+                                    $mileages = json_decode($variantdata->mileage, true);
+                                    @endphp
+                                    <div id="mileageInputs">
+                                        @foreach ($mileages as $fuelType => $mileage)
+                                        <div class="col-lg-4">
+                                            <label for="mileage-{{ $fuelType }}" class="mt-3">Mileage for {{ $fuelType
+                                                }}</label>
+                                            <input class="form-control ms-2" value="{{ $mileage }}"
+                                                placeholder="enter mileage for {{ $fuelType }}"
+                                                name="mileage[{{ $fuelType }}]" type="text" id="mileage-{{ $fuelType }}"
+                                                required>
+                                        </div>
+                                        @endforeach
+                                    </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <label for="example-email-input" class="col-md-2 col-form-label">Key
                                         Features</label>
                                     <div class="">
                                         <textarea name="keyfeatures"
-                                            id="classic-editor">{{$variantdata->keyfeatures}}</textarea>
+                                            id="classic-editor">{{ $variantdata->keyfeatures }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <label for="example-email-input" class="col-md-2 col-form-label">Summary</label>
                                     <div class="">
                                         <textarea name="summary"
-                                            id="classic-editor1">{{$variantdata->summary}}</textarea>
+                                            id="classic-editor1">{{ $variantdata->summary }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -214,16 +241,53 @@
 </script>
 <script>
     ClassicEditor
-    .create( document.querySelector( '#classic-editor' ) )
-    .catch( error => {
-        console.error( error );
-    } );
+        .create(document.querySelector('#classic-editor'))
+        .catch(error => {
+            console.error(error);
+        });
 </script>
 <script>
     ClassicEditor
-    .create( document.querySelector( '#classic-editor1' ) )
-    .catch( error => {
-        console.error( error );
-    } );
+        .create(document.querySelector('#classic-editor1'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    function initializeMileageInputs() {
+        let previousSelectedFuelTypes = $('#fueltype').val() || [];
+
+        $('#fueltype').on('change', function() {
+            let selectedFuelTypes = $(this).val();
+
+            // Find removed fuel types
+            let removedFuelTypes = previousSelectedFuelTypes.filter(fuelType => !selectedFuelTypes.includes(fuelType));
+            removedFuelTypes.forEach(function(fuelType) {
+                $('#mileageInputs').find(`#mileage-${fuelType}`).closest('.col-lg-4').remove();
+            });
+
+            // Find added fuel types
+            let addedFuelTypes = selectedFuelTypes.filter(fuelType => !previousSelectedFuelTypes.includes(fuelType));
+            addedFuelTypes.forEach(function(fuelType) {
+                $('#mileageInputs').append(`
+                    <div class="col-lg-4">
+                        <label for="mileage-${fuelType}" class="mt-3">Mileage for ${fuelType}</label>
+                        <input class="form-control ms-2" placeholder="enter mileage for ${fuelType}" name="mileage[${fuelType}]" type="text" id="mileage-${fuelType}" required>
+                    </div>
+                `);
+            });
+
+            // Update previous selected fuel types
+            previousSelectedFuelTypes = selectedFuelTypes;
+        });
+    }
+
+    $(document).ready(function() {
+        // Initialize select2 plugin
+        $('#fueltype').select2();
+
+        // Initialize the mileage inputs script
+        initializeMileageInputs();
+    });
 </script>
 @endpush
