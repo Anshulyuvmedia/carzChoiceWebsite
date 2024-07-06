@@ -151,6 +151,9 @@ Route::controller(Store::class)->group(function() {
     Route::get('deleteuser/{id}', 'deleteuser')->name('deleteuser');
     Route::post('storefeatures', 'storefeatures')->name('storefeatures');
     Route::post('storespecifications', 'storespecifications')->name('storespecifications');
+    Route::post('/updatefeatures', 'updatefeatures')->name('updatefeatures');
+    Route::post('/updatespecs', 'updatespecs')->name('updatespecs');
+
 });
 
 

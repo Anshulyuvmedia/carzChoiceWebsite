@@ -648,9 +648,10 @@ class Store extends Controller
             $allvalues[] = [
                 'type' => $labels,
                 'label' => $featurenames[$labels],
-                'value' =>  $values[$labels],
+                'value' => $values[$labels],
             ];
         }
+
         AddFeature::create([
             'vehicleid' => $req->vehicleid,
             'features' => json_encode($allvalues),
@@ -658,22 +659,71 @@ class Store extends Controller
         return back()->with('success', 'Features saved successfully.');
     }
 
-    public function storespecifications(Request $req){
+    public function storespecifications(Request $req)
+    {
         $formlabels = $req->input('formlabels');
         $Specificationname = $req->input('featurenames');
         $values = $req->input('values');
 
+        $allspecifications = [];
         foreach ($formlabels as $labels) {
-            $allspecifications[] = [
-                'type' => $labels,
-                'label' => $Specificationname[$labels],
-                'value' =>  $values[$labels],
-            ];
+            foreach ($Specificationname[$labels] as $index => $name) {
+                $allspecifications[] = [
+                    'type' => $labels,
+                    'label' => $name,
+                    'value' => $values[$labels][$index],
+                ];
+            }
         }
+
         AddSpecification::create([
             'vehicleid' => $req->vehicleid,
             'specifications' => json_encode($allspecifications),
         ]);
+
         return back()->with('success', 'Specifications saved successfully.');
+    }
+    public function updatefeatures(Request $req)
+    {
+        $formlabels = $req->input('types');
+        $featurenames = $req->input('featuresname');
+        $values = $req->input('valuesupdate');
+        //dd($formlabels);
+        // dd($values);
+        foreach ($formlabels as $labels) {
+            $allvalues[] = [
+                'type' => $labels,
+                'label' => $featurenames[$labels],
+                'value' => $values[$labels],
+            ];
+        }
+        AddFeature::where('vehicleid', $req->vehicleid)->update([
+            'features' => json_encode($allvalues),
+        ]);
+        return back()->with('success', 'Features Updated....!!!!!!!');
+    }
+
+    public function updatespecs(Request $req)
+    {
+        $formlabels = $req->input('formlabels');
+        $Specificationname = $req->input('featurenames');
+        $values = $req->input('values');
+
+        $allspecifications = [];
+        foreach ($formlabels as $labels) {
+            foreach ($Specificationname[$labels] as $index => $name) {
+                $allspecifications[] = [
+                    'type' => $labels,
+                    'label' => $name,
+                    'value' => $values[$labels][$index],
+                ];
+            }
+        }
+
+        AddSpecification::where('vehicleid', $req->vehicleid)->update([
+            'specifications' => json_encode($allspecifications),
+        ]);
+
+        return back()->with('success', 'Specifications Updated.!!!!!!!!.');
     }
 }

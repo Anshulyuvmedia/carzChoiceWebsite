@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddFeature;
+use App\Models\AddSpecification;
 use App\Models\AddVariant;
 use App\Models\Blog;
 use App\Models\CarList;
@@ -15,102 +17,166 @@ use App\Models\RegisterUser;
 use App\Models\VehicleImage;
 use Illuminate\Http\Request;
 use Auth;
+
 class AdminView extends Controller
 {
-    public function adminprofile(){
+    public function adminprofile()
+    {
         $user = Auth::user();
-        return view('AdminPanel.adminprofile',compact('user'));
+        return view('AdminPanel.adminprofile', compact('user'));
     }
 
-    public function companyprofile(){
+    public function companyprofile()
+    {
         $data = CompanyProfile::first();
-        return view('AdminPanel.companyprofile',compact('data'));
+        return view('AdminPanel.companyprofile', compact('data'));
     }
-    public function master(){
-        $masterdata = Master::orderBy('created_at','desc')->where('type','=','Master')->get();
-        return view('AdminPanel.master',compact('masterdata'));
+    public function master()
+    {
+        $masterdata = Master::orderBy('created_at', 'desc')->where('type', '=', 'Master')->get();
+        return view('AdminPanel.master', compact('masterdata'));
     }
-    public function submaster(){
+    public function submaster()
+    {
         $submasterdata = Master::where('type', '=', 'Master')->get();
-        return view('AdminPanel.submaster',compact('submasterdata'));
+        return view('AdminPanel.submaster', compact('submasterdata'));
     }
 
-    public function addblog(){
+    public function addblog()
+    {
         $blogdata = Master::where('type', '=', 'Blog')->get();
-        return view('AdminPanel.addblog',compact('blogdata'));
+        return view('AdminPanel.addblog', compact('blogdata'));
     }
 
-    public function bloglist(){
-        $bloglistdata = Blog::orderBy('created_at','desc')->get();
-        return view('AdminPanel.bloglist',compact('bloglistdata'));
+    public function bloglist()
+    {
+        $bloglistdata = Blog::orderBy('created_at', 'desc')->get();
+        return view('AdminPanel.bloglist', compact('bloglistdata'));
     }
 
-    public function editblog($id){
+    public function editblog($id)
+    {
         $blogdata = Blog::find($id);
         $masterdata = Master::where('type', '=', 'Blog')->get();
         // dd($blogdata);
-        return view('AdminPanel.editblog',compact('blogdata','masterdata'));
+        return view('AdminPanel.editblog', compact('blogdata', 'masterdata'));
     }
 
-    public function formattributes(){
+    public function formattributes()
+    {
         $masterdata = Master::where('type', '=', 'Form Type')->get();
         $attributesdata = FormAttribute::get();
-        return view('AdminPanel.formattributes',compact('masterdata','attributesdata'));
+        return view('AdminPanel.formattributes', compact('masterdata', 'attributesdata'));
     }
 
-    public function leadmanagement(){
-        $leaddata = Lead::orderby('created_at','desc')->get();
-        return view('AdminPanel.leadmanagement',compact('leaddata'));
+    public function leadmanagement()
+    {
+        $leaddata = Lead::orderby('created_at', 'desc')->get();
+        return view('AdminPanel.leadmanagement', compact('leaddata'));
     }
 
-    public function faqs(){
+    public function faqs()
+    {
         $masterdata = Master::where('type', '=', 'FAQ')->get();
         $faqdataa = faqs::get();
-        return view('AdminPanel.faq',compact('masterdata','faqdataa'));
+        return view('AdminPanel.faq', compact('masterdata', 'faqdataa'));
     }
 
-    public function vehicleimages(){
+    public function vehicleimages()
+    {
         $masterdata = Master::where('type', '=', 'Vehicle Image')->get();
         $mastercolordata = Master::where('type', '=', 'Color')->get();
-        $vehicleimgdata = VehicleImage::orderBy('created_at','desc')->get();
+        $vehicleimgdata = VehicleImage::orderBy('created_at', 'desc')->get();
         $carlistdata = CarList::get();
-        return view('AdminPanel.vehicleimages',compact('masterdata','vehicleimgdata','mastercolordata','carlistdata'));
+        return view('AdminPanel.vehicleimages', compact('masterdata', 'vehicleimgdata', 'mastercolordata', 'carlistdata'));
     }
 
-    public function addcarlist(){
+    public function addcarlist()
+    {
         $masterdata = Master::where('type', '=', 'Brand')->get();
         $carlistdata = CarList::get();
-        return view('AdminPanel.addcarlist',compact('masterdata','carlistdata'));
+        return view('AdminPanel.addcarlist', compact('masterdata', 'carlistdata'));
     }
 
-    public function addvariant(){
+    public function addvariant()
+    {
         $cardata = CarList::get();
-        return view('AdminPanel.addvariant',compact('cardata'));
+        return view('AdminPanel.addvariant', compact('cardata'));
     }
 
-    public function variantslist(){
-        $variantlist = AddVariant::orderBy('created_at','desc')->get();
-        return view('AdminPanel.variantlist',compact('variantlist'));
+    public function variantslist()
+    {
+        $variantlist = AddVariant::orderBy('created_at', 'desc')->get();
+        return view('AdminPanel.variantlist', compact('variantlist'));
     }
 
-    public function editvariant($id){
+    public function editvariant($id)
+    {
         $variantdata = AddVariant::find($id);
         $carlistdata = CarList::get();
-        return view('AdminPanel.editvariant',compact('variantdata','carlistdata'));
+        return view('AdminPanel.editvariant', compact('variantdata', 'carlistdata'));
     }
 
-    public function userslist(){
-        $registeredusers = RegisterUser::orderBy('created_at','desc')->get();
-        return view('AdminPanel.userslist',compact('registeredusers'));
+    public function userslist()
+    {
+        $registeredusers = RegisterUser::orderBy('created_at', 'desc')->get();
+        return view('AdminPanel.userslist', compact('registeredusers'));
     }
 
-    public function addfeatures($id){
-        $features = FormAttribute::where('cartype','=','features')->get();
-        return view('AdminPanel.addfeatures',compact('features'))->with('vehicleid', $id);
+    public function addfeatures($id)
+    {
+        $features = FormAttribute::where('cartype', '=', 'features')->get();
+        $featureslist = AddFeature::where('vehicleid', '=', $id)->get();
+        $grouped = [];
+
+        if (count($featureslist) > 0) {
+            $featuresData = json_decode($featureslist[0]->features);
+
+            if ($featuresData) {
+                foreach ($featuresData as $index => $featureData) {
+                    $type = $featureData->type;
+                    $label = $featureData->label;
+                    $value = $featureData->value;
+                    if (!isset($grouped[$type])) {
+                        $grouped[$type] = [];
+                    }
+                    $grouped[$type][] = (object) [
+                        'label' => $label,
+                        'value' => $value,
+                    ];
+                }
+            }
+        }
+
+        return view('AdminPanel.addfeatures', compact('features', 'featureslist', 'grouped'))->with('vehicleid', $id);
     }
 
-    public function addspecifications($id){
-        $specifications = FormAttribute::where('cartype','=','specifications')->get();
-        return view('AdminPanel.addspecifications',compact('specifications'))->with('vehicleid', $id);
+
+    public function addspecifications($id)
+    {
+        $specifications = FormAttribute::where('cartype', '=', 'specifications')->get();
+        $specificationslist = AddSpecification::where('vehicleid', '=', $id)->get();
+        $groupedspecs = [];
+
+        if (count($specificationslist) > 0) {
+            $specsdata = json_decode($specificationslist[0]->specifications);
+
+            if ($specsdata) {
+                foreach ($specsdata as $specData) {
+                    $type = $specData->type;
+                    $label = $specData->label;
+                    $value = $specData->value;
+                    if (!isset($groupedspecs[$type])) {
+                        $groupedspecs[$type] = [];
+                    }
+                    $groupedspecs[$type][] = (object) [
+                        'label' => $label,
+                        'value' => $value,
+                    ];
+                }
+            }
+        }
+
+        return view('AdminPanel.addspecifications', compact('specifications','specificationslist', 'groupedspecs'))->with('vehicleid', $id);
     }
 }
