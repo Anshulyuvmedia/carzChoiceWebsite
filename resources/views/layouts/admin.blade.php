@@ -244,7 +244,7 @@
                         </li>
                         <li>
                             <a href="{{ route('vehicleimages') }}">
-                                <i class="uil-car"></i>
+                                <i class="uil-comment-image"></i>
                                 <span>Add Vehicle Images</span>
                             </a>
                         </li>
@@ -263,6 +263,12 @@
                             <a href="{{ route('userslist') }}">
                                 <i class="uil-list-ul"></i>
                                 <span>Users List</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('addbannerimmages') }}">
+                                <i class="uil-comment-alt-image"></i>
+                                <span>Add Banner Images</span>
                             </a>
                         </li>
                     </ul>

@@ -12,6 +12,7 @@ use App\Models\CompanyProfile;
 use App\Models\faqs;
 use App\Models\FormAttribute;
 use App\Models\Lead;
+use App\Models\SliderImage;
 use App\Models\Master;
 use App\Models\RegisterUser;
 use App\Models\VehicleImage;
@@ -178,5 +179,10 @@ class AdminView extends Controller
         }
 
         return view('AdminPanel.addspecifications', compact('specifications','specificationslist', 'groupedspecs'))->with('vehicleid', $id);
+    }
+
+    public function addbannerimmages(){
+        $imagesdata = SliderImage::get();
+        return view('AdminPanel.addbannerimages',compact('imagesdata'));
     }
 }

@@ -4,7 +4,7 @@
 
 <div>
     <!-- =-=-=-=-=-=-= Home Banner  =-=-=-=-=-=-= -->
-    <div id="banner">
+    <div id="banner" style="background: url('{{ asset('assets/backend-assets/images/'.$imagesdata->mainbannerimg) }}')">
         <div class="container">
             <div class="search-container">
                 <!-- Form -->
@@ -167,7 +167,7 @@
         </div>
     </div>
     <!-- =-=-=-=-=-=-= Advanced Search End =-=-=-=-=-=-= -->
-    
+
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding gray">
         <!-- Main Container -->
@@ -224,7 +224,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -274,7 +274,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -324,7 +324,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -374,7 +374,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -424,7 +424,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -485,7 +485,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -535,7 +535,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -585,7 +585,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -635,7 +635,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -685,7 +685,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -746,7 +746,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -796,7 +796,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -846,7 +846,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -896,7 +896,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -946,7 +946,7 @@
                                                         </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title"> 
+                                                            {{-- <div class="category-title">
                                                             <span><a href="#">Sports &
                                                                     Equipment</a></span> </div> --}}
 
@@ -1030,7 +1030,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -1040,7 +1040,7 @@
                                                     </a>
                                                 </h3>
 
-                                                <div class="ad-price">Rs. 110,000 
+                                                <div class="ad-price">Rs. 110,000
                                                     <span class="text-muted ps-2">onwards</span>
                                                 </div>
                                                 <a class="  ">
@@ -1073,7 +1073,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -1115,7 +1115,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -1157,7 +1157,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -1199,7 +1199,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -1237,7 +1237,7 @@
     <!-- =-=-=-=-=-=-= Popular Cars Ads End =-=-=-=-=-=-= -->
 
     <!-- =-=-=-=-=-=-= All Brands =-=-=-=-=-=-= -->
-    <section class="client-section gray">
+    <section class="client-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -1248,56 +1248,14 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="brand-logo-area clients-bg">
                         <div class="clients-list">
+                            @foreach ($brands as $data)
                             <div class="client-logo">
-                                <a href="#"><img
-                                        src="{{ asset('assets/frontend-assets/images/brands/16.png') }}"
-                                        class="img-responsive" alt="Brand Image" /></a>
+                                <a href="#">
+                                <img src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}"
+                                    class="img-responsive" alt="Brand Image" width="150" />
+                                </a>
                             </div>
-                            <div class="client-logo">
-                                <a href="#"><img
-                                        src="{{ asset('assets/frontend-assets/images/brands/2.png') }}"
-                                        class="img-responsive" alt="Brand Image" /></a>
-                            </div>
-                            <div class="client-logo">
-                                <a href="#"><img
-                                        src="{{ asset('assets/frontend-assets/images/brands/11.png') }}"
-                                        class="img-responsive" alt="Brand Image" /></a>
-                            </div>
-                            <div class="client-logo">
-                                <a href="#"><img
-                                        src="{{ asset('assets/frontend-assets/images/brands/4.png') }}"
-                                        class="img-responsive" alt="Brand Image" /></a>
-                            </div>
-                            <div class="client-logo">
-                                <a href="#"><img
-                                        src="{{ asset('assets/frontend-assets/images/brands/5.png') }}"
-                                        class="img-responsive" alt="Brand Image" /></a>
-                            </div>
-                            <div class="client-logo">
-                                <a href="#"><img
-                                        src="{{ asset('assets/frontend-assets/images/brands/6.png') }}"
-                                        class="img-responsive" alt="Brand Image" /></a>
-                            </div>
-                            <div class="client-logo">
-                                <a href="#"><img
-                                        src="{{ asset('assets/frontend-assets/images/brands/7.png') }}"
-                                        class="img-responsive" alt="Brand Image" /></a>
-                            </div>
-                            <div class="client-logo">
-                                <a href="#"><img
-                                        src="{{ asset('assets/frontend-assets/images/brands/8.png') }}"
-                                        class="img-responsive" alt="Brand Image" /></a>
-                            </div>
-                            <div class="client-logo">
-                                <a href="#"><img
-                                        src="{{ asset('assets/frontend-assets/images/brands/9.png') }}"
-                                        class="img-responsive" alt="Brand Image" /></a>
-                            </div>
-                            <div class="client-logo">
-                                <a href="#"><img
-                                        src="{{ asset('assets/frontend-assets/images/brands/17.png') }}"
-                                        class="img-responsive" alt="Brand Image" /></a>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -1320,9 +1278,7 @@
                     </div>
                 </div>
 
-                <div class="card ">
-
-                    <!-- Nav tabs -->
+                <div class="card">
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="nav-item active">
                             <a class="nav-link" aria-controls="budget" role="tab" data-toggle="tab"
@@ -1350,48 +1306,13 @@
                         <div class="tab-pane fade in active" id="budget">
                             <!-- Middle Content Box -->
                             <div class="col-md-12 col-xs-12 col-sm-12">
-                                <div class="row ">
+                                <div class="row">
                                     <div class="d-flex flex-row flex-wrap">
+                                        @foreach ($budgets as $data)
                                         <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 5
-                                                Lakh</button>
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">{{$data->value}}</button>
                                         </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 6
-                                                Lakh</button>
-                                        </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 7
-                                                Lakh</button>
-                                        </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 8
-                                                Lakh</button>
-                                        </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 10
-                                                Lakh</button>
-                                        </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 15
-                                                Lakh</button>
-                                        </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 20
-                                                Lakh</button>
-                                        </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 25
-                                                Lakh</button>
-                                        </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Under 30
-                                                Lakh</button>
-                                        </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">Luxury
-                                                Cars</button>
-                                        </a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -1399,132 +1320,20 @@
                         </div>
 
                         <div class="tab-pane fade" id="bodytype">
-                            <!-- Middle Content Box -->
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <div class="row">
-                                    <!-- Body Type -->
+                                    @foreach ($bodytypes as $data)
                                     <div class="col-md-2 col-sm-3 col-xs-4">
                                         <div class="box">
                                             <a href="#">
-                                                <img alt="Convertible"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/1.png') }}">
-                                                <h4>Convertible</h4>
+                                                <img alt="Convertible" width="100" src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}">
+                                                <h4>{{$data->value}}</h4>
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Coupe"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/2.png') }}">
-                                                <h4>Coupe</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Sedan"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/3.png') }}">
-                                                <h4>Sedan</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Van/Minivan"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/4.png') }}">
-                                                <h4>Van/Minivan</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Truck"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/5.png') }}">
-                                                <h4>Truck</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="SUV"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                                <h4>SUV</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Hatchback"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                                <h4>Hatchback</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Compact SUV"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                                <h4>Compact SUV</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Convertible"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                                <h4>Convertible</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Compact Sedan"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                                <h4>Compact Sedan</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Station Wagon"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                                <h4>Station Wagon</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="MUV"
-                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                                <h4>MUV</h4>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
-                            <!-- Middle Content Box End -->
                         </div>
 
                         <div class="tab-pane fade" id="fueltype">
@@ -1532,57 +1341,16 @@
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <div class="row">
                                     <div class="row">
-                                        <!-- Body Type -->
+                                        @foreach ($fueltypes as $data)
                                         <div class="col-md-2 col-sm-3 col-xs-4">
                                             <div class="box">
                                                 <a href="#">
-                                                    <img alt="Petrol" width="75"
-                                                        src="{{ asset('assets/frontend-assets/images/fueltype/petrol.svg') }}">
-                                                    <h4>Petrol</h4>
+                                                    <img alt="Petrol" width="75" src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}">
+                                                    <h4>{{$data->value}}</h4>
                                                 </a>
                                             </div>
                                         </div>
-                                        <!-- Body Type -->
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
-                                            <div class="box">
-                                                <a href="#">
-                                                    <img alt="Diesel" width="75"
-                                                        src="{{ asset('assets/frontend-assets/images/fueltype/diesel.svg') }}">
-                                                    <h4>Diesel</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Body Type -->
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
-                                            <div class="box">
-                                                <a href="#">
-                                                    <img alt="CNG" width="75"
-                                                        src="{{ asset('assets/frontend-assets/images/fueltype/cng.svg') }}">
-                                                    <h4>CNG</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Body Type -->
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
-                                            <div class="box">
-                                                <a href="#">
-                                                    <img alt="Electric" width="75"
-                                                        src="{{ asset('assets/frontend-assets/images/fueltype/electric.svg') }}">
-                                                    <h4>Electric</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Body Type -->
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
-                                            <div class="box">
-                                                <a href="#">
-                                                    <img alt="Hybrid" width="75"
-                                                        src="{{ asset('assets/frontend-assets/images/fueltype/h-filter-without-background.svg') }}">
-                                                    <h4>Hybrid</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -1592,56 +1360,32 @@
                             <!-- Middle Content Box -->
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <div class="row">
-                                    <!-- Body Type -->
+                                    @foreach ($transmissions as $data)
                                     <div class="col-md-2 col-sm-3 col-xs-4">
                                         <div class="box">
                                             <a href="#">
                                                 <img alt="Automatic" width="50"
-                                                    src="{{ asset('assets/frontend-assets/images/fueltype/automatic_clr.svg') }}">
-                                                <h4>Automatic</h4>
+                                                    src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}">
+                                                <h4>{{$data->value}}</h4>
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Manual" width="50"
-                                                    src="{{ asset('assets/frontend-assets/images/fueltype/manual_clr.svg') }}">
-                                                <h4>Manual</h4>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
-                            <!-- Middle Content Box End -->
                         </div>
                         <div class="tab-pane fade" id="seatingcapacity">
-                            <!-- Middle Content Box -->
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <div class="row">
                                     <div class="d-flex flex-row flex-wrap">
+                                        @foreach ($seatings as $data)
                                         <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">5
-                                                Seater</button>
+                                            <button type="button" class="btn btn-default btn-sm rounded-pill">{{$data->value}}</button>
                                         </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill"> 6
-                                                Seater</button>
-                                        </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill"> 7
-                                                Seater</button>
-                                        </a>
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill"> 8
-                                                Seater</button>
-                                        </a>
-
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
-                            <!-- Middle Content Box End -->
                         </div>
                     </div>
                     <!-- Row End -->
@@ -1692,7 +1436,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -1732,7 +1476,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -1772,7 +1516,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -1812,7 +1556,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -1852,7 +1596,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -1890,7 +1634,7 @@
         <!--Image One-->
         {{-- <div class="background-1"></div> --}}
         <!--Image Two-->
-        <div class="background-2"></div>
+        <div class="background-2" style="background: url('{{ asset('assets/backend-assets/images/'.$imagesdata->checkonroadimg) }}')"></div>
         <img class="img-responsive wow slideInRight custom-img" data-wow-delay="0ms" data-wow-duration="2000ms"
             src="images/sell-1.png" alt="">
         <div class="container">
@@ -2160,7 +1904,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -2200,7 +1944,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -2240,7 +1984,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -2280,7 +2024,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 
@@ -2320,7 +2064,7 @@
                                                     </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title"> 
+                                                {{-- <div class="category-title">
                                                         <span><a href="#">Sports &
                                                                 Equipment</a></span> </div> --}}
 

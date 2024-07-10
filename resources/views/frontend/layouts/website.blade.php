@@ -66,7 +66,7 @@
     <header>
         <!-- =-=-=-=-=-=-= Preloader =-=-=-=-=-=-= -->
         {{-- <div class="preloader"></div> --}}
-       
+
         <!-- =-=-=-=-=-=-= Main Header =-=-=-=-=-=-= -->
         <div class="colored-header">
             <!-- Top Bar -->
@@ -162,7 +162,7 @@
                                                         <li><a href="/car-images">Car Images </a></li>
                                                         <li><a href="/dealer-showroom">Find Dealer Showroom</a></li>
                                                         <li><a href="/dealer-location">Find Dealer By Location</a></li>
-                                                        
+
                                                     </ul>
                                                 </div>
 
@@ -244,7 +244,7 @@
                                                     </ul>
                                                 </div>
 
-                                                
+
                                             </div>
                                         </div>
                                     </li>
@@ -262,7 +262,7 @@
                                                         <li><a href="/used-car">Explore Used Cars</a></li>
                                                         <li><a href="/usedcar-bylocation">Usedcar by location</a></li>
                                                         <li><a href="/find-dealer">Find Dealer </a></li>
-                                                        <li><a href="/dealer-profile">Dealer Profile</a></li> 
+                                                        <li><a href="/dealer-profile">Dealer Profile</a></li>
                                                     </ul>
                                                 </div>
 
@@ -418,7 +418,7 @@
                                     <li>
                                         <a href="/carlistingdetails">Car Details</a>
                                     </li>
-                                    
+
                                 </ul>
                                 <ul class="menu-search-bar">
                                     <li>
@@ -579,12 +579,12 @@
 
     <script type="text/javascript" src="{{ asset('assets/frontend-assets/js/perfect-scrollbar.min.js') }}"></script>
 
- 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    
-    
+
+
 </body>
 
 </html>

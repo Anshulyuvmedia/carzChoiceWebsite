@@ -8,11 +8,22 @@ use App\Models\AdPost;
 use App\Models\Master;
 use App\Models\CarList;
 use App\Models\PostOffices;
+use App\Models\SliderImage;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
 class frontViewController extends Controller
 {
+    public function home(){
+        $imagesdata = SliderImage::first();
+        $brands = Master::where('type','=','Brand')->get();
+        $bodytypes = Master::where('type','=','Body Type')->get();
+        $budgets = Master::where('type','=','Budget')->get();
+        $fueltypes = Master::where('type','=','Fuel Type')->get();
+        $transmissions = Master::where('type','=','Transmission')->get();
+        $seatings = Master::where('type','=','Seating Capacity')->get();
+        return view('frontend.home',compact('imagesdata','brands','bodytypes','budgets','fueltypes','transmissions','seatings'));
+    }
     public function carlistingdetails() {
         return view('frontend.carLayouts.carlistingdetails');
     }
@@ -165,7 +176,7 @@ class frontViewController extends Controller
     }
     public function dealerbylocation() {
         return view('frontend.newCarsLayouts.dealerbylocation');
-    } 
+    }
 
     public function addadshow(){
         if(Auth::guard('registeruser')->check()){

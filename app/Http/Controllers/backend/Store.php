@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\SliderImage;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
 use App\Models\Blog;
@@ -726,4 +727,95 @@ class Store extends Controller
 
         return back()->with('success', 'Specifications Updated.!!!!!!!!.');
     }
+
+    public function insertbannerimages(Request $req)
+    {
+        try {
+
+            $imagedata = new SliderImage();
+
+            //Banner image
+            if ($req->hasFile('mainbannerimg')) {
+                $req->validate([
+                    'mainbannerimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $file = $req->file('mainbannerimg');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/backend-assets/images'), $filename);
+                $imagedata['mainbannerimg'] = $filename;
+            }
+
+            //Checkon Road image
+            if ($req->hasFile('checkonroadimg')) {
+                $req->validate([
+                    'checkonroadimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $fileroad = $req->file('checkonroadimg');
+                $filenameroad = time() . '_' . $fileroad->getClientOriginalName();
+                $fileroad->move(public_path('assets/backend-assets/images'), $filenameroad);
+                $imagedata['checkonroadimg'] = $filenameroad;
+            }
+            // dd($imagedata);
+            $imagedata->save();
+            return back()->with('success', 'Images Added..!!!!');
+
+        } catch (Exception $e) {
+            return redirect()->route('addbannerimmages')->with('error', $e->getMessage());
+            //return redirect()->route('addbannerimmages')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+
+    public function updatebannerimages(Request $req)
+    {
+        try {
+            $imagedata = SliderImage::findOrFail($req->imageid);
+           // dd($imagedata);
+
+            // Update Banner image if provided
+            if ($req->hasFile('mainbannerimg')) {
+                $req->validate([
+                    'mainbannerimg' => 'image',
+                ]);
+                $file = $req->file('mainbannerimg');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/backend-assets/images'), $filename);
+
+                // Delete old image
+                if ($imagedata->mainbannerimg) {
+                    $oldFile = public_path('assets/backend-assets/images/' . $imagedata->mainbannerimg);
+                    if (file_exists($oldFile)) {
+                        unlink($oldFile);
+                    }
+                }
+                $imagedata['mainbannerimg'] = $filename;
+            }
+
+            // Update Checkon Road image if provided
+            if ($req->hasFile('checkonroadimg')) {
+                $req->validate([
+                    'checkonroadimg' => 'image',
+                ]);
+                $fileroad = $req->file('checkonroadimg');
+                $filenameroad = time() . '_' . $fileroad->getClientOriginalName();
+                $fileroad->move(public_path('assets/backend-assets/images'), $filenameroad);
+
+                // Delete old image
+                if ($imagedata->checkonroadimg) {
+                    $oldFileRoad = public_path('assets/backend-assets/images/' . $imagedata->checkonroadimg);
+                    if (file_exists($oldFileRoad)) {
+                        unlink($oldFileRoad);
+                    }
+                }
+                $imagedata['checkonroadimg'] = $filenameroad;
+            }
+
+            $imagedata->save();
+            return back()->with('success', 'Images Updated..!!!!');
+        } catch (Exception $e) {
+            return redirect()->route('addbannerimmages')->with('error', $e->getMessage());
+            //return redirect()->route('addbannerimmages')->with('error', 'Update Failed. Try Again...!!!!');
+        }
+    }
+
 }
