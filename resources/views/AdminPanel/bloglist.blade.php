@@ -57,7 +57,7 @@
                                         @endif
                                     </td>
                                     <td>{{$row->blogtitle}}</td>
-                                    <td>{{$row->description}}</td>
+                                    <td>{{ substr($row->description, 0,50) }}...</td>
                                     <td>
                                         @if($row->vurl)
                                         <a href="{{$row->vurl}}" target="_blank">

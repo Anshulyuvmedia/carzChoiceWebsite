@@ -219,17 +219,18 @@
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
                                                             {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
+                                                                <div class="price"><span>$205,000</span></div>
+                                                            </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
                                                             {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
+                                                                <span><a href="#">Sports &
+                                                                        Equipment</a></span>
+                                                            </div> --}}
 
                                                             <h3>
                                                                 <a title="" href="#">
-                                                                    {{$data->brandname}}  {{$data->carname}}
+                                                                    {{$data->brandname}} {{$data->carname}}
                                                                 </a>
                                                             </h3>
                                                             <div class="ad-price">Rs. {{$data->price}}
@@ -278,17 +279,18 @@
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
                                                             {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
+                                                                <div class="price"><span>$205,000</span></div>
+                                                            </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
                                                             {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
+                                                                <span><a href="#">Sports &
+                                                                        Equipment</a></span>
+                                                            </div> --}}
 
                                                             <h3>
                                                                 <a title="" href="#">
-                                                                    {{$data->brandname}}  {{$data->carname}}
+                                                                    {{$data->brandname}} {{$data->carname}}
                                                                 </a>
                                                             </h3>
                                                             <div class="ad-price">Rs. {{$data->price}}
@@ -339,17 +341,18 @@
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
                                                             {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
+                                                                <div class="price"><span>$205,000</span></div>
+                                                            </div> --}}
                                                         </div>
                                                         <div class="short-description-1 clearfix">
                                                             {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
+                                                                <span><a href="#">Sports &
+                                                                        Equipment</a></span>
+                                                            </div> --}}
 
                                                             <h3>
                                                                 <a title="" href="#">
-                                                                    {{$data->brandname}}  {{$data->carname}}
+                                                                    {{$data->brandname}} {{$data->carname}}
                                                                 </a>
                                                             </h3>
                                                             <div class="ad-price">Rs. {{$data->price}}
@@ -403,8 +406,6 @@
                     </div>
                 </div>
 
-
-
                 <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
@@ -424,17 +425,18 @@
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
                                                 {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
+                                                    <div class="price"><span>$205,000</span></div>
+                                                </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
                                                 {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
+                                                    <span><a href="#">Sports &
+                                                            Equipment</a></span>
+                                                </div> --}}
 
                                                 <h3>
                                                     <a title="" href="#">
-                                                        {{$data->brandname}}  {{$data->carname}}
+                                                        {{$data->brandname}} {{$data->carname}}
                                                     </a>
                                                 </h3>
 
@@ -465,165 +467,13 @@
     </section>
     <!-- =-=-=-=-=-=-= Popular Cars Ads End =-=-=-=-=-=-= -->
 
-    <!-- =-=-=-=-=-=-= All Brands =-=-=-=-=-=-= -->
-    <section class="client-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="">
-                        <h2>All Brands</h2>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="brand-logo-area clients-bg">
-                        <div class="clients-list">
-                            @foreach ($brands as $data)
-                            <div class="client-logo">
-                                <a href="#">
-                                <img src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}"
-                                    class="img-responsive" alt="Brand Image" width="150" />
-                                </a>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
+    {{--THIS IS ALL BRANDS COMPONENET--}}
+    <x-all-brands />
 
-    <!-- =-=-=-=-=-=-= Cars Of Your Choice =-=-=-=-=-=-= -->
-    <section class="custom-padding featured-cars rounded-3">
-        <!-- Main Container -->
-        <div class="container ">
-            <!-- Row -->
-            <div class="row">
-                <!-- Heading Area -->
-                <div class="heading-panel">
-                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                        <!-- Main Title -->
-                        <h1>Find The Cars Of <span class="heading-color"> Your Choice</span> </h1>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="nav-item active">
-                            <a class="nav-link" aria-controls="budget" role="tab" data-toggle="tab"
-                                href="#budget">Budget </a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" aria-controls="bodytype" role="tab" data-toggle="tab"
-                                href="#bodytype">Body Type</a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" aria-controls="upcoming" role="tab" data-toggle="tab"
-                                href="#fueltype">Fuel Type</a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" aria-controls="transmission" role="tab" data-toggle="tab"
-                                href="#transmission">Transmission</a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" aria-controls="seatingcapacity" role="tab" data-toggle="tab"
-                                href="#seatingcapacity">Seating Capacity</a>
-                        </li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content clearfix py-5 ">
-                        <div class="tab-pane fade in active" id="budget">
-                            <!-- Middle Content Box -->
-                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                <div class="row">
-                                    <div class="d-flex flex-row flex-wrap">
-                                        @foreach ($budgets as $data)
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">{{$data->value}}</button>
-                                        </a>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Middle Content Box End -->
-                        </div>
+    {{--THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET--}}
+    <x-find-the-cars-by-choice/>
 
-                        <div class="tab-pane fade" id="bodytype">
-                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                <div class="row">
-                                    @foreach ($bodytypes as $data)
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Convertible" width="100" src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}">
-                                                <h4>{{$data->value}}</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="fueltype">
-                            <!-- Middle Content Box -->
-                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                <div class="row">
-                                    <div class="row">
-                                        @foreach ($fueltypes as $data)
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
-                                            <div class="box">
-                                                <a href="#">
-                                                    <img alt="Petrol" width="75" src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}">
-                                                    <h4>{{$data->value}}</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Middle Content Box End -->
-                        </div>
-                        <div class="tab-pane fade" id="transmission">
-                            <!-- Middle Content Box -->
-                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                <div class="row">
-                                    @foreach ($transmissions as $data)
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Automatic" width="50"
-                                                    src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}">
-                                                <h4>{{$data->value}}</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="seatingcapacity">
-                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                <div class="row">
-                                    <div class="d-flex flex-row flex-wrap">
-                                        @foreach ($seatings as $data)
-                                        <a class="me-3 mb-3" href="#" role="button">
-                                            <button type="button" class="btn btn-default btn-sm rounded-pill">{{$data->value}}</button>
-                                        </a>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Row End -->
-                </div>
-            </div>
-            <!-- Main Container End -->
-        </div>
-    </section>
-    <!-- =-=-=-=-=-=-= Cars Of Your Choice End =-=-=-=-=-=-= -->
 
 
     <!-- =-=-=-=-=-=-= Top Cars In India  =-=-=-=-=-=-= -->
@@ -656,19 +506,22 @@
                                                 <span>Featured</span>
                                             </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
+                                                {{-- <img alt="Carz Choice"
+                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                    class="img-responsive"> --}}
                                                 <img alt="Carz Choice"
                                                     src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
                                                 {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
+                                                    <div class="price"><span>$205,000</span></div>
+                                                </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
                                                 {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
+                                                    <span><a href="#">Sports &
+                                                            Equipment</a></span>
+                                                </div> --}}
 
                                                 <h3>
                                                     <a title="" href="#">
@@ -677,7 +530,7 @@
                                                 </h3>
 
                                                 <p class="text-muted ps-2">
-                                                    {{$data->brandname}}  {{$data->carname}}
+                                                    {{$data->brandname}} {{$data->carname}}
                                                 </p>
 
                                             </div>
@@ -704,7 +557,8 @@
         <!--Image One-->
         {{-- <div class="background-1"></div> --}}
         <!--Image Two-->
-        <div class="background-2" style="background: url('{{ asset('assets/backend-assets/images/'.$imagesdata->checkonroadimg) }}')"></div>
+        <div class="background-2"
+            style="background: url('{{ asset('assets/backend-assets/images/'.$imagesdata->checkonroadimg) }}')"></div>
         <img class="img-responsive wow slideInRight custom-img" data-wow-delay="0ms" data-wow-duration="2000ms"
             src="images/sell-1.png" alt="">
         <div class="container">
@@ -753,186 +607,8 @@
     <!-- =-=-=-=-=-=-=  On-Road Price end =-=-=-=-=-=-= -->
 
 
-    <!-- =-=-=-=-=-=-= Compare Cars =-=-=-=-=-=-= -->
-    <section class="custom-padding ">
-        <!-- Main Container -->
-        <div class="container">
-            <!-- Row -->
-            <div class="row">
-                <!-- Heading Area -->
-                <div class="heading-panel">
-                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                        <!-- Main Title -->
-                        <h1>Compare <span class="heading-color"> Cars</span> </h1>
-                    </div>
-                </div>
-
-
-
-                <!-- Middle Content Box -->
-                <div class="col-md-12 col-xs-12 col-sm-12">
-                    <div class="row">
-                        <div class=" comapare-slider container owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="grid-style-2">
-
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
-                                        <div class="comparison-box">
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Mahindra </div>
-                                                        <div class=""><a href="#">XUV 3XO</a></div>
-                                                        <span class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="vsbox">vs</div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Tata </div>
-                                                        <div class=""><a href="#">Nexon</a></div>
-                                                        <span class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <a href="#">
-                                                <button
-                                                    class="btn btn-outline btn-danger btn-lg btn-block margin-bottom-10">Compare
-                                                    Now</button>
-                                            </a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
-                                        <div class="comparison-box">
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Mahindra </div>
-                                                        <div class=""><a href="#">XUV 3XO</a></div>
-                                                        <span class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="vsbox">vs</div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Tata </div>
-                                                        <div class=""><a href="#">Nexon</a></div>
-                                                        <span class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <a href="#">
-                                                <button
-                                                    class="btn btn-outline btn-danger btn-lg btn-block margin-bottom-10">Compare
-                                                    Now</button>
-                                            </a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
-                                        <div class="comparison-box">
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Mahindra </div>
-                                                        <div class=""><a href="#">XUV 3XO</a></div>
-                                                        <span class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="vsbox">vs</div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Tata </div>
-                                                        <div class=""><a href="#">Nexon</a></div>
-                                                        <span class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <a href="#">
-                                                <button
-                                                    class="btn btn-outline btn-danger btn-lg btn-block margin-bottom-10">Compare
-                                                    Now</button>
-                                            </a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="/compareresult" class=" margin-bottom-10">
-                            Compare Cars of Your Choice >
-                        </a>
-                    </div>
-                </div>
-                <!-- Middle Content Box End -->
-
-                <!-- Row End -->
-            </div>
-            <!-- Main Container End -->
-        </div>
-    </section>
-    <!-- =-=-=-=-=-=-= Compare Cars End =-=-=-=-=-=-= -->
+    {{--THIS IS COMPARE CAR CARDS COMPONENET--}}
+    <x-compare-cars />
 
 
     <!-- =-=-=-=-=-=-= Top Cars In India  =-=-=-=-=-=-= -->
@@ -955,206 +631,36 @@
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
                         <div class=" popular-slider container owl-carousel owl-theme">
+                            @foreach ($adposts as $row)
+                            @php
+                                $imagearray = json_decode($row->images, true);
+                            @endphp
                             <div class="item">
                                 <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
                                     <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
                                             <div class="image">
-                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
                                                 <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/134287/city-exterior-right-front-three-quarter-76.jpeg?isig=0"
+                                                    src="{{ asset($imagearray[0]['imageurl']) }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
                                             </div>
                                             <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
                                                 <h3>
                                                     <a title="" href="#">
-                                                        Used Honda City
+                                                        Used {{$row->brandname}} {{$row->carname}}
                                                     </a>
                                                 </h3>
-
-                                                <span class="ad-price">Rs. 1.2 Lakh
+                                                <span class="ad-price">Rs. {{$row->price}}
                                                     <span class="text-muted ps-2">Starting Price</span>
                                                 </span>
 
                                             </div>
                                         </div>
-                                        <!-- Listing Ad Grid -->
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/102663/baleno-exterior-right-front-three-quarter-66.jpeg?isig=0"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Used Hyundai Creta
-                                                    </a>
-                                                </h3>
-
-                                                <span class="ad-price">Rs. 4.9 Lakh
-                                                    <span class="text-muted ps-2">Starting Price</span>
-                                                </span>
-
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/112947/wagon-r-2022-exterior-right-front-three-quarter-3.jpeg?isig=0"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Used Maruti Suzuki Baleno
-                                                    </a>
-                                                </h3>
-
-                                                <span class="ad-price">Rs. 3.5 Lakh
-                                                    <span class="text-muted ps-2">Starting Price</span>
-                                                </span>
-
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/141115/creta-exterior-right-front-three-quarter-16.jpeg?isig=0"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Used Maruti Suzuki Wagon R
-                                                    </a>
-                                                </h3>
-
-                                                <span class="ad-price">Rs. 75,000
-                                                    <span class="text-muted ps-2">Starting Price</span>
-                                                </span>
-
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/159099/swift-exterior-right-front-three-quarter.jpeg?isig=0"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Used Maruti Suzuki Swift
-                                                    </a>
-                                                </h3>
-
-                                                <span class="ad-price">Rs. 1 Lakh
-                                                    <span class="text-muted ps-2">Starting Price</span>
-                                                </span>
-
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -1167,395 +673,9 @@
     </section>
     <!-- =-=-=-=-=-=-= Top Cars In India End =-=-=-=-=-=-= -->
 
+    {{--THIS LATEST CAR UPDATES COMPONENET--}}
+    <x-latest-car-updates/>
 
-    <!-- =-=-=-=-=-=-= Latest Car Updates  Ads =-=-=-=-=-=-= -->
-    <section class="custom-padding gray">
-        <!-- Main Container -->
-        <div class="container featured-cars">
-            <!-- Row -->
-            <div class="row">
-                <!-- Heading Area -->
-                <div class="heading-panel">
-                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                        <!-- Main Title -->
-                        <h1>Latest Car <span class="heading-color"> Updates</span> </h1>
-                    </div>
-                </div>
-
-                <div class="card">
-
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="nav-item active">
-                            <a class="nav-link" aria-controls="trending" role="tab" data-toggle="tab"
-                                href="#carnews">Car News </a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" aria-controls="popular" role="tab" data-toggle="tab"
-                                href="#expertreviews">Expert Reviews</a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" aria-controls="upcoming" role="tab" data-toggle="tab"
-                                href="#video">Video</a>
-                        </li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content clearfix">
-                        <div class="tab-pane fade in active" style="margin-top: 20px;" id="carnews">
-                            <!-- Middle Content Box -->
-                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                <div class="row">
-                                    <div class=" featured-slider owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Middle Content Box End -->
-                        </div>
-
-                        <div class="tab-pane fade" style="margin-top: 20px;" id="expertreviews">
-                            <!-- Middle Content Box -->
-                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                <div class="row">
-                                    <div class=" featured-slider owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Middle Content Box End -->
-                        </div>
-
-                        <div class="tab-pane fade" style="margin-top: 20px;" id="video">
-                            <!-- Middle Content Box -->
-                            <div class="col-md-12 col-xs-12 col-sm-12">
-                                <div class="row">
-                                    <div class=" featured-slider owl-carousel owl-theme">
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post">
-                                                        <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
-                                                                    src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                            </a>
-
-                                                        </div>
-                                                        <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                                deliveries commence across India</a> </h3>
-                                                            <div class="post-info"> <a href="#">By Car
-                                                                    Choice</a> <a href="#">Aug 30, 2017</a>
-                                                            </div>
-                                                            <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                                consectetur adipisicing elit.
-                                                                <a href="#"><strong>Read More</strong></a>
-                                                            </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Middle Content Box End -->
-                        </div>
-                    </div>
-                    <!-- Row End -->
-                </div>
-            </div>
-            <!-- Main Container End -->
-        </div>
-    </section>
-    <!-- =-=-=-=-=-=-= Latest Car Updates End =-=-=-=-=-=-= -->
 
     <!-- Main Content Area End -->
 </div>
