@@ -183,7 +183,6 @@
                 </div>
 
                 <div class="card">
-
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="nav-item active">
@@ -206,17 +205,17 @@
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <div class="row">
                                     <div class=" featured-slider owl-carousel owl-theme">
+                                        @foreach ($matches as $data)
                                         <div class="item">
                                             <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
                                                 <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
-                                                            <span>Featured</span>
+                                                            <span>Trending</span>
                                                         </div>
                                                         <div class="image">
                                                             <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                src="{{ asset('assets/backend-assets/images/'.$data->addimage) }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
                                                             {{-- <div class="price-tag">
@@ -230,10 +229,10 @@
 
                                                             <h3>
                                                                 <a title="" href="#">
-                                                                    Mahindra XUV 3XO
+                                                                    {{$data->brandname}}  {{$data->carname}}
                                                                 </a>
                                                             </h3>
-                                                            <div class="ad-price">Rs. 110,000
+                                                            <div class="ad-price">Rs. {{$data->price}}
                                                                 <span class="text-muted ps-2">onwards</span>
                                                             </div>
 
@@ -251,215 +250,13 @@
 
                                                         </div>
                                                     </div>
-                                                    <!-- Listing Ad Grid -->
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
-                            <!-- Middle Content Box End -->
                         </div>
 
                         <div class="tab-pane fade" style="margin-top: 20px;" id="popular">
@@ -467,17 +264,17 @@
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <div class="row">
                                     <div class=" featured-slider owl-carousel owl-theme">
+                                        @foreach ($matchespopular as $data)
                                         <div class="item">
                                             <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
                                                 <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
-                                                            <span>Featured</span>
+                                                            <span>Popular</span>
                                                         </div>
                                                         <div class="image">
                                                             <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                src="{{ asset('assets/backend-assets/images/'.$data->addimage) }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
                                                             {{-- <div class="price-tag">
@@ -491,10 +288,10 @@
 
                                                             <h3>
                                                                 <a title="" href="#">
-                                                                    Mahindra XUV 3XO
+                                                                    {{$data->brandname}}  {{$data->carname}}
                                                                 </a>
                                                             </h3>
-                                                            <div class="ad-price">Rs. 110,000
+                                                            <div class="ad-price">Rs. {{$data->price}}
                                                                 <span class="text-muted ps-2">onwards</span>
                                                             </div>
 
@@ -512,211 +309,10 @@
 
                                                         </div>
                                                     </div>
-                                                    <!-- Listing Ad Grid -->
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -728,17 +324,18 @@
                             <div class="col-md-12 col-xs-12 col-sm-12">
                                 <div class="row">
                                     <div class=" featured-slider owl-carousel owl-theme">
+                                        @foreach ($matchesupcoming as $data)
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <!-- Listing Ad Grid -->
                                                 <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                     <div class="category-grid-box-1">
                                                         <div class="featured-ribbon">
-                                                            <span>Featured</span>
+                                                            <span>Upcoming</span>
                                                         </div>
                                                         <div class="image">
                                                             <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                                src="{{ asset('assets/backend-assets/images/'.$data->addimage) }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
                                                             {{-- <div class="price-tag">
@@ -752,10 +349,10 @@
 
                                                             <h3>
                                                                 <a title="" href="#">
-                                                                    Mahindra XUV 3XO
+                                                                    {{$data->brandname}}  {{$data->carname}}
                                                                 </a>
                                                             </h3>
-                                                            <div class="ad-price">Rs. 110,000
+                                                            <div class="ad-price">Rs. {{$data->price}}
                                                                 <span class="text-muted ps-2">onwards</span>
                                                             </div>
 
@@ -777,207 +374,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="item">
-                                            <div class="grid-style-2">
-                                                <!-- Listing Ad Grid -->
-                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                    <div class="category-grid-box-1">
-                                                        <div class="featured-ribbon">
-                                                            <span>Featured</span>
-                                                        </div>
-                                                        <div class="image">
-                                                            <img alt="Carz Choice"
-                                                                src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                                class="img-responsive">
-                                                            <div class="ribbon popular"></div>
-                                                            {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                        </div>
-                                                        <div class="short-description-1 clearfix">
-                                                            {{-- <div class="category-title">
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                            <h3>
-                                                                <a title="" href="#">
-                                                                    Mahindra XUV 3XO
-                                                                </a>
-                                                            </h3>
-                                                            <div class="ad-price">Rs. 110,000
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </div>
-
-                                                            <p class="location">
-                                                                <i class="fa fa-map-marker"></i>
-                                                                On-Road Price, Delhi
-                                                            </p>
-
-                                                            <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
-                                                                    <i class="fa fa-phone"></i>
-                                                                    View Details.
-                                                                </button>
-                                                            </a>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- Listing Ad Grid -->
-                                                </div>
-                                            </div>
-                                        </div>
-
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -1012,6 +409,7 @@
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
                         <div class=" popular-slider container owl-carousel owl-theme">
+                            @foreach ($matchesoffer as $data)
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
@@ -1036,11 +434,11 @@
 
                                                 <h3>
                                                     <a title="" href="#">
-                                                        Mahindra XUV 3XO
+                                                        {{$data->brandname}}  {{$data->carname}}
                                                     </a>
                                                 </h3>
 
-                                                <div class="ad-price">Rs. 110,000
+                                                <div class="ad-price">Rs. {{$data->price}}
                                                     <span class="text-muted ps-2">onwards</span>
                                                 </div>
                                                 <a class="  ">
@@ -1054,176 +452,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Mahindra XUV 3XO
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 110,000 <span
-                                                        class="text-muted ps-2">onwards</span></div>
-                                                <a class="  ">
-                                                    <button class="btn btn-outline btn-danger btn-sm ">
-                                                        Get Offer
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Mahindra XUV 3XO
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 110,000 <span
-                                                        class="text-muted ps-2">onwards</span></div>
-                                                <a class="  ">
-                                                    <button class="btn btn-outline btn-danger btn-sm ">
-                                                        Get Offer
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Mahindra XUV 3XO
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 110,000 <span
-                                                        class="text-muted ps-2">onwards</span></div>
-                                                <a class="  ">
-                                                    <button class="btn btn-outline btn-danger btn-sm ">
-                                                        Get Offer
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Mahindra XUV 3XO
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 110,000 <span
-                                                        class="text-muted ps-2">onwards</span></div>
-                                                <a class="  ">
-                                                    <button class="btn btn-outline btn-danger btn-sm ">
-                                                        Get Offer
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -1417,6 +646,7 @@
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
                         <div class=" popular-slider container owl-carousel owl-theme">
+                            @foreach ($matchestopcarsindia as $data)
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->
@@ -1447,7 +677,7 @@
                                                 </h3>
 
                                                 <p class="text-muted ps-2">
-                                                    Hyundai Creta, Mahindra Scorpio
+                                                    {{$data->brandname}}  {{$data->carname}}
                                                 </p>
 
                                             </div>
@@ -1456,167 +686,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Top SUVs in India
-                                                    </a>
-                                                </h3>
-
-                                                <p class="text-muted ps-2">
-                                                    Hyundai Creta, Mahindra Scorpio
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Top SUVs in India
-                                                    </a>
-                                                </h3>
-
-                                                <p class="text-muted ps-2">
-                                                    Hyundai Creta, Mahindra Scorpio
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Top SUVs in India
-                                                    </a>
-                                                </h3>
-
-                                                <p class="text-muted ps-2">
-                                                    Hyundai Creta, Mahindra Scorpio
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-                                            {{-- <div class="featured-ribbon">
-                                                <span>Featured</span>
-                                            </div> --}}
-                                            <div class="image">
-                                                {{-- <img alt="Carz Choice" src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}" class="img-responsive"> --}}
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-                                                {{-- <div class="price-tag">
-                                                        <div class="price"><span>$205,000</span></div>
-                                                    </div> --}}
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-                                                {{-- <div class="category-title">
-                                                        <span><a href="#">Sports &
-                                                                Equipment</a></span> </div> --}}
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Top SUVs in India
-                                                    </a>
-                                                </h3>
-
-                                                <p class="text-muted ps-2">
-                                                    Hyundai Creta, Mahindra Scorpio
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
                     </div>
                 </div>

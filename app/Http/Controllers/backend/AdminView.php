@@ -1,7 +1,7 @@
 <?php
+#{{--“सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।”--}}
 
 namespace App\Http\Controllers\backend;
-
 use App\Http\Controllers\Controller;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -9,6 +9,7 @@ use App\Models\AddVariant;
 use App\Models\Blog;
 use App\Models\CarList;
 use App\Models\CompanyProfile;
+use App\Models\CompareVehicle;
 use App\Models\faqs;
 use App\Models\FormAttribute;
 use App\Models\Lead;
@@ -184,5 +185,25 @@ class AdminView extends Controller
     public function addbannerimmages(){
         $imagesdata = SliderImage::get();
         return view('AdminPanel.addbannerimages',compact('imagesdata'));
+    }
+
+    public function displaysettings(){
+        $carlistdrop = Carlist::get();
+        $carlistdata = CarList::join('display_settings','display_settings.vehicleid','=','car_lists.id')
+        ->select('display_settings.*','car_lists.carname','car_lists.brandname')->get();
+        return view('AdminPanel.displaysettings',compact('carlistdata','carlistdrop'));
+    }
+
+    public function comparecars(){
+        $variantlist = AddVariant::get();
+        $compare = CompareVehicle::get();
+        $new = [];
+        foreach($compare as $data){
+            $ids = json_decode($data->vehicles);
+            $newarray = AddVariant::whereIn('id', $ids)->select('carname','carmodalname')->get();
+            $new[] = ['id' => $data->id, 'vehicles' => $newarray];
+        }
+        $array = $new;
+        return view('AdminPanel.comparecars',compact('variantlist','array'));
     }
 }

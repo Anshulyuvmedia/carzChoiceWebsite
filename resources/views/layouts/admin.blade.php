@@ -266,10 +266,15 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('addbannerimmages') }}">
-                                <i class="uil-comment-alt-image"></i>
-                                <span>Add Banner Images</span>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-setting"></i>
+                                <span>Home Page Settings</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('addbannerimmages') }}">Add Banner Images</a></li>
+                                <li><a href="{{ route('displaysettings')}}">Display Settings</a></li>
+                                <li><a href="{{ route('comparecars')}}">Compare Cars</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

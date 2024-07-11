@@ -116,7 +116,8 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('addfeatures/{id}', 'addfeatures')->name('addfeatures');
     Route::get('addspecifications/{id}', 'addspecifications')->name('addspecifications');
     Route::get('addbannerimmages', 'addbannerimmages')->name('addbannerimmages');
-
+    Route::get('displaysettings', 'displaysettings')->name('displaysettings');
+    Route::get('comparecars', 'comparecars')->name('comparecars');
 });
 
 
@@ -163,7 +164,9 @@ Route::controller(Store::class)->group(function() {
     Route::post('/updatespecs', 'updatespecs')->name('updatespecs');
     Route::post('/insertbannerimages', 'insertbannerimages')->name('insertbannerimages');
     Route::post('updatebannerimages', 'updatebannerimages')->name('updatebannerimages');
-
+    Route::post('insertdisplaysettings', 'insertdisplaysettings')->name('insertdisplaysettings');
+    Route::get('deletedisplaysettings/{id}', 'deletedisplaysettings')->name('deletedisplaysettings');
+    Route::post('insertcompare', 'insertcompare')->name('insertcompare');
 });
 
 

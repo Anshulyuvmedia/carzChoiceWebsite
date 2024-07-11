@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CompareVehicle;
+use App\Models\DisplaySetting;
 use App\Models\SliderImage;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -765,7 +767,6 @@ class Store extends Controller
         }
     }
 
-
     public function updatebannerimages(Request $req)
     {
         try {
@@ -818,4 +819,48 @@ class Store extends Controller
         }
     }
 
+    public function insertdisplaysettings(Request $rq){
+        //dd($rq->all());
+        try {
+            $data = $rq->validate([
+                'type' => 'required',
+                'vehicle' => 'required',
+            ]);
+
+            DisplaySetting::create([
+                'vehicleid' => $rq->vehicle,
+                'type' => $rq->type,
+                'category' => $rq->category,
+
+            ]);
+            return back()->with('success', 'Settings Added..!!!!');
+
+        } catch (Exception $e) {
+            return redirect()->route('addvariant')->with('error', $e->getMessage());
+            //return redirect()->route('addvariant')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deletedisplaysettings($id){
+        $data = DisplaySetting::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function insertcompare(Request $rq){
+
+        $adminuser = Auth::user()->first();
+        try{
+            $userdata = CompareVehicle::create([
+                'adminid' => $adminuser->id,
+                'userid' => 'null',
+                'vehicles' => json_encode($rq->comparewith),
+
+            ]);
+            return back()->with('success', 'Comparison Added..!!!!');
+        }catch (Exception $e) {
+            //return redirect()->route('comparecars')->with('error', $e->getMessage());
+            return redirect()->route('comparecars')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
 }
