@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="small-breadcrumb">
-                    
+
                 <div class="header-page">
                     <h1>Upcoming Cars</h1>
                     <p>More than 75 upcoming cars that will launch in India are covered here. All these new upcoming
@@ -31,7 +31,7 @@
         <!-- Row -->
         <div class="row">
             <!-- Sorting Filters -->
-            
+
             <!-- Middle Content Area -->
             <div class="col-md-8 col-lg-8 col-sx-12">
                 <div class="header-page mb-2">
@@ -39,12 +39,12 @@
                 </div>
                 <!-- Row -->
                 <div class="row">
-                    
+
                     <div class="clearfix"></div>
                     <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
                         <div class="clearfix"></div>
                         <div class="listingTopFilterBar">
-                            
+
                             <div class="col-md-6 col-xs-12 col-sm-5 ">
                                 <div class="header-listing">
                                     <h6>Filter by :</h6>
@@ -95,7 +95,7 @@
                                     <div class="ad-archive-desc">
                                         <!-- Title -->
                                         <a href=""><h3>Renault Duster </h3></a>
-                                        
+
                                         <!-- Price -->
                                         <div class="ad-price-simple fs-3">Rs. 10.00 - 15.00 Lakh <span class="fs-5 text-dark">Estimated Price </span></div>
                                         <!-- Ad History -->
@@ -124,7 +124,7 @@
                                     <div class="ad-archive-desc">
                                         <!-- Title -->
                                         <a href=""><h3>Tata Curvv </h3></a>
-                                        
+
                                         <!-- Price -->
                                         <div class="ad-price-simple fs-3">Rs. 15.00 - 20.00 Lakh <span class="fs-5 text-dark">Estimated Price </span></div>
                                         <!-- Ad History -->
@@ -153,7 +153,7 @@
                                     <div class="ad-archive-desc">
                                         <!-- Title -->
                                         <a href=""><h3>Kia Carnival </h3></a>
-                                        
+
                                         <!-- Price -->
                                         <div class="ad-price-simple fs-3">Rs. 40.00 - 45.00 Lakh <span class="fs-5 text-dark">Estimated Price </span></div>
                                         <!-- Ad History -->
@@ -182,7 +182,7 @@
                                     <div class="ad-archive-desc">
                                         <!-- Title -->
                                         <a href=""><h3>Kia Carnival </h3></a>
-                                        
+
                                         <!-- Price -->
                                         <div class="ad-price-simple fs-3">Rs. 40.00 - 45.00 Lakh <span class="fs-5 text-dark">Estimated Price </span></div>
                                         <!-- Ad History -->
@@ -193,8 +193,8 @@
                                 <!-- Content Block End -->
                             </div>
 
-                            
-                            
+
+
                         </div>
                         <!-- Ads Archive End -->
                     </div>
@@ -225,7 +225,7 @@
                 <div class="sidebar">
                     <!-- Panel group -->
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        
+
                         <!-- Latest Ads Panel -->
                         <div class="panel panel-default">
                             <!-- Heading -->
@@ -255,7 +255,7 @@
                                                 <div class="recent-ads-list-location">
                                                     Find a dealer near your current location
                                                 </div>
-                                                
+
                                                 <!-- /.recent-ads-list-price -->
                                             </div>
                                             <!-- /.recent-ads-list-content -->
@@ -275,7 +275,7 @@
                                                 <h3 class="recent-ads-list-title">
                                                     <a href="#">Used Cars</a>
                                                 </h3>
-                                               
+
                                                 <div class="recent-ads-list-location">
                                                     Explore best priced used cars in good conditions near you
                                                 </div>
@@ -285,7 +285,7 @@
                                         </div>
                                         <!-- /.recent-ads-container -->
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>

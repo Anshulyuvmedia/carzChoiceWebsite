@@ -1,10 +1,7 @@
 @extends('frontend.layouts.website')
 @section('content')
 @section('title', 'New Car ')
-
-
 <div>
-
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding gray p-0 pt-4">
         <!-- Main Container -->

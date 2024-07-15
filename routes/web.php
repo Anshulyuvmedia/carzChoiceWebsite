@@ -168,7 +168,3 @@ Route::controller(Store::class)->group(function() {
     Route::get('deletedisplaysettings/{id}', 'deletedisplaysettings')->name('deletedisplaysettings');
     Route::post('insertcompare', 'insertcompare')->name('insertcompare');
 });
-
-
-
-
