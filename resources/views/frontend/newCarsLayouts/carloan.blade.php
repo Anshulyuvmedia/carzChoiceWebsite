@@ -165,12 +165,14 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="nav-item active">
-                        <a class="nav-link" aria-controls="trending" role="tab" data-toggle="tab" href="#newcar">
+                        <a class="nav-link tabtype" data-value="newcar" aria-controls="trending" role="tab"
+                            data-toggle="tab" href="#newcar">
                             New Car
                         </a>
                     </li>
                     <li role="presentation" class="nav-item">
-                        <a class="nav-link" aria-controls="popular" role="tab" data-toggle="tab" href="#usedcar">
+                        <a class="nav-link tabtype" data-value="usedcar" aria-controls="popular" role="tab"
+                            data-toggle="tab" href="#usedcar">
                             Used Car
                         </a>
                     </li>
@@ -186,7 +188,6 @@
                                 <div class="col-md-6 gray rounded-3  ">
                                     <div class=" postdetails p-0 ">
                                         <form class="submit-form">
-
                                             <div class="row">
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                                                     <label class="control-label">Car </label>
@@ -237,11 +238,9 @@
                                         </form>
                                     </div>
                                 </div>
-
                                 <div class="col-md-6">
                                     <h3 class="fw-bold">Our Lending Partners</h3>
                                     <div>
-
                                         <div class="table-responsive">
                                             <table class="table table-bordered">
                                                 <tbody>
@@ -322,9 +321,7 @@
                                 <div class="col-md-6 gray rounded-3  ">
                                     <div class=" postdetails p-0 ">
                                         <form class="submit-form">
-
                                             <div class="row">
-
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                                                     <label class="control-label">City </label>
                                                     <input placeholder="Select a City" type="text"
@@ -590,263 +587,18 @@
 </div>
 <!-- =-=-=-=-=-=-= Feature and Benefits  End =-=-=-=-=-=-= -->
 
-<!-- =-=-=-=-=-=-= Latest Car Updates  Ads =-=-=-=-=-=-= -->
-<section class="custom-padding gray">
-    <!-- Main Container -->
-    <div class="container featured-cars">
-        <!-- Row -->
-        <div class="row">
-            <!-- Heading Area -->
-            <div class="heading-panel">
-                <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                    <!-- Main Title -->
-                    <h1>Latest News on <span class="heading-color"> Car Loans</span> </h1>
-                </div>
-            </div>
-
-
-            <div>
-                <!-- Middle Content Box -->
-                <div class="col-md-12 col-xs-12 col-sm-12">
-                    <div class="row">
-                        <div class=" comapare-slider owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="blog-post">
-                                            <div class="post-img">
-                                                <a href="#"> <img class="img-responsive" alt=""
-                                                        src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                </a>
-
-                                            </div>
-                                            <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                    deliveries commence across India</a> </h3>
-                                                <div class="post-info"> <a href="#">By Car
-                                                        Choice</a> <a href="#">Aug 30, 2017</a>
-                                                </div>
-                                                <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                    consectetur adipisicing elit.
-                                                    <a href="#"><strong>Read More</strong></a>
-                                                </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="blog-post">
-                                            <div class="post-img">
-                                                <a href="#"> <img class="img-responsive" alt=""
-                                                        src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                </a>
-
-                                            </div>
-                                            <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                    deliveries commence across India</a> </h3>
-                                                <div class="post-info"> <a href="#">By Car
-                                                        Choice</a> <a href="#">Aug 30, 2017</a>
-                                                </div>
-                                                <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                    consectetur adipisicing elit.
-                                                    <a href="#"><strong>Read More</strong></a>
-                                                </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="blog-post">
-                                            <div class="post-img">
-                                                <a href="#"> <img class="img-responsive" alt=""
-                                                        src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                </a>
-
-                                            </div>
-                                            <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                    deliveries commence across India</a> </h3>
-                                                <div class="post-info"> <a href="#">By Car
-                                                        Choice</a> <a href="#">Aug 30, 2017</a>
-                                                </div>
-                                                <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                    consectetur adipisicing elit.
-                                                    <a href="#"><strong>Read More</strong></a>
-                                                </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="blog-post">
-                                            <div class="post-img">
-                                                <a href="#"> <img class="img-responsive" alt=""
-                                                        src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
-                                                </a>
-
-                                            </div>
-                                            <h5 class="post-title"> <a href="#"> 2024 Force Gurkha
-                                                    deliveries commence across India</a> </h3>
-                                                <div class="post-info"> <a href="#">By Car
-                                                        Choice</a> <a href="#">Aug 30, 2017</a>
-                                                </div>
-                                                <p class="post-excerpt"> Lorem ipsum dolor sit amet,
-                                                    consectetur adipisicing elit.
-                                                    <a href="#"><strong>Read More</strong></a>
-                                                </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <a href="/blogs" class="  ">
-                        View All New <i class="bi bi-chevron-right"></i>
-                    </a>
-                </div>
-                <!-- Middle Content Box End -->
-            </div>
-
-        </div>
-        <!-- Main Container End -->
-    </div>
-</section>
-<!-- =-=-=-=-=-=-= Latest Car Updates End =-=-=-=-=-=-= -->
+{{-- THIS IS CAR LOAN BLOG SINGLE COMPONENT --}}
+<x-car-loan-blog-single />
 
 
 
-<!-- =-=-=-=-=-=-= New Car FAQs  =-=-=-=-=-=-= -->
-<section class="custom-padding used-cars">
-    <!-- Main Container -->
-    <div class="container popular-cars">
-        <!-- Row -->
-        <div class="row">
-            <!-- Heading Area -->
-            <div class="heading-panel">
-                <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                    <!-- Main Title -->
-                    <h1>FAQs </h1>
-                </div>
-            </div>
+{{-- THIS IS NEW CAR LOAN FAQ COMPONENET --}}
+<x-car-loan-faq />
 
 
-
-            <!-- Middle Content Box -->
-            <div class="col-md-12 col-xs-12 col-sm-12">
-                <div class="row">
-
-                    <ul class="accordion">
-                        <li>
-                            <h3 class="accordion-title"><a href="#">Why should you apply for car loan through
-                                    Carz Choice?</a></h3>
-                            <div class="accordion-content">
-                                <p>CarWale brings you instant custom-fit car loans from leading banks in India to help
-                                    you get a loan to purchase your dream car. Just fill the form once and get custom
-                                    fit loan quotes with upto 100% financing on select vehicles, flexible repayment
-                                    tenure and pocket-friendly EMIs from our finance partners. In case you have not
-                                    finalized on a car, we also assist you in finding a car that suits your needs
-                                    perfectly.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <h3 class="accordion-title"><a href="#">What is the maximum loan amount that I can
-                                    avail for new car loan?</a></h3>
-                            <div class="accordion-content">
-                                <p>The maximum loan amount you get is different for different banks. Based on the car
-                                    you choose, you can check your eligible loan offer. Generally most banks offer loan
-                                    for 80% to 90% of the on-road price of the car. Few banks also offer up to 100%
-                                    financing on new car loan based on your income and credit history.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <h3 class="accordion-title"><a href="#">What will be the interest rate for car Loan
-                                    on Carz Choice?</a></h3>
-                            <div class="accordion-content">
-                                <p> The interest rates vary on the basis of car models, tenure selected and your
-                                    preferred banking partner. We provide offers starting from 9.5% per annum. Your
-                                    exact rate of interest will be determined by the lender on the basis of your loan
-                                    application. Lenders also generally charge you with a processing fee directly
-                                    deducted from your car loan amount which can be negotiated with the lender at the
-                                    time of sanction of your application.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <h3 class="accordion-title"><a href="#">What is the tenure for which I can get a new
-                                    car loan?</a></h3>
-                            <div class="accordion-content">
-                                <p> Generally loan providers offer new car loans for tenures ranging from 1 year to 7
-                                    years. You can choose the loan tenure as per your preference.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <h3 class="accordion-title"><a href="#">What is car loan EMI? How is this
-                                    calculated?</a></h3>
-                            <div class="accordion-content">
-                                <p> EMIs or Equated Monthly Installments refer to the monthly payments you make to the
-                                    lender to repay your car loan. These payments include the principal amount as well
-                                    as the interest. The amounts of EMI you have to pay depend on the tenure of your car
-                                    loan. For a longer tenure, loan repayment is spread over greater number of years and
-                                    the installments are smaller whereas for a shorter tenure, installments will be
-                                    larger.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <h3 class="accordion-title"><a href="#">What is the eligibility criteria to apply
-                                    for new car loan on CarWale?</a></h3>
-                            <div class="accordion-content">
-                                <p> Generally, the bank or lender will need to review the following to determine your
-                                    new car loan eligibility:
-                                </p>
-                                <ol>
-                                    <li>
-                                        Your credit history (based on a soft review of your credit report)
-                                    </li>
-                                    <li>
-                                        Your income
-                                    </li>
-                                    <li>
-                                        Your age and citizenship status
-                                    </li>
-                                    <li>
-                                        Other debts and monthly financial obligations
-                                    </li>
-                                    <li>
-                                        Your employment status
-                                    </li>
-                                </ol>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-            <!-- Middle Content Box End -->
-
-            <!-- Row End -->
-        </div>
-        <!-- Main Container End -->
-    </div>
-</section>
-<!-- =-=-=-=-=-=-= New Car FAQs End =-=-=-=-=-=-= -->
-
-
-
-
+{{-- First modal --}}
 <div class="modal fade" id="selectBrand" aria-hidden="true" aria-labelledby="selectBrandlabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title" id="selectBrandlabel">Select Your Brand </h3>
@@ -864,100 +616,39 @@
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <h6 class="pb-3">POPULAR BRANDS</h6>
-                            <ul class="accordion">
-                                <li>
-                                    <h3 class="accordion-title">
-                                        <a href="#" data-bs-title="Maruti Suzuki">
-                                            <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/10/brands/logos/maruti-suzuki1647009823420.jpg?v=1647009823707"
-                                                alt="Maruti Suzuki Logo" class="img-fluid" width="50" />
-                                            <span>Maruti Suzuki</span>
-                                        </a>
-                                    </h3>
-                                    <div class="accordion-content">
-                                        <div class="list-group">
-                                            <a href="#" data-bs-title="Maruti Suzuki, Fronx"
-                                                data-bs-target="#selectCar" data-bs-toggle="modal"
-                                                class="list-group-item list-group-item-action">
-                                                Fronx
+                            <ul class="accordion" style="height: 300px; overflow-y: auto; scrollbar-width: thin;">
+                                @foreach ($vehiclesByBrand as $brandData)
+                                    <li>
+                                        <h3 class="accordion-title">
+                                            <a href="#">
+                                                <img src="{{ asset('assets/backend-assets/images/' . $brandData['brand_image']) }}"
+                                                    alt="" class="img-fluid" width="40" />
+                                                <span>{{ $brandData['brandname'] }}</span>
                                             </a>
-
-                                            <a href="#" data-bs-title="Maruti Suzuki, Swift"
-                                                data-bs-target="#selectCar" data-bs-toggle="modal"
-                                                class="list-group-item list-group-item-action">
-                                                Swift
-                                            </a>
-                                            <a href="#" data-bs-title="Maruti Suzuki, Grand Vitara"
-                                                data-bs-target="#selectCar" data-bs-toggle="modal"
-                                                class="list-group-item list-group-item-action">
-                                                Grand Vitara
-                                            </a>
+                                        </h3>
+                                        <div class="accordion-content">
+                                            <div class="list-group">
+                                                @if (count($brandData['vehicles']) > 0)
+                                                    @foreach ($brandData['vehicles'] as $vehicle)
+                                                        <a href="#"
+                                                            data-bs-title="{{ $brandData['brandname'] }} ,{{ $vehicle->carname }}"
+                                                            data-bs-target="#selectCar" data-bs-toggle="modal"
+                                                            class="list-group-item list-group-item-action uniqueanchor">
+                                                            <span>{{ $vehicle->carname }}</span>
+                                                        </a>
+                                                    @endforeach
+                                                @else
+                                                    <p>No vehicles available for this brand.</p>
+                                                @endif
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h3 class="accordion-title">
-                                        <a href="#" data-bs-title="Tata">
-                                            <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/16/brands/logos/tata.jpg?v=1629973276336"
-                                                alt="Tata" class="img-fluid" width="50" />
-                                            <span>Tata</span>
-                                        </a>
-                                    </h3>
-                                    <div class="accordion-content">
-                                        <div class="list-group">
-                                            <a href="#" data-bs-title="Tata, Nexon" data-bs-target="#selectCar"
-                                                data-bs-toggle="modal"
-                                                class="list-group-item list-group-item-action">Nexon</a>
-                                            <a href="#" data-bs-title="Tata, Punch" data-bs-target="#selectCar"
-                                                data-bs-toggle="modal"
-                                                class="list-group-item list-group-item-action">Punch</a>
-                                            <a href="#" data-bs-title="Tata, Altroz"
-                                                data-bs-target="#selectCar" data-bs-toggle="modal"
-                                                class="list-group-item list-group-item-action">Altroz</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h3 class="accordion-title">
-                                        <a href="#">
-                                            <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/17/brands/logos/toyota.jpg?v=1630055705330"
-                                                alt="Toyota Logo" class="img-fluid" width="50" />
-                                            <span>Toyota</span>
-                                        </a>
-                                    </h3>
-                                    <div class="accordion-content">
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action">A
-                                                second link item</a>
-                                            <a href="#" class="list-group-item list-group-item-action">A
-                                                third link item</a>
-                                            <a href="#" class="list-group-item list-group-item-action">A
-                                                fourth link item</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h3 class="accordion-title">
-                                        <a href="#">
-                                            <img src="https://imgd.aeplcdn.com/0x0/n/cw/ec/8/brands/logos/hyundai.jpg?v=1629973193722"
-                                                alt="Hyundai Logo" class="img-fluid" width="50" />
-                                            <span>Hyundai</span>
-                                        </a>
-                                    </h3>
-                                    <div class="accordion-content">
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action">A
-                                                second link item</a>
-                                            <a href="#" class="list-group-item list-group-item-action">A
-                                                third link item</a>
-                                            <a href="#" class="list-group-item list-group-item-action">A
-                                                fourth link item</a>
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
-                            <button class="btn btn-theme btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open second modal</button>
+                            <button class="btn btn-theme btn-block" data-bs-target="#selectCar"
+                                data-bs-toggle="modal">Open second modal</button>
                         </div> --}}
                     </div>
 
@@ -981,10 +672,8 @@
             <div class="modal-header">
                 <h3 class="modal-title" id="selectedCarlabel">Select Car Model</h3>
                 <div class="header-bg"></div>
-                {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
             </div>
             <div class="modal-body">
-                <!-- content goes here -->
                 <form>
                     <div class="form-group col-md-12">
                         <label>Your Car</label>
@@ -1024,67 +713,8 @@
                             </div>
 
                             <h6 class="pb-3">Select a variant</h6>
-                            <div>
-                                <a href="#" class="list-group-item list-group-item-action">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
-                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
-                                    </div>
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <div class="mb-1">
-                                            <ul class="d-flex">
-                                                <li class="me-2">
-                                                    Petrol
-                                                </li>
-                                                <li class="me-2">
-                                                    Manual
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <small class="text-body-secondary">On-Road</small>
-                                    </div>
+                            <div id="variantlistdiv">
 
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
-                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
-                                    </div>
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <div class="mb-1">
-                                            <ul class="d-flex">
-                                                <li class="me-2">
-                                                    Petrol
-                                                </li>
-                                                <li class="me-2">
-                                                    Manual
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <small class="text-body-secondary">On-Road</small>
-                                    </div>
-
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
-                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
-                                    </div>
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <div class="mb-1">
-                                            <ul class="d-flex">
-                                                <li class="me-2">
-                                                    Petrol
-                                                </li>
-                                                <li class="me-2">
-                                                    Manual
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <small class="text-body-secondary">On-Road</small>
-                                    </div>
-
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -1103,27 +733,88 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-    document.querySelectorAll('.accordion-title a').forEach(item => {
+    document.querySelectorAll('.uniqueanchor').forEach(item => {
         item.addEventListener('click', event => {
-            event.preventDefault(); // Prevent the default action of the anchor tag
             const carBrandTitle = event.currentTarget.getAttribute('data-bs-title');
-            const modalBodyInput = document.querySelector('#carBrand');
-            modalBodyInput.value = carBrandTitle;
+            const modalBodyInput = document.querySelector('#CarrName');
+
+            if (modalBodyInput) {
+                modalBodyInput.value = carBrandTitle;
+                console.log("Value set to: " + carBrandTitle);
+
+                // Splitting the value based on comma
+                const finalvalue = modalBodyInput.value;
+                const valuesArray = finalvalue.split(',');
+
+                console.log("Split values:", valuesArray);
+
+                // AJAX request
+                $.ajax({
+                    url: '/filtervariants/' + valuesArray[1].trim(),
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        $('#variantlistdiv').empty();
+
+                        response.forEach(function(item) {
+                            //Parse fueltype and transmission if they are JSON strings
+                            var fuelTypesArray = JSON.parse(item.fueltype);
+                            var transmissionsArray = JSON.parse(item.transmission);
+
+
+                            var fuelTypes = fuelTypesArray.map(function(fuel) {
+                                return `<li class="me-2">${fuel},</li>`;
+                            }).join('');
+
+                            var transmissions = transmissionsArray.map(function(
+                                trans) {
+                                return `<li class="me-2">${trans},</li>`;
+                            }).join('');
+
+                            // Create the new div
+                            var newdiv = `
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1 fw-bold text-danger">${item.carmodalname}</h5>
+                                    <small class="text-body-secondary fw-bold">Rs. ${item.price}</small>
+                                </div>
+                                <div class="d-flex w-100 justify-content-between">
+                                    <div class="mb-1">
+                                        <ul class="d-flex" style="column-count : 4;">
+                                            ${fuelTypes} |&nbsp;&nbsp;${transmissions}
+                                        </ul>
+                                    </div>
+                                    <small class="text-body-secondary">On-Road</small>
+                                </div>
+                            </a>
+                        `;
+                            $('#variantlistdiv').append(newdiv);
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX request error:', error);
+                        // Handle error here
+                    }
+                });
+
+            } else {
+                console.error('Input field with ID "CarrName" not found.');
+            }
         });
     });
 
-    const selectCarModal = document.getElementById('selectCar')
-    if (selectCarModal) {
-        selectCarModal.addEventListener('show.bs.modal', event => {
-            const button = event.relatedTarget
-            const carModelTitle = button.getAttribute('data-bs-title')
-            const modalBodyInput = selectCarModal.querySelector('.modal-body #CarrName')
 
-            modalBodyInput.value = carModelTitle
-        })
-    }
+
+    // When a tab is clicked, update the type of car
+    $('.tabtype').on('click', function() {
+        selectedType = $(this).data('value');
+    });
 </script>
 
 
@@ -1150,7 +841,7 @@
                         </a>
                     </div>
                     <div class="form-group col-md-12">
-                        
+
                         <input type="text" id="carLocation" class="form-control" placeholder="Enter Your Name">
                     </div>
 
@@ -1199,13 +890,13 @@
                                 </div>
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal"
-                                        data-bs-location="Navi M data-bs-target="#selectCity"
-                                        data-bs-toggle="modal"umbai">
+                                    <a href="#" class="switch-modal" data-bs-location="Navi M data-bs-target="
+                                        #selectCity" data-bs-toggle="modal" umbai">
 
                                         <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg"
                                             alt="Navi Mumbai">
-                                        <div class="mt-2 fs-6 text-muted" style="line-height: 1.3em;">Navi Mumbai</div>
+                                        <div class="mt-2 fs-6 text-muted" style="line-height: 1.3em;">Navi Mumbai
+                                        </div>
                                     </a>
 
                                 </div>
@@ -1329,7 +1020,7 @@
                     </div>
                     <div class="search-form">
                         <div class="form-group col-md-12">
-                            
+
                             <input type="text" id="carcity" class="form-control" placeholder="Enter Your Name">
                         </div>
                     </div>

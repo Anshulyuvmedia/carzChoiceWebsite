@@ -381,4 +381,55 @@ class FrontendStore extends Controller
         }
     }
 
+    public function getupcomingvehiclebybrands($selectedbrand)
+    {
+        $upcoming = CarList::join('display_settings','display_settings.vehicleid','=','car_lists.id')
+        ->join('vehicle_images','vehicle_images.vehicle','=','car_lists.carname')
+        ->select('display_settings.*','car_lists.carname','car_lists.brandname','vehicle_images.addimage')
+        ->where('vehicle_images.type','=','Outer view')
+        ->where('car_lists.brandname','=',$selectedbrand)
+        ->where('display_settings.category','=','Upcoming')->get();
+
+
+        $variantdata = AddVariant::get();
+        $trendingUpcomingNames = $upcoming->pluck('carname');
+
+        $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames);
+        $matchesupcoming = $matchesupcoming->map(function ($item) use ($upcoming) {
+            $trendingItem = $upcoming->firstWhere('carname', $item->carname);
+            if ($trendingItem) {
+                $item->addimage = $trendingItem->addimage;
+                $item->brandname = $trendingItem->brandname;
+                $item->price = $trendingItem->price; // Add other necessary fields here
+            }
+            return $item;
+        })->values();
+        //  dd($matchesupcoming);
+        return response()->json(['data' => $matchesupcoming->toArray()]);
+
+    }
+
+    public function insertcarloanenquiry(Request $rq)
+    {
+        //dd($rq->all());
+        try {
+            AdPost::create([
+                'car' => $rq->brandname,
+                'city' => $rq->carname,
+                'fullname' => $rq->modalname,
+                'mobileno' => $rq->district,
+
+            ]);
+            return back()->with('success', 'Enquiry Sent!!!!');
+
+        } catch (Exception $e) {
+            return redirect()->route('addadshow')->with('error', $e->getMessage());
+            //return redirect()->route('addadshow')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function filtervariants($finalvalue){
+        $variantdata = AddVariant::where('carname',$finalvalue)->get();
+        return response()->json($variantdata);
+    }
 }

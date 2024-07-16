@@ -87,6 +87,10 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('insertadpost', 'insertadpost')->name('insertadpost');
     Route::get('deleteadpost/{id}', 'deleteadpost')->name('deleteadpost');
     Route::post('updateadpost', 'updateadpost')->name('updateadpost');
+    Route::get('getupcomingvehiclebybrands/{selectedbrand}', 'getupcomingvehiclebybrands')->name('getupcomingvehiclebybrands');
+    Route::post('insertcarloanenquiry', 'insertcarloanenquiry')->name('insertcarloanenquiry');
+    Route::post('filtervariants/{finalvalue}', 'filtervariants')->name('filtervariants');
+
 });
 
 
@@ -167,4 +171,5 @@ Route::controller(Store::class)->group(function() {
     Route::post('insertdisplaysettings', 'insertdisplaysettings')->name('insertdisplaysettings');
     Route::get('deletedisplaysettings/{id}', 'deletedisplaysettings')->name('deletedisplaysettings');
     Route::post('insertcompare', 'insertcompare')->name('insertcompare');
+
 });

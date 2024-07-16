@@ -8,6 +8,7 @@
     <![endif]-->
     <meta name="description" content="">
     <meta name="author" content="ScriptsBundle">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title') | Carz Choice</title>
 

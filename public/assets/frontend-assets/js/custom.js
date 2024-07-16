@@ -91,9 +91,9 @@ Designed and Development by: ScriptsBundle
         increaseArea: '20%' // optional
     });
     /* ======= Jquery Select Dropdowns ======= */
-    $("select").select2({
-        width: '100%'
-    });
+    // $("select").select2({
+    //     width: '100%'
+    // });
     $(".ad-post-status").select2({
         width: '100%',
         theme: "classic"

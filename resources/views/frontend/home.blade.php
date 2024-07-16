@@ -472,7 +472,7 @@
 
 
     {{--THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET--}}
-    <x-find-the-cars-by-choice/>
+    <x-find-the-cars-by-choice />
 
 
 
