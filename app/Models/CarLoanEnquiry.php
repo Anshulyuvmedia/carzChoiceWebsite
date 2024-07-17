@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class CarLoanEnquiry extends Model
 {
     protected $fillable = [
-        'car',
+        'carname',
+        'enquirytype',
         'city',
         'fullname',
         'mobileno',

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\AddVariant;
 use App\Models\AdPost;
 use App\Models\CarList;
+use App\Models\CarLoanEnquiry;
+use App\Models\Pincode;
 use App\Models\PostOffices;
 use App\Models\RegisterUser;
 use Illuminate\Http\Request;
@@ -343,7 +345,7 @@ class FrontendStore extends Controller
                     }
                 }
             }
-            foreach($positions as $index =>  $row){
+            foreach ($positions as $index => $row) {
                 $imgthumb = $imgthumbs[$index];
                 $imageData[] = [
                     'label' => $row,
@@ -377,18 +379,18 @@ class FrontendStore extends Controller
             Log::info('Ad Post Updated Successfully: ', ['adpost' => $data]);
             return back()->with('success', 'Ad Post Updated..!!!!')->with($rq->postid);
         } catch (Exception $e) {
-            return redirect()->route('editadshow',['id' => $rq->postid])->with('error', $e->getMessage());
+            return redirect()->route('editadshow', ['id' => $rq->postid])->with('error', $e->getMessage());
         }
     }
 
     public function getupcomingvehiclebybrands($selectedbrand)
     {
-        $upcoming = CarList::join('display_settings','display_settings.vehicleid','=','car_lists.id')
-        ->join('vehicle_images','vehicle_images.vehicle','=','car_lists.carname')
-        ->select('display_settings.*','car_lists.carname','car_lists.brandname','vehicle_images.addimage')
-        ->where('vehicle_images.type','=','Outer view')
-        ->where('car_lists.brandname','=',$selectedbrand)
-        ->where('display_settings.category','=','Upcoming')->get();
+        $upcoming = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
+            ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
+            ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+            ->where('vehicle_images.type', '=', 'Outer view')
+            ->where('car_lists.brandname', '=', $selectedbrand)
+            ->where('display_settings.category', '=', 'Upcoming')->get();
 
 
         $variantdata = AddVariant::get();
@@ -409,27 +411,56 @@ class FrontendStore extends Controller
 
     }
 
-    public function insertcarloanenquiry(Request $rq)
+    public function filtervariants($finalvalue)
     {
-        //dd($rq->all());
-        try {
-            AdPost::create([
-                'car' => $rq->brandname,
-                'city' => $rq->carname,
-                'fullname' => $rq->modalname,
-                'mobileno' => $rq->district,
-
-            ]);
-            return back()->with('success', 'Enquiry Sent!!!!');
-
-        } catch (Exception $e) {
-            return redirect()->route('addadshow')->with('error', $e->getMessage());
-            //return redirect()->route('addadshow')->with('error', 'Not Added Try Again...!!!!');
-        }
+        $variantdata = AddVariant::where('carname', $finalvalue)->get();
+        return response()->json($variantdata);
     }
 
-    public function filtervariants($finalvalue){
-        $variantdata = AddVariant::where('carname',$finalvalue)->get();
+    public function filterbyfueltypesandtras(Request $rq)
+    {
+        $carname = $rq->input('carname');
+        $checkboxes = $rq->input('checkboxes');
+
+        $variantdata = AddVariant::where('carname', $carname);
+
+        // Check if checkboxes are not empty
+        if (!empty($checkboxes)) {
+            $variantdata->where(function ($query) use ($checkboxes) {
+                foreach ($checkboxes as $value) {
+                    $query->orWhereJsonContains('fueltype', $value);
+                    $query->orWhereJsonContains('transmission', $value);
+                }
+            });
+        }
+        $variantdata = $variantdata->get();
+        // dd($variantdata);
         return response()->json($variantdata);
+    }
+
+    public function filtercities($location){
+        $filtereddata = Pincode::where('City',$location)->get();
+        // dd($filtereddata[0]);
+        return response()->json($filtereddata);
+    }
+
+    public function insertcarloanenquiry(Request $rq)
+    {
+        // dd($rq->all());
+        try {
+            CarLoanEnquiry::create([
+                'carname' => $rq->carname,
+                'enquirytype' => $rq->enquirytype,
+                'city' => $rq->cityname,
+                'fullname' => $rq->fullname,
+                'mobileno' => $rq->mobileno,
+
+            ]);
+            return back()->with('success', 'Thank you We Will Reach You Soon!!!!');
+
+        } catch (Exception $e) {
+            //return redirect()->route('carloan')->with('error', $e->getMessage());
+            return redirect()->route('carloan')->with('error', 'Not Added Try Again...!!!!');
+        }
     }
 }

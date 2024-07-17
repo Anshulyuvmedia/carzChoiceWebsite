@@ -39,7 +39,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('electric-car', 'electriccar');
     Route::get('used-car', 'usedcar');
     Route::get('usedcar-bylocation', 'usedcarbylocation');
-    Route::get('car-loan', 'carloan');
+    Route::get('car-loan', 'carloan')->name('carloan');
     Route::get('find-car', 'findcar');
     Route::get('car-view-images', 'carviewimages');
     Route::get('car-images', 'carimages');
@@ -88,8 +88,10 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::get('deleteadpost/{id}', 'deleteadpost')->name('deleteadpost');
     Route::post('updateadpost', 'updateadpost')->name('updateadpost');
     Route::get('getupcomingvehiclebybrands/{selectedbrand}', 'getupcomingvehiclebybrands')->name('getupcomingvehiclebybrands');
-    Route::post('insertcarloanenquiry', 'insertcarloanenquiry')->name('insertcarloanenquiry');
     Route::post('filtervariants/{finalvalue}', 'filtervariants')->name('filtervariants');
+    Route::post('filterbyfueltypesandtras', 'filterbyfueltypesandtras')->name('filterbyfueltypesandtras');
+    Route::post('filtercities/{location}', 'filtercities')->name('filtercities');
+    Route::post('insertcarloanenquiry', 'insertcarloanenquiry')->name('insertcarloanenquiry');
 
 });
 

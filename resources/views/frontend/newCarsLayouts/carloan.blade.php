@@ -184,26 +184,39 @@
                         <!-- Middle Content Box -->
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row pb-3">
-
-                                <div class="col-md-6 gray rounded-3  ">
+                                @if ($mymess = Session::get('success'))
+                                <div class="alert border-0 alert-success text-center" role="alert" id="successAlert">
+                                    <strong>{{ $mymess }}</strong>
+                                </div>
+                                @endif
+                                @if ($mymess = Session::get('error'))
+                                <div class="alert border-0 alert-danger text-center" role="alert" id="dangerAlert">
+                                    <strong>{{ $mymess }}</strong>
+                                </div>
+                                @endif
+                                <div class="col-md-6 gray rounded-3">
                                     <div class=" postdetails p-0 ">
-                                        <form class="submit-form">
+                                        <form action="{{ route('insertcarloanenquiry') }}" method="POST"
+                                            class="submit-form">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                                                     <label class="control-label">Car </label>
                                                     <input placeholder="Select A Car" type="text"
-                                                        class=" form-control Car" data-bs-target="#selectBrand"
-                                                        data-bs-toggle="modal" type="button">
+                                                        class="form-control car-details" data-bs-target="#selectBrand"
+                                                        data-bs-toggle="modal" name="carname" value="" id="carvalue"
+                                                        type="button">
                                                     </input>
+                                                    <input type="hidden" name="enquirytype" value="newcar">
                                                 </div>
                                             </div>
                                             <div class="row">
-
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                                                     <label class="control-label">City </label>
                                                     <input placeholder="Select a City" type="text"
-                                                        class=" form-control City" data-bs-target="#selectLocation"
-                                                        data-bs-toggle="modal" type="button">
+                                                        class="form-control City" data-bs-target="#selectLocation"
+                                                        data-bs-toggle="modal" name="cityname" value="" id="cityvalue"
+                                                        type="button">
                                                     </input>
                                                 </div>
                                             </div>
@@ -211,21 +224,18 @@
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                                                     <label class="control-label">Full Name<sup
                                                             class="text-danger">*</sup></label>
-                                                    <input class="form-control"
-                                                        placeholder="Full Name as per PAN Card" type="text">
+                                                    <input class="form-control" placeholder="Full Name as per PAN Card"
+                                                        name="fullname" type="text">
                                                 </div>
                                             </div>
-
-                                            <!-- end row -->
                                             <div class="row">
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                                                     <label class="control-label">Mobile Number</label>
                                                     <input class="form-control" placeholder="eg +92-0321-123-456"
-                                                        type="text">
+                                                        type="text" name="mobileno">
                                                 </div>
-
                                             </div>
-                                            <button class="btn btn-theme btn-block ">
+                                            <button type="submit" class="btn btn-theme btn-block ">
                                                 Get Virtus Loan Offers
                                             </button>
                                             <div class="mb-3">
@@ -320,22 +330,24 @@
                             <div class="row pb-3">
                                 <div class="col-md-6 gray rounded-3  ">
                                     <div class=" postdetails p-0 ">
-                                        <form class="submit-form">
+                                         <form action="{{ route('insertcarloanenquiry') }}" method="POST">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                                                     <label class="control-label">City </label>
-                                                    <input placeholder="Select a City" type="text"
+                                                    <input placeholder="Select a City" id="usecarcity" type="text"
                                                         class=" form-control City" data-bs-target="#selectLocation"
-                                                        data-bs-toggle="modal" type="button">
+                                                        data-bs-toggle="modal" name="cityname" type="button">
                                                     </input>
+                                                    <input type="hidden" name="enquirytype" value="oldcar">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                                                     <label class="control-label">Full Name<sup
                                                             class="text-danger">*</sup></label>
-                                                    <input class="form-control"
-                                                        placeholder="Full Name as per PAN Card" type="text">
+                                                    <input class="form-control" name="fullname" placeholder="Full Name as per PAN Card"
+                                                        type="text">
                                                 </div>
                                             </div>
 
@@ -343,12 +355,12 @@
                                             <div class="row">
                                                 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                                                     <label class="control-label">Mobile Number</label>
-                                                    <input class="form-control" placeholder="eg +92-0321-123-456"
+                                                    <input class="form-control" name="mobileno" placeholder="eg +92-0321-123-456"
                                                         type="text">
                                                 </div>
 
                                             </div>
-                                            <button class="btn btn-theme btn-block ">
+                                            <button type="submit" class="btn btn-theme btn-block ">
                                                 Get Virtus Loan Offers
                                             </button>
                                             <div class="mb-3">
@@ -618,31 +630,31 @@
                             <h6 class="pb-3">POPULAR BRANDS</h6>
                             <ul class="accordion" style="height: 300px; overflow-y: auto; scrollbar-width: thin;">
                                 @foreach ($vehiclesByBrand as $brandData)
-                                    <li>
-                                        <h3 class="accordion-title">
-                                            <a href="#">
-                                                <img src="{{ asset('assets/backend-assets/images/' . $brandData['brand_image']) }}"
-                                                    alt="" class="img-fluid" width="40" />
-                                                <span>{{ $brandData['brandname'] }}</span>
+                                <li>
+                                    <h3 class="accordion-title">
+                                        <a href="#">
+                                            <img src="{{ asset('assets/backend-assets/images/' . $brandData['brand_image']) }}"
+                                                alt="" class="img-fluid" width="40" />
+                                            <span>{{ $brandData['brandname'] }}</span>
+                                        </a>
+                                    </h3>
+                                    <div class="accordion-content">
+                                        <div class="list-group">
+                                            @if (count($brandData['vehicles']) > 0)
+                                            @foreach ($brandData['vehicles'] as $vehicle)
+                                            <a href="#"
+                                                data-bs-title="{{ $brandData['brandname'] }} ,{{ $vehicle->carname }}"
+                                                data-bs-target="#selectCar" data-bs-toggle="modal"
+                                                class="list-group-item list-group-item-action uniqueanchor">
+                                                <span>{{ $vehicle->carname }}</span>
                                             </a>
-                                        </h3>
-                                        <div class="accordion-content">
-                                            <div class="list-group">
-                                                @if (count($brandData['vehicles']) > 0)
-                                                    @foreach ($brandData['vehicles'] as $vehicle)
-                                                        <a href="#"
-                                                            data-bs-title="{{ $brandData['brandname'] }} ,{{ $vehicle->carname }}"
-                                                            data-bs-target="#selectCar" data-bs-toggle="modal"
-                                                            class="list-group-item list-group-item-action uniqueanchor">
-                                                            <span>{{ $vehicle->carname }}</span>
-                                                        </a>
-                                                    @endforeach
-                                                @else
-                                                    <p>No vehicles available for this brand.</p>
-                                                @endif
-                                            </div>
+                                            @endforeach
+                                            @else
+                                            <p>No vehicles available for this brand.</p>
+                                            @endif
                                         </div>
-                                    </li>
+                                    </div>
+                                </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -684,28 +696,28 @@
                             <div class="d-flex pb-3" style=" overflow-x: auto;">
                                 <div class="me-3">
                                     <input type="checkbox" class="btn-check " id="btn-check-1-outlined"
-                                        autocomplete="off">
+                                        autocomplete="off" value="Petrol">
                                     <label class="btn btn-outline-success border rounded-3"
                                         for="btn-check-1-outlined">Petrol</label>
 
                                 </div>
                                 <div class="me-3">
                                     <input type="checkbox" class="btn-check " id="btn-check-2-outlined"
-                                        autocomplete="off">
+                                        autocomplete="off" value="CNG">
                                     <label class="btn btn-outline-success border rounded-3"
                                         for="btn-check-2-outlined">CNG</label>
 
                                 </div>
                                 <div class="me-3">
                                     <input type="checkbox" class="btn-check " id="btn-check-3-outlined"
-                                        autocomplete="off">
+                                        autocomplete="off" value="Manual">
                                     <label class="btn btn-outline-success border rounded-3"
                                         for="btn-check-3-outlined">Manual</label>
 
                                 </div>
                                 <div class="me-3">
                                     <input type="checkbox" class="btn-check " id="btn-check-4-outlined"
-                                        autocomplete="off">
+                                        autocomplete="off" value="Automatic">
                                     <label class="btn btn-outline-success border rounded-3"
                                         for="btn-check-4-outlined">Automatic</label>
 
@@ -733,8 +745,7 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     document.querySelectorAll('.uniqueanchor').forEach(item => {
         item.addEventListener('click', event => {
@@ -779,9 +790,9 @@
 
                             // Create the new div
                             var newdiv = `
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a  class="list-group-item list-group-item-action modalnumbergo">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1 fw-bold text-danger">${item.carmodalname}</h5>
+                                    <h5 class="mb-1 fw-bold text-danger" data-car="${item.brandname}${item.carname}....,${item.carmodalname}">${item.carmodalname}</h5>
                                     <small class="text-body-secondary fw-bold">Rs. ${item.price}</small>
                                 </div>
                                 <div class="d-flex w-100 justify-content-between">
@@ -811,12 +822,93 @@
 
 
 
-    // When a tab is clicked, update the type of car
-    $('.tabtype').on('click', function() {
-        selectedType = $(this).data('value');
+    $(document).ready(function() {
+        $(document).on('click', '.modalnumbergo', function() {
+            var h5Element = $(this).find('h5');
+            var car = h5Element.data('car');
+            console.log('Car Data:', car);
+            $('#carvalue').val(car);
+            $('#selectCar').modal('hide');
+        });
+    });
+
+    // Sending Location Value
+    $(document).ready(function() {
+        $(document).on('click', '#locationid', function() {
+            selectedlocation = $(this).data('value');
+            console.log(selectedlocation);
+            $('#cityvalue').val(selectedlocation);
+            $('#usecarcity').val(selectedlocation);
+            $('#selectLocation').modal('hide');
+        });
+    });
+
+    //Sending Fueltype and Transmission for filter Variants
+    $(document).ready(function() {
+        $('.btn-check').on('change', function() {
+
+            const modalinput = document.querySelector('#CarrName').value.split(',');
+            console.log(modalinput[1]);
+
+            var checkedValues = [];
+            $('.btn-check:checked').each(function() {
+                checkedValues.push($(this).val());
+            });
+            console.log('Checked values:', checkedValues);
+
+            $.ajax({
+                url: '/filterbyfueltypesandtras',
+                method: 'POST',
+                data: {
+                    'checkboxes': checkedValues,
+                    'carname': modalinput[1],
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    console.log(response);
+                    $('#variantlistdiv').empty();
+
+                    response.forEach(function(item) {
+                        //Parse fueltype and transmission if they are JSON strings
+                        var fuelTypesArray = JSON.parse(item.fueltype);
+                        var transmissionsArray = JSON.parse(item.transmission);
+
+
+                        var fuelTypes = fuelTypesArray.map(function(fuel) {
+                            return `<li class="me-2">${fuel},</li>`;
+                        }).join('');
+
+                        var transmissions = transmissionsArray.map(function(
+                            trans) {
+                            return `<li class="me-2">${trans},</li>`;
+                        }).join('');
+
+                        // Create the new div
+                        var newdiv = `
+                            <a  class="list-group-item list-group-item-action modalnumbergo">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1 fw-bold text-danger" data-car="${item.brandname}, ${item.carname}, ${item.carmodalname}">${item.carmodalname}</h5>
+                                    <small class="text-body-secondary fw-bold">Rs. ${item.price}</small>
+                                </div>
+                                <div class="d-flex w-100 justify-content-between">
+                                    <div class="mb-1">
+                                        <ul class="d-flex" style="column-count : 4;">
+                                            ${fuelTypes} |&nbsp;&nbsp;${transmissions}
+                                        </ul>
+                                    </div>
+                                    <small class="text-body-secondary">On-Road</small>
+                                </div>
+                            </a>
+                        `;
+                        $('#variantlistdiv').append(newdiv);
+                    });
+                }
+            })
+        });
     });
 </script>
-
 
 <!-- EMI Calculator Widget START -->
 <script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
@@ -834,12 +926,12 @@
             <div class="modal-body">
                 <!-- content goes here -->
                 <form>
-                    <div class=" text-center">
+                    {{-- <div class=" text-center">
                         <a href="#">
                             <i class="bi bi-crosshair"></i>
                             Detect my location
                         </a>
-                    </div>
+                    </div> --}}
                     <div class="form-group col-md-12">
 
                         <input type="text" id="carLocation" class="form-control" placeholder="Enter Your Name">
@@ -852,7 +944,7 @@
 
                             <div class="row flex-wrap justify-content-center">
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal" data-bs-location="Mumbai"
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Mumbai"
                                         data-bs-target="#selectCity" data-bs-toggle="modal">
                                         <img src="https://imgd.aeplcdn.com/0x0/n/ergk3sa_1483598.jpg" alt="Mumbai">
                                         <div class="fs-6 text-muted">Mumbai</div>
@@ -860,7 +952,7 @@
                                 </div>
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal" data-bs-location="Bangalore"
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Bangalore"
                                         data-bs-target="#selectCity" data-bs-toggle="modal">
 
                                         <img src="https://imgd.aeplcdn.com/0x0/n/k88k3sa_1483601.jpg" alt="Bangalore">
@@ -870,7 +962,7 @@
                                 </div>
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal" data-bs-location="Delhi"
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Delhi"
                                         data-bs-target="#selectCity" data-bs-toggle="modal">
 
                                         <img src="https://imgd.aeplcdn.com/0x0/n/1jnk3sa_1483607.jpg" alt="Delhi">
@@ -880,7 +972,7 @@
                                 </div>
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal" data-bs-location="Pune"
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Pune"
                                         data-bs-target="#selectCity" data-bs-toggle="modal">
 
                                         <img src="https://imgd.aeplcdn.com/0x0/n/53hk3sa_1483599.jpg" alt="Pune">
@@ -890,11 +982,11 @@
                                 </div>
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal" data-bs-location="Navi M data-bs-target="
-                                        #selectCity" data-bs-toggle="modal" umbai">
+                                    <a href="#" class="switch-modal cityanchor"
+                                        data-bs-location="Navi M data-bs-target=" #selectCity" data-bs-toggle="modal"
+                                        umbai">
 
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg"
-                                            alt="Navi Mumbai">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg" alt="Navi Mumbai">
                                         <div class="mt-2 fs-6 text-muted" style="line-height: 1.3em;">Navi Mumbai
                                         </div>
                                     </a>
@@ -905,8 +997,8 @@
                             <div class="row flex-wrap justify-content-center mt-3">
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" data-bs-location="Hyderabad" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Hyderabad"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
 
                                         <img src="https://imgd.aeplcdn.com/0x0/n/sj7k3sa_1483605.jpg" alt="Hyderabad">
                                         <div class="fs-6 text-muted">Hyderabad</div>
@@ -915,8 +1007,8 @@
                                 </div>
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" data-bs-location="Ahmedabad" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Ahmedabad"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
 
                                         <img src="https://imgd.aeplcdn.com/0x0/n/z2fk3sa_1483597.jpg" alt="Ahmedabad">
                                         <div class="fs-6 text-muted">Ahmedabad</div>
@@ -925,8 +1017,8 @@
                                 </div>
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" data-bs-location="Chennai" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Chennai"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
 
                                         <img src="https://imgd.aeplcdn.com/0x0/n/zhlk3sa_1483604.jpg" alt="Chennai">
                                         <div class="fs-6 text-muted">Chennai</div>
@@ -935,8 +1027,8 @@
                                 </div>
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" data-bs-location="Kolkata" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Kolkata"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
 
                                         <img src="https://imgd.aeplcdn.com/0x0/n/9omk3sa_1483606.jpg" alt="Kolkata">
                                         <div class="fs-6 text-muted">Kolkata</div>
@@ -945,11 +1037,10 @@
                                 </div>
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" data-bs-location="Chandigarh" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Chandigarh"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
 
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg"
-                                            alt="Chandigarh">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg" alt="Chandigarh">
                                         <div class="fs-6 text-muted">Chandigarh</div>
                                     </a>
 
@@ -962,25 +1053,12 @@
                         <div class="col-md-12">
                             <h6 class="py-3 fs-3 text-center">All Cities</h6>
                             <div class="list-group " style="height: 150px; overflow-y: auto;">
-                                <a href="#" data-bs-location="A&N Islands, Andaman Nicobar"
-                                    data-bs-target="#selectCity" data-bs-toggle="modal"
+                                @foreach ($pincodedata->take(50) as $row)
+                                <a id="locationid" data-value="{{ $row->City }}, {{ $row->State }}"
                                     class="list-group-item list-group-item-action">
-                                    A&N Islands, Andaman Nicobar
+                                    {{ $row->City }}, {{ $row->State }}
                                 </a>
-
-                                <a href="#" data-bs-location="Abohar, Punjab" data-bs-target="#selectCity"
-                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                    Abohar, Punjab
-                                </a>
-                                <a href="#" data-bs-location="Abu, Rajasthan" data-bs-target="#selectCity"
-                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                    Abu, Rajasthan
-                                </a>
-                                <a href="#" data-bs-location="Abu, Rajasthan" data-bs-target="#selectCity"
-                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                    Abu, Rajasthan
-                                </a>
-
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -1020,29 +1098,17 @@
                     </div>
                     <div class="search-form">
                         <div class="form-group col-md-12">
-
-                            <input type="text" id="carcity" class="form-control" placeholder="Enter Your Name">
+                            <input type="text" id="selectedloaction" value="" class="form-control"
+                                placeholder="Enter Your Name">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-12">
                             <h6 class="pb-3 text-center">All Cities</h6>
-                            <div class="list-group p-2">
-                                <a href="#" data-bs-location="A&N Islands, Andaman Nicobar"
-                                    data-bs-target="#selectCity" data-bs-toggle="modal"
-                                    class="list-group-item list-group-item-action">
-                                    A&N Islands, Andaman Nicobar
-                                </a>
+                            <div class="list-group p-2" id="locationdiv"
+                                style="height: 300px; overflow-y: auto; scrollbar-width: thin;">
 
-                                <a href="#" data-bs-location="Abohar, Punjab" data-bs-target="#selectCity"
-                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                    Abohar, Punjab
-                                </a>
-                                <a href="#" data-bs-location="Abu, Rajasthan" data-bs-target="#selectCity"
-                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                    Abu, Rajasthan
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -1061,7 +1127,6 @@
 </div>
 
 
-
 <script>
     document.querySelectorAll('.modal').forEach(modal => {
         modal.addEventListener('hidden.bs.modal', () => {
@@ -1069,6 +1134,55 @@
             backdrops.forEach(backdrop => backdrop.remove());
         });
     });
+</script>
+<script>
+    document.querySelectorAll('.cityanchor').forEach(item => {
+        item.addEventListener('click', event => {
+            const location = event.currentTarget.getAttribute('data-bs-location');
+            console.log(location);
+            $('#selectedloaction').val(location);
+
+            $.ajax({
+                url: '/filtercities/' + location,
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(responsehaibhai) {
+                    console.log(responsehaibhai);
+                    $('#locationdiv').empty();
+                    responsehaibhai.forEach(function(item) {
+                        var newdiv = `
+                         <a id="fulllocation" data-fulllocation="${item.PostOfficeName} - ${item.City}, ${item.Pincode}"
+                                    data-bs-target="#selectCity" data-bs-toggle="modal"
+                                    class="list-group-item list-group-item-action">
+                                   ${item.PostOfficeName} - ${item.City}, ${item.Pincode}
+                                </a>
+                    `;
+                        $('#locationdiv').append(newdiv);
+                    });
+
+                }
+            });
+            $(document).ready(function() {
+                $(document).on('click', '#fulllocation', function() {
+                    loc = $(this).data('fulllocation');
+                    console.log(loc);
+                    $('#cityvalue').val(loc);
+                    $('#usecarcity').val(loc);
+                    $('#selectLocation').modal('hide');
+                });
+            });
+        });
+    });
+
+    setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 2000);
+
+        setTimeout(function() {
+            $('#dangerAlert').fadeOut('slow');
+        }, 2000);
 </script>
 
 @endsection

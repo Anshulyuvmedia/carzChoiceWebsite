@@ -8,6 +8,7 @@ use App\Models\AdPost;
 use App\Models\DisplaySetting;
 use App\Models\Master;
 use App\Models\CarList;
+use App\Models\Pincode;
 use App\Models\PostOffices;
 use App\Models\SliderImage;
 use Illuminate\Http\Request;
@@ -348,25 +349,29 @@ class frontViewController extends Controller
         return view('frontend.usedCarsLayouts.usedcarbylocation');
     }
     public function carloan()
-{
-    $brands = Master::where('type', 'brand')->get();
-    $vehiclesByBrand = [];
+    {
+        $brands = Master::where('type', 'brand')->get();
+        $pincodedata = Pincode::select('State', 'City', 'District', DB::raw('GROUP_CONCAT(DISTINCT PostOfficeName) as PostOfficeNames'), DB::raw('COUNT(*) as count'))
+        ->groupBy('State', 'City', 'District')
+        ->get();
+        // dd($pincodedata[0]);
+        $vehiclesByBrand = [];
 
-    foreach ($brands as $brand) {
-        $vehicles = Master::join('car_lists', 'masters.value', '=', 'car_lists.brandname')
-            ->select('car_lists.carname', 'car_lists.brandname')
-            ->where('car_lists.brandname', $brand->value) // Correct filtering
-            ->distinct()
-            ->get();
-        $vehiclesByBrand[] = [
-            'brandname' => $brand->value,
-            'brand_image' => $brand->iconimage,
-            'vehicles' => $vehicles,
-        ];
+        foreach ($brands as $brand) {
+            $vehicles = Master::join('car_lists', 'masters.value', '=', 'car_lists.brandname')
+                ->select('car_lists.carname', 'car_lists.brandname')
+                ->where('car_lists.brandname', $brand->value) // Correct filtering
+                ->distinct()
+                ->get();
+            $vehiclesByBrand[] = [
+                'brandname' => $brand->value,
+                'brand_image' => $brand->iconimage,
+                'vehicles' => $vehicles,
+            ];
+        }
+        //dd($vehiclesByBrand);
+        return view('frontend.newCarsLayouts.carloan', compact('vehiclesByBrand','pincodedata'));
     }
-    //dd($vehiclesByBrand);
-    return view('frontend.newCarsLayouts.carloan', compact('vehiclesByBrand'));
-}
 
 
     public function findcar()
