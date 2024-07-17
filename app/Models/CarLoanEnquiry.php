@@ -13,5 +13,6 @@ class CarLoanEnquiry extends Model
         'city',
         'fullname',
         'mobileno',
+        'enquirystatus',
     ];
 }

@@ -235,12 +235,15 @@
                                 <li><a href="{{ route('faqs')}}">FAQ's</a></li>
                             </ul>
                         </li>
-
                         <li>
-                            <a href="{{ route('leadmanagement') }}">
-                                <i class="uil-user-check"></i>
-                                <span>Lead Management</span>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-book-alt"></i>
+                                <span>Lead</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('leadmanagement') }}">Lead Management</a></li>
+                                <li><a href="{{ route('allenquiriessite')}}">Enquiries from Website</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="{{ route('vehicleimages') }}">

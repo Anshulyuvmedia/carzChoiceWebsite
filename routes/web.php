@@ -124,6 +124,7 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('addbannerimmages', 'addbannerimmages')->name('addbannerimmages');
     Route::get('displaysettings', 'displaysettings')->name('displaysettings');
     Route::get('comparecars', 'comparecars')->name('comparecars');
+    Route::get('allenquiriessite', 'allenquiriessite')->name('allenquiriessite');
 });
 
 
@@ -173,5 +174,7 @@ Route::controller(Store::class)->group(function() {
     Route::post('insertdisplaysettings', 'insertdisplaysettings')->name('insertdisplaysettings');
     Route::get('deletedisplaysettings/{id}', 'deletedisplaysettings')->name('deletedisplaysettings');
     Route::post('insertcompare', 'insertcompare')->name('insertcompare');
+    Route::get('deleteenquiry/{id}', 'deleteenquiry')->name('deleteenquiry');
+    Route::post('updateenquirystatus', 'updateenquirystatus')->name('updateenquirystatus');
 
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CarLoanEnquiry;
 use App\Models\CompareVehicle;
 use App\Models\DisplaySetting;
 use App\Models\SliderImage;
@@ -862,5 +863,23 @@ class Store extends Controller
             //return redirect()->route('comparecars')->with('error', $e->getMessage());
             return redirect()->route('comparecars')->with('error', 'Not Added Try Again...!!!!');
         }
+    }
+
+    public function deleteenquiry($id)
+    {
+        $data = CarLoanEnquiry::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function updateenquirystatus(Request $req)
+    {
+        $enquirystatus = CarLoanEnquiry::find($req->record_id);
+        if ($enquirystatus) {
+            $enquirystatus->enquirystatus = $req->status;
+            $enquirystatus->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
     }
 }

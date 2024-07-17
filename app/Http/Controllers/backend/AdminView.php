@@ -8,6 +8,7 @@ use App\Models\AddSpecification;
 use App\Models\AddVariant;
 use App\Models\Blog;
 use App\Models\CarList;
+use App\Models\CarLoanEnquiry;
 use App\Models\CompanyProfile;
 use App\Models\CompareVehicle;
 use App\Models\faqs;
@@ -205,5 +206,10 @@ class AdminView extends Controller
         }
         $array = $new;
         return view('AdminPanel.comparecars',compact('variantlist','array'));
+    }
+
+    public function allenquiriessite(){
+        $allenquiries  = CarLoanEnquiry::orderBy('created_at','desc')->get();
+        return view('AdminPanel.allenquiries',compact('allenquiries'));
     }
 }
