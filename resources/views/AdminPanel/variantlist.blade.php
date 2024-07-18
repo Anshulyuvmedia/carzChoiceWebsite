@@ -34,6 +34,7 @@
                                     <th>Status</th>
                                     <th>Price</th>
                                     <th>Price Type</th>
+                                    <th>Body Type</th>
                                     <th>Mileage</th>
                                     <th>Engine</th>
                                     <th>Fuel Type</th>
@@ -53,6 +54,7 @@
                                     <td>{{$row->availabelstatus}}</td>
                                     <td>{{$row->price}}</td>
                                     <td>{{$row->pricetype}}</td>
+                                    <td>{{$row->bodytype}}</td>
                                     <td>
                                         <button  class="btn btn-transparent text-info" onclick="toggleTable(this)">View Mileages</button>
                                         <table class="table table-bordered" style="display: none;">

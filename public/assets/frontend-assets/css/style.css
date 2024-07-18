@@ -7213,7 +7213,7 @@ span.app-store-btn {
     text-transform: capitalize;
 }
 /* =-=-=-=-=-=-= Pagination =-=-=-=-=-=-= */
-.pagination {
+/* .pagination {
     border-radius: 0;
     margin: 0;
 }
@@ -7238,7 +7238,7 @@ span.app-store-btn {
     font-size: 14px;
     font-weight: 500;
     padding: 10px 14px;
-}
+} */
 /* =-=-=-=-=-=-= Profile & Dashboard =-=-=-=-=-=-= */
 .status_active {
     background: #4caf50 none repeat scroll 0 0;

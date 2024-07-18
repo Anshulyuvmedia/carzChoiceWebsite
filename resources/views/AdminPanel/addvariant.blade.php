@@ -75,6 +75,15 @@
                                         type="text" value="" id="example-text-input" required>
                                 </div>
                                 <div class="col-lg-3">
+                                    <label class="">Body Type</label>
+                                    <select name="bodytype" class="form-select" id="subcategory" required>
+                                        <option value="">--select body type--</option>
+                                        @foreach ($bodytype as $body)
+                                            <option value="{{ $body->value }}">{{ $body->value }}</option>
+                                        @endforeach ($i = 1; $i <= 8; $i++)\
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
                                     <label class="">Seating Capacity</label>
                                     <select name="seatingcapacity" class="form-select" id="subcategory" required>
                                         <option value="">--select seates capacity--</option>

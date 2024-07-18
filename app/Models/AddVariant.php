@@ -14,6 +14,7 @@ class AddVariant extends Model
         'availabelstatus',
         'price',
         'pricetype',
+        'bodytype',
         'mileage',
         'engine',
         'fueltype',

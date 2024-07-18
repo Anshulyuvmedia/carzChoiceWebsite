@@ -91,7 +91,7 @@
                                 <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
                                     <div class="ad-archive-desc">
                                         <!-- Title -->
-                                        <a href="">
+                                        <a href="#">
                                             <h3> {{$data->brandname}} {{$data->carname}}</h3>
                                         </a>
 
@@ -108,16 +108,9 @@
                     </div>
                     <div class="clearfix"></div>
                     <!-- Pagination -->
-                    <div class="text-center margin-top-30">
-                        <ul class="pagination ">
-                            <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
+                    {{-- <div class="justify-content-around">
+                        {{ $matchesupcoming->links('pagination::bootstrap-5') }}
+                    </div> --}}
                     <!-- Pagination End -->
                 </div>
                 <!-- Row End -->

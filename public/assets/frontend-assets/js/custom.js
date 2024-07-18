@@ -123,7 +123,7 @@ Designed and Development by: ScriptsBundle
         width: '100%'
     });
     $(".search-year").select2({
-        placeholder: "Select Year : Any Year",
+        placeholder: "Select Car : Any Car",
         allowClear: true,
         width: '100%'
     });

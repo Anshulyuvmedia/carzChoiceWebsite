@@ -463,4 +463,33 @@ class FrontendStore extends Controller
             return redirect()->route('carloan')->with('error', 'Not Added Try Again...!!!!');
         }
     }
+
+    public function filterhomepagecars(Request $rq){
+        //dd($rq->all());
+        $carname = explode(',',$rq->input('carname'));
+
+        $variant = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
+        ->select('add_variants.*', 'vehicle_images.addimage')->where('add_variants.carname',$carname)->get();
+
+        session(['variants' => $variant]);
+
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('findcar')
+        ], 200);
+    }
+
+    public function filterbycarbodytype($bodytype){
+
+        $variant = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
+        ->select('add_variants.*', 'vehicle_images.addimage')->where('add_variants.bodytype',$bodytype)->get();
+        // dd($variant);
+
+        session(['variants' => $variant]);
+
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('findcar')
+        ], 200);
+    }
 }

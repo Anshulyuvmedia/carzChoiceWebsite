@@ -12,7 +12,8 @@
 
     <title>@yield('title') | Carz Choice</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
     <link rel="icon" href="{{ asset('assets/frontend-assets/images/favicon.ico') }}" type="image/x-icon" />
@@ -91,10 +92,8 @@
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                             aria-haspopup="true" aria-expanded="false"><img class="img-circle resize"
-                                                alt=""
-                                                src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
-                                            <span class="myname hidden-xs"> Admin </span> <span
-                                                class=""></span></a>
+                                                alt="" src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
+                                            <span class="myname hidden-xs"> Admin </span> <span class=""></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="/userprofile">User Profile</a></li>
                                             <li><a href="/userarchive">Archives</a></li>
@@ -127,8 +126,9 @@
                                 <ul class="menu-logo">
                                     <li>
                                         <a href="/" class="">
-                                            <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo" width="120">
-                                            </a>
+                                            <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}"
+                                                alt="logo" width="120">
+                                        </a>
                                     </li>
                                 </ul>
                                 <!-- menu links -->
@@ -169,83 +169,22 @@
 
                                                 <div class="grid-col-6">
                                                     <h3>Brands</h3>
+                                                    @php
+                                                    use App\Models\Master;
+                                                    $brands = Master::where('type', 'Brand')->get();
+                                                    // $bodytype = Master::where('type', 'Body Type')->get();
+                                                    @endphp
                                                     <ul class="by-make list-inline">
+                                                        @foreach ($brands->take(12) as $data)
                                                         <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/10/brands/logos/maruti-suzuki1647009823420.jpg?v=1647009823707&q=80"
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/16/brands/logos/tata.jpg?v=1629973276336&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/17/brands/logos/toyota.jpg?v=1630055705330&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/8/brands/logos/hyundai.jpg?v=1629973193722&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/9/brands/logos/mahindra.jpg?v=1629973668273&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/1/brands/logos/bmw.jpg?v=1629973130013&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/11/brands/logos/mercedes-benz.jpg?v=1629973270530&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/18/brands/logos/audi.jpg?v=1630055874070&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/23/brands/logos/land-rover1647236056893.jpg?v=1647236057234&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/72/brands/logos/mg.jpg?v=1631163895654&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/30/brands/logos/lamborghini.jpg?v=1631163814246&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/44/brands/logos/jaguar.jpg?v=1631163525508&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
-
-
                                             </div>
                                         </div>
                                     </li>
@@ -267,132 +206,33 @@
                                                     </ul>
                                                 </div>
 
-                                                <div class="grid-col-6">
+                                                <div class="grid-col-10">
                                                     <h3>Search Used Cars by Brands</h3>
                                                     <ul class="by-make list-inline">
+                                                        @foreach ($brands->take(14) as $data)
                                                         <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/10/brands/logos/maruti-suzuki1647009823420.jpg?v=1647009823707&q=80"
+                                                            <a href="#">
+                                                                <img src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}"
                                                                     class="img-responsive" alt="Brand Image">
                                                             </a>
                                                         </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/16/brands/logos/tata.jpg?v=1629973276336&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/17/brands/logos/toyota.jpg?v=1630055705330&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/8/brands/logos/hyundai.jpg?v=1629973193722&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/9/brands/logos/mahindra.jpg?v=1629973668273&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/1/brands/logos/bmw.jpg?v=1629973130013&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/11/brands/logos/mercedes-benz.jpg?v=1629973270530&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/18/brands/logos/audi.jpg?v=1630055874070&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/23/brands/logos/land-rover1647236056893.jpg?v=1647236057234&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/72/brands/logos/mg.jpg?v=1631163895654&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/30/brands/logos/lamborghini.jpg?v=1631163814246&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/find-car">
-                                                                <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/44/brands/logos/jaguar.jpg?v=1631163525508&q=80"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
 
-                                                <div class="grid-col-4">
+                                                {{-- <div class="grid-col-4">
                                                     <h3>Search Used Cars by Body Type</h3>
                                                     <ul class="list-inline by-category ">
+                                                        @foreach ($bodytype->take(6) as $row)
                                                         <li>
                                                             <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/1.png') }}">
-                                                                Convertible
+                                                                <img alt="Hybrid" src="{{ asset('assets/backend-assets/images/'.$row->iconimage) }}">
+                                                                {{$row->value}}
                                                             </a>
                                                         </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/2.png') }}">
-                                                                Coupe
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/3.png') }}">
-                                                                Sedan
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/4.png') }}">
-                                                                Van/Minivan
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/5.png') }}">
-                                                                Truck
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                                                Hybrid
-                                                            </a>
-                                                        </li>
-
+                                                        @endforeach
                                                     </ul>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </li>
@@ -464,15 +304,14 @@
                         <!-- Info Widget -->
                         <div class="widget">
                             <div class="logo">
-                                <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo" width="120">
+                                <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo"
+                                    width="120">
 
-                             </div>
+                            </div>
 
                             <ul class="apps-donwloads">
-                                <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}"
-                                        alt=""></li>
-                                <li><img src="{{ asset('assets/frontend-assets/images/appstore.png') }}"
-                                        alt=""></li>
+                                <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}" alt=""></li>
+                                <li><img src="{{ asset('assets/frontend-assets/images/appstore.png') }}" alt=""></li>
                             </ul>
                         </div>
                         <!-- Info Widget Exit -->
@@ -483,12 +322,12 @@
                             <h5>Follow Us</h5>
                             <ul>
                                 <li><a class="Facebook"><i class="fa fa-facebook"></i></a><span>Facebook</span></li>
-                                <li><a class="Twitter" href="#"><i
-                                            class="fa fa-twitter"></i></a><span>Twitter</span></li>
-                                <li><a class="Linkedin" href="#"><i
-                                            class="fa fa-linkedin"></i></a><span>Linkedin</span></li>
-                                <li><a class="Google" href="#"><i
-                                            class="fa fa-google-plus"></i></a><span>Google+</span></li>
+                                <li><a class="Twitter" href="#"><i class="fa fa-twitter"></i></a><span>Twitter</span>
+                                </li>
+                                <span><a class="Linkedin" href="#"><i class="fa fa-linkedin"></i></a><span>Linkedin</span>
+                                </li>
+                                <li><a class="Google" href="#"><i class="fa fa-google-plus"></i></a><span>Google+</span>
+                                </li>
                             </ul>
                         </div>
                         <!-- Follow Us End -->
@@ -520,8 +359,7 @@
                             </div>
                         </div>
                         <div class="copyright">
-                            <p>© 2024 Car Choice All rights reserved. Design by <a
-                                    href="http://yuvmedia.in"
+                            <p>© 2024 Car Choice All rights reserved. Design by <a href="http://yuvmedia.in"
                                     target="_blank">Yuvmedia</a> </p>
                         </div>
                         <!-- Newslatter -->
@@ -581,9 +419,15 @@
     <script type="text/javascript" src="{{ asset('assets/frontend-assets/js/perfect-scrollbar.min.js') }}"></script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script>
 
 
 </body>

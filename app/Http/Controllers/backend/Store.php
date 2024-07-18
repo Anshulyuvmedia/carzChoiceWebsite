@@ -557,6 +557,7 @@ class Store extends Controller
                 'availabelstatus' => 'required',
                 'price' => 'required',
                 'pricetype' => 'required',
+                'bodytype' => 'required',
                 'mileage' => 'required',
                 'engine' => 'required',
                 'fueltype' => 'required',
@@ -572,6 +573,7 @@ class Store extends Controller
                 'availabelstatus' => $rq->availabelstatus,
                 'price' => $rq->price,
                 'pricetype' => $rq->pricetype,
+                'bodytype' => $rq->bodytype,
                 'mileage' => json_encode($rq->mileage),
                 'engine' => $rq->engine,
                 'fueltype' => json_encode($rq->fueltype),    //These values are coming from multiple dropown and storing as ARRAY...
@@ -607,6 +609,7 @@ class Store extends Controller
             $variantdata->availabelstatus = $req->availabelstatus;
             $variantdata->price = $req->price;
             $variantdata->pricetype = $req->pricetype;
+            $variantdata->bodytype = $req->bodytype;
             $variantdata->mileage = $req->mileage;
             $variantdata->engine = $req->engine;
             $variantdata->fueltype = $req->fueltype;

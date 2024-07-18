@@ -40,7 +40,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('used-car', 'usedcar');
     Route::get('usedcar-bylocation', 'usedcarbylocation');
     Route::get('car-loan', 'carloan')->name('carloan');
-    Route::get('find-car', 'findcar');
+    Route::get('find-car', 'findcar')->name('findcar');
     Route::get('car-view-images', 'carviewimages');
     Route::get('car-images', 'carimages');
     Route::get('find-dealer', 'finddealer');
@@ -92,6 +92,8 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('filterbyfueltypesandtras', 'filterbyfueltypesandtras')->name('filterbyfueltypesandtras');
     Route::post('filtercities/{location}', 'filtercities')->name('filtercities');
     Route::post('insertcarloanenquiry', 'insertcarloanenquiry')->name('insertcarloanenquiry');
+    Route::post('/filterhomepagecars', 'filterhomepagecars')->name('filterhomepagecars');
+    Route::post('/filterbycarbodytype/{bodytype}', 'filterbycarbodytype')->name('filterbycarbodytype');
 
 });
 

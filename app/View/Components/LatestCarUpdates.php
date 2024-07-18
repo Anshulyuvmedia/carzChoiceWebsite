@@ -18,7 +18,6 @@ class LatestCarUpdates extends Component
 
     }
 
-
     public function render(): View|Closure|string
     {
         return view('components.latest-car-updates');

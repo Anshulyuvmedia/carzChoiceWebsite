@@ -11,9 +11,9 @@ use App\Models\CarList;
 use App\Models\Pincode;
 use App\Models\PostOffices;
 use App\Models\SliderImage;
+use App\View\Components\AllBrands;
 use Illuminate\Http\Request;
 use App\Models\Blog;
-
 use Auth;
 use DB;
 
@@ -23,6 +23,9 @@ class frontViewController extends Controller
     {
         $imagesdata = SliderImage::first();
         $adposts = AdPost::orderBy('created_at', 'desc')->get();
+        $carlists = Carlist::get();
+        $bodytype = Master::where('type','=','Body Type')->get();
+
 
         $trending = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
             ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
@@ -112,7 +115,7 @@ class frontViewController extends Controller
             return $item;
         });
 
-        return view('frontend.home', compact('imagesdata', 'adposts', 'matches', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
+        return view('frontend.home', compact('imagesdata','bodytype','carlists','adposts', 'matches', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
     }
     public function carlistingdetails()
     {
@@ -194,7 +197,7 @@ class frontViewController extends Controller
     }
     public function blogs()
     {
-        $blogdata = Blog::orderBy('created_at', 'desc')->where('categorytype', '=', 'Car News')->get();
+        $blogdata = Blog::orderBy('created_at', 'desc')->where('categorytype', '=', 'Car News')->paginate(2);
         return view('frontend.blogs', compact('blogdata'));
     }
     public function blogdetails()
@@ -316,11 +319,11 @@ class frontViewController extends Controller
             ->where('vehicle_images.type', '=', 'Outer view')
             ->where('display_settings.category', '=', 'Upcoming')->get();
 
-
         $variantdata = AddVariant::get();
         $trendingUpcomingNames = $upcoming->pluck('carname');
-
         $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames);
+
+
         $matchesupcoming = $matchesupcoming->map(function ($item) use ($upcoming) {
             $trendingItem = $upcoming->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -372,11 +375,10 @@ class frontViewController extends Controller
         //dd($vehiclesByBrand);
         return view('frontend.newCarsLayouts.carloan', compact('vehiclesByBrand','pincodedata'));
     }
-
-
     public function findcar()
     {
-        return view('frontend.findcar');
+        $variants = session('variants', []);
+        return view('frontend.findcar', compact('variants'));
     }
     public function carviewimages()
     {

@@ -4,7 +4,8 @@
 
 <div>
     <!-- =-=-=-=-=-=-= Home Banner  =-=-=-=-=-=-= -->
-    <div id="banner" style="background: url('{{ asset('assets/backend-assets/images/'.$imagesdata->mainbannerimg) }}')">
+    <div id="banner"
+        style="background: url('{{ asset('assets/backend-assets/images/' . $imagesdata->mainbannerimg) }}')">
         <div class="container">
             <div class="search-container">
                 <!-- Form -->
@@ -33,61 +34,34 @@
                         <!-- Tab panes -->
                         <div class="tab-content clearfix">
                             <div class="tab-pane fade in active" id="tab1">
-                                <form>
+                                <form id="searchform">
+                                    @csrf
                                     <div class="search-form pull-left">
                                         <div class="search-form-inner pull-left">
-                                            <div class="col-md-3 no-padding">
+                                            <div class="col-md-2 no-padding">
                                                 <div class="form-group">
-                                                    <label>Keyword</label>
-                                                    <input type="text" class="form-control"
-                                                        placeholder="Eg Honda Civic , Audi , Ford." />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 no-padding">
-                                                <div class="form-group">
-                                                    <label>Select Make</label>
-                                                    <select class=" form-control make">
-                                                        <option label="Any Make"></option>
-                                                        <option>BMW</option>
-                                                        <option>Honda </option>
-                                                        <option>Hyundai </option>
-                                                        <option>Nissan </option>
-                                                        <option>Mercedes Benz </option>
+                                                    <label>Select Car Type</label>
+                                                    <select name="cartype" class="form-control make" id="dynamicselect">
+                                                        <option value="Used" selected>Used</option>
+                                                        <option value="New">New</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3 no-padding">
+                                            <div class="col-md-10 no-padding">
                                                 <div class="form-group">
-                                                    <label>Select Year</label>
-                                                    <select class=" form-control search-year">
-                                                        <option label="Any Year"></option>
-                                                        <option>Year</option>
-                                                        <option>2010</option>
-                                                        <option>2011</option>
-                                                        <option>2012</option>
-                                                        <option>2013</option>
-                                                        <option>2014</option>
-                                                        <option>2015</option>
-                                                        <option>2016</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 no-padding">
-                                                <div class="form-group">
-                                                    <label>Select Location</label>
-                                                    <select class="search-loaction form-control">
-                                                        <option label="location"></option>
-                                                        <option value="0">America</option>
-                                                        <option value="1">Australia</option>
-                                                        <option value="2">Africa</option>
-                                                        <option value="3">Pakistan</option>
-                                                        <option value="4">Japan</option>
-                                                        <option value="5">Srilanka</option>
+                                                    <label>Type the car to select</label>
+                                                    <select name="carname" class="form-control search-year"
+                                                        id="dynamiccarname">
+                                                        <option value="0">--select-car--</option>
+                                                        @foreach ($carlists as $data)
+                                                        <option value="{{ $data->carname }},{{ $data->brandname }}">
+                                                            {{ $data->carname }}, {{ $data->brandname }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group  ">
+                                        <div class="form-group">
                                             <button type="submit" value="submit" class="btn btn-lg btn-theme">Search
                                                 Now</button>
                                         </div>
@@ -96,67 +70,18 @@
                             </div>
                             <div class="tab-pane fade" id="tab2">
                                 <form>
-                                    <div class="search-form">
-                                        <!-- Body Type -->
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
+                                    <div class="search-form row">
+                                        @foreach ($bodytype as $row)
+                                        <div class="col-md-2">
                                             <div class="box">
-                                                <a href="#">
-                                                    <img alt="Convertible"
-                                                        src="{{ asset('assets/frontend-assets/images/bodytype/1.png') }}">
-                                                    <h4>Convertible</h4>
+                                                <a id="cartypefilter" data-value="{{ $row->value }}">
+                                                    <img alt="Convertible" width="100px"
+                                                        src="{{ asset('assets/backend-assets/images/' . $row->iconimage) }}">
+                                                    <h4>{{ $row->value }}</h4>
                                                 </a>
                                             </div>
                                         </div>
-                                        <!-- Body Type -->
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
-                                            <div class="box">
-                                                <a href="#">
-                                                    <img alt="Coupe"
-                                                        src="{{ asset('assets/frontend-assets/images/bodytype/2.png') }}">
-                                                    <h4>Coupe</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Body Type -->
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
-                                            <div class="box">
-                                                <a href="#">
-                                                    <img alt="Sedan"
-                                                        src="{{ asset('assets/frontend-assets/images/bodytype/3.png') }}">
-                                                    <h4>Sedan</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Body Type -->
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
-                                            <div class="box">
-                                                <a href="#">
-                                                    <img alt="Van/Minivan"
-                                                        src="{{ asset('assets/frontend-assets/images/bodytype/4.png') }}">
-                                                    <h4>Van/Minivan</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Body Type -->
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
-                                            <div class="box">
-                                                <a href="#">
-                                                    <img alt="Truck"
-                                                        src="{{ asset('assets/frontend-assets/images/bodytype/5.png') }}">
-                                                    <h4>Truck</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- Body Type -->
-                                        <div class="col-md-2 col-sm-3 col-xs-4">
-                                            <div class="box">
-                                                <a href="#">
-                                                    <img alt="Hybrid"
-                                                        src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                                    <h4>Hybrid</h4>
-                                                </a>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </form>
                             </div>
@@ -215,7 +140,7 @@
                                                         </div>
                                                         <div class="image">
                                                             <img alt="Carz Choice"
-                                                                src="{{ asset('assets/backend-assets/images/'.$data->addimage) }}"
+                                                                src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
                                                             {{-- <div class="price-tag">
@@ -230,10 +155,10 @@
 
                                                             <h3>
                                                                 <a title="" href="#">
-                                                                    {{$data->brandname}} {{$data->carname}}
+                                                                    {{ $data->brandname }} {{ $data->carname }}
                                                                 </a>
                                                             </h3>
-                                                            <div class="ad-price">Rs. {{$data->price}}
+                                                            <div class="ad-price">Rs. {{ $data->price }}
                                                                 <span class="text-muted ps-2">onwards</span>
                                                             </div>
 
@@ -275,7 +200,7 @@
                                                         </div>
                                                         <div class="image">
                                                             <img alt="Carz Choice"
-                                                                src="{{ asset('assets/backend-assets/images/'.$data->addimage) }}"
+                                                                src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
                                                             {{-- <div class="price-tag">
@@ -290,10 +215,10 @@
 
                                                             <h3>
                                                                 <a title="" href="#">
-                                                                    {{$data->brandname}} {{$data->carname}}
+                                                                    {{ $data->brandname }} {{ $data->carname }}
                                                                 </a>
                                                             </h3>
-                                                            <div class="ad-price">Rs. {{$data->price}}
+                                                            <div class="ad-price">Rs. {{ $data->price }}
                                                                 <span class="text-muted ps-2">onwards</span>
                                                             </div>
 
@@ -337,7 +262,7 @@
                                                         </div>
                                                         <div class="image">
                                                             <img alt="Carz Choice"
-                                                                src="{{ asset('assets/backend-assets/images/'.$data->addimage) }}"
+                                                                src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
                                                                 class="img-responsive">
                                                             <div class="ribbon popular"></div>
                                                             {{-- <div class="price-tag">
@@ -352,10 +277,10 @@
 
                                                             <h3>
                                                                 <a title="" href="#">
-                                                                    {{$data->brandname}} {{$data->carname}}
+                                                                    {{ $data->brandname }} {{ $data->carname }}
                                                                 </a>
                                                             </h3>
-                                                            <div class="ad-price">Rs. {{$data->price}}
+                                                            <div class="ad-price">Rs. {{ $data->price }}
                                                                 <span class="text-muted ps-2">onwards</span>
                                                             </div>
 
@@ -436,11 +361,11 @@
 
                                                 <h3>
                                                     <a title="" href="#">
-                                                        {{$data->brandname}} {{$data->carname}}
+                                                        {{ $data->brandname }} {{ $data->carname }}
                                                     </a>
                                                 </h3>
 
-                                                <div class="ad-price">Rs. {{$data->price}}
+                                                <div class="ad-price">Rs. {{ $data->price }}
                                                     <span class="text-muted ps-2">onwards</span>
                                                 </div>
                                                 <a class="  ">
@@ -467,11 +392,11 @@
     </section>
     <!-- =-=-=-=-=-=-= Popular Cars Ads End =-=-=-=-=-=-= -->
 
-    {{--THIS IS ALL BRANDS COMPONENET--}}
+    {{-- THIS IS ALL BRANDS COMPONENET --}}
     <x-all-brands />
 
 
-    {{--THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET--}}
+    {{-- THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET --}}
     <x-find-the-cars-by-choice />
 
 
@@ -530,7 +455,7 @@
                                                 </h3>
 
                                                 <p class="text-muted ps-2">
-                                                    {{$data->brandname}} {{$data->carname}}
+                                                    {{ $data->brandname }} {{ $data->carname }}
                                                 </p>
 
                                             </div>
@@ -558,7 +483,8 @@
         {{-- <div class="background-1"></div> --}}
         <!--Image Two-->
         <div class="background-2"
-            style="background: url('{{ asset('assets/backend-assets/images/'.$imagesdata->checkonroadimg) }}')"></div>
+            style="background: url('{{ asset('assets/backend-assets/images/' . $imagesdata->checkonroadimg) }}')">
+        </div>
         <img class="img-responsive wow slideInRight custom-img" data-wow-delay="0ms" data-wow-duration="2000ms"
             src="images/sell-1.png" alt="">
         <div class="container">
@@ -607,7 +533,7 @@
     <!-- =-=-=-=-=-=-=  On-Road Price end =-=-=-=-=-=-= -->
 
 
-    {{--THIS IS COMPARE CAR CARDS COMPONENET--}}
+    {{-- THIS IS COMPARE CAR CARDS COMPONENET --}}
     <x-compare-cars />
 
 
@@ -633,25 +559,24 @@
                         <div class=" popular-slider container owl-carousel owl-theme">
                             @foreach ($adposts as $row)
                             @php
-                                $imagearray = json_decode($row->images, true);
+                            $imagearray = json_decode($row->images, true);
                             @endphp
                             <div class="item">
                                 <div class="grid-style-2">
                                     <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="{{ asset($imagearray[0]['imageurl']) }}"
+                                                <img alt="Carz Choice" src="{{ asset($imagearray[0]['imageurl']) }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
                                             </div>
                                             <div class="short-description-1 clearfix">
                                                 <h3>
                                                     <a title="" href="#">
-                                                        Used {{$row->brandname}} {{$row->carname}}
+                                                        Used {{ $row->brandname }} {{ $row->carname }}
                                                     </a>
                                                 </h3>
-                                                <span class="ad-price">Rs. {{$row->price}}
+                                                <span class="ad-price">Rs. {{ $row->price }}
                                                     <span class="text-muted ps-2">Starting Price</span>
                                                 </span>
 
@@ -673,11 +598,60 @@
     </section>
     <!-- =-=-=-=-=-=-= Top Cars In India End =-=-=-=-=-=-= -->
 
-    {{--THIS LATEST CAR UPDATES COMPONENET--}}
-    <x-latest-car-updates/>
+    {{-- THIS LATEST CAR UPDATES COMPONENET --}}
+    <x-latest-car-updates />
 
 
     <!-- Main Content Area End -->
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<!--This is Home Page filter by Car Details-->
+<script>
+    jQuery('#searchform').submit(function(e) {
+        e.preventDefault();
+        var formdata = jQuery('#searchform').serialize();
+        console.log(formdata);
+        jQuery.ajax({
+            url: "{{ route('filterhomepagecars') }}",
+            data: formdata,
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data) {
+                console.log(data);
+                if (data.success) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    alert("error");
+                }
+            }
+        });
+    });
+
+    //This is Filter by Body Type
+    $(document).ready(function() {
+        $(document).on('click', '#cartypefilter', function() {
+            bodytype = $(this).data('value');
+            console.log(bodytype);
+
+            $.ajax({
+                url: "/filterbycarbodytype/" + bodytype,
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    console.log(data);
+                    if (data.success) {
+                        window.location.href = data.redirect_url;
+                    } else {
+                        alert("error");
+                    }
+                }
+            });
+        });
+    });
+</script>
 @endsection
