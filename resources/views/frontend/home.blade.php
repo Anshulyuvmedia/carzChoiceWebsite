@@ -167,7 +167,7 @@
                                                                 On-Road Price, Delhi
                                                             </p>
 
-                                                            <a class="" href="#">
+                                                            <a class="" target="_blank" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
                                                                 <button class="btn btn-outline btn-danger btn-sm  ">
                                                                     <i class="fa fa-phone"></i>
                                                                     View Details.

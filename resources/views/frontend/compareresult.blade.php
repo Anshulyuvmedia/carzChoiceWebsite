@@ -65,6 +65,8 @@
                                     <img src="{{ asset('assets/backend-assets/images/'.$row->addimage)}}" alt=""
                                         class="center-block">
                                     <h4>{{$row->brandname}} {{$row->carname}}</h4>
+                                    <h4>{{$row->carmodalname}}</h4>
+                                    <h4>Rs. {{$row->price}}/-</h4>
                                 </td>
                                 @endforeach
                             </tr>

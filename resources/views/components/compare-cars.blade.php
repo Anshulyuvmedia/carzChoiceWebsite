@@ -27,9 +27,7 @@
                                                         </a>
                                                         <div>
                                                             <div class="text-muted">{{ $row->brandname }}</div>
-                                                            <div class=""><a
-                                                                    href="#">{{ $row->carmodalname }}
-                                                                    ({{ $row->carname }})
+                                                            <div class=""><a href="#">{{ $row->carmodalname }} ({{ $row->carname }})
                                                                 </a></div>
                                                             <span class="ad-price">Rs. {{ $row->price }}
                                                                 <span class="text-muted ps-2">onwards</span>

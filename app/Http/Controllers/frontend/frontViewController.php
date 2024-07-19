@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddFeature;
+use App\Models\AddSpecification;
 use App\Models\AddVariant;
 use App\Models\AdPost;
 use App\Models\DisplaySetting;
@@ -11,6 +13,7 @@ use App\Models\CarList;
 use App\Models\Pincode;
 use App\Models\PostOffices;
 use App\Models\SliderImage;
+use App\Models\VehicleImage;
 use Illuminate\Support\Facades\Log;
 use App\View\Components\AllBrands;
 use Illuminate\Http\Request;
@@ -118,9 +121,19 @@ class frontViewController extends Controller
 
         return view('frontend.home', compact('imagesdata','bodytype','carlists','adposts', 'matches', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
     }
-    public function carlistingdetails()
+    public function carlistingdetails($id)
     {
-        return view('frontend.carLayouts.carlistingdetails');
+        $cardetails = AddVariant::where('id',$id)->first();
+
+        $images = VehicleImage::where('vehicle',$cardetails->carname)->get();
+        $spces = AddSpecification::where('vehicleid',$id)->get();
+        $features = AddFeature::where('vehicleid',$id)->get();
+
+        $cardetails->images= json_decode($images);
+        $cardetails->specificaitons= json_decode($spces);
+        $cardetails->features= json_decode($features);
+
+        return view('frontend.carLayouts.carlistingdetails',compact('cardetails'));
     }
     public function carlisting()
     {

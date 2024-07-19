@@ -24,7 +24,7 @@ Route::middleware([
 Route::controller(frontViewController::class)->group(function () {
 
     Route::get('/', 'home');
-    Route::get('carlistingdetails', 'carlistingdetails');
+    Route::get('carlistingdetails/{id}', 'carlistingdetails')->name('carlistingdetails');
     Route::get('carlisting', 'carlisting');
     Route::get('reviews', 'reviews');
     Route::get('reviewsdetails', 'reviewsdetails');
