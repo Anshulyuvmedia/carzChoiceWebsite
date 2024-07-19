@@ -605,9 +605,8 @@
     <!-- Main Content Area End -->
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!--This is Home Page filter by Car Details-->
 <script>
+    //This is Home Page filter by Car Details
     jQuery('#searchform').submit(function(e) {
         e.preventDefault();
         var formdata = jQuery('#searchform').serialize();

@@ -29,7 +29,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('reviews', 'reviews');
     Route::get('reviewsdetails', 'reviewsdetails');
     Route::get('compare', 'compare');
-    Route::get('compareresult', 'compareresult');
+    Route::get('compareresult', 'compareresult')->name('compareresult');
     Route::get('loginuser', 'loginuser')->name('loginuser');
     Route::get('registration', 'registration')->name('registration');
     Route::get('postyourad', 'postyourad');
@@ -94,6 +94,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('insertcarloanenquiry', 'insertcarloanenquiry')->name('insertcarloanenquiry');
     Route::post('/filterhomepagecars', 'filterhomepagecars')->name('filterhomepagecars');
     Route::post('/filterbycarbodytype/{bodytype}', 'filterbycarbodytype')->name('filterbycarbodytype');
+    Route::post('/showcomparecars/{fullId}', 'showcomparecars')->name('showcomparecars');
 
 });
 

@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddFeature;
+use App\Models\AddSpecification;
 use App\Models\AddVariant;
 use App\Models\AdPost;
 use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
-use App\Models\Pincode;
+use App\Models\CompareVehicle;
 use App\Models\PostOffices;
+use App\Models\Pincode;
+use App\Models\VehicleImage;
 use App\Models\RegisterUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -438,8 +442,9 @@ class FrontendStore extends Controller
         return response()->json($variantdata);
     }
 
-    public function filtercities($location){
-        $filtereddata = Pincode::where('City',$location)->get();
+    public function filtercities($location)
+    {
+        $filtereddata = Pincode::where('City', $location)->get();
         // dd($filtereddata[0]);
         return response()->json($filtereddata);
     }
@@ -464,12 +469,13 @@ class FrontendStore extends Controller
         }
     }
 
-    public function filterhomepagecars(Request $rq){
+    public function filterhomepagecars(Request $rq)
+    {
         //dd($rq->all());
-        $carname = explode(',',$rq->input('carname'));
+        $carname = explode(',', $rq->input('carname'));
 
         $variant = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
-        ->select('add_variants.*', 'vehicle_images.addimage')->where('add_variants.carname',$carname)->get();
+            ->select('add_variants.*', 'vehicle_images.addimage')->where('add_variants.carname', $carname)->get();
 
         session(['variants' => $variant]);
 
@@ -479,10 +485,11 @@ class FrontendStore extends Controller
         ], 200);
     }
 
-    public function filterbycarbodytype($bodytype){
+    public function filterbycarbodytype($bodytype)
+    {
 
         $variant = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
-        ->select('add_variants.*', 'vehicle_images.addimage')->where('add_variants.bodytype',$bodytype)->get();
+            ->select('add_variants.*', 'vehicle_images.addimage')->where('add_variants.bodytype', $bodytype)->get();
         // dd($variant);
 
         session(['variants' => $variant]);
@@ -492,4 +499,42 @@ class FrontendStore extends Controller
             'redirect_url' => route('findcar')
         ], 200);
     }
+
+    public function showcomparecars($fullId)
+    {
+
+        $data = CompareVehicle::where('id', $fullId)->first();
+        $new = [];
+        $ids = json_decode($data->vehicles);
+        $specs = AddSpecification::whereIn('vehicleid',$ids)->get();
+        $features = AddFeature::whereIn('vehicleid',$ids)->get();
+
+
+        // Fetch details for the vehicles based on IDs
+        $newarray = AddVariant::whereIn('id', $ids)
+            ->select('id', 'carname', 'carmodalname', 'brandname', 'price')
+            ->get();
+
+        // Fetch images for the vehicles based on carname from newarray
+        $images = VehicleImage::whereIn('vehicle', $newarray->pluck('carname'))
+            ->where('type', 'Outer view')
+            ->get();
+
+        // Merge images into newarray based on index
+        foreach ($newarray as $key => $vehicle) {
+            $vehicle->addimage = $images->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
+            $vehicle->specifications = json_decode($specs->where('vehicleid', $vehicle->id)->first()->specifications ?? '[]', true);
+            $vehicle->features = json_decode($features->where('vehicleid', $vehicle->id)->first()->features ?? '[]', true);
+
+        }
+        $new[] = ['id' => $data->id, 'vehicles' => $newarray];
+
+        session(['new' => $new]);
+
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('compareresult')
+        ], 200);
+    }
+
 }

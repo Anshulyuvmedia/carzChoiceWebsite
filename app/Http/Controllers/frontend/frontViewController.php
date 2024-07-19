@@ -11,6 +11,7 @@ use App\Models\CarList;
 use App\Models\Pincode;
 use App\Models\PostOffices;
 use App\Models\SliderImage;
+use Illuminate\Support\Facades\Log;
 use App\View\Components\AllBrands;
 use Illuminate\Http\Request;
 use App\Models\Blog;
@@ -139,7 +140,9 @@ class frontViewController extends Controller
     }
     public function compareresult()
     {
-        return view('frontend.compareresult');
+        $new = session('new', []);
+        Log::info('Session data in compareresult:', ['new' => $new]); // printing data into laravel's log.......
+        return view('frontend.compareresult',compact('new'));
     }
     public function loginuser()
     {
