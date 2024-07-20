@@ -155,6 +155,7 @@ class frontViewController extends Controller
     {
         $new = session('new', []);
         Log::info('Session data in compareresult:', ['new' => $new]); // printing data into laravel's log.......
+        // dd($new);
         return view('frontend.compareresult',compact('new'));
     }
     public function loginuser()

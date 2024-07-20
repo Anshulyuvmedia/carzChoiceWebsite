@@ -5,7 +5,7 @@
 <div>
     <!-- =-=-=-=-=-=-= Home Banner  =-=-=-=-=-=-= -->
     <div id="banner"
-        style="background: url('{{ asset('assets/backend-assets/images/' . $imagesdata->mainbannerimg) }}')">
+        style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->mainbannerimg) }}')">
         <div class="container">
             <div class="search-container">
                 <!-- Form -->
@@ -483,7 +483,7 @@
         {{-- <div class="background-1"></div> --}}
         <!--Image Two-->
         <div class="background-2"
-            style="background: url('{{ asset('assets/backend-assets/images/' . $imagesdata->checkonroadimg) }}')">
+            style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->checkonroadimg) }}')">
         </div>
         <img class="img-responsive wow slideInRight custom-img" data-wow-delay="0ms" data-wow-duration="2000ms"
             src="images/sell-1.png" alt="">

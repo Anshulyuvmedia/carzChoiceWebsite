@@ -256,9 +256,7 @@
                                             <li><a href="/compareresult">Comparison Result</a></li>
                                         </ul>
                                     </li>
-                                    <li>
-                                        <a href="/carlistingdetails">Car Details</a>
-                                    </li>
+                                   
 
                                 </ul>
                                 <ul class="menu-search-bar">

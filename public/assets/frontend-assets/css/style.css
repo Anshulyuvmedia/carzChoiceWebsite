@@ -81,6 +81,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    scrollbar-width: thin;
 }
 
 body {
@@ -10812,7 +10813,8 @@ textarea {
     width: 100%;
     overflow-x: auto;
     flex-wrap: nowrap;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
 }
 
 .close {
