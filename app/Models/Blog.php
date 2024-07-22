@@ -9,6 +9,7 @@ class Blog extends Model
 {
     protected $fillable = [
         'categorytype',
+        'carname',
         'blogtitle',
         'description',
         'blogpost',

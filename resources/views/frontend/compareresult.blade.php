@@ -32,7 +32,7 @@
                     <div class="row my-3">
 
                         <ul class="nav nav-underline">
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link active" href="#Specifications">Specifications</a>
                             </li>

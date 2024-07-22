@@ -48,7 +48,7 @@
                 <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
-                        <div class=" popular-slider container owl-carousel owl-theme">
+                          <div class=" popular-slider container owl-carousel owl-theme">
                             <div class="item">
                                 <div class="grid-style-2">
                                     <!-- Listing Ad Grid -->

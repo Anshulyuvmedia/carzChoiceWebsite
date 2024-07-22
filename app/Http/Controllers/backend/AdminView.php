@@ -48,7 +48,8 @@ class AdminView extends Controller
     public function addblog()
     {
         $blogdata = Master::where('type', '=', 'Blog')->get();
-        return view('AdminPanel.addblog', compact('blogdata'));
+        $carname = CarList::get();
+        return view('AdminPanel.addblog', compact('blogdata','carname'));
     }
 
     public function bloglist()
@@ -62,7 +63,8 @@ class AdminView extends Controller
         $blogdata = Blog::find($id);
         $masterdata = Master::where('type', '=', 'Blog')->get();
         // dd($blogdata);
-        return view('AdminPanel.editblog', compact('blogdata', 'masterdata'));
+        $carname = CarList::get();
+        return view('AdminPanel.editblog', compact('blogdata', 'masterdata','carname'));
     }
 
     public function formattributes()

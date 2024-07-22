@@ -138,12 +138,15 @@ class Store extends Controller
         try {
             $blogdata = $req->validate([
                 'categorytype' => 'required',
+                'carname' => 'required',
                 'blogtitle' => 'required',
                 'blogpost' => 'required',
+                'blogimg' => 'required',
             ]);
 
             $blogdata = new Blog();
             $blogdata->categorytype = $req->categorytype;
+            $blogdata->carname = $req->carname;
             $blogdata->blogtitle = $req->blogtitle;
             $blogdata->blogpost = $req->blogpost;
             $blogdata->description = $req->description;
@@ -181,12 +184,14 @@ class Store extends Controller
         try {
             $blogdata = $req->validate([
                 'categorytype' => 'required',
+                'carname' => 'required',
                 'blogtitle' => 'required',
                 'blogpost' => 'required',
             ]);
 
             $blogdatanew = Blog::findOrFail($req->blogid);
             $blogdatanew->categorytype = $req->categorytype;
+            $blogdatanew->carname = $req->carname;
             $blogdatanew->blogtitle = $req->blogtitle;
             $blogdatanew->description = $req->description;
             $blogdatanew->blogpost = $req->blogpost;

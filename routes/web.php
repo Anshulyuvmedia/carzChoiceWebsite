@@ -61,8 +61,8 @@ Route::controller(frontViewController::class)->group(function () {
 
 
     Route::get('pricing', 'pricing');
-    Route::get('blogs', 'blogs');
-    Route::get('blogdetails', 'blogdetails');
+    Route::get('news', 'news');
+    Route::get('newsdetails/{id}', 'newsdetails')->name('newsdetails');
     Route::get('about', 'about');
     Route::get('error404', 'error404');
     Route::get('contactus', 'contactus');

@@ -49,7 +49,7 @@
                                     <h6>Filter by :</h6>
                                     <div class="custom-select-box">
                                         <select class="form-control" id="brandselect" name="brandname">
-                                            <option value="">--select brand name--</option>
+                                            <option value=""> Select brand name</option>
                                             @foreach ($brands as $row)
                                             <option value="{{ $row->label }}">{{ $row->label }}</option>
                                             @endforeach
@@ -61,7 +61,7 @@
                                 <div class="header-listing">
                                     <h6>Sort by :</h6>
                                     <div class="custom-select-box">
-                                        <select name="order" class="custom-select">
+                                        <select name="order" class="custom-select form-control">
                                             <option value="0">Most popular</option>
                                             <option value="1">The latest</option>
                                             <option value="2">The best rating</option>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
 use App\Models\AddVariant;
@@ -28,7 +29,7 @@ class frontViewController extends Controller
         $imagesdata = SliderImage::first();
         $adposts = AdPost::orderBy('created_at', 'desc')->get();
         $carlists = Carlist::get();
-        $bodytype = Master::where('type','=','Body Type')->get();
+        $bodytype = Master::where('type', '=', 'Body Type')->get();
 
 
         $trending = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
@@ -119,21 +120,21 @@ class frontViewController extends Controller
             return $item;
         });
 
-        return view('frontend.home', compact('imagesdata','bodytype','carlists','adposts', 'matches', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
+        return view('frontend.home', compact('imagesdata', 'bodytype', 'carlists', 'adposts', 'matches', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
     }
     public function carlistingdetails($id)
     {
-        $cardetails = AddVariant::where('id',$id)->first();
+        $cardetails = AddVariant::where('id', $id)->first();
 
-        $images = VehicleImage::where('vehicle',$cardetails->carname)->get();
-        $spces = AddSpecification::where('vehicleid',$id)->get();
-        $features = AddFeature::where('vehicleid',$id)->get();
+        $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
+        $spces = AddSpecification::where('vehicleid', $id)->get();
+        $features = AddFeature::where('vehicleid', $id)->get();
 
-        $cardetails->images= json_decode($images);
-        $cardetails->specificaitons= json_decode($spces);
-        $cardetails->features= json_decode($features);
+        $cardetails->images = json_decode($images);
+        $cardetails->specificaitons = json_decode($spces);
+        $cardetails->features = json_decode($features);
 
-        return view('frontend.carLayouts.carlistingdetails',compact('cardetails'));
+        return view('frontend.carLayouts.carlistingdetails', compact('cardetails'));
     }
     public function carlisting()
     {
@@ -156,7 +157,7 @@ class frontViewController extends Controller
         $new = session('new', []);
         Log::info('Session data in compareresult:', ['new' => $new]); // printing data into laravel's log.......
         // dd($new);
-        return view('frontend.compareresult',compact('new'));
+        return view('frontend.compareresult', compact('new'));
     }
     public function loginuser()
     {
@@ -212,15 +213,55 @@ class frontViewController extends Controller
     {
         return view('frontend.pricing');
     }
-    public function blogs()
+    public function news()
     {
-        $blogdata = Blog::orderBy('created_at', 'desc')->where('categorytype', '=', 'Car News')->paginate(2);
-        return view('frontend.blogs', compact('blogdata'));
+        $blogdata = Blog::orderBy('created_at', 'desc')->where('categorytype', '=', 'Car News')->paginate(3);
+        // dd($blogdata);
+
+        return view('frontend.news', compact('blogdata'));
     }
-    public function blogdetails()
+    public function newsdetails(Request $request)
     {
-        return view('frontend.blogdetails');
+
+        $blogdata = Blog::where('id', '=', $request->id)->first();
+
+        if ($blogdata) {
+
+            $blogdata->formatted_date = Carbon::parse($blogdata->created_at)
+                ->setTimezone('Asia/Kolkata')
+                ->format('F d, Y, h:i A T');
+
+            // Format the video URL
+            $blogdata->embed_url = $this->formatYouTubeUrl($blogdata->vurl);
+        }
+
+        $imagesdata = VehicleImage::where('vehicle', $blogdata->carname)->pluck('addimage');
+
+        $variantdata = AddVariant::where('carname', $blogdata->carname)->get();
+        // dd($imagesdata);
+
+        return view('frontend.newsdetails', compact('blogdata', 'variantdata','imagesdata'));
     }
+
+    private function formatYouTubeUrl($url)
+    {
+        // Check if the URL is of the type "https://www.youtube.com/watch?v=VIDEO_ID"
+        if (preg_match('/youtube\.com\/watch\?v=([^\&\?\/]+)/', $url, $id)) {
+            $video_id = $id[1];
+        }
+        // Check if the URL is of the type "https://youtu.be/VIDEO_ID"
+        elseif (preg_match('/youtu\.be\/([^\&\?\/]+)/', $url, $id)) {
+            $video_id = $id[1];
+        }
+        // Default to the original URL if no match is found
+        else {
+            return $url;
+        }
+
+        // Return the standardized embed URL
+        return 'https://www.youtube.com/embed/' . $video_id;
+    }
+
     public function about()
     {
         return view('frontend.about');
@@ -372,8 +413,8 @@ class frontViewController extends Controller
     {
         $brands = Master::where('type', 'brand')->get();
         $pincodedata = Pincode::select('State', 'City', 'District', DB::raw('GROUP_CONCAT(DISTINCT PostOfficeName) as PostOfficeNames'), DB::raw('COUNT(*) as count'))
-        ->groupBy('State', 'City', 'District')
-        ->get();
+            ->groupBy('State', 'City', 'District')
+            ->get();
         // dd($pincodedata[0]);
         $vehiclesByBrand = [];
 
@@ -390,7 +431,7 @@ class frontViewController extends Controller
             ];
         }
         //dd($vehiclesByBrand);
-        return view('frontend.newCarsLayouts.carloan', compact('vehiclesByBrand','pincodedata'));
+        return view('frontend.newCarsLayouts.carloan', compact('vehiclesByBrand', 'pincodedata'));
     }
     public function findcar()
     {

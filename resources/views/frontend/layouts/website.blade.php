@@ -149,7 +149,7 @@
                                                 <div class="grid-col-3">
                                                     <h3>Condition</h3>
                                                     <ul>
-                                                        <li><a href="/new-cars">Explore Used Cars</a></li>
+                                                        <li><a href="/new-cars">Explore New Cars</a></li>
                                                         <li><a href="/upcoming-car">Upcoming Cars</a></li>
                                                         <li><a href="/new-car-launches">New Launches </a></li>
                                                         <li><a href="/electric-car">Electric Cars </a></li>
@@ -238,24 +238,10 @@
                                     </li>
 
                                     <li>
-                                        <a href="javascript:void(0)">News <i
-                                                class="fa fa-angle-down fa-indicator"></i></a>
-                                        <!-- drop down multilevel  -->
-                                        <ul class="drop-down-multilevel">
-                                            <li><a href="/blogs">All News</a></li>
-                                            <li><a href="/blogdetails">News Detial</a></li>
-                                        </ul>
+                                        <a href="/news">News </a>
                                     </li>
 
-                                    <li>
-                                        <a href="javascript:void(0)">Compare <i
-                                                class="fa fa-angle-down fa-indicator"></i></a>
-                                        <!-- drop down multilevel  -->
-                                        <ul class="drop-down-multilevel">
-                                            <li><a href="/compare">Comparison List</a></li>
-                                            <li><a href="/compareresult">Comparison Result</a></li>
-                                        </ul>
-                                    </li>
+                                    
                                    
 
                                 </ul>
