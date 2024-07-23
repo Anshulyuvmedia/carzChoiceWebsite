@@ -9,11 +9,13 @@ use App\Models\AddVariant;
 use App\Models\Blog;
 use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
+use App\Models\VariantFaq;
 use App\Models\CompanyProfile;
 use App\Models\CompareVehicle;
 use App\Models\faqs;
 use App\Models\FormAttribute;
 use App\Models\Lead;
+use App\Models\ProsCons;
 use App\Models\SliderImage;
 use App\Models\Master;
 use App\Models\RegisterUser;
@@ -214,5 +216,20 @@ class AdminView extends Controller
     public function allenquiriessite(){
         $allenquiries  = CarLoanEnquiry::orderBy('created_at','desc')->get();
         return view('AdminPanel.allenquiries',compact('allenquiries'));
+    }
+
+    public function prosandcons($id){
+        $proscons = ProsCons::first();
+        $pros = json_decode($proscons->pros, true);
+        $cons = json_decode($proscons->cons, true);
+        $vehicleid = $id;
+        return view('AdminPanel.prosandcons',compact('vehicleid','pros','cons','proscons'));
+    }
+
+    public function variantfaqs($id,$carname){
+        $faqs = VariantFaq::get();
+        $vehicleid = $id;
+        $carnamedata = $carname;
+        return view('AdminPanel.variantfaqs',compact('vehicleid','faqs','carnamedata'));
     }
 }

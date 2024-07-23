@@ -92,8 +92,9 @@
                                                 <div class="dropdown-menu dropdown-menu-end">
                                                     <a href="{{ route('addfeatures', ['id' => $row->id]) }}" class="dropdown-item">Add Features</a>
                                                     <a href="{{ route('addspecifications', ['id' => $row->id]) }}" class=" dropdown-item">Add Specifications</a>
-                                                    <a href="{{ route('editvariant', ['id' => $row->id]) }}"
-                                                    class="text-primary dropdown-item">Edit</a>
+                                                    <a href="{{ route('prosandcons', ['id' => $row->id]) }}" class="dropdown-item">Add Pros & Cons</a>
+                                                    <a href="{{ route('variantfaqs', ['id' => $row->id,'carname' =>$row->carname]) }}" class="dropdown-item">Add FAQ's</a>
+                                                    <a href="{{ route('editvariant', ['id' => $row->id]) }}"class="text-primary dropdown-item">Edit</a>
                                                     <a href="#" onclick="confirmDelete('{{ $row->id }}')"
                                                     class="text-danger dropdown-item">Delete</a>
                                                 </div>
