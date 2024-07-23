@@ -166,7 +166,7 @@
                                         <ul class="by-make d-flex flex-wrap justify-content-evenly">
                                             @foreach ($brands->take(12) as $data)
                                                 <li class="border m-2">
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);" class="brandfilter" data-value="{{ $data->value }}">
                                                         <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
                                                             class="img-responsive" alt="Brand Image" width="100">
                                                     </a>

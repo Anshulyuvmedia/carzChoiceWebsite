@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Master;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
 use App\Models\AddVariant;
@@ -18,7 +19,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 
@@ -100,7 +102,7 @@ class FrontendStore extends Controller
 
     public function logoutuserfront()
     {
-        \Session::flush();
+        Session::flush();
         Auth::guard('registeruser')->logout();
         return redirect()->route('loginuser');
     }
@@ -171,7 +173,6 @@ class FrontendStore extends Controller
         } else {
             return back();
         }
-
     }
 
     public function edituserprofile(Request $req)
@@ -196,7 +197,6 @@ class FrontendStore extends Controller
             $profiledata->save();
 
             return back()->with('success', 'Profile Updated successfully.');
-
         } catch (Exception $e) {
             return back()->with('error', 'Failed to update profile. ' . $e->getMessage());
         }
@@ -259,7 +259,6 @@ class FrontendStore extends Controller
                         ];
                     }
                 }
-
             }
 
             $jsonImageData = json_encode($imageData);
@@ -286,7 +285,6 @@ class FrontendStore extends Controller
             ]);
             Log::info('Add Post Inserted Successfully: ', ['adpost' => $data]);
             return back()->with('success', 'Ad Post Added..!!!!');
-
         } catch (Exception $e) {
             return redirect()->route('addadshow')->with('error', $e->getMessage());
             //return redirect()->route('addadshow')->with('error', 'Not Added Try Again...!!!!');
@@ -412,7 +410,6 @@ class FrontendStore extends Controller
         })->values();
         //  dd($matchesupcoming);
         return response()->json(['data' => $matchesupcoming->toArray()]);
-
     }
 
     public function filtervariants($finalvalue)
@@ -462,7 +459,6 @@ class FrontendStore extends Controller
 
             ]);
             return back()->with('success', 'Thank you We Will Reach You Soon!!!!');
-
         } catch (Exception $e) {
             //return redirect()->route('carloan')->with('error', $e->getMessage());
             return redirect()->route('carloan')->with('error', 'Not Added Try Again...!!!!');
@@ -485,20 +481,113 @@ class FrontendStore extends Controller
         ], 200);
     }
 
-    public function filterbycarbodytype($bodytype)
+    public function filterByAttribute(Request $request)
     {
+        $attribute = $request->input('attribute');
+        // dd($request);
 
-        $variant = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
-            ->select('add_variants.*', 'vehicle_images.addimage')->where('add_variants.bodytype', $bodytype)->get();
-        // dd($variant);
+        // Step 1: Retrieve the type corresponding to the given attribute from Master table
+        $type = Master::where('value', $attribute)->pluck('type')->first();
+        // dd($type);
+        if (!$type) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid attribute'
+            ], 400);
+        }
 
-        session(['variants' => $variant]);
+        // Step 2: Based on the type, filter AddVariant data
+        switch ($type) {
+            case 'Brand':
+                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
+                    ->select('add_variants.*', 'vehicle_images.addimage')
+                    ->where('add_variants.brandname', $attribute)
+                    ->get()->unique('carname');
+                break;
 
+            case 'Body Type':
+                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
+                    ->select('add_variants.*', 'vehicle_images.addimage')
+                    ->where('add_variants.bodytype', $attribute)
+                    ->get()->unique('carname');
+                break;
+
+            case 'Fuel Type':
+                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
+                    ->select('add_variants.*', 'vehicle_images.addimage')
+                    ->whereJsonContains('add_variants.fueltype', $attribute)
+                    ->get()->unique('carname');
+                break;
+
+            case 'Transmission':
+                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
+                    ->select('add_variants.*', 'vehicle_images.addimage')
+                    ->whereJsonContains('add_variants.transmission', $attribute)
+                    ->get()->unique('carname');
+                break;
+
+            case 'Seating Capacity':
+                
+                // Split the string by spaces
+                $parts = explode(' ', $attribute);
+
+                // Extract the second element (index 1) which is the number
+                $avalseat = intval($parts[0]);
+                // dd($budgetvalue);
+                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
+                    ->select('add_variants.*', 'vehicle_images.addimage')
+                    ->where('add_variants.seatingcapacity','<', $avalseat)
+                    ->get()->unique('carname');
+                break;
+
+            case 'Budget':
+
+                // Split the string by spaces
+                $parts = explode(' ', $attribute);
+
+                // Extract the second element (index 1) which is the number
+                $budgetvalue = intval($parts[1]) * 100000;
+                // dd($budgetvalue);
+
+                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
+                    ->select('add_variants.*', 'vehicle_images.addimage')
+                    ->where('add_variants.price', '<', $budgetvalue)
+                    ->get()->unique('carname');
+                    // dd($variantData);
+
+                break;
+
+            default:
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Invalid type'
+                ], 400);
+        }
+
+        // Store the result in session
+        session(['variants' => $variantData]);
+
+        // Return the response
         return response()->json([
             'success' => true,
             'redirect_url' => route('findcar')
         ], 200);
     }
+
+    // public function filterbycarbodytype($bodytype)
+    // {
+
+    //     $variant = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
+    //         ->select('add_variants.*', 'vehicle_images.addimage')->where('add_variants.bodytype', $bodytype)->get();
+    //     // dd($variant);
+
+    //     session(['variants' => $variant]);
+
+    //     return response()->json([
+    //         'success' => true,
+    //         'redirect_url' => route('findcar')
+    //     ], 200);
+    // }
 
     public function showcomparecars($fullId)
     {
@@ -525,7 +614,6 @@ class FrontendStore extends Controller
             $vehicle->addimage = $images->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
             $vehicle->specifications = json_decode($specs->where('vehicleid', $vehicle->id)->first()->specifications ?? '[]', true);
             $vehicle->features = json_decode($features->where('vehicleid', $vehicle->id)->first()->features ?? '[]', true);
-
         }
         $new[] = ['id' => $data->id, 'vehicles' => $newarray];
 
@@ -561,12 +649,12 @@ class FrontendStore extends Controller
     {
         // if (Auth::guard('registeruser')->check()) {
         //     $user = Auth::guard('registeruser')->user();
-            $compare = CompareVehicle::create([
-                'vehicles' => json_encode($rq->compareid),
-                // 'userid' => $user->id,
-            ]);
-            // dd($compare);
-            return redirect()->route('compareresult', ['id' => $compare->id]);
+        $compare = CompareVehicle::create([
+            'vehicles' => json_encode($rq->compareid),
+            // 'userid' => $user->id,
+        ]);
+        // dd($compare);
+        return redirect()->route('compareresult', ['id' => $compare->id]);
         // } else {
         //     return view('frontend.loginuser');
         // }

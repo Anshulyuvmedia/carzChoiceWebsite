@@ -179,7 +179,7 @@
                                                     <ul class="by-make list-inline">
                                                         @foreach ($brands->take(12) as $data)
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="javascript:void(0);" class="brandfilter" data-value="{{ $data->value }}">
                                                                     <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
                                                                         class="img-responsive" alt="Brand Image">
                                                                 </a>
@@ -213,7 +213,7 @@
                                                     <ul class="by-make list-inline">
                                                         @foreach ($brands->take(14) as $data)
                                                             <li>
-                                                                <a href="#">
+                                                                <a href="javascript:void(0);" class="brandfilter" data-value="{{ $data->value }}">
                                                                     <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
                                                                         class="img-responsive" alt="Brand Image">
                                                                 </a>
@@ -361,7 +361,33 @@
 
     </footer>
     <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
+<!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '.brandfilter', function() {
+            var carbrand = $(this).data('value');
+            console.log(carbrand);
 
+            $.ajax({
+                url: "/filterByAttribute",
+                type: 'POST',
+                data: { attribute: carbrand },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    console.log(data);
+                    if (data.success) {
+                        window.location.href = data.redirect_url;
+                    } else {
+                        alert("error");
+                    }
+                }
+            });
+        });
+    });
+</script>
 
 
     <!-- Back To Top -->

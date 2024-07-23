@@ -94,6 +94,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('insertcarloanenquiry', 'insertcarloanenquiry')->name('insertcarloanenquiry');
     Route::post('/filterhomepagecars', 'filterhomepagecars')->name('filterhomepagecars');
     Route::post('/filterbycarbodytype/{bodytype}', 'filterbycarbodytype')->name('filterbycarbodytype');
+    Route::post('/filterByAttribute', 'filterByAttribute')->name('filterByAttribute');
     Route::post('/showcomparecars/{fullId}', 'showcomparecars')->name('showcomparecars');
     Route::post('filterbyfuelcardetails', 'filterbyfuelcardetails')->name('filterbyfuelcardetails');
     Route::post('insertcompareoffcanvas', 'insertcompareoffcanvas')->name('insertcompareoffcanvas');

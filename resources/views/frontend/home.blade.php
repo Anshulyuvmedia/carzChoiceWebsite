@@ -161,8 +161,7 @@
                                                                     On-Road Price, Delhi
                                                                 </p>
 
-                                                                <a class="" target="_blank"
-                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
                                                                     <button
                                                                         class="btn btn-outline btn-danger btn-sm  ">
                                                                         <i class="fa fa-phone"></i>
@@ -670,8 +669,9 @@
             console.log(bodytype);
 
             $.ajax({
-                url: "/filterbycarbodytype/" + bodytype,
+                url: "/filterByAttribute/",
                 type: 'POST',
+                data: { attribute: bodytype },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

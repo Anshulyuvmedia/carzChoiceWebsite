@@ -84,7 +84,7 @@
                                     <div class="clearfix visible-xs-block"></div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
                                         <div class="ad-archive-desc">
-                                            <a href="">
+                                            <a class="" href="{{ route('carlistingdetails', ['id' => $row->id]) }}">
                                                 <h3>{{$row->brandname}}, {{$row->carname}}({{$row->carmodalname}})</h3>
                                             </a>
                                             <div class="ad-price-simple fs-3">Rs. {{$row->price}} Lakh <span
