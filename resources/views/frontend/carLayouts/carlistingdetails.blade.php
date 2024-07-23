@@ -289,7 +289,8 @@
                                                         <label class="form-check-label" for="flexCheckDefault1">
                                                             Add to compare
                                                         </label>
-                                                        <input class="form-check-input comparecheck" type="checkbox" value="{{ json_encode($rowqqqq) }}" id="" data-value='@json($rowqqqq)'>
+                                                        <input class="form-check-input comparecheck" type="checkbox" value='{{ json_encode($rowqqqq) }}' id="" data-value='@json($rowqqqq)'>
+
 
                                                     </div>
                                                 </td>
@@ -1999,23 +2000,39 @@
 
             // AJAX Request
             $.ajax({
-                url: '/filterbyfuelcardetails'
-                , method: 'POST'
-                , data: {
-                    'checkboxes': checkedValues
-                    , 'carname': carname
-                , }
-                , headers: {
+                url: '/filterbyfuelcardetails',
+                method: 'POST',
+                data: {
+                    'checkboxes': checkedValues,
+                    'carname': carname,
+                },
+                headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-                , success: function(response) {
+                },
+                success: function(response) {
                     console.log(response);
                     $('#table-body').empty();
 
                     response.forEach(function(item) {
                         // Parse fueltype and transmission if they are JSON strings
-                        var fuelTypesArray = JSON.parse(item.fueltype);
-                        var transmissionsArray = JSON.parse(item.transmission);
+                        var fuelTypesArray = [];
+                        var transmissionsArray = [];
+
+                        if (item.fueltype) {
+                            try {
+                                fuelTypesArray = JSON.parse(item.fueltype);
+                            } catch (e) {
+                                console.error('Invalid fueltype JSON:', item.fueltype);
+                            }
+                        }
+
+                        if (item.transmission) {
+                            try {
+                                transmissionsArray = JSON.parse(item.transmission);
+                            } catch (e) {
+                                console.error('Invalid transmission JSON:', item.transmission);
+                            }
+                        }
 
                         var fuelTypes = fuelTypesArray.map(function(fuel) {
                             return `<li class="me-2">${fuel},</li>`;
@@ -2033,7 +2050,7 @@
                                 <div>
                                     ${item.carname}, (${item.carmodalname})
                                 </div>
-                                <div class="text-muted fs-4">
+                                <div class="text-muted fs-6">
                                     <ul class="d-flex" style="column-count : 4;">
                                         ${fuelTypes} |&nbsp;&nbsp;${transmissions}
                                     </ul>
@@ -2045,7 +2062,7 @@
                                     <label class="form-check-label" for="comparecheck-${item.id}">
                                         Add to compare
                                     </label>
-                                    <input class="form-check-input comparecheck" type="checkbox" value='{"carname": "${item.carname}", "transmission": "${transmissions}"}, "fueltype": "${fuelTypes}"}, "model": "${item.carmodalname}", "price": "${item.price}", "id": "${item.id}"}' id="comparecheck-${item.id}"  data-value='{ "id": "${item.id}"}, "transmission": "${transmissions}"}, "fueltype": "${fuelTypes}"},"carname": "${item.carname}", "model": "${item.carmodalname}", "price": "${item.price}"}' />
+                                    <input class="form-check-input comparecheck" type="checkbox" value='{"carname": "${item.carname}","brandname": "${item.brandname}", "fueltype": ${JSON.stringify(fuelTypesArray)},  "model": "${item.carmodalname}", "price": "${item.price}", "id": "${item.id}"}' data-value='{"id": "${item.id}","brandname": "${item.brandname}", "fueltype": ${JSON.stringify(fuelTypesArray)}, "carname": "${item.carname}", "model": "${item.carmodalname}", "price": "${item.price}"}' />
                                 </div>
                             </td>
                         </tr>
@@ -2074,8 +2091,8 @@
                 console.log('Car Data:', carData);
 
                 // Parse fueltype and transmission if they are JSON strings
-                var fuelTypesArray = JSON.parse(carData.fueltype);
-                var transmissionsArray = JSON.parse(carData.transmission);
+                var fuelTypesArray = carData.fueltype || [];
+                var transmissionsArray = carData.transmission || [];
 
                 var fuelTypes = fuelTypesArray.map(function(fuel) {
                     return `${fuel}`;
@@ -2098,39 +2115,39 @@
 
                 // Create the new div
                 var newcard = `
-                        <div class="col-md-3 col-xs-6 col-sm-6 px-2">
-                             <input type="hidden" value="${item.id}"  name="compareid[]" id="compareid" placeholder="">
-                            <span class="vs-compare">VS</span>
-                            <div class="category-grid-box-1">
-                                <button type="button" class="btn-close compare-close"></button>
-                                <div class="image">
-                                    <div>${imageHtml}</div>
-                                    <div class="ribbon popular"></div>
+                    <div class="col-md-3 col-xs-6 col-sm-6 px-2">
+                         <input type="hidden" value="${item.id}"  name="compareid[]" id="compareid" placeholder="">
+                        <span class="vs-compare">VS</span>
+                        <div class="category-grid-box-1">
+                            <button type="button" class="btn-close compare-close"></button>
+                            <div class="image">
+                                <div>${imageHtml}</div>
+                                <div class="ribbon popular"></div>
+                            </div>
+                            <div class="short-description-1 clearfix">
+                                <a title="" href="#">
+                                    <div class="fs-5 fw-bold">
+                                        ${carData.brandname} ${carData.carname}, ${carData.model}
+                                    </div>
+                                </a>
+                                <div class="text-muted fs-5">
+                                    <div class="d-flex" >
+                                        ${fuelTypes}
+                                    </div>
                                 </div>
-                                <div class="short-description-1 clearfix">
-                                    <a title="" href="#">
-                                        <div class="fs-5 fw-bold">
-                                            ${carData.brandname} ${carData.carname}, ${carData.carmodalname}
-                                        </div>
-                                    </a>
-                                    <div class="text-muted fs-5">
-                                        <div class="d-flex" >
-                                            ${fuelTypes} |&nbsp;&nbsp;${transmissions}
-                                        </div>
-                                    </div>
-                                    <div class="ad-price fs-5">Rs. ${carData.price}
-                                        <span class="text-muted ps-2">onwards</span>
-                                    </div>
+                                <div class="ad-price fs-5">Rs. ${carData.price}
+                                    <span class="text-muted ps-2">onwards</span>
                                 </div>
                             </div>
                         </div>
-            `;
+                    </div>
+                `;
                 $('#comparecard').append(newcard);
             });
         });
     });
-
 </script>
+
 @endsection
 
 
