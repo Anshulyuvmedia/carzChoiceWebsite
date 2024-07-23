@@ -10,7 +10,8 @@
             <div class="card">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="nav-item active">
-                        <a class="nav-link" aria-controls="trending" role="tab" data-toggle="tab" href="#carnews">Car
+                        <a class="nav-link" aria-controls="trending" role="tab" data-toggle="tab"
+                            href="#carnews">Car
                             News </a>
                     </li>
                     <li role="presentation" class="nav-item">
@@ -31,39 +32,49 @@
                             <div class="row">
                                 <div class=" featured-slider owl-carousel owl-theme">
                                     @foreach ($carnews as $data)
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="blog-post">
-                                                    <div class="post-img">
-                                                        @if ($data->blogimg)
-                                                        <a href="#">
-                                                            <img src="{{asset("assets/backend-assets/images/".$data->blogimg) }}" alt="Thumbnail" width="100px">
-                                                        </a>
-                                                        @elseif ($data->vurl)
-                                                        <a href="{{$data->vurl}}" target="_blank">
-                                                            <button type="button"
-                                                                class="btn btn-info waves-effect waves-light btn-sm">View
-                                                                Video</button>
-                                                        </a>
-                                                        @endif
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                                    <div class="blog-post shadow-sm rounded-3 h-100" style="background: #ededed">
 
-                                                    </div>
-                                                    <h3 class="post-title">
-                                                        <a href="#">{{$data->blogtitle}}</a>
-                                                    </h3>
-                                                    <div class="post-info"> <a href="#">By CarChoice</a>{{
-                                                        $data->created_at->format('d/m/y') }}
-                                                    </div>
-                                                    <p class="post-excerpt">{{ substr($data->description, 0,100) }}...
-                                                    </p>
-                                                    <div class="post-title">
-                                                        <a href="#"><strong>Read More</strong></a>
+                                                        <div class="post-img">
+                                                            @if ($data->blogimg)
+                                                                <a href={{ route('newsdetails', ['id' => $data->id]) }}>
+                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->blogimg) }}"
+                                                                        alt="Thumbnail" width="100px">
+                                                                </a>
+                                                            @elseif ($data->vurl)
+                                                                <a href="{{ $data->vurl }}" target="_blank">
+                                                                    <button type="button"
+                                                                        class="btn btn-info waves-effect waves-light btn-sm">View
+                                                                        Video</button>
+                                                                </a>
+                                                            @endif
+
+                                                        </div>
+                                                        <h3 class="post-title">
+                                                            <a href={{ route('newsdetails', ['id' => $data->id]) }}>
+                                                                {{ $data->blogtitle }}
+                                                            </a>
+                                                        </h3>
+                                                        <div class="post-info">
+                                                            By CarChoice
+                                                            <span class="pull-right">
+                                                                {{ $data->created_at->format('d/m/y') }}
+                                                            </span>
+                                                        </div>
+                                                        <div class="post-excerpt">
+                                                            {{ substr($data->description, 0, 75) }}...
+                                                        </div>
+                                                        <div class="post-title pull-right">
+                                                            <a href={{ route('newsdetails', ['id' => $data->id]) }}>
+                                                                <strong>Read More</strong>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endforeach
                                 </div>
                             </div>
@@ -77,39 +88,49 @@
                             <div class="row">
                                 <div class=" featured-slider owl-carousel owl-theme">
                                     @foreach ($expert as $data)
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="blog-post">
-                                                    <div class="post-img">
-                                                        @if ($data->blogimg)
-                                                        <a href="#">
-                                                            <img src="{{asset("assets/backend-assets/images/".$data->blogimg) }}" alt="Thumbnail" width="100px">
-                                                        </a>
-                                                        @elseif ($data->vurl)
-                                                        <a href="{{$data->vurl}}" target="_blank">
-                                                            <button type="button"
-                                                                class="btn btn-info waves-effect waves-light btn-sm">View
-                                                                Video</button>
-                                                        </a>
-                                                        @endif
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                                    <div class="blog-post shadow rounded-3" style="background: #ededed">
 
-                                                    </div>
-                                                    <h3 class="post-title">
-                                                        <a href="#">{{$data->blogtitle}}</a>
-                                                    </h3>
-                                                    <div class="post-info"> <a href="#">By CarChoice</a>{{
-                                                        $data->created_at->format('d/m/y') }}
-                                                    </div>
-                                                    <p class="post-excerpt">{{ substr($data->description, 0,100) }}...
-                                                    </p>
-                                                    <div class="post-title">
-                                                        <a href="#"><strong>Read More</strong></a>
+                                                        <div class="post-img">
+                                                            @if ($data->blogimg)
+                                                                <a href={{ route('newsdetails', ['id' => $data->id]) }}>
+                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->blogimg) }}"
+                                                                        alt="Thumbnail" width="100px">
+                                                                </a>
+                                                            @elseif ($data->vurl)
+                                                                <a href="{{ $data->vurl }}" target="_blank">
+                                                                    <button type="button"
+                                                                        class="btn btn-info waves-effect waves-light btn-sm">View
+                                                                        Video</button>
+                                                                </a>
+                                                            @endif
+
+                                                        </div>
+                                                        <h3 class="post-title">
+                                                            <a href={{ route('newsdetails', ['id' => $data->id]) }}>
+                                                                {{ $data->blogtitle }}
+                                                            </a>
+                                                        </h3>
+                                                        <div class="post-info"> By
+                                                            CarChoice
+                                                            <span class="pull-right">
+                                                                {{ $data->created_at->format('d/m/y') }}
+                                                            </span>
+                                                        </div>
+                                                        <p class="post-excerpt">
+                                                            {{ substr($data->description, 0, 75) }}...
+                                                        </p>
+                                                        <div class="post-title pull-right">
+                                                            <a href={{ route('newsdetails', ['id' => $data->id]) }}>
+                                                                <strong>Read More</strong>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endforeach
                                 </div>
                             </div>
@@ -123,39 +144,55 @@
                             <div class="row">
                                 <div class=" featured-slider owl-carousel owl-theme">
                                     @foreach ($videos as $data)
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="blog-post">
-                                                    <div class="post-img">
-                                                        @if ($data->blogimg)
-                                                        <a href="#">
-                                                            <img src="{{asset("assets/backend-assets/images/".$data->blogimg) }}" alt="Thumbnail" width="100px">
-                                                        </a>
-                                                        @elseif ($data->vurl)
-                                                        <a href="{{$data->vurl}}" target="_blank">
-                                                            <button type="button"
-                                                                class="btn btn-info waves-effect waves-light btn-sm">View
-                                                                Video</button>
-                                                        </a>
-                                                        @endif
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                                    <div class="blog-post shadow rounded-3" style="background: #ededed">
+                                                        <div class="post-img">
+                                                            @if ($data->blogimg)
+                                                                <a
+                                                                    href={{ route('newsdetails', ['id' => $data->id]) }}>
 
-                                                    </div>
-                                                    <h3 class="post-title">
-                                                        <a href="#">{{$data->blogtitle}}</a>
-                                                    </h3>
-                                                    <div class="post-info"> <a href="#">By CarChoice</a>{{
-                                                        $data->created_at->format('d/m/y') }}
-                                                    </div>
-                                                    <p class="post-excerpt">{{ substr($data->description, 0,100) }}...
-                                                    </p>
-                                                    <div class="post-title">
-                                                        <a href="#"><strong>Read More</strong></a>
+                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->blogimg) }}"
+                                                                        alt="Thumbnail" width="100px">
+                                                                </a>
+                                                            @elseif ($data->vurl)
+                                                                <a href="{{ $data->vurl }}" target="_blank">
+                                                                    <button type="button"
+                                                                        class="btn btn-info waves-effect waves-light btn-sm">View
+                                                                        Video</button>
+                                                                </a>
+                                                            @endif
+
+                                                        </div>
+                                                        <div >
+
+                                                            <h3 class="post-title">
+                                                                <a
+                                                                    href={{ route('newsdetails', ['id' => $data->id]) }}>
+                                                                    {{ $data->blogtitle }}</a>
+                                                            </h3>
+                                                            <div class="post-info"> By
+                                                                CarChoice
+                                                                <span class="pull-right">
+
+                                                                    {{ $data->created_at->format('d/m/y') }}
+                                                                </span>
+                                                            </div>
+                                                            <p class="post-excerpt">
+                                                                {{ substr($data->description, 0, 75) }}...
+                                                            </p>
+                                                            <div class="post-title pull-right">
+                                                                <a href={{ route('newsdetails', ['id' => $data->id]) }}>
+                                                                    <strong>Read More</strong>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endforeach
                                 </div>
                             </div>
