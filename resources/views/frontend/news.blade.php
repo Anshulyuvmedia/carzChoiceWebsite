@@ -75,7 +75,7 @@
                                             <div>
 
                                                 <span class="post-excerpt">
-                                                    By Admin
+                                                    By Carz Choice
                                                 </span>
                                                 <span
                                                     class="pull-right ">{{ $data->created_at->format('F d, Y') }}</span>

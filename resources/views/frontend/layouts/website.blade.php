@@ -92,8 +92,10 @@
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                             aria-haspopup="true" aria-expanded="false"><img class="img-circle resize"
-                                                alt="" src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
-                                            <span class="myname hidden-xs"> Admin </span> <span class=""></span></a>
+                                                alt=""
+                                                src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
+                                            <span class="myname hidden-xs"> Admin </span> <span
+                                                class=""></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="/userprofile">User Profile</a></li>
                                             <li><a href="/userarchive">Archives</a></li>
@@ -170,18 +172,18 @@
                                                 <div class="grid-col-6">
                                                     <h3>Brands</h3>
                                                     @php
-                                                    use App\Models\Master;
-                                                    $brands = Master::where('type', 'Brand')->get();
-                                                    // $bodytype = Master::where('type', 'Body Type')->get();
+                                                        use App\Models\Master;
+                                                        $brands = Master::where('type', 'Brand')->get();
+                                                        // $bodytype = Master::where('type', 'Body Type')->get();
                                                     @endphp
                                                     <ul class="by-make list-inline">
                                                         @foreach ($brands->take(12) as $data)
-                                                        <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
+                                                                        class="img-responsive" alt="Brand Image">
+                                                                </a>
+                                                            </li>
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -210,12 +212,12 @@
                                                     <h3>Search Used Cars by Brands</h3>
                                                     <ul class="by-make list-inline">
                                                         @foreach ($brands->take(14) as $data)
-                                                        <li>
-                                                            <a href="#">
-                                                                <img src="{{ asset('assets/backend-assets/images/'.$data->iconimage) }}"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
+                                                                        class="img-responsive" alt="Brand Image">
+                                                                </a>
+                                                            </li>
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -241,8 +243,8 @@
                                         <a href="/news">News </a>
                                     </li>
 
-                                    
-                                   
+
+
 
                                 </ul>
                                 <ul class="menu-search-bar">
@@ -294,8 +296,10 @@
                             </div>
 
                             <ul class="apps-donwloads">
-                                <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}" alt=""></li>
-                                <li><img src="{{ asset('assets/frontend-assets/images/appstore.png') }}" alt=""></li>
+                                <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}"
+                                        alt=""></li>
+                                <li><img src="{{ asset('assets/frontend-assets/images/appstore.png') }}"
+                                        alt=""></li>
                             </ul>
                         </div>
                         <!-- Info Widget Exit -->
@@ -306,12 +310,15 @@
                             <h5>Follow Us</h5>
                             <ul>
                                 <li><a class="Facebook"><i class="fa fa-facebook"></i></a><span>Facebook</span></li>
-                                <li><a class="Twitter" href="#"><i class="fa fa-twitter"></i></a><span>Twitter</span>
+                                <li><a class="Twitter" href="#"><i
+                                            class="fa fa-twitter"></i></a><span>Twitter</span>
                                 </li>
-                                <span><a class="Linkedin" href="#"><i class="fa fa-linkedin"></i></a><span>Linkedin</span>
-                                </li>
-                                <li><a class="Google" href="#"><i class="fa fa-google-plus"></i></a><span>Google+</span>
-                                </li>
+                                <span><a class="Linkedin" href="#"><i
+                                            class="fa fa-linkedin"></i></a><span>Linkedin</span>
+                                    </li>
+                                    <li><a class="Google" href="#"><i
+                                                class="fa fa-google-plus"></i></a><span>Google+</span>
+                                    </li>
                             </ul>
                         </div>
                         <!-- Follow Us End -->
@@ -355,9 +362,37 @@
     </footer>
     <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
 
+    {{-- onload modal --}}
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        What are you looking for today?
+                    </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="d-flex justify-content-center g-3">
+                        <a class="btn btn-danger d-block w-100 rounded-start" href="/new-car">New Car?</a>
+                        <a class="btn btn-danger d-block w-100 rounded-end" href="#">Used Car?</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                </div>
+            </div>
 
-
-
+        </div>
+    </div>
+    <script>
+        $(window).ready(function() {
+            setTimeout(function() {
+                $('#myModal').modal("show")
+            }, 3000)
+        })
+    </script>
 
 
     <!-- Back To Top -->

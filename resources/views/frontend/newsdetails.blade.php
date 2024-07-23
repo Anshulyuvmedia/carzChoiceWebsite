@@ -37,17 +37,17 @@
                 <div class="col-md-8 col-xs-12 col-sm-12">
 
                     <div class="comment-info">
-                        <img class="pull-left hidden-xs img-circle" width="40"
-                            src="{{ asset('assets/backend-assets/images/' . $blogdata->blogimg) }}" alt="author">
-                        <div class="author-desc">
+                        {{-- <img class="pull-left hidden-xs img-circle" width="40"
+                            src="{{ asset('assets/backend-assets/images/' . $blogdata->blogimg) }}" alt="author"> --}}
+                        <div class="author-desc ms-0">
                             <div class="author-title">
-                                <strong>News Author</strong>
+                                <strong>By Carz Choice</strong>
                                 <ul class="list-inline pull-right">
                                     <li> <i class="bi bi-eye"></i></li>
                                     <li>19,371 Views</li>
                                 </ul>
                             </div>
-                            <small>July 21, 2024, 09:35 PM IST</small>
+                            <small>{{ $blogdata->formatted_date }}</small>
                         </div>
                     </div>
                     <div class="blog-detial">
@@ -62,7 +62,7 @@
 
 
                             </div>
-                            <div class="post-info"> {{ $blogdata->formatted_date }} </div>
+                            
                             <h3 class="post-title fs-3"> {{ $blogdata->blogtitle }}
                             </h3>
                             <div class="post-excerpt">
@@ -73,6 +73,7 @@
                                     {!! $blogdata->blogpost !!}
                                 </p>
                             </div>
+                            <div class="post-info">Tag: {{ $blogdata->carname }} </div>
                         </div>
                         <!-- Blog Grid -->
                     </div>
