@@ -234,6 +234,25 @@ Designed and Development by: ScriptsBundle
             }
         }
     });
+    $('.blog-slider').owlCarousel({
+        items: 4,
+        loop: false,
+        nav: false,
+        dots: false,
+        responsiveClass: true, // Optional helper class. Add 'owl-responsive-' + 'breakpoint' class to main element.
+        navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+        responsive: {
+            0: {
+                items: 2,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
+                items: 1,
+            }
+        }
+    });
     $('.dealerCar-slider').owlCarousel({
         items: 4,
         loop: false,

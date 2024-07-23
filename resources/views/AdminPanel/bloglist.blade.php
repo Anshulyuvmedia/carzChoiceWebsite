@@ -38,6 +38,7 @@
                                 <tr>
                                     <th>S.No</th>
                                     <th>Category</th>
+                                    <th>Car Name</th>
                                     <th>Blog Image</th>
                                     <th>Title</th>
                                     <th>Description</th>
@@ -51,6 +52,7 @@
                                 <tr>
                                     <td>{{$index + 1}}</td>
                                     <td>{{$row->categorytype}}</td>
+                                    <td>{{$row->carname}}</td>
                                     <td>
                                         @if ($row->blogimg)
                                             <img src="{{asset("assets/backend-assets/images/" . $row->blogimg) }}" alt="Thumbnail" width="100px">

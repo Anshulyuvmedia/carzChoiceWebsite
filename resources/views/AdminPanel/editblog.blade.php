@@ -38,6 +38,17 @@
                                 </div>
                             </div>
                             <div class="mb-3 row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Select Car</label>
+                                <div class="col-md-10">
+                                    <select name="carname" class="form-select">
+                                        <option value="">-- Select related Car --</option>
+                                        @foreach ($carname as $row)
+                                        <option {{ $row->carname == $row->carname ? 'selected' : '' }} value="{{ $row->carname }}">{{ $row->carname }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
                                 <label for="example-search-input" class="col-md-2 col-form-label">Blog Title</label>
                                 <div class="col-md-10">
                                     <input class="form-control" placeholder="enter blog title" name="blogtitle"

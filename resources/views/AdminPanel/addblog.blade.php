@@ -29,9 +29,20 @@
                                 <label for="example-text-input" class="col-md-2 col-form-label">Blog Category</label>
                                 <div class="col-md-10">
                                     <select name="categorytype" class="form-select" id="subcategory">
-                                        <option value="">--select blog category--</option>
+                                        <option value="">-- Select Blog Category--</option>
                                         @foreach ($blogdata as $row)
                                         <option value="{{ $row->label }}">{{ $row->label }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="example-text-input" class="col-md-2 col-form-label">Select Car</label>
+                                <div class="col-md-10">
+                                    <select name="carname" class="form-select">
+                                        <option value="">-- Select related Car --</option>
+                                        @foreach ($carname as $row)
+                                        <option value="{{ $row->carname }}">{{ $row->carname }}</option>
                                         @endforeach
                                     </select>
                                 </div>

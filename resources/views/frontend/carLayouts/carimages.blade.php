@@ -20,25 +20,25 @@
             <div class="card">
 
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="nav-item active">
-                        <a class="nav-link" aria-controls="All" role="tab" data-toggle="tab" href="#NEWS">NEWS
+                <ul class="nav nav-tabs" >
+                    <li role="presentation" class="nav-item ">
+                        <a class="nav-link" aria-controls="All"  href="/news">NEWS
                         </a>
                     </li>
                     <li role="presentation" class="nav-item">
-                        <a class="nav-link" aria-controls="Exterior" role="tab" data-toggle="tab"
-                            href="#REVIEWS">REVIEWS</a>
+                        <a class="nav-link" aria-controls="Exterior" 
+                            href="/reviews">REVIEWS</a>
                     </li>
                     <li role="presentation" class="nav-item">
-                        <a class="nav-link" aria-controls="Interior" role="tab" data-toggle="tab"
+                        <a class="nav-link" aria-controls="Interior" 
                             href="#SPECIALREPORTS">SPECIAL REPORTS</a>
                     </li>
-                    <li role="presentation" class="nav-item">
-                        <a class="nav-link" aria-controls="Colours" role="tab" data-toggle="tab"
-                            href="#IMAGES">IMAGES</a>
+                    <li role="presentation" class="nav-item active">
+                        <a class="nav-link" aria-controls="Colours" 
+                            href="/car-images">IMAGES</a>
                     </li>
                     <li role="presentation" class="nav-item">
-                        <a class="nav-link" aria-controls="Colours" role="tab" data-toggle="tab"
+                        <a class="nav-link" aria-controls="Colours" 
                             href="#VIDEOS">VIDEOS</a>
                     </li>
                 </ul>

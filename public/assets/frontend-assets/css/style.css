@@ -81,6 +81,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    scrollbar-width: thin;
 }
 
 body {
@@ -4111,13 +4112,13 @@ div.boxicon:last-child {
 }
 
 .blog-detial .comment-info .author-desc {
-    margin-left: 115px;
+    margin-left: 50px;
 }
 
 .blog-detial .comment-info .author-title {
     color: #323232;
     line-height: 16px;
-    margin-bottom: 22px;
+    /* margin-bottom: 22px; */
 }
 
 .blog-detial .author-title strong {
@@ -4161,7 +4162,7 @@ div.boxicon:last-child {
 .comment-info {
     border-bottom: 1px solid #f2f2f2;
     display: block;
-    margin: 30px 0;
+    margin: 10px 0;
     overflow: hidden;
 }
 
@@ -4174,13 +4175,13 @@ div.boxicon:last-child {
 }
 
 .comment-info .author-desc {
-    margin-left: 115px;
+    margin-left: 50px;
 }
 
 .comment-info .author-title {
     color: #323232;
     line-height: 16px;
-    margin-bottom: 22px;
+    /* margin-bottom: 22px; */
 }
 
 .author-title strong {
@@ -8497,6 +8498,7 @@ ul.listingViewIcon li.shortByListingLi ul li a {
 .header-listing .custom-select-box {
     display: inline-block;
     width: 231px;
+    margin-top: 4px;
 }
 
 .header-listing .custom-select-box .select2-selection--single {
@@ -10812,7 +10814,8 @@ textarea {
     width: 100%;
     overflow-x: auto;
     flex-wrap: nowrap;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
 }
 
 .close {
