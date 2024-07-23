@@ -506,8 +506,8 @@ class FrontendStore extends Controller
         $data = CompareVehicle::where('id', $fullId)->first();
         $new = [];
         $ids = json_decode($data->vehicles);
-        $specs = AddSpecification::whereIn('vehicleid',$ids)->get();
-        $features = AddFeature::whereIn('vehicleid',$ids)->get();
+        $specs = AddSpecification::whereIn('vehicleid', $ids)->get();
+        $features = AddFeature::whereIn('vehicleid', $ids)->get();
 
 
         // Fetch details for the vehicles based on IDs
@@ -537,4 +537,39 @@ class FrontendStore extends Controller
         ], 200);
     }
 
+    public function filterbyfuelcardetails(Request $rq)
+    {
+        $carname = $rq->input('carname');
+        $checkboxes = $rq->input('checkboxes');
+
+        $variantdata = AddVariant::where('carname', $carname);
+
+        // Check if checkboxes are not empty
+        if (!empty($checkboxes)) {
+            $variantdata->where(function ($query) use ($checkboxes) {
+                foreach ($checkboxes as $value) {
+                    $query->orWhereJsonContains('fueltype', $value);
+                    $query->orWhereJsonContains('transmission', $value);
+                }
+            });
+        }
+        $variantdata = $variantdata->get();
+        return response()->json($variantdata);
+    }
+
+    public function insertcompareoffcanvas(Request $rq)
+    {
+        // dd($rq->all());
+        $user = Auth::user();
+        try {
+            $compare = CompareVehicle::create([
+                'vehicles' => json_encode($rq->compareid),
+                'adminid' => $user->id,
+            ]);
+            // dd($compare);
+            return redirect()->route('compareresult', ['id' => $compare->id]);
+        } catch (Exception $e) {
+            return redirect()->route('compareresult')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
 }

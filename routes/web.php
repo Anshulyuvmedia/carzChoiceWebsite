@@ -1,5 +1,5 @@
 <?php
-                                # “सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।”
+                # “सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।”
 use App\Http\Controllers\backend\AdminView;
 use App\Http\Controllers\backend\Authentication;
 use App\Http\Controllers\backend\Store;
@@ -29,7 +29,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('reviews', 'reviews');
     Route::get('reviewsdetails', 'reviewsdetails');
     Route::get('compare', 'compare');
-    Route::get('compareresult', 'compareresult')->name('compareresult');
+    Route::get('compareresult/{id}', 'compareresult')->name('compareresult');
     Route::get('loginuser', 'loginuser')->name('loginuser');
     Route::get('registration', 'registration')->name('registration');
     Route::get('postyourad', 'postyourad');
@@ -95,6 +95,8 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('/filterhomepagecars', 'filterhomepagecars')->name('filterhomepagecars');
     Route::post('/filterbycarbodytype/{bodytype}', 'filterbycarbodytype')->name('filterbycarbodytype');
     Route::post('/showcomparecars/{fullId}', 'showcomparecars')->name('showcomparecars');
+    Route::post('filterbyfuelcardetails', 'filterbyfuelcardetails')->name('filterbyfuelcardetails');
+    Route::post('insertcompareoffcanvas', 'insertcompareoffcanvas')->name('insertcompareoffcanvas');
 
 });
 
@@ -128,6 +130,8 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('displaysettings', 'displaysettings')->name('displaysettings');
     Route::get('comparecars', 'comparecars')->name('comparecars');
     Route::get('allenquiriessite', 'allenquiriessite')->name('allenquiriessite');
+    Route::get('prosandcons/{id}', 'prosandcons')->name('prosandcons');
+    Route::get('variantfaqs/{id}/{carname}', 'variantfaqs')->name('variantfaqs');
 });
 
 
@@ -179,5 +183,10 @@ Route::controller(Store::class)->group(function() {
     Route::post('insertcompare', 'insertcompare')->name('insertcompare');
     Route::get('deleteenquiry/{id}', 'deleteenquiry')->name('deleteenquiry');
     Route::post('updateenquirystatus', 'updateenquirystatus')->name('updateenquirystatus');
+    Route::post('insertprosandcons', 'insertprosandcons')->name('insertprosandcons');
+    Route::post('insertvariantfaqs', 'insertvariantfaqs')->name('insertvariantfaqs');
+    Route::post('updatevariantfaq', 'updatevariantfaq')->name('updatevariantfaq');
+    Route::get('deletevariantfaq/{id}', 'deletevariantfaq')->name('deletevariantfaq');
+
 
 });

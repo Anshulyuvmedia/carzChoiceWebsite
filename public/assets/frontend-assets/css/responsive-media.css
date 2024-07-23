@@ -123,7 +123,7 @@
     .comparison-box .col-md-6:first-child .compare-grid {
         margin-bottom: 10px;
     }
-    
+
     .vsbox {
         top: 47%;
     }
@@ -1966,7 +1966,7 @@
         display: flex;
         align-items: center;
         min-height: calc(100% - var(--bs-modal-margin) * -150);
-      } 
+      }
 
       .main-search .main-search-title {
         padding-top: 50px;
@@ -1983,6 +1983,6 @@
         overflow-y: auto;
       }
       .offcanvas.offcanvas-bottom {
-        height: 43% !important;
+        height: 40% !important;
     }
 }

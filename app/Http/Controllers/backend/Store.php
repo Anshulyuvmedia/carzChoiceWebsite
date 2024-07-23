@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\CarLoanEnquiry;
 use App\Models\CompareVehicle;
 use App\Models\DisplaySetting;
+use App\Models\ProsandCons;
+use App\Models\ProsCons;
 use App\Models\SliderImage;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -20,6 +22,7 @@ use App\Models\RegisterUser;
 use App\Models\Remark;
 use App\Models\SubMaster;
 use App\Models\AddVariant;
+use App\Models\VariantFaq;
 use App\Models\VehicleImage;
 use Illuminate\Http\Request;
 use Exception;
@@ -775,7 +778,7 @@ class Store extends Controller
     {
         try {
             $imagedata = SliderImage::findOrFail($req->imageid);
-           // dd($imagedata);
+            // dd($imagedata);
 
             // Update Banner image if provided
             if ($req->hasFile('mainbannerimg')) {
@@ -823,7 +826,8 @@ class Store extends Controller
         }
     }
 
-    public function insertdisplaysettings(Request $rq){
+    public function insertdisplaysettings(Request $rq)
+    {
         //dd($rq->all());
         try {
             $data = $rq->validate([
@@ -845,16 +849,18 @@ class Store extends Controller
         }
     }
 
-    public function deletedisplaysettings($id){
+    public function deletedisplaysettings($id)
+    {
         $data = DisplaySetting::find($id);
         $data->delete();
         return back()->with('success', "Deleted....!!!");
     }
 
-    public function insertcompare(Request $rq){
+    public function insertcompare(Request $rq)
+    {
 
         $adminuser = Auth::user()->first();
-        try{
+        try {
             $userdata = CompareVehicle::create([
                 'adminid' => $adminuser->id,
                 'userid' => 'null',
@@ -862,7 +868,7 @@ class Store extends Controller
 
             ]);
             return back()->with('success', 'Comparison Added..!!!!');
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             //return redirect()->route('comparecars')->with('error', $e->getMessage());
             return redirect()->route('comparecars')->with('error', 'Not Added Try Again...!!!!');
         }
@@ -884,5 +890,59 @@ class Store extends Controller
             return response()->json(['success' => true]);
         }
         return response()->json(['success' => false], 404);
+    }
+
+    public function insertprosandcons(Request $rq)
+    {
+
+        try {
+
+            $data = ProsCons::create([
+                'vehicleid' => $rq->vehicleid,
+                'pros' => json_encode($rq->pros),
+                'cons' => json_encode($rq->cons),
+
+            ]);
+            return back()->with('success', 'Pros and Cons Added..!!!!');
+        } catch (Exception $e) {
+            //return redirect()->route('prosandcons')->with('error', $e->getMessage());
+            return redirect()->route('prosandcons')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function insertvariantfaqs(Request $rq)
+    {
+        try {
+            $data = VariantFaq::create([
+                'vehicleid' => $rq->vehicleid,
+                'faqlabel' => $rq->faqlabel,
+                'faqvalue' => $rq->faqvalue,
+            ]);
+            return back()->with('success', 'Added..!!!!');
+        } catch (Exception $e) {
+            return redirect()->route('variantfaqs')->with('error', $e->getMessage());
+            //return redirect()->route('variantfaqs')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function updatevariantfaq(Request $request)
+    {
+        try {
+            $faqs = VariantFaq::where('id', $request->faqid)->update([
+                'faqlabel' => $request->faqlabel,
+                'faqvalue' => $request->faqvalue,
+            ]);
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            //return back()->with('error', $e->getMessage());
+            return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
+
+    public function deletevariantfaq($id)
+    {
+        $data = VariantFaq::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
     }
 }

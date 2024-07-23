@@ -10972,11 +10972,10 @@ textarea {
   }
 
   .progress {
-    width: 200px;
+    width: 100%;
     height: 200px;
     font-size: 30px;
     color: #fff;
-    border-radius: 50%;
     overflow: hidden;
     position: relative;
     background: #07070c;
@@ -11034,4 +11033,9 @@ textarea {
 
     100% {
         z-index: 100;transform: rotate(315deg);}
+}
+
+
+.offcanvas.offcanvas-bottom {
+    height: 35% !important;
 }

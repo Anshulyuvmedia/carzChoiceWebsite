@@ -141,7 +141,7 @@
                                             @foreach ($data['vehicles'] as $vehicle)
                                             <td>
                                                 @if (isset($vehicle->features[$index]['value'][$labelIndex]))
-                                                    {{ $vehicle->features[$index]['value'][$labelIndex] == 1 ? '✅' : '❌' }}
+                                                {{ $vehicle->features[$index]['value'][$labelIndex] == 1 ? '✅' : '❌' }}
                                                 @else
                                                 ❌
                                                 @endif

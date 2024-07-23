@@ -12,7 +12,10 @@ use App\Models\Master;
 use App\Models\CarList;
 use App\Models\Pincode;
 use App\Models\PostOffices;
+use App\Models\CompareVehicle;
+use App\Models\ProsCons;
 use App\Models\SliderImage;
+use App\Models\VariantFaq;
 use App\Models\VehicleImage;
 use Illuminate\Support\Facades\Log;
 use App\View\Components\AllBrands;
@@ -128,12 +131,19 @@ class frontViewController extends Controller
         $images = VehicleImage::where('vehicle',$cardetails->carname)->get();
         $spces = AddSpecification::where('vehicleid',$id)->get();
         $features = AddFeature::where('vehicleid',$id)->get();
+        $variants = AddVariant::where('carname',$cardetails->carname)->get();
+        $variantsfaqs = VariantFaq::where('vehicleid',$id)->get();
+
+        $proscons = ProsCons::first();
+        $pros = json_decode($proscons->pros, true);
+        $cons = json_decode($proscons->cons, true);
 
         $cardetails->images= json_decode($images);
         $cardetails->specificaitons= json_decode($spces);
         $cardetails->features= json_decode($features);
-
-        return view('frontend.carLayouts.carlistingdetails',compact('cardetails'));
+        $cardetails->variants= json_decode($variants);
+        // dd($variants);
+        return view('frontend.carLayouts.carlistingdetails',compact('cardetails','pros','cons','variantsfaqs'));
     }
     public function carlisting()
     {
@@ -151,10 +161,38 @@ class frontViewController extends Controller
     {
         return view('frontend.compare');
     }
-    public function compareresult()
+    public function compareresult($id)
     {
         $new = session('new', []);
-        Log::info('Session data in compareresult:', ['new' => $new]); // printing data into laravel's log.......
+
+
+        $data = CompareVehicle::where('id', $id)->first();
+        // dd($data);
+        $new = [];
+        $ids = json_decode($data->vehicles);
+        $specs = AddSpecification::whereIn('vehicleid', $ids)->get();
+        $features = AddFeature::whereIn('vehicleid', $ids)->get();
+
+
+        // Fetch details for the vehicles based on IDs
+        $newarray = AddVariant::whereIn('id', $ids)
+            ->select('id', 'carname', 'carmodalname', 'brandname', 'price')
+            ->get();
+
+        // Fetch images for the vehicles based on carname from newarray
+        $images = VehicleImage::whereIn('vehicle', $newarray->pluck('carname'))
+            ->where('type', 'Outer view')
+            ->get();
+
+        // Merge images into newarray based on index
+        foreach ($newarray as $key => $vehicle) {
+            $vehicle->addimage = $images->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
+            $vehicle->specifications = json_decode($specs->where('vehicleid', $vehicle->id)->first()->specifications ?? '[]', true);
+            $vehicle->features = json_decode($features->where('vehicleid', $vehicle->id)->first()->features ?? '[]', true);
+
+        }
+        $new[] = ['id' => $data->id, 'vehicles' => $newarray];
+        // dd($new);
         return view('frontend.compareresult',compact('new'));
     }
     public function loginuser()
