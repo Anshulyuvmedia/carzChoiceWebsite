@@ -559,17 +559,16 @@ class FrontendStore extends Controller
 
     public function insertcompareoffcanvas(Request $rq)
     {
-        // dd($rq->all());
-        $user = Auth::user();
-        try {
+        // if (Auth::guard('registeruser')->check()) {
+        //     $user = Auth::guard('registeruser')->user();
             $compare = CompareVehicle::create([
                 'vehicles' => json_encode($rq->compareid),
-                'adminid' => $user->id,
+                // 'userid' => $user->id,
             ]);
             // dd($compare);
             return redirect()->route('compareresult', ['id' => $compare->id]);
-        } catch (Exception $e) {
-            return redirect()->route('compareresult')->with('error', 'Not Added Try Again...!!!!');
-        }
+        // } else {
+        //     return view('frontend.loginuser');
+        // }
     }
 }

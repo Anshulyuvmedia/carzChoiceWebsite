@@ -187,6 +187,4 @@ Route::controller(Store::class)->group(function() {
     Route::post('insertvariantfaqs', 'insertvariantfaqs')->name('insertvariantfaqs');
     Route::post('updatevariantfaq', 'updatevariantfaq')->name('updatevariantfaq');
     Route::get('deletevariantfaq/{id}', 'deletevariantfaq')->name('deletevariantfaq');
-
-
 });
