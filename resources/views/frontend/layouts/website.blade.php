@@ -362,37 +362,6 @@
     </footer>
     <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
 
-    {{-- onload modal --}}
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">
-                        What are you looking for today?
-                    </h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <div class="d-flex justify-content-center g-3">
-                        <a class="btn btn-danger d-block w-100 rounded-start" href="/new-car">New Car?</a>
-                        <a class="btn btn-danger d-block w-100 rounded-end" href="#">Used Car?</a>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <script>
-        $(window).ready(function() {
-            setTimeout(function() {
-                $('#myModal').modal("show")
-            }, 3000)
-        })
-    </script>
 
 
     <!-- Back To Top -->
