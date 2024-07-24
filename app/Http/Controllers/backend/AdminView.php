@@ -9,6 +9,7 @@ use App\Models\AddVariant;
 use App\Models\Blog;
 use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
+use App\Models\ColorVariant;
 use App\Models\VariantFaq;
 use App\Models\CompanyProfile;
 use App\Models\CompareVehicle;

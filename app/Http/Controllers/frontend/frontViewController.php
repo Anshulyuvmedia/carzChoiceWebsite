@@ -128,13 +128,21 @@ class frontViewController extends Controller
     public function carlistingdetails($id)
     {
         $cardetails = AddVariant::where('id', $id)->first();
-
+        $new = [];
         $images = VehicleImage::where('vehicle',$cardetails->carname)->get();
         $spces = AddSpecification::where('vehicleid',$id)->get();
         $features = AddFeature::where('vehicleid',$id)->get();
         $variants = AddVariant::where('carname',$cardetails->carname)->get();
-        $variantsfaqs = VariantFaq::where('vehicleid',$id)->get();
+        $similarcars = AddVariant::where('bodytype',$cardetails->bodytype)->get()->unique('carname');
+        $carNames = $similarcars->pluck('carname')->toArray();
+        $similarcarsimages = VehicleImage::whereIn('vehicle',$carNames)->get();
+        // Merge images into newarray based on index
+        foreach ($similarcars as $key => $vehicle) {
+        $vehicle->addimage = $similarcarsimages->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
+        }
 
+
+        $variantsfaqs = VariantFaq::where('vehicleid',$id)->get();
         $proscons = ProsCons::first();
         $pros = json_decode($proscons->pros, true);
         $cons = json_decode($proscons->cons, true);
@@ -144,7 +152,7 @@ class frontViewController extends Controller
         $cardetails->features= json_decode($features);
         $cardetails->variants= json_decode($variants);
         // dd($variants);
-        return view('frontend.carLayouts.carlistingdetails',compact('cardetails','pros','cons','variantsfaqs'));
+        return view('frontend.carLayouts.carlistingdetails',compact('cardetails','pros','cons','variantsfaqs','similarcars'));
     }
     public function carlisting()
     {

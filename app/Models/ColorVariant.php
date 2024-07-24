@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CarList extends Model
+class ColorVariant extends Model
 {
     protected $fillable = [
-        'carname',
-        'brandname',
+        'vehiclename',
         'colors',
     ];
 }

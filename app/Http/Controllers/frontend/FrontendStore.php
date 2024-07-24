@@ -527,7 +527,7 @@ class FrontendStore extends Controller
                 break;
 
             case 'Seating Capacity':
-                
+
                 // Split the string by spaces
                 $parts = explode(' ', $attribute);
 
@@ -621,7 +621,7 @@ class FrontendStore extends Controller
 
         return response()->json([
             'success' => true,
-            'redirect_url' => route('compareresult')
+            'redirect_url' => route('compareresult',['id' => $data->id])
         ], 200);
     }
 
