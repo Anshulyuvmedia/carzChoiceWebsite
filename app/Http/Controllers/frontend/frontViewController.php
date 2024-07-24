@@ -22,8 +22,10 @@ use Illuminate\Support\Facades\Log;
 use App\View\Components\AllBrands;
 use Illuminate\Http\Request;
 use App\Models\Blog;
-use Auth;
-use DB;
+use Illuminate\Support\Facades\Auth;
+// use DB;
+use Illuminate\Support\Facades\DB;
+
 
 class frontViewController extends Controller
 {
@@ -129,22 +131,22 @@ class frontViewController extends Controller
     {
         $cardetails = AddVariant::where('id', $id)->first();
 
-        $images = VehicleImage::where('vehicle',$cardetails->carname)->get();
-        $spces = AddSpecification::where('vehicleid',$id)->get();
-        $features = AddFeature::where('vehicleid',$id)->get();
-        $variants = AddVariant::where('carname',$cardetails->carname)->get();
-        $variantsfaqs = VariantFaq::where('vehicleid',$id)->get();
+        $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
+        $spces = AddSpecification::where('vehicleid', $id)->get();
+        $features = AddFeature::where('vehicleid', $id)->get();
+        $variants = AddVariant::where('carname', $cardetails->carname)->get();
+        $variantsfaqs = VariantFaq::where('vehicleid', $id)->get();
 
         $proscons = ProsCons::first();
         $pros = json_decode($proscons->pros, true);
         $cons = json_decode($proscons->cons, true);
 
-        $cardetails->images= json_decode($images);
-        $cardetails->specificaitons= json_decode($spces);
-        $cardetails->features= json_decode($features);
-        $cardetails->variants= json_decode($variants);
+        $cardetails->images = json_decode($images);
+        $cardetails->specificaitons = json_decode($spces);
+        $cardetails->features = json_decode($features);
+        $cardetails->variants = json_decode($variants);
         // dd($variants);
-        return view('frontend.carLayouts.carlistingdetails',compact('cardetails','pros','cons','variantsfaqs'));
+        return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pros', 'cons', 'variantsfaqs'));
     }
     public function carlisting()
     {
@@ -152,7 +154,9 @@ class frontViewController extends Controller
     }
     public function reviews()
     {
-        return view('frontend.reviews');
+        $reviewdata = Blog::orderBy('created_at', 'desc')->where('categorytype', '=', 'Expert Reviews')->paginate(3);
+        // dd($blogdata);
+        return view('frontend.reviews', compact('reviewdata'));
     }
     public function reviewsdetails()
     {
@@ -190,11 +194,10 @@ class frontViewController extends Controller
             $vehicle->addimage = $images->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
             $vehicle->specifications = json_decode($specs->where('vehicleid', $vehicle->id)->first()->specifications ?? '[]', true);
             $vehicle->features = json_decode($features->where('vehicleid', $vehicle->id)->first()->features ?? '[]', true);
-
         }
         $new[] = ['id' => $data->id, 'vehicles' => $newarray];
         // dd($new);
-        return view('frontend.compareresult',compact('new'));
+        return view('frontend.compareresult', compact('new'));
     }
     public function loginuser()
     {
@@ -277,7 +280,7 @@ class frontViewController extends Controller
         $variantdata = AddVariant::where('carname', $blogdata->carname)->get();
         // dd($imagesdata);
 
-        return view('frontend.newsdetails', compact('blogdata', 'variantdata','imagesdata'));
+        return view('frontend.newsdetails', compact('blogdata', 'variantdata', 'imagesdata'));
     }
 
     private function formatYouTubeUrl($url)
@@ -475,14 +478,57 @@ class frontViewController extends Controller
         $variants = session('variants', []);
         return view('frontend.findcar', compact('variants'));
     }
-    public function carviewimages()
+
+
+    public function carviewimages($carname)
     {
-        return view('frontend.carLayouts.carviewimages');
+        $allcarimage = VehicleImage::join('car_lists', 'vehicle_images.vehicle', 'car_lists.carname')
+            ->select('vehicle_images.*', 'car_lists.brandname')
+            ->where('vehicle', '=', $carname)
+            ->get();
+        
+
+        $vehicleCounts = VehicleImage::select('vehicle')
+            // ->where('type', 'Outer view')
+            ->groupBy('vehicle')
+            ->selectRaw('vehicle, COUNT(*) as count')
+            ->pluck('count', 'vehicle');
+        $allcarimage->each(function ($item) use ($vehicleCounts) {
+            $item->vehicle_count = $vehicleCounts->get($item->vehicle, 0);
+        });
+
+        // dd($allcarimage);
+        return view('frontend.carLayouts.carviewimages', compact('allcarimage'));
     }
+
+
     public function carimages()
     {
-        return view('frontend.carLayouts.carimages');
+        // Step 1: Retrieve car image data and count occurrences of each vehicle
+        $carimagedata = VehicleImage::join('car_lists', 'vehicle_images.vehicle', 'car_lists.carname')
+            ->select('vehicle_images.*', 'car_lists.brandname')
+            ->where('type', 'Outer view')->get()->unique('vehicle');
+
+        // Step 2: Count the occurrences of each vehicle in the 'vehicle' column
+        $vehicleCounts = VehicleImage::select('vehicle')
+            // ->where('type', 'Outer view')
+            ->groupBy('vehicle')
+            ->selectRaw('vehicle, COUNT(*) as count')
+            ->pluck('count', 'vehicle');
+
+        // Step 3: Append the count to each entry in carimagedata
+        $carimagedata->each(function ($item) use ($vehicleCounts) {
+            $item->vehicle_count = $vehicleCounts->get($item->vehicle, 0);
+        });
+
+        // Debugging: Dump the modified carimagedata to check the counts
+        // dd($carimagedata);
+
+        // Step 4: Return the view with the modified carimagedata
+        return view('frontend.carLayouts.carimages', compact('carimagedata'));
     }
+
+
     public function finddealer()
     {
         return view('frontend.dealerlayouts.finddealer');

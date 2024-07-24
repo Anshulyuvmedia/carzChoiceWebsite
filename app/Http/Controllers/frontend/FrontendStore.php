@@ -527,25 +527,19 @@ class FrontendStore extends Controller
                 break;
 
             case 'Seating Capacity':
-                
-                // Split the string by spaces
-                $parts = explode(' ', $attribute);
 
-                // Extract the second element (index 1) which is the number
+                $parts = explode(' ', $attribute);
                 $avalseat = intval($parts[0]);
                 // dd($budgetvalue);
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
-                    ->where('add_variants.seatingcapacity','<', $avalseat)
+                    ->where('add_variants.seatingcapacity', '<', $avalseat)
                     ->get()->unique('carname');
                 break;
 
             case 'Budget':
 
-                // Split the string by spaces
                 $parts = explode(' ', $attribute);
-
-                // Extract the second element (index 1) which is the number
                 $budgetvalue = intval($parts[1]) * 100000;
                 // dd($budgetvalue);
 
@@ -553,7 +547,7 @@ class FrontendStore extends Controller
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->where('add_variants.price', '<', $budgetvalue)
                     ->get()->unique('carname');
-                    // dd($variantData);
+                // dd($variantData);
 
                 break;
 
@@ -574,30 +568,20 @@ class FrontendStore extends Controller
         ], 200);
     }
 
-    // public function filterbycarbodytype($bodytype)
-    // {
-
-    //     $variant = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
-    //         ->select('add_variants.*', 'vehicle_images.addimage')->where('add_variants.bodytype', $bodytype)->get();
-    //     // dd($variant);
-
-    //     session(['variants' => $variant]);
-
-    //     return response()->json([
-    //         'success' => true,
-    //         'redirect_url' => route('findcar')
-    //     ], 200);
-    // }
-
     public function showcomparecars($fullId)
     {
 
-        $data = CompareVehicle::where('id', $fullId)->first();
+        $data = CompareVehicle::find($fullId);
+        // dd($data);
+        if (!$data) {
+            return response()->json(['success' => false, 'message' => 'No data found'], 404);
+        }
+
         $new = [];
+
         $ids = json_decode($data->vehicles);
         $specs = AddSpecification::whereIn('vehicleid', $ids)->get();
         $features = AddFeature::whereIn('vehicleid', $ids)->get();
-
 
         // Fetch details for the vehicles based on IDs
         $newarray = AddVariant::whereIn('id', $ids)
@@ -616,12 +600,13 @@ class FrontendStore extends Controller
             $vehicle->features = json_decode($features->where('vehicleid', $vehicle->id)->first()->features ?? '[]', true);
         }
         $new[] = ['id' => $data->id, 'vehicles' => $newarray];
+        // dd($new);
 
         session(['new' => $new]);
 
         return response()->json([
             'success' => true,
-            'redirect_url' => route('compareresult')
+            'redirect_url' => route('compareresult',['id' => $data->id])
         ], 200);
     }
 

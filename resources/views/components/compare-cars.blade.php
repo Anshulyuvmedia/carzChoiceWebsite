@@ -27,7 +27,7 @@
                                                         </a>
                                                         <div>
                                                             <div class="text-muted">{{ $row->brandname }}</div>
-                                                            <div class=""><a href="#">{{ $row->carmodalname }} ({{ $row->carname }})
+                                                            <div class=""><a href="#">{{ $row->carname }} {{ $row->carmodalname }} 
                                                                 </a></div>
                                                             <span class="ad-price">Rs. {{ $row->price }}
                                                                 <span class="text-muted ps-2">onwards</span>
@@ -38,7 +38,7 @@
                                                 </div>
                                             @endforeach
                                             <div class="vsbox">vs</div>
-                                            <a href="">
+                                            <a>
                                                 <button data-id="{{ $data['id'] }}" id="comparebtn"
                                                     class="btn btn-outline btn-danger btn-lg btn-block margin-bottom-10">Compare
                                                     Now</button>

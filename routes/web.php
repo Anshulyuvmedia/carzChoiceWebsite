@@ -41,7 +41,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('usedcar-bylocation', 'usedcarbylocation');
     Route::get('car-loan', 'carloan')->name('carloan');
     Route::get('find-car', 'findcar')->name('findcar');
-    Route::get('car-view-images', 'carviewimages');
+    Route::get('car-view-images/{carname}', 'carviewimages')->name('carviewimages');
     Route::get('car-images', 'carimages');
     Route::get('find-dealer', 'finddealer');
     Route::get('dealer-profile', 'dealerprofile');

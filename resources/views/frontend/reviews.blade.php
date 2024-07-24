@@ -60,63 +60,29 @@
                         <!-- Review Archive -->
                         <div class="posts-masonrys">
                             <!-- Review Post-->
+                            @foreach ($reviewdata as $data)
+                                <!-- Review Post-->
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <div class="mainimage">
+                                        <span class="badge text-uppercase badge-overlay badge-tech">{{ $data->carname }}</span>
 
-                            <!-- Review Post-->
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                                <div class="mainimage">
-                                    <span class="badge text-uppercase badge-overlay badge-tech">Road Test</span>
-                                    <a>
-                                        <img alt="" class="img-responsive"
-                                            src="{{ asset('assets/frontend-assets/images/posting/9.jpg') }}">
-                                        <div class="overlay small-font">
-                                            <h2>2017 Audi A4 Allroad review: Skip the SUV, get a wagon</h2>
-                                        </div>
-                                    </a>
-                                    <div class="clearfix"></div>
+                                        <a href={{ route('newsdetails', ['id' => $data->id]) }}>
+                                            @if ($data->blogimg)
+                                                <img class="img-responsive"
+                                                    src="{{ asset('assets/backend-assets/images/' . $data->blogimg) }}"
+                                                    alt="Thumbnail" />
+                                            @endif
+                                            <div class="overlay small-font">
+                                                <h2>{{ $data->blogtitle }}</h2>
+                                            </div>
+                                        </a>
+
+                                        <div class="clearfix"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Review Post-->
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                                <div class="mainimage">
-                                    <span class="badge text-uppercase badge-overlay badge-tech">Road Test</span>
-                                    <a>
-                                        <img alt="" class="img-responsive"
-                                            src="{{ asset('assets/frontend-assets/images/posting/11.jpg') }}">
-                                        <div class="overlay small-font">
-                                            <h2>Mercedes-Benz SLK used review | 2004 - 2015</h2>
-                                        </div>
-                                    </a>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <!-- Review Post-->
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                                <div class="mainimage">
-                                    <span class="badge text-uppercase badge-overlay badge-tech">Road Test</span>
-                                    <a>
-                                        <img alt="" class="img-responsive"
-                                            src="{{ asset('assets/frontend-assets/images/posting/12.jpg') }}">
-                                        <div class="overlay small-font">
-                                            <h2>2016 BMW 330i GT review, test drive and performance </h2>
-                                        </div>
-                                    </a>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <!-- Review Post-->
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                                <div class="mainimage">
-                                    <span class="badge text-uppercase badge-overlay badge-tech">Road Test</span>
-                                    <a>
-                                        <img alt="" class="img-responsive"
-                                            src="{{ asset('assets/frontend-assets/images/posting/10.jpg') }}">
-                                        <div class="overlay small-font">
-                                            <h2>Honda HR-V VTi-L 2017 review long term video</h2>
-                                        </div>
-                                    </a>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
+                                <!-- Review Post-->
+                            @endforeach
+
 
                         </div>
                         <div class="col-md-12 col-xs-12 col-sm-12">

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.website')
 @section('content')
-@section('title', ' Car Views ')
+@section('title', ' Car Images Views ')
 
 <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
 <section class="page-header-area-2 gray">
@@ -10,530 +10,381 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="header-page">
-                    <h1>Mahindra XUV 3XO Images (134 Images)</h1>
-                    <p>View the latest XUV 3XO images. XUV 3XO car has 134 images of its interior, exterior and 360-degree views. Also, Mahindra XUV 3XO is available in 16 different colours.</p>
+                    @if ($allcarimage->isNotEmpty())
+                        @php
+                            $firstCarData = $allcarimage->first();
+                        @endphp
+                        <h1>
+                            {{ $firstCarData->brandname }} {{ $firstCarData->vehicle }} Images
+                            <span>({{ $firstCarData->vehicle_count }} Images)</span>
+                        </h1>
+                        <p>
+                            View the latest {{ $firstCarData->vehicle }} images. {{ $firstCarData->vehicle }} car
+                            has {{ $firstCarData->vehicle_count }} images of its interior, and exterior. Also, Mahindra
+                            {{ $firstCarData->vehicle }} is available in 16 different colours.
+                        </p>
+                    @endif
                 </div>
             </div>
 
             <div class="card">
 
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="nav-item active">
-                        <a class="nav-link" aria-controls="All" role="tab" data-toggle="tab" href="#All">All </a>
+                @php
+                    $type = request()->query('type', 'All'); 
+                    // dd($type);// Default to 'All' if 'type' is not set
+                @endphp
+
+                <ul class="nav nav-tabs border-0" role="tablist">
+                    <li role="presentation" class="nav-item {{ $type == 'All' ? 'active' : '' }}">
+                        <a class="nav-link {{ $type == 'All' ? 'active' : '' }}" aria-controls="All" role="tab"
+                            data-toggle="tab" href="#All">All</a>
                     </li>
-                    <li role="presentation" class="nav-item">
-                        <a class="nav-link" aria-controls="Exterior" role="tab" data-toggle="tab"
-                            href="#Exterior">Exterior</a>
+                    <li role="presentation" class="nav-item {{ $type == 'Exterior' ? 'active' : '' }}">
+                        <a class="nav-link {{ $type == 'Exterior' ? 'active' : '' }}" aria-controls="Exterior"
+                            role="tab" data-toggle="tab" href="#Exterior">Exterior</a>
                     </li>
-                    <li role="presentation" class="nav-item">
-                        <a class="nav-link" aria-controls="Interior" role="tab" data-toggle="tab"
-                            href="#Interior">Interior</a>
+                    <li role="presentation" class="nav-item {{ $type == 'Interior' ? 'active' : '' }}">
+                        <a class="nav-link {{ $type == 'Interior' ? 'active' : '' }}" aria-controls="Interior"
+                            role="tab" data-toggle="tab" href="#Interior">Interior</a>
                     </li>
-                    <li role="presentation" class="nav-item">
-                        <a class="nav-link" aria-controls="Colours" role="tab" data-toggle="tab"
-                            href="#Colours">Colours</a>
+                    <li role="presentation" class="nav-item {{ $type == 'Colours' ? 'active' : '' }}">
+                        <a class="nav-link {{ $type == 'Colours' ? 'active' : '' }}" aria-controls="Colours"
+                            role="tab" data-toggle="tab" href="#Colours">Colours</a>
                     </li>
                 </ul>
+
                 <!-- Tab panes -->
                 <div class="tab-content clearfix">
-                    <div class="tab-pane fade in active" style="margin-top: 20px;" id="All">
+
+                    <div class="tab-pane fade " id="All">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row my-3">
-                                <div class="d-flex  pb-4" style="width: 100%; overflow-x: auto;">
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Outer view</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Seat & seat adjustments</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Dashboard </button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Outer lights </button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Gears, Pedals and Stalks</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Storage and Cup holders</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Outer Parts</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Entertainment systems</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Interior lights</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Charging points</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Roof</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Doors & Controls</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Hooks and Handles</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">AirBags</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Logo</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Other (interior)</button>
-                                    
-                                   
+                                <div class="d-flex pb-4" style="width: 100%; overflow-x: auto; scrollbar-width: thin;">
+                                    @php
+                                        // Define the specific types to show
+                                        $AllTypes = [
+                                            'Outer view',
+                                            'Outer lights',
+                                            'Outer Parts',
+                                            'Doors and Mirrors',
+                                            'Roof',
+                                            'Logo',
+                                            'Seat & seat adjustments',
+                                        ];
 
-                                </div>
+                                        // Filter and get unique vehicle types
+                                        $uniqueTypes = $allcarimage->whereIn('type', $AllTypes)->unique('type');
+                                    @endphp
 
-                            </div>
-                        </div>
-                        <!-- Middle Content Box -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <h4 class="mb-3 fw-bold">Outer view (30 Images)</h4>
-                                <div class=" featured-slider owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Right Front Three Quarter
-                                                            </a>
-                                                        </h3>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Right Front Three Quarter
-                                                            </a>
-                                                        </h3>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-3.png?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Right Front Three Quarter
-                                                            </a>
-                                                        </h3>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    @foreach ($uniqueTypes as $imagedata)
+                                        <a type="button" href="#{{ $imagedata->type }}"
+                                            class="btn btn-outline btn-danger rounded-pill mx-1 px-4 py-1">
+                                            {{ $imagedata->type }}
+                                        </a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
-                        <!-- Middle Content Box End -->
 
                         <!-- Middle Content Box -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <h4 class="mb-3 fw-bold">Seat & seat adjustments (10 Images)</h4>
-                                <div class=" featured-slider owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-front-row-seats.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Front Row Seats
-                                                            </a>
-                                                        </h3>
+                        @foreach ($uniqueTypes as $type)
+                            @php
+                                // Filter images for the current type
+                                $filteredTypes = $allcarimage->where('type', $type->type);
+                                // Count of images for the current type
+                                $imageCount = $filteredTypes->count();
+                            @endphp
 
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
+                            @if ($filteredTypes->isNotEmpty())
+                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="row border-top pt-3" id="{{ $type->type }}">
+                                        <h4 class="mb-3 fw-bold">{{ $type->type }} ({{ $imageCount }} Images)</h4>
 
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-seat-adjustment-manual-for-driver.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Seat Adjustment Manual for Driver
-                                                            </a>
-                                                        </h3>
-
+                                        <div class="featured-slider owl-carousel owl-theme">
+                                            @foreach ($filteredTypes as $imagedata)
+                                                <div class="item">
+                                                    <div class="grid-style-2">
+                                                        <!-- Listing Ad Grid -->
+                                                        <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                                            <div class="category-grid-box-1 rounded-5">
+                                                                <div class="image">
+                                                                    <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                        data-fancybox="all">
+                                                                        <img class="img-responsive"
+                                                                            src="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                            alt="Thumbnail" />
+                                                                    </a>
+                                                                </div>
+                                                                <div class="short-description-1 clearfix">
+                                                                    {{ $imagedata->title }}
+                                                                    <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                        download="{{ $imagedata->addimage }}">
+                                                                        <span class="rounded-pill text-white pull-right"
+                                                                            style="background-color: rgb(113 113 113);height: 29px;width: 30px;text-align: center;font-size: 15px;">
+                                                                            <i class="bi bi-download"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Listing Ad Grid -->
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-seat-adjustment-manual-for-front-passenger.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Seat Adjustment Manual for Front Passenger
-                                                            </a>
-                                                        </h3>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
-                            </div>
-                        </div>
+                            @endif
+                        @endforeach
                         <!-- Middle Content Box End -->
                     </div>
 
-                    <div class="tab-pane fade" style="margin-top: 20px;" id="Exterior">
+                    <div class="tab-pane fade" id="Exterior">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row my-3">
-                                <div class="d-flex  pb-4" style="width: 100%; overflow-x: auto;">
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Outer view</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Outer lights</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Outer Parts </button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Doors and Mirrors</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Roof</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Logo</button>
-                                </div>
+                                <div class="d-flex pb-4" style="width: 100%; overflow-x: auto; scrollbar-width: thin;">
+                                    @php
+                                        // Define the specific types to show
+                                        $exteriorTypes = [
+                                            'Outer view',
+                                            'Outer lights',
+                                            'Outer Parts',
+                                            'Doors and Mirrors',
+                                            'Roof',
+                                            'Logo',
+                                        ];
 
-                            </div>
-                        </div>
-                        <!-- Middle Content Box -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <h4 class="mb-3 fw-bold">Outer view (30 Images)</h4>
-                                <div class=" featured-slider owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Right Front Three Quarter
-                                                            </a>
-                                                        </h3>
+                                        // Filter the collection to include only the specific types and ensure they are unique
+                                        $filteredTypes = $allcarimage->whereIn('type', $exteriorTypes)->unique('type');
+                                    @endphp
 
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Right Front Three Quarter
-                                                            </a>
-                                                        </h3>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-3.png?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Right Front Three Quarter
-                                                            </a>
-                                                        </h3>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @foreach ($filteredTypes as $imagedata)
+                                        <a type="button" href="#{{ $imagedata->type }}"
+                                            class="btn btn-outline btn-danger rounded-pill mx-1 px-4 py-1">
+                                            {{ $imagedata->type }}
+                                        </a>
+                                    @endforeach
 
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Middle Content Boxes -->
+                        @foreach ($filteredTypes as $type)
+                            @php
+                                // Filter images for the current type
+                                $filteredImages = $allcarimage->where('type', $type->type);
+                                // Count of images for the current type
+                                $imageCount = $filteredImages->count();
+                            @endphp
+
+                            @if ($filteredImages->isNotEmpty())
+                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="row border-top pt-3" id="{{ $type->type }}">
+                                        <h4 class="mb-3 fw-bold">{{ $type->type }} ({{ $imageCount }} Images)</h4>
+
+                                        <div class="featured-slider owl-carousel owl-theme">
+                                            @foreach ($filteredImages as $imagedata)
+                                                <div class="item">
+                                                    <div class="grid-style-2">
+                                                        <!-- Listing Ad Grid -->
+                                                        <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                                            <div class="category-grid-box-1 rounded-5">
+                                                                <div class="image">
+                                                                    <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                        data-fancybox="exterior">
+                                                                        <img class="img-responsive"
+                                                                            src="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                            alt="Thumbnail" />
+                                                                    </a>
+                                                                </div>
+                                                                <div class="short-description-1 clearfix">
+                                                                    {{ $imagedata->title }}
+                                                                    <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                        download="{{ $imagedata->addimage }}">
+                                                                        <span class="rounded-pill text-white pull-right"
+                                                                            style="background-color: rgb(113 113 113);height: 29px;width: 30px;text-align: center;font-size: 15px;">
+                                                                            <i class="bi bi-download"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Listing Ad Grid -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
                         <!-- Middle Content Box End -->
                     </div>
 
-                    <div class="tab-pane fade" style="margin-top: 20px;" id="Interior">
+
+                    <div class="tab-pane fade" id="Interior">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row my-3">
-                                <div class="d-flex  pb-4" style="width: 100%; overflow-x: auto;">
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Seat & seat adjustments</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Dashboard</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Gears, Pedals and Stalks </button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Storage and Cup holders</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Entertainment systems</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Ac</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Interior lights</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Charging points</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Doors & Controls</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Hooks and Handles</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">AirBags</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Other (interior)</button>                                  
-                                   
+                                <div class="d-flex pb-4"
+                                    style="width: 100%; overflow-x: auto; scrollbar-width: thin;">
+                                    @php
+                                        // Define the specific types to show
+                                        $interiorTypes = [
+                                            'Seat & seat adjustments',
+                                            'Dashboard',
+                                            'Gears, Pedals and Stalks',
+                                            'Storage and Cup holders',
+                                            'Entertainment systems',
+                                            'Ac',
+                                            'Interior lights',
+                                            'Charging points',
+                                            'Doors & Controls',
+                                            'Hooks and Handles',
+                                            'AirBags',
+                                            'Other (interior)',
+                                        ];
 
-                                </div>
+                                        // Filter the collection to include only the specific types and ensure they are unique
+                                        $filteredTypes = $allcarimage->whereIn('type', $interiorTypes)->unique('type');
+                                    @endphp
 
-                            </div>
-                        </div>
-                        <!-- Middle Content Box -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <h4 class="mb-3 fw-bold">Seat & seat adjustments (10 Images)</h4>
-                                <div class=" featured-slider owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-front-row-seats.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Front Row Seats
-                                                            </a>
-                                                        </h3>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-seat-adjustment-manual-for-driver.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Seat Adjustment Manual for Driver
-                                                            </a>
-                                                        </h3>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-interior-seat-adjustment-manual-for-front-passenger.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Seat Adjustment Manual for Front Passenger
-                                                            </a>
-                                                        </h3>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    @foreach ($filteredTypes as $imagedata)
+                                        <a type="button" href="#{{ $imagedata->type }}"
+                                            class="btn btn-outline btn-danger rounded-pill mx-1 px-4 py-1">
+                                            {{ $imagedata->type }}
+                                        </a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Middle Content Boxes -->
+                        @foreach ($filteredTypes as $type)
+                            @php
+                                // Filter images for the current type
+                                $filteredImages = $allcarimage->where('type', $type->type);
+                                // Count of images for the current type
+                                $imageCount = $filteredImages->count();
+                            @endphp
+
+                            @if ($filteredImages->isNotEmpty())
+                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <div class="row border-top pt-3" id="{{ $type->type }}">
+                                        <h4 class="mb-3 fw-bold">{{ $type->type }} ({{ $imageCount }} Images)
+                                        </h4>
+
+                                        <div class="featured-slider owl-carousel owl-theme">
+                                            @foreach ($filteredImages as $imagedata)
+                                                <div class="item">
+                                                    <div class="grid-style-2">
+                                                        <!-- Listing Ad Grid -->
+                                                        <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                                            <div class="category-grid-box-1 rounded-5">
+                                                                <div class="image">
+                                                                    <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                        data-fancybox="interior">
+                                                                        <img class="img-responsive"
+                                                                            src="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                            alt="Thumbnail" />
+                                                                    </a>
+                                                                </div>
+                                                                <div class="short-description-1 clearfix">
+                                                                    {{ $imagedata->title }}
+                                                                    <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                        download="{{ $imagedata->addimage }}">
+                                                                        <span
+                                                                            class="rounded-pill text-white pull-right"
+                                                                            style="background-color: rgb(113 113 113);height: 29px;width: 30px;text-align: center;font-size: 15px;">
+                                                                            <i class="bi bi-download"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Listing Ad Grid -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
                         <!-- Middle Content Box End -->
                     </div>
 
-                    <div class="tab-pane fade" style="margin-top: 20px;" id="Colours">
-                        
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
+                    @php
                                 
-                                <div class=" featured-slider owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Citrine Yellow
-                                                            </a>
-                                                        </h3>
+                    $type = request()->query('type', 'All'); 
+                        // Filter the collection to include only images with type "Outer view"
+                        $outerViewImages = $allcarimage->where('type', 'Outer view');
+                    @endphp
 
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/74u5gdb_1735917.jpg?q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Deep Forest
-                                                            </a>
-                                                        </h3>
+                    <div class="tab-pane fade {{ $type == 'Colours' ? 'in active' : '' }}" id="Colours">
 
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/n/4qasgdb_1735921.jpg?q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        <h3>
-                                                            <a href="#" href="#">
-                                                                Dune Beige
-                                                            </a>
-                                                        </h3>
-
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="row">
+                              
+                                @if ($outerViewImages->isNotEmpty())
+                                    <div class="featured-slider owl-carousel owl-theme">
+                                        @foreach ($outerViewImages as $imagedata)
+                                            <div class="item">
+                                                <div class="grid-style-2">
+                                                    <!-- Listing Ad Grid -->
+                                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                                        <div class="category-grid-box-1 rounded-5">
+                                                            <div class="image">
+                                                                <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                    data-fancybox="color">
+                                                                    <img class="img-responsive"
+                                                                        src="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                        alt="Thumbnail" />
+                                                                </a>
+                                                            </div>
+                                                            <div
+                                                                class="short-description-1 d-flex justify-content-between ">
+                                                                <div class="d-flex">
+                                                                    <div class="p-3 border me-2 rounded-pill "
+                                                                        style="background-color: {{ $imagedata->color }}; height: 25px; width: 25px;";>
+                                                                    </div>
+                                                                    <span class="text-capitalize">
+                                                                        {{ $imagedata->color ?? 'Unknown Color' }}
+                                                                    </span>
+                                                                </div>
+                                                                <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                    download="{{ $imagedata->addimage }}">
+                                                                    <span class="rounded-pill text-white pull-right"
+                                                                        style="background-color: rgb(113 113 113);height: 29px;width: 30px;text-align: center;font-size: 15px;">
+                                                                        <i class="bi bi-download"></i>
+                                                                    </span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Listing Ad Grid -->
                                                     </div>
                                                 </div>
-                                                <!-- Listing Ad Grid -->
                                             </div>
-                                        </div>
+                                        @endforeach
                                     </div>
+                                @endif
 
-                                </div>
+
+
                             </div>
                         </div>
                         <!-- Middle Content Box End -->
                     </div>
                 </div>
-                <!-- Row End -->
+                <!-- Middle Content Box End -->
             </div>
         </div>
-        <!-- Main Container End -->
+        <!-- Row End -->
+    </div>
+    </div>
+    <!-- Main Container End -->
     </div>
 </section>
 <!-- =-=-=-=-=-=-= Featured Ads End =-=-=-=-=-=-= -->

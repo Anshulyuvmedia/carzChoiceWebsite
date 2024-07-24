@@ -165,7 +165,7 @@
                                                                     <button
                                                                         class="btn btn-outline btn-danger btn-sm  ">
                                                                         <i class="fa fa-phone"></i>
-                                                                        View Details.
+                                                                        View Details
                                                                     </button>
                                                                 </a>
 
