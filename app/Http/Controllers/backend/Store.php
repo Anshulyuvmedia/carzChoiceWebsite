@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\CarLoanEnquiry;
+use App\Models\ColorVariant;
 use App\Models\CompareVehicle;
 use App\Models\DisplaySetting;
 use App\Models\ProsandCons;
@@ -458,6 +459,7 @@ class Store extends Controller
                 'addimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'videourl' => 'required',
                 'color' => 'required',
+                'variantid' => 'required',
             ]);
 
             // Handle image upload if file is present
@@ -950,4 +952,39 @@ class Store extends Controller
         $data->delete();
         return back()->with('success', "Deleted....!!!");
     }
+
+    public function insertcolorvariants(Request $request)
+    {
+        $colorNames = $request->input('colornames');
+        $vehicleid = $request->input('vehicleid');
+        $colorCodes = $request->input('colorcodes');
+
+        $colors = [];
+            foreach($colorNames as $index => $row){
+                if($row!=null){
+                    $colors[] = [
+                        'label' => $row,
+                        'value' => $colorCodes[$index],
+                    ];
+                }
+            }
+
+        $colorsJson = json_encode($colors);
+        try {
+            $data = CarList::find($vehicleid);
+
+            if ($data) {
+                $data->update([
+                    'colors' => $colorsJson,
+                ]);
+
+                return redirect()->back()->with('success', 'Colors updated successfully!');
+            } else {
+                return redirect()->back()->with('error', 'Vehicle not found.');
+            }
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Failed to update colors. Please try again.');
+        }
+    }
+
 }

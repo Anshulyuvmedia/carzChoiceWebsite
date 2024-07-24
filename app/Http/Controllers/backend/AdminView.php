@@ -9,6 +9,7 @@ use App\Models\AddVariant;
 use App\Models\Blog;
 use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
+use App\Models\ColorVariant;
 use App\Models\VariantFaq;
 use App\Models\CompanyProfile;
 use App\Models\CompareVehicle;
@@ -231,5 +232,17 @@ class AdminView extends Controller
         $vehicleid = $id;
         $carnamedata = $carname;
         return view('AdminPanel.variantfaqs',compact('vehicleid','faqs','carnamedata'));
+    }
+
+    public function addvehicleimages($id,$carname){
+        $carnamedata = $carname;
+        $data = AddVariant::find($id);
+        $masterdata = Master::where('type', '=', 'Vehicle Image')->get();
+        $mastercolordata = Master::where('type', '=', 'Color')->get();
+        $vehicleimgdata = VehicleImage::where('vehicle', '=', $carname)->orderBy('created_at', 'desc')->get();
+        $carlistdata = CarList::get();
+        $imageslist = CarList::where('carname',$data->carname)->get()->pluck('colors');
+        $colors = json_decode($imageslist[0]);
+        return view('AdminPanel.vehicleimages',compact('data','colors','imageslist','carnamedata','masterdata','mastercolordata','vehicleimgdata','carlistdata'));
     }
 }

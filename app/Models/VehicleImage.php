@@ -15,5 +15,6 @@ class VehicleImage extends Model
         'addimage',
         'videourl',
         'color',
+        'variantid',
     ];
 }

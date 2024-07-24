@@ -10,5 +10,6 @@ class CarList extends Model
     protected $fillable = [
         'carname',
         'brandname',
+        'colors',
     ];
 }
