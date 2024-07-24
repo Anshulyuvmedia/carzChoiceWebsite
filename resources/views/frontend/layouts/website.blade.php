@@ -161,11 +161,9 @@
 
                                                 <div class="grid-col-3">
                                                     <ul>
-                                                        <li><a href="/car-view-images">Car different Views </a></li>
                                                         <li><a href="/car-images">Car Images </a></li>
                                                         <li><a href="/dealer-showroom">Find Dealer Showroom</a></li>
                                                         <li><a href="/dealer-location">Find Dealer By Location</a></li>
-
                                                     </ul>
                                                 </div>
 

@@ -57,7 +57,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content clearfix">
 
-                    <div class="tab-pane fade " id="All">
+                    <div class="tab-pane fade {{ $type == 'All' ? 'in active' : '' }}" id="All">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row my-3">
                                 <div class="d-flex pb-4" style="width: 100%; overflow-x: auto; scrollbar-width: thin;">

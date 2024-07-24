@@ -56,7 +56,7 @@
                                                     <div class="category-grid-box-1">
                                                         <div class="image">
                                                             @if ($data->addimage)
-                                                                <a href="{{ route('carviewimages', ['carname' => $data->vehicle]) }}">
+                                                                <a  href="/car-view-images/{{$data->vehicle}}?type=All">
                                                                     <img class="img-responsive"
                                                                         src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
                                                                         alt="Thumbnail" />
@@ -65,13 +65,13 @@
                                                         </div>
                                                         <div class="short-description-1 clearfix">
                                                             <h3>
-                                                                <a href="/car-view-image" href="{{ route('carviewimages', ['carname' => $data->vehicle]) }}">
+                                                                <a href="/car-view-images/{{$data->vehicle}}?type=All">
                                                                     {{$data->brandname}} {{$data->vehicle}}
                                                                 </a>
                                                             </h3>
                                                             <div
                                                                 class=" fs-3 fw-bold d-flex justify-content-between align-content-center ">
-                                                                <a title="" href="#">
+                                                                <a  href="/car-view-images/{{$data->vehicle}}?type=All">
 
                                                                     <div class="o-dsiSgT o-cpnuEd ">
                                                                         <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF o-cpNAVm o-cybDoH o-fsBtSY"

@@ -139,16 +139,19 @@
                                                                 <span>Trending</span>
                                                             </div>
                                                             <div class="image">
+                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
                                                                 <img alt="Carz Choice"
                                                                     src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
                                                                     class="img-responsive">
                                                                 <div class="ribbon popular"></div>
-
+                                                                </a>
                                                             </div>
                                                             <div class="short-description-1 clearfix">
 
                                                                 <h3>
-                                                                    <a title="" href="#">
+                                                                    <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
                                                                         {{ $data->brandname }} {{ $data->carname }}
                                                                     </a>
                                                                 </h3>
@@ -194,22 +197,20 @@
                                                                 <span>Popular</span>
                                                             </div>
                                                             <div class="image">
+                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
                                                                 <img alt="Carz Choice"
                                                                     src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
                                                                     class="img-responsive">
                                                                 <div class="ribbon popular"></div>
-                                                                {{-- <div class="price-tag">
-                                                                <div class="price"><span>$205,000</span></div>
-                                                            </div> --}}
+                                                                </a>
                                                             </div>
                                                             <div class="short-description-1 clearfix">
-                                                                {{-- <div class="category-title">
-                                                                <span><a href="#">Sports &
-                                                                        Equipment</a></span>
-                                                            </div> --}}
+                                                                
 
                                                                 <h3>
-                                                                    <a title="" href="#">
+                                                                    <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
                                                                         {{ $data->brandname }} {{ $data->carname }}
                                                                     </a>
                                                                 </h3>
@@ -222,11 +223,12 @@
                                                                     On-Road Price, Delhi
                                                                 </p>
 
-                                                                <a class="" href="#">
+                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
                                                                     <button
                                                                         class="btn btn-outline btn-danger btn-sm  ">
                                                                         <i class="fa fa-phone"></i>
-                                                                        View Details.
+                                                                        View Details
                                                                     </button>
                                                                 </a>
 
@@ -257,22 +259,19 @@
                                                                 <span>Upcoming</span>
                                                             </div>
                                                             <div class="image">
+                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
                                                                 <img alt="Carz Choice"
                                                                     src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
                                                                     class="img-responsive">
-                                                                <div class="ribbon popular"></div>
-                                                                {{-- <div class="price-tag">
-                                                                <div class="price"><span>$205,000</span></div>
-                                                            </div> --}}
+                                                                </a>
                                                             </div>
                                                             <div class="short-description-1 clearfix">
-                                                                {{-- <div class="category-title">
-                                                                <span><a href="#">Sports &
-                                                                        Equipment</a></span>
-                                                            </div> --}}
+                                                               
 
                                                                 <h3>
-                                                                    <a title="" href="#">
+                                                                    <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
                                                                         {{ $data->brandname }} {{ $data->carname }}
                                                                     </a>
                                                                 </h3>
@@ -285,11 +284,11 @@
                                                                     On-Road Price, Delhi
                                                                 </p>
 
-                                                                <a class="" href="#">
+                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
                                                                     <button
                                                                         class="btn btn-outline btn-danger btn-sm  ">
                                                                         <i class="fa fa-phone"></i>
-                                                                        View Details.
+                                                                        View Details
                                                                     </button>
                                                                 </a>
 
