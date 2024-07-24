@@ -459,6 +459,7 @@ class Store extends Controller
                 'addimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'videourl' => 'required',
                 'color' => 'required',
+                'variantid' => 'required',
             ]);
 
             // Handle image upload if file is present

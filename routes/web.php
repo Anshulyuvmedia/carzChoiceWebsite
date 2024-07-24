@@ -133,6 +133,7 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('allenquiriessite', 'allenquiriessite')->name('allenquiriessite');
     Route::get('prosandcons/{id}', 'prosandcons')->name('prosandcons');
     Route::get('variantfaqs/{id}/{carname}', 'variantfaqs')->name('variantfaqs');
+    Route::get('addvehicleimages/{id}/{carname}', 'addvehicleimages')->name('addvehicleimages');
 });
 
 

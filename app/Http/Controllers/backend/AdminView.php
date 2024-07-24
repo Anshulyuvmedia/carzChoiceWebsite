@@ -233,4 +233,16 @@ class AdminView extends Controller
         $carnamedata = $carname;
         return view('AdminPanel.variantfaqs',compact('vehicleid','faqs','carnamedata'));
     }
+
+    public function addvehicleimages($id,$carname){
+        $carnamedata = $carname;
+        $data = AddVariant::find($id);
+        $masterdata = Master::where('type', '=', 'Vehicle Image')->get();
+        $mastercolordata = Master::where('type', '=', 'Color')->get();
+        $vehicleimgdata = VehicleImage::where('vehicle', '=', $carname)->orderBy('created_at', 'desc')->get();
+        $carlistdata = CarList::get();
+        $imageslist = CarList::where('carname',$data->carname)->get()->pluck('colors');
+        $colors = json_decode($imageslist[0]);
+        return view('AdminPanel.vehicleimages',compact('data','colors','imageslist','carnamedata','masterdata','mastercolordata','vehicleimgdata','carlistdata'));
+    }
 }

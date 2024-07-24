@@ -1,7 +1,7 @@
 {{-- “सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।” --}}
 @extends('layouts.admin')
 @section('main-section')
-@section('title', 'Add Vehicle Images')
+@section('title',  'Add ' . $carnamedata . ' Images')
 <div class="page-content">
     <div class="container-fluid">
         <div class="row">
@@ -37,22 +37,17 @@
                                 </div>
                                 <div class="col-lg-2">
                                     <label class="">Select Color</label>
-                                    <select name="color" class="form-select"  required>
+                                    <select name="color" class="form-select" required>
                                         <option value="">--select color--</option>
-                                        @foreach ($mastercolordata as $row)
-                                            <option value="{{ $row->label }}">{{ $row->label }} - {{$row->value}}</option>
+                                        @if(is_array($colors))
+                                        @foreach ($colors as $color)
+                                            <option value="{{json_encode($color)}}">{{ $color->label }} - {{ $color->value }}</option>
                                         @endforeach
+                                        @endif
                                     </select>
                                 </div>
-                                <div class="col-lg-2">
-                                    <label class="">Select Vehicle</label>
-                                    <select name="vehicle" class="form-select" id="" required>
-                                        <option value="">--select vehicle--</option>
-                                        @foreach ($carlistdata as $row)
-                                            <option value="{{ $row->carname }}">{{ $row->carname }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                <input class="form-control" placeholder="enter value" name="vehicle" type="hidden" value="{{$data->carname}}">
+                                <input class="form-control" placeholder="enter value" name="variantid" type="hidden" value="{{$data->id}}">
                                 <div class="col-lg-2">
                                     <label for="example-search-input" class="">Title</label>
                                     <input class="form-control" placeholder="enter value" name="title" type="text"
@@ -83,14 +78,14 @@
                                             name="videourl" id="videolink" value="https://dummy.com">
                                     </div>
                                 </div>
+                                <div class="col-lg-3 d-flex align-items-end">
+                                    <button type="submit" class="btn btn-success waves-effect waves-light">Add</button>
+                                </div>
                                 {{-- <div class="col-lg-3">
                                     <label for="example-search-input" class="">Icon Image</label>
                                     <input class="form-control" placeholder="enter value" name="iconimage" type="file"
                                         value="">
                                 </div> --}}
-                            </div>
-                            <div class="col-lg-3 d-flex align-items-end">
-                                <button type="submit" class="btn btn-success waves-effect waves-light">Add</button>
                             </div>
                         </form>
                     </div>
@@ -119,38 +114,34 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $row->type }}</td>
-                                        <td>{{ $row->color }}</td>
+                                        @php
+                                        $colors = json_decode($row->color, true);
+                                    @endphp
+                                        <td>
+                                            <div class="rounded-pill" style="background-color:{{ $colors['value'] }}; color:white;">
+                                                {{ $colors['label'] }}
+                                            </div>
+                                        </td>
                                         <td>{{ $row->vehicle }}</td>
                                         <td>{{ $row->title }}</td>
                                         <td>
                                             @if ($row->mediatype == 'image')
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
+                                            data-record-view="{{ json_encode($row) }}"
+                                            class="px-2 text-primary viewbtnmodal">
                                                 <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
                                                     alt="Thumbnail" width="100px" class="square-100">
+                                            </a>
                                             @endif
                                             @if ($row->mediatype == 'video')
-                                                <a href="{{ $row->videourl }}" target="_blank"
-                                                    class="btn btn-secondary btn-sm"><i
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
+                                            data-record-view="{{ json_encode($row) }}"
+                                            class="px-2 text-primary viewbtnmodal"><i
                                                         class="bi bi-youtube"></i>&nbsp;&nbsp;View Video</a>
                                             @endif
                                         </td>
                                         <td>
                                             <ul class="list-inline mb-0">
-                                                <li class="list-inline-item">
-                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
-                                                        data-record-view="{{ json_encode($row) }}"
-                                                        class="px-2 text-primary viewbtnmodal"><i
-                                                            class="uil-eye font-size-18" data-bs-toggle="tooltip"
-                                                            data-bs-placement="top"
-                                                            data-bs-title="View Details"></i></a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal"
-                                                        data-record="{{ json_encode($row) }}"
-                                                        class="px-2 text-primary editbtnmodal"><i
-                                                            class="uil uil-pen font-size-18" data-bs-toggle="tooltip"
-                                                            data-bs-placement="top" data-bs-title="Edit"></i></a>
-                                                </li>
                                                 <li class="list-inline-item">
                                                     <a href="#" onclick="confirmDelete('{{ $row->id }}')"
                                                         class="px-2 text-danger" data-bs-toggle="tooltip"
@@ -264,11 +255,11 @@
                 `<option value="${row.label}" ${vehicledata.color === row.label ? 'selected' : ''}>${row.label}</option>`;
         });
 
-        var carnames = `<option value="">--select color--</option>`;
-        carlistdata.forEach(function(row) {
-            carnames +=
-                `<option value="${row.carname}" ${vehicledata.vehicle === row.carname ? 'selected' : ''}>${row.carname}</option>`;
-        });
+        // var carnames = `<option value="">--select color--</option>`;
+        // carlistdata.forEach(function(row) {
+        //     carnames +=
+        //         `<option value="${row.carname}" ${vehicledata.vehicle === row.carname ? 'selected' : ''}>${row.carname}</option>`;
+        // });
 
         var modalbody = `
             <div class="card-body">
@@ -278,12 +269,6 @@
                         <div>
                             <select name="type" class="form-select mb-3" required>
                                 ${options}
-                            </select>
-                        </div>
-                        <label for="exampleDataList" class="form-label">Select Vehicle</label>
-                        <div>
-                            <select name="vehicle" class="form-select mb-3" required>
-                                ${carnames}
                             </select>
                         </div>
                          <div>
@@ -423,26 +408,7 @@
             var modalbody = `
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="exampleDataList" class="form-label">Category</label>
-                                <input class="form-control" disabled type="text" value="${viewdata.type}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleDataList" class="form-label">Vehicle</label>
-                                <input class="form-control" disabled type="text" value="${viewdata.vehicle}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleDataList" class="form-label">Color</label>
-                                <input class="form-control" disabled type="text" value="${viewdata.color}">
-                            </div>
-                            <div class="mb-3">
-                                <label for="example-text-input" class="form-label">Title</label>
-                                <input class="form-control" disabled type="text" value="${viewdata.title}">
-                            </div>
-                            <input type="hidden" name="vehicleimgid" value="${viewdata.id}">
-                        </div>
-                        <div class="col-lg-6" id="media-containernew">
+                        <div class="col-lg-12" id="media-containernew">
                             <!-- Media content will be inserted here -->
                         </div>
                     </div>

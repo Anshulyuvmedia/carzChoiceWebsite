@@ -90,6 +90,7 @@
                                                     <i class="uil uil-ellipsis-h"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
+                                                    <a href="{{ route('addvehicleimages', ['id' => $row->id,'carname' =>$row->carname]) }}" class="dropdown-item">Add Vehicle Images</a>
                                                     <a href="{{ route('addfeatures', ['id' => $row->id]) }}" class="dropdown-item">Add Features</a>
                                                     <a href="{{ route('addspecifications', ['id' => $row->id]) }}" class=" dropdown-item">Add Specifications</a>
                                                     <a href="{{ route('prosandcons', ['id' => $row->id]) }}" class="dropdown-item">Add Pros & Cons</a>
@@ -101,24 +102,6 @@
                                             </div>
                                         </div>
                                     </td>
-                                    {{-- <td>
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item">
-                                                <a href="#" data-bs-toggle="Add Features"
-                                                data-bs-placement="top" data-bs-title="Add Features" class="text-success"><i class="uil-plus font-size-18"></i></a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="{{ route('editvariant', ['id' => $row->id]) }}"
-                                                    class="px-2 text-primary"><i
-                                                        class="uil uil-pen font-size-18"></i></a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a href="#" onclick="confirmDelete('{{ $row->id }}')"
-                                                    class=" text-danger"><i
-                                                        class="uil uil-trash-alt font-size-18"></i></a>
-                                            </li>
-                                        </ul>
-                                    </td> --}}
                                 </tr>
                                 @endforeach
                             </tbody>
