@@ -206,7 +206,7 @@
                                                                 </a>
                                                             </div>
                                                             <div class="short-description-1 clearfix">
-                                                                
+
 
                                                                 <h3>
                                                                     <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
@@ -267,7 +267,7 @@
                                                                 </a>
                                                             </div>
                                                             <div class="short-description-1 clearfix">
-                                                               
+
 
                                                                 <h3>
                                                                     <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">

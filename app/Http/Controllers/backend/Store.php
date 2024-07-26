@@ -456,7 +456,7 @@ class Store extends Controller
                 'vehicle' => 'required',
                 'title' => 'required',
                 'mediatype' => 'required',
-                'addimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'addimage' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
                 'videourl' => 'required',
                 'color' => 'required',
                 'variantid' => 'required',

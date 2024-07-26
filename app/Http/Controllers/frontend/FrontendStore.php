@@ -606,7 +606,7 @@ class FrontendStore extends Controller
 
         return response()->json([
             'success' => true,
-            'redirect_url' => route('compareresult',['id' => $data->id])
+            'redirect_url' => route('compareresult', ['id' => $data->id])
         ], 200);
     }
 
@@ -644,4 +644,60 @@ class FrontendStore extends Controller
         //     return view('frontend.loginuser');
         // }
     }
+
+    public function makefilterfindcar(Request $rq)
+    {
+        parse_str($rq->input('formdata'), $formData);
+
+        $bodyTypes = $formData['bodytypes'] ?? [];
+        $transmissions = $formData['transmissions'] ?? [];
+        $fuelTypes = $formData['fueltypes'] ?? [];
+        $seatingCaps = $formData['seatingcaps'] ?? [];
+        $minPrice = $formData['minprice'] ?? 0;
+        $maxPrice = $formData['maxprice'] ?? PHP_INT_MAX;
+        // dd([
+        //     'bodyTypes' => $bodyTypes,
+        //     'transmissions' => $transmissions,
+        //     'fuelTypes' => $fuelTypes,
+        //     'seatingCaps' => $seatingCaps,
+        //     'minPrice' => $minPrice,
+        //     'maxPrice' => $maxPrice,
+        // ]);
+
+        // Build the quer   y
+        $query = AddVariant::query();
+
+        if (!empty($bodyTypes)) {
+            $query->whereIn('bodytype', $bodyTypes);
+        }
+
+        if (!empty($transmissions)) {
+            foreach ($transmissions as $transmission) {
+                $query->whereRaw("JSON_CONTAINS(transmission, '\"$transmission\"')");
+            }
+        }
+
+        if (!empty($fuelTypes)) {
+            foreach ($fuelTypes as $fuelType) {
+                $query->whereRaw("JSON_CONTAINS(fueltype, '\"$fuelType\"')");
+            }
+        }
+
+        if (!empty($seatingCaps)) {
+            $query->where('seatingcapacity', $seatingCaps);
+        }
+
+        if ($minPrice || $maxPrice) {
+            $query->whereBetween('price', [$minPrice, $maxPrice]);
+        }
+
+        // Execute the query
+        $variants = $query->get();
+
+        // Debug the results
+        dd($variants);
+    }
+
+
+
 }

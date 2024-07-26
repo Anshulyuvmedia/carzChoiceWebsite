@@ -98,6 +98,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('/showcomparecars/{fullId}', 'showcomparecars')->name('showcomparecars');
     Route::post('filterbyfuelcardetails', 'filterbyfuelcardetails')->name('filterbyfuelcardetails');
     Route::post('insertcompareoffcanvas', 'insertcompareoffcanvas')->name('insertcompareoffcanvas');
+    Route::post('makefilterfindcar', 'makefilterfindcar')->name('makefilterfindcar');
 
 });
 

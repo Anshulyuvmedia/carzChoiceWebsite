@@ -215,7 +215,7 @@
                                                 </svg>
                                                 <span class="">Colours</span>
                                             </a>
-                                            
+
                                             <a class="text-secondary text-center" href="/car-view-images/{{$cardetails->carname}}?type=All">
                                                 <svg class="" style="width: 15%;" viewBox="0 0 16 16"
                                                     fill="currentcolor" tabindex="-1" focusable="false"
@@ -2020,180 +2020,186 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        // Retrieve images array from backend
-        var images = @json($cardetails['images']);
-        console.log('Images Array:', images);
+    // Retrieve images array from backend
+    var images = @json($cardetails['images']);
+    console.log('Images Array:', images);
 
-        // Function to find the first image for a specific vehicle
-        function getFirstCarImage(vehicleName) {
-            var carImages = images.filter(function(image) {
-                return image.vehicle === vehicleName;
-            });
-            return carImages.length > 0 ? carImages[0] : null;
-        }
-
-        // Handle checkbox changes for filtering
-        $('.btn-check').on('change', function() {
-            const carname = document.querySelector('#CarrName').value;
-            console.log(carname);
-
-            // Checkboxes values that are checked
-            var checkedValues = [];
-            $('.btn-check:checked').each(function() {
-                checkedValues.push($(this).val());
-            });
-            console.log('Checked values:', checkedValues);
-
-            // AJAX Request
-            $.ajax({
-                url: '/filterbyfuelcardetails',
-                method: 'POST',
-                data: {
-                    'checkboxes': checkedValues,
-                    'carname': carname,
-                },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(response) {
-                    console.log(response);
-                    $('#table-body').empty();
-
-                    response.forEach(function(item) {
-                        // Parse fueltype and transmission if they are JSON strings
-                        var fuelTypesArray = [];
-                        var transmissionsArray = [];
-
-                        if (item.fueltype) {
-                            try {
-                                fuelTypesArray = JSON.parse(item.fueltype);
-                            } catch (e) {
-                                console.error('Invalid fueltype JSON:', item
-                                    .fueltype);
-                            }
-                        }
-
-                        if (item.transmission) {
-                            try {
-                                transmissionsArray = JSON.parse(item.transmission);
-                            } catch (e) {
-                                console.error('Invalid transmission JSON:', item
-                                    .transmission);
-                            }
-                        }
-
-                        var fuelTypes = fuelTypesArray.map(function(fuel) {
-                            return `<li class="me-2">${fuel},</li>`;
-                        }).join('');
-
-                        var transmissions = transmissionsArray.map(function(trans) {
-                            return `<li class="me-2">${trans},</li>`;
-                        }).join('');
-
-                        // Create the new tr
-                        var newbody = `
-                        <tr>
-                            <input type="hidden" name="" id="CarrName" value="${item.carname}">
-                            <td>
-                                <div>
-                                    ${item.carname}, (${item.carmodalname})
-                                </div>
-                                <div class="text-muted fs-6">
-                                    <ul class="d-flex" style="column-count : 4;">
-                                        ${fuelTypes} |&nbsp;&nbsp;${transmissions}
-                                    </ul>
-                                </div>
-                            </td>
-                            <td class="fw-bold">Rs. ${item.price} Lakh</td>
-                            <td>
-                                <div class="form-check form-check-reverse">
-                                    <label class="form-check-label" for="comparecheck-${item.id}">
-                                        Add to compare
-                                    </label>
-                                    <input class="form-check-input comparecheck" type="checkbox" value='{"carname": "${item.carname}","brandname": "${item.brandname}", "fueltype": ${JSON.stringify(fuelTypesArray)},  "model": "${item.carmodalname}", "price": "${item.price}", "id": "${item.id}"}' data-value='{"id": "${item.id}","brandname": "${item.brandname}", "fueltype": ${JSON.stringify(fuelTypesArray)}, "carname": "${item.carname}", "model": "${item.carmodalname}", "price": "${item.price}"}' />
-                                </div>
-                            </td>
-                        </tr>
-                    `;
-                        $('#table-body').append(newbody);
-                    });
-                }
-            });
+    // Function to find the first image for a specific vehicle
+    function getFirstCarImage(vehicleName) {
+        var carImages = images.filter(function(image) {
+            return image.vehicle === vehicleName;
         });
+        return carImages.length > 0 ? carImages[0] : null;
+    }
 
-        // Add to compare offcanvas functionality
-        $(document).on('change', '.comparecheck', function() {
-            var ids = [];
-            var checkedValues = [];
-            $('.comparecheck:checked').each(function() {
-                var item = $(this).data('value');
-                checkedValues.push(item);
-                ids.push(item.id);
-            });
-            console.log('Checked values:', checkedValues);
-            console.log('IDs values:', ids);
+    // Handle checkbox changes for filtering
+    $('.btn-check').on('change', function() {
+        const carname = document.querySelector('#CarrName').value;
+        console.log(carname);
 
-            $('#comparecard').empty();
-            checkedValues.forEach(function(item) {
-                var carData = item;
-                console.log('Car Data:', carData);
+        // Checkboxes values that are checked
+        var checkedValues = [];
+        $('.btn-check:checked').each(function() {
+            checkedValues.push($(this).val());
+        });
+        console.log('Checked values:', checkedValues);
 
-                // Parse fueltype and transmission if they are JSON strings
-                var fuelTypesArray = carData.fueltype || [];
-                var transmissionsArray = carData.transmission || [];
+        // AJAX Request
+        $.ajax({
+            url: '/filterbyfuelcardetails',
+            method: 'POST',
+            data: {
+                'checkboxes': checkedValues,
+                'carname': carname,
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                console.log(response);
+                $('#table-body').empty();
 
-                var fuelTypes = fuelTypesArray.map(function(fuel) {
-                    return `${fuel}`;
-                }).join(', ');
+                response.forEach(function(item) {
+                    // Initialize fuelTypesArray and transmissionsArray as empty arrays
+                    var fuelTypesArray = [];
+                    var transmissionsArray = [];
 
-                var transmissions = transmissionsArray.map(function(trans) {
-                    return `${trans}`;
-                }).join(', ');
+                    if (item.fueltype) {
+                        try {
+                            fuelTypesArray = JSON.parse(item.fueltype);
+                        } catch (e) {
+                            console.error('Invalid fueltype JSON:', item.fueltype);
+                        }
+                    }
 
-                var carImage = getFirstCarImage(carData.carname);
-                console.log('Car Image:', carImage);
-                var imageHtml = '';
-                if (carImage) {
-                    var imagePath =
-                        `{{ asset('assets/backend-assets/images/') }}/${carImage.addimage}`;
-                    console.log('Image Path:', imagePath);
-                    imageHtml = `<img alt="" src="${imagePath}">`;
-                } else {
-                    console.log('No image found for vehicle:', carData.carname);
-                }
+                    if (item.transmission) {
+                        try {
+                            transmissionsArray = JSON.parse(item.transmission);
+                        } catch (e) {
+                            console.error('Invalid transmission JSON:', item.transmission);
+                        }
+                    }
 
-                // Create the new div
-                var newcard = `
-                    <div class="col-md-3 col-xs-6 col-sm-6 px-2">
-                         <input type="hidden" value="${item.id}"  name="compareid[]" id="compareid" placeholder="">
-                        <span class="vs-compare">VS</span>
-                        <div class="category-grid-box-1">
-                            <button type="button" class="btn-close compare-close"></button>
-                            <div class="image">
-                                <div>${imageHtml}</div>
-                                <div class="ribbon popular"></div>
+                    // Ensure they are arrays before mapping
+                    fuelTypesArray = Array.isArray(fuelTypesArray) ? fuelTypesArray : [];
+                    transmissionsArray = Array.isArray(transmissionsArray) ? transmissionsArray : [];
+
+                    var fuelTypes = fuelTypesArray.map(function(fuel) {
+                        return `<li class="me-2">${fuel},</li>`;
+                    }).join('');
+
+                    var transmissions = transmissionsArray.map(function(trans) {
+                        return `<li class="me-2">${trans},</li>`;
+                    }).join('');
+
+                    // Create the new tr
+                    var newbody = `
+                    <tr>
+                        <input type="hidden" name="" id="CarrName" value="${item.carname}">
+                        <td>
+                            <div>
+                                ${item.carname}, (${item.carmodalname})
                             </div>
-                            <div class="short-description-1 clearfix">
-                                <a title="" href="#">
-                                    <div class="fs-5 fw-bold">
-                                        ${carData.brandname} ${carData.carname}, ${carData.model}
-                                    </div>
-                                </a>
-                                <div class="text-muted fs-5">
-                                    <div class="d-flex" >
-                                        ${fuelTypes}
-                                    </div>
+                            <div class="text-muted fs-6">
+                                <ul class="d-flex" style="column-count : 4;">
+                                    ${fuelTypes} |&nbsp;&nbsp;${transmissions}
+                                </ul>
+                            </div>
+                        </td>
+                        <td class="fw-bold">Rs. ${item.price} Lakh</td>
+                        <td>
+                            <div class="form-check form-check-reverse">
+                                <label class="form-check-label" for="comparecheck-${item.id}">
+                                    Add to compare
+                                </label>
+                                <input class="form-check-input comparecheck" type="checkbox" value='{"carname": "${item.carname}","brandname": "${item.brandname}", "fueltype": ${JSON.stringify(fuelTypesArray)},  "model": "${item.carmodalname}", "price": "${item.price}", "id": "${item.id}"}' data-value='{"id": "${item.id}","brandname": "${item.brandname}", "fueltype": ${JSON.stringify(fuelTypesArray)}, "carname": "${item.carname}", "model": "${item.carmodalname}", "price": "${item.price}"}' />
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                    $('#table-body').append(newbody);
+                });
+            }
+        });
+    });
+
+    // Add to compare offcanvas functionality
+    $(document).on('change', '.comparecheck', function() {
+        var ids = [];
+        var checkedValues = [];
+        $('.comparecheck:checked').each(function() {
+            var item = $(this).data('value');
+            checkedValues.push(item);
+            ids.push(item.id);
+        });
+        console.log('Checked values:', checkedValues);
+        console.log('IDs values:', ids);
+
+        $('#comparecard').empty();
+        checkedValues.forEach(function(item) {
+            var carData = item;
+            console.log('Car Data:', carData);
+
+            // Initialize fuelTypesArray and transmissionsArray as empty arrays
+            var fuelTypesArray = carData.fueltype || [];
+            var transmissionsArray = carData.transmission || [];
+
+            // Ensure they are arrays before mapping
+            fuelTypesArray = Array.isArray(fuelTypesArray) ? fuelTypesArray : [];
+            transmissionsArray = Array.isArray(transmissionsArray) ? transmissionsArray : [];
+
+            var fuelTypes = fuelTypesArray.map(function(fuel) {
+                return `${fuel}`;
+            }).join(', ');
+
+            var transmissions = transmissionsArray.map(function(trans) {
+                return `${trans}`;
+            }).join(', ');
+
+            var carImage = getFirstCarImage(carData.carname);
+            console.log('Car Image:', carImage);
+            var imageHtml = '';
+            if (carImage) {
+                var imagePath = `{{ asset('assets/backend-assets/images/') }}/${carImage.addimage}`;
+                console.log('Image Path:', imagePath);
+                imageHtml = `<img alt="" src="${imagePath}">`;
+            } else {
+                console.log('No image found for vehicle:', carData.carname);
+            }
+
+            // Create the new div
+            var newcard = `
+                <div class="col-md-3 col-xs-6 col-sm-6 px-2">
+                     <input type="hidden" value="${item.id}" name="compareid[]" id="compareid" placeholder="">
+                    <span class="vs-compare">VS</span>
+                    <div class="category-grid-box-1">
+                        <button type="button" class="btn-close compare-close"></button>
+                        <div class="image">
+                            <div>${imageHtml}</div>
+                            <div class="ribbon popular"></div>
+                        </div>
+                        <div class="short-description-1 clearfix">
+                            <a title="" href="#">
+                                <div class="fs-5 fw-bold">
+                                    ${carData.brandname} ${carData.carname}, ${carData.model}
                                 </div>
-                                <div class="ad-price fs-5">Rs. ${carData.price}
-                                    <span class="text-muted ps-2">onwards</span>
+                            </a>
+                            <div class="text-muted fs-5">
+                                <div class="d-flex">
+                                    ${fuelTypes}
                                 </div>
+                            </div>
+                            <div class="ad-price fs-5">Rs. ${carData.price}
+                                <span class="text-muted ps-2">onwards</span>
                             </div>
                         </div>
                     </div>
-                `;
-                $('#comparecard').append(newcard);
-            });
+                </div>
+            `;
+            $('#comparecard').append(newcard);
         });
     });
+});
+
 </script>
 @endsection

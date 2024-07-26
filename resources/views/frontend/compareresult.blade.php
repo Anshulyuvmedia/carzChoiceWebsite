@@ -154,7 +154,7 @@
                     @endif
 
 
-                    <div class="shadow-sm p-3 bg-dark rounded-3">
+                    <div class="shadow-sm p-3 bg-dark rounded-3" id="Features">
                         <h3 class=" fw-bold text-danger">Features</h3>
                     </div>
 

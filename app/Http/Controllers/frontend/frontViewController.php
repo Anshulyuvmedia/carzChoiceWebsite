@@ -41,7 +41,8 @@ class frontViewController extends Controller
             ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
             ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
             ->where('vehicle_images.type', '=', 'Outer view')
-            ->where('display_settings.category', '=', 'Trending')->get();
+            ->where('display_settings.category', '=', 'Trending')
+            ->get();
 
         $popular = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
             ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
@@ -483,8 +484,13 @@ class frontViewController extends Controller
     }
     public function findcar()
     {
+        $results = Master::where('type', '=', 'Body Type')
+                ->orWhere('type', '=', 'Transmission')
+                ->orWhere('type', '=', 'Fuel Type')
+                ->orWhere('type', '=', 'Seating Capacity')
+                ->get();
         $variants = session('variants', []);
-        return view('frontend.findcar', compact('variants'));
+        return view('frontend.findcar', compact('variants','results'));
     }
 
 
@@ -494,7 +500,7 @@ class frontViewController extends Controller
             ->select('vehicle_images.*', 'car_lists.brandname')
             ->where('vehicle', '=', $carname)
             ->get();
-        
+
 
         $vehicleCounts = VehicleImage::select('vehicle')
             // ->where('type', 'Outer view')

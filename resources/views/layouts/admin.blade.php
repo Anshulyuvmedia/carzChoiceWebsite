@@ -245,12 +245,12 @@
                                 <li><a href="{{ route('allenquiriessite')}}">Enquiries from Website</a></li>
                             </ul>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('vehicleimages') }}">
                                 <i class="uil-comment-image"></i>
                                 <span>Add Vehicle Images</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="uil-car-sideview"></i>

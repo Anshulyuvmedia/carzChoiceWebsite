@@ -463,12 +463,12 @@ Designed and Development by: ScriptsBundle
     $('#price-slider').noUiSlider({
         connect: true,
         behaviour: 'tap',
-        margin: 5000,
-        start: [20000, 100000],
-        step: 2000,
+        margin: 50000,
+        start: [0, 10000000],
+        step: 10000,
         range: {
             'min': 0,
-            'max': 150000
+            'max': 10000000
         }
     });
     $('#price-slider').Link('lower').to($('#price-min'), null, wNumb({
@@ -477,6 +477,19 @@ Designed and Development by: ScriptsBundle
     $('#price-slider').Link('upper').to($('#price-max'), null, wNumb({
         decimals: 0
     }));
+    var priceMin = document.getElementById('price-min');
+    var priceMax = document.getElementById('price-max');
+
+    $('#price-slider').on('update', function(values, handle) {
+        var minValue = Math.round(values[0]);
+        var maxValue = Math.round(values[1]);
+
+        priceMin.innerHTML = minValue;
+        priceMax.innerHTML = maxValue;
+
+        priceMin.setAttribute('value', minValue);
+        priceMax.setAttribute('value', maxValue);
+    });
     /*==========  Month Range Slider  ==========*/
 
     $('#month-slider').noUiSlider({

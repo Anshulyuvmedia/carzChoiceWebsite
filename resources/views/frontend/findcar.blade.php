@@ -70,33 +70,34 @@
                     <!-- Ads Archive -->
                     <div class="col-md-12 col-xs-12 col-xs-12">
                         @if($variants->isNotEmpty())
-                            <div class="posts-masonry">
-                                @foreach ($variants as $row)
-                                <div class="ads-list-archive">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
-                                        <div class="ad-archive-img">
-                                            <a href="#">
-                                                <img class="img-responsive" src="{{ asset('assets/backend-assets/images/'.$row->addimage) }}"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix visible-xs-block"></div>
-                                    <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
-                                        <div class="ad-archive-desc">
-                                            <a class="" href="{{ route('carlistingdetails', ['id' => $row->id]) }}">
-                                                <h3>{{$row->brandname}}, {{$row->carname}}({{$row->carmodalname}})</h3>
-                                            </a>
-                                            <div class="ad-price-simple fs-3">Rs. {{$row->price}} Lakh <span
-                                                    class="fs-5 text-dark">Estimated Price </span></div>
-                                            <div class="category-title">Expected launch - June 2025 (Tentative)</div>
-                                        </div>
+                        <div class="posts-masonry">
+                            @foreach ($variants as $row)
+                            <div class="ads-list-archive">
+                                <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                                    <div class="ad-archive-img">
+                                        <a href="#">
+                                            <img class="img-responsive"
+                                                src="{{ asset('assets/backend-assets/images/'.$row->addimage) }}"
+                                                alt="">
+                                        </a>
                                     </div>
                                 </div>
-                                @endforeach
+                                <div class="clearfix visible-xs-block"></div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                                    <div class="ad-archive-desc">
+                                        <a class="" href="{{ route('carlistingdetails', ['id' => $row->id]) }}">
+                                            <h3>{{$row->brandname}}, {{$row->carname}}({{$row->carmodalname}})</h3>
+                                        </a>
+                                        <div class="ad-price-simple fs-3">Rs. {{$row->price}} Lakh <span
+                                                class="fs-5 text-dark">Estimated Price </span></div>
+                                        <div class="category-title">Expected launch - June 2025 (Tentative)</div>
+                                    </div>
+                                </div>
                             </div>
+                            @endforeach
+                        </div>
                         @else
-                            <h5 class="text-center">No vehicles are availabel in this type</h5>
+                        <h5 class="text-center">No vehicles are availabel in this type</h5>
                         @endif
                     </div>
                     <div class="clearfix"></div>
@@ -218,1003 +219,710 @@
                 <div class="header-bg"></div>
                 {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
             </div>
+            <form action="" id="makeformid">
+                <div class="modal-body" style="height: 350px; overflow-y: auto;">
+                    <!-- Panel group -->
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-            <div class="modal-body" style="height: 350px; overflow-y: auto;">
-                <!-- Panel group -->
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-
-                    <!-- Pricing Panel -->
-                    <div class="panel panel-default">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="headingfour">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Budget
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="collapsefour" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="headingfour">
-                            <div class="panel-body mb-2">
-                                <span class="price-slider-value">Upto <span id="price-min"></span> - <span
-                                        id="price-max"></span></span>
-                                <div id="price-slider"></div>
-                                {{-- <a class="btn btn-theme btn-sm margin-top-20">Search</a> --}}
+                        <!-- Pricing Panel -->
+                        <div class="panel panel-default">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="headingfour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Budget
+                                    </a>
+                                </h4>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Pricing Panel End -->
-
-
-                    <!-- Body Type Panel -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading7">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#collapse7" aria-expanded="false" aria-controls="collapse7">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Body Type
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="collapse7" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading7">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
-
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox">
-                                                <img class="img-responsive" src="https://imgd.aeplcdn.com/0x0/cw/body/svg/suv_clr.svg" />
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">SUV</div>
-                                            </label>
-                                        </li>
-
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/body/svg/sedan_clr.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Sedan</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/body/svg/hatchback_clr.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Hatchback</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/body/svg/suv_clr.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Compact SUV</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/body/svg/suv_clr.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">MUV</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/body/svg/van_clr.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Minivan/Van</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/body/svg/coupe_clr.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Coupe</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/body/svg/wagon_clr.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Station Wagon</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/body/svg/truck_clr.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Truck</div>
-                                            </label>
-                                        </li>
-
-
-                                    </ul>
+                            <!-- Content -->
+                            <div id="collapsefour" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="headingfour">
+                                <div class="panel-body mb-2">
+                                    <span class="price-slider-value">Upto <span id="price-min"></span> - <span
+                                            id="price-max"></span></span>
+                                    <div id="price-slider"></div>
+                                    {{-- <a class="btn btn-theme btn-sm margin-top-20">Search</a> --}}
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Condition Panel End -->
+                        <!-- Pricing Panel End -->
 
 
-                    <!-- Transmission Panel -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading9">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#collapse9" aria-expanded="false" aria-controls="collapse9">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Transmission Type
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="collapse9" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading9">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
-
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox">
-                                                <img class="img-responsive" src="https://imgd.aeplcdn.com/0x0/cw/transmission/svg/automatic_clr.svg?v3.0" />
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Automatic</div>
-                                            </label>
-                                        </li>
-
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/transmission/svg/manual_clr.svg?v3.0" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Manual</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/transmission/svg/imt_clr.svg?v3.0" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Clutchless Manual</div>
-                                            </label>
-                                        </li>
-
-
-
-                                    </ul>
+                        <!-- Body Type Panel -->
+                        <div class="panel panel-default carbodytype">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="heading7">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Body Type
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- Content -->
+                            <div id="collapse7" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading7">
+                                <div class="panel-body">
+                                    <div class="">
+                                        <ul class="list row">
+                                            @foreach ($results->where('type', 'Body Type') as $bodyType)
+                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                <label class="image-checkbox">
+                                                    <img
+                                                        src="{{ asset('assets/backend-assets/images/' . $bodyType->iconimage) }}" />
+                                                    <input type="checkbox" name="bodytypes[]" value="{{$bodyType->value}}" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="fs-6">{{$bodyType->value}}</div>
+                                                </label>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Transmission Panel End -->
-
-                    <!-- fuel Panel -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading9">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#fuelcollapsed" aria-expanded="false" aria-controls="collapse9">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Fuel Type
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="fuelcollapsed" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading9">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
-
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox">
-                                                <img class="img-responsive" src="https://imgd.aeplcdn.com/0x0/cw/fuel/svg/h-filter-without-background.svg?v=2" />
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Hybrid</div>
-                                            </label>
-                                        </li>
-
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/fuel/svg/petrol.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Petrol</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/fuel/svg/diesel.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Diesel</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/fuel/svg/cng.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">CNG</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox ">
-                                                <img class="img-responsive"
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/fuel/svg/electric.svg" />
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="fs-6">Electric</div>
-                                            </label>
-                                        </li>
+                        <!-- Condition Panel End -->
 
 
-
-                                    </ul>
+                        <!-- Transmission Panel -->
+                        <div class="panel panel-default carbodytype">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="heading9">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Transmission Type
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- Content -->
+                            <div id="collapse9" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading9">
+                                <div class="panel-body">
+                                    <div class="">
+                                        <ul class="list row">
+                                            @foreach ($results->where('type', 'Transmission') as $Transmission)
+                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                <label class="image-checkbox">
+                                                    <img
+                                                        src="{{ asset('assets/backend-assets/images/' . $Transmission->iconimage) }}" />
+                                                    <input type="checkbox" name="transmissions[]" value="{{$Transmission->value}}" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="fs-6">{{$Transmission->value}}</div>
+                                                </label>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- fuel Panel End -->
+                        <!-- Transmission Panel End -->
 
-
-                    <!-- seating Panel -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading9">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#seatingcollapsed" aria-expanded="false" aria-controls="collapse9">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Seating Capacity
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="seatingcollapsed" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading9">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
-
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox p-0">
-
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">5 Seater</div>
-                                            </label>
-                                        </li>
-
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">6 Seater</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">7 Seater</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">8 Seater</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">8+ Seater</div>
-                                            </label>
-                                        </li>
-                                    </ul>
+                        <!-- fuel Panel -->
+                        <div class="panel panel-default carbodytype">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="heading9">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#fuelcollapsed" aria-expanded="false" aria-controls="collapse9">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Fuel Type
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- Content -->
+                            <div id="fuelcollapsed" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading9">
+                                <div class="panel-body">
+                                    <div class="">
+                                        <ul class="list row">
+                                            @foreach ($results->where('type', 'Fuel Type') as $fueltype)
+                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                <label class="image-checkbox">
+                                                    <img
+                                                        src="{{ asset('assets/backend-assets/images/' . $fueltype->iconimage) }}" />
+                                                    <input type="checkbox" name="fueltypes[]" value="{{$fueltype->value}}" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="fs-6">{{$fueltype->value}}</div>
+                                                </label>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- seating Panel End -->
+                        <!-- fuel Panel End -->
 
 
-                    <!-- Mileage Panel -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading9">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#Mileagecollapsed" aria-expanded="false" aria-controls="collapse9">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Mileage
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="Mileagecollapsed" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading9">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
-
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0">
-
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Upto 10 kmpl</div>
-                                            </label>
-                                        </li>
-
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">10 kmpl - 15 kmpl</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">15 kmpl - 20 kmpl</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Above 20 kmpl</div>
-                                            </label>
-                                        </li>
-                                    </ul>
+                        <!-- seating Panel -->
+                        <div class="panel panel-default carbodytype">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="heading9">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#seatingcollapsed" aria-expanded="false" aria-controls="collapse9">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Seating Capacity
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- Content -->
+                            <div id="seatingcollapsed" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading9">
+                                <div class="panel-body">
+                                    <div class="">
+                                        <ul class="list row">
+                                            @foreach ($results->where('type', 'Seating Capacity') as $seater)
+                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                <label class="image-checkbox p-0">
+                                                    <input type="checkbox" name="seatingcaps[]" value="{{$seater->value}}" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">{{$seater->value}}</div>
+                                                </label>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Mileage Panel End -->
+                        <!-- seating Panel End -->
 
 
+                        <!-- Mileage Panel -->
+                        {{-- <div class="panel panel-default carbodytype">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="heading9">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#Mileagecollapsed" aria-expanded="false" aria-controls="collapse9">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Mileage
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- Content -->
+                            <div id="Mileagecollapsed" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading9">
+                                <div class="panel-body">
+                                    <div class="">
+                                        <ul class="list row">
 
-                    <!-- Additional Feature  -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading9">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#Additionalcollapsed" aria-expanded="false" aria-controls="collapse9">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Additional features
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="Additionalcollapsed" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading9">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0">
 
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0">
+                                                    <input type="checkbox" name="image[]" value="1" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Upto 10 kmpl</div>
+                                                </label>
+                                            </li>
 
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Sunroof</div>
-                                            </label>
-                                        </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">10 kmpl - 15 kmpl</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Sunroof</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">15 kmpl - 20 kmpl</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Touchscreen Display</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Alloy Wheels</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Music System</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Rear AC Vents</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Central Locking</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Cruise Control</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Hill Hold Control</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Four Wheel Drive</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Ventilated Seats</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
-
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Wireless Charging</div>
-                                            </label>
-                                        </li>
-                                    </ul>
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Above 20 kmpl</div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Additional Panel End -->
+                        </div> --}}
+                        <!-- Mileage Panel End -->
 
-                    <!-- Safety Panel -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading9">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#Safetycollapsed" aria-expanded="false" aria-controls="collapse9">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Safety Ratings
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="Safetycollapsed" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading9">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
 
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox p-0">
+                        <!-- Safety Panel -->
+                        {{-- <div class="panel panel-default carbodytype">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="heading9">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#Safetycollapsed" aria-expanded="false" aria-controls="collapse9">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Safety Ratings
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- Content -->
+                            <div id="Safetycollapsed" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading9">
+                                <div class="panel-body">
+                                    <div class="">
+                                        <ul class="list row">
 
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">1 Star</div>
-                                            </label>
-                                        </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                <label class="image-checkbox p-0">
 
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="1" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">1 Star</div>
+                                                </label>
+                                            </li>
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">2 Star</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">3 Star</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">2 Star</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">4 Star</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">3 Star</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">5 Star</div>
-                                            </label>
-                                        </li>
-                                    </ul>
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">4 Star</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
+
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">5 Star</div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- seating Panel End -->
+                        </div> --}}
+                        <!-- seating Panel End -->
 
 
-                    <!-- Engine Feature  -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading9">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#Enginecollapsed" aria-expanded="false" aria-controls="collapse9">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Engine Capacity
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="Enginecollapsed" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading9">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
+                        <!-- Engine Feature  -->
+                        {{-- <div class="panel panel-default carbodytype">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="heading9">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#Enginecollapsed" aria-expanded="false" aria-controls="collapse9">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Engine Capacity
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- Content -->
+                            <div id="Enginecollapsed" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading9">
+                                <div class="panel-body">
+                                    <div class="">
+                                        <ul class="list row">
 
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0">
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0">
 
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Upto 800cc</div>
-                                            </label>
-                                        </li>
+                                                    <input type="checkbox" name="image[]" value="1" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Upto 800cc</div>
+                                                </label>
+                                            </li>
 
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">800cc - 1000cc</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">800cc - 1000cc</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">1000cc - 1200cc</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">1000cc - 1200cc</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">1200cc - 1500cc</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">1200cc - 1500cc</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">1500cc - 2000cc</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">1500cc - 2000cc</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">2000cc - 3000cc</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">2000cc - 3000cc</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">3000cc - 4000cc</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">3000cc - 4000cc</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Above 4000cc</div>
-                                            </label>
-                                        </li>
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Above 4000cc</div>
+                                                </label>
+                                            </li>
 
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Engine Panel End -->
+                        </div> --}}
+                        <!-- Engine Panel End -->
 
 
-                    <!-- Power Feature  -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading9">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#Powercollapsed" aria-expanded="false" aria-controls="collapse9">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Power
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="Powercollapsed" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading9">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
+                        <!-- Power Feature  -->
+                        {{-- <div class="panel panel-default carbodytype">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="heading9">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#Powercollapsed" aria-expanded="false" aria-controls="collapse9">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Power
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- Content -->
+                            <div id="Powercollapsed" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading9">
+                                <div class="panel-body">
+                                    <div class="">
+                                        <ul class="list row">
 
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0">
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0">
 
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Upto 70 bhp</div>
-                                            </label>
-                                        </li>
+                                                    <input type="checkbox" name="image[]" value="1" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Upto 70 bhp</div>
+                                                </label>
+                                            </li>
 
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">70 bhp - 100 bhp</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">70 bhp - 100 bhp</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">100 bhp - 140 bhp</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">100 bhp - 140 bhp</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">140 bhp - 200 bhp</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">140 bhp - 200 bhp</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">200 bhp - 350 bhp</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">200 bhp - 350 bhp</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Above 350 bhp</div>
-                                            </label>
-                                        </li>
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Above 350 bhp</div>
+                                                </label>
+                                            </li>
 
 
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Power Panel End -->
+                        </div> --}}
+                        <!-- Power Panel End -->
 
 
-                    <!-- Torque Feature  -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading9">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#Torquecollapsed" aria-expanded="false" aria-controls="collapse9">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Torque
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="Torquecollapsed" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading9">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
+                        <!-- Torque Feature  -->
+                        {{-- <div class="panel panel-default carbodytype">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="heading9">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#Torquecollapsed" aria-expanded="false" aria-controls="collapse9">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Torque
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- Content -->
+                            <div id="Torquecollapsed" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading9">
+                                <div class="panel-body">
+                                    <div class="">
+                                        <ul class="list row">
 
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0">
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0">
 
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Upto 90 Nm</div>
-                                            </label>
-                                        </li>
+                                                    <input type="checkbox" name="image[]" value="1" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Upto 90 Nm</div>
+                                                </label>
+                                            </li>
 
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">90 Nm - 140 Nm</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">90 Nm - 140 Nm</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">140 Nm - 200 Nm</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">140 Nm - 200 Nm</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">200 Nm - 350 Nm</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">200 Nm - 350 Nm</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">350 Nm - 550 Nm</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">350 Nm - 550 Nm</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-6 col-sm-3 col-md-4 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Above 550 Nm</div>
-                                            </label>
-                                        </li>
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Above 550 Nm</div>
+                                                </label>
+                                            </li>
 
 
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Torque Panel End -->
+                        </div> --}}
+                        <!-- Torque Panel End -->
 
 
-                    <!-- Colours Feature  -->
-                    <div class="panel panel-default carbodytype">
-                        <!-- Heading -->
-                        <div class="panel-heading" role="tab" id="heading9">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                    href="#Colourscollapsed" aria-expanded="false" aria-controls="collapse9">
-                                    <i class="more-less glyphicon glyphicon-plus"></i>
-                                    Colours
-                                </a>
-                            </h4>
-                        </div>
-                        <!-- Content -->
-                        <div id="Colourscollapsed" class="panel-collapse collapse" role="tabpanel"
-                            aria-labelledby="heading9">
-                            <div class="panel-body">
-                                <div class="">
-                                    <ul class="list row">
+                        <!-- Colours Feature  -->
+                        {{-- <div class="panel panel-default carbodytype">
+                            <!-- Heading -->
+                            <div class="panel-heading" role="tab" id="heading9">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                        href="#Colourscollapsed" aria-expanded="false" aria-controls="collapse9">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        Colours
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- Content -->
+                            <div id="Colourscollapsed" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading9">
+                                <div class="panel-body">
+                                    <div class="">
+                                        <ul class="list row">
 
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0">
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0">
 
-                                                <input type="checkbox" name="image[]" value="1" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">White</div>
-                                            </label>
-                                        </li>
+                                                    <input type="checkbox" name="image[]" value="1" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">White</div>
+                                                </label>
+                                            </li>
 
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Silver</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Silver</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Grey</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Grey</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Red</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Red</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Blue</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Blue</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Green</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Green</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Black</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Black</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Yellow</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Yellow</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Brown</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Brown</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Orange</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Orange</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Beige</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Beige</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Bold</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Bold</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Bronze</div>
-                                            </label>
-                                        </li>
-                                        <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
-                                            <label class="image-checkbox p-0 ">
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Bronze</div>
+                                                </label>
+                                            </li>
+                                            <li class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+                                                <label class="image-checkbox p-0 ">
 
-                                                <input type="checkbox" name="image[]" value="" />
-                                                <i class="fa fa-check hidden"></i>
-                                                <div class="">Copper</div>
-                                            </label>
-                                        </li>
+                                                    <input type="checkbox" name="image[]" value="" />
+                                                    <i class="fa fa-check hidden"></i>
+                                                    <div class="">Copper</div>
+                                                </label>
+                                            </li>
 
 
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+                        <!-- Torque Panel End -->
+
                     </div>
-                    <!-- Torque Panel End -->
-
-
-
-
-
+                    <!-- panel-group end -->
                 </div>
-                <!-- panel-group end -->
-            </div>
-            <div class="modal-footer">
-                <div class="col-md-12 my-3 text-center">
-                    <button class="btn btn-theme rounded-3" data-bs-target="#selectLocation"
-                        data-bs-toggle="modal">Apply Changes</button>
+                <div class="modal-footer">
+                    <div class="col-md-12 my-3 text-center">
+                        <button type="submit" class="btn btn-theme rounded-3" data-bs-target="#selectLocation"
+                            data-bs-toggle="modal">Apply Changes</button>
+                    </div>
                 </div>
-            </div>
-
+            </form>
         </div>
     </div>
 </div>
@@ -1222,7 +930,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
     $(".image-checkbox").each(function() {
         var $checkbox = $(this).find('input[type="checkbox"]').first();
         if ($checkbox.is(":checked")) {
@@ -1247,8 +955,6 @@ $(document).ready(function() {
         console.log("Checkbox checked state on load: ", $checkbox.prop("checked"));
     });
 });
-
-
 </script>
 
 <script>
@@ -1262,5 +968,34 @@ $(document).ready(function() {
     });
 </script>
 
+<script>
+    //This is Home Page filter by Car Details
+    jQuery('#makeformid').submit(function(e) {
+        e.preventDefault();
 
+        var priceMin = document.getElementById('price-min').innerText;
+        var priceMax = document.getElementById('price-max').innerText;
+        console.log(priceMin,priceMax);
+
+        var formdata = jQuery('#makeformid').serialize();
+        formdata += `&minprice=${priceMin}&maxprice=${priceMax}`;
+        console.log(formdata);
+        jQuery.ajax({
+            url: "{{ route('makefilterfindcar') }}",
+            data: {formdata},
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data) {
+                console.log(data);
+                // if (data.success) {
+                //     window.location.href = data.redirect_url;
+                // } else {
+                //     alert("error");
+                // }
+            }
+        });
+    });
+</script>
 @endsection
