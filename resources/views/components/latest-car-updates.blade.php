@@ -1,13 +1,14 @@
-<section class="custom-padding gray">
+<section class="custom-padding ">
     <div class="container featured-cars">
         <div class="row">
-            <div class="heading-panel">
-                <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                    <h1>Latest Car <span class="heading-color"> Updates</span> </h1>
-                </div>
-            </div>
+            
 
             <div class="card">
+                <div class="heading-panel">
+                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                        <h1>Latest Car <span class="heading-color"> Updates</span> </h1>
+                    </div>
+                </div>
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="nav-item active">
                         <a class="nav-link" aria-controls="trending" role="tab" data-toggle="tab"
@@ -35,7 +36,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post shadow-sm rounded-3 h-100" style="background: #ededed">
+                                                    <div class="blog-post">
 
                                                         <div class="post-img">
                                                             @if ($data->blogimg)
@@ -64,7 +65,7 @@
                                                             </span>
                                                         </div>
                                                         <div class="post-excerpt">
-                                                            {{ substr($data->description, 0, 75) }}...
+                                                            {{ substr($data->description, 0, 25) }}...
                                                         </div>
                                                         <div class="post-title pull-right">
                                                             <a href={{ route('newsdetails', ['id' => $data->id]) }}>
@@ -91,7 +92,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post shadow rounded-3" style="background: #ededed">
+                                                    <div class="blog-post">
 
                                                         <div class="post-img">
                                                             @if ($data->blogimg)
@@ -120,7 +121,7 @@
                                                             </span>
                                                         </div>
                                                         <p class="post-excerpt">
-                                                            {{ substr($data->description, 0, 75) }}...
+                                                            {{ substr($data->description, 0, 25) }}...
                                                         </p>
                                                         <div class="post-title pull-right">
                                                             <a href={{ route('newsdetails', ['id' => $data->id]) }}>
@@ -147,7 +148,7 @@
                                         <div class="item">
                                             <div class="grid-style-2">
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                    <div class="blog-post shadow rounded-3" style="background: #ededed">
+                                                    <div class="blog-post">
                                                         <div class="post-img">
                                                             @if ($data->blogimg)
                                                                 <a
@@ -180,7 +181,7 @@
                                                                 </span>
                                                             </div>
                                                             <p class="post-excerpt">
-                                                                {{ substr($data->description, 0, 75) }}...
+                                                                {{ substr($data->description, 0, 25) }}...
                                                             </p>
                                                             <div class="post-title pull-right">
                                                                 <a href={{ route('newsdetails', ['id' => $data->id]) }}>

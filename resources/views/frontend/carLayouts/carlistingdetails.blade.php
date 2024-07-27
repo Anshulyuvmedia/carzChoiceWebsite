@@ -185,7 +185,7 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <a href="#" class="btn btn-outline btn-danger btn-sm rounded-3"
+                                            <a href="#" class="btn btn-theme rounded-4 btn-sm rounded-3"
                                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
                                                 aria-controls="offcanvasWithBothOptions">
                                                 Get EMI Offers
@@ -335,7 +335,7 @@
                                     </table>
 
                                     <div class="float-end">
-                                        <a href="#" class="btn btn-outline btn-danger btn-sm rounded-3"
+                                        <a href="#" class="btn btn-theme rounded-4 btn-sm rounded-3"
                                             data-bs-toggle="offcanvas" data-bs-target="#compareOffcanvas"
                                             aria-controls="offcanvasBottom">
                                             Compare Cars
@@ -354,7 +354,7 @@
                                     <p>Get in touch for the best buying option from your authorized dealer</p>
                                 </div>
                                 <div class="col-md-3 col-xs-12 col-sm-12">
-                                    <a class="btn btn-theme btn-block rounded-3 " data-bs-toggle="offcanvas"
+                                    <a class="btn btn-theme rounded-4 btn-block rounded-3 " data-bs-toggle="offcanvas"
                                         data-bs-target="#offcanvasWithBothOptions"
                                         aria-controls="offcanvasWithBothOptions">Get Assistance</a>
                                 </div>
@@ -794,7 +794,7 @@
                                         </span>
                                     </div>
                                     <div class="col-md-3 col-xs-12 col-sm-12 ">
-                                        <a class="btn btn-theme btn-sm rounded-3 pull-left">Download Brochure</a>
+                                        <a class="btn btn-theme rounded-4 btn-sm rounded-3 pull-left">Download Brochure</a>
                                     </div>
                                 </div>
                             </div>
@@ -1460,7 +1460,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-12  col-sm-12 margin-bottom-20 margin-top-20">
-                        <button type="submit" class="btn btn-theme btn-block">Submit</button>
+                        <button type="submit" class="btn btn-theme rounded-4 btn-block">Submit</button>
                     </div>
                 </form>
             </div>
@@ -1569,7 +1569,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="col-md-12 col-sm-12 margin-bottom-20 margin-top-20">
-                        <button type="submit" class="btn btn-theme btn-block">Submit</button>
+                        <button type="submit" class="btn btn-theme rounded-4 btn-block">Submit</button>
                     </div>
                 </form>
             </div>
@@ -1592,7 +1592,7 @@
             <label for="formGroupExampleInput" class="form-label">Contact Number</label>
             <input type="tel" class="form-control" id="formGroupExampleInput" placeholder="Enter Mobile Number">
             <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once</div>
-            <button class="btn btn-theme btn-lg btn-block">Register</button>
+            <button class="btn btn-theme rounded-4 btn-lg btn-block">Register</button>
         </div>
 
     </div>
@@ -1742,14 +1742,14 @@
                     </div>
                     {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
                         <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
-                            class="btn btn-theme btn-block">Select Brand</button>
+                            class="btn btn-theme rounded-4 btn-block">Select Brand</button>
                     </div> --}}
                 </form>
             </div>
             {{-- <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
                     <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
-                        class="btn btn-theme btn-block rounded-3">Go Back</button>
+                        class="btn btn-theme rounded-4 btn-block rounded-3">Go Back</button>
                 </div>
             </div> --}}
         </div>
@@ -1934,7 +1934,7 @@
 
             {{-- <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme btn-block" data-bs-target="#selectCity" data-bs-toggle="modal">Open
+                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCity" data-bs-toggle="modal">Open
                         City Modal</button>
                 </div>
             </div> --}}
@@ -1960,7 +1960,7 @@
                 </div>
                 <div class="col-md-2 col-xs-12 col-sm-12 px-2 text-center my-auto">
                     <a href="#" class="comparebtnclass">
-                        <button type="submit" class="btn btn-theme btn-block rounded-3">Compare</button>
+                        <button type="submit" class="btn btn-theme rounded-4 btn-block rounded-3">Compare</button>
                     </a>
                 </div>
             </div>

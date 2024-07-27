@@ -69,7 +69,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-theme btn-lg btn-block">Register</button>
+                            <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Register</button>
                         </form>
 
                         <form action="{{ route('verifyregisterotp') }}" method="POST" id="registerotpform"
@@ -105,7 +105,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-3 mb-3">
-                                    <button type="submit" class="btn btn-theme btn-lg btn-block">Submit</button>
+                                    <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Submit</button>
                                 </div>
                             </div>
                         </form>

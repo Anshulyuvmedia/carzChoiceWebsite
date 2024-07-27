@@ -46,7 +46,7 @@
                             <li>Unlimited tasks</li>
                             <li>Basic Dashboards</li>
                          </ul>
-                         <a href="#" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                       </div>
                    </div>
                    <div class="col-sm-6 col-lg-4 col-md-4">
@@ -61,7 +61,7 @@
                             <li>Unlimited tasks</li>
                             <li>Basic Dashboards</li>
                          </ul>
-                         <a href="#" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                       </div>
                    </div>
                    <div class="col-sm-6 col-lg-4 col-md-4">
@@ -76,7 +76,7 @@
                             <li>Unlimited tasks</li>
                             <li>Basic Dashboards</li>
                          </ul>
-                         <a href="#" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                       </div>
                    </div>
                 </div>
@@ -108,7 +108,7 @@
                             <li>Unlimited tasks</li>
                             <li>Basic Dashboards</li>
                          </ul>
-                         <a href="#" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                       </div>
                    </div>
                    <div class="col-sm-6 col-lg-3 col-md-3">
@@ -123,7 +123,7 @@
                             <li>Unlimited tasks</li>
                             <li>Basic Dashboards</li>
                          </ul>
-                         <a href="#" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                       </div>
                    </div>
                    <div class="col-sm-6 col-lg-3 col-md-3">
@@ -138,7 +138,7 @@
                             <li>Unlimited tasks</li>
                             <li>Basic Dashboards</li>
                          </ul>
-                         <a href="#" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                       </div>
                    </div>
                    <div class="col-sm-6 col-lg-3 col-md-3">
@@ -153,7 +153,7 @@
                             <li>Unlimited tasks</li>
                             <li>Basic Dashboards</li>
                          </ul>
-                         <a href="#" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                       </div>
                    </div>
                 </div>
@@ -279,7 +279,7 @@
                          <div class="price"><small>$</small>0</div>
                          <strong>Standard Posting <span class="hidden-sm">(Free)</span></strong>
                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ratione, in iste error excepturi illum.</p>
-                         <a href="#" class="btn btn-theme">Select Plan</a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan</a>
                       </div>
                    </div>
                    <!-- Pricing -->
@@ -288,7 +288,7 @@
                          <div class="price"><small>$</small>2</div>
                          <strong>Featured Posting</strong>
                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ratione, in iste error excepturi illum.</p>
-                         <a href="#" class="btn btn-theme">Select Plan</a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan</a>
                       </div>
                    </div>
                    <!-- Pricing -->
@@ -297,7 +297,7 @@
                          <div class="price"><small>$</small>5</div>
                          <strong>Premium Posting</strong>
                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ratione, in iste error excepturi illum.</p>
-                         <a href="#" class="btn btn-theme">Select Plan</a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan</a>
                       </div>
                    </div>
                 </div>

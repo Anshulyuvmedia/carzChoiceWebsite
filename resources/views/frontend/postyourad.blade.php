@@ -245,7 +245,7 @@
                             <input class="form-control" placeholder="eg House no 8 Streent no 2 New York" type="text">
                          </div>
                       </div>
-                      <button class="btn btn-theme pull-right">Publish My Ad</button>
+                      <button class="btn btn-theme rounded-4 pull-right">Publish My Ad</button>
                    </form>
                 </div>
                 <!-- end post-ad-form-->

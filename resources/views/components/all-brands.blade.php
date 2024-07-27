@@ -1,11 +1,11 @@
 <!-- =-=-=-=-=-=-= All Brands =-=-=-=-=-=-= -->
-<section class="client-section">
-    <div class="container">
+<section class="client-section ">
+    <div class="container card">
         <div class="row">
             <div class="heading-panel">
                 <div class="col-xs-12 col-md-12 col-sm-12 left-side">
                     <!-- Main Title -->
-                    <h1> <span class="heading-color"> All</span> Brands</h1>
+                    <h1> <span class="heading-color"> Popular</span> Brands</h1>
                 </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -17,6 +17,7 @@
                                     <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
                                         class="img-responsive" alt="Brand Image" width="150" />
                                 </a>
+                                <div class="text-center fs-4">{{ $data->value }}</div>
                             </div>
                         @endforeach
                     </div>

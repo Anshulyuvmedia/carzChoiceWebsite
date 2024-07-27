@@ -110,18 +110,18 @@
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row my-3">
                                 <div class="d-flex  pb-4" style="width: 100%; overflow-x: auto;">
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Outer
+                                    <button type="button" class="btn btn-theme rounded-4 rounded-pill mx-3">Outer
                                         view</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Outer
+                                    <button type="button" class="btn btn-theme rounded-4 rounded-pill mx-3">Outer
                                         lights</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Outer
+                                    <button type="button" class="btn btn-theme rounded-4 rounded-pill mx-3">Outer
                                         Parts </button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Doors
+                                    <button type="button" class="btn btn-theme rounded-4 rounded-pill mx-3">Doors
                                         and Mirrors</button>
                                     <button type="button"
-                                        class="btn btn-outline btn-danger rounded-pill mx-3">Roof</button>
+                                        class="btn btn-theme rounded-4 rounded-pill mx-3">Roof</button>
                                     <button type="button"
-                                        class="btn btn-outline btn-danger rounded-pill mx-3">Logo</button>
+                                        class="btn btn-theme rounded-4 rounded-pill mx-3">Logo</button>
                                 </div>
 
                             </div>
@@ -216,31 +216,31 @@
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row my-3">
                                 <div class="d-flex  pb-4" style="width: 100%; overflow-x: auto;">
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Seat &
+                                    <button type="button" class="btn btn-theme rounded-4 rounded-pill mx-3">Seat &
                                         seat adjustments</button>
                                     <button type="button"
-                                        class="btn btn-outline btn-danger rounded-pill mx-3">Dashboard</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Gears,
+                                        class="btn btn-theme rounded-4 rounded-pill mx-3">Dashboard</button>
+                                    <button type="button" class="btn btn-theme rounded-4 rounded-pill mx-3">Gears,
                                         Pedals and Stalks </button>
                                     <button type="button"
-                                        class="btn btn-outline btn-danger rounded-pill mx-3">Storage and Cup
+                                        class="btn btn-theme rounded-4 rounded-pill mx-3">Storage and Cup
                                         holders</button>
                                     <button type="button"
-                                        class="btn btn-outline btn-danger rounded-pill mx-3">Entertainment
+                                        class="btn btn-theme rounded-4 rounded-pill mx-3">Entertainment
                                         systems</button>
                                     <button type="button"
-                                        class="btn btn-outline btn-danger rounded-pill mx-3">Ac</button>
+                                        class="btn btn-theme rounded-4 rounded-pill mx-3">Ac</button>
                                     <button type="button"
-                                        class="btn btn-outline btn-danger rounded-pill mx-3">Interior lights</button>
+                                        class="btn btn-theme rounded-4 rounded-pill mx-3">Interior lights</button>
                                     <button type="button"
-                                        class="btn btn-outline btn-danger rounded-pill mx-3">Charging points</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Doors
+                                        class="btn btn-theme rounded-4 rounded-pill mx-3">Charging points</button>
+                                    <button type="button" class="btn btn-theme rounded-4 rounded-pill mx-3">Doors
                                         & Controls</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Hooks
+                                    <button type="button" class="btn btn-theme rounded-4 rounded-pill mx-3">Hooks
                                         and Handles</button>
                                     <button type="button"
-                                        class="btn btn-outline btn-danger rounded-pill mx-3">AirBags</button>
-                                    <button type="button" class="btn btn-outline btn-danger rounded-pill mx-3">Other
+                                        class="btn btn-theme rounded-4 rounded-pill mx-3">AirBags</button>
+                                    <button type="button" class="btn btn-theme rounded-4 rounded-pill mx-3">Other
                                         (interior)</button>
 
 

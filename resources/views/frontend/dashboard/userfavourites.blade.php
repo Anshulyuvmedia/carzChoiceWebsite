@@ -706,7 +706,7 @@
                             <p>2500cm3</p>
                          </li>
                       </ul>
-                      <button class="btn btn-theme btn-block" type="submit">Contact Dealer</button>
+                      <button class="btn btn-theme rounded-4 btn-block" type="submit">Contact Dealer</button>
                    </div>
                 </div>
                 <!-- .summary -->

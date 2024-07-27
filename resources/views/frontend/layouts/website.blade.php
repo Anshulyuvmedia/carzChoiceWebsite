@@ -78,7 +78,7 @@
                         <!-- Header Top Left -->
                         <div class="header-top-left col-md-6 col-sm-6 col-xs-12 hidden-xs">
                             <ul class="listnone">
-                                <li><a href="/about"><i class="fa fa-heart-o" aria-hidden="true"></i> About</a></li>
+                                {{-- <li><a href=""><i class="fa fa-heart-o" aria-hidden="true"></i> About</a></li> --}}
 
                             </ul>
                         </div>
@@ -106,7 +106,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="postyourad" class="btn btn-theme">Sell Your Car</a>
+                                        <a href="postyourad" class="btn btn-theme rounded-4">Sell Your Car</a>
                                     </li>
                                 </ul>
                             </div>
@@ -245,6 +245,7 @@
 
 
                                 </ul>
+                                
                                 <ul class="menu-search-bar">
                                     <li>
                                         <a>
@@ -326,7 +327,7 @@
                         <div class="widget my-quicklinks">
                             <h5>Quick Links</h5>
                             <ul>
-                                <li><a href="/about">About Us</a></li>
+                                <li><a href="#">About Us</a></li>
                                 <li><a href="/services">Services</a></li>
                                 <li><a href="/pricing">Pricing</a></li>
                                 <li><a href="/contactus">Contact Us</a></li>

@@ -116,7 +116,7 @@
                                                             </p>
 
                                                             <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                <button class="btn btn-theme rounded-4 btn-sm  ">
                                                                     <i class="fa fa-phone"></i>
                                                                     View Details.
                                                                 </button>
@@ -176,7 +176,7 @@
                                                             </p>
 
                                                             <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                <button class="btn btn-theme rounded-4 btn-sm  ">
                                                                     <i class="fa fa-phone"></i>
                                                                     View Details.
                                                                 </button>
@@ -238,7 +238,7 @@
                                                             </p>
 
                                                             <a class="" href="#">
-                                                                <button class="btn btn-outline btn-danger btn-sm  ">
+                                                                <button class="btn btn-theme rounded-4 btn-sm  ">
                                                                     <i class="fa fa-phone"></i>
                                                                     View Details.
                                                                 </button>
@@ -318,7 +318,7 @@
                                                     <span class="text-muted ps-2">onwards</span>
                                                 </div>
                                                 <a class="  ">
-                                                    <button class="btn btn-outline btn-danger btn-sm ">
+                                                    <button class="btn btn-theme rounded-4 btn-sm ">
                                                         Get Offer
                                                     </button>
                                                 </a>

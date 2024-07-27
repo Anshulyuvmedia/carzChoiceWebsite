@@ -475,7 +475,7 @@
                                             </div>
                                             <a href="#">
                                                 <button
-                                                    class="btn btn-outline btn-danger btn-lg btn-block   mt-3">Compare
+                                                    class="btn btn-theme rounded-4 btn-lg btn-block   mt-3">Compare
                                                     Now</button>
                                             </a>
                                             <div class="clearfix"></div>
@@ -523,7 +523,7 @@
                                                 </div>
                                             </div>
                                             <a href="#">
-                                                <button class="btn btn-outline btn-danger btn-lg btn-block ">Compare
+                                                <button class="btn btn-theme rounded-4 btn-lg btn-block ">Compare
                                                     Now</button>
                                             </a>
                                             <div class="clearfix"></div>
@@ -572,7 +572,7 @@
                                             </div>
                                             <a href="#">
                                                 <button
-                                                    class="btn btn-outline btn-danger btn-lg btn-block   mt-3">Compare
+                                                    class="btn btn-theme rounded-4 btn-lg btn-block   mt-3">Compare
                                                     Now</button>
                                             </a>
                                             <div class="clearfix"></div>

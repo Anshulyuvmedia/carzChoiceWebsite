@@ -133,7 +133,7 @@
                             </div>
                          </div>
                          <div class="col-md-12 col-sm-12">
-                            <button class="btn btn-theme pull-right margin-bottom-20"><i class="fa fa-close"></i> Clsoe Now </button>
+                            <button class="btn btn-theme rounded-4 pull-right margin-bottom-20"><i class="fa fa-close"></i> Clsoe Now </button>
                          </div>
                       </form>
                    </div>
@@ -239,7 +239,7 @@
                             <p>2500cm3</p>
                          </li>
                       </ul>
-                      <button class="btn btn-theme btn-block" type="submit">Contact Dealer</button>
+                      <button class="btn btn-theme rounded-4 btn-block" type="submit">Contact Dealer</button>
                    </div>
                 </div>
                 <!-- .summary -->

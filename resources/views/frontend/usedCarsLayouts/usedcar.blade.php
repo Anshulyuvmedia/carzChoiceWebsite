@@ -64,7 +64,7 @@
                                 </div>
                             </li>
                             <li>
-                                <button type="submit" class="btn btn-theme btn-lg btn-block">Search</button>
+                                <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Search</button>
                             </li>
                         </ul>
                     </div>
@@ -807,7 +807,7 @@
                                                 <span class="text-muted ps-2">Starting Price</span>
                                             </div>
                                             <a class="  ">
-                                                <button class="btn btn-outline btn-danger btn-sm ">
+                                                <button class="btn btn-theme rounded-4 btn-sm ">
                                                     Get Offer
                                                 </button>
                                             </a>
@@ -845,7 +845,7 @@
                                             <div class="ad-price">Rs. 6.5 Lakh <span class="text-muted ps-2">Starting
                                                     Price</span></div>
                                             <a class="  ">
-                                                <button class="btn btn-outline btn-danger btn-sm ">
+                                                <button class="btn btn-theme rounded-4 btn-sm ">
                                                     Get Offer
                                                 </button>
                                             </a>
@@ -881,7 +881,7 @@
                                             <div class="ad-price">Rs. 70,000 <span class="text-muted ps-2">Starting
                                                     Price</span></div>
                                             <a class="  ">
-                                                <button class="btn btn-outline btn-danger btn-sm ">
+                                                <button class="btn btn-theme rounded-4 btn-sm ">
                                                     Get Offer
                                                 </button>
                                             </a>
@@ -917,7 +917,7 @@
                                             <div class="ad-price">Rs. 4 Lakh <span class="text-muted ps-2">Starting
                                                     Price</span></div>
                                             <a class="  ">
-                                                <button class="btn btn-outline btn-danger btn-sm ">
+                                                <button class="btn btn-theme rounded-4 btn-sm ">
                                                     Get Offer
                                                 </button>
                                             </a>
@@ -955,7 +955,7 @@
                                             <div class="ad-price">Rs. 5 Lakh<span class="text-muted ps-2">Starting
                                                     Price</span></div>
                                             <a class="  ">
-                                                <button class="btn btn-outline btn-danger btn-sm ">
+                                                <button class="btn btn-theme rounded-4 btn-sm ">
                                                     Get Offer
                                                 </button>
                                             </a>
@@ -1452,7 +1452,7 @@
 
             {{-- <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme btn-block" data-bs-target="#selectCity" data-bs-toggle="modal">Open
+                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCity" data-bs-toggle="modal">Open
                         City Modal</button>
                 </div>
             </div> --}}
@@ -1514,7 +1514,7 @@
 
             <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme btn-sm" data-bs-target="#selectLocation" data-bs-toggle="modal">Go
+                    <button class="btn btn-theme rounded-4 btn-sm" data-bs-target="#selectLocation" data-bs-toggle="modal">Go
                         Back</button>
                 </div>
             </div>

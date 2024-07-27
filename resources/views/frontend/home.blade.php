@@ -4,20 +4,182 @@
 
 <div>
     <!-- =-=-=-=-=-=-= Home Banner  =-=-=-=-=-=-= -->
-    <div id="banner"
+    <div id="banner" class="hideInMobile"
         style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->mainbannerimg) }}')">
         <div class="container">
             <div class="search-container">
                 <!-- Form -->
                 <h2>What are you looking for ?</h2>
                 <p>Search <strong>267,241</strong> new ads -<strong> 83 </strong> added today</p>
-                <a class="btn btn-theme">Post Your Ad</a>
+                <a class="btn btn-theme rounded-4">Post Your Ad</a>
             </div>
         </div>
     </div>
+
+
+    <div class="container hideInDesktop">
+        <div class="row">
+            <div class="col-12">
+                <div class="homebannerslider owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="sliderr">
+                            <div class="slider-banner">
+                                <img class="img-fluid"
+                                    src="{{ asset('assets/frontend-assets/images/home/banner-1.webp') }}"
+                                    alt="banner-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sliderr">
+                            <div class="slider-banner">
+                                <img class="img-fluid"
+                                    src="{{ asset('assets/frontend-assets/images/home/banner-2.webp') }}"
+                                    alt="banner-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="sliderr">
+                            <div class="slider-banner">
+                                <img class="img-fluid"
+                                    src="{{ asset('assets/frontend-assets/images/home/banner-3.webp') }}"
+                                    alt="banner-1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" container hideInDesktop mb-5">
+        <div class="row p-3  g-3">
+            <div class="col-6">
+                <a href="/new-cars">
+                    <div class="card p-3 rounded-4" style="background: #995ded;">
+                        <div class="maineHeading">
+                            New Cars
+                        </div>
+                        <div class="subTitle">
+                            with exciting offers <i class="bi bi-arrow-right-short"></i>
+                        </div>
+                        <div class="filterImage">
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/newcar.webp') }}"
+                                alt="New car">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6">
+                <a href="/used-car">
+                    <div class="card p-3 rounded-4" style="background: #f75d34;">
+                        <div class="maineHeading">
+                            Buy Used Car
+                        </div>
+                        <div class="subTitle">
+                            pre-owned cars for sale <i class="bi bi-arrow-right-short"></i>
+                        </div>
+                        <div class="filterImage">
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/usedcar.webp') }}"
+                                alt="Buy Used Car">
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-6">
+                <a href="/addadshow">
+                    <div class="card p-3 rounded-4" style="background: #5ca7f9;">
+                        <div class="maineHeading">
+                            Sell Car
+                        </div>
+                        <div class="subTitle">
+                            at the best price <i class="bi bi-arrow-right-short"></i>
+                        </div>
+                        <div class="filterImage">
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/sellcar.webp') }}"
+                                alt="Sell Car">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6">
+                <a href="/compare">
+                    <div class="card p-3 rounded-4" style="background: #52dc99;">
+                        <div class="maineHeading">
+                            Compare
+                        </div>
+                        <div class="subTitle">
+                            and find the right car <i class="bi bi-arrow-right-short"></i>
+                        </div>
+                        <div class="filterImage">
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/compare.webp') }}"
+                                alt="Compare">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="collapse" id="MobNavi">
+            <div class="row p-3 g-3">
+                <div class="col-4">
+                    <a href="/news">
+                        <div class="card p-3 rounded-4" style="background: #5d76ed;">
+                            <div class="maineHeading">
+                                News
+                            </div>
+                            <div class="filterImage">
+                                <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/news.webp') }}"
+                                    alt="News">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-4">
+                    <a href="/offers">
+                        <div class="card p-3 rounded-4" style="background: #f9b25c;">
+                            <div class="maineHeading">
+                                Offers
+                            </div>
+
+                            <div class="filterImage">
+                                <img class="img-fluid"
+                                    src="{{ asset('assets/frontend-assets/images/home/offers.webp') }}"
+                                    alt="Offers">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="/car-loan">
+                        <div class="card p-3 rounded-4" style="background: #49c3e9;">
+                            <div class="maineHeading">
+                                Loan
+                            </div>
+
+                            <div class="filterImage">
+                                <img class="img-fluid"
+                                    src="{{ asset('assets/frontend-assets/images/home/loan.webp') }}" alt="new-car">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                
+
+            </div>
+        </div>
+        <span class="">
+            <a data-toggle="collapse" data-target="#MobNavi" aria-expanded="false" aria-controls="MobNavi">View More <i class="bi bi-arrow-right-short"></i>
+            </a>
+        </span>
+    </div>
     <!-- =-=-=-=-=-=-= Home Banner End =-=-=-=-=-=-= -->
     <!-- =-=-=-=-=-=-= Advanced Search =-=-=-=-=-=-= -->
-    <div class="advance-search">
+    <div class="advance-search hideInMobile">
         <div class="section-search search-style-2">
             <div class="container">
                 <div class="row">
@@ -41,7 +203,8 @@
                                             <div class="col-md-2 no-padding">
                                                 <div class="form-group">
                                                     <label>Select Car Type</label>
-                                                    <select name="cartype" class="form-control make" id="dynamicselect">
+                                                    <select name="cartype" class="form-control make"
+                                                        id="dynamicselect">
                                                         <option value="Used" selected>Used</option>
                                                         <option value="New">New</option>
                                                     </select>
@@ -54,8 +217,10 @@
                                                         id="dynamiccarname">
                                                         <option value="0">--select-car--</option>
                                                         @foreach ($carlists as $data)
-                                                            <option value="{{ $data->carname }},{{ $data->brandname }}">
-                                                                {{ $data->carname }}, {{ $data->brandname }}</option>
+                                                            <option
+                                                                value="{{ $data->carname }},{{ $data->brandname }}">
+                                                                {{ $data->carname }}, {{ $data->brandname }}
+                                                            </option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -94,20 +259,21 @@
     <!-- =-=-=-=-=-=-= Advanced Search End =-=-=-=-=-=-= -->
 
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
-    <section class="custom-padding gray">
+    <section class="custom-padding ">
         <!-- Main Container -->
         <div class="container featured-cars">
             <!-- Row -->
             <div class="row">
-                <!-- Heading Area -->
-                <div class="heading-panel">
-                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                        <!-- Main Title -->
-                        <h1> <span class="heading-color"> Featured</span> Cars</h1>
-                    </div>
-                </div>
+
 
                 <div class="card">
+                    <!-- Heading Area -->
+                    <div class="heading-panel">
+                        <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                            <!-- Main Title -->
+                            <h1> <span class="heading-color"> Featured</span> Cars</h1>
+                        </div>
+                    </div>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="nav-item active">
@@ -133,26 +299,29 @@
                                         @foreach ($matches as $data)
                                             <div class="item">
                                                 <div class="grid-style-2">
-                                                    <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
+                                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                         <div class="category-grid-box-1">
                                                             <div class="featured-ribbon">
                                                                 <span>Trending</span>
                                                             </div>
                                                             <div class="image">
-                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                <a class=""
+                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
-                                                                <img alt="Carz Choice"
-                                                                    src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
-                                                                    class="img-responsive">
-                                                                <div class="ribbon popular"></div>
+                                                                    <img alt="Carz Choice"
+                                                                        src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                        class="img-responsive">
+                                                                    <div class="ribbon popular"></div>
                                                                 </a>
                                                             </div>
                                                             <div class="short-description-1 clearfix">
 
                                                                 <h3>
-                                                                    <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                    <a class=""
+                                                                        href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
-                                                                        {{ $data->brandname }} {{ $data->carname }}
+                                                                        {{ $data->brandname }}
+                                                                        {{ $data->carname }}
                                                                     </a>
                                                                 </h3>
                                                                 <div class="ad-price">Rs. {{ $data->price }}
@@ -164,11 +333,11 @@
                                                                     On-Road Price, Delhi
                                                                 </p>
 
-                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
-                                                                    <button
-                                                                        class="btn btn-outline btn-danger btn-sm  ">
-                                                                        <i class="fa fa-phone"></i>
+                                                                <a class=""
+                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                    <button class="btn btn-theme rounded-4 btn-sm">
                                                                         View Details
+                                                                        <i class="bi bi-arrow-up-right"></i>
                                                                     </button>
                                                                 </a>
 
@@ -197,21 +366,24 @@
                                                                 <span>Popular</span>
                                                             </div>
                                                             <div class="image">
-                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                <a class=""
+                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
-                                                                <img alt="Carz Choice"
-                                                                    src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
-                                                                    class="img-responsive">
-                                                                <div class="ribbon popular"></div>
+                                                                    <img alt="Carz Choice"
+                                                                        src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                        class="img-responsive">
+                                                                    <div class="ribbon popular"></div>
                                                                 </a>
                                                             </div>
                                                             <div class="short-description-1 clearfix">
 
 
                                                                 <h3>
-                                                                    <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                    <a class=""
+                                                                        href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
-                                                                        {{ $data->brandname }} {{ $data->carname }}
+                                                                        {{ $data->brandname }}
+                                                                        {{ $data->carname }}
                                                                     </a>
                                                                 </h3>
                                                                 <div class="ad-price">Rs. {{ $data->price }}
@@ -223,12 +395,12 @@
                                                                     On-Road Price, Delhi
                                                                 </p>
 
-                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                <a class=""
+                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
-                                                                    <button
-                                                                        class="btn btn-outline btn-danger btn-sm  ">
-                                                                        <i class="fa fa-phone"></i>
-                                                                        View Details
+                                                                    <button class="btn btn-theme rounded-4 btn-sm  ">
+                                                                        Check Offers
+                                                                        <i class="bi bi-arrow-up-right"></i>
                                                                     </button>
                                                                 </a>
 
@@ -259,20 +431,23 @@
                                                                 <span>Upcoming</span>
                                                             </div>
                                                             <div class="image">
-                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                <a class=""
+                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
-                                                                <img alt="Carz Choice"
-                                                                    src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
-                                                                    class="img-responsive">
+                                                                    <img alt="Carz Choice"
+                                                                        src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                        class="img-responsive">
                                                                 </a>
                                                             </div>
                                                             <div class="short-description-1 clearfix">
 
 
                                                                 <h3>
-                                                                    <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                    <a class=""
+                                                                        href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
-                                                                        {{ $data->brandname }} {{ $data->carname }}
+                                                                        {{ $data->brandname }}
+                                                                        {{ $data->carname }}
                                                                     </a>
                                                                 </h3>
                                                                 <div class="ad-price">Rs. {{ $data->price }}
@@ -284,11 +459,11 @@
                                                                     On-Road Price, Delhi
                                                                 </p>
 
-                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
-                                                                    <button
-                                                                        class="btn btn-outline btn-danger btn-sm  ">
-                                                                        <i class="fa fa-phone"></i>
+                                                                <a class=""
+                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                    <button class="btn btn-theme rounded-4 btn-sm  ">
                                                                         View Details
+                                                                        <i class="bi bi-arrow-up-right"></i>
                                                                     </button>
                                                                 </a>
 
@@ -319,18 +494,18 @@
         <div class="container popular-cars">
             <!-- Row -->
             <div class="row">
-                <!-- Heading Area -->
-                <div class="heading-panel">
-                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                        <!-- Main Title -->
-                        <h1>Get <span class="heading-color"> Offers</span> on Popular Cars</h1>
-                    </div>
-                </div>
+
 
                 <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
-                    <div class="row">
-                        <div class=" popular-slider container owl-carousel owl-theme">
+                    <div class="row card">
+                        <div class="heading-panel">
+                            <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                                <!-- Main Title -->
+                                <h1>Get <span class="heading-color"> Offers</span> on Popular Cars</h1>
+                            </div>
+                        </div>
+                        <div class=" popular-slider container owl-carousel owl-theme px-2">
                             @foreach ($matchesoffer as $data)
                                 <div class="item">
                                     <div class="grid-style-2">
@@ -365,7 +540,7 @@
                                                         <span class="text-muted ps-2">onwards</span>
                                                     </div>
                                                     <a class="  ">
-                                                        <button class="btn btn-outline btn-danger btn-sm ">
+                                                        <button class="btn btn-theme rounded-4 btn-sm ">
                                                             Get Offer
                                                         </button>
                                                     </a>
@@ -536,22 +711,24 @@
     <!-- =-=-=-=-=-=-= Top Cars In India  =-=-=-=-=-=-= -->
     <section class="custom-padding used-cars">
         <!-- Main Container -->
-        <div class="container popular-cars">
+        <div class="container popular-cars card">
             <!-- Row -->
             <div class="row">
-                <!-- Heading Area -->
-                <div class="heading-panel">
-                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                        <!-- Main Title -->
-                        <h1>Used cars <span class="heading-color"> In India</span> </h1>
-                    </div>
-                </div>
+
 
 
 
                 <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
+
+                        <!-- Heading Area -->
+                        <div class="heading-panel">
+                            <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                                <!-- Main Title -->
+                                <h1>Used cars <span class="heading-color"> In India</span> </h1>
+                            </div>
+                        </div>
                         <div class=" popular-slider container owl-carousel owl-theme">
                             @foreach ($adposts as $row)
                                 @php
@@ -604,7 +781,7 @@
 
 
 {{-- onload modal --}}
-<div id="myModal" class="modal fade" role="dialog">
+{{-- <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <!-- Modal content-->
         <div class="modal-content">
@@ -626,7 +803,7 @@
         </div>
 
     </div>
-</div>
+</div> --}}
 <script>
     $(window).ready(function() {
         setTimeout(function() {
@@ -670,7 +847,9 @@
             $.ajax({
                 url: "/filterByAttribute/",
                 type: 'POST',
-                data: { attribute: bodytype },
+                data: {
+                    attribute: bodytype
+                },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },

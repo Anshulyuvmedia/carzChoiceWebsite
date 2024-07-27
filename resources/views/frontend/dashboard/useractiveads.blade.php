@@ -30,7 +30,7 @@
             <div class="row margin-top-40 grid-style-2 ">
                 <div class="col-md-12 col-sm-12 col-xs-12 text-right mb-5">
                     <a href="{{ route('addadshow') }}">
-                        <button type="submit" class="btn btn-theme btn-sm"><i class="fa fa-plus"></i>&nbsp;Add Ad
+                        <button type="submit" class="btn btn-theme rounded-4 btn-sm"><i class="fa fa-plus"></i>&nbsp;Add Ad
                             Post</button>
                     </a>
                 </div>
