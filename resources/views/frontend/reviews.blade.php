@@ -3,7 +3,7 @@
 @section('title', 'Reviews')
 
 <!-- =-=-=-=-=-=-= Breadcrumb =-=-=-=-=-=-= -->
-<div class="page-header-area-2 gray">
+<div class="page-header-area-2 ">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -18,29 +18,7 @@
                         <h1>Latest Reviews & Ratings</h1>
                     </div>
                 </div>
-                <!-- Nav tabs -->
-                <div class="card border-0  shadow-none mb-0 " style="background-color: #f6f6f6">
-                    <ul class="nav nav-tabs">
-                        <li role="presentation" class="nav-item ">
-                            <a class="nav-link" aria-controls="All" href="/news">NEWS
-                            </a>
-                        </li>
-                        <li role="presentation" class="nav-item active">
-                            <a class="nav-link" aria-controls="Exterior" href="/reviews">REVIEWS</a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" aria-controls="Interior" href="#SPECIALREPORTS">SPECIAL REPORTS</a>
-                        </li>
-                        <li role="presentation" class="nav-item ">
-                            <a class="nav-link" aria-controls="Colours" href="/car-images">IMAGES</a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" aria-controls="Colours" href="#VIDEOS">VIDEOS</a>
-                        </li>
-                    </ul>
-                </div>
 
-                <!-- Tab panes -->
             </div>
         </div>
     </div>
@@ -49,53 +27,78 @@
 <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
 <div class="main-content-area clearfix">
     <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
-    <section class="section-padding no-top reviews gray ">
+    <section class="section-padding no-top reviews  ">
         <!-- Main Container -->
-        <div class="container">
+        <div class="container card">
             <!-- Row -->
             <div class="row">
                 <!-- Middle Content Area -->
                 <div class="col-md-12 col-xs-12 col-sm-12 news">
-                    <div class="row">
-                        <!-- Review Archive -->
-                        <div class="posts-masonrys">
-                            <!-- Review Post-->
-                            @foreach ($reviewdata as $data)
-                                <!-- Review Post-->
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="mainimage">
-                                        <span class="badge text-uppercase badge-overlay badge-tech">{{ $data->carname }}</span>
-
-                                        <a href={{ route('newsdetails', ['id' => $data->id]) }}>
-                                            @if ($data->blogimg)
-                                                <img class="img-responsive"
-                                                    src="{{ asset('assets/backend-assets/images/' . $data->blogimg) }}"
-                                                    alt="Thumbnail" />
-                                            @endif
-                                            <div class="overlay small-font">
-                                                <h2>{{ $data->blogtitle }}</h2>
-                                            </div>
-                                        </a>
-
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <!-- Review Post-->
-                            @endforeach
 
 
-                        </div>
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <ul class="pagination pagination-lg">
-                                <li> <a href="#"> <i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
-                                <li> <a href="#">1</a> </li>
-                                <li class="active"> <a href="#">2</a> </li>
-                                <li> <a href="#">3</a> </li>
-                                <li> <a href="#">4</a> </li>
-                                <li><a href="#"> <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
+                    <!-- Nav tabs -->
+                    <div class="card border-0  shadow-none mb-0 ">
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="nav-item ">
+                                <a class="nav-link" aria-controls="All" href="/news">NEWS
+                                </a>
+                            </li>
+                            <li role="presentation" class="nav-item active">
+                                <a class="nav-link" aria-controls="Exterior" href="/reviews">REVIEWS</a>
+                            </li>
+                            <li role="presentation" class="nav-item">
+                                <a class="nav-link" aria-controls="Interior" href="#SPECIALREPORTS">SPECIAL REPORTS</a>
+                            </li>
+                            <li role="presentation" class="nav-item ">
+                                <a class="nav-link" aria-controls="Colours" href="/car-images">IMAGES</a>
+                            </li>
+                            <li role="presentation" class="nav-item">
+                                <a class="nav-link" aria-controls="Colours" href="#VIDEOS">VIDEOS</a>
+                            </li>
+                        </ul>
                     </div>
+
+                    <!-- Tab panes -->
+                    <!-- Review Archive -->
+                    <div class="posts-masonrys">
+                        <!-- Review Post-->
+                        @foreach ($reviewdata as $data)
+                            <!-- Review Post-->
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="mainimage">
+                                    <span
+                                        class="badge text-uppercase badge-overlay badge-tech">{{ $data->carname }}</span>
+
+                                    <a href={{ route('newsdetails', ['id' => $data->id]) }}>
+                                        @if ($data->blogimg)
+                                            <img class="img-responsive"
+                                                src="{{ asset('assets/backend-assets/images/' . $data->blogimg) }}"
+                                                alt="Thumbnail" />
+                                        @endif
+                                        <div class="overlay small-font">
+                                            <h2>{{ $data->blogtitle }}</h2>
+                                        </div>
+                                    </a>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <!-- Review Post-->
+                        @endforeach
+
+
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <ul class="pagination pagination-lg">
+                            <li> <a href="#"> <i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+                            <li> <a href="#">1</a> </li>
+                            <li class="active"> <a href="#">2</a> </li>
+                            <li> <a href="#">3</a> </li>
+                            <li> <a href="#">4</a> </li>
+                            <li><a href="#"> <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+
                 </div>
 
             </div>

@@ -269,7 +269,7 @@
     <!-- =-=-=-=-=-=-= Popular Cars Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
         <!-- Main Container -->
-        <div class="container popular-cars">
+        <div class="container popular-car card">
             <!-- Row -->
             <div class="row">
                 <!-- Heading Area -->

@@ -3,7 +3,7 @@
 @section('title', ' Car Images ')
 
 <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
-<section class="page-header-area-2 gray">
+<section class="page-header-area-2 ">
     <!-- Main Container -->
     <div class="container featured-cars">
         <!-- Row -->
@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card ">
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
