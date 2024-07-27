@@ -29,6 +29,7 @@ class FrontendStore extends Controller
 
     public function register_customer(Request $request)
     {
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'fullname' => 'required',
             'email' => 'required|unique:register_users,email',
@@ -44,6 +45,7 @@ class FrontendStore extends Controller
         $data = new RegisterUser();
         $data->fullname = $request->input('fullname');
         $data->contactno = $request->input('contactno');
+        $data->usertype = $request->input('usertype');
         $data->email = $request->input('email');
         $data->password = bcrypt($request->input('password'));
         $data->randomno = $randomNumber;
@@ -76,11 +78,11 @@ class FrontendStore extends Controller
                 $registeruserdata->update([
                     'verifystatus' => '1',
                 ]);
-                return back()->with('successtest', 'Thank you, we will reach you soon');
+                return back()->with('successtest', 'Registration Successfully..!!!');
             } else {
-                return back()->with('failuretest', 'Invalid Details..!!!!!!!!');
+                return back()->with('failuretest', 'Invalid Details..');
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Log the error for debugging
             Log::error($e->getMessage());
             return back()->with('failuretest', 'Error verifying OTP. Please try again later.');

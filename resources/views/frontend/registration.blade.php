@@ -14,9 +14,6 @@
                             <li><a class="active" href="#">Registration</a></li>
                         </ul>
                     </div>
-                    <div class="header-page d-flex justify-content-center">
-                        <h1>Create Your Account</h1>
-                    </div>
                 </div>
             </div>
         </div>
@@ -25,52 +22,86 @@
 <div class="main-content-area clearfix">
 
     <section class="section-padding no-top gray">
-        <!-- Main Container -->
         <div class="container">
-            <!-- Row -->
             <div class="row">
-                <!-- Middle Content Area -->
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                    <!--  Form -->
-                    <div class="form-grid">
-                        <form id="registerform">
-                            @csrf
-                            <div class="form-group">
-                                <label for="fullname">Full Name</label>
-                                <input id="fullname" placeholder="Enter full name" type="text" class="form-control" name="fullname" value="">
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label>Contact Number</label>
-                                <input placeholder="Enter Your Contact Number" name="contactno" class="form-control" type="text">
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input placeholder="Your Email" name="email" class="form-control" type="email">
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input placeholder="Your Password" name="password" class="form-control" type="password">
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-7">
-                                        <div class="skin-minimal">
-                                            <ul class="list">
-                                                <li>
-                                                    <input type="checkbox" id="minimal-checkbox-1">
-                                                    <label for="minimal-checkbox-1">I agree <a href="#">Terms of Services</a></label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                    @if ($mymess = Session::get('successtest'))
+                    <div class="alert border-0 alert-success text-center" role="alert" id="successAlert">
+                        <strong>{{ $mymess }}</strong>
+                    </div>
+                    @endif
+                    @if ($mymess = Session::get('failuretest'))
+                    <div class="alert border-0 alert-danger text-center" role="alert" id="dangerAlert">
+                        <strong>{{ $mymess }}</strong>
+                    </div>
+                    @endif
+                    <div class="">
+                        <div class="card p-5 shadow-lg rounded-5">
+                            <div class="">
+                                <div class="header-page d-flex justify-content-center">
+                                    <h2 class="fw-bold">Create Your Account</h2>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-theme btn-lg btn-block">Register</button>
-                        </form>
+                            <div class="card-body">
+                                <form id="registerform">
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="usertype"
+                                                id="inlineRadio1" value="User">
+                                            <label class="form-check-label fw-bold fs-4" for="inlineRadio1">User</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="usertype"
+                                                id="inlineRadio2" value="Dealer">
+                                            <label class="form-check-label fw-bold fs-4" for="inlineRadio2">Dealer</label>
+                                        </div>
+                                    </div>
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="fullname" class="fs-4">Full Name</label>
+                                        <input id="fullname" placeholder="Enter full name" type="text"
+                                            class="form-control" name="fullname" value="">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fs-4">Contact Number <span class="text-danger fs-4">(Must be
+                                                Unique)</span></label>
+                                        <input placeholder="Enter Your Contact Number" name="contactno"
+                                            class="form-control" type="text">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fs-4">Email <span class="text-danger fs-4">(Must be Unique)</span></label>
+                                        <input placeholder="Your Email" name="email" class="form-control" type="email">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="fs-4">Password</label>
+                                        <input placeholder="Your Password" name="password" class="form-control"
+                                            type="password">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-7">
+                                                <div class="skin-minimal">
+                                                    <ul class="list">
+                                                        <li>
+                                                            <input type="checkbox" id="minimal-checkbox-1">
+                                                            <label for="minimal-checkbox-1">I agree <a href="#">Terms of
+                                                                    Services</a></label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="">
+                                <button type="submit" class="btn btn-theme btn-lg btn-block">Register</button>
+                            </div>
+                            </form>
+                        </div>
 
                         <form action="{{ route('verifyregisterotp') }}" method="POST" id="registerotpform"
                             style="display: none;">
@@ -166,5 +197,13 @@
         }
     });
 });
+
+setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 2000);
+
+        setTimeout(function() {
+            $('#dangerAlert').fadeOut('slow');
+        }, 2000);
 </script>
 @endpush

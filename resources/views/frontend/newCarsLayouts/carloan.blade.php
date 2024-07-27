@@ -161,8 +161,6 @@
             </div>
 
             <div class="card shadow-none">
-
-                <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="nav-item active">
                         <a class="nav-link tabtype" data-value="newcar" aria-controls="trending" role="tab"
@@ -177,7 +175,6 @@
                         </a>
                     </li>
                 </ul>
-                <!-- Tab panes -->
                 <div class="tab-content clearfix p-0">
                     <div class="tab-pane fade in active" id="newcar">
 
@@ -463,7 +460,6 @@
 
 
                 </div>
-                <!-- Row End -->
             </div>
 
 
