@@ -96,7 +96,7 @@
                                             @endphp
                                             <div class="row d-flex justify-content-center gap-2 mt-3">
                                                 @foreach ($colors as $data)
-                                                <div class="card col-1 p-2" sstyle="background-color: {{$data['value']}}; color:white; height:30px;">
+                                                <div class="card col-1 p-2" style="background-color: {{$data['value']}}; color:white; height:30px;">
                                                     {{-- {{$data['label']}} --}}
                                                 </div>
                                                 @endforeach

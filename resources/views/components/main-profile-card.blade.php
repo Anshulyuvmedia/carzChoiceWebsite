@@ -18,7 +18,7 @@ $user = json_decode($data);
                    </p>
                    {{-- <p class="description">You last logged in at: 14-01-2017 6:40 AM [ USA time (GMT + 6:00hrs)</p> --}}
                    {{-- <span class="label label-warning">Paid Package</span> --}}
-                   <span class="label label-success">User</span>
+                   <span class="label label-success">{{$user->usertype}}</span>
                 </div>
                 <div class="col-md-7 col-sm-12 col-xs-12">
                    <div class="row ad-history  d-flex justify-content-end">

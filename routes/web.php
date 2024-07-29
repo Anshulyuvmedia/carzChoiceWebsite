@@ -99,6 +99,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('filterbyfuelcardetails', 'filterbyfuelcardetails')->name('filterbyfuelcardetails');
     Route::post('insertcompareoffcanvas', 'insertcompareoffcanvas')->name('insertcompareoffcanvas');
     Route::post('makefilterfindcar', 'makefilterfindcar')->name('makefilterfindcar');
+    Route::post('registerdealer', 'registerdealer')->name('registerdealer');
 
 });
 
@@ -135,6 +136,8 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('prosandcons/{id}', 'prosandcons')->name('prosandcons');
     Route::get('variantfaqs/{id}/{carname}', 'variantfaqs')->name('variantfaqs');
     Route::get('addvehicleimages/{id}/{carname}', 'addvehicleimages')->name('addvehicleimages');
+    Route::get('dealerslist', 'dealerslist')->name('dealerslist');
+
 });
 
 
@@ -191,4 +194,6 @@ Route::controller(Store::class)->group(function() {
     Route::post('updatevariantfaq', 'updatevariantfaq')->name('updatevariantfaq');
     Route::get('deletevariantfaq/{id}', 'deletevariantfaq')->name('deletevariantfaq');
     Route::post('insertcolorvariants', 'insertcolorvariants')->name('insertcolorvariants');
+    Route::get('deletedealer/{id}', 'deletedealer')->name('deletedealer');
+
 });

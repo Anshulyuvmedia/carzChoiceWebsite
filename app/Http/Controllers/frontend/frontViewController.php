@@ -227,8 +227,9 @@ class frontViewController extends Controller
         if (Auth::guard('registeruser')->check()) {
             $user = Auth::guard('registeruser')->user();
             $addpostcount = AdPost::count();
+            $brands = Master::where('type', '=', 'Brand')->get();
             $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-            return view('frontend.dashboard.userprofile', compact('user', 'statedata', 'addpostcount'));
+            return view('frontend.dashboard.userprofile', compact('user', 'statedata', 'addpostcount','brands'));
         } else {
             return view('frontend.loginuser');
         }

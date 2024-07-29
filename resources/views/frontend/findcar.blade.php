@@ -69,35 +69,40 @@
                     <div class="clearfix"></div>
                     <!-- Ads Archive -->
                     <div class="col-md-12 col-xs-12 col-xs-12">
-                        @if($variants->isNotEmpty())
-                        <div class="posts-masonry">
-                            @foreach ($variants as $row)
-                            <div class="ads-list-archive">
-                                <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
-                                    <div class="ad-archive-img">
-                                        <a href="#">
-                                            <img class="img-responsive"
-                                                src="{{ asset('assets/backend-assets/images/'.$row->addimage) }}"
-                                                alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="clearfix visible-xs-block"></div>
-                                <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
-                                    <div class="ad-archive-desc">
-                                        <a class="" href="{{ route('carlistingdetails', ['id' => $row->id]) }}">
-                                            <h3>{{$row->brandname}}, {{$row->carname}}({{$row->carmodalname}})</h3>
-                                        </a>
-                                        <div class="ad-price-simple fs-3">Rs. {{$row->price}} Lakh <span
-                                                class="fs-5 text-dark">Estimated Price </span></div>
-                                        <div class="category-title">Expected launch - June 2025 (Tentative)</div>
-                                    </div>
+                        @if ($variants->isNotEmpty())
+                            <div class="posts-masonry" >
+                                <div id="makecarddiv">
+                                @foreach ($variants as $row)
+                                        <div class="ads-list-archive">
+                                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                                                <div class="ad-archive-img">
+                                                    <a href="#">
+                                                        <img class="img-responsive"
+                                                            src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
+                                                            alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix visible-xs-block"></div>
+                                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                                                <div class="ad-archive-desc">
+                                                    <a class=""
+                                                        href="{{ route('carlistingdetails', ['id' => $row->id]) }}">
+                                                        <h3>{{ $row->brandname }},
+                                                            {{ $row->carname }}({{ $row->carmodalname }})</h3>
+                                                    </a>
+                                                    <div class="ad-price-simple fs-3">Rs. {{ $row->price }} Lakh <span
+                                                            class="fs-5 text-dark">Estimated Price </span></div>
+                                                    <div class="category-title">Expected launch - June 2025 (Tentative)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
                                 </div>
                             </div>
-                            @endforeach
-                        </div>
                         @else
-                        <h5 class="text-center">No vehicles are availabel in this type</h5>
+                            <h5 class="text-center">No vehicles are availabel in this type</h5>
                         @endif
                     </div>
                     <div class="clearfix"></div>
@@ -229,8 +234,9 @@
                             <!-- Heading -->
                             <div class="panel-heading" role="tab" id="headingfour">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapsefour" aria-expanded="false"
+                                        aria-controls="collapsefour">
                                         <i class="more-less glyphicon glyphicon-plus"></i>
                                         Budget
                                     </a>
@@ -255,8 +261,9 @@
                             <!-- Heading -->
                             <div class="panel-heading" role="tab" id="heading7">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse7" aria-expanded="false"
+                                        aria-controls="collapse7">
                                         <i class="more-less glyphicon glyphicon-plus"></i>
                                         Body Type
                                     </a>
@@ -269,15 +276,16 @@
                                     <div class="">
                                         <ul class="list row">
                                             @foreach ($results->where('type', 'Body Type') as $bodyType)
-                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                                <label class="image-checkbox">
-                                                    <img
-                                                        src="{{ asset('assets/backend-assets/images/' . $bodyType->iconimage) }}" />
-                                                    <input type="checkbox" name="bodytypes[]" value="{{$bodyType->value}}" />
-                                                    <i class="fa fa-check hidden"></i>
-                                                    <div class="fs-6">{{$bodyType->value}}</div>
-                                                </label>
-                                            </li>
+                                                <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                    <label class="image-checkbox">
+                                                        <img
+                                                            src="{{ asset('assets/backend-assets/images/' . $bodyType->iconimage) }}" />
+                                                        <input type="checkbox" name="bodytypes[]"
+                                                            value="{{ $bodyType->value }}" />
+                                                        <i class="fa fa-check hidden"></i>
+                                                        <div class="fs-6">{{ $bodyType->value }}</div>
+                                                    </label>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -292,8 +300,9 @@
                             <!-- Heading -->
                             <div class="panel-heading" role="tab" id="heading9">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse9" aria-expanded="false"
+                                        aria-controls="collapse9">
                                         <i class="more-less glyphicon glyphicon-plus"></i>
                                         Transmission Type
                                     </a>
@@ -306,15 +315,16 @@
                                     <div class="">
                                         <ul class="list row">
                                             @foreach ($results->where('type', 'Transmission') as $Transmission)
-                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                                <label class="image-checkbox">
-                                                    <img
-                                                        src="{{ asset('assets/backend-assets/images/' . $Transmission->iconimage) }}" />
-                                                    <input type="checkbox" name="transmissions[]" value="{{$Transmission->value}}" />
-                                                    <i class="fa fa-check hidden"></i>
-                                                    <div class="fs-6">{{$Transmission->value}}</div>
-                                                </label>
-                                            </li>
+                                                <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                    <label class="image-checkbox">
+                                                        <img
+                                                            src="{{ asset('assets/backend-assets/images/' . $Transmission->iconimage) }}" />
+                                                        <input type="checkbox" name="transmissions[]"
+                                                            value="{{ $Transmission->value }}" />
+                                                        <i class="fa fa-check hidden"></i>
+                                                        <div class="fs-6">{{ $Transmission->value }}</div>
+                                                    </label>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -328,8 +338,9 @@
                             <!-- Heading -->
                             <div class="panel-heading" role="tab" id="heading9">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                        href="#fuelcollapsed" aria-expanded="false" aria-controls="collapse9">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#fuelcollapsed" aria-expanded="false"
+                                        aria-controls="collapse9">
                                         <i class="more-less glyphicon glyphicon-plus"></i>
                                         Fuel Type
                                     </a>
@@ -342,15 +353,16 @@
                                     <div class="">
                                         <ul class="list row">
                                             @foreach ($results->where('type', 'Fuel Type') as $fueltype)
-                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                                <label class="image-checkbox">
-                                                    <img
-                                                        src="{{ asset('assets/backend-assets/images/' . $fueltype->iconimage) }}" />
-                                                    <input type="checkbox" name="fueltypes[]" value="{{$fueltype->value}}" />
-                                                    <i class="fa fa-check hidden"></i>
-                                                    <div class="fs-6">{{$fueltype->value}}</div>
-                                                </label>
-                                            </li>
+                                                <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                    <label class="image-checkbox">
+                                                        <img
+                                                            src="{{ asset('assets/backend-assets/images/' . $fueltype->iconimage) }}" />
+                                                        <input type="checkbox" name="fueltypes[]"
+                                                            value="{{ $fueltype->value }}" />
+                                                        <i class="fa fa-check hidden"></i>
+                                                        <div class="fs-6">{{ $fueltype->value }}</div>
+                                                    </label>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -365,8 +377,9 @@
                             <!-- Heading -->
                             <div class="panel-heading" role="tab" id="heading9">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                        href="#seatingcollapsed" aria-expanded="false" aria-controls="collapse9">
+                                    <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#seatingcollapsed" aria-expanded="false"
+                                        aria-controls="collapse9">
                                         <i class="more-less glyphicon glyphicon-plus"></i>
                                         Seating Capacity
                                     </a>
@@ -379,13 +392,14 @@
                                     <div class="">
                                         <ul class="list row">
                                             @foreach ($results->where('type', 'Seating Capacity') as $seater)
-                                            <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
-                                                <label class="image-checkbox p-0">
-                                                    <input type="checkbox" name="seatingcaps[]" value="{{$seater->value}}" />
-                                                    <i class="fa fa-check hidden"></i>
-                                                    <div class="">{{$seater->value}}</div>
-                                                </label>
-                                            </li>
+                                                <li class="col-xs-4 col-sm-3 col-md-3 nopad text-center">
+                                                    <label class="image-checkbox p-0">
+                                                        <input type="checkbox" name="seatingcaps[]"
+                                                            value="{{ $seater->value }}" />
+                                                        <i class="fa fa-check hidden"></i>
+                                                        <div class="">{{ $seater->value }}</div>
+                                                    </label>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -918,8 +932,8 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-12 my-3 text-center">
-                        <button type="submit" class="btn btn-theme rounded-4 rounded-3" data-bs-target="#selectLocation"
-                            data-bs-toggle="modal">Apply Changes</button>
+                        <button type="submit" class="btn btn-theme rounded-4 rounded-3"
+                            data-bs-target="#selectLocation" data-bs-toggle="modal">Apply Changes</button>
                     </div>
                 </div>
             </form>
@@ -931,30 +945,30 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-    $(".image-checkbox").each(function() {
-        var $checkbox = $(this).find('input[type="checkbox"]').first();
-        if ($checkbox.is(":checked")) {
-            $(this).addClass('image-checkbox-checked');
-        } else {
-            $(this).removeClass('image-checkbox-checked');
-        }
-    });
+        $(".image-checkbox").each(function() {
+            var $checkbox = $(this).find('input[type="checkbox"]').first();
+            if ($checkbox.is(":checked")) {
+                $(this).addClass('image-checkbox-checked');
+            } else {
+                $(this).removeClass('image-checkbox-checked');
+            }
+        });
 
-    // sync the state to the input
-    $(".image-checkbox").on("click", function(e) {
-        var $checkbox = $(this).find('input[type="checkbox"]');
-        $checkbox.prop("checked", !$checkbox.prop("checked"));
-        $(this).toggleClass('image-checkbox-checked');
+        // sync the state to the input
+        $(".image-checkbox").on("click", function(e) {
+            var $checkbox = $(this).find('input[type="checkbox"]');
+            $checkbox.prop("checked", !$checkbox.prop("checked"));
+            $(this).toggleClass('image-checkbox-checked');
 
-        e.preventDefault();
-    });
+            e.preventDefault();
+        });
 
-    // Debugging: Check the checkbox state on page load
-    $(".image-checkbox").each(function() {
-        var $checkbox = $(this).find('input[type="checkbox"]').first();
-        console.log("Checkbox checked state on load: ", $checkbox.prop("checked"));
+        // Debugging: Check the checkbox state on page load
+        $(".image-checkbox").each(function() {
+            var $checkbox = $(this).find('input[type="checkbox"]').first();
+            console.log("Checkbox checked state on load: ", $checkbox.prop("checked"));
+        });
     });
-});
 </script>
 
 <script>
@@ -969,31 +983,57 @@
 </script>
 
 <script>
-    //This is Home Page filter by Car Details
+    //This is Make Filter
     jQuery('#makeformid').submit(function(e) {
         e.preventDefault();
 
         var priceMin = document.getElementById('price-min').innerText;
         var priceMax = document.getElementById('price-max').innerText;
-        console.log(priceMin,priceMax);
+        console.log(priceMin, priceMax);
 
         var formdata = jQuery('#makeformid').serialize();
         formdata += `&minprice=${priceMin}&maxprice=${priceMax}`;
-        console.log(formdata);
+        // console.log(formdata);
+
         jQuery.ajax({
             url: "{{ route('makefilterfindcar') }}",
-            data: {formdata},
+            data: {
+                formdata
+            },
             type: 'POST',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function(data) {
                 console.log(data);
-                // if (data.success) {
-                //     window.location.href = data.redirect_url;
-                // } else {
-                //     alert("error");
-                // }
+                $('#makecarddiv').empty();
+                data.forEach(function(item) {
+                    var newdiv = `
+                        <div class="ads-list-archive">
+                            <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
+                                <div class="ad-archive-img">
+                                    <a href="#">
+                                        <img class="img-responsive"
+                                            src="{{ asset('assets/backend-assets/images/') }}/${item.addimage}"
+                                            alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix visible-xs-block"></div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
+                                <div class="ad-archive-desc">
+                                    <a class="" href="{{ route('carlistingdetails', ['id' => ':id']) }}".replace(':id', item.id)>
+                                        <h3>${item.brandname}, ${item.carname} (${item.carmodalname})</h3>
+                                    </a>
+                                    <div class="ad-price-simple fs-3">Rs. ${item.price} Lakh <span
+                                            class="fs-5 text-dark">Estimated Price </span></div>
+                                    <div class="category-title">Expected launch - June 2025 (Tentative)</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $('#makecarddiv').append(newdiv);
+                });
             }
         });
     });

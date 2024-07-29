@@ -10,6 +10,7 @@ use App\Models\Blog;
 use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
 use App\Models\ColorVariant;
+use App\Models\RegisterDealer;
 use App\Models\VariantFaq;
 use App\Models\CompanyProfile;
 use App\Models\CompareVehicle;
@@ -244,5 +245,10 @@ class AdminView extends Controller
         $imageslist = CarList::where('carname',$data->carname)->get()->pluck('colors');
         $colors = json_decode($imageslist[0]);
         return view('AdminPanel.vehicleimages',compact('data','colors','imageslist','carnamedata','masterdata','mastercolordata','vehicleimgdata','carlistdata'));
+    }
+
+    public function dealerslist(){
+        $registereddealers = RegisterDealer::orderBy('created_at', 'desc')->get();
+        return view('AdminPanel.dealerslist', compact('registereddealers'));
     }
 }

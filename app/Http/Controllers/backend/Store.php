@@ -9,6 +9,7 @@ use App\Models\CompareVehicle;
 use App\Models\DisplaySetting;
 use App\Models\ProsandCons;
 use App\Models\ProsCons;
+use App\Models\RegisterDealer;
 use App\Models\SliderImage;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -985,6 +986,13 @@ class Store extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Failed to update colors. Please try again.');
         }
+    }
+
+    public function deletedealer($id)
+    {
+        $data = RegisterDealer::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
     }
 
 }

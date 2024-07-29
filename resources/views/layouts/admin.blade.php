@@ -269,6 +269,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('dealerslist') }}">
+                                <i class="uil-calling"></i>
+                                <span>Dealers List</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="uil-setting"></i>
                                 <span>Home Page Settings</span>

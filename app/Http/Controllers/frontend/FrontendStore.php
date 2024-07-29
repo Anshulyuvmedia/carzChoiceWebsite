@@ -13,6 +13,7 @@ use App\Models\CarLoanEnquiry;
 use App\Models\CompareVehicle;
 use App\Models\PostOffices;
 use App\Models\Pincode;
+use App\Models\RegisterDealer;
 use App\Models\VehicleImage;
 use App\Models\RegisterUser;
 use Illuminate\Http\Request;
@@ -666,7 +667,7 @@ class FrontendStore extends Controller
         //     'maxPrice' => $maxPrice,
         // ]);
 
-        // Build the quer   y
+        // Build the query
         $query = AddVariant::query();
 
         if (!empty($bodyTypes)) {
@@ -693,13 +694,65 @@ class FrontendStore extends Controller
             $query->whereBetween('price', [$minPrice, $maxPrice]);
         }
 
-        // Execute the query
+        $query->leftJoin('vehicle_images', 'add_variants.id', '=', 'vehicle_images.variantid')
+        ->select('add_variants.*', 'vehicle_images.addimage');
+
         $variants = $query->get();
 
-        // Debug the results
-        dd($variants);
+        // dd($variants);
+        return response()->json($variants);
     }
 
+    public function registerdealer(Request $req){
+        // dd($rq->all());
+        try {
 
+            //Mutiple Image Upload
+            $image = array();
+            if ($files = $req->file('businesspics')) {
+                foreach ($files as $file) {
+                    $image_name = md5(rand(1000, 10000));
+                    $extension = strtolower($file->getClientOriginalExtension());
+                    $image_fullname = $image_name . '.' . $extension;
+                    $uploaded_path = "assets/backend-assets/images/";
+                    $image_url = $uploaded_path . $image_fullname;
+                    $file->move($uploaded_path, $image_fullname);
+                    $image[] = $image_url;
+                }
+            }
+
+            $image2 = array();
+            if ($files = $req->file('officepics')) {
+                foreach ($files as $file) {
+                    $image_name2 = md5(rand(1000, 10000));
+                    $extension2 = strtolower($file->getClientOriginalExtension());
+                    $image_fullname2 = $image_name2 . '.' . $extension2;
+                    $uploaded_path2 = "assets/backend-assets/images/";
+                    $image_url2 = $uploaded_path2 . $image_fullname2;
+                    $file->move($uploaded_path2, $image_fullname2);
+                    $image2[] = $image_url2;
+                }
+            }
+
+            RegisterDealer::create([
+                'businessname' => $req->businessname,
+                'dealertype' => $req->dealertype,
+                'mobilenumber' => $req->mobilenumber,
+                'whatsappnumber' => $req->whatsappnumber,
+                'brands' => json_encode($req->brands),
+                'district' => $req->district,
+                'state' => $req->state,
+                'pincode' => $req->pincode,
+                'email' => $req->email,
+                'businesspics' => $image2 = count($image2) > 0 ? implode(',', $image2) : null,
+                'officepics' => $image = count($image) > 0 ? implode(',', $image) : null,
+
+            ]);
+            return back()->with('success', 'Registered Successfully..');
+        } catch (Exception $e) {
+            return redirect()->route('userprofile')->with('error', $e->getMessage());
+            //return redirect()->route('userprofile')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
 
 }

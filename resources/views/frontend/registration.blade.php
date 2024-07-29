@@ -53,7 +53,8 @@
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="usertype"
                                                 id="inlineRadio2" value="Dealer">
-                                            <label class="form-check-label fw-bold fs-4" for="inlineRadio2">Dealer</label>
+                                            <label class="form-check-label fw-bold fs-4"
+                                                for="inlineRadio2">Dealer</label>
                                         </div>
                                     </div>
                                     @csrf
@@ -71,7 +72,8 @@
                                         <div class="invalid-feedback"></div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="fs-4">Email <span class="text-danger fs-4">(Must be Unique)</span></label>
+                                        <label class="fs-4">Email <span class="text-danger fs-4">(Must be
+                                                Unique)</span></label>
                                         <input placeholder="Your Email" name="email" class="form-control" type="email">
                                         <div class="invalid-feedback"></div>
                                     </div>
@@ -136,7 +138,8 @@
                                     </div>
                                 </div>
                                 <div class="mt-3 mb-3">
-                                    <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Submit</button>
+                                    <button type="submit"
+                                        class="btn btn-theme rounded-4 btn-lg btn-block">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -164,46 +167,46 @@
 @endif
 <script>
     jQuery('#registerform').submit(function(e) {
-    e.preventDefault();
-    var data = jQuery('#registerform').serialize();
-    console.log(data);
-    console.log("hello");
-    jQuery.ajax({
-        url: "{{ url('register_customer') }}",
-        data: data,
-        type: 'post',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        success: function(data) {
-            console.log(data);
-            if (data.msg == 'success') {
-                jQuery('#registerform').hide();
-                jQuery('#registerotpform').show();
-                jQuery('#registerid').val(data.data.id);
+        e.preventDefault();
+        var data = jQuery('#registerform').serialize();
+        console.log(data);
+        console.log("hello");
+        jQuery.ajax({
+            url: "{{ url('register_customer') }}",
+            data: data,
+            type: 'post',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data) {
+                console.log(data);
+                if (data.msg == 'success') {
+                    jQuery('#registerform').hide();
+                    jQuery('#registerotpform').show();
+                    jQuery('#registerid').val(data.data.id);
+                }
+            },
+            error: function(xhr) {
+                if (xhr.status === 422) {
+                    var errors = xhr.responseJSON.errors;
+                    console.log(errors);
+                    jQuery.each(errors, function(key, value) {
+                        var input = jQuery('input[name=' + key + ']');
+                        input.addClass('is-invalid');
+                        input.next('.invalid-feedback').remove();
+                        input.after('<div class="invalid-feedback">' + value[0] + '</div>');
+                    });
+                }
             }
-        },
-        error: function(xhr) {
-            if (xhr.status === 422) {
-                var errors = xhr.responseJSON.errors;
-                console.log(errors);
-                jQuery.each(errors, function(key, value) {
-                    var input = jQuery('input[name=' + key + ']');
-                    input.addClass('is-invalid');
-                    input.next('.invalid-feedback').remove();
-                    input.after('<div class="invalid-feedback">' + value[0] + '</div>');
-                });
-            }
-        }
+        });
     });
-});
 
-setTimeout(function() {
-            $('#successAlert').fadeOut('slow');
-        }, 2000);
+    setTimeout(function() {
+        $('#successAlert').fadeOut('slow');
+    }, 2000);
 
-        setTimeout(function() {
-            $('#dangerAlert').fadeOut('slow');
-        }, 2000);
+    setTimeout(function() {
+        $('#dangerAlert').fadeOut('slow');
+    }, 2000);
 </script>
 @endpush
