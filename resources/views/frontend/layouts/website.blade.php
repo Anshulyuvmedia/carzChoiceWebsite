@@ -152,8 +152,8 @@
                                                     <h3>Condition</h3>
                                                     <ul>
                                                         <li><a href="/new-cars">Explore New Cars</a></li>
-                                                        <li><a href="/upcoming-car">Upcoming Cars</a></li>
-                                                        <li><a href="/new-car-launches">New Launches </a></li>
+                                                        <li><a  data-value="Upcoming" class="brandfilter">Upcoming Cars</a></li>
+                                                        <li><a data-value="Newly Launched" class="brandfilter">New Launches </a></li>
                                                         <li><a href="/electric-car">Electric Cars </a></li>
                                                         <li><a href="/car-loan">Car Loan </a></li>
                                                     </ul>
@@ -369,7 +369,7 @@
             console.log(carbrand);
 
             $.ajax({
-                url: "/filterByAttribute",
+                url: "/filterByAttribute/" + carbrand,
                 type: 'POST',
                 data: { attribute: carbrand },
                 headers: {

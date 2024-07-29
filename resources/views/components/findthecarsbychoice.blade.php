@@ -4,15 +4,16 @@
       <div class="container ">
           <!-- Row -->
           <div class="row">
-              <!-- Heading Area -->
-              <div class="heading-panel">
-                  <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                      <!-- Main Title -->
-                      <h1>Find The Cars Of <span class="heading-color"> Your Choice</span> </h1>
-                  </div>
-              </div>
+
 
               <div class="card">
+                  <!-- Heading Area -->
+                  <div class="heading-panel">
+                      <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                          <!-- Main Title -->
+                          <h1>Find The Cars Of <span class="heading-color"> Your Choice</span> </h1>
+                      </div>
+                  </div>
                   <ul class="nav nav-tabs" role="tablist">
                       <li role="presentation" class="nav-item active">
                           <a class="nav-link" aria-controls="budget" role="tab" data-toggle="tab"
@@ -36,7 +37,7 @@
                       </li>
                   </ul>
                   <!-- Tab panes -->
-                  <div class="tab-content clearfix py-5 ">
+                  <div class="tab-content clearfix pt-5 ">
                       <div class="tab-pane fade in active" id="budget">
                           <!-- Middle Content Box -->
                           <div class="col-md-12 col-xs-12 col-sm-12">
@@ -57,14 +58,14 @@
 
                       <div class="tab-pane fade" id="bodytype">
                           <div class="col-md-12 col-xs-12 col-sm-12">
-                              <div class="row">
+                              <div class="row align-items-center">
                                   @foreach ($bodytypes as $data)
-                                      <div class="col-md-2 col-sm-3 col-xs-4">
+                                      <div class="col-md-2 col-sm-3 col-xs-4 px-2">
                                           <div class="box">
 
                                               <a href="javascript:void(0);" class="brandfilter"
                                                   data-value="{{ $data->value }}">
-                                                  <img alt="Convertible" width="100"
+                                                  <img alt="Convertible" width="75"
                                                       src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}">
                                                   <h4>{{ $data->value }}</h4>
                                               </a>
@@ -123,10 +124,10 @@
                               <div class="row">
                                   <div class="d-flex flex-row flex-wrap">
                                       @foreach ($seatings as $data)
-                                          <a href="javascript:void(0);" class="brandfilter me-3 mb-3" data-value="{{ $data->value }}">
-
+                                          <a href="javascript:void(0);" class="brandfilter me-3 mb-3"
+                                              data-value="{{ $data->value }}">
                                               <button type="button"
-                                                  class="btn btn-default btn-sm rounded-pill">{{ $data->value }}</button>
+                                                  class="btn btn-default btn-sm rounded-pill">{{ $data->value }} Seats</button>
                                           </a>
                                       @endforeach
                                   </div>
@@ -141,4 +142,3 @@
       </div>
   </section>
   <!-- =-=-=-=-=-=-= Cars Of Your Choice End =-=-=-=-=-=-= -->
-

@@ -31,7 +31,7 @@
 
                 <!-- Nav tabs -->
                 @php
-                    $type = request()->query('type', 'All'); 
+                    $type = request()->query('type', 'All');
                     // dd($type);// Default to 'All' if 'type' is not set
                 @endphp
 
@@ -316,8 +316,8 @@
                     </div>
 
                     @php
-                                
-                    $type = request()->query('type', 'All'); 
+
+                        $type = request()->query('type', 'All');
                         // Filter the collection to include only images with type "Outer view"
                         $outerViewImages = $allcarimage->where('type', 'Outer view');
                     @endphp
@@ -327,7 +327,7 @@
 
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row">
-                              
+
                                 @if ($outerViewImages->isNotEmpty())
                                     <div class="featured-slider owl-carousel owl-theme">
                                         @foreach ($outerViewImages as $imagedata)
@@ -347,13 +347,25 @@
                                                             <div
                                                                 class="short-description-1 d-flex justify-content-between ">
                                                                 <div class="d-flex">
-                                                                    <div class="p-3 border me-2 rounded-pill "
-                                                                        style="background-color: {{ $imagedata->color }}; height: 25px; width: 25px;";>
+                                                                    @php
+                                                                        // Decode JSON into an associative array
+                                                                        $colors = json_decode($imagedata->color, true);
+                                                                        // dd($colors); // Uncomment to debug and see the structure of $colors
+                                                                    @endphp
+                                                                    <div
+                                                                        class=" d-flex ">
+                                                                        <div class="p-3 border me-2 rounded-pill"
+                                                                            style="background-color: {{ $colors['value'] }}; height: 25px; width: 25px;">
+                                                                        </div>
+                                                                        <div class="text-capitalize">
+                                                                            {{ $colors['label'] ?? 'Unknown Color' }}
+                                                                        </div>
                                                                     </div>
-                                                                    <span class="text-capitalize">
-                                                                        {{ $imagedata->color ?? 'Unknown Color' }}
-                                                                    </span>
+
+
                                                                 </div>
+
+
                                                                 <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
                                                                     download="{{ $imagedata->addimage }}">
                                                                     <span class="rounded-pill text-white pull-right"
