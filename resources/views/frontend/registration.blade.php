@@ -136,7 +136,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-3 mb-3">
-                                    <button type="submit" class="btn btn-theme btn-lg btn-block">Submit</button>
+                                    <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Submit</button>
                                 </div>
                             </div>
                         </form>

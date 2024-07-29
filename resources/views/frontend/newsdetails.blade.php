@@ -139,7 +139,7 @@
                                                                     <a class=""
                                                                         href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
                                                                         <button
-                                                                            class="btn btn-outline btn-danger btn-sm  ">
+                                                                            class="btn btn-theme rounded-4 btn-sm  ">
                                                                             <i class="fa fa-phone"></i>
                                                                             View Details.
                                                                         </button>
@@ -188,7 +188,7 @@
                                         <input class="form-control rounded-3" placeholder="Enter Your Email ID"
                                             type="text">
                                     </div>
-                                    <button class="btn btn-theme rounded-3 w-100">Submit</button>
+                                    <button class="btn btn-theme rounded-4 rounded-3 w-100">Submit</button>
                                 </div>
                             </div>
 

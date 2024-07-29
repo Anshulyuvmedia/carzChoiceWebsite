@@ -45,7 +45,7 @@
                                     <h6>Filter by :</h6>
 
                                     <div class="custom-select-box mt-3">
-                                        <button class="btn btn-theme" data-bs-target="#carfilter"
+                                        <button class="btn btn-theme rounded-4" data-bs-target="#carfilter"
                                             data-bs-toggle="modal"> Make</button>
 
                                     </div>
@@ -243,7 +243,7 @@
                                     <span class="price-slider-value">Upto <span id="price-min"></span> - <span
                                             id="price-max"></span></span>
                                     <div id="price-slider"></div>
-                                    {{-- <a class="btn btn-theme btn-sm margin-top-20">Search</a> --}}
+                                    {{-- <a class="btn btn-theme rounded-4 btn-sm margin-top-20">Search</a> --}}
                                 </div>
                             </div>
                         </div>
@@ -918,7 +918,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-12 my-3 text-center">
-                        <button type="submit" class="btn btn-theme rounded-3" data-bs-target="#selectLocation"
+                        <button type="submit" class="btn btn-theme rounded-4 rounded-3" data-bs-target="#selectLocation"
                             data-bs-toggle="modal">Apply Changes</button>
                     </div>
                 </div>

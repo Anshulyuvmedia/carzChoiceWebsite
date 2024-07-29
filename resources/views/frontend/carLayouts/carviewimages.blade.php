@@ -79,7 +79,7 @@
 
                                     @foreach ($uniqueTypes as $imagedata)
                                         <a type="button" href="#{{ $imagedata->type }}"
-                                            class="btn btn-outline btn-danger rounded-pill mx-1 px-4 py-1">
+                                            class="btn btn-theme rounded-4 rounded-pill mx-1 px-4 py-1">
                                             {{ $imagedata->type }}
                                         </a>
                                     @endforeach
@@ -161,7 +161,7 @@
 
                                     @foreach ($filteredTypes as $imagedata)
                                         <a type="button" href="#{{ $imagedata->type }}"
-                                            class="btn btn-outline btn-danger rounded-pill mx-1 px-4 py-1">
+                                            class="btn btn-theme rounded-4 rounded-pill mx-1 px-4 py-1">
                                             {{ $imagedata->type }}
                                         </a>
                                     @endforeach
@@ -252,7 +252,7 @@
 
                                     @foreach ($filteredTypes as $imagedata)
                                         <a type="button" href="#{{ $imagedata->type }}"
-                                            class="btn btn-outline btn-danger rounded-pill mx-1 px-4 py-1">
+                                            class="btn btn-theme rounded-4 rounded-pill mx-1 px-4 py-1">
                                             {{ $imagedata->type }}
                                         </a>
                                     @endforeach

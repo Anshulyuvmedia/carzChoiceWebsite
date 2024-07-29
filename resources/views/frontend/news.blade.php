@@ -4,8 +4,8 @@
 
 
 <!-- =-=-=-=-=-=-= Breadcrumb =-=-=-=-=-=-= -->
-<div class="page-header-area-2 gray">
-    <div class="container">
+<div class="page-header-area-2 ">
+    <div class="container ">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="small-breadcrumb">
@@ -19,8 +19,20 @@
                         <h1>Latest News & Trends</h1>
                     </div>
                 </div>
-                <!-- Nav tabs -->
-                <div class="card border-0  shadow-none mb-0 " style="background-color: #f6f6f6">
+               
+
+                <!-- Tab panes -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-content-area clearfix">
+    <section class="section-padding no-top  ">
+        <div class="container card">
+            <div class="row">
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                     <!-- Nav tabs -->
+                <div class="card border-0  shadow-none mb-0 " >
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="nav-item active">
                             <a class="nav-link" aria-controls="All" href="/news">NEWS
@@ -39,19 +51,8 @@
                             <a class="nav-link" aria-controls="Colours" href="#VIDEOS">VIDEOS</a>
                         </li>
                     </ul>
+                    
                 </div>
-
-                <!-- Tab panes -->
-            </div>
-        </div>
-    </div>
-</div>
-<div class="main-content-area clearfix">
-    <section class="section-padding no-top gray ">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-xs-12 col-sm-12">
-                    <div class="row">
                         <div class="posts-masonry">
                             @foreach ($blogdata as $data)
                                 <div class="col-md-3 col-sm-6 col-xs-12">
@@ -89,7 +90,7 @@
                         <div class="justify-content-around">
                             {{ $blogdata->links('pagination::bootstrap-5') }}
                         </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

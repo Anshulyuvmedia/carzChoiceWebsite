@@ -426,7 +426,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-12 d-flex justify-content-end">
-                                                <button type="button" class="btn btn-theme btn-sm addRow"><i
+                                                <button type="button" class="btn btn-theme rounded-4 btn-sm addRow"><i
                                                         class="fa fa-plus"></i>&nbsp;Add Row</button>
                                             </div>
                                         </div>

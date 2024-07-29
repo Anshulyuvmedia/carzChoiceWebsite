@@ -122,7 +122,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 text-right">
-                                    <button type="submit" class="btn btn-theme btn-sm">Update My Info</button>
+                                    <button type="submit" class="btn btn-theme rounded-4 btn-sm">Update My Info</button>
                                 </div>
                             </div>
                         </form>
@@ -161,7 +161,7 @@
                                 </div>
                             </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 text-right">
-                                    <button type="submit" class="btn btn-theme btn-sm">Change My Password</button>
+                                    <button type="submit" class="btn btn-theme rounded-4 btn-sm">Change My Password</button>
                                 </div>
                             </div>
                         </form>

@@ -92,7 +92,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -138,7 +138,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -184,7 +184,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -230,7 +230,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -287,7 +287,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -331,7 +331,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -375,7 +375,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -419,7 +419,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>

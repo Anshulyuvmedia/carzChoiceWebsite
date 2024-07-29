@@ -494,7 +494,7 @@
                             <div class="panel-body">
                                <span class="price-slider-value">Price ($) <span id="price-min"></span> - <span id="price-max"></span></span>
                                <div id="price-slider"></div>
-                               <a class="btn btn-theme btn-sm margin-top-20">Search</a>
+                               <a class="btn btn-theme rounded-4 btn-sm margin-top-20">Search</a>
                             </div>
                          </div>
                       </div>

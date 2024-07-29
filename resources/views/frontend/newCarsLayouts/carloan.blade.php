@@ -232,7 +232,7 @@
                                                         type="text" name="mobileno">
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-theme btn-block ">
+                                            <button type="submit" class="btn btn-theme rounded-4 btn-block ">
                                                 Get Virtus Loan Offers
                                             </button>
                                             <div class="mb-3">
@@ -357,7 +357,7 @@
                                                 </div>
 
                                             </div>
-                                            <button type="submit" class="btn btn-theme btn-block ">
+                                            <button type="submit" class="btn btn-theme rounded-4 btn-block ">
                                                 Get Virtus Loan Offers
                                             </button>
                                             <div class="mb-3">
@@ -655,7 +655,7 @@
                             </ul>
                         </div>
                         {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
-                            <button class="btn btn-theme btn-block" data-bs-target="#selectCar"
+                            <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCar"
                                 data-bs-toggle="modal">Open second modal</button>
                         </div> --}}
                     </div>
@@ -665,7 +665,7 @@
 
             {{-- <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open
+                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open
                         second modal</button>
                 </div>
             </div> --}}
@@ -728,14 +728,14 @@
                     </div>
                     {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
                         <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
-                            class="btn btn-theme btn-block">Select Brand</button>
+                            class="btn btn-theme rounded-4 btn-block">Select Brand</button>
                     </div> --}}
                 </form>
             </div>
             <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
                     <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
-                        class="btn btn-theme btn-block rounded-3">Go Back</button>
+                        class="btn btn-theme rounded-4 btn-block rounded-3">Go Back</button>
                 </div>
             </div>
         </div>
@@ -1064,7 +1064,7 @@
 
             {{-- <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme btn-block" data-bs-target="#selectCity" data-bs-toggle="modal">Open
+                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCity" data-bs-toggle="modal">Open
                         City Modal</button>
                 </div>
             </div> --}}
@@ -1114,7 +1114,7 @@
 
             <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme btn-sm" data-bs-target="#selectLocation" data-bs-toggle="modal">Go
+                    <button class="btn btn-theme rounded-4 btn-sm" data-bs-target="#selectLocation" data-bs-toggle="modal">Go
                         Back</button>
                 </div>
             </div>

@@ -118,7 +118,7 @@
                             <input type="hidden" name="registerid" value="" id="registerid">
                         </div>
                         <div class="mt-3 mb-3">
-                            <button type="submit" class="btn btn-theme btn-lg btn-block">Verify</button>
+                            <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Verify</button>
                         </div>
                 </div>
                 </form>
@@ -137,7 +137,7 @@
                         <input placeholder="Your Password" name="confirmpassword" class="form-control" type="password">
                         <div class="invalid-feedback"></div>
                     </div>
-                    <button type="submit" class="btn btn-theme btn-lg btn-block">Update Password</button>
+                    <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Update Password</button>
                 </form>
             </div>
 

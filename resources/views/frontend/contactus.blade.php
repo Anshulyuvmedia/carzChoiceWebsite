@@ -52,7 +52,7 @@
                             </div>
                          </div>
                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <button class="btn btn-theme" type="submit">Send Message</button>
+                            <button class="btn btn-theme rounded-4" type="submit">Send Message</button>
                          </div>
                       </div>
                    </form>

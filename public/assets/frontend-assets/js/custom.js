@@ -355,6 +355,30 @@ Designed and Development by: ScriptsBundle
         },
         stopOnHover: true
     });
+
+    $(".homebannerslider").owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        dots: false,
+        responsiveClass: true,
+        loop: true,
+        items: 3,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 1,
+            },
+            1000: {
+                items: 1,
+            }
+        },
+        stopOnHover: true
+    });
+    
+
     /* ======= Featured Carousel 2 ======= */
     $('.featured-slider-1').owlCarousel({
         margin: -10,
@@ -410,13 +434,13 @@ Designed and Development by: ScriptsBundle
         autoplayHoverPause: true,
         responsive: {
             0: {
-                items: 4,
+                items: 3,
             },
             600: {
                 items: 4,
             },
             1000: {
-                items: 5,
+                items: 7,
             }
         }
     });

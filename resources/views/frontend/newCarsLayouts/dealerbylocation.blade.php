@@ -105,7 +105,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -153,7 +153,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -213,7 +213,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -259,7 +259,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -305,7 +305,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -351,7 +351,7 @@
                                             </div>
                                             <div>
                                                 <a href="tel:9876543211">
-                                                    <div class="btn btn-outline btn-danger btn-sm  rounded-3">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
                                                         9876543211
                                                     </div>
@@ -821,7 +821,7 @@
                             </ul>
                         </div>
                         {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
-                            <button class="btn btn-theme btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open second modal</button>
+                            <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open second modal</button>
                         </div> --}}
                     </div>
 
@@ -830,7 +830,7 @@
 
             {{-- <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open
+                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open
                         second modal</button>
                 </div>
             </div> --}}
@@ -954,14 +954,14 @@
                     </div>
                     {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
                         <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
-                            class="btn btn-theme btn-block">Select Brand</button>
+                            class="btn btn-theme rounded-4 btn-block">Select Brand</button>
                     </div> --}}
                 </form>
             </div>
             <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
                     <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
-                        class="btn btn-theme btn-block rounded-3">Go Back</button>
+                        class="btn btn-theme rounded-4 btn-block rounded-3">Go Back</button>
                 </div>
             </div>
         </div>
@@ -982,7 +982,7 @@
             <label for="formGroupExampleInput" class="form-label">Contact Number</label>
             <input type="tel" class="form-control" id="formGroupExampleInput" placeholder="Enter Mobile Number">
             <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once</div>
-            <button class="btn btn-theme btn-lg btn-block">Register</button>
+            <button class="btn btn-theme rounded-4 btn-lg btn-block">Register</button>
         </div>
 
     </div>

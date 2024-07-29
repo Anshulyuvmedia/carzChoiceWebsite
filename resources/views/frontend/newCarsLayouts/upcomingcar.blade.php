@@ -33,7 +33,7 @@
             <!-- Sorting Filters -->
 
             <!-- Middle Content Area -->
-            <div class="col-md-8 col-lg-8 col-sx-12">
+            <div class="col-md-8 col-lg-8 col-sx-12 ">
                 <div class="header-page mb-2">
                     <h1 class="text-dark fs-3 fw-bold">Upcoming Cars in India 2024</h1>
                 </div>
@@ -41,14 +41,14 @@
                 <div class="row">
 
                     <div class="clearfix"></div>
-                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 ">
                         <div class="clearfix"></div>
-                        <div class="listingTopFilterBar">
+                        <div class="listingTopFilterBar rounded-4 shadow-sm ">
                             <div class="col-md-6 col-xs-12 col-sm-5 ">
                                 <div class="header-listing">
                                     <h6>Filter by :</h6>
                                     <div class="custom-select-box">
-                                        <select class="form-control" id="brandselect" name="brandname">
+                                        <select class="form-control rounded-4 " id="brandselect" name="brandname">
                                             <option value=""> Select brand name</option>
                                             @foreach ($brands as $row)
                                             <option value="{{ $row->label }}">{{ $row->label }}</option>
@@ -61,7 +61,7 @@
                                 <div class="header-listing">
                                     <h6>Sort by :</h6>
                                     <div class="custom-select-box">
-                                        <select name="order" class="custom-select form-control">
+                                        <select name="order" class="custom-select form-control rounded-4">
                                             <option value="0">Most popular</option>
                                             <option value="1">The latest</option>
                                             <option value="2">The best rating</option>
@@ -77,7 +77,7 @@
                     <div class="col-md-12 col-xs-12 col-xs-12">
                         <div class="posts-masonry" id="upcomingcardsdiv">
                             @foreach ($matchesupcoming as $data)
-                            <div class="ads-list-archive">
+                            <div class="ads-list-archive card">
                                 <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                                     <div class="ad-archive-img">
                                         <a href="#">
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="clearfix visible-xs-block"></div>
                                 <div class="col-lg-8 col-md-8 col-sm-8 no-padding">
-                                    <div class="ad-archive-desc">
+                                    <div class="ad-archive-desc ">
                                         <!-- Title -->
                                         <a href="#">
                                             <h3> {{$data->brandname}} {{$data->carname}}</h3>
@@ -97,7 +97,7 @@
 
                                         <!-- Price -->
                                         <div class="ad-price-simple fs-3">Rs. {{$data->price}}<span
-                                                class="fs-5 text-dark">Estimated Price </span></div>
+                                                class="fs-5 text-dark"> Estimated Price </span></div>
                                         <!-- Ad History -->
                                         <div class="category-title">Expected launch - June 2025 (Tentative)</div>
                                     </div>
@@ -128,15 +128,8 @@
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
                         <!-- Latest Ads Panel -->
-                        <div class="panel panel-default">
-                            <!-- Heading -->
-                            {{-- <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a>
-                                        Recent Ads
-                                    </a>
-                                </h4>
-                            </div> --}}
+                        <div class="panel panel-default rounded-4">
+                           
                             <!-- Content -->
                             <div class="panel-collapse">
                                 <div class="panel-body recent-ads">

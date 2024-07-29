@@ -146,6 +146,11 @@ strong {
     font-weight: 600;
 }
 /* =-=-=-=-=-=-= Helper Classes  =-=-=-=-=-=-= */
+
+.hideInDesktop {
+    display: none;
+}
+
 .load-more-btn {
     margin-top: 20px;
 }
@@ -339,7 +344,8 @@ strong {
 }
 
 .custom-padding {
-    padding: 25px 0 25px 0;
+    padding: 25px 5px 20px 5px;
+    background-color: #fafafa;
 }
 
 .custom-padding.no-top {
@@ -552,7 +558,7 @@ ul {
 }
 
 .color-switcher ul li a.defualt {
-    background: #e52d27;
+    background: #037cef;
 }
 
 .color-switcher ul li a.green {
@@ -592,7 +598,7 @@ ul {
 
 .heading-panel,
 .heading-panel-2 {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     overflow: hidden;
 }
 
@@ -641,9 +647,9 @@ ul {
 
 .heading-panel h1 {
     color: #222;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     position: relative;
     text-transform: capitalize;
     z-index: 2;
@@ -1532,13 +1538,16 @@ img.resize {
 /* =-=-=-=-=-=-= Grid Listing 1 =-=-=-=-=-=-= */
 .category-grid-box-1 {
     background: #fff none repeat scroll 0 0;
-    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.16);
-    margin-bottom: 30px;
+    /* box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.16); */
+    box-shadow: 0 1px 2px rgba(36, 39, 44, .1);
+    margin-bottom: 10px;
     overflow: hidden;
     float: left;
     display: block;
     width: 100%;
     position: relative;
+    border-radius: 8px;
+    border: 1px solid rgba(36, 39, 44, .1);
 }
 
 .category-grid-box-1:after {
@@ -1586,7 +1595,8 @@ img.resize {
 }
 .category-grid-box-1 .short-description-1 .btn-theme {
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 600;
+    width: 100%;
 }
 
 .category-grid-box-1 a h6 {
@@ -1680,7 +1690,7 @@ img.resize {
 }
 
 .grid-style-1 .white.category-grid-box-1 .short-description-1 {
-    border-top: 1px solid #e52d27;
+    border-top: 1px solid #037cef;
 }
 
 .grid-style-1 .white.category-grid-box-1 .short-description-1 .ad-price {
@@ -1723,6 +1733,9 @@ img.resize {
 .category-grid-box-1 .image img {
     width: 100%;
     position: relative;
+    aspect-ratio: 5 / 3;
+    /* object-fit: fill; */
+    border-radius: 8px 8px 0 0;
 }
 
 .special-label-small {
@@ -3108,7 +3121,7 @@ div.boxicon:last-child {
 }
 
 .boxicon i.reg-year {
-    color: #e52d27;
+    color: #037cef;
 }
 
 .boxicon i.transmission {
@@ -3820,8 +3833,11 @@ div.boxicon:last-child {
     background: #fff none repeat scroll 0 0;
     border: 1px solid #f1f1f1;
     color: #162532;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     position: relative;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(221, 221, 221, 0.75);
+    border: 1px solid rgba(36, 39, 44, .1);
 }
 
 .blog-post .post-excerpt a strong {
@@ -4415,7 +4431,7 @@ label {
 
 /* =-=-=-=-=-=-= Breadcrumbs =-=-=-=-=-=-= */
 .page-header-area-2 {
-    padding: 30px 0;
+    padding: 10px 0;
     text-align: left;
     position: relative;
 }
@@ -4991,7 +5007,7 @@ label {
 }
 
 .card .nav-tabs {
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .card .nav-tabs > li.active > a,
@@ -5054,10 +5070,24 @@ label {
 
 .card {
     background: #fff none repeat scroll 0% 0%;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 30px;
+    /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); */
+    box-shadow: 0 1px 2px rgba(36, 39, 44, .1);
+    /* margin-bottom: 10px; */
+    border-radius: 20px;
+    padding: 15px;
+}
+.client-logo {
+    border: 1px solid #d8d8d8;
+    box-shadow: 0 1px 2px rgba(36, 39, 44, .1);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
 }
 
+.brandfilter {
+    border-radius: 10px;
+
+}
 .commentForm h2 {
     color: #232323;
     font-size: 24px;
@@ -6563,7 +6593,8 @@ fieldset[disabled] .btn-purple.active {
 }
 
 .client-section {
-    padding: 50px 0;
+    padding: 25px 5px 20px 5px;
+    background-color: #fafafa;
 }
 
 .client-section h3 {
@@ -8922,7 +8953,7 @@ ul.listingViewIcon li.shortByListingLi ul li a {
 }
 
 .search-style-2 .search-form {
-    padding: 33px 0 23px;
+    padding: 10px 0 10px;
     width: 100%;
 }
 
@@ -9255,13 +9286,16 @@ body .over-hidden {
 }
 
 .comparison-box {
-    margin-bottom: 30px;
-    padding: 25px 20px;
+    margin-bottom: 10px;
+    /* padding: 25px 20px; */
     position: relative;
     transition: all 0.3s ease-in-out 0s;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(221, 221, 221, 0.75);
     background-color: #fff;
+    padding: 10px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(36, 39, 44, .1);
 }
 
 .comparison-box .rating {
@@ -10143,7 +10177,7 @@ footer.footer-bg {
 }
 
 .footer-content .column .heading-panel {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     overflow: hidden;
 }
 
@@ -10435,12 +10469,14 @@ footer.footer-bg {
     color: black;
 }
 
-.featured-cars .card {
-    background: #f6f6f6;
-    box-shadow: none;
-    margin-bottom: 0px;
-    border: none;
-}
+/* .featured-cars .card { */
+    /* background: #ffffff; */
+    /* box-shadow: none; */
+    /* margin-bottom: 0px; */
+    /* border: none;
+    border-radius: 20px;
+    padding: 15px; */
+/* } */
 
 .featured-cars .card .tab-content {
     padding: 0px;
@@ -10461,9 +10497,9 @@ footer.footer-bg {
     padding: 5px 10px;
 }
 
-.comapare-slider .comparison-box {
+/* .comapare-slider .comparison-box {
     padding: 5px 5px;
-}
+} */
 
 .comparison-box .compare-grid div,
 .compare-grid span {
@@ -10474,6 +10510,10 @@ footer.footer-bg {
     font-size: 16px;
     font-weight: 600;
     line-height: 1.1em;
+}
+
+.compare-grid img {
+    border-radius: 8px;
 }
 
 .used-cars .category-grid-box-1 h3 {
@@ -10799,8 +10839,8 @@ textarea {
 .nav-underline .nav-link.active,
 .nav-underline .show > .nav-link {
     font-weight: 700;
-    color: #e52d27;
-    border-bottom-color: #e52d27;
+    color: #037cef;
+    border-bottom-color: #037cef;
 }
 
 .nav > li > a:hover,
@@ -10817,7 +10857,7 @@ textarea {
     width: 100%;
     overflow-x: auto;
     flex-wrap: nowrap;
-    padding-bottom: 10px;
+    padding-bottom: 3px;
     scrollbar-width: thin;
 }
 
@@ -11049,4 +11089,36 @@ textarea {
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     background-color: #fff0;
     color: #666;
+}
+
+.maineHeading {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(255, 255, 255, .9);
+
+}
+.col-4 .maineHeading {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(255, 255, 255, .9);
+
+}
+.subTitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, .9);
+    position: relative;
+    padding: 0 0 5px;
+    text-align: center;
+
+}
+
+.filterImage {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.main-content-area {
+    background-color: #fafafa;
 }

@@ -438,7 +438,7 @@
                             <li>Unlimited tasks</li>
                             <li>Basic Dashboards</li>
                          </ul>
-                         <a href="#" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                       </div>
                    </div>
                    <div class="col-sm-6 col-lg-4 col-md-4">
@@ -453,7 +453,7 @@
                             <li>Unlimited tasks</li>
                             <li>Basic Dashboards</li>
                          </ul>
-                         <a href="#" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                       </div>
                    </div>
                    <div class="col-sm-6 col-lg-4 col-md-4">
@@ -468,7 +468,7 @@
                             <li>Unlimited tasks</li>
                             <li>Basic Dashboards</li>
                          </ul>
-                         <a href="#" class="btn btn-theme">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="#" class="btn btn-theme rounded-4">Select Plan <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                       </div>
                    </div>
                 </div>

@@ -309,7 +309,7 @@
                                <div class="form-group">
                                   <input style="width: 100%" placeholder="Type a message here..." class="form-control" type="text">
                                </div>
-                               <button class="btn btn-theme" type="submit">Send</button>
+                               <button class="btn btn-theme rounded-4" type="submit">Send</button>
                             </form>
                          </div>
                       </div>
