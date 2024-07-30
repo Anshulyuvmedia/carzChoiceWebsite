@@ -599,7 +599,7 @@ class FrontendStore extends Controller
         // Return the response
         return response()->json([
             'success' => true,
-            'redirect_url' => route('findcar', ['filtertype' => $attribute])
+            'redirect_url' => route('findcar', ['filtertype' => $attribute." New"])
         ], 200);
     }
 
@@ -915,7 +915,7 @@ class FrontendStore extends Controller
         // Return the response
         return response()->json([
             'success' => true,
-            'redirect_url' => route('findcar')
+            'redirect_url' => route('findcar',['filtertype' => $attribute." Used"])
         ], 200);
     }
 }

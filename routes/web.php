@@ -100,7 +100,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('insertcompareoffcanvas', 'insertcompareoffcanvas')->name('insertcompareoffcanvas');
     Route::post('makefilterfindcar', 'makefilterfindcar')->name('makefilterfindcar');
     Route::post('registerdealer', 'registerdealer')->name('registerdealer');
-    Route::post('usedcarfilter', 'usedcarfilter')->name('usedcarfilter');
+    Route::post('usedcarfilter/{filtertype}', 'usedcarfilter')->name('usedcarfilter');
 
 });
 

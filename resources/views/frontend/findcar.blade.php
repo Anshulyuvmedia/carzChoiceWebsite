@@ -1,6 +1,6 @@
 @extends('frontend.layouts.website')
 @section('content')
-@section('title', $filtertype )
+@section('title', $filtertypenew )
 
 
 <!-- =-=-=-=-=-=-= Breadcrumb =-=-=-=-=-=-= -->
@@ -10,7 +10,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="small-breadcrumb">
                     <div class="header-page">
-                        <h1>{{$filtertype}} Cars</h1>
+                        <h1>{{$filtertypenew}} Cars</h1>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <!-- Middle Content Area -->
             <div class="col-md-8 col-lg-8 col-sx-12">
                 <div class="header-page mb-2">
-                    <h1 class="text-dark fs-3 fw-bold">{{$filtertype}} Cars in India 2024</h1>
+                    <h1 class="text-dark fs-3 fw-bold">{{$filtertypenew}} Cars in India 2024</h1>
                 </div>
                 <!-- Row -->
                 <div class="row">

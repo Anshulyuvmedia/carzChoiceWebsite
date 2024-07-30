@@ -488,14 +488,14 @@ class frontViewController extends Controller
     }
     public function findcar($filtertype)
     {
-        $filtertype = $filtertype;
+        $filtertypenew = $filtertype;
         $results = Master::where('type', '=', 'Body Type')
             ->orWhere('type', '=', 'Transmission')
             ->orWhere('type', '=', 'Fuel Type')
             ->orWhere('type', '=', 'Seating Capacity')
             ->get();
         $variants = session('variants', []);
-        return view('frontend.findcar', compact('variants', 'results'));
+        return view('frontend.findcar', compact('variants', 'results','filtertypenew'));
     }
 
 

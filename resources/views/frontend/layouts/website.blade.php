@@ -405,7 +405,7 @@
             console.log(carbrand);
 
             $.ajax({
-                url: "/usedcarfilter",
+                url: "/usedcarfilter/" + carbrand,
                 type: 'POST',
                 data: { attribute: carbrand },
                 headers: {
