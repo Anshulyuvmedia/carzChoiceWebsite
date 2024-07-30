@@ -138,7 +138,7 @@
                 data.forEach(function(element, index) {
                     var row = '<tr>';
                     row += '<td>' + (index + 1) + '</td>';
-                    row += '<td>' + element.type + '</td>';
+                    row += '<td>' + element.type + '</td>';     
                     row += '<td>' + element.label + '</td>';
                     row += '<td>' + element.value + '</td>';
                     row += '<td>' + (element.iconimage ?

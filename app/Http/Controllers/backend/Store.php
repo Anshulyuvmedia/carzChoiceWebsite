@@ -9,6 +9,7 @@ use App\Models\CompareVehicle;
 use App\Models\DisplaySetting;
 use App\Models\ProsandCons;
 use App\Models\ProsCons;
+use App\Models\RegisterDealer;
 use App\Models\SliderImage;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -987,4 +988,41 @@ class Store extends Controller
         }
     }
 
+    public function deletedealer($id)
+    {
+        $data = RegisterDealer::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function filterdealers(Request $request){
+
+        $brands = $request->input('brandname');
+        $city = $request->input('cityname');
+        // dd($brand,$city);
+
+        $query = RegisterDealer::query();
+
+        if (!empty($city)) {
+            $query->where('district', $city);
+        }
+
+        if (!empty($brands)) {
+            if (is_string($brands)) {
+                $brands = json_decode($brands, true);
+            }
+
+            if (is_array($brands)) {
+                foreach ($brands as $row) {
+                    $query->whereRaw("JSON_CONTAINS(brands, '\"$row\"')");
+                }
+            } else {
+
+            }
+        }
+
+        $data = $query->get();
+        // dd($data);
+        return response()->json($data);
+    }
 }

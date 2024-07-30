@@ -14,9 +14,6 @@
                             <li><a class="active" href="#">Login</a></li>
                         </ul>
                     </div>
-                    <div class="header-page d-flex justify-content-center">
-                        <h1>Sign In to your account </h1>
-                    </div>
                 </div>
             </div>
         </div>
@@ -39,38 +36,45 @@
                             <strong>{{ $message }}</strong>
                         </div>
                         @endif
-                        <form action="{{ route('loginuser') }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input placeholder="Your Email" name="email" class="form-control" type="email">
+                        <div class="card p-5 shadow-lg rounded-5">
+                            <div class="header-page d-flex justify-content-center">
+                                <h2 class="fw-bold">Log in to your Account</h2>
                             </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input placeholder="Your Password" name="password" class="form-control" type="password">
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-7">
-                                        <div class="skin-minimal">
-                                            <ul class="list">
-                                                <li>
-                                                    <input type="checkbox" id="minimal-checkbox-1">
-                                                    <label for="minimal-checkbox-1">I agree <a href="#">Terms of
-                                                            Services</a></label>
-                                                </li>
-                                            </ul>
+                            <div class="card-body">
+                                <form action="{{ route('loginuser') }}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input placeholder="Your Email" name="email" class="form-control" type="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input placeholder="Your Password" name="password" class="form-control" type="password">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-7">
+                                                <div class="skin-minimal">
+                                                    <ul class="list">
+                                                        <li>
+                                                            <input type="checkbox" id="minimal-checkbox-1">
+                                                            <label for="minimal-checkbox-1">I agree <a href="#">Terms of
+                                                                    Services</a></label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-5 text-right">
+                                                <p class="help-block"><a data-target="#myModal" data-toggle="modal">Forgot
+                                                        password?</a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-5 text-right">
-                                        <p class="help-block"><a data-target="#myModal" data-toggle="modal">Forgot
-                                                password?</a>
-                                        </p>
-                                    </div>
-                                </div>
+                                    <button type="submit" class="btn btn-theme btn-lg btn-block">Login With Us</button>
+                                </form>
                             </div>
-                            <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Login With Us</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

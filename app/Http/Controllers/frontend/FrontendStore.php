@@ -14,6 +14,7 @@ use App\Models\CompareVehicle;
 use App\Models\DisplaySetting;
 use App\Models\PostOffices;
 use App\Models\Pincode;
+use App\Models\RegisterDealer;
 use App\Models\VehicleImage;
 use App\Models\RegisterUser;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class FrontendStore extends Controller
 
     public function register_customer(Request $request)
     {
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'fullname' => 'required',
             'email' => 'required|unique:register_users,email',
@@ -45,6 +47,7 @@ class FrontendStore extends Controller
         $data = new RegisterUser();
         $data->fullname = $request->input('fullname');
         $data->contactno = $request->input('contactno');
+        $data->usertype = $request->input('usertype');
         $data->email = $request->input('email');
         $data->password = bcrypt($request->input('password'));
         $data->randomno = $randomNumber;
@@ -77,11 +80,11 @@ class FrontendStore extends Controller
                 $registeruserdata->update([
                     'verifystatus' => '1',
                 ]);
-                return back()->with('successtest', 'Thank you, we will reach you soon');
+                return back()->with('successtest', 'Registration Successfully..!!!');
             } else {
-                return back()->with('failuretest', 'Invalid Details..!!!!!!!!');
+                return back()->with('failuretest', 'Invalid Details..');
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Log the error for debugging
             Log::error($e->getMessage());
             return back()->with('failuretest', 'Error verifying OTP. Please try again later.');
@@ -596,7 +599,7 @@ class FrontendStore extends Controller
         // Return the response
         return response()->json([
             'success' => true,
-            'redirect_url' => route('findcar', ['filtertype' => $attribute])
+            'redirect_url' => route('findcar', ['filtertype' => $attribute." New"])
         ], 200);
     }
 
@@ -696,7 +699,7 @@ class FrontendStore extends Controller
         //     'maxPrice' => $maxPrice,
         // ]);
 
-        // Build the quer   y
+        // Build the query
         $query = AddVariant::query();
 
         if (!empty($bodyTypes)) {
@@ -723,10 +726,196 @@ class FrontendStore extends Controller
             $query->whereBetween('price', [$minPrice, $maxPrice]);
         }
 
-        // Execute the query
+        $query->leftJoin('vehicle_images', 'add_variants.id', '=', 'vehicle_images.variantid')
+        ->select('add_variants.*', 'vehicle_images.addimage');
+
         $variants = $query->get();
 
-        // Debug the results
-        dd($variants);
+        // dd($variants);
+        return response()->json($variants);
+    }
+
+    public function registerdealer(Request $req){
+        // dd($rq->all());
+        try {
+
+            //Mutiple Image Upload
+            $image = array();
+            if ($files = $req->file('businesspics')) {
+                foreach ($files as $file) {
+                    $image_name = md5(rand(1000, 10000));
+                    $extension = strtolower($file->getClientOriginalExtension());
+                    $image_fullname = $image_name . '.' . $extension;
+                    $uploaded_path = "assets/backend-assets/images/";
+                    $image_url = $uploaded_path . $image_fullname;
+                    $file->move($uploaded_path, $image_fullname);
+                    $image[] = $image_url;
+                }
+            }
+
+            $image2 = array();
+            if ($files = $req->file('officepics')) {
+                foreach ($files as $file) {
+                    $image_name2 = md5(rand(1000, 10000));
+                    $extension2 = strtolower($file->getClientOriginalExtension());
+                    $image_fullname2 = $image_name2 . '.' . $extension2;
+                    $uploaded_path2 = "assets/backend-assets/images/";
+                    $image_url2 = $uploaded_path2 . $image_fullname2;
+                    $file->move($uploaded_path2, $image_fullname2);
+                    $image2[] = $image_url2;
+                }
+            }
+
+            RegisterDealer::create([
+                'businessname' => $req->businessname,
+                'dealertype' => $req->dealertype,
+                'mobilenumber' => $req->mobilenumber,
+                'whatsappnumber' => $req->whatsappnumber,
+                'brands' => json_encode($req->brands),
+                'district' => $req->district,
+                'state' => $req->state,
+                'pincode' => $req->pincode,
+                'email' => $req->email,
+                'businesspics' => $image2 = count($image2) > 0 ? implode(',', $image2) : null,
+                'officepics' => $image = count($image) > 0 ? implode(',', $image) : null,
+
+            ]);
+            return back()->with('success', 'Registered Successfully..');
+        } catch (Exception $e) {
+            return redirect()->route('userprofile')->with('error', $e->getMessage());
+            //return redirect()->route('userprofile')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function usedcarfilter(Request $request)
+    {
+        $attribute = $request->input('attribute');
+        // dd($request);
+
+        // Step 1: Retrieve the type corresponding to the given attribute from Master table
+        $type = Master::where('value', $attribute)->pluck('type')->first();
+        // dd($type);
+        if (!$type) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid attribute'
+            ], 400);
+        }
+
+        // Step 2: Based on the type, filter AddVariant data
+        switch ($type) {
+            case 'Brand':
+                $variantData = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('brandname', $attribute)->get()->unique('carname');
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                break;
+
+            case 'Body Type':
+                $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
+                ->select('add_variants.bodytype','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->where('add_variants.bodytype', $attribute)
+                ->get()->unique('carname');
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                // dd($variantData);
+                break;
+
+            case 'Fuel Type':
+                $variantData = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('fueltype', $attribute)->get()->unique('carname');
+
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                break;
+
+            case 'Transmission':
+                $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
+                ->select('add_variants.bodytype','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->whereJsonContains('add_variants.transmission', $attribute)
+                ->get()->unique('carname');
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                break;
+
+            case 'Seating Capacity':
+                $parts = explode(' ', $attribute);
+                $avalseat = intval($parts[0]);
+                $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
+                ->select('add_variants.seatingcapacity','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->where('add_variants.seatingcapacity', '<', $avalseat)
+                ->get()->unique('carname');
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                break;
+
+            case 'Budget':
+                $parts = explode(' ', $attribute);
+                $budgetvalue = intval($parts[1]) * 100000;
+                // dd($budgetvalue);
+                $variantData = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('price', '<', $budgetvalue)->get()->unique('carname');
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                // dd($variantData);
+                break;
+
+            default:
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Invalid type'
+                ], 400);
+        }
+        //  dd($variantData);
+        // Store the result in session
+        session(['variants' => $variantData]);
+
+        // Return the response
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('findcar',['filtertype' => $attribute." Used"])
+        ], 200);
     }
 }

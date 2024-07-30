@@ -8,10 +8,10 @@ use Illuminate\View\Component;
 use App\Models\Master;
 class AllBrands extends Component
 {
-    public $brands;
-    public function __construct()
+    public $brands,$cartype;
+    public function __construct($cartype)
     {
-
+        $this->cartype = $cartype;
         $this->brands = Master::where('type', 'Brand')->get();
     }
     public function render(): View|Closure|string

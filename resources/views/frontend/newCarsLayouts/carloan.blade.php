@@ -149,7 +149,7 @@
 <div class="page-header-area-2  ">
     <div class="container">
         <div class="row">
-            
+
 
             <div class="card shadow-none">
                 <div class="small-breadcrumb">
@@ -160,7 +160,9 @@
                             automatically takes over and you have your loan quotes ready.</p>
                     </div>
                 </div>
-                <!-- Nav tabs -->
+            </div>
+
+            <div class="card shadow-none">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="nav-item active">
                         <a class="nav-link tabtype" data-value="newcar" aria-controls="trending" role="tab"
@@ -175,7 +177,6 @@
                         </a>
                     </li>
                 </ul>
-                <!-- Tab panes -->
                 <div class="tab-content clearfix p-0">
                     <div class="tab-pane fade in active" id="newcar">
 
@@ -461,7 +462,6 @@
 
 
                 </div>
-                <!-- Row End -->
             </div>
 
 

@@ -132,20 +132,20 @@ class frontViewController extends Controller
     {
         $cardetails = AddVariant::where('id', $id)->first();
         $new = [];
-        $images = VehicleImage::where('vehicle',$cardetails->carname)->get();
-        $spces = AddSpecification::where('vehicleid',$id)->get();
-        $features = AddFeature::where('vehicleid',$id)->get();
-        $variants = AddVariant::where('carname',$cardetails->carname)->get();
-        $similarcars = AddVariant::where('bodytype',$cardetails->bodytype)->get()->unique('carname');
+        $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
+        $spces = AddSpecification::where('vehicleid', $id)->get();
+        $features = AddFeature::where('vehicleid', $id)->get();
+        $variants = AddVariant::where('carname', $cardetails->carname)->get();
+        $similarcars = AddVariant::where('bodytype', $cardetails->bodytype)->get()->unique('carname');
         $carNames = $similarcars->pluck('carname')->toArray();
-        $similarcarsimages = VehicleImage::whereIn('vehicle',$carNames)->get();
+        $similarcarsimages = VehicleImage::whereIn('vehicle', $carNames)->get();
         // Merge images into newarray based on index
         foreach ($similarcars as $key => $vehicle) {
-        $vehicle->addimage = $similarcarsimages->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
+            $vehicle->addimage = $similarcarsimages->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
         }
 
 
-        $variantsfaqs = VariantFaq::where('vehicleid',$id)->get();
+        $variantsfaqs = VariantFaq::where('vehicleid', $id)->get();
         $proscons = ProsCons::first();
         $pros = json_decode($proscons->pros, true);
         $cons = json_decode($proscons->cons, true);
@@ -155,7 +155,7 @@ class frontViewController extends Controller
         $cardetails->features = json_decode($features);
         $cardetails->variants = json_decode($variants);
         // dd($variants);
-        return view('frontend.carLayouts.carlistingdetails',compact('cardetails','pros','cons','variantsfaqs','similarcars'));
+        return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pros', 'cons', 'variantsfaqs', 'similarcars'));
     }
     public function carlisting()
     {
@@ -189,10 +189,12 @@ class frontViewController extends Controller
 
 
         // Fetch details for the vehicles based on IDs
-        $newarray = AddVariant::whereIn('id', $ids)
-            ->select('id', 'carname', 'carmodalname', 'brandname', 'price')
+        $newarray = AddVariant::join('car_lists', 'car_lists.carname', '=', 'add_variants.carname')
+            ->select('add_variants.id', 'add_variants.carname', 'add_variants.carmodalname', 'add_variants.brandname', 'add_variants.price', 'car_lists.colors')
+            ->whereIn('add_variants.id', $ids)
             ->get();
 
+        //dd($newarray);
         // Fetch images for the vehicles based on carname from newarray
         $images = VehicleImage::whereIn('vehicle', $newarray->pluck('carname'))
             ->where('type', 'Outer view')
@@ -225,8 +227,9 @@ class frontViewController extends Controller
         if (Auth::guard('registeruser')->check()) {
             $user = Auth::guard('registeruser')->user();
             $addpostcount = AdPost::count();
+            $brands = Master::where('type', '=', 'Brand')->get();
             $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-            return view('frontend.dashboard.userprofile', compact('user', 'statedata', 'addpostcount'));
+            return view('frontend.dashboard.userprofile', compact('user', 'statedata', 'addpostcount','brands'));
         } else {
             return view('frontend.loginuser');
         }
@@ -452,7 +455,8 @@ class frontViewController extends Controller
     }
     public function usedcar()
     {
-        return view('frontend.usedCarsLayouts.usedcar');
+        $adposts = AdPost::orderBy('created_at', 'desc')->get();
+        return view('frontend.usedCarsLayouts.usedcar',compact('adposts'));
     }
     public function usedcarbylocation()
     {
@@ -485,12 +489,14 @@ class frontViewController extends Controller
     public function findcar($filtertype)
     {
         $filtertypenew = $filtertype;
+        $filtertypenew = $filtertype;
         $results = Master::where('type', '=', 'Body Type')
-                ->orWhere('type', '=', 'Transmission')
-                ->orWhere('type', '=', 'Fuel Type')
-                ->orWhere('type', '=', 'Seating Capacity')
-                ->get();
+            ->orWhere('type', '=', 'Transmission')
+            ->orWhere('type', '=', 'Fuel Type')
+            ->orWhere('type', '=', 'Seating Capacity')
+            ->get();
         $variants = session('variants', []);
+        return view('frontend.findcar', compact('variants', 'results','filtertypenew'));
         return view('frontend.findcar', compact('variants','results','filtertypenew'));
     }
 

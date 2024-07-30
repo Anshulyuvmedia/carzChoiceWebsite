@@ -53,6 +53,7 @@
                 </div>
                 <!-- Middle Content Area -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
+
                     @foreach ($new as $data)
                         <table>
                             <tbody>
@@ -90,13 +91,27 @@
                                             <h4>{{ $row->brandname }} {{ $row->carname }}</h4>
                                             <h4>{{ $row->carmodalname }}</h4>
                                             <h4>Rs. {{ $row->price }}/-</h4>
+                                            @php
+                                                $colors = json_decode($row->colors,true);
+                                            @endphp
+                                            <div class="row d-flex justify-content-center gap-2 mt-3">
+                                                @foreach ($colors as $data)
+                                                <div class="card col-1 p-2" style="background-color: {{$data['value']}}; color:white; height:30px;">
+                                                    {{-- {{$data['label']}} --}}
+                                                </div>
+                                                @endforeach
+                                            </div>
                                         </td>
                                     @endforeach
                                 </tr>
                             </tbody>
-                    @endforeach
-                    </table>
-                    <div class="shadow-sm p-3 bg-dark rounded-3" id="Specifications">
+                        </table>
+                            @endforeach
+
+
+
+
+                    <div class="shadow-sm p-3 bg-dark rounded-3 mt-5" id="Specifications">
                         <h3 class=" fw-bold text-danger">Specifications</h3>
                     </div>
                     @if (!empty($new))

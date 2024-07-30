@@ -10,6 +10,8 @@ use App\Models\Blog;
 use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
 use App\Models\ColorVariant;
+use App\Models\RegisterDealer;
+use App\Models\PostOffices;
 use App\Models\VariantFaq;
 use App\Models\CompanyProfile;
 use App\Models\CompareVehicle;
@@ -23,6 +25,7 @@ use App\Models\RegisterUser;
 use App\Models\VehicleImage;
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 
 class AdminView extends Controller
 {
@@ -244,5 +247,12 @@ class AdminView extends Controller
         $imageslist = CarList::where('carname',$data->carname)->get()->pluck('colors');
         $colors = json_decode($imageslist[0]);
         return view('AdminPanel.vehicleimages',compact('data','colors','imageslist','carnamedata','masterdata','mastercolordata','vehicleimgdata','carlistdata'));
+    }
+
+    public function dealerslist(){
+        $registereddealers = RegisterDealer::orderBy('created_at', 'desc')->get();
+        $masterdata = Master::where('type', '=', 'Brand')->get();
+        $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+        return view('AdminPanel.dealerslist', compact('registereddealers','masterdata','statedata'));
     }
 }

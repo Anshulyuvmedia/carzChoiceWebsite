@@ -9,9 +9,10 @@ use App\Models\Master;
 
 class Findthecarsbychoice extends Component
 {
-    public $budgets, $bodytypes, $fueltypes, $transmissions, $seatings;
-    public function __construct()
+    public $budgets, $bodytypes, $fueltypes, $transmissions, $seatings,$cartype;
+    public function __construct($cartype)
     {
+        $this->cartype = $cartype;
         $this->budgets =  Master::where('type','=','Budget')->get();
         $this->bodytypes = Master::where('type','=','Body Type')->get();
         $this->fueltypes = Master::where('type','=','Fuel Type')->get();

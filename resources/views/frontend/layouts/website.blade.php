@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend-assets/css/animate.min.css') }}" type="text/css">
     <!-- =-=-=-=-=-=-= Select Options =-=-=-=-=-=-= -->
     <link href="{{ asset('assets/frontend-assets/css/select2.min.css') }}" rel="stylesheet" />
+    {{-- <link href="{{asset('assets/backend-assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" /> --}}
+
     <!-- =-=-=-=-=-=-= noUiSlider =-=-=-=-=-=-= -->
     <link href="{{ asset('assets/frontend-assets/css/nouislider.min.css') }}" rel="stylesheet">
     <!-- =-=-=-=-=-=-= Listing Slider =-=-=-=-=-=-= -->
@@ -90,12 +92,21 @@
                                     <li class="hidden-xs hidden-sm"><a href="/registration"><i class="fa fa-unlock"
                                                 aria-hidden="true"></i> Register</a></li>
                                     <li class="dropdown">
+                                        @if (Auth::guard('registeruser')->user())
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                             aria-haspopup="true" aria-expanded="false"><img class="img-circle resize"
                                                 alt=""
                                                 src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
-                                            <span class="myname hidden-xs"> Admin </span> <span
+                                            <span class="myname hidden-xs"> Welcome {{ Auth::guard('registeruser')->user()->fullname }} </span> <span
                                                 class=""></span></a>
+                                        @else
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                            aria-haspopup="true" aria-expanded="false"><img class="img-circle resize"
+                                                alt=""
+                                                src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
+                                            <span class="myname hidden-xs"> Guest User </span> <span
+                                                class=""></span></a>
+                                        @endif
                                         <ul class="dropdown-menu">
                                             <li><a href="/userprofile">User Profile</a></li>
                                             <li><a href="/userarchive">Archives</a></li>
@@ -245,7 +256,7 @@
 
 
                                 </ul>
-                                
+
                                 <ul class="menu-search-bar">
                                     <li>
                                         <a>
@@ -386,6 +397,31 @@
             });
         });
     });
+
+
+    $(document).ready(function() {
+        $(document).on('click', '.usedfiltercar', function() {
+            var carbrand = $(this).data('value');
+            console.log(carbrand);
+
+            $.ajax({
+                url: "/usedcarfilter/" + carbrand,
+                type: 'POST',
+                data: { attribute: carbrand },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    console.log(data);
+                    if (data.success) {
+                        window.location.href = data.redirect_url;
+                    } else {
+                        alert("error");
+                    }
+                }
+            });
+        });
+    });
 </script>
 
 
@@ -405,6 +441,10 @@
     <script src="{{ asset('assets/frontend-assets/js/jquery.countTo.js') }}"></script>
     <!-- Jquery Select Options  -->
     <script src="{{ asset('assets/frontend-assets/js/select2.min.js') }}"></script>
+    <script src="{{asset('assets/backend-assets/js/pages/form-advanced.init.js')}}"></script>
+
+    {{-- <script src="{{asset('assets/backend-assets/libs/select2/js/select2.min.js')}}"></script> --}}
+
     <!-- noUiSlider -->
     <script src="{{ asset('assets/frontend-assets/js/nouislider.all.min.js') }}"></script>
     <!-- Carousel Slider  -->

@@ -17,5 +17,6 @@ class RegisterUser extends Authenticatable
         'password',
         'verifystatus',
         'loginstatus',
+        'usertype',
     ];
 }

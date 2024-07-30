@@ -220,7 +220,7 @@
                         </div>
                     </a>
                 </div>
-                
+
                 <div class="col-4">
                     <a href="/offers">
                         <div class="card p-3 rounded-4" style="background: #f9b25c;">
@@ -250,8 +250,8 @@
                         </div>
                     </a>
                 </div>
-                
-                
+
+
 
             </div>
         </div>
@@ -647,11 +647,11 @@
     <!-- =-=-=-=-=-=-= Popular Cars Ads End =-=-=-=-=-=-= -->
 
     {{-- THIS IS ALL BRANDS COMPONENET --}}
-    <x-all-brands />
+    <x-all-brands cartype="brandfilter"/>
 
 
     {{-- THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET --}}
-    <x-find-the-cars-by-choice />
+    <x-find-the-cars-by-choice cartype="brandfilter" />
 
 
 
