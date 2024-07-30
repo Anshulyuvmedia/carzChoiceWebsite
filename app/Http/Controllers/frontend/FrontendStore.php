@@ -11,6 +11,7 @@ use App\Models\AdPost;
 use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
 use App\Models\CompareVehicle;
+use App\Models\DisplaySetting;
 use App\Models\PostOffices;
 use App\Models\Pincode;
 use App\Models\RegisterDealer;
@@ -470,7 +471,7 @@ class FrontendStore extends Controller
 
     public function filterhomepagecars(Request $rq)
     {
-        //dd($rq->all());
+        // dd($rq->all());
         $carname = explode(',', $rq->input('carname'));
 
         $variant = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
@@ -480,27 +481,57 @@ class FrontendStore extends Controller
 
         return response()->json([
             'success' => true,
-            'redirect_url' => route('findcar')
+            'redirect_url' => route('findcar', ['filtertype' => $rq->carname])
         ], 200);
     }
 
     public function filterByAttribute(Request $request)
     {
+
         $attribute = $request->input('attribute');
         // dd($request);
 
         // Step 1: Retrieve the type corresponding to the given attribute from Master table
-        $type = Master::where('value', $attribute)->pluck('type')->first();
-        // dd($type);
-        if (!$type) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Invalid attribute'
-            ], 400);
+        if ($attribute == 'Upcoming' || $attribute == 'Newly Launched') {
+            $type = $attribute;
+            // dd($type);
+        } else {
+            $type = Master::where('value', $attribute)->pluck('type')->first();
+            if (!$type) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Invalid attribute'
+                ], 400);
+            }
         }
+
+
+
 
         // Step 2: Based on the type, filter AddVariant data
         switch ($type) {
+            case 'Newly Launched':
+
+                $variantData = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
+                    ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
+                    ->join('add_variants', 'add_variants.carname', '=', 'car_lists.carname')
+                    ->select('display_settings.*', 'add_variants.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+                    ->where('vehicle_images.type', '=', 'Outer view')
+                    ->where('add_variants.availabelstatus', '=', 'Newly Launched')->get()->unique('carmodalname');
+                // dd($variantData);
+
+                break;
+            case 'Upcoming':
+
+                $variantData = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
+                    ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
+                    ->join('add_variants', 'add_variants.carname', '=', 'car_lists.carname')
+                    ->select('display_settings.*', 'add_variants.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+                    ->where('vehicle_images.type', '=', 'Outer view')
+                    ->where('display_settings.category', '=', 'Upcoming')->get();
+                // dd($variantData);
+
+                break;
             case 'Brand':
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
@@ -560,6 +591,7 @@ class FrontendStore extends Controller
                     'message' => 'Invalid type'
                 ], 400);
         }
+                // dd($variantData);
 
         // Store the result in session
         session(['variants' => $variantData]);
@@ -567,7 +599,7 @@ class FrontendStore extends Controller
         // Return the response
         return response()->json([
             'success' => true,
-            'redirect_url' => route('findcar')
+            'redirect_url' => route('findcar', ['filtertype' => $attribute])
         ], 200);
     }
 

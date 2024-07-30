@@ -59,6 +59,9 @@
                                         <option value=" Coming soon" {{ $variantdata->availabelstatus == ' Coming soon'
                                             ? 'selected' : '' }}>
                                             Coming soon</option>
+                                        <option value=" Newly Launched" {{ $variantdata->availabelstatus == ' Newly Launched'
+                                            ? 'selected' : '' }}>
+                                            Newly Launched</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-3">

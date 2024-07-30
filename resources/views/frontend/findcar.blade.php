@@ -1,6 +1,6 @@
 @extends('frontend.layouts.website')
 @section('content')
-@section('title', 'New Car Finder')
+@section('title', $filtertype )
 
 
 <!-- =-=-=-=-=-=-= Breadcrumb =-=-=-=-=-=-= -->
@@ -10,7 +10,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="small-breadcrumb">
                     <div class="header-page">
-                        <h1>Cars</h1>
+                        <h1>{{$filtertype}} Cars</h1>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <!-- Middle Content Area -->
             <div class="col-md-8 col-lg-8 col-sx-12">
                 <div class="header-page mb-2">
-                    <h1 class="text-dark fs-3 fw-bold">Upcoming Cars in India 2024</h1>
+                    <h1 class="text-dark fs-3 fw-bold">{{$filtertype}} Cars in India 2024</h1>
                 </div>
                 <!-- Row -->
                 <div class="row">
@@ -38,24 +38,22 @@
                     <div class="clearfix"></div>
                     <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
                         <div class="clearfix"></div>
-                        <div class="listingTopFilterBar">
+                        <div class="listingTopFilterBar rounded-4">
 
-                            <div class="col-md-6 col-xs-12 col-sm-5 ">
+                            <div class="col-md-6 col-xs-4 col-sm-5 ">
                                 <div class="header-listing">
-                                    <h6>Filter by :</h6>
-
-                                    <div class="custom-select-box mt-3">
-                                        <button class="btn btn-theme rounded-4" data-bs-target="#carfilter"
-                                            data-bs-toggle="modal"> Make</button>
+                                    <div class=" mt-3">
+                                        <button class="btn btn-outline btn-theme rounded-4" data-bs-target="#carfilter"
+                                            data-bs-toggle="modal"> Filter by: </button>
 
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xs-12 col-sm-5 ">
+                            <div class="col-md-6 col-xs-6 col-sm-5 ">
                                 <div class="header-listing">
-                                    <h6>Sort by :</h6>
                                     <div class="custom-select-box">
-                                        <select name="order" class="custom-select  form-control">
+                                        {{-- <label for="order">Sort by :</label> --}}
+                                        <select name="order" class="custom-select  form-control rounded-4">
                                             <option value="0">Most popular</option>
                                             <option value="1">The latest</option>
                                             <option value="2">The best rating</option>
@@ -110,7 +108,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <!-- Pagination -->
-                    <div class="text-center margin-top-30">
+                    {{-- <div class="text-center margin-top-30">
                         <ul class="pagination ">
                             <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
                             <li><a href="#">1</a></li>
@@ -119,7 +117,7 @@
                             <li><a href="#">4</a></li>
                             <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
                         </ul>
-                    </div>
+                    </div> --}}
                     <!-- Pagination End -->
                 </div>
                 <!-- Row End -->
@@ -137,15 +135,8 @@
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
                         <!-- Latest Ads Panel -->
-                        <div class="panel panel-default">
-                            <!-- Heading -->
-                            {{-- <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a>
-                                        Recent Ads
-                                    </a>
-                                </h4>
-                            </div> --}}
+                        <div class="panel panel-default rounded-4">
+
                             <!-- Content -->
                             <div class="panel-collapse">
                                 <div class="panel-body recent-ads">

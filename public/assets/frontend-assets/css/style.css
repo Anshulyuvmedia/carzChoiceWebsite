@@ -455,12 +455,12 @@ p {
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
-    border-radius: 1px;
+    border-radius: 10px;
     box-shadow: none;
     color: #555;
     font-size: 14px;
     height: auto;
-    padding: 15px 12px;
+    padding: 12px 12px;
     transition: all 0.2s cubic-bezier(0, 0, 0.58, 1) 0s;
 }
 
@@ -957,7 +957,7 @@ img.resize {
 .contact-in-header i {
     color: #232323;
     float: left;
-    font-size: 45px;
+    font-size: 25px;
     line-height: 51px;
     margin-right: 0;
 }
@@ -1180,7 +1180,7 @@ img.resize {
     .select2-container--default
     .select2-selection--single
     .select2-selection__rendered {
-    line-height: 65px;
+    line-height: 38px;
     font-size: 16px;
 }
 
@@ -1197,13 +1197,13 @@ img.resize {
 }
 
 .search-container button {
-    background-color: #505050;
+    /* background-color: #505050; */
     border: medium none;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
     font-size: 16px;
-    height: 69px;
+    height: 50px;
     position: relative;
     text-align: center;
     width: 100%;
@@ -3269,9 +3269,14 @@ div.boxicon:last-child {
     margin-left: 5px;
 }
 
+#ecww-widget {
+    border-radius: 10px;
+}
+
 .panel-body {
     background-color: #fff;
     padding: 10px 15px;
+    border-radius: 10px;
 }
 
 .search-widget {
@@ -4693,7 +4698,7 @@ label {
 }
 
 .alert-box-container .select2-container--default .select2-selection--single {
-    height: 46px;
+    height: 42px;
     font-size: 14px;
 }
 
@@ -5064,6 +5069,9 @@ label {
     padding: 15px 0;
 }
 
+.section-search.card .tab-pane {
+    padding: 0px !important;
+}
 .card .tab-content {
     padding: 20px;
 }
@@ -5742,7 +5750,7 @@ h2.no-span:after {
 .submit-form .form-control {
     background-image: none;
     border: 1px solid #eceff2;
-    border-radius: 0;
+    border-radius: 10px;
     color: #656565;
     display: block;
     font-size: 14px;
@@ -8529,7 +8537,7 @@ ul.listingViewIcon li.shortByListingLi ul li a {
 .header-listing .custom-select-box {
     display: inline-block;
     width: 231px;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 
 .header-listing .custom-select-box .select2-selection--single {
@@ -8875,7 +8883,7 @@ ul.listingViewIcon li.shortByListingLi ul li a {
 /* =-=-=-=-=-=-= Car By  Body Type =-=-=-=-=-=-= */
 .box {
     color: #666;
-    margin: 0 0 30px;
+    margin: 0 0 10px;
     text-align: center;
     width: 100%;
 }
@@ -8885,8 +8893,8 @@ ul.listingViewIcon li.shortByListingLi ul li a {
 }
 .box h4 {
     color: #232323;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 400;
 }
 .box h4 a {
     color: #232323;
@@ -8978,7 +8986,7 @@ ul.listingViewIcon li.shortByListingLi ul li a {
 .search-style-2 .search-form-inner {
     margin-left: -3px;
     margin-right: -3px;
-    width: calc(100% - 170px);
+    /* width: calc(100% - 170px); */
 }
 
 .search-style-2 .search-form-inner .form-group {
@@ -9026,7 +9034,7 @@ ul.listingViewIcon li.shortByListingLi ul li a {
 }
 
 .search-style-2 .tab-content .search-form .btn {
-    margin-top: 32px;
+    margin-top: 0px;
 }
 
 .search-style-2 .tab-content .search-form .btn.extra-top {
@@ -9047,7 +9055,8 @@ ul.listingViewIcon li.shortByListingLi ul li a {
     .search-form
     .select2-container--default
     .select2-selection--single {
-    height: 52px;
+    height: 42px;
+    border-radius: 8px;
 }
 /* =-=-=-=-=-=-= Tabs Section =-=-=-=-=-=-= */
 .recent-tab {

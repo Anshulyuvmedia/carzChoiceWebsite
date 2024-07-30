@@ -486,8 +486,9 @@ class frontViewController extends Controller
         //dd($vehiclesByBrand);
         return view('frontend.newCarsLayouts.carloan', compact('vehiclesByBrand', 'pincodedata'));
     }
-    public function findcar()
+    public function findcar($filtertype)
     {
+        $filtertype = $filtertype;
         $results = Master::where('type', '=', 'Body Type')
             ->orWhere('type', '=', 'Transmission')
             ->orWhere('type', '=', 'Fuel Type')

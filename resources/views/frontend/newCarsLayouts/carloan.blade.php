@@ -25,8 +25,8 @@
 <!-- =-=-=-=-=-=-= Home Banner 2 End =-=-=-=-=-=-= -->
 
 <!-- =-=-=-=-=-=-= How does this work? =-=-=-=-=-=-= -->
-<div class="page-header-area-2 gray ">
-    <div class="container">
+<div class="page-header-area-2   ">
+    <div class="container card">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
                 <div class="small-breadcrumb">
@@ -149,7 +149,9 @@
 <div class="page-header-area-2  ">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
+
+
+            <div class="card shadow-none">
                 <div class="small-breadcrumb">
                     <div class="header-page">
                         <h1>Looking for a Car Loan?</h1>
@@ -191,7 +193,7 @@
                                     <strong>{{ $mymess }}</strong>
                                 </div>
                                 @endif
-                                <div class="col-md-6 gray rounded-3">
+                                <div class="col-md-6   rounded-3">
                                     <div class=" postdetails p-0 ">
                                         <form action="{{ route('insertcarloanenquiry') }}" method="POST"
                                             class="submit-form">
@@ -233,7 +235,7 @@
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-theme rounded-4 btn-block ">
-                                                Get Virtus Loan Offers
+                                                Get Loan Offers
                                             </button>
                                             <div class="mb-3">
                                                 <i class="text-muted  fs-5">
@@ -325,7 +327,7 @@
                         <!-- Middle Content Box -->
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row pb-3">
-                                <div class="col-md-6 gray rounded-3  ">
+                                <div class="col-md-6   rounded-3  ">
                                     <div class=" postdetails p-0 ">
                                          <form action="{{ route('insertcarloanenquiry') }}" method="POST">
                                             @csrf
@@ -357,8 +359,8 @@
                                                 </div>
 
                                             </div>
-                                            <button type="submit" class="btn btn-theme rounded-4 btn-block ">
-                                                Get Virtus Loan Offers
+                                            <button type="submit" class="btn btn-theme rounded-4 btn-block mt-3">
+                                                Get Loan Offers
                                             </button>
                                             <div class="mb-3">
                                                 <i class="text-muted  fs-5">
@@ -470,8 +472,8 @@
 
 
 <!-- =-=-=-=-=-=-= Car Loan EMI Calculator =-=-=-=-=-=-= -->
-<div class="page-header-area-2 gray ">
-    <div class="container">
+<div class="page-header-area-2   ">
+    <div class="container card">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
                 <div class="small-breadcrumb">
@@ -490,9 +492,9 @@
         <div class="row">
 
 
-            <div id="ecww-widgetwrapper" style="min-width:250px;width:100%;">
+            <div id="ecww-widgetwrapper" style="min-width:250px;width:100%; ">
                 <div id="ecww-widget"
-                    style="position:relative;padding-top:0;padding-bottom:280px;height:0;overflow:hidden;">
+                    style="position:relative; padding-top:0; padding-bottom:280px; height:0; overflow:hidden;">
                 </div>
             </div>
 
@@ -505,8 +507,8 @@
 
 
 <!-- =-=-=-=-=-=-= Feature and Benefits =-=-=-=-=-=-= -->
-<div class="page-header-area-2 gray ">
-    <div class="container">
+<div class="page-header-area-2   ">
+    <div class="container card">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
                 <div class="small-breadcrumb">
@@ -619,7 +621,7 @@
                 <form>
                     <div class="form-group col-md-12">
                         <label>Your Car</label>
-                        <input type="text" id="carBrand" class="form-control" placeholder="Enter Your Name">
+                        <input type="text" id="carBrand" class="form-control rounded-4" placeholder="Enter Your Name">
                     </div>
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">

@@ -40,7 +40,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('used-car', 'usedcar');
     Route::get('usedcar-bylocation', 'usedcarbylocation');
     Route::get('car-loan', 'carloan')->name('carloan');
-    Route::get('find-car', 'findcar')->name('findcar');
+    Route::get('find-car/{filtertype}', 'findcar')->name('findcar');
     Route::get('car-view-images/{carname}', 'carviewimages')->name('carviewimages');
     Route::get('car-images', 'carimages');
     Route::get('find-dealer', 'finddealer');
@@ -94,7 +94,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('insertcarloanenquiry', 'insertcarloanenquiry')->name('insertcarloanenquiry');
     Route::post('/filterhomepagecars', 'filterhomepagecars')->name('filterhomepagecars');
     Route::post('/filterbycarbodytype/{bodytype}', 'filterbycarbodytype')->name('filterbycarbodytype');
-    Route::post('/filterByAttribute', 'filterByAttribute')->name('filterByAttribute');
+    Route::post('/filterByAttribute/{filtertype}', 'filterByAttribute')->name('filterByAttribute');
     Route::post('/showcomparecars/{fullId}', 'showcomparecars')->name('showcomparecars');
     Route::post('filterbyfuelcardetails', 'filterbyfuelcardetails')->name('filterbyfuelcardetails');
     Route::post('insertcompareoffcanvas', 'insertcompareoffcanvas')->name('insertcompareoffcanvas');
