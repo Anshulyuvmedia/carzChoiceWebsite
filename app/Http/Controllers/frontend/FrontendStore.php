@@ -755,4 +755,135 @@ class FrontendStore extends Controller
         }
     }
 
+    public function usedcarfilter(Request $request)
+    {
+        $attribute = $request->input('attribute');
+        // dd($request);
+
+        // Step 1: Retrieve the type corresponding to the given attribute from Master table
+        $type = Master::where('value', $attribute)->pluck('type')->first();
+        // dd($type);
+        if (!$type) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid attribute'
+            ], 400);
+        }
+
+        // Step 2: Based on the type, filter AddVariant data
+        switch ($type) {
+            case 'Brand':
+                $variantData = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('brandname', $attribute)->get()->unique('carname');
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                break;
+
+            case 'Body Type':
+                $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
+                ->select('add_variants.bodytype','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->where('add_variants.bodytype', $attribute)
+                ->get()->unique('carname');
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                // dd($variantData);
+                break;
+
+            case 'Fuel Type':
+                $variantData = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('fueltype', $attribute)->get()->unique('carname');
+
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                break;
+
+            case 'Transmission':
+                $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
+                ->select('add_variants.bodytype','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->whereJsonContains('add_variants.transmission', $attribute)
+                ->get()->unique('carname');
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                break;
+
+            case 'Seating Capacity':
+                $parts = explode(' ', $attribute);
+                $avalseat = intval($parts[0]);
+                $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
+                ->select('add_variants.seatingcapacity','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->where('add_variants.seatingcapacity', '<', $avalseat)
+                ->get()->unique('carname');
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                break;
+
+            case 'Budget':
+                $parts = explode(' ', $attribute);
+                $budgetvalue = intval($parts[1]) * 100000;
+                // dd($budgetvalue);
+                $variantData = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('price', '<', $budgetvalue)->get()->unique('carname');
+                $variantData->transform(function ($item) {
+                    $images = json_decode($item->addimage, true);
+                    if (is_array($images) && !empty($images)) {
+                        $firstImageUrl = $images[0]['imageurl'];
+                        $item->addimage = basename($firstImageUrl);
+                    } else {
+                        $item->addimage = null;
+                    }
+                    return $item;
+                });
+                // dd($variantData);
+                break;
+
+            default:
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Invalid type'
+                ], 400);
+        }
+        //  dd($variantData);
+        // Store the result in session
+        session(['variants' => $variantData]);
+
+        // Return the response
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('findcar')
+        ], 200);
+    }
 }

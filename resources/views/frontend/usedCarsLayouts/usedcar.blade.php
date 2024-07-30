@@ -87,12 +87,13 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-6 px-3">
+            <div class="col-md-4 col-6 px-3 ">
                 <a href="#">
-                    <div class="card text-bg-dark mb-3">
-                        <img src="https://imgd.aeplcdn.com/0x0/cw/design15/delhi.jpg?static1fix" class="card-img"
-                            alt="Delhi">
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                    <div class="card text-white p-0  mb-3">
+                        <img src="https://imgd.aeplcdn.com/0x0/cw/design15/delhi.jpg?static1fix"
+                            class="card-img rounded-4" alt="Delhi">
+                        <div
+                            class="card-img-overlay d-flex justify-content-center align-items-center rounded-4 rounded-4">
                             <h5 class="card-title fs-1">Delhi</h5>
 
                         </div>
@@ -101,10 +102,10 @@
             </div>
             <div class="col-md-4 col-6 px-3">
                 <a href="#">
-                    <div class="card text-bg-dark mb-3">
+                    <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/mumbai.jpg?static1fix" class="card-img"
                             alt="Mumbai">
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center rounded-4">
                             <h5 class="card-title fs-1">Mumbai</h5>
 
                         </div>
@@ -113,10 +114,10 @@
             </div>
             <div class="col-md-4 col-6 px-3">
                 <a href="#">
-                    <div class="card text-bg-dark mb-3">
+                    <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/bangalore.jpg?static1fix" class="card-img"
                             alt="Bengaluru">
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center rounded-4">
                             <h5 class="card-title fs-1">Bengaluru</h5>
 
                         </div>
@@ -125,10 +126,10 @@
             </div>
             <div class="col-md-4 col-6 px-3">
                 <a href="#">
-                    <div class="card text-bg-dark mb-3">
+                    <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/chennai.jpg?static1fix" class="card-img"
                             alt="Chennai">
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center rounded-4">
                             <h5 class="card-title fs-1">Chennai</h5>
 
                         </div>
@@ -137,10 +138,10 @@
             </div>
             <div class="col-md-4 col-6 px-3">
                 <a href="#">
-                    <div class="card text-bg-dark mb-3">
+                    <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/hyderabad.jpg?static1fix" class="card-img"
                             alt="Hyderabad">
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center rounded-4">
                             <h5 class="card-title fs-1">Hyderabad</h5>
 
                         </div>
@@ -149,10 +150,10 @@
             </div>
             <div class="col-md-4 col-6 px-3">
                 <a href="#">
-                    <div class="card text-bg-dark mb-3">
+                    <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/kolkata.jpg?static1fix" class="card-img"
                             alt="Kolkata">
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center rounded-4">
                             <h5 class="card-title fs-1">Kolkata</h5>
 
                         </div>
@@ -161,10 +162,10 @@
             </div>
             <div class="col-md-4 col-6 px-3">
                 <a href="#">
-                    <div class="card text-bg-dark mb-3">
+                    <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/chandigarh.jpg?static1fix" class="card-img"
                             alt="Chandigarh">
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center rounded-4">
                             <h5 class="card-title fs-1">Chandigarh</h5>
 
                         </div>
@@ -173,10 +174,10 @@
             </div>
             <div class="col-md-4 col-6 px-3">
                 <a href="#">
-                    <div class="card text-bg-dark mb-3">
+                    <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/pune.jpg?static1fix" class="card-img"
                             alt="Pune">
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center rounded-4">
                             <h5 class="card-title fs-1">Pune</h5>
 
                         </div>
@@ -185,10 +186,10 @@
             </div>
             <div class="col-md-4 col-6 px-3">
                 <a href="#">
-                    <div class="card text-bg-dark mb-3">
+                    <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/ahmedabad.jpg?static1fix" class="card-img"
                             alt="Ahmedabad">
-                        <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                        <div class="card-img-overlay d-flex justify-content-center align-items-center rounded-4">
                             <h5 class="card-title fs-1">Ahmedabad</h5>
 
                         </div>
@@ -317,7 +318,7 @@
                                     </ul>
 
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -340,7 +341,7 @@
                                     </ul>
 
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -363,13 +364,13 @@
                                     </ul>
 
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
 
 
 
@@ -380,228 +381,8 @@
 <!-- =-=-=-=-=-=-= select by city End =-=-=-=-=-=-= -->
 
 
-<!-- =-=-=-=-=-=-= Cars Of Your Choice =-=-=-=-=-=-= -->
-<section class="custom-padding gray featured-cars rounded-3">
-    <!-- Main Container -->
-    <div class="container ">
-        <!-- Row -->
-        <div class="row">
-            <!-- Heading Area -->
-            <div class="heading-panel">
-                <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                    <!-- Main Title -->
-                    <h1>Find The Cars Of <span class="heading-color"> Your Choice</span> </h1>
-                </div>
-            </div>
-
-            <div class="card ">
-
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-
-                    <li role="presentation" class="nav-item active">
-                        <a class="nav-link" aria-controls="bodytype" role="tab" data-toggle="tab"
-                            href="#bodytype">Body Type</a>
-                    </li>
-                    <li role="presentation" class="nav-item">
-                        <a class="nav-link" aria-controls="upcoming" role="tab" data-toggle="tab"
-                            href="#fueltype">Fuel Type</a>
-                    </li>
-
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content clearfix py-5 ">
-
-                    <div class="tab-pane fade in active" id="bodytype">
-                        <!-- Middle Content Box -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="Convertible"
-                                                src="{{ asset('assets/frontend-assets/images/bodytype/1.png') }}">
-                                            <h4>Convertible</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="Coupe"
-                                                src="{{ asset('assets/frontend-assets/images/bodytype/2.png') }}">
-                                            <h4>Coupe</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="Sedan"
-                                                src="{{ asset('assets/frontend-assets/images/bodytype/3.png') }}">
-                                            <h4>Sedan</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="Van/Minivan"
-                                                src="{{ asset('assets/frontend-assets/images/bodytype/4.png') }}">
-                                            <h4>Van/Minivan</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="Truck"
-                                                src="{{ asset('assets/frontend-assets/images/bodytype/5.png') }}">
-                                            <h4>Truck</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="SUV"
-                                                src="https://img.freepik.com/free-psd/white-car-isolated_176382-1481.jpg?t=st=1719488398~exp=1719491998~hmac=8ff8c46fb2f183cc45dce56db266b9767d04828dde95c32cfb706b11ea582c95&w=996">
-                                            <h4>SUV</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="Hatchback"
-                                                src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                            <h4>Hatchback</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="Compact SUV"
-                                                src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                            <h4>Compact SUV</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="Compact Sedan"
-                                                src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                            <h4>Compact Sedan</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="Station Wagon"
-                                                src="{{ asset('assets/frontend-assets/images/bodytype/6.png') }}">
-                                            <h4>Station Wagon</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Body Type -->
-                                <div class="col-md-2 col-sm-3 col-xs-4">
-                                    <div class="box">
-                                        <a href="#">
-                                            <img alt="MUV"
-                                                src="{{ asset('assets/frontend-assets/images/bodytype/MUV2.png') }}">
-                                            <h4>MUV</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Middle Content Box End -->
-                    </div>
-
-                    <div class="tab-pane fade" id="fueltype">
-                        <!-- Middle Content Box -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <div class="row">
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Petrol" width="75"
-                                                    src="{{ asset('assets/frontend-assets/images/fueltype/petrol.svg') }}">
-                                                <h4>Petrol</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Diesel" width="75"
-                                                    src="{{ asset('assets/frontend-assets/images/fueltype/diesel.svg') }}">
-                                                <h4>Diesel</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="CNG" width="75"
-                                                    src="{{ asset('assets/frontend-assets/images/fueltype/cng.svg') }}">
-                                                <h4>CNG</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Electric" width="75"
-                                                    src="{{ asset('assets/frontend-assets/images/fueltype/electric.svg') }}">
-                                                <h4>Electric</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Body Type -->
-                                    <div class="col-md-2 col-sm-3 col-xs-4">
-                                        <div class="box">
-                                            <a href="#">
-                                                <img alt="Hybrid" width="75"
-                                                    src="{{ asset('assets/frontend-assets/images/fueltype/h-filter-without-background.svg') }}">
-                                                <h4>Hybrid</h4>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Middle Content Box End -->
-                    </div>
-
-                </div>
-                <!-- Row End -->
-            </div>
-        </div>
-        <!-- Main Container End -->
-    </div>
-</section>
-<!-- =-=-=-=-=-=-= Cars Of Your Choice End =-=-=-=-=-=-= -->
+{{-- THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET --}}
+<x-find-the-cars-by-choice cartype="usedfiltercar" />
 
 <!-- =-=-=-=-=-=-= Tools You May Need =-=-=-=-=-=-= -->
 <div class="page-header-area-2 gray ">
@@ -729,8 +510,7 @@
                         <div class="recent-ads-container d-flex">
                             <div class="recent-ads-list-image">
                                 <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/car.svg"
-                                        alt="">
+                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/car.svg" alt="">
                                 </a><!-- /.recent-ads-list-image-inner -->
                             </div>
                             <!-- /.recent-ads-list-image -->
@@ -769,7 +549,7 @@
             <div class="heading-panel">
                 <div class="col-xs-12 col-md-12 col-sm-12 left-side">
                     <!-- Main Title -->
-                    <h1>Popular Cars <span class="heading-color"> Second Hand</span> Cars</h1>
+                    <h1>Popular <span class="heading-color"> Second Hand</span> Cars</h1>
                 </div>
             </div>
 
@@ -779,31 +559,30 @@
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="row">
                     <div class=" popular-slider container owl-carousel owl-theme">
+                        @foreach ($adposts as $row)
+                        @php
+                            $imagearray = json_decode($row->images, true);
+                        @endphp
                         <div class="item">
                             <div class="grid-style-2">
                                 <!-- Listing Ad Grid -->
                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                     <div class="category-grid-box-1">
-                                        {{-- <div class="featured-ribbon">
-                                            <span>Featured</span>
-                                        </div> --}}
                                         <div class="image">
                                             <img alt="Carz Choice"
-                                                src="https://imgd.aeplcdn.com/370x208/n/cw/ec/134287/city-exterior-right-front-three-quarter-76.jpeg?isig=0"
+                                                src="{{ asset($imagearray[0]['imageurl']) }}"
                                                 class="img-responsive">
                                             <div class="ribbon popular"></div>
 
                                         </div>
                                         <div class="short-description-1 clearfix">
-
-
                                             <h3>
                                                 <a title="" href="#">
-                                                    Used Honda City
+                                                    Used {{$row->brandname}} {{$row->carname}}
                                                 </a>
                                             </h3>
 
-                                            <div class="ad-price">Rs. 80,000
+                                            <div class="ad-price">Rs. {{$row->price}}
                                                 <span class="text-muted ps-2">Starting Price</span>
                                             </div>
                                             <a class="  ">
@@ -813,160 +592,10 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- Listing Ad Grid -->
                                 </div>
                             </div>
                         </div>
-
-                        <div class="item">
-                            <div class="grid-style-2">
-                                <!-- Listing Ad Grid -->
-                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                    <div class="category-grid-box-1">
-                                        {{-- <div class="featured-ribbon">
-                                            <span>Featured</span>
-                                        </div> --}}
-                                        <div class="image">
-                                            <img alt="Carz Choice"
-                                                src="https://imgd.aeplcdn.com/370x208/n/cw/ec/141115/creta-exterior-right-front-three-quarter-16.jpeg?isig=0"
-                                                class="img-responsive">
-                                            <div class="ribbon popular"></div>
-
-                                        </div>
-                                        <div class="short-description-1 clearfix">
-
-
-                                            <h3>
-                                                <a title="" href="#">
-                                                    Used Hyundai Creta
-                                                </a>
-                                            </h3>
-
-                                            <div class="ad-price">Rs. 6.5 Lakh <span class="text-muted ps-2">Starting
-                                                    Price</span></div>
-                                            <a class="  ">
-                                                <button class="btn btn-theme rounded-4 btn-sm ">
-                                                    Get Offer
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Listing Ad Grid -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="grid-style-2">
-                                <!-- Listing Ad Grid -->
-                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                    <div class="category-grid-box-1">
-
-                                        <div class="image">
-                                            <img alt="Carz Choice"
-                                                src="https://imgd.aeplcdn.com/370x208/n/cw/ec/112947/wagon-r-2022-exterior-right-front-three-quarter-3.jpeg?isig=0"
-                                                class="img-responsive">
-                                            <div class="ribbon popular"></div>
-
-                                        </div>
-                                        <div class="short-description-1 clearfix">
-
-
-                                            <h3>
-                                                <a title="" href="#">
-                                                    Used Maruti Suzuki Wagon R
-                                                </a>
-                                            </h3>
-
-                                            <div class="ad-price">Rs. 70,000 <span class="text-muted ps-2">Starting
-                                                    Price</span></div>
-                                            <a class="  ">
-                                                <button class="btn btn-theme rounded-4 btn-sm ">
-                                                    Get Offer
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Listing Ad Grid -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="grid-style-2">
-                                <!-- Listing Ad Grid -->
-                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                    <div class="category-grid-box-1">
-
-                                        <div class="image">
-                                            <img alt="Carz Choice"
-                                                src="https://imgd.aeplcdn.com/370x208/n/cw/ec/115777/ertiga-exterior-right-front-three-quarter-5.jpeg?isig=0"
-                                                class="img-responsive">
-                                            <div class="ribbon popular"></div>
-
-                                        </div>
-                                        <div class="short-description-1 clearfix">
-
-
-                                            <h3>
-                                                <a title="" href="#">
-                                                    Used Maruti Suzuki Ertiga
-                                                </a>
-                                            </h3>
-
-                                            <div class="ad-price">Rs. 4 Lakh <span class="text-muted ps-2">Starting
-                                                    Price</span></div>
-                                            <a class="  ">
-                                                <button class="btn btn-theme rounded-4 btn-sm ">
-                                                    Get Offer
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Listing Ad Grid -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="grid-style-2">
-                                <!-- Listing Ad Grid -->
-                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                    <div class="category-grid-box-1">
-                                        {{-- <div class="featured-ribbon">
-                                            <span>Featured</span>
-                                        </div> --}}
-                                        <div class="image">
-                                            <img alt="Carz Choice"
-                                                src="https://imgd.aeplcdn.com/370x208/n/cw/ec/98399/amg-e63-exterior-right-front-three-quarter-3.jpeg?isig=0"
-                                                class="img-responsive">
-                                            <div class="ribbon popular"></div>
-
-                                        </div>
-                                        <div class="short-description-1 clearfix">
-
-
-                                            <h3>
-                                                <a title="" href="#">
-                                                    Used Mercedes-Benz E-Class
-                                                </a>
-                                            </h3>
-
-                                            <div class="ad-price">Rs. 5 Lakh<span class="text-muted ps-2">Starting
-                                                    Price</span></div>
-                                            <a class="  ">
-                                                <button class="btn btn-theme rounded-4 btn-sm ">
-                                                    Get Offer
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- Listing Ad Grid -->
-                                </div>
-                            </div>
-                        </div>
-
-
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -980,244 +609,10 @@
 <!-- =-=-=-=-=-=-= Popular Second Hand Cars End =-=-=-=-=-=-= -->
 
 
-<!-- =-=-=-=-=-=-= Popular Second Hand Car Brands =-=-=-=-=-=-= -->
-<section class="client-section py-5 gray">
-    <div class="container">
-        <div class="row">
-            <div class="heading-panel">
-                <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                    <!-- Main Title -->
-                    <h1>Popular<span class="heading-color"> Second Hand </span>Car Brands </h1>
-                </div>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="brand-logo-area clients-bg">
-                    <div class="client-brand-list">
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/1.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/2.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/3.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/4.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/5.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/6.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/7.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/8.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/9.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/11.png') }}"
-                                    alt=""></a>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- =-=-=-=-=-=-= Popular Second Hand Car Brands =-=-=-=-=-=-= -->
+    {{-- THIS IS ALL BRANDS COMPONENET --}}
+    <x-all-brands cartype="usedfiltercar"/>
 
-
-<!-- =-=-=-=-=-=-= Best Matched Second Hand Cars  =-=-=-=-=-=-= -->
-<section class="custom-padding ">
-    <!-- Main Container -->
-    <div class="container popular-cars">
-        <!-- Row -->
-        <div class="row">
-            <!-- Heading Area -->
-            <div class="heading-panel">
-                <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                    <!-- Main Title -->
-                    <h1>Popular Cars <span class="heading-color"> Second Hand</span> Cars</h1>
-                </div>
-            </div>
-
-
-
-            <!-- Middle Content Box -->
-            <div class="col-md-12 col-xs-12 col-sm-12">
-                <div class="row">
-                    <div class=" popular-slider container owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="grid-style-2">
-                                <!-- Listing Ad Grid -->
-                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                    <div class="category-grid-box-1">
-
-                                        <div class="image">
-                                            <img alt="Carz Choice"
-                                                src="https://imgd.aeplcdn.com/640X480/cw/ucp/stockApiImg/NWMXQ72_h33k2093_1_42894654.jpg"
-                                                class="img-responsive">
-                                            <div class="ribbon popular"></div>
-
-                                        </div>
-                                        <div class="short-description-1 clearfix">
-
-
-                                            <h3>
-                                                <a title="" class="text-truncate col-2"
-                                                    href="#">
-                                                    <?php
-                                                    echo substr('Used Mercedes-Benz GLS 400d 4MATIC [2020-2023]', 0, 20);
-                                                    ?>
-                                                    ...
-                                                </a>
-                                            </h3>
-                                            <div class="fs-5 text-muted">13,500 km | Mumbai | Diesel</div>
-                                            <div class="ad-price">Rs. 1.41 Crore</div>
-
-                                        </div>
-                                    </div>
-                                    <!-- Listing Ad Grid -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="grid-style-2">
-                                <!-- Listing Ad Grid -->
-                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                    <div class="category-grid-box-1">
-
-                                        <div class="image">
-                                            <img alt="Carz Choice"
-                                                src="https://imgd.aeplcdn.com/640X480/cw/ucp/stockApiImg/NWMXQ72_h33k2093_1_42894654.jpg"
-                                                class="img-responsive">
-                                            <div class="ribbon popular"></div>
-
-                                        </div>
-                                        <div class="short-description-1 clearfix">
-
-
-                                            <h3>
-                                                <a title="" class="text-truncate col-2"
-                                                    href="#">
-                                                    <?php
-                                                    echo substr('Used Mercedes-Benz GLS 400d 4MATIC [2020-2023]', 0, 20);
-                                                    ?>
-                                                    ...
-                                                </a>
-                                            </h3>
-                                            <div class="fs-5 text-muted">13,500 km | Mumbai | Diesel</div>
-                                            <div class="ad-price">Rs. 1.41 Crore</div>
-
-                                        </div>
-                                    </div>
-                                    <!-- Listing Ad Grid -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="grid-style-2">
-                                <!-- Listing Ad Grid -->
-                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                    <div class="category-grid-box-1">
-
-                                        <div class="image">
-                                            <img alt="Carz Choice"
-                                                src="https://imgd.aeplcdn.com/640X480/cw/ucp/stockApiImg/NWMXQ72_h33k2093_1_42894654.jpg"
-                                                class="img-responsive">
-                                            <div class="ribbon popular"></div>
-
-                                        </div>
-                                        <div class="short-description-1 clearfix">
-
-
-                                            <h3>
-                                                <a title="" class="text-truncate col-2"
-                                                    href="#">
-                                                    <?php
-                                                    echo substr('Used Mercedes-Benz GLS 400d 4MATIC [2020-2023]', 0, 20);
-                                                    ?>
-                                                    ...
-                                                </a>
-                                            </h3>
-                                            <div class="fs-5 text-muted">13,500 km | Mumbai | Diesel</div>
-                                            <div class="ad-price">Rs. 1.41 Crore</div>
-
-                                        </div>
-                                    </div>
-                                    <!-- Listing Ad Grid -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="grid-style-2">
-                                <!-- Listing Ad Grid -->
-                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                    <div class="category-grid-box-1">
-
-                                        <div class="image">
-                                            <img alt="Carz Choice"
-                                                src="https://imgd.aeplcdn.com/640X480/cw/ucp/stockApiImg/NWMXQ72_h33k2093_1_42894654.jpg"
-                                                class="img-responsive">
-                                            <div class="ribbon popular"></div>
-
-                                        </div>
-                                        <div class="short-description-1 clearfix">
-
-
-                                            <h3>
-                                                <a title="" class="text-truncate col-2"
-                                                    href="#">
-                                                    <?php
-                                                    echo substr('Used Mercedes-Benz GLS 400d 4MATIC [2020-2023]', 0, 20);
-                                                    ?>
-                                                    ...
-                                                </a>
-                                            </h3>
-                                            <div class="fs-5 text-muted">13,500 km | Mumbai | Diesel</div>
-                                            <div class="ad-price">Rs. 1.41 Crore</div>
-
-                                        </div>
-                                    </div>
-                                    <!-- Listing Ad Grid -->
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <a href="/used-car" class="  ">
-                        View All Used Cars <i class="bi bi-chevron-right"></i>
-                    </a>
-                </div>
-            </div>
-            <!-- Middle Content Box End -->
-
-            <!-- Row End -->
-        </div>
-        <!-- Main Container End -->
-    </div>
-</section>
-<!-- =-=-=-=-=-=-= Best Matched Second Hand Cars ends =-=-=-=-=-=-= -->
 
 
 <!-- =-=-=-=-=-=-= New Car FAQs  =-=-=-=-=-=-= -->
@@ -1351,12 +746,10 @@
                                 </div>
 
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal"
-                                        data-bs-location="Navi M data-bs-target="#selectCity"
-                                        data-bs-toggle="modal"umbai">
+                                    <a href="#" class="switch-modal" data-bs-location="Navi M data-bs-target="
+                                        #selectCity" data-bs-toggle="modal" umbai">
 
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg"
-                                            alt="Navi Mumbai">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg" alt="Navi Mumbai">
                                         <div class="mt-2 fs-6 text-muted" style="line-height: 1.3em;">Navi Mumbai
                                         </div>
                                     </a>
@@ -1410,8 +803,7 @@
                                     <a href="#" data-bs-location="Chandigarh" data-bs-target="#selectCity"
                                         data-bs-toggle="modal">
 
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg"
-                                            alt="Chandigarh">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg" alt="Chandigarh">
                                         <div class="fs-6 text-muted">Chandigarh</div>
                                     </a>
 
@@ -1424,9 +816,8 @@
                         <div class="col-md-12">
                             <h6 class="py-3 fs-3 text-center">All Cities</h6>
                             <div class="list-group " style="height: 150px; overflow-y: auto;">
-                                <a href="#" data-bs-location="A&N Islands, Andaman Nicobar"
-                                    data-bs-target="#selectCity" data-bs-toggle="modal"
-                                    class="list-group-item list-group-item-action">
+                                <a href="#" data-bs-location="A&N Islands, Andaman Nicobar" data-bs-target="#selectCity"
+                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
                                     A&N Islands, Andaman Nicobar
                                 </a>
 
@@ -1452,7 +843,8 @@
 
             {{-- <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCity" data-bs-toggle="modal">Open
+                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCity"
+                        data-bs-toggle="modal">Open
                         City Modal</button>
                 </div>
             </div> --}}
@@ -1491,9 +883,8 @@
                         <div class="col-md-12">
                             <h6 class="pb-3 text-center">All Cities</h6>
                             <div class="list-group p-2">
-                                <a href="#" data-bs-location="A&N Islands, Andaman Nicobar"
-                                    data-bs-target="#selectCity" data-bs-toggle="modal"
-                                    class="list-group-item list-group-item-action">
+                                <a href="#" data-bs-location="A&N Islands, Andaman Nicobar" data-bs-target="#selectCity"
+                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
                                     A&N Islands, Andaman Nicobar
                                 </a>
 
@@ -1514,7 +905,8 @@
 
             <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme rounded-4 btn-sm" data-bs-target="#selectLocation" data-bs-toggle="modal">Go
+                    <button class="btn btn-theme rounded-4 btn-sm" data-bs-target="#selectLocation"
+                        data-bs-toggle="modal">Go
                         Back</button>
                 </div>
             </div>

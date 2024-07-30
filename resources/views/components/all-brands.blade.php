@@ -13,7 +13,7 @@
                     <div class="clients-list">
                         @foreach ($brands as $data)
                             <div class="client-logo">
-                                <a href="javascript:void(0);" class="brandfilter" data-value="{{ $data->value }}">
+                                <a href="javascript:void(0);" class="{{$cartype}}" data-value="{{ $data->value }}">
                                     <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
                                         class="img-responsive" alt="Brand Image" width="150" />
                                 </a>

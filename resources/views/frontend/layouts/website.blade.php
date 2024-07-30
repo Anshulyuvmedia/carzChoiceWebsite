@@ -397,6 +397,31 @@
             });
         });
     });
+
+
+    $(document).ready(function() {
+        $(document).on('click', '.usedfiltercar', function() {
+            var carbrand = $(this).data('value');
+            console.log(carbrand);
+
+            $.ajax({
+                url: "/usedcarfilter",
+                type: 'POST',
+                data: { attribute: carbrand },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    console.log(data);
+                    if (data.success) {
+                        window.location.href = data.redirect_url;
+                    } else {
+                        alert("error");
+                    }
+                }
+            });
+        });
+    });
 </script>
 
 

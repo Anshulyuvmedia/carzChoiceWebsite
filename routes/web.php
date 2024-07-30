@@ -100,6 +100,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('insertcompareoffcanvas', 'insertcompareoffcanvas')->name('insertcompareoffcanvas');
     Route::post('makefilterfindcar', 'makefilterfindcar')->name('makefilterfindcar');
     Route::post('registerdealer', 'registerdealer')->name('registerdealer');
+    Route::post('usedcarfilter', 'usedcarfilter')->name('usedcarfilter');
 
 });
 
@@ -195,5 +196,6 @@ Route::controller(Store::class)->group(function() {
     Route::get('deletevariantfaq/{id}', 'deletevariantfaq')->name('deletevariantfaq');
     Route::post('insertcolorvariants', 'insertcolorvariants')->name('insertcolorvariants');
     Route::get('deletedealer/{id}', 'deletedealer')->name('deletedealer');
+    Route::post('/filterdealers', 'filterdealers')->name('filterdealers');
 
 });

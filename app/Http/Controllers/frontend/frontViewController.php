@@ -455,7 +455,8 @@ class frontViewController extends Controller
     }
     public function usedcar()
     {
-        return view('frontend.usedCarsLayouts.usedcar');
+        $adposts = AdPost::orderBy('created_at', 'desc')->get();
+        return view('frontend.usedCarsLayouts.usedcar',compact('adposts'));
     }
     public function usedcarbylocation()
     {

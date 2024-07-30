@@ -73,6 +73,9 @@
                             <div class="posts-masonry" >
                                 <div id="makecarddiv">
                                 @foreach ($variants as $row)
+                                    {{-- @php
+                                    dd($row);
+                                        @endphp --}}
                                         <div class="ads-list-archive">
                                             <div class="col-lg-4 col-md-4 col-sm-4 no-padding">
                                                 <div class="ad-archive-img">
@@ -89,7 +92,7 @@
                                                     <a class=""
                                                         href="{{ route('carlistingdetails', ['id' => $row->id]) }}">
                                                         <h3>{{ $row->brandname }},
-                                                            {{ $row->carname }}({{ $row->carmodalname }})</h3>
+                                                            {{ $row->carname }} {{ $row->carmodalname }}</h3>
                                                     </a>
                                                     <div class="ad-price-simple fs-3">Rs. {{ $row->price }} Lakh <span
                                                             class="fs-5 text-dark">Estimated Price </span></div>

@@ -11,6 +11,7 @@ use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
 use App\Models\ColorVariant;
 use App\Models\RegisterDealer;
+use App\Models\PostOffices;
 use App\Models\VariantFaq;
 use App\Models\CompanyProfile;
 use App\Models\CompareVehicle;
@@ -24,6 +25,7 @@ use App\Models\RegisterUser;
 use App\Models\VehicleImage;
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 
 class AdminView extends Controller
 {
@@ -249,6 +251,8 @@ class AdminView extends Controller
 
     public function dealerslist(){
         $registereddealers = RegisterDealer::orderBy('created_at', 'desc')->get();
-        return view('AdminPanel.dealerslist', compact('registereddealers'));
+        $masterdata = Master::where('type', '=', 'Brand')->get();
+        $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+        return view('AdminPanel.dealerslist', compact('registereddealers','masterdata','statedata'));
     }
 }

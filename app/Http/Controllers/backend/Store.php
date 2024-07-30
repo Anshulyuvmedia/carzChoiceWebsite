@@ -995,4 +995,34 @@ class Store extends Controller
         return back()->with('success', "Deleted....!!!");
     }
 
+    public function filterdealers(Request $request){
+
+        $brands = $request->input('brandname');
+        $city = $request->input('cityname');
+        // dd($brand,$city);
+
+        $query = RegisterDealer::query();
+
+        if (!empty($city)) {
+            $query->where('district', $city);
+        }
+
+        if (!empty($brands)) {
+            if (is_string($brands)) {
+                $brands = json_decode($brands, true);
+            }
+
+            if (is_array($brands)) {
+                foreach ($brands as $row) {
+                    $query->whereRaw("JSON_CONTAINS(brands, '\"$row\"')");
+                }
+            } else {
+
+            }
+        }
+
+        $data = $query->get();
+        // dd($data);
+        return response()->json($data);
+    }
 }
