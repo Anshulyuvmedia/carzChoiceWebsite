@@ -89,7 +89,7 @@
 
                         <!-- Middle Content Box -->
                         @foreach ($uniqueTypes as $type)
-                            @php
+                            @php   
                                 // Filter images for the current type
                                 $filteredTypes = $allcarimage->where('type', $type->type);
                                 // Count of images for the current type
@@ -323,7 +323,7 @@
                     @endphp
 
 
-                    <div class="tab-pane fade {{ $type == 'Colours' ? 'in active' : '' }}" id="Colours">
+                    <div class="tab-pane mt-4 fade {{ $type == 'Colours' ? 'in active' : '' }}" id="Colours">
 
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row">
@@ -352,8 +352,7 @@
                                                                         $colors = json_decode($imagedata->color, true);
                                                                         // dd($colors); // Uncomment to debug and see the structure of $colors
                                                                     @endphp
-                                                                    <div
-                                                                        class=" d-flex ">
+                                                                    <div class=" d-flex ">
                                                                         <div class="p-3 border me-2 rounded-pill"
                                                                             style="background-color: {{ $colors['value'] }}; height: 25px; width: 25px;">
                                                                         </div>
