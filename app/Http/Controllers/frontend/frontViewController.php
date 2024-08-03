@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\RegisterDealer;
 use Carbon\Carbon;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -12,6 +13,7 @@ use App\Models\DisplaySetting;
 use App\Models\Master;
 use App\Models\CarList;
 use App\Models\Pincode;
+use App\Models\Faqs;
 use App\Models\PostOffices;
 use App\Models\CompareVehicle;
 use App\Models\ProsCons;
@@ -294,7 +296,6 @@ class frontViewController extends Controller
 
         return view('frontend.newsdetails', compact('blogdata', 'variantdata', 'imagesdata'));
     }
-
     private function formatYouTubeUrl($url)
     {
         // Check if the URL is of the type "https://www.youtube.com/watch?v=VIDEO_ID"
@@ -313,7 +314,6 @@ class frontViewController extends Controller
         // Return the standardized embed URL
         return 'https://www.youtube.com/embed/' . $video_id;
     }
-
     public function about()
     {
         return view('frontend.about');
@@ -456,11 +456,19 @@ class frontViewController extends Controller
     public function usedcar()
     {
         $adposts = AdPost::orderBy('created_at', 'desc')->get();
-        return view('frontend.usedCarsLayouts.usedcar',compact('adposts'));
+        $usedcarfaq = Faqs::where('category','=','Old Car')->get();
+        return view('frontend.usedCarsLayouts.usedcar',compact('adposts','usedcarfaq'));
     }
-    public function usedcarbylocation()
+    public function usedcarbylocation($filtertype)
     {
-        return view('frontend.usedCarsLayouts.usedcarbylocation');
+        $filtertypenew = $filtertype;
+        $variants = session('variants', []);
+        $results = Master::where('type', '=', 'Body Type')
+        ->orWhere('type', '=', 'Transmission')
+        ->orWhere('type', '=', 'Fuel Type')
+        ->orWhere('type', '=', 'Seating Capacity')
+        ->get();
+        return view('frontend.usedCarsLayouts.usedcarbylocation',compact('variants','filtertypenew','results'));
     }
     public function carloan()
     {
@@ -498,7 +506,6 @@ class frontViewController extends Controller
         return view('frontend.findcar', compact('variants', 'results','filtertypenew'));
     }
 
-
     public function carviewimages($carname)
     {
         $allcarimage = VehicleImage::join('car_lists', 'vehicle_images.vehicle', 'car_lists.carname')
@@ -519,7 +526,6 @@ class frontViewController extends Controller
         // dd($allcarimage);
         return view('frontend.carLayouts.carviewimages', compact('allcarimage'));
     }
-
 
     public function carimages()
     {
@@ -547,14 +553,16 @@ class frontViewController extends Controller
         return view('frontend.carLayouts.carimages', compact('carimagedata'));
     }
 
-
     public function finddealer()
     {
-        return view('frontend.dealerlayouts.finddealer');
+        $dealers = RegisterDealer::orderBy('created_at','desc')->get();
+        $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+        return view('frontend.dealerlayouts.finddealer',compact('dealers','statedata'));
     }
-    public function dealerprofile()
+    public function dealerprofile($id)
     {
-        return view('frontend.dealerlayouts.dealerprofile');
+        $dealerdetails = RegisterDealer::find($id);
+        return view('frontend.dealerlayouts.dealerprofile',compact('dealerdetails'));
     }
     public function dealershowroom()
     {

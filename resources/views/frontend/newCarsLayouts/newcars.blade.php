@@ -32,13 +32,13 @@
 
     <!-- =-=-=-=-=-=-= Featured Ads End =-=-=-=-=-=-= -->
 
-            <x-all-brands />
+            <x-all-brands  cartype="brandfilter" />
     <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
 
 
 
     {{--THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET--}}
-    <x-find-the-cars-by-choice/>
+    <x-find-the-cars-by-choice  cartype="brandfilter"/>
 
 
       <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->

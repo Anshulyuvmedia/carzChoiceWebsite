@@ -4,7 +4,7 @@
 
             <!-- Middle Content Box -->
             <div class="col-md-12 col-xs-12 col-sm-12">
-                
+
                     <div class="heading-panel">
                         <div class="col-xs-12 col-md-12 col-sm-12 left-side">
                             <h1>New Car <span class="heading-color">FAQs</span> </h1>
@@ -20,7 +20,7 @@
                             </li>
                         </ul>
                     @endforeach
-                 
+
             </div>
         </div>
     </div>

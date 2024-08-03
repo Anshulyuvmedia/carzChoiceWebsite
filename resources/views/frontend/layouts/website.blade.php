@@ -35,7 +35,9 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend-assets/css/animate.min.css') }}" type="text/css">
     <!-- =-=-=-=-=-=-= Select Options =-=-=-=-=-=-= -->
     <link href="{{ asset('assets/frontend-assets/css/select2.min.css') }}" rel="stylesheet" />
-    {{-- <link href="{{asset('assets/backend-assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" /> --}}
+    {{--
+    <link href="{{asset('assets/backend-assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+    --}}
 
     <!-- =-=-=-=-=-=-= noUiSlider =-=-=-=-=-=-= -->
     <link href="{{ asset('assets/frontend-assets/css/nouislider.min.css') }}" rel="stylesheet">
@@ -95,15 +97,14 @@
                                         @if (Auth::guard('registeruser')->user())
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                             aria-haspopup="true" aria-expanded="false"><img class="img-circle resize"
-                                                alt=""
-                                                src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
-                                            <span class="myname hidden-xs"> Welcome {{ Auth::guard('registeruser')->user()->fullname }} </span> <span
+                                                alt="" src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
+                                            <span class="myname hidden-xs"> Welcome
+                                                {{ Auth::guard('registeruser')->user()->fullname }} </span> <span
                                                 class=""></span></a>
                                         @else
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                             aria-haspopup="true" aria-expanded="false"><img class="img-circle resize"
-                                                alt=""
-                                                src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
+                                                alt="" src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
                                             <span class="myname hidden-xs"> Guest User </span> <span
                                                 class=""></span></a>
                                         @endif
@@ -163,8 +164,10 @@
                                                     <h3>Condition</h3>
                                                     <ul>
                                                         <li><a href="/new-cars">Explore New Cars</a></li>
-                                                        <li><a  data-value="Upcoming" class="brandfilter">Upcoming Cars</a></li>
-                                                        <li><a data-value="Newly Launched" class="brandfilter">New Launches </a></li>
+                                                        <li><a data-value="Upcoming" class="brandfilter">Upcoming
+                                                                Cars</a></li>
+                                                        <li><a data-value="Newly Launched" class="brandfilter">New
+                                                                Launches </a></li>
                                                         <li><a href="/electric-car">Electric Cars </a></li>
                                                         <li><a href="/car-loan">Car Loan </a></li>
                                                     </ul>
@@ -174,25 +177,26 @@
                                                     <ul>
                                                         <li><a href="/car-images">Car Images </a></li>
                                                         <li><a href="/dealer-showroom">Find Dealer Showroom</a></li>
-                                                        <li><a href="/dealer-location">Find Dealer By Location</a></li>
+                                                        {{-- <li><a href="/dealer-location">Find Dealer By Location</a></li> --}}
                                                     </ul>
                                                 </div>
 
                                                 <div class="grid-col-6">
                                                     <h3>Brands</h3>
                                                     @php
-                                                        use App\Models\Master;
-                                                        $brands = Master::where('type', 'Brand')->get();
-                                                        // $bodytype = Master::where('type', 'Body Type')->get();
+                                                    use App\Models\Master;
+                                                    $brands = Master::where('type', 'Brand')->get();
+                                                    // $bodytype = Master::where('type', 'Body Type')->get();
                                                     @endphp
                                                     <ul class="by-make list-inline">
                                                         @foreach ($brands->take(12) as $data)
-                                                            <li>
-                                                                <a href="javascript:void(0);" class="brandfilter" data-value="{{ $data->value }}">
-                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
-                                                                        class="img-responsive" alt="Brand Image">
-                                                                </a>
-                                                            </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);" class="brandfilter"
+                                                                data-value="{{ $data->value }}">
+                                                                <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -221,12 +225,13 @@
                                                     <h3>Search Used Cars by Brands</h3>
                                                     <ul class="by-make list-inline">
                                                         @foreach ($brands->take(14) as $data)
-                                                            <li>
-                                                                <a href="javascript:void(0);" class="brandfilter" data-value="{{ $data->value }}">
-                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
-                                                                        class="img-responsive" alt="Brand Image">
-                                                                </a>
-                                                            </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);" class="brandfilter"
+                                                                data-value="{{ $data->value }}">
+                                                                <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
+                                                                    class="img-responsive" alt="Brand Image">
+                                                            </a>
+                                                        </li>
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -237,7 +242,8 @@
                                                         @foreach ($bodytype->take(6) as $row)
                                                         <li>
                                                             <a href="#">
-                                                                <img alt="Hybrid" src="{{ asset('assets/backend-assets/images/'.$row->iconimage) }}">
+                                                                <img alt="Hybrid"
+                                                                    src="{{ asset('assets/backend-assets/images/'.$row->iconimage) }}">
                                                                 {{$row->value}}
                                                             </a>
                                                         </li>
@@ -306,10 +312,8 @@
                             </div>
 
                             <ul class="apps-donwloads">
-                                <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}"
-                                        alt=""></li>
-                                <li><img src="{{ asset('assets/frontend-assets/images/appstore.png') }}"
-                                        alt=""></li>
+                                <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}" alt=""></li>
+                                <li><img src="{{ asset('assets/frontend-assets/images/appstore.png') }}" alt=""></li>
                             </ul>
                         </div>
                         <!-- Info Widget Exit -->
@@ -320,8 +324,7 @@
                             <h5>Follow Us</h5>
                             <ul>
                                 <li><a class="Facebook"><i class="fa fa-facebook"></i></a><span>Facebook</span></li>
-                                <li><a class="Twitter" href="#"><i
-                                            class="fa fa-twitter"></i></a><span>Twitter</span>
+                                <li><a class="Twitter" href="#"><i class="fa fa-twitter"></i></a><span>Twitter</span>
                                 </li>
                                 <span><a class="Linkedin" href="#"><i
                                             class="fa fa-linkedin"></i></a><span>Linkedin</span>
@@ -371,58 +374,107 @@
 
     </footer>
     <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
-<!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $(document).on('click', '.brandfilter', function() {
-            var carbrand = $(this).data('value');
-            console.log(carbrand);
+    <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        //New Car Filter
+        $(document).ready(function() {
+            $(document).on('click', '.brandfilter', function() {
+                var carbrand = $(this).data('value');
+                console.log(carbrand);
 
-            $.ajax({
-                url: "/filterByAttribute/" + carbrand,
-                type: 'POST',
-                data: { attribute: carbrand },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(data) {
-                    console.log(data);
-                    if (data.success) {
-                        window.location.href = data.redirect_url;
-                    } else {
-                        alert("error");
+                $.ajax({
+                    url: "/filterByAttribute/" + carbrand,
+                    type: 'POST',
+                    data: {
+                        attribute: carbrand
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        if (data.success) {
+                            window.location.href = data.redirect_url;
+                        } else {
+                            alert("error");
+                        }
                     }
-                }
+                });
             });
         });
-    });
 
+        //Used Car Filter
+        $(document).ready(function() {
+            $(document).on('click', '.usedfiltercar', function() {
+                var carbrand = $(this).data('value');
+                console.log(carbrand);
 
-    $(document).ready(function() {
-        $(document).on('click', '.usedfiltercar', function() {
-            var carbrand = $(this).data('value');
-            console.log(carbrand);
-
-            $.ajax({
-                url: "/usedcarfilter/" + carbrand,
-                type: 'POST',
-                data: { attribute: carbrand },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(data) {
-                    console.log(data);
-                    if (data.success) {
-                        window.location.href = data.redirect_url;
-                    } else {
-                        alert("error");
+                $.ajax({
+                    url: "/usedcarfilter/" + carbrand,
+                    type: 'POST',
+                    data: {
+                        attribute: carbrand
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        if (data.success) {
+                            window.location.href = data.redirect_url;
+                        } else {
+                            alert("error");
+                        }
                     }
-                }
+                });
             });
         });
-    });
-</script>
+
+        //City Filter
+        $(document).ready(function() {
+            $('.locationanchor').on('click', function() {
+                const city = $(this).data('value');
+                console.log(city);
+
+                //Here is AJAX Code...
+                if (city) {
+                    $.ajax({
+                        url: '/filtercarsbylocation/' + city,
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                        },
+                        success: function(response) {
+                            console.log(response);
+                            if (response.success) {
+                                window.location.href = response.redirect_url;
+                            } else {
+                                alert("error");
+                            }
+                        },
+                    });
+
+                }
+
+            });
+        });
+    </script>
+
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/66adc27f1601a2195ba0466f/1i4bbvgqe';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 
     <!-- Back To Top -->
@@ -441,7 +493,7 @@
     <script src="{{ asset('assets/frontend-assets/js/jquery.countTo.js') }}"></script>
     <!-- Jquery Select Options  -->
     <script src="{{ asset('assets/frontend-assets/js/select2.min.js') }}"></script>
-    <script src="{{asset('assets/backend-assets/js/pages/form-advanced.init.js')}}"></script>
+    <script src="{{ asset('assets/backend-assets/js/pages/form-advanced.init.js') }}"></script>
 
     {{-- <script src="{{asset('assets/backend-assets/libs/select2/js/select2.min.js')}}"></script> --}}
 

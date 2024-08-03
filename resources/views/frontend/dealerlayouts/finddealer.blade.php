@@ -18,13 +18,15 @@
                             for your used car need.</p>
                     </div>
                 </div>
-                <div class="header-listing">
-                    <div class="custom-select-box">
-                        <label for="selectLocation">City:</label>
-                        <input placeholder="Select a City" type="text" class=" form-control City"
-                            data-bs-target="#selectLocation" data-bs-toggle="modal" type="button">
-                        </input>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group p-2">
+                    <label>Select City to Filter : </label>
+                    <select name="cartype" class="form-control make" id="filterdealercity">
+                        @foreach ($statedata as $row)
+                        <option value="{{ $row->District }}">{{ $row->District }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </div>
@@ -55,46 +57,34 @@
                             <h1 class="text-dark fs-3 fw-bold">Premium Dealers</h1>
                         </div>
 
-                        <div class="">
-
-                            <div class="ads-list-archive">
-                                <div class="clearfix visible-xs-block"></div>
-                                <!-- Content Block -->
+                        <div class="" id="dealersdiv">
+                            @foreach ($dealers as $data)
+                            <div class="ads-list-archive" >
                                 <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
-
                                     <div class="ad-archive-desc">
-                                        <!-- Title -->
                                         <div class="d-flex justify-content-between ">
                                             <div class="">
                                                 <a href="/dealer-profile">
-                                                    <h3>Auto Havenn </h3>
+                                                    <h3>{{$data->businessname}}</h3>
                                                 </a>
                                             </div>
-                                            <div style="width:70px;height:34px">
-                                                <img src="https://static.cartradeexchange.com/certprogs_images/autohavenn_1655465675428.jpg"
-                                                    alt="Auto Havenn">
-                                            </div>
                                         </div>
-
-                                        <!-- Address -->
                                         <div class="category-title fs-4">
-                                            Auto Haven, Shop No.272, 1st Floor, Raghuleela Mall, Near Poisar Depot,
-                                            Kandiwali West, Mumbai - 400067
+                                            {{$data->district}} {{$data->state}} - {{$data->pincode}}
                                         </div>
-                                        <!-- Details -->
                                         <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
                                                 used cars available at dealership</span></div>
                                         <div class="d-flex mt-3">
                                             <div class="me-3">
-                                                <a href="/dealer-profile">
+                                                <a href="{{ route('dealerprofile',['id' => $data->id])}}">
                                                     <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
                                                 </a>
                                             </div>
                                             <div>
-                                                <a href="tel:9876543211">
+                                                <a href="#">
                                                     <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
                                                         <i class="bi bi-telephone"></i>
-                                                        9876543211
+                                                        {{$data->mobilenumber}}
                                                     </div>
                                                 </a>
                                             </div>
@@ -102,349 +92,10 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="ads-list-archive">
-                                <div class="clearfix visible-xs-block"></div>
-                                <!-- Content Block -->
-                                <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
-
-                                    <div class="ad-archive-desc">
-                                        <!-- Title -->
-                                        <div class="d-flex justify-content-between ">
-                                            <div class="">
-                                                <a href="/dealer-profile">
-                                                    <h3>Auto Havenn </h3>
-                                                </a>
-                                            </div>
-                                            <div style="width:70px;height:34px">
-                                                <img src="https://static.cartradeexchange.com/certprogs_images/autohavenn_1655465675428.jpg"
-                                                    alt="Auto Havenn">
-                                            </div>
-                                        </div>
-
-                                        <!-- Address -->
-                                        <div class="category-title fs-4">
-                                            Auto Haven, Shop No.272, 1st Floor, Raghuleela Mall, Near Poisar Depot,
-                                            Kandiwali West, Mumbai - 400067
-                                        </div>
-                                        <!-- Details -->
-                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
-                                                used cars available at dealership</span></div>
-                                        <div class="d-flex mt-3">
-                                            <div class="me-3">
-                                                <a href="/dealer-profile">
-                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a href="tel:9876543211">
-                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
-                                                        <i class="bi bi-telephone"></i>
-                                                        9876543211
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="ads-list-archive">
-                                <div class="clearfix visible-xs-block"></div>
-                                <!-- Content Block -->
-                                <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
-
-                                    <div class="ad-archive-desc">
-                                        <!-- Title -->
-                                        <div class="d-flex justify-content-between ">
-                                            <div class="">
-                                                <a href="/dealer-profile">
-                                                    <h3>Auto Havenn </h3>
-                                                </a>
-                                            </div>
-                                            <div style="width:70px;height:34px">
-                                                <img src="https://static.cartradeexchange.com/certprogs_images/autohavenn_1655465675428.jpg"
-                                                    alt="Auto Havenn">
-                                            </div>
-                                        </div>
-
-                                        <!-- Address -->
-                                        <div class="category-title fs-4">
-                                            Auto Haven, Shop No.272, 1st Floor, Raghuleela Mall, Near Poisar Depot,
-                                            Kandiwali West, Mumbai - 400067
-                                        </div>
-                                        <!-- Details -->
-                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
-                                                used cars available at dealership</span></div>
-                                        <div class="d-flex mt-3">
-                                            <div class="me-3">
-                                                <a href="/dealer-profile">
-                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a href="tel:9876543211">
-                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
-                                                        <i class="bi bi-telephone"></i>
-                                                        9876543211
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="ads-list-archive">
-                                <div class="clearfix visible-xs-block"></div>
-                                <!-- Content Block -->
-                                <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
-
-                                    <div class="ad-archive-desc">
-                                        <!-- Title -->
-                                        <div class="d-flex justify-content-between ">
-                                            <div class="">
-                                                <a href="/dealer-profile">
-                                                    <h3>Auto Havenn </h3>
-                                                </a>
-                                            </div>
-                                            <div style="width:70px;height:34px">
-                                                <img src="https://static.cartradeexchange.com/certprogs_images/autohavenn_1655465675428.jpg"
-                                                    alt="Auto Havenn">
-                                            </div>
-                                        </div>
-
-                                        <!-- Address -->
-                                        <div class="category-title fs-4">
-                                            Auto Haven, Shop No.272, 1st Floor, Raghuleela Mall, Near Poisar Depot,
-                                            Kandiwali West, Mumbai - 400067
-                                        </div>
-                                        <!-- Details -->
-                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
-                                                used cars available at dealership</span></div>
-                                        <div class="d-flex mt-3">
-                                            <div class="me-3">
-                                                <a href="/dealer-profile">
-                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a href="tel:9876543211">
-                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
-                                                        <i class="bi bi-telephone"></i>
-                                                        9876543211
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- Ads Archive End -->
-                    </div>
-
-
-                    <div class=" ">
-
-                        <div class="header-page mb-2">
-                            <h1 class="text-dark fs-3 fw-bold">Popular Dealers</h1>
-                        </div>
-                        <div class="grid-style-4">
-                            <div class="posts-masonry">
-                                <div class="col-md-6 col-xs-12 col-sm-6 px-2">
-                                    <!-- Ad Box -->
-                                    <div class="category-grid-box p-3">
-                                        <!-- Title -->
-                                        <div class="d-flex justify-content-between ">
-                                            <div class="short-description p-0 border-0">
-                                                <h3>
-                                                    <a href="/dealer-profile">
-                                                        Auto Havenn
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                            <div style="width:70px;height:34px">
-                                                <img src="https://static.cartradeexchange.com/certprogs_images/autohavenn_1655465675428.jpg"
-                                                    alt="Auto Havenn">
-                                            </div>
-                                        </div>
-
-                                        <!-- Address -->
-                                        <div class="category-title fs-4">
-                                            Auto Haven, Shop No.272, 1st Floor, Raghuleela Mall, Near Poisar Depot,
-                                            Kandiwali West, Mumbai - 400067
-                                        </div>
-                                        <!-- Details -->
-                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
-                                                used cars available at dealership</span></div>
-                                        <div class="d-flex mt-3">
-                                            <div class="me-3">
-                                                <a href="/dealer-profile">
-                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a href="tel:9876543211">
-                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
-                                                        <i class="bi bi-telephone"></i>
-                                                        9876543211
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Ad Box End -->
-                                </div>
-                                <div class="col-md-6 col-xs-12 col-sm-6 px-2">
-                                    <!-- Ad Box -->
-                                    <div class="category-grid-box p-3">
-                                        <!-- Title -->
-                                        <div class="d-flex justify-content-between ">
-                                            <div class="short-description p-0 border-0">
-                                                <h3>
-                                                    <a href="/dealer-profile">
-                                                        Auto Havenn
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                            <div style="width:70px;height:34px">
-                                                <img src="https://static.cartradeexchange.com/certprogs_images/autohavenn_1655465675428.jpg"
-                                                    alt="Auto Havenn">
-                                            </div>
-                                        </div>
-
-                                        <!-- Address -->
-                                        <div class="category-title fs-4">
-                                            Auto Haven, Shop No.272, 1st Floor, Raghuleela Mall, Near Poisar Depot,
-                                            Kandiwali West, Mumbai - 400067
-                                        </div>
-                                        <!-- Details -->
-                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
-                                                used cars available at dealership</span></div>
-                                        <div class="d-flex mt-3">
-                                            <div class="me-3">
-                                                <a href="/dealer-profile">
-                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a href="tel:9876543211">
-                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
-                                                        <i class="bi bi-telephone"></i>
-                                                        9876543211
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Ad Box End -->
-                                </div>
-                                <div class="col-md-6 col-xs-12 col-sm-6 px-2">
-                                    <!-- Ad Box -->
-                                    <div class="category-grid-box p-3">
-                                        <!-- Title -->
-                                        <div class="d-flex justify-content-between ">
-                                            <div class="short-description p-0 border-0">
-                                                <h3>
-                                                    <a href="/dealer-profile">
-                                                        Auto Havenn
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                            <div style="width:70px;height:34px">
-                                                <img src="https://static.cartradeexchange.com/certprogs_images/autohavenn_1655465675428.jpg"
-                                                    alt="Auto Havenn">
-                                            </div>
-                                        </div>
-
-                                        <!-- Address -->
-                                        <div class="category-title fs-4">
-                                            Auto Haven, Shop No.272, 1st Floor, Raghuleela Mall, Near Poisar Depot,
-                                            Kandiwali West, Mumbai - 400067
-                                        </div>
-                                        <!-- Details -->
-                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
-                                                used cars available at dealership</span></div>
-                                        <div class="d-flex mt-3">
-                                            <div class="me-3">
-                                                <a href="/dealer-profile">
-                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a href="tel:9876543211">
-                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
-                                                        <i class="bi bi-telephone"></i>
-                                                        9876543211
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Ad Box End -->
-                                </div>
-                                <div class="col-md-6 col-xs-12 col-sm-6 px-2">
-                                    <!-- Ad Box -->
-                                    <div class="category-grid-box p-3">
-                                        <!-- Title -->
-                                        <div class="d-flex justify-content-between ">
-                                            <div class="short-description p-0 border-0">
-                                                <h3>
-                                                    <a href="/dealer-profile">
-                                                        Auto Havenn
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                            <div style="width:70px;height:34px">
-                                                <img src="https://static.cartradeexchange.com/certprogs_images/autohavenn_1655465675428.jpg"
-                                                    alt="Auto Havenn">
-                                            </div>
-                                        </div>
-
-                                        <!-- Address -->
-                                        <div class="category-title fs-4">
-                                            Auto Haven, Shop No.272, 1st Floor, Raghuleela Mall, Near Poisar Depot,
-                                            Kandiwali West, Mumbai - 400067
-                                        </div>
-                                        <!-- Details -->
-                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
-                                                used cars available at dealership</span></div>
-                                        <div class="d-flex mt-3">
-                                            <div class="me-3">
-                                                <a href="/dealer-profile">
-                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a href="tel:9876543211">
-                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
-                                                        <i class="bi bi-telephone"></i>
-                                                        9876543211
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Ad Box End -->
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                    <!-- Pagination -->
-                    <div class="text-center margin-top-30">
-                        <ul class="pagination ">
-                            <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- Pagination End -->
                 </div>
                 <!-- Row End -->
 
@@ -455,67 +106,44 @@
             <!-- Left Sidebar -->
             <div class="col-md-4 col-sx-12">
 
-                
+
                 <!-- Sidebar Widgets -->
                 <div class="sidebar">
                     <!-- Panel group -->
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        
-                        <div class="header-page mb-2">
-                            <h1 class="text-dark fs-3 fw-bold">Used Car Dealers in Cities near You</h1>
-                        </div>
-                        
-                        <div class="list-group ">
-                            <a href="#" class="list-group-item list-group-item-action">
-                                Mumbai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                Bangalore <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                Delhi <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                Pune <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                Navi Mumbai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
-                            </a>
-
-                        </div>
                         <div class="header-page mb-2">
                             <h1 class="text-dark fs-3 fw-bold">Used Car Dealers in Popular Cities</h1>
                         </div>
-                        
+
                         <div class="list-group ">
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Mumbai" class="list-group-item list-group-item-action popularecityfilter">
                                 Mumbai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Bangalore" class="list-group-item list-group-item-action popularecityfilter">
                                 Bangalore <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Delhi" class="list-group-item list-group-item-action popularecityfilter">
                                 Delhi <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Pune" class="list-group-item list-group-item-action popularecityfilter">
                                 Pune <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Navi Mumbai" class="list-group-item list-group-item-action popularecityfilter">
                                 Navi Mumbai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Hyderabad" class="list-group-item list-group-item-action popularecityfilter">
                                 Hyderabad <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Ahmedabad" class="list-group-item list-group-item-action popularecityfilter">
                                 Ahmedabad <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Chennai" class="list-group-item list-group-item-action popularecityfilter">
                                 Chennai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Kolkata" class="list-group-item list-group-item-action popularecityfilter">
                                 Kolkata <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Chandigarh" class="list-group-item list-group-item-action popularecityfilter">
                                 Chandigarh <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
 
@@ -611,23 +239,16 @@
     <!-- Main Container End -->
 </section>
 <!-- =-=-=-=-=-=-= Ads Archives End =-=-=-=-=-=-= -->
-
-
-
-
-
-
+{{--
 <div class="modal fade" id="selectLocation" aria-hidden="true" aria-labelledby="selectBrandlabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header text-center">
                 <h3 class="modal-title " id="selectBrandlabel">Select Your City </h3>
                 <div class="header-bg"></div>
-                {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
             </div>
 
             <div class="modal-body">
-                <!-- content goes here -->
                 <form>
                     <div class=" text-center">
                         <a href="#">
@@ -683,8 +304,7 @@
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
                                     <a href="#" class="switch-modal" umbai">
 
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg"
-                                            alt="Navi Mumbai">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg" alt="Navi Mumbai">
                                         <div class="mt-2 fs-6 text-muted" style="line-height: 1.3em;">Navi Mumbai
                                         </div>
                                     </a>
@@ -733,8 +353,7 @@
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
                                     <a href="#">
 
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg"
-                                            alt="Chandigarh">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg" alt="Chandigarh">
                                         <div class="fs-6 text-muted">Chandigarh</div>
                                     </a>
 
@@ -771,7 +390,131 @@
 
         </div>
     </div>
-</div>
-
-
+</div> --}}
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+{{-- Dealers by City Filter --}}
+<script>
+    $(document).ready(function() {
+        $('#filterdealercity').on('change', function() {
+            const city = $('#filterdealercity').val();
+            console.log(city);
+
+            //Here is AJAX Code...
+            if (city) {
+                $.ajax({
+                    url: '/filterdealersbycity/' + city,
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        $('#dealersdiv').empty();
+                        response.forEach(function(row) {
+                            var div = `
+                             <div class="ads-list-archive" >
+                             <div class="clearfix visible-xs-block"></div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
+                                    <div class="ad-archive-desc">
+                                        <div class="d-flex justify-content-between ">
+                                            <div class="">
+                                                <a href="/dealer-profile">
+                                                    <h3>${row.businessname}</h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="category-title fs-4">
+                                            ${row.district} ${row.district} - ${row.pincode}
+                                        </div>
+                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
+                                                used cars available at dealership</span></div>
+                                        <div class="d-flex mt-3">
+                                            <div class="me-3">
+                                                <a href="/dealer-profile">
+                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="tel:{{$data->mobilenumber}}">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
+                                                        <i class="bi bi-telephone"></i>
+                                                        ${row.mobilenumber}
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            `;
+                            $('#dealersdiv').append(div);
+                        });
+                    },
+                });
+            }
+        });
+    });
+
+
+    $(document).ready(function() {
+        $('.popularecityfilter').on('click', function() {
+            const city = $(this).data('city');
+            console.log(city);
+
+            //Here is AJAX Code...
+            if (city) {
+                $.ajax({
+                    url: '/filterdealersbycity/' + city,
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        $('#dealersdiv').empty();
+                        response.forEach(function(row) {
+                            var div = `
+                             <div class="ads-list-archive" >
+                             <div class="clearfix visible-xs-block"></div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
+                                    <div class="ad-archive-desc">
+                                        <div class="d-flex justify-content-between ">
+                                            <div class="">
+                                                <a href="/dealer-profile">
+                                                    <h3>${row.businessname}</h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="category-title fs-4">
+                                            ${row.district} ${row.district} - ${row.pincode}
+                                        </div>
+                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
+                                                used cars available at dealership</span></div>
+                                        <div class="d-flex mt-3">
+                                            <div class="me-3">
+                                                <a href="/dealer-profile/${row.id}">
+                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="tel:{{$data->mobilenumber}}">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
+                                                        <i class="bi bi-telephone"></i>
+                                                        ${row.mobilenumber}
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            `;
+                            $('#dealersdiv').append(div);
+                        });
+                    },
+                });
+            }
+        });
+    });
+</script>

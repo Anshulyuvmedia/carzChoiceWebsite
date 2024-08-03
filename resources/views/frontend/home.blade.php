@@ -1,13 +1,21 @@
 @extends('frontend.layouts.website')
 @section('content')
 @section('title', 'Home')
-
+<style>
+    .mycustombtn{
+        position: fixed;
+        right: -33px;
+        bottom: 40%;
+        transform: rotate(270deg);
+        z-index: 99;
+    }
+</style>
 <div>
     <!-- =-=-=-=-=-=-= Home Banner  =-=-=-=-=-=-= -->
     <div id="banner" class="hideInMobile"
         style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->mainbannerimg) }}')">
         <div class="container">
-            
+
             <div class="row">
                 <div class="col-6">
                     <div class="search-container">
@@ -67,7 +75,7 @@
                                                             <button type="submit" value="submit" class="btn btn-theme">Search
                                                                 Now</button>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </form>
                                             </div>
@@ -343,12 +351,11 @@
 
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
-        <!-- Main Container -->
+        <button class="btn btn-theme rounded-bottom rounded-4 mycustombtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+        aria-controls="offcanvasWithBothOptions">Book Now</button>
         <div class="container featured-cars">
             <!-- Row -->
             <div class="row">
-
-
                 <div class="card">
                     <!-- Heading Area -->
                     <div class="heading-panel">
@@ -661,7 +668,7 @@
         <div class="container popular-cars">
             <!-- Row -->
             <div class="row">
-               
+
 
 
                 <!-- Middle Content Box -->
@@ -847,30 +854,23 @@
 </div>
 
 
-{{-- onload modal --}}
-{{-- <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">
-                    What are you looking for today?
-                </h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center">
-                <div class="d-flex justify-content-center g-3">
-                    <a class="btn btn-danger d-block w-100 rounded-start" href="/new-cars">New Car?</a>
-                    <a class="btn btn-danger d-block w-100 rounded-end" href="/used-car">Used Car?</a>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-            </div>
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold fs-4" id="offcanvasWithBothOptionsLabel">Mahindra Scorpio N</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <p>Provide your contact details for Test Drive, EMI options, Offers & Exchange Benefits</p>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Contact Number</label>
+            <input type="tel" class="form-control" id="formGroupExampleInput" placeholder="Enter Mobile Number">
+            <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once</div>
+            <button class="btn btn-theme rounded-4 btn-lg btn-block">Register</button>
         </div>
 
     </div>
-</div> --}}
+</div>
 <script>
     $(window).ready(function() {
         setTimeout(function() {

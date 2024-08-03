@@ -1025,4 +1025,16 @@ class Store extends Controller
         // dd($data);
         return response()->json($data);
     }
+
+    public function updatevariantshowhidestatus(Request $request)
+    {
+        $login = AddVariant::find($request->id);
+        if ($login) {
+            $login->showhidestatus = $request->status;
+            $login->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
 }
+

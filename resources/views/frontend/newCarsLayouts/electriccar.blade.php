@@ -1409,11 +1409,8 @@
     </section>
     <!-- =-=-=-=-=-=-= New Car FAQs End =-=-=-=-=-=-= -->
 
-    <x-all-brands />
-   
+    <x-all-brands  cartype="brandfilter" />
 
     <!-- Main Content Area End -->
 </div>
-
-
 @endsection
