@@ -2146,6 +2146,7 @@ img.resize {
     overflow: hidden;
     margin-bottom: 30px;
     box-shadow: none;
+    border-radius: 15px
 }
 
 .ad-listing {
@@ -3222,6 +3223,7 @@ div.boxicon:last-child {
     border-radius: 0;
     box-shadow: none;
     border-color: #eeeeee;
+    border-radius: 15px
 }
 
 .panel-default > .panel-heading {
@@ -3433,6 +3435,7 @@ div.boxicon:last-child {
     margin-bottom: 0;
     background-color: #fff;
     border: 1px solid #eeeeee;
+    border-radius: 15px
 }
 
 .sidebar .widget .widget-heading {
@@ -4621,6 +4624,7 @@ label {
     overflow: hidden;
     position: relative;
     padding: 20px 5px 10px;
+    border-radius: 15px
 }
 
 .grid-panel .heading-panel {
@@ -10977,7 +10981,7 @@ textarea {
 
 .comparedivision {
     clip-path: inset(0px -15px 0px 0px);
-    border-right-color: rgb(0, 133, 122);
+    border: 1px solid #e8e8e8;
     /* box-shadow: rgb(210, 210, 213) 2px 2px 4px 0px; */
     position: sticky;
     max-width: 190px;

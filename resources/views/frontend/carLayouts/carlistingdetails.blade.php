@@ -98,17 +98,18 @@
                 </div>
 
                 <div class="col-md-12 col-xs-12 col-sm-12 ">
-                    <div class="row my-3 border">
+                    <div class="row my-3 border rounded-4">
 
-                        <div class="col-md-6 col-xs-12 col-sm-12 p-0">
-                            <div class="singlepage-detail">
+                        <div class="col-md-6 col-xs-12 col-sm-12 p-3">
+                            <div class="singlepage-detail rounded-4">
                                 <div id="single-slider" class="flexslider p-2 mb-0 pb-0">
                                     <ul class="slides">
                                         @foreach ($cardetails['images'] as $row)
                                             <li>
                                                 <a href="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
                                                     data-fancybox="gallery">
-                                                    <img alt="" src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}" /></a>
+                                                    <img alt=""
+                                                        src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}" /></a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -126,8 +127,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 col-sm-12 ">
-                            <div class="row border ">
-                                <div class="col-md-6 col-xs-12 col-sm-12 border-end">
+                            <div class="row p-3 ">
+                                <div class="col-md-6 col-xs-12 col-sm-12 border rounded-start-4 bg-white">
                                     <a href="#" data-target="#selectCar" data-toggle="modal">
                                         <div class="d-flex justify-content-between align-items-center p-2">
                                             <div>
@@ -140,7 +141,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-md-6 col-xs-12 col-sm-12 ">
+                                <div class="col-md-6 col-xs-12 col-sm-12 border rounded-end-4 bg-white">
                                     <a href="#" data-target="#selectLocation" data-toggle="modal">
                                         <div class="d-flex justify-content-between align-items-center p-2">
                                             <div>
@@ -197,14 +198,15 @@
                                         <i class="bi bi-clock"></i> Waiting Period: 7-14 Weeks
                                     </div>
                                     <div class="mt-5">
-                                        <a href="#" class="btn btn-danger btn-block rounded-3"
+                                        <a href="#" class="btn btn-theme btn-block rounded-3"
                                             data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
                                             aria-controls="offcanvasWithBothOptions">Get Offer</a>
                                     </div>
                                     <div class="mt-5">
 
                                         <div class="d-flex justify-content-between p-3 shadow-sm rounded-3">
-                                            <a class="text-secondary text-center" href="/car-view-images/{{$cardetails->carname}}?type=Colours">
+                                            <a class="text-secondary text-center"
+                                                href="/car-view-images/{{ $cardetails->carname }}?type=Colours">
 
                                                 <svg class="" style="width: 15%;" viewBox="0 0 16 16"
                                                     fill="currentcolor" tabindex="-1" focusable="false"
@@ -216,7 +218,8 @@
                                                 <span class="">Colours</span>
                                             </a>
 
-                                            <a class="text-secondary text-center" href="/car-view-images/{{$cardetails->carname}}?type=All">
+                                            <a class="text-secondary text-center"
+                                                href="/car-view-images/{{ $cardetails->carname }}?type=All">
                                                 <svg class="" style="width: 15%;" viewBox="0 0 16 16"
                                                     fill="currentcolor" tabindex="-1" focusable="false"
                                                     aria-hidden="true" role="img">
@@ -248,10 +251,10 @@
 
 
                 <!-- Middle Content Area -->
-                <div class="col-md-8 col-xs-12 col-sm-12 p-0">
+                <div class="col-md-8 col-xs-12 col-sm-12">
                     <!-- Single Ad -->
                     <div class="singlepage-detail ">
-                        <div class="content-box-grid">
+                        <div class="content-box-grid rounded-4">
                             <!-- Heading Area -->
                             <div class="short-features">
                                 <!-- Heading Area -->
@@ -306,30 +309,31 @@
                                         </thead>
                                         <tbody id="table-body">
                                             @foreach ($cardetails['variants'] as $rowqqqq)
-                                            <tr>
-                                                <input type="hidden" name="" id="CarrName"
-                                                    value="{{ $rowqqqq->carname }}">
-                                                <td>
-                                                    <div>
-                                                        {{ $rowqqqq->carname }}, ({{ $rowqqqq->carmodalname }})
-                                                    </div>
-                                                    <div class="text-muted fs-4">
-                                                        {{ $rowqqqq->engine }} cc,
-                                                        {{ implode(', ', json_decode($rowqqqq->fueltype)) }}
-                                                    </div>
-                                                </td>
-                                                <td class="fw-bold">Rs. {{ $rowqqqq->price }} Lakh</td>
-                                                <td>
-                                                    <div class="form-check form-check-reverse">
-                                                        <label class="form-check-label" for="flexCheckDefault1">
-                                                            Add to compare
-                                                        </label>
-                                                        <input class="form-check-input comparecheck" type="checkbox"
-                                                            value='{{ json_encode($rowqqqq) }}' id=""
-                                                            data-value='@json($rowqqqq)'>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <input type="hidden" name="" id="CarrName"
+                                                        value="{{ $rowqqqq->carname }}">
+                                                    <td>
+                                                        <div>
+                                                            {{ $rowqqqq->carname }}, ({{ $rowqqqq->carmodalname }})
+                                                        </div>
+                                                        <div class="text-muted fs-4">
+                                                            {{ $rowqqqq->engine }} cc,
+                                                            {{ implode(', ', json_decode($rowqqqq->fueltype)) }}
+                                                        </div>
+                                                    </td>
+                                                    <td class="fw-bold">Rs. {{ $rowqqqq->price }} Lakh</td>
+                                                    <td>
+                                                        <div class="form-check form-check-reverse">
+                                                            <label class="form-check-label" for="flexCheckDefault1">
+                                                                Add to compare
+                                                            </label>
+                                                            <input class="form-check-input comparecheck"
+                                                                type="checkbox" value='{{ json_encode($rowqqqq) }}'
+                                                                id=""
+                                                                data-value='@json($rowqqqq)'>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -348,7 +352,7 @@
 
                         <!-- Price Alert -->
                         <div class="alert-box-container margin-top-30">
-                            <div class="d-flex justify-content-between well align-items-center rounded-3">
+                            <div class="d-flex justify-content-between well align-items-center rounded-4">
                                 <div>
                                     <h3>Contact Mahindra</h3>
                                     <p>Get in touch for the best buying option from your authorized dealer</p>
@@ -518,7 +522,7 @@
                                     </h5>
                                     <ul class="text-secondary">
                                         @foreach ($pros as $row)
-                                        <li>{{ $row }}</li>
+                                            <li>{{ $row }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -529,7 +533,7 @@
                                     </h5>
                                     <ul class="text-secondary">
                                         @foreach ($cons as $row)
-                                        <li>{{ $row }}</li>
+                                            <li>{{ $row }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -575,10 +579,10 @@
                                             <td class="stickydivision">
                                                 <div>
                                                     @foreach ($cardetails['images'] as $row)
-                                                    <div class="">
-                                                        <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
-                                                            alt="scorpio-n">
-                                                    </div>
+                                                        <div class="">
+                                                            <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
+                                                                alt="scorpio-n">
+                                                        </div>
                                                     @endforeach
                                                     <div class="text-center">
                                                         {{ $cardetails->brandname }} {{ $cardetails->carname }}
@@ -586,17 +590,17 @@
                                                 </div>
                                             </td>
                                             @foreach ($similarcars as $simi)
-                                            <td class="comparedivision">
-                                                <div>
-                                                    <div class="">
-                                                        <img src="{{ asset('assets/backend-assets/images/' . $simi->addimage) }}"
-                                                            alt="scorpsssio-n">
-                                                    </div>
+                                                <td class="comparedivision">
                                                     <div>
-                                                        {{ $simi->brandname }} {{ $simi->carname }}
+                                                        <div class="">
+                                                            <img src="{{ asset('assets/backend-assets/images/' . $simi->addimage) }}"
+                                                                alt="scorpsssio-n">
+                                                        </div>
+                                                        <div>
+                                                            {{ $simi->brandname }} {{ $simi->carname }}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
+                                                </td>
                                             @endforeach
 
                                         </tr>
@@ -606,10 +610,8 @@
                                                     On-Road Price, Navi Mumbai
                                                 </div>
                                             </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="comparedivision"></td>
+
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -619,12 +621,12 @@
                                                 </div>
                                             </td>
                                             @foreach ($similarcars as $simi)
-                                            <td>
-                                                <div>
-                                                    Rs. {{ $simi->price }} <span
-                                                        class="text-muted fs-5">onwards</span>
-                                                </div>
-                                            </td>
+                                                <td class="comparedivision">
+                                                    <div>
+                                                        Rs. {{ $simi->price }} <span
+                                                            class="text-muted fs-5">onwards</span>
+                                                    </div>
+                                                </td>
                                             @endforeach
                                         </tr>
                                         <tr>
@@ -634,10 +636,8 @@
                                                 </div>
 
                                             </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="comparedivision"></td>
+
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -646,11 +646,11 @@
                                                 </div>
                                             </td>
                                             @foreach ($similarcars as $simi)
-                                            <td>
-                                                <div>
-                                                    {{ $simi->engine }}
-                                                </div>
-                                            </td>
+                                                <td class="comparedivision">
+                                                    <div>
+                                                        {{ $simi->engine }}
+                                                    </div>
+                                                </td>
                                             @endforeach
                                         </tr>
                                         <tr>
@@ -660,10 +660,8 @@
                                                 </div>
 
                                             </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="comparedivision"></td>
+
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -673,11 +671,11 @@
 
                                             </td>
                                             @foreach ($similarcars as $simi)
-                                            <td>
-                                                <div>
-                                                    {{ implode(', ', json_decode($simi->fueltype)) }}
-                                                </div>
-                                            </td>
+                                                <td class="comparedivision">
+                                                    <div>
+                                                        {{ implode(', ', json_decode($simi->fueltype)) }}
+                                                    </div>
+                                                </td>
                                             @endforeach
                                         </tr>
                                     </tbody>
@@ -689,10 +687,8 @@
                                                 </div>
 
                                             </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="comparedivision"></td>
+
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -702,11 +698,11 @@
 
                                             </td>
                                             @foreach ($similarcars as $simi)
-                                            <td>
-                                                <div>
-                                                    {{ implode(', ', json_decode($simi->transmission)) }}
-                                                </div>
-                                            </td>
+                                                <td class="comparedivision">
+                                                    <div>
+                                                        {{ implode(', ', json_decode($simi->transmission)) }}
+                                                    </div>
+                                                </td>
                                             @endforeach
                                         </tr>
                                         <tr>
@@ -716,10 +712,8 @@
                                                 </div>
 
                                             </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="comparedivision"></td>
+
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -729,11 +723,11 @@
 
                                             </td>
                                             @foreach ($similarcars as $simi)
-                                            <td>
-                                                <div>
-                                                    {{ $simi->seatingcapacity }}
-                                                </div>
-                                            </td>
+                                                <td class="comparedivision">
+                                                    <div>
+                                                        {{ $simi->seatingcapacity }}
+                                                    </div>
+                                                </td>
                                             @endforeach
                                         </tr>
                                         <tr>
@@ -743,10 +737,8 @@
                                                 </div>
 
                                             </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td class="comparedivision"></td>
+
                                         </tr>
                                         <tr>
                                             <td class="stickydivision">
@@ -755,19 +747,19 @@
                                                 </div>
                                             </td>
                                             @foreach ($similarcars as $simi)
-                                            <td>
-                                                <div>
-                                                    {{ $simi->bodytype }}
-                                                </div>
-                                            </td>
+                                                <td class="comparedivision">
+                                                    <div>
+                                                        {{ $simi->bodytype }}
+                                                    </div>
+                                                </td>
                                             @endforeach
                                         </tr>
                                     </tbody>
 
                                 </table>
                                 <span class="pull-right">
-                                    <a data-toggle="collapse" data-target="#comparetablecollapse" aria-expanded="false"
-                                        aria-controls="comparetablecollapse"> View More</a>
+                                    <a data-toggle="collapse" data-target="#comparetablecollapse"
+                                        aria-expanded="false" aria-controls="comparetablecollapse"> View More</a>
                                 </span>
                             </div>
                         </div>
@@ -794,7 +786,8 @@
                                         </span>
                                     </div>
                                     <div class="col-md-3 col-xs-12 col-sm-12 ">
-                                        <a class="btn btn-theme rounded-4 btn-sm rounded-3 pull-left">Download Brochure</a>
+                                        <a class="btn btn-theme rounded-4 btn-sm rounded-3 pull-left">Download
+                                            Brochure</a>
                                     </div>
                                 </div>
                             </div>
@@ -802,97 +795,62 @@
                     </div>
 
                     <div class="well alert-box-container margin-top-20">
-                        <h3>Mahindra Scorpio N Colours</h3>
+                        <h3>{{ $cardetails->carname }} Colours</h3>
                         <p>
-                            Mahindra Scorpio N 2024 is available/sold in the following colours in India.
+                            {{ $cardetails->carname }} is available/sold in the following colours in India.
                         </p>
 
                         <div class="col-md-12 col-xs-12 col-sm-12 p-0">
                             <div class="singlepage-detail">
-
                                 <div id="single-color-slider" class="flexslider p-2 mb-0 pb-0">
                                     <ul class="slides">
-                                        <li>
-                                            <a href="images/single-page/1.jpg" data-fancybox="group">
-                                                <img alt=""
-                                                    src="https://imgd.aeplcdn.com/600x337/n/g16ns3a_1588129.jpg?q=80" />
-                                            </a>
-                                            <p class="flex-caption">Everest White</p>
-                                        </li>
-                                        <li><a href="images/single-page/2.jpg" data-fancybox="group"><img alt=""
-                                                    src="https://imgd.aeplcdn.com/600x337/n/bk5ns3a_1588133.jpg?q=80" /></a>
-                                            <p class="flex-caption">Dazzling Silver </p>
-
-                                        </li>
-                                        <li><a href="images/single-page/3.jpg" data-fancybox="group"><img alt=""
-                                                    src="https://imgd.aeplcdn.com/600x337/n/rdqns3a_1588131.jpg?q=80" /></a>
-                                            <p class="flex-caption">Red Rage </p>
-
-                                        </li>
-                                        <li><a href="images/single-page/4.jpg" data-fancybox="group"><img alt=""
-                                                    src="https://imgd.aeplcdn.com/600x337/n/ci5qs3a_1588253.jpg?q=80" /></a>
-                                            <p class="flex-caption">Deep Forest </p>
-                                        </li>
-                                        <li><a href="images/single-page/5.jpg" data-fancybox="group"><img alt=""
-                                                    src="https://imgd.aeplcdn.com/600x337/n/xiuns3a_1588137.jpg?q=80" /></a>
-                                            <p class="flex-caption">Napoli Black </p>
-                                        </li>
-                                        <li><a href="images/single-page/6.jpg" data-fancybox="group"><img alt=""
-                                                    src="https://imgd.aeplcdn.com/0x0/cw/static/oxygen/no-car-images.svg" /></a>
-                                            <p class="flex-caption">Midnight Black </p>
-                                        </li>
+                                        @foreach ($cardetails->images as $image)
+                                        @php
+                                                // Decode JSON into an associative array
+                                                $color = json_decode($image->color, true);
+                                            @endphp
+                                            <li>
+                                                <a href="{{asset('assets/backend-assets/images/' . $image->addimage) }}" data-fancybox="group">
+                                                    <img alt="{{ $image->title }}" src="{{ asset('assets/backend-assets/images/' . $image->addimage) }}" />
+                                                </a>
+                                                <p class="flex-caption text-capitalize"> {{ $color['label'] }}</p>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div id="carousel-color" class="flexslider p-2 mb-0">
                                     <ul class="slides">
-                                        <li>
-                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-dark"
-                                                style="background-color: rgb(251, 251, 251)">
-
-                                            </div>
-
-                                        </li>
-                                        <li>
-                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-dark"
-                                                style="background-color: rgb(214, 213, 219)">
-
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-white"
-                                                style="background-color: rgb(173, 11, 11)">
-
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-white"
-                                                style="background-color: rgb(101, 114, 96)">
-
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-white"
-                                                style="background-color: rgb(57, 57, 57)">
-
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="border   shadow-sm m-1 p-2 text-center fw-bold text-white"
-                                                style="background-color: rgb(0, 2, 10)">
-
-                                            </div>
-                                        </li>
+                                        @foreach ($cardetails->images as $image)
+                                        @php
+                                        // Decode JSON into an associative array
+                                        $color = json_decode($image->color, true);
+                                    @endphp
+                                            @if (json_last_error() === JSON_ERROR_NONE && isset($color['value']))
+                                                <li>
+                                                    <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                        style="background-color: {{ $color['value'] }}">
+                                                    </div>
+                                                </li>
+                                            @else
+                                                <li>
+                                                    <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark">
+                                                        Invalid color data
+                                                    </div>
+                                                </li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
 
                     <div class="well alert-box-container margin-top-20">
                         <h3>{{ $cardetails->brandname }} {{ $cardetails->carname }} N Mileage</h3>
                         <p>
-                            {{ $cardetails->brandname }} {{ $cardetails->carname }} N mileage claimed by owners is {{
-                            $cardetails->userreportedmilage }} kmpl.
+                            {{ $cardetails->brandname }} {{ $cardetails->carname }} N mileage claimed by owners is
+                            {{ $cardetails->userreportedmilage }} kmpl.
                         </p>
                         <div>
                             <table class="table border rounded-3 table-hover">
@@ -908,13 +866,13 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                    $mileages = json_decode($cardetails->mileage, true);
+                                        $mileages = json_decode($cardetails->mileage, true);
                                     @endphp
-                                    @foreach($mileages as $fuelType => $mileage)
-                                    <tr>
-                                        <td>{{ $fuelType }} ({{ $cardetails->engine }})cc</td>
-                                        <td>{{ $mileage }}</td>
-                                    </tr>
+                                    @foreach ($mileages as $fuelType => $mileage)
+                                        <tr>
+                                            <td>{{ $fuelType }} ({{ $cardetails->engine }})cc</td>
+                                            <td>{{ $mileage }}</td>
+                                        </tr>
                                     @endforeach
 
                                 </tbody>
@@ -1083,8 +1041,8 @@
                                     <div class="d-flex justify-content-between pb-3">
                                         <div>
                                             <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF o-cpNAVm"
-                                                viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false"
-                                                aria-hidden="true" role="img">
+                                                viewBox="0 0 16 16" fill="currentcolor" tabindex="-1"
+                                                focusable="false" aria-hidden="true" role="img">
                                                 <path
                                                     d="M8 15.88A7.88 7.88 0 1115.88 8 7.9 7.9 0 018 15.88zm0-15A7.12 7.12 0 1015.12 8 7.12 7.12 0 008 .88zm0 12.74a5.64 5.64 0 01-5.3-7.68.35.35 0 01.06-.19A5.68 5.68 0 018 2.32a5.93 5.93 0 01.84.06 5.67 5.67 0 013.62 2.17v.07a5.64 5.64 0 01-4.55 9zm-.37-.77a5.08 5.08 0 00.78 0v-2.27a1.18 1.18 0 01.76-1 1.16 1.16 0 01.8 0l2.11 1.09a5.24 5.24 0 00.34-.61c-.27-.12-.52-.21-.77-.3s-.71-.27-1.12-.47A1.44 1.44 0 019.88 8a1.18 1.18 0 01.37-.73l2.1-1.47a3.72 3.72 0 00-.27-.48L10 6.42a1.24 1.24 0 01-1.31-.18 1.22 1.22 0 01-.37-.74V3.09a5.21 5.21 0 00-.79 0V5.4a1.19 1.19 0 01-.77 1 1.09 1.09 0 01-.8 0L3.88 5.28a4.94 4.94 0 00-.32.55l.59.36a12.51 12.51 0 011.72 1.16 1.17 1.17 0 01.29 1.25 1.23 1.23 0 01-.54.59L3.53 10a5.45 5.45 0 00.29.53l1.06-.48 1.18-.53a1.13 1.13 0 011.59 1zm-3.35-1.67a4.93 4.93 0 002.57 1.56l.05-2.2a.36.36 0 00-.11-.22.42.42 0 00-.44-.07c-.35.17-.76.35-1.17.53zm5.23-.94H9.4a.44.44 0 00-.26.37v2.11a5 5 0 002.46-1.47l-1.95-1zm3.13-3.74l-1.92 1.34a.63.63 0 00-.1.23.68.68 0 00.25.55 9.7 9.7 0 001 .42c.25.1.5.19.77.31A4.85 4.85 0 0012.87 8a4.76 4.76 0 00-.23-1.5zm-9.36 0A5.15 5.15 0 003.07 8a4.71 4.71 0 00.2 1.36l2-.82a.46.46 0 00.15-.19.41.41 0 00-.11-.43 14.07 14.07 0 00-1.55-1.09zm5.86-3.29v2.26a.41.41 0 00.12.21.47.47 0 00.49.06l1.91-1a4.9 4.9 0 00-2.52-1.53zM4.35 4.67l2 1a.35.35 0 00.24 0 .41.41 0 00.26-.36V3.16a4.91 4.91 0 00-2.5 1.51zM8 9.41A1.44 1.44 0 119.41 8 1.44 1.44 0 018 9.41zm0-2.13a.69.69 0 10.66.72.69.69 0 00-.66-.72z">
 
@@ -1094,8 +1052,8 @@
                                         </div>
                                         <div>
                                             <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF o-cpNAVm"
-                                                viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false"
-                                                aria-hidden="true" role="img">
+                                                viewBox="0 0 16 16" fill="currentcolor" tabindex="-1"
+                                                focusable="false" aria-hidden="true" role="img">
                                                 <path
                                                     d="M12.71 16H3.29a1.41 1.41 0 01-1.41-1.41V6.12a6.12 6.12 0 0112.24 0v8.47A1.41 1.41 0 0112.71 16zM8 .94a5.19 5.19 0 00-5.18 5.18v8.47a.47.47 0 00.47.47h9.42a.47.47 0 00.47-.47V6.12A5.19 5.19 0 008 .94zM5 7.43h.15a.33.33 0 00.29-.13L6.33 6a.39.39 0 01.16-.15h1L6.35 7.42l-.13.15-.14.09a.69.69 0 01.19.1.65.65 0 01.15.18L7.6 9.75h-1l-.06-.1-.06-.07-.93-1.36a.23.23 0 00-.12-.1H5v1.63h-.9v-3.9H5zm5.14 1l1.24-2.55h.94v3.9h-.8V7.15l-1 2a.29.29 0 01-.13.14 2.67 2.67 0 01-.49 0 .29.29 0 01-.13-.14l-1-2v2.6H8v-3.9h.88z">
                                                 </path>
@@ -1106,8 +1064,8 @@
 
                                 </div>
                                 <div class=" pb-3">
-                                    <a class="" data-toggle="collapse" data-target="#ratingList0" aria-expanded="false"
-                                        aria-controls="ratingList0">
+                                    <a class="" data-toggle="collapse" data-target="#ratingList0"
+                                        aria-expanded="false" aria-controls="ratingList0">
                                         Read More
                                     </a>
                                 </div>
@@ -1194,8 +1152,8 @@
                                     <div class="d-flex justify-content-between pb-3">
                                         <div>
                                             <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF o-cpNAVm"
-                                                viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false"
-                                                aria-hidden="true" role="img">
+                                                viewBox="0 0 16 16" fill="currentcolor" tabindex="-1"
+                                                focusable="false" aria-hidden="true" role="img">
                                                 <path
                                                     d="M8 15.88A7.88 7.88 0 1115.88 8 7.9 7.9 0 018 15.88zm0-15A7.12 7.12 0 1015.12 8 7.12 7.12 0 008 .88zm0 12.74a5.64 5.64 0 01-5.3-7.68.35.35 0 01.06-.19A5.68 5.68 0 018 2.32a5.93 5.93 0 01.84.06 5.67 5.67 0 013.62 2.17v.07a5.64 5.64 0 01-4.55 9zm-.37-.77a5.08 5.08 0 00.78 0v-2.27a1.18 1.18 0 01.76-1 1.16 1.16 0 01.8 0l2.11 1.09a5.24 5.24 0 00.34-.61c-.27-.12-.52-.21-.77-.3s-.71-.27-1.12-.47A1.44 1.44 0 019.88 8a1.18 1.18 0 01.37-.73l2.1-1.47a3.72 3.72 0 00-.27-.48L10 6.42a1.24 1.24 0 01-1.31-.18 1.22 1.22 0 01-.37-.74V3.09a5.21 5.21 0 00-.79 0V5.4a1.19 1.19 0 01-.77 1 1.09 1.09 0 01-.8 0L3.88 5.28a4.94 4.94 0 00-.32.55l.59.36a12.51 12.51 0 011.72 1.16 1.17 1.17 0 01.29 1.25 1.23 1.23 0 01-.54.59L3.53 10a5.45 5.45 0 00.29.53l1.06-.48 1.18-.53a1.13 1.13 0 011.59 1zm-3.35-1.67a4.93 4.93 0 002.57 1.56l.05-2.2a.36.36 0 00-.11-.22.42.42 0 00-.44-.07c-.35.17-.76.35-1.17.53zm5.23-.94H9.4a.44.44 0 00-.26.37v2.11a5 5 0 002.46-1.47l-1.95-1zm3.13-3.74l-1.92 1.34a.63.63 0 00-.1.23.68.68 0 00.25.55 9.7 9.7 0 001 .42c.25.1.5.19.77.31A4.85 4.85 0 0012.87 8a4.76 4.76 0 00-.23-1.5zm-9.36 0A5.15 5.15 0 003.07 8a4.71 4.71 0 00.2 1.36l2-.82a.46.46 0 00.15-.19.41.41 0 00-.11-.43 14.07 14.07 0 00-1.55-1.09zm5.86-3.29v2.26a.41.41 0 00.12.21.47.47 0 00.49.06l1.91-1a4.9 4.9 0 00-2.52-1.53zM4.35 4.67l2 1a.35.35 0 00.24 0 .41.41 0 00.26-.36V3.16a4.91 4.91 0 00-2.5 1.51zM8 9.41A1.44 1.44 0 119.41 8 1.44 1.44 0 018 9.41zm0-2.13a.69.69 0 10.66.72.69.69 0 00-.66-.72z">
 
@@ -1205,8 +1163,8 @@
                                         </div>
                                         <div>
                                             <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF o-cpNAVm"
-                                                viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false"
-                                                aria-hidden="true" role="img">
+                                                viewBox="0 0 16 16" fill="currentcolor" tabindex="-1"
+                                                focusable="false" aria-hidden="true" role="img">
                                                 <path
                                                     d="M12.71 16H3.29a1.41 1.41 0 01-1.41-1.41V6.12a6.12 6.12 0 0112.24 0v8.47A1.41 1.41 0 0112.71 16zM8 .94a5.19 5.19 0 00-5.18 5.18v8.47a.47.47 0 00.47.47h9.42a.47.47 0 00.47-.47V6.12A5.19 5.19 0 008 .94zM5 7.43h.15a.33.33 0 00.29-.13L6.33 6a.39.39 0 01.16-.15h1L6.35 7.42l-.13.15-.14.09a.69.69 0 01.19.1.65.65 0 01.15.18L7.6 9.75h-1l-.06-.1-.06-.07-.93-1.36a.23.23 0 00-.12-.1H5v1.63h-.9v-3.9H5zm5.14 1l1.24-2.55h.94v3.9h-.8V7.15l-1 2a.29.29 0 01-.13.14 2.67 2.67 0 01-.49 0 .29.29 0 01-.13-.14l-1-2v2.6H8v-3.9h.88z">
                                                 </path>
@@ -1217,8 +1175,8 @@
 
                                 </div>
                                 <div class=" pb-3">
-                                    <a class="" data-toggle="collapse" data-target="#ratingList1" aria-expanded="false"
-                                        aria-controls="ratingList1">
+                                    <a class="" data-toggle="collapse" data-target="#ratingList1"
+                                        aria-expanded="false" aria-controls="ratingList1">
                                         Read More
                                     </a>
                                 </div>
@@ -1237,8 +1195,8 @@
                     <!-- Sidebar Widgets -->
                     <div class="sidebar">
                         <!-- Price info block -->
-                        <div class="p-3 rounded-3 bg-danger ">
-                            <div class="bg-light p-3 rounded-3">
+                        <div class="p-3 bg-primary rounded-4 ">
+                            <div class="bg-light p-3 rounded-4">
                                 <div class="text-black fw-bold">
 
                                     Neon Mahindra Narapally Authorized Dealer
@@ -1561,8 +1519,7 @@
                     </div>
                     <div class="form-group  col-md-12 col-sm-12">
                         <label>Comments</label>
-                        <textarea placeholder="This ad not belong to me" rows="3"
-                            class="form-control">This ad not belong to me</textarea>
+                        <textarea placeholder="This ad not belong to me" rows="3" class="form-control">This ad not belong to me</textarea>
                     </div>
                     <div class="col-md-12 col-sm-12"> <img src="images/captcha.gif" alt=""
                             class="img-responsive">
@@ -1846,8 +1803,7 @@
                                     <a href="#" data-bs-location="Hyderabad" data-bs-target="#selectCity"
                                         data-bs-toggle="modal">
 
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/sj7k3sa_1483605.jpg"
-                                            alt="Hyderabad">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/sj7k3sa_1483605.jpg" alt="Hyderabad">
                                         <div class="fs-6 text-muted">Hyderabad</div>
                                     </a>
 
@@ -1857,8 +1813,7 @@
                                     <a href="#" data-bs-location="Ahmedabad" data-bs-target="#selectCity"
                                         data-bs-toggle="modal">
 
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/z2fk3sa_1483597.jpg"
-                                            alt="Ahmedabad">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/z2fk3sa_1483597.jpg" alt="Ahmedabad">
                                         <div class="fs-6 text-muted">Ahmedabad</div>
                                     </a>
 
@@ -1912,18 +1867,21 @@
 
                                 <a href="#" data-bs-location="Abohar, Punjab" data-bs-target="#selectCity"
                                     data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                <a href="#" data-bs-location="Abohar, Punjab" data-bs-target="#selectCity"
-                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                    Abohar, Punjab
-                                </a>
-                                <a href="#" data-bs-location="Abu, Rajasthan" data-bs-target="#selectCity"
-                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                    Abu, Rajasthan
-                                </a>
-                                <a href="#" data-bs-location="Abu, Rajasthan" data-bs-target="#selectCity"
-                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                    Abu, Rajasthan
-                                </a>
+                                    <a href="#" data-bs-location="Abohar, Punjab"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal"
+                                        class="list-group-item list-group-item-action">
+                                        Abohar, Punjab
+                                    </a>
+                                    <a href="#" data-bs-location="Abu, Rajasthan"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal"
+                                        class="list-group-item list-group-item-action">
+                                        Abu, Rajasthan
+                                    </a>
+                                    <a href="#" data-bs-location="Abu, Rajasthan"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal"
+                                        class="list-group-item list-group-item-action">
+                                        Abu, Rajasthan
+                                    </a>
 
                             </div>
                         </div>
@@ -2020,80 +1978,84 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-    // Retrieve images array from backend
-    var images = @json($cardetails['images']);
-    console.log('Images Array:', images);
+        // Retrieve images array from backend
+        var images = @json($cardetails['images']);
+        console.log('Images Array:', images);
 
-    // Function to find the first image for a specific vehicle
-    function getFirstCarImage(vehicleName) {
-        var carImages = images.filter(function(image) {
-            return image.vehicle === vehicleName;
-        });
-        return carImages.length > 0 ? carImages[0] : null;
-    }
+        // Function to find the first image for a specific vehicle
+        function getFirstCarImage(vehicleName) {
+            var carImages = images.filter(function(image) {
+                return image.vehicle === vehicleName;
+            });
+            return carImages.length > 0 ? carImages[0] : null;
+        }
 
-    // Handle checkbox changes for filtering
-    $('.btn-check').on('change', function() {
-        const carname = document.querySelector('#CarrName').value;
-        console.log(carname);
+        // Handle checkbox changes for filtering
+        $('.btn-check').on('change', function() {
+            const carname = document.querySelector('#CarrName').value;
+            console.log(carname);
 
-        // Checkboxes values that are checked
-        var checkedValues = [];
-        $('.btn-check:checked').each(function() {
-            checkedValues.push($(this).val());
-        });
-        console.log('Checked values:', checkedValues);
+            // Checkboxes values that are checked
+            var checkedValues = [];
+            $('.btn-check:checked').each(function() {
+                checkedValues.push($(this).val());
+            });
+            console.log('Checked values:', checkedValues);
 
-        // AJAX Request
-        $.ajax({
-            url: '/filterbyfuelcardetails',
-            method: 'POST',
-            data: {
-                'checkboxes': checkedValues,
-                'carname': carname,
-            },
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function(response) {
-                console.log(response);
-                $('#table-body').empty();
+            // AJAX Request
+            $.ajax({
+                url: '/filterbyfuelcardetails',
+                method: 'POST',
+                data: {
+                    'checkboxes': checkedValues,
+                    'carname': carname,
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    console.log(response);
+                    $('#table-body').empty();
 
-                response.forEach(function(item) {
-                    // Initialize fuelTypesArray and transmissionsArray as empty arrays
-                    var fuelTypesArray = [];
-                    var transmissionsArray = [];
+                    response.forEach(function(item) {
+                        // Initialize fuelTypesArray and transmissionsArray as empty arrays
+                        var fuelTypesArray = [];
+                        var transmissionsArray = [];
 
-                    if (item.fueltype) {
-                        try {
-                            fuelTypesArray = JSON.parse(item.fueltype);
-                        } catch (e) {
-                            console.error('Invalid fueltype JSON:', item.fueltype);
+                        if (item.fueltype) {
+                            try {
+                                fuelTypesArray = JSON.parse(item.fueltype);
+                            } catch (e) {
+                                console.error('Invalid fueltype JSON:', item
+                                    .fueltype);
+                            }
                         }
-                    }
 
-                    if (item.transmission) {
-                        try {
-                            transmissionsArray = JSON.parse(item.transmission);
-                        } catch (e) {
-                            console.error('Invalid transmission JSON:', item.transmission);
+                        if (item.transmission) {
+                            try {
+                                transmissionsArray = JSON.parse(item.transmission);
+                            } catch (e) {
+                                console.error('Invalid transmission JSON:', item
+                                    .transmission);
+                            }
                         }
-                    }
 
-                    // Ensure they are arrays before mapping
-                    fuelTypesArray = Array.isArray(fuelTypesArray) ? fuelTypesArray : [];
-                    transmissionsArray = Array.isArray(transmissionsArray) ? transmissionsArray : [];
+                        // Ensure they are arrays before mapping
+                        fuelTypesArray = Array.isArray(fuelTypesArray) ?
+                            fuelTypesArray : [];
+                        transmissionsArray = Array.isArray(transmissionsArray) ?
+                            transmissionsArray : [];
 
-                    var fuelTypes = fuelTypesArray.map(function(fuel) {
-                        return `<li class="me-2">${fuel},</li>`;
-                    }).join('');
+                        var fuelTypes = fuelTypesArray.map(function(fuel) {
+                            return `<li class="me-2">${fuel},</li>`;
+                        }).join('');
 
-                    var transmissions = transmissionsArray.map(function(trans) {
-                        return `<li class="me-2">${trans},</li>`;
-                    }).join('');
+                        var transmissions = transmissionsArray.map(function(trans) {
+                            return `<li class="me-2">${trans},</li>`;
+                        }).join('');
 
-                    // Create the new tr
-                    var newbody = `
+                        // Create the new tr
+                        var newbody = `
                     <tr>
                         <input type="hidden" name="" id="CarrName" value="${item.carname}">
                         <td>
@@ -2117,58 +2079,60 @@
                         </td>
                     </tr>
                 `;
-                    $('#table-body').append(newbody);
-                });
-            }
+                        $('#table-body').append(newbody);
+                    });
+                }
+            });
         });
-    });
 
-    // Add to compare offcanvas functionality
-    $(document).on('change', '.comparecheck', function() {
-        var ids = [];
-        var checkedValues = [];
-        $('.comparecheck:checked').each(function() {
-            var item = $(this).data('value');
-            checkedValues.push(item);
-            ids.push(item.id);
-        });
-        console.log('Checked values:', checkedValues);
-        console.log('IDs values:', ids);
+        // Add to compare offcanvas functionality
+        $(document).on('change', '.comparecheck', function() {
+            var ids = [];
+            var checkedValues = [];
+            $('.comparecheck:checked').each(function() {
+                var item = $(this).data('value');
+                checkedValues.push(item);
+                ids.push(item.id);
+            });
+            console.log('Checked values:', checkedValues);
+            console.log('IDs values:', ids);
 
-        $('#comparecard').empty();
-        checkedValues.forEach(function(item) {
-            var carData = item;
-            console.log('Car Data:', carData);
+            $('#comparecard').empty();
+            checkedValues.forEach(function(item) {
+                var carData = item;
+                console.log('Car Data:', carData);
 
-            // Initialize fuelTypesArray and transmissionsArray as empty arrays
-            var fuelTypesArray = carData.fueltype || [];
-            var transmissionsArray = carData.transmission || [];
+                // Initialize fuelTypesArray and transmissionsArray as empty arrays
+                var fuelTypesArray = carData.fueltype || [];
+                var transmissionsArray = carData.transmission || [];
 
-            // Ensure they are arrays before mapping
-            fuelTypesArray = Array.isArray(fuelTypesArray) ? fuelTypesArray : [];
-            transmissionsArray = Array.isArray(transmissionsArray) ? transmissionsArray : [];
+                // Ensure they are arrays before mapping
+                fuelTypesArray = Array.isArray(fuelTypesArray) ? fuelTypesArray : [];
+                transmissionsArray = Array.isArray(transmissionsArray) ? transmissionsArray :
+            [];
 
-            var fuelTypes = fuelTypesArray.map(function(fuel) {
-                return `${fuel}`;
-            }).join(', ');
+                var fuelTypes = fuelTypesArray.map(function(fuel) {
+                    return `${fuel}`;
+                }).join(', ');
 
-            var transmissions = transmissionsArray.map(function(trans) {
-                return `${trans}`;
-            }).join(', ');
+                var transmissions = transmissionsArray.map(function(trans) {
+                    return `${trans}`;
+                }).join(', ');
 
-            var carImage = getFirstCarImage(carData.carname);
-            console.log('Car Image:', carImage);
-            var imageHtml = '';
-            if (carImage) {
-                var imagePath = `{{ asset('assets/backend-assets/images/') }}/${carImage.addimage}`;
-                console.log('Image Path:', imagePath);
-                imageHtml = `<img alt="" src="${imagePath}">`;
-            } else {
-                console.log('No image found for vehicle:', carData.carname);
-            }
+                var carImage = getFirstCarImage(carData.carname);
+                console.log('Car Image:', carImage);
+                var imageHtml = '';
+                if (carImage) {
+                    var imagePath =
+                        `{{ asset('assets/backend-assets/images/') }}/${carImage.addimage}`;
+                    console.log('Image Path:', imagePath);
+                    imageHtml = `<img alt="" src="${imagePath}">`;
+                } else {
+                    console.log('No image found for vehicle:', carData.carname);
+                }
 
-            // Create the new div
-            var newcard = `
+                // Create the new div
+                var newcard = `
                 <div class="col-md-3 col-xs-6 col-sm-6 px-2">
                      <input type="hidden" value="${item.id}" name="compareid[]" id="compareid" placeholder="">
                     <span class="vs-compare">VS</span>
@@ -2196,10 +2160,9 @@
                     </div>
                 </div>
             `;
-            $('#comparecard').append(newcard);
+                $('#comparecard').append(newcard);
+            });
         });
     });
-});
-
 </script>
 @endsection

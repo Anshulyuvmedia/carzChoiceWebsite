@@ -2226,7 +2226,7 @@
         padding: 0;
     }
     .mega-menu > section.menu-list-items {
-        padding: 10px 0;
+        padding: 0px 0;
     }
     .mega-menu .menu-links > li.active .drop-down-multilevel a:hover {
         color: #323232;

@@ -133,6 +133,7 @@ class frontViewController extends Controller
     public function carlistingdetails($id)
     {
         $cardetails = AddVariant::where('id', $id)->first();
+        
         $new = [];
         $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
         $spces = AddSpecification::where('vehicleid', $id)->get();
@@ -156,7 +157,10 @@ class frontViewController extends Controller
         $cardetails->specificaitons = json_decode($spces);
         $cardetails->features = json_decode($features);
         $cardetails->variants = json_decode($variants);
-        // dd($variants);
+        
+        $cardetails->images = $images;
+        // dd($cardetails);
+
         return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pros', 'cons', 'variantsfaqs', 'similarcars'));
     }
     public function carlisting()
