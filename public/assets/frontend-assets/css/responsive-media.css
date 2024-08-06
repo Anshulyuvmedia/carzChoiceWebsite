@@ -835,11 +835,15 @@
     .hideInMobile {
         display: none;
     }
+    
     .hideInDesktop {
         display: block;
 
     }
     
+    .dropdown-menu {
+        left: -90px;
+    }
 
     .slider-banner {
         border-radius: 10px;

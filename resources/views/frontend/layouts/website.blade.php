@@ -67,16 +67,16 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="position-relative">
     <!-- Preloader - style you can find in spinners.css -->
-    <header>
+    <header class="sticky-top bg-white ">
         <!-- =-=-=-=-=-=-= Preloader =-=-=-=-=-=-= -->
-        {{-- <div class="preloader"></div> --}}
+        <div class="preloader"></div>
 
         <!-- =-=-=-=-=-=-= Main Header =-=-=-=-=-=-= -->
         <div class="colored-header">
             <!-- Top Bar -->
-            <div class="header-top dark">
+            <div class="header-top white">
                 <div class="container">
                     <div class="row">
                         <!-- Header Top Left -->
@@ -87,26 +87,37 @@
                             </ul>
                         </div>
                         <!-- Header Top Right Social -->
-                        <div class="header-right col-md-6 col-sm-6 col-xs-12 ">
+                        {{-- <div class="header-right col-md-6 col-sm-6 col-xs-12 ">
                             <div class="pull-right">
                                 <ul class="listnone">
-                                    <li><a href="/loginuser"><i class="fa fa-sign-in"></i> Log in</a></li>
-                                    <li class="hidden-xs hidden-sm"><a href="/registration"><i class="fa fa-unlock"
-                                                aria-hidden="true"></i> Register</a></li>
+                                    <li>
+                                        <a href="/loginuser">
+                                            <i class="bi bi-door-open-fill"></i> Log in
+                                        </a>
+                                    </li>
+                                    <li class="hidden-xs hidden-sm">
+                                        <a href="/registration">
+                                            <i class="fa fa-unlock" aria-hidden="true"></i> Register
+                                        </a>
+                                    </li>
                                     <li class="dropdown">
                                         @if (Auth::guard('registeruser')->user())
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                            aria-haspopup="true" aria-expanded="false"><img class="img-circle resize"
-                                                alt="" src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
-                                            <span class="myname hidden-xs"> Welcome
-                                                {{ Auth::guard('registeruser')->user()->fullname }} </span> <span
-                                                class=""></span></a>
+                                            <a href="/userprofile">
+                                                <img class="img-circle resize border border-info"
+                                                    alt=""
+                                                    src="{{ asset('assets/backend-assets/images/' . Auth::guard('registeruser')->user()->dp) }}">
+
+                                                <span class="myname hidden-xs">
+                                                    {{ Auth::guard('registeruser')->user()->fullname }}
+                                                </span>
+                                            </a>
                                         @else
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                            aria-haspopup="true" aria-expanded="false"><img class="img-circle resize"
-                                                alt="" src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
-                                            <span class="myname hidden-xs"> Guest User </span> <span
-                                                class=""></span></a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                                role="button" aria-haspopup="true" aria-expanded="false"><img
+                                                    class="img-circle resize" alt=""
+                                                    src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
+                                                <span class="myname hidden-xs"> Guest User </span>
+                                            </a>
                                         @endif
                                         <ul class="dropdown-menu">
                                             <li><a href="/userprofile">User Profile</a></li>
@@ -118,11 +129,11 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="postyourad" class="btn btn-theme rounded-4">Sell Your Car</a>
+                                        <a href="postyourad" class="btn btn-theme rounded-0">Sell Your Car</a>
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -132,10 +143,10 @@
             <!-- menu start -->
             <nav id="menu-1" class="mega-menu">
                 <!-- menu list items container -->
-                <section class="menu-list-items">
+                <section class="menu-list-items ">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12">
+                            <div class="col-lg-12 col-md-12 d-flex align-items-center justify-content-between">
                                 <!-- menu logo -->
                                 <ul class="menu-logo">
                                     <li>
@@ -184,19 +195,19 @@
                                                 <div class="grid-col-6">
                                                     <h3>Brands</h3>
                                                     @php
-                                                    use App\Models\Master;
-                                                    $brands = Master::where('type', 'Brand')->get();
-                                                    // $bodytype = Master::where('type', 'Body Type')->get();
+                                                        use App\Models\Master;
+                                                        $brands = Master::where('type', 'Brand')->get();
+                                                        // $bodytype = Master::where('type', 'Body Type')->get();
                                                     @endphp
                                                     <ul class="by-make list-inline">
                                                         @foreach ($brands->take(12) as $data)
-                                                        <li>
-                                                            <a href="javascript:void(0);" class="brandfilter"
-                                                                data-value="{{ $data->value }}">
-                                                                <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
+                                                            <li>
+                                                                <a href="javascript:void(0);" class="brandfilter"
+                                                                    data-value="{{ $data->value }}">
+                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
+                                                                        class="img-responsive" alt="Brand Image">
+                                                                </a>
+                                                            </li>
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -225,58 +236,58 @@
                                                     <h3>Search Used Cars by Brands</h3>
                                                     <ul class="by-make list-inline">
                                                         @foreach ($brands->take(14) as $data)
-                                                        <li>
-                                                            <a href="javascript:void(0);" class="brandfilter"
-                                                                data-value="{{ $data->value }}">
-                                                                <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
-                                                                    class="img-responsive" alt="Brand Image">
-                                                            </a>
-                                                        </li>
+                                                            <li>
+                                                                <a href="javascript:void(0);" class="brandfilter"
+                                                                    data-value="{{ $data->value }}">
+                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
+                                                                        class="img-responsive" alt="Brand Image">
+                                                                </a>
+                                                            </li>
                                                         @endforeach
                                                     </ul>
                                                 </div>
 
-                                                {{-- <div class="grid-col-4">
-                                                    <h3>Search Used Cars by Body Type</h3>
-                                                    <ul class="list-inline by-category ">
-                                                        @foreach ($bodytype->take(6) as $row)
-                                                        <li>
-                                                            <a href="#">
-                                                                <img alt="Hybrid"
-                                                                    src="{{ asset('assets/backend-assets/images/'.$row->iconimage) }}">
-                                                                {{$row->value}}
-                                                            </a>
-                                                        </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div> --}}
                                             </div>
                                         </div>
                                     </li>
-
                                     <li>
                                         <a href="/news">News </a>
                                     </li>
 
-
-
-
                                 </ul>
 
-                                <ul class="menu-search-bar">
-                                    <li>
-                                        <a>
-                                            <div class="contact-in-header clearfix">
-                                                <i class="flaticon-customer-service"></i>
-                                                <span>
-                                                    Call Us Now
-                                                    <br>
-                                                    <strong>111 222 333 444</strong>
+                                <ul class="listnone d-flex justify-content-between align-items-center pe-5">
+                                    <li class="dropdown me-3">
+                                        @if (Auth::guard('registeruser')->user())
+                                            <a href="/userprofile" class="dropdown-toggle d-flex align-items-center"
+                                                data-toggle="dropdown" role="button" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                <img class="img-circle resize border border-info " alt="user-profile"
+                                                    src="{{ asset('assets/backend-assets/images/' . Auth::guard('registeruser')->user()->dp) }}">
+
+                                                <span class="myname hidden-xs">
+                                                    {{ Auth::guard('registeruser')->user()->fullname }}
                                                 </span>
-                                            </div>
+                                            </a>
+                                            <ul
+                                                class="dropdown-menu dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                                <li><a href="/userprofile">User Profile</a></li>
+                                                <li><a {{ route('logoutuserfront') }}>Logout</a></li>
+                                            </ul>
+                                        @else
+                                    <li class="me-3">
+                                        <a href="/loginuser">
+                                            <i class="bi bi-door-open-fill"></i> Log in
                                         </a>
                                     </li>
+                                    @endif
+
+                                    </li>
+                                    <li class="hideInMobile">
+                                        <a href="postyourad" class="btn btn-theme ">Sell Your Car</a>
+                                    </li>
                                 </ul>
+
                             </div>
                         </div>
                     </div>
@@ -312,8 +323,10 @@
                             </div>
 
                             <ul class="apps-donwloads">
-                                <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}" alt=""></li>
-                                <li><img src="{{ asset('assets/frontend-assets/images/appstore.png') }}" alt=""></li>
+                                <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}"
+                                        alt=""></li>
+                                <li><img src="{{ asset('assets/frontend-assets/images/appstore.png') }}"
+                                        alt=""></li>
                             </ul>
                         </div>
                         <!-- Info Widget Exit -->
@@ -324,7 +337,8 @@
                             <h5>Follow Us</h5>
                             <ul>
                                 <li><a class="Facebook"><i class="fa fa-facebook"></i></a><span>Facebook</span></li>
-                                <li><a class="Twitter" href="#"><i class="fa fa-twitter"></i></a><span>Twitter</span>
+                                <li><a class="Twitter" href="#"><i
+                                            class="fa fa-twitter"></i></a><span>Twitter</span>
                                 </li>
                                 <span><a class="Linkedin" href="#"><i
                                             class="fa fa-linkedin"></i></a><span>Linkedin</span>
@@ -374,9 +388,88 @@
 
     </footer>
     <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
+
+    {{-- Mobile nav --}}
+
+    <div class="mobile-menu hideInDesktop">
+        <nav>
+            <div class="nav-box">
+                <ul class="nav-container">
+                    <li class="nav__item ">
+                        <a href="/" class="nav__item-link">
+                            <div class="nav__item-icon">
+                                <i class="bi bi-house-door"></i>
+                            </div>
+                            <span class="nav__item-text">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/new-cars" class="nav__item-link">
+                            <div class="nav__item-icon">
+                                <i class="bi bi-key"></i>
+                            </div>
+                            <span class="nav__item-text">New</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/used-car" class="nav__item-link">
+                            <div class="nav__item-icon">
+                                <i class="bi bi-car-front"></i>
+                            </div>
+                            <span class="nav__item-text">Used</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/addadshow" class="nav__item-link">
+                            <div class="nav__item-icon">
+                                <i class="bi bi-plus-circle"></i>
+                            </div>
+                            <span class="nav__item-text">Sell</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/userprofile" class="nav__item-link">
+                            <div class="nav__item-icon">
+                                <i class="bi bi-person-gear"></i>
+                            </div>
+                            <span class="nav__item-text">Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
     <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const list = document.querySelectorAll(".nav__item");
+
+            // Get the current page URL
+            const currentPage = window.location.pathname;
+
+            // Set the active class based on the current page URL
+            list.forEach((item) => {
+                const link = item.querySelector(".nav__item-link");
+                if (link.getAttribute("href") === currentPage) {
+                    item.classList.add("active");
+                }
+            });
+
+            list.forEach((item) => {
+                const link = item.querySelector(".nav__item-link");
+                link.addEventListener("click", () => {
+                    list.forEach((el) => {
+                        el.classList.remove("active");
+                    });
+                    item.classList.add("active");
+                });
+            });
+        });
+
+
         //New Car Filter
         $(document).ready(function() {
             $(document).on('click', '.brandfilter', function() {
@@ -464,21 +557,42 @@
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/66adc27f1601a2195ba0466f/1i4bbvgqe';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/66adc27f1601a2195ba0466f/1i4bbvgqe';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
         })();
+        Tawk_API.customStyle = {
+            visibility: {
+                desktop: {
+                    position: 'br',
+                    xOffset: '60px',
+                    yOffset: 20
+                },
+                mobile: {
+                    position: 'br',
+                    xOffset: 0,
+                    yOffset: 100
+                },
+                bubble: {
+                    rotate: '0deg',
+                    xOffset: -20,
+                    yOffset: 0
+                }
+            }
+        };
     </script>
     <!--End of Tawk.to Script-->
 
 
     <!-- Back To Top -->
-    <a href="#0" class="cd-top">Top</a>
+    {{-- <a href="#0" class="cd-top">Top</a> --}}
     <!-- =-=-=-=-=-=-= JQUERY =-=-=-=-=-=-= -->
     <script src="{{ asset('assets/frontend-assets/js/jquery.min.js') }}"></script>
     <!-- Bootstrap Core Css  -->
@@ -527,6 +641,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>

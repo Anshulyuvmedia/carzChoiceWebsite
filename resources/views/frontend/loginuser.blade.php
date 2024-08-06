@@ -73,6 +73,9 @@
                                     </div>
                                     <button type="submit" class="btn btn-theme btn-lg btn-block">Login With Us</button>
                                 </form>
+                                <div class="text-center mt-3">
+                                    Dont have an account? <a href="/registration">Registrer Now!</a> 
+                                </div>
                             </div>
                         </div>
                     </div>
