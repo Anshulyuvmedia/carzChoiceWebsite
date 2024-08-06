@@ -1169,6 +1169,7 @@
                     $('#cityvalue').val(loc);
                     $('#usecarcity').val(loc);
                     $('#selectLocation').modal('hide');
+
                 });
             });
         });

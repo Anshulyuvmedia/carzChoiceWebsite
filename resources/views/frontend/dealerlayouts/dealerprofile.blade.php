@@ -30,10 +30,8 @@
                             <div class="ad-archive-desc">
                                 <!-- Title -->
                                 <div class="border-bottom mb-4">
-                                    <h1 class="text-dark fw-bold">Morya Cars Pvt Ltd</h1>
-                                    <p>Morya Cars Pvt Ltd Till 2003 , Spot Payments , Non Accidental & Certified Cars ,
-                                        Non Flooded , Genuine Kilometres , We Provide Extended Warranty From Authorized
-                                        , Exchange Available.</p>
+                                    <h1 class="text-dark fw-bold">{{$dealerdetails->businessname}}</h1>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis doloremque nulla unde praesentium soluta ab, officia distinctio quia totam enim itaque inventore saepe veritatis maiores. Dignissimos ab reiciendis reprehenderit odio?</p>
                                 </div>
                                 <!-- Details -->
                                 <div>
@@ -42,12 +40,11 @@
                                     </h3>
                                     <div class=" fs-4  my-4 text-black">
                                         <i class="bi bi-geo-alt"></i>
-                                        Shop No. 26, Ground Floor, Powai Plaza, Hiranandani Gardens, Powai, Mumbai
-                                        400076
+                                        {{$dealerdetails->district}} {{$dealerdetails->state}} - {{$dealerdetails->pincode}}
                                     </div>
                                     <div class=" fs-4  my-4 text-black">
                                         <i class="bi bi-envelope"></i>
-                                        Email: moryacarsnavimumbai@gmail.com
+                                        Email: {{$dealerdetails->email}}
                                     </div>
                                     <div class=" fs-4  my-4 text-black">
                                         <i class="bi bi-key"></i>
@@ -59,170 +56,7 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <div class=" ">
-
-                        <div class="header-page mb-2">
-                            <h1 class="text-dark fs-3 fw-bold">55 Used Cars with Morya Cars Pvt Ltd</h1>
-                        </div>
-                        <!-- Middle Content Box -->
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <div class="row">
-                                <div class=" dealerCar-slider container owl-carousel owl-theme">
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/cw/ucp/stockApiImg/M5ICM40_km3953hc_1_42182605.jpg?q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-
-
-                                                        <h3>
-                                                            <a title="" class="text-truncate col-2"
-                                                                href="#">
-                                                                Audi Q7 45 TDI Technology Pack
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 36 Lakh</div>
-                                                        <div class="fs-5 text-muted">1,34,100 km | 2017 | Diesel</div>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/cw/ucp/stockApiImg/NU3SW8Y_cyetjkmn_1_42180099.jpg?q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-
-
-                                                        <h3>
-                                                            <a title="" class="text-truncate col-2"
-                                                                href="#">
-                                                                BMW X1 sDrive20d xLine
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 20.5 Lakh</div>
-                                                        <div class="fs-5 text-muted">63,400 km | 2017 | Diesel</div>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/cw/ucp/stockApiImg/O6R1ELT_wze81hnt_1_42889955.jpg?q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-
-
-                                                        <h3>
-                                                            <a title="" class="text-truncate col-2"
-                                                                href="#">
-                                                                Jaguar XF 2.2 Diesel
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 14.5 Lakh</div>
-                                                        <div class="fs-5 text-muted">76,000 km | 2014 | Diesel</div>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                <div class="category-grid-box-1">
-
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="https://imgd.aeplcdn.com/370x208/cw/ucp/stockApiImg/TR6VPQK_vap5kcg5_1_42809089.jpg?q=80"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-
-
-                                                        <h3>
-                                                            <a title="" class="text-truncate col-2"
-                                                                href="#">
-                                                                Audi Q5 2.0 TDI quattro Premium
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 14.75 Lakh</div>
-                                                        <div class="fs-5 text-muted">69,100 km | 2014 | Diesel</div>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <a href="/used-car" class="  ">
-                                    View All Used Cars <i class="bi bi-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Middle Content Box End -->
-                    </div>
-
-
                     <div class="clearfix"></div>
-                    <!-- Pagination -->
-                    <div class="text-center margin-top-30">
-                        <ul class="pagination ">
-                            <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- Pagination End -->
                 </div>
                 <!-- Row End -->
 
@@ -236,62 +70,39 @@
                 <div class="sidebar">
                     <!-- Panel group -->
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-                        <div class="header-page mb-2">
-                            <h1 class="text-dark fs-3 fw-bold">Used Car Dealers in Cities near You</h1>
-                        </div>
-
-                        <div class="list-group ">
-                            <a href="#" class="list-group-item list-group-item-action">
-                                Mumbai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                Bangalore <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                Delhi <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                Pune <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                Navi Mumbai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
-                            </a>
-
-                        </div>
                         <div class="header-page mb-2">
                             <h1 class="text-dark fs-3 fw-bold">Used Car Dealers in Popular Cities</h1>
                         </div>
 
                         <div class="list-group ">
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Mumbai" class="list-group-item list-group-item-action popularecityfilter">
                                 Mumbai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Bangalore" class="list-group-item list-group-item-action popularecityfilter">
                                 Bangalore <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Delhi" class="list-group-item list-group-item-action popularecityfilter">
                                 Delhi <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Pune" class="list-group-item list-group-item-action popularecityfilter">
                                 Pune <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Navi Mumbai" class="list-group-item list-group-item-action popularecityfilter">
                                 Navi Mumbai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Hyderabad" class="list-group-item list-group-item-action popularecityfilter">
                                 Hyderabad <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Ahmedabad" class="list-group-item list-group-item-action popularecityfilter">
                                 Ahmedabad <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Chennai" class="list-group-item list-group-item-action popularecityfilter">
                                 Chennai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Kolkata" class="list-group-item list-group-item-action popularecityfilter">
                                 Kolkata <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a data-city="Chandigarh" class="list-group-item list-group-item-action popularecityfilter">
                                 Chandigarh <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
 
@@ -374,18 +185,73 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Latest Ads Panel End -->
                     </div>
-                    <!-- panel-group end -->
                 </div>
-                <!-- Sidebar Widgets End -->
             </div>
-            <!-- Left Sidebar End -->
         </div>
-        <!-- Row End -->
     </div>
-    <!-- Main Container End -->
 </section>
-<!-- =-=-=-=-=-=-= Ads Archives End =-=-=-=-=-=-= -->
-
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+     $(document).ready(function() {
+        $('.popularecityfilter').on('click', function() {
+            const city = $(this).data('city');
+            console.log(city);
+
+            //Here is AJAX Code...
+            if (city) {
+                $.ajax({
+                    url: '/filterdealersbycity/' + city,
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        $('#dealersdiv').empty();
+                        response.forEach(function(row) {
+                            var div = `
+                             <div class="ads-list-archive" >
+                             <div class="clearfix visible-xs-block"></div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
+                                    <div class="ad-archive-desc">
+                                        <div class="d-flex justify-content-between ">
+                                            <div class="">
+                                                <a href="/dealer-profile">
+                                                    <h3>${row.businessname}</h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="category-title fs-4">
+                                            ${row.district} ${row.district} - ${row.pincode}
+                                        </div>
+                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
+                                                used cars available at dealership</span></div>
+                                        <div class="d-flex mt-3">
+                                            <div class="me-3">
+                                                <a href="/dealer-profile/${row.id}">
+                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="#">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
+                                                        <i class="bi bi-telephone"></i>
+                                                        ${row.mobilenumber}
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            `;
+                            $('#dealersdiv').append(div);
+                        });
+                    },
+                });
+            }
+        });
+    });
+</script>

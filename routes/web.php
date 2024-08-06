@@ -38,13 +38,13 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('new-car-launches', 'newcarlaunches');
     Route::get('electric-car', 'electriccar');
     Route::get('used-car', 'usedcar');
-    Route::get('usedcar-bylocation', 'usedcarbylocation');
+    Route::get('usedcar-bylocation/{filtertypenew}', 'usedcarbylocation')->name('usedcarbylocation');
     Route::get('car-loan', 'carloan')->name('carloan');
     Route::get('find-car/{filtertype}', 'findcar')->name('findcar');
     Route::get('car-view-images/{carname}', 'carviewimages')->name('carviewimages');
     Route::get('car-images', 'carimages');
-    Route::get('find-dealer', 'finddealer');
-    Route::get('dealer-profile', 'dealerprofile');
+    Route::get('find-dealer', 'finddealer')->name('finddealer');
+    Route::get('dealer-profile/{id}', 'dealerprofile')->name('dealerprofile');
     Route::get('dealer-showroom', 'dealershowroom');
     Route::get('dealer-location', 'dealerbylocation');
 
@@ -101,6 +101,8 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('makefilterfindcar', 'makefilterfindcar')->name('makefilterfindcar');
     Route::post('registerdealer', 'registerdealer')->name('registerdealer');
     Route::post('usedcarfilter/{filtertype}', 'usedcarfilter')->name('usedcarfilter');
+    Route::post('filtercarsbylocation/{city}', 'filtercarsbylocation')->name('filtercarsbylocation');
+    Route::post('filterdealersbycity/{cityname}', 'filterdealersbycity')->name('filterdealersbycity');
 
 });
 
@@ -197,5 +199,7 @@ Route::controller(Store::class)->group(function() {
     Route::post('insertcolorvariants', 'insertcolorvariants')->name('insertcolorvariants');
     Route::get('deletedealer/{id}', 'deletedealer')->name('deletedealer');
     Route::post('/filterdealers', 'filterdealers')->name('filterdealers');
+    Route::post('/updatevariantshowhidestatus', 'updatevariantshowhidestatus')->name('updatevariantshowhidestatus');
+
 
 });

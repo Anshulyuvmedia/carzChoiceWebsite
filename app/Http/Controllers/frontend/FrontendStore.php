@@ -918,4 +918,32 @@ class FrontendStore extends Controller
             'redirect_url' => route('findcar',['filtertype' => $attribute." Used"])
         ], 200);
     }
+
+    public function filtercarsbylocation($city){
+        $cityname = $city;
+        $data = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('District',$cityname)->get();
+        $data->transform(function ($item) {
+            $images = json_decode($item->addimage, true);
+            if (is_array($images) && !empty($images)) {
+                $firstImageUrl = $images[0]['imageurl'];
+                $item->addimage = basename($firstImageUrl);
+            } else {
+                $item->addimage = null;
+            }
+            return $item;
+        });
+        session(['variants' => $data]);
+        // dd($data);
+        // Return the response
+        return response()->json([
+            'success' => true,
+            'redirect_url' => route('usedcarbylocation',['filtertypenew' => $city])
+        ], 200);
+    }
+
+    public function filterdealersbycity($cityname){
+
+        $dealers = RegisterDealer::where('district',$cityname)->get();
+        return response()->json($dealers);
+    }
 }

@@ -87,8 +87,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-6 px-3 ">
-                <a href="#">
+            <div class="col-md-4 col-6 px-3">
+                <a href="#" class="locationanchor" data-value="Delhi">
                     <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/delhi.jpg?static1fix"
                             class="card-img rounded-4" alt="Delhi">
@@ -101,7 +101,7 @@
                 </a>
             </div>
             <div class="col-md-4 col-6 px-3">
-                <a href="#">
+                <a href="#" class="locationanchor" data-value="Mumbai">
                     <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/mumbai.jpg?static1fix" class="card-img"
                             alt="Mumbai">
@@ -113,7 +113,7 @@
                 </a>
             </div>
             <div class="col-md-4 col-6 px-3">
-                <a href="#">
+                <a href="#" class="locationanchor" data-value="Bengaluru">
                     <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/bangalore.jpg?static1fix" class="card-img"
                             alt="Bengaluru">
@@ -125,7 +125,7 @@
                 </a>
             </div>
             <div class="col-md-4 col-6 px-3">
-                <a href="#">
+                <a href="#" class="locationanchor" data-value="Chennai">
                     <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/chennai.jpg?static1fix" class="card-img"
                             alt="Chennai">
@@ -137,7 +137,7 @@
                 </a>
             </div>
             <div class="col-md-4 col-6 px-3">
-                <a href="#">
+                <a href="#" class="locationanchor" data-value="Hyderabad">
                     <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/hyderabad.jpg?static1fix" class="card-img"
                             alt="Hyderabad">
@@ -149,7 +149,7 @@
                 </a>
             </div>
             <div class="col-md-4 col-6 px-3">
-                <a href="#">
+                <a href="#" class="locationanchor" data-value="Kolkata">
                     <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/kolkata.jpg?static1fix" class="card-img"
                             alt="Kolkata">
@@ -161,7 +161,7 @@
                 </a>
             </div>
             <div class="col-md-4 col-6 px-3">
-                <a href="#">
+                <a href="#" class="locationanchor" data-value="Chandigarh">
                     <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/chandigarh.jpg?static1fix" class="card-img"
                             alt="Chandigarh">
@@ -173,7 +173,7 @@
                 </a>
             </div>
             <div class="col-md-4 col-6 px-3">
-                <a href="#">
+                <a href="#" class="locationanchor" data-value="Pune">
                     <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/pune.jpg?static1fix" class="card-img"
                             alt="Pune">
@@ -185,7 +185,7 @@
                 </a>
             </div>
             <div class="col-md-4 col-6 px-3">
-                <a href="#">
+                <a href="#" class="locationanchor" data-value="Ahmedabad">
                     <div class="card text-white p-0  mb-3">
                         <img src="https://imgd.aeplcdn.com/0x0/cw/design15/ahmedabad.jpg?static1fix" class="card-img"
                             alt="Ahmedabad">
@@ -275,13 +275,8 @@
                         </div>
                         <!-- /.recent-ads-container -->
                     </div>
-
-
                 </div>
             </div>
-
-
-
 
         </div>
     </div>
@@ -370,11 +365,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
     </div>
 </div>
@@ -617,60 +607,28 @@
 
 <!-- =-=-=-=-=-=-= New Car FAQs  =-=-=-=-=-=-= -->
 <section class="custom-padding used-cars">
-    <!-- Main Container -->
     <div class="container popular-cars">
-        <!-- Row -->
         <div class="row">
-            <!-- Heading Area -->
             <div class="heading-panel">
                 <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                    <!-- Main Title -->
-                    <h1>FAQs on <span class="heading-color">Electric Cars</span> </h1>
+                    <h1>Used Car's<span class="heading-color">FAQs</span> </h1>
                 </div>
             </div>
-
-
-
-            <!-- Middle Content Box -->
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="row">
-
+                    @foreach ($usedcarfaq as $row)
                     <ul class="accordion">
                         <li>
-                            <h3 class="accordion-title"><a href="#">Q: Which are the popular electric cars in
-                                    India</a></h3>
+                            <h3 class="accordion-title"><a href="#">Q: {{$row->faqlabel}}</a></h3>
                             <div class="accordion-content">
-                                <p>Top 3 popular electric cars in India are Tata Punch EV, BYD Seal and MG Comet EV. To
-                                    checkout the complete list of electric cars, click here</p>
+                                <p>{{$row->faqvalue}}</p>
                             </div>
                         </li>
-                        <li>
-                            <h3 class="accordion-title"><a href="#">Q: Are there any hybrid cars available in
-                                    India</a></h3>
-                            <div class="accordion-content">
-                                <p>Yes. There are hybrid cars available in India. Top 3 hybrid cars are Maruti Suzuki
-                                    Grand Vitara, Toyota Urban Cruiser Hyryder and Toyota Innova Hycross. To checkout
-                                    the complete list of hybrid cars.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <h3 class="accordion-title"><a href="#">Q: Are there any upcoming electric cars in
-                                    India</a></h3>
-                            <div class="accordion-content">
-                                <p> Yes. There are upcoming electric cars in India. Tata Harrier EV, Fisker Ocean EV and
-                                    Tata Altroz EV are the upcoming electric cars which are planned to launch soon in
-                                    India. To checkout the complete list of all electric cars.</p>
-                            </div>
-                        </li>
-
                     </ul>
+                    @endforeach
                 </div>
             </div>
-            <!-- Middle Content Box End -->
-
-            <!-- Row End -->
         </div>
-        <!-- Main Container End -->
     </div>
 </section>
 <!-- =-=-=-=-=-=-= New Car FAQs End =-=-=-=-=-=-= -->
@@ -924,9 +882,6 @@
         });
     });
 </script>
-
-
-
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const minMaxContainer = document.getElementById('minMaxContainer');
@@ -1027,3 +982,4 @@
 </script>
 
 @endsection
+

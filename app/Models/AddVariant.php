@@ -23,5 +23,6 @@ class AddVariant extends Model
         'userreportedmilage',
         'keyfeatures',
         'summary',
+        'showhidestatus',
     ];
 }

@@ -137,6 +137,7 @@
     });
 });
 </script>
+
 {{--Updating Login Status--}}
 <script>
     $(document).ready(function() {
