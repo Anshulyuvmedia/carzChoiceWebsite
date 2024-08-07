@@ -519,12 +519,11 @@ class Store extends Controller
 
     public function insertcarlist(Request $request)
     {
-
         try {
-            $request->validate([
-                'carname' => 'required',
-                'brandname' => 'required',
-            ]);
+            // $request->validate([
+            //     'carname' => 'required',
+            //     'brandname' => 'required',
+            // ]);
             CarList::create([
                 'carname' => $request->carname,
                 'brandname' => $request->brandname,
@@ -961,14 +960,14 @@ class Store extends Controller
         $colorCodes = $request->input('colorcodes');
 
         $colors = [];
-            foreach($colorNames as $index => $row){
-                if($row!=null){
-                    $colors[] = [
-                        'label' => $row,
-                        'value' => $colorCodes[$index],
-                    ];
-                }
+        foreach ($colorNames as $index => $row) {
+            if ($row != null) {
+                $colors[] = [
+                    'label' => $row,
+                    'value' => $colorCodes[$index],
+                ];
             }
+        }
 
         $colorsJson = json_encode($colors);
         try {
@@ -995,7 +994,8 @@ class Store extends Controller
         return back()->with('success', "Deleted....!!!");
     }
 
-    public function filterdealers(Request $request){
+    public function filterdealers(Request $request)
+    {
 
         $brands = $request->input('brandname');
         $city = $request->input('cityname');

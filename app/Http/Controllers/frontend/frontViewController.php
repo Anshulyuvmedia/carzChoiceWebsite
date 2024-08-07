@@ -72,7 +72,7 @@ class frontViewController extends Controller
 
 
         //Matching Variants from Carname field...
-        $variantdata = AddVariant::get();
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
         $trendingCarNames = $trending->pluck('carname');
         $trendingPopularNames = $popular->pluck('carname');
         $trendingUpcomingNames = $upcoming->pluck('carname');
@@ -132,13 +132,13 @@ class frontViewController extends Controller
     }
     public function carlistingdetails($id)
     {
-        $cardetails = AddVariant::where('id', $id)->first();
+        $cardetails = AddVariant::where('id', $id)->where('showhidestatus', '=', 1)->first();
         $new = [];
         $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
         $spces = AddSpecification::where('vehicleid', $id)->get();
         $features = AddFeature::where('vehicleid', $id)->get();
-        $variants = AddVariant::where('carname', $cardetails->carname)->get();
-        $similarcars = AddVariant::where('bodytype', $cardetails->bodytype)->get()->unique('carname');
+        $variants = AddVariant::where('carname', $cardetails->carname)->where('id', $id)->where('showhidestatus', '=', 1)->get();
+        $similarcars = AddVariant::where('bodytype', $cardetails->bodytype)->where('id', $id)->where('showhidestatus', '=', 1)->get()->unique('carname');
         $carNames = $similarcars->pluck('carname')->toArray();
         $similarcarsimages = VehicleImage::whereIn('vehicle', $carNames)->get();
         // Merge images into newarray based on index
@@ -156,8 +156,27 @@ class frontViewController extends Controller
         $cardetails->specificaitons = json_decode($spces);
         $cardetails->features = json_decode($features);
         $cardetails->variants = json_decode($variants);
-        // dd($variants);
-        return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pros', 'cons', 'variantsfaqs', 'similarcars'));
+
+
+        //Getting Dealers of Particular Brands
+        $dealers = RegisterDealer::get();
+        $variants = AddVariant::where('showhidestatus', '=', 1)->get();
+        $matchingDealers = [];
+        foreach ($dealers as $dealer) {
+            $brands = json_decode($dealer->brands, true);
+            foreach ($brands as $brand) {
+                foreach ($variants as $variant) {
+                    if ($brand == $variant->brandname) {
+                        $matchingDealers[] = [
+                            'brandname' => $variant->brandname,
+                            'dealers' => $dealer,
+                        ];
+                        break;
+                    }
+                }
+            }
+        }
+        return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pros', 'cons', 'variantsfaqs', 'similarcars','matchingDealers'));
     }
     public function carlisting()
     {
@@ -192,6 +211,7 @@ class frontViewController extends Controller
 
         // Fetch details for the vehicles based on IDs
         $newarray = AddVariant::join('car_lists', 'car_lists.carname', '=', 'add_variants.carname')
+            ->where('add_variants.showhidestatus', '=', 1)
             ->select('add_variants.id', 'add_variants.carname', 'add_variants.carmodalname', 'add_variants.brandname', 'add_variants.price', 'car_lists.colors')
             ->whereIn('add_variants.id', $ids)
             ->get();
@@ -231,7 +251,7 @@ class frontViewController extends Controller
             $addpostcount = AdPost::count();
             $brands = Master::where('type', '=', 'Brand')->get();
             $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-            return view('frontend.dashboard.userprofile', compact('user', 'statedata', 'addpostcount','brands'));
+            return view('frontend.dashboard.userprofile', compact('user', 'statedata', 'addpostcount', 'brands'));
         } else {
             return view('frontend.loginuser');
         }
@@ -291,7 +311,7 @@ class frontViewController extends Controller
 
         $imagesdata = VehicleImage::where('vehicle', $blogdata->carname)->pluck('addimage');
 
-        $variantdata = AddVariant::where('carname', $blogdata->carname)->get();
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->where('carname', $blogdata->carname)->get();
         // dd($imagesdata);
 
         return view('frontend.newsdetails', compact('blogdata', 'variantdata', 'imagesdata'));
@@ -364,7 +384,7 @@ class frontViewController extends Controller
 
 
         //Matching Variants from Carname field...
-        $variantdata = AddVariant::get();
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
         $trendingCarNames = $trending->pluck('carname');
         $trendingPopularNames = $popular->pluck('carname');
         $trendingUpcomingNames = $upcoming->pluck('carname');
@@ -429,7 +449,7 @@ class frontViewController extends Controller
             ->where('vehicle_images.type', '=', 'Outer view')
             ->where('display_settings.category', '=', 'Upcoming')->get();
 
-        $variantdata = AddVariant::get();
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
         $trendingUpcomingNames = $upcoming->pluck('carname');
         $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames);
 
@@ -456,19 +476,19 @@ class frontViewController extends Controller
     public function usedcar()
     {
         $adposts = AdPost::orderBy('created_at', 'desc')->get();
-        $usedcarfaq = Faqs::where('category','=','Old Car')->get();
-        return view('frontend.usedCarsLayouts.usedcar',compact('adposts','usedcarfaq'));
+        $usedcarfaq = Faqs::where('category', '=', 'Old Car')->get();
+        return view('frontend.usedCarsLayouts.usedcar', compact('adposts', 'usedcarfaq'));
     }
     public function usedcarbylocation($filtertype)
     {
         $filtertypenew = $filtertype;
         $variants = session('variants', []);
         $results = Master::where('type', '=', 'Body Type')
-        ->orWhere('type', '=', 'Transmission')
-        ->orWhere('type', '=', 'Fuel Type')
-        ->orWhere('type', '=', 'Seating Capacity')
-        ->get();
-        return view('frontend.usedCarsLayouts.usedcarbylocation',compact('variants','filtertypenew','results'));
+            ->orWhere('type', '=', 'Transmission')
+            ->orWhere('type', '=', 'Fuel Type')
+            ->orWhere('type', '=', 'Seating Capacity')
+            ->get();
+        return view('frontend.usedCarsLayouts.usedcarbylocation', compact('variants', 'filtertypenew', 'results'));
     }
     public function carloan()
     {
@@ -503,7 +523,7 @@ class frontViewController extends Controller
             ->orWhere('type', '=', 'Seating Capacity')
             ->get();
         $variants = session('variants', []);
-        return view('frontend.findcar', compact('variants', 'results','filtertypenew'));
+        return view('frontend.findcar', compact('variants', 'results', 'filtertypenew'));
     }
 
     public function carviewimages($carname)
@@ -555,14 +575,14 @@ class frontViewController extends Controller
 
     public function finddealer()
     {
-        $dealers = RegisterDealer::orderBy('created_at','desc')->get();
+        $dealers = RegisterDealer::orderBy('created_at', 'desc')->get();
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-        return view('frontend.dealerlayouts.finddealer',compact('dealers','statedata'));
+        return view('frontend.dealerlayouts.finddealer', compact('dealers', 'statedata'));
     }
     public function dealerprofile($id)
     {
         $dealerdetails = RegisterDealer::find($id);
-        return view('frontend.dealerlayouts.dealerprofile',compact('dealerdetails'));
+        return view('frontend.dealerlayouts.dealerprofile', compact('dealerdetails'));
     }
     public function dealershowroom()
     {
@@ -592,7 +612,7 @@ class frontViewController extends Controller
             $brandname = Master::where('type', '=', 'Brand')->get();
             $color = Master::where('type', '=', 'Color')->get();
             $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-            $variantdata = AddVariant::get();
+            $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
             return view('frontend.dashboard.editadshow', compact('adshowdata', 'statedata', 'brandname', 'color'));
         } else {
             return view('frontend.loginuser');

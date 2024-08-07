@@ -205,12 +205,13 @@ class AdminView extends Controller
     }
 
     public function comparecars(){
-        $variantlist = AddVariant::get();
+        $variantlist = AddVariant::where('showhidestatus','=',1)->get();
         $compare = CompareVehicle::get();
         $new = [];
         foreach($compare as $data){
             $ids = json_decode($data->vehicles);
-            $newarray = AddVariant::whereIn('id', $ids)->select('carname','carmodalname')->get();
+            $newarray = AddVariant::whereIn('id', $ids)->select('carname','carmodalname')
+            ->where('showhidestatus','=',1)->get();
             $new[] = ['id' => $data->id, 'vehicles' => $newarray];
         }
         $array = $new;

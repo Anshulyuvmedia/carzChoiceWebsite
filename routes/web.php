@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\AdminView;
 use App\Http\Controllers\backend\Authentication;
 use App\Http\Controllers\backend\Store;
+use App\Http\Controllers\backend\ExcelCarList;
 use App\Http\Controllers\frontend\FrontendStore;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\frontViewController;
@@ -38,7 +39,8 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('new-car-launches', 'newcarlaunches');
     Route::get('electric-car', 'electriccar');
     Route::get('used-car', 'usedcar');
-    Route::get('usedcar-bylocation/{filtertypenew}', 'usedcarbylocation')->name('usedcarbylocation');
+    Route::get('usedcar-bylocation/{filtertypenew}', '
+    ')->name('usedcarbylocation');
     Route::get('car-loan', 'carloan')->name('carloan');
     Route::get('find-car/{filtertype}', 'findcar')->name('findcar');
     Route::get('car-view-images/{carname}', 'carviewimages')->name('carviewimages');
@@ -200,6 +202,7 @@ Route::controller(Store::class)->group(function() {
     Route::get('deletedealer/{id}', 'deletedealer')->name('deletedealer');
     Route::post('/filterdealers', 'filterdealers')->name('filterdealers');
     Route::post('/updatevariantshowhidestatus', 'updatevariantshowhidestatus')->name('updatevariantshowhidestatus');
-
-
 });
+
+Route::get('/import-excel', [ExcelCarList::class,'index'])->name('import.excel');
+Route::post('/import-excel', [ExcelCarList::class,'import']);

@@ -35,25 +35,39 @@
                         <form action="{{ route('insertcarlist') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3 row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <label for="example-text-input" class="">Car Name</label>
                                     <input class="form-control" placeholder="enter car name" name="carname" type="text"
-                                        value="" id="example-text-input" required>
+                                        value="" id="example-text-input" >
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <label class="">Select Brand</label>
-                                    <select name="brandname" class="form-select" id="subcategory" required>
+                                    <select name="brandname" class="form-select" id="subcategory" >
                                         <option value="">--select brand--</option>
                                         @foreach ($masterdata as $row)
                                         <option value="{{ $row->label }}">{{ $row->label }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-lg-4 d-flex align-items-end">
+                                <div class="col-lg-3 d-flex align-items-end mt-3">
                                     <button type="submit" class="btn btn-success waves-effect waves-light">Add</button>
                                 </div>
                             </div>
                         </form>
+                        <div class="col-lg-12">
+                            <form action="{{ route('import.excel') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="d-flex align-items-end">
+                                    <div class="text-start">
+                                        <label for="file">Bulk Upload</label>
+                                        <input type="file" name="file" id="file" class="form-control">
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary ms-2">Import</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div> <!-- end col -->

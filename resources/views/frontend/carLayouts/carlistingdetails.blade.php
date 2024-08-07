@@ -1239,26 +1239,29 @@
                         <!-- Price info block -->
                         <div class="p-3 rounded-3 bg-danger ">
                             <div class="bg-light p-3 rounded-3">
-                                <div class="text-black fw-bold">
-
-                                    Neon Mahindra Narapally Authorized Dealer
-
+                                <h4 class="text-black fw-bold"> {{ $cardetails->brandname }} {{ $cardetails->carname }} Authorized Dealer</h4>
+                                @foreach ($matchingDealers as $dealer)
+                                {{-- @php
+                                    dd($dealer);
+                                @endphp --}}
+                                <div>
                                     <div class="category-list-icon ">
                                         <i class="bi bi-geo-alt text-black"></i>
                                         <div class="category-list-title">
-                                            CJ67+P4R, Hyderabad - Warangal Hwy, Peerzadiguda
-
+                                            {{$dealer['dealers']->businessname}}, {{ $dealer['dealers']->state}} - {{$dealer['dealers']->district}}, {{$dealer['dealers']->pincode}}
                                         </div>
                                     </div>
                                     <div class="category-list-icon ">
                                         <i class="bi bi-telephone text-black"></i>
                                         <div class="category-list-title ">
                                             <a href="tel:7894561233" class="fs-4 text-black">
-                                                1234567899
+                                                {{$dealer['dealers']->mobilenumber}}
                                             </a>
                                         </div>
                                     </div>
                                 </div>
+                                @break
+                                @endforeach
                                 <div class="border-top pt-3 border-1 fw-light fs-4 text-black lh-sm">
                                     Get in touch with Authorized Mahindra Dealership on call for best buying options
                                     like:

@@ -214,7 +214,7 @@ class FrontendStore extends Controller
     }
     public function filtermodalname($selectedcar)
     {
-        $carmodalname = AddVariant::where('carname', $selectedcar)->get();
+        $carmodalname = AddVariant::where('showhidestatus','=',1)->where('carname', $selectedcar)->get();
         // dd($statedata);
         return response()->json($carmodalname);
     }
@@ -399,7 +399,7 @@ class FrontendStore extends Controller
             ->where('display_settings.category', '=', 'Upcoming')->get();
 
 
-        $variantdata = AddVariant::get();
+        $variantdata = AddVariant::where('showhidestatus','=',1)->get();
         $trendingUpcomingNames = $upcoming->pluck('carname');
 
         $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames);
@@ -418,7 +418,7 @@ class FrontendStore extends Controller
 
     public function filtervariants($finalvalue)
     {
-        $variantdata = AddVariant::where('carname', $finalvalue)->get();
+        $variantdata = AddVariant::where('showhidestatus','=',1)->where('carname', $finalvalue)->get();
         return response()->json($variantdata);
     }
 
@@ -427,7 +427,7 @@ class FrontendStore extends Controller
         $carname = $rq->input('carname');
         $checkboxes = $rq->input('checkboxes');
 
-        $variantdata = AddVariant::where('carname', $carname);
+        $variantdata = AddVariant::where('showhidestatus','=',1)->where('carname', $carname);
 
         // Check if checkboxes are not empty
         if (!empty($checkboxes)) {
@@ -536,6 +536,7 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->where('add_variants.brandname', $attribute)
+                    ->where('add_variants.showhidestatus','=',1)
                     ->get()->unique('carname');
                 break;
 
@@ -543,6 +544,7 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->where('add_variants.bodytype', $attribute)
+                    ->where('add_variants.showhidestatus','=',1)
                     ->get()->unique('carname');
                 break;
 
@@ -550,6 +552,7 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->whereJsonContains('add_variants.fueltype', $attribute)
+                    ->where('add_variants.showhidestatus','=',1)
                     ->get()->unique('carname');
                 break;
 
@@ -557,6 +560,7 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->whereJsonContains('add_variants.transmission', $attribute)
+                    ->where('add_variants.showhidestatus','=',1)
                     ->get()->unique('carname');
                 break;
 
@@ -568,6 +572,7 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->where('add_variants.seatingcapacity', '<', $avalseat)
+                    ->where('add_variants.showhidestatus','=',1)
                     ->get()->unique('carname');
                 break;
 
@@ -580,6 +585,7 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->where('add_variants.price', '<', $budgetvalue)
+                    ->where('add_variants.showhidestatus','=',1)
                     ->get()->unique('carname');
                 // dd($variantData);
 
@@ -620,6 +626,7 @@ class FrontendStore extends Controller
 
         // Fetch details for the vehicles based on IDs
         $newarray = AddVariant::whereIn('id', $ids)
+            ->where('showhidestatus','=',1)
             ->select('id', 'carname', 'carmodalname', 'brandname', 'price')
             ->get();
 
@@ -650,7 +657,7 @@ class FrontendStore extends Controller
         $carname = $rq->input('carname');
         $checkboxes = $rq->input('checkboxes');
 
-        $variantdata = AddVariant::where('carname', $carname);
+        $variantdata = AddVariant::where('showhidestatus','=',1)->where('carname', $carname);
 
         // Check if checkboxes are not empty
         if (!empty($checkboxes)) {
@@ -727,6 +734,7 @@ class FrontendStore extends Controller
         }
 
         $query->leftJoin('vehicle_images', 'add_variants.id', '=', 'vehicle_images.variantid')
+        ->where('add_variants.showhidestatus','=',1)
         ->select('add_variants.*', 'vehicle_images.addimage');
 
         $variants = $query->get();
@@ -820,7 +828,7 @@ class FrontendStore extends Controller
 
             case 'Body Type':
                 $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
-                ->select('add_variants.bodytype','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->where('add_variants.bodytype', $attribute)
+                ->select('add_variants.bodytype','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->where('add_variants.showhidestatus','=',1)->where('add_variants.bodytype', $attribute)
                 ->get()->unique('carname');
                 $variantData->transform(function ($item) {
                     $images = json_decode($item->addimage, true);
@@ -852,6 +860,7 @@ class FrontendStore extends Controller
 
             case 'Transmission':
                 $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
+                ->where('add_variants.showhidestatus','=',1)
                 ->select('add_variants.bodytype','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->whereJsonContains('add_variants.transmission', $attribute)
                 ->get()->unique('carname');
                 $variantData->transform(function ($item) {
@@ -870,6 +879,7 @@ class FrontendStore extends Controller
                 $parts = explode(' ', $attribute);
                 $avalseat = intval($parts[0]);
                 $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
+                ->where('add_variants.showhidestatus','=',1)
                 ->select('add_variants.seatingcapacity','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->where('add_variants.seatingcapacity', '<', $avalseat)
                 ->get()->unique('carname');
                 $variantData->transform(function ($item) {

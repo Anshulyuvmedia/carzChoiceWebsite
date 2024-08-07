@@ -21,6 +21,7 @@ class CompareCars extends Component
             // Fetch details for the vehicles based on IDs
             $newarray = AddVariant::whereIn('id', $ids)
                 ->select('id', 'carname', 'carmodalname','brandname', 'price')
+                ->where('showhidestatus','=',1)
                 ->get();
 
             // Fetch images for the vehicles based on carname from newarray
