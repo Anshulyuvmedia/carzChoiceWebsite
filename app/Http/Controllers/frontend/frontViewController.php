@@ -517,6 +517,7 @@ class frontViewController extends Controller
     public function findcar($filtertype)
     {
         $filtertypenew = $filtertype;
+        $filtertypenew = $filtertype;
         $results = Master::where('type', '=', 'Body Type')
             ->orWhere('type', '=', 'Transmission')
             ->orWhere('type', '=', 'Fuel Type')

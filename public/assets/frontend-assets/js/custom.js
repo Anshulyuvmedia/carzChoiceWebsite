@@ -636,3 +636,4 @@ Designed and Development by: ScriptsBundle
     /*==========  Quick Overview Modal  ==========*/
     $(".quick-view-modal").css("display", "block");
 })(jQuery);
+

@@ -13,17 +13,24 @@
         @endif
         <div class="profile-section margin-bottom-20">
             <div class="profile-tabs">
-                <ul class="nav nav-justified nav-tabs">
-                    <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-                    <li><a href="#edit" data-toggle="tab">Edit Profile</a></li>
-                    <li><a href="#payment" data-toggle="tab">Change Password</a></li>
-                    @if (Auth::guard('registeruser')->check() && Auth::guard('registeruser')->user()->usertype !=
-                    'Dealer')
-                    <li><a href="#registrationdealer" data-toggle="tab">Register as a dealer</a></li>
+                <ul class="nav nav-justified nav-tabs rounded-top-4">
+                    <li class="active">
+                        <a href="#profile" data-toggle="tab">Profile</a>
+                    </li>
+                    <li>
+                        <a href="#edit" data-toggle="tab">Edit Profile</a>
+                    </li>
+                    <li>
+                        <a href="#payment" data-toggle="tab">Change Password</a>
+                    </li>
+                    @if (Auth::guard('registeruser')->check() && Auth::guard('registeruser')->user()->usertype != 'Dealer')
+                        <li>
+                            <a href="#registrationdealer" data-toggle="tab">Register as a dealer</a>
+                        </li>
                     @endif
                 </ul>
                 <div class="tab-content">
-                    <div class="profile-edit tab-pane fade in active" id="profile">
+                    <div class="profile-edit tab-pane fade in active rounded-bottom-4" id="profile">
                         <dl class="dl-horizontal">
                             <dt><strong>Your name </strong></dt>
                             <dd>
@@ -55,7 +62,7 @@
                             </dd>
                         </dl>
                     </div>
-                    <div class="profile-edit tab-pane fade" id="edit">
+                    <div class="profile-edit tab-pane fade rounded-bottom-4" id="edit">
                         <h2 class="heading-md">Edit your Profile</h2>
                         <p>Details Below</p>
                         <div class="clearfix"></div>
@@ -142,7 +149,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="profile-edit tab-pane fade" id="payment">
+                    <div class="profile-edit tab-pane fade rounded-bottom-4" id="payment">
                         <h2 class="heading-md">Change your Password</h2>
                         <p>Enter details to change</p>
                         <br>
@@ -176,7 +183,7 @@
 
 
                     @if (Auth::guard('registeruser')->check() && Auth::guard('registeruser')->user()->usertype !='Dealer')
-                        <div class="profile-edit tab-pane fade" id="registrationdealer">
+                        <div class="profile-edit tab-pane fade rounded-bottom-4" id="registrationdealer">
                             <h2 class="heading-md">Register yourself as a dealer</h2>
                             <p>Enter details to register</p>
                             <br>
@@ -276,7 +283,7 @@
                             </form>
                         </div>
                     @else
-                        <div class="profile-edit tab-pane fade" id="registrationdealer">
+                        <div class="profile-edit tab-pane fade rounded-bottom-4" id="registrationdealer">
                             <div>
                                 <p class="text-center">You're already registered as dealer</p>
                             </div>

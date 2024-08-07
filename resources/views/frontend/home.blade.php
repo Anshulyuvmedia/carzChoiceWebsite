@@ -28,7 +28,7 @@
                 <div class="col-6">
                     <div class="search-container advance-search  hideInMobile">
                         <div class="section-search search-style-2 card">
-                            <div class="p-3">
+                            <div class="p-3 pb-0">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 p-0">
                                         <!-- Nav tabs -->
@@ -41,7 +41,7 @@
                                             </li>
                                         </ul>
                                         <!-- Tab panes -->
-                                        <div class="tab-content clearfix p-3">
+                                        <div class="tab-content clearfix p-3 pb-0">
                                             <div class="tab-pane fade in active" id="tab1">
                                                 <form id="searchform">
                                                     @csrf
@@ -83,7 +83,7 @@
                                                 <form>
                                                     <div class="search-form row">
                                                         @foreach ($bodytype->take(8) as $row)
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-3 p-2">
                                                                 <div class="box">
                                                                     <a id="cartypefilter" data-value="{{ $row->value }}">
                                                                         <img alt="Convertible" width="75"
@@ -269,85 +269,7 @@
         </span>
     </div>
     <!-- =-=-=-=-=-=-= Home Banner End =-=-=-=-=-=-= -->
-    <!-- =-=-=-=-=-=-= Advanced Search =-=-=-=-=-=-= -->
-    {{-- <div class="advance-search hideInMobile">
-        <div class="section-search search-style-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item active">
-                                <a class="nav-link" data-toggle="tab" href="#tab1">Search Car In Details </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tab2">Search Car By Type</a>
-                            </li>
-                        </ul>
-                        <!-- Tab panes -->
-                        <div class="tab-content clearfix">
-                            <div class="tab-pane fade in active" id="tab1">
-                                <form id="searchform">
-                                    @csrf
-                                    <div class="search-form pull-left">
-                                        <div class="search-form-inner pull-left">
-                                            <div class="col-md-2 no-padding">
-                                                <div class="form-group">
-                                                    <label>Select Car Type</label>
-                                                    <select name="cartype" class="form-control make rounded-4"
-                                                        id="dynamicselect">
-                                                        <option value="Used" selected>Used</option>
-                                                        <option value="New">New</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-10 no-padding">
-                                                <div class="form-group">
-                                                    <label>Type the car to select</label>
-                                                    <select name="carname" class="form-control search-year rounded-4"
-                                                        id="dynamiccarname">
-                                                        <option value="0">--select-car--</option>
-                                                        @foreach ($carlists as $data)
-                                                            <option
-                                                                value="{{ $data->carname }},{{ $data->brandname }}">
-                                                                {{ $data->carname }}, {{ $data->brandname }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" value="submit" class="btn btn-lg btn-theme">Search
-                                                Now</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade" id="tab2">
-                                <form>
-                                    <div class="search-form row pt-5">
-                                        @foreach ($bodytype as $row)
-                                            <div class="col-md-2">
-                                                <div class="box">
-                                                    <a id="cartypefilter" data-value="{{ $row->value }}">
-                                                        <img alt="Convertible" width="75"
-                                                            src="{{ asset('assets/backend-assets/images/' . $row->iconimage) }}">
-                                                        <h4>{{ $row->value }}</h4>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- =-=-=-=-=-=-= Advanced Search End =-=-=-=-=-=-= -->
+    
 
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
@@ -730,8 +652,7 @@
         <div class="background-2"
             style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->checkonroadimg) }}')">
         </div>
-        <img class="img-responsive wow slideInRight custom-img" data-wow-delay="0ms" data-wow-duration="2000ms"
-            src="images/sell-1.png" alt="">
+
         <div class="container">
             <div class="row clearfix">
                 <!--Left Column-->
