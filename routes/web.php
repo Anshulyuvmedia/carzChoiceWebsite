@@ -204,5 +204,11 @@ Route::controller(Store::class)->group(function() {
     Route::post('/updatevariantshowhidestatus', 'updatevariantshowhidestatus')->name('updatevariantshowhidestatus');
 });
 
+
+
+
+//Excel Routes
 Route::get('/import-excel', [ExcelCarList::class,'index'])->name('import.excel');
+Route::get('/import-excelvarinats', [ExcelCarList::class,'index'])->name('import.excelvarinats');
 Route::post('/import-excel', [ExcelCarList::class,'import']);
+Route::post('/import-excelvarinats', [ExcelCarList::class,'importvariants']);

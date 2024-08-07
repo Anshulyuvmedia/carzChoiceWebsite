@@ -22,6 +22,31 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
+                        <div class="col-lg-12">
+                            <form action="{{ route('import.excelvarinats') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="d-flex align-items-end">
+                                    <div class="text-start">
+                                        <label for="file">Upload Variants in Bulk-(Excel)</label>
+                                        <input type="file" name="file" id="file" class="form-control">
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary ms-2">Import</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                       <div class="mt-2">
+                            <a class="mt-2 text-info" href="{{asset('assets/backend-assets/images/SampleExcel/variants.xlsx')}}" download="Sample Data of Variants">Click to Download Sample File</a>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
                         <form action="{{ route('insertvariants') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3 row">

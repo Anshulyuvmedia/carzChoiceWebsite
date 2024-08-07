@@ -558,7 +558,7 @@ class Store extends Controller
 
     public function insertvariants(Request $rq)
     {
-        //dd($rq->all());
+        // dd($rq->all());
         try {
             $data = $rq->validate([
                 'carname' => 'required',
