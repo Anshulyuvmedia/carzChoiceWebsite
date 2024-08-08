@@ -22,7 +22,7 @@
                         <!-- Form -->
                         <h2>What are you looking for ?</h2>
                         <p>Search <strong>267,241</strong> new ads -<strong> 83 </strong> added today</p>
-                        <a class="btn btn-theme rounded-4">Post Your Ad</a>
+                        <a href="{{ route('addadshow') }}" class="btn btn-theme rounded-4">Post Your Ad</a>
                     </div>
                 </div>
                 <div class="col-6">
@@ -556,7 +556,8 @@
                                                 <div class="ad-price">Rs. {{ $data->price }}
                                                     <span class="text-muted ps-2">onwards</span>
                                                 </div>
-                                                <a class="  ">
+                                                <a class="" data-bs-toggle="offcanvas"
+                                                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                                                     <button class="btn btn-theme rounded-4 btn-sm ">
                                                         Get Offer
                                                     </button>
@@ -674,17 +675,20 @@
                                 <div class="services-grid-3">
                                     <div class="content-area">
                                         <h4>Check On-Road Price</h4>
-                                        <form>
+                                        <form id="checkonroad">
                                             <div class="search-form ">
-                                                <div class="search-form-inner ">
-                                                    <div class="col-md-12 no-padding">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control rounded-4"
-                                                                placeholder="Eg Honda Civic , Audi , Ford." />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group  ">
+                                                    <select name="carname"
+                                                    class="form-control search-year rounded-4"
+                                                    id="dynamiccarname">
+                                                    <option value="0">--select-car--</option>
+                                                    @foreach ($carlists as $data)
+                                                    <option
+                                                        value="{{ $data->carname }},{{ $data->brandname }}">
+                                                        {{ $data->carname }}, {{ $data->brandname }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
+                                                <div class="form-group mt-3">
                                                     <button type="submit" value="submit"
                                                         class="btn btn-lg btn-theme">Search</button>
                                                 </div>
@@ -781,7 +785,8 @@
 
 
 <!-- Off-canvas HTML Structure -->
-<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header border-bottom">
         <h5 class="offcanvas-title fw-bold fs-4" id="offcanvasWithBothOptionsLabel">Book Your Vehicle Now</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -792,11 +797,14 @@
             @csrf
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Full Name</label>
-                <input type="text" class="form-control" name="fullname" id="formGroupExampleInput" placeholder="Enter Fullname">
+                <input type="text" class="form-control" name="fullname" id="formGroupExampleInput"
+                    placeholder="Enter Fullname">
                 <label for="formGroupExampleInput" class="form-label mt-3">Contact Number</label>
-                <input type="tel" class="form-control" name="mobile" id="formGroupExampleInput" placeholder="Enter Mobile Number">
+                <input type="tel" class="form-control" name="mobile" id="formGroupExampleInput"
+                    placeholder="Enter Mobile Number">
                 <label for="formGroupExampleInput" class="form-label mt-3">Email</label>
-                <input type="email" class="form-control" name="email" id="formGroupExampleInput" placeholder="Enter Email Address">
+                <input type="email" class="form-control" name="email" id="formGroupExampleInput"
+                    placeholder="Enter Email Address">
                 <label>State <span class="color-red">*</span></label>
                 <select class="form-control" id="dynamic_selectstate" name="state" required>
                     <option value="">--select state--</option>
@@ -808,15 +816,15 @@
                 <select class="form-control" name="city" id="dynamic_district" required>
                     <option value="">--select district--</option>
                 </select>
-                {{-- <div class="form-group">
-                    <label>Select Car Type</label>
-                    <select name="cartype"
-                        class="form-control make rounded-4"
-                        id="dynamicselect">
-                        <option value="Used" selected>Used</option>
-                        <option value="New">New</option>
-                    </select>
-                </div> --}}
+                <label for="formGroupExampleInput" class="form-label mt-3">Select Car</label>
+                <select class="selectpicker" data-show-subtext="true" data-live-search="true">
+                    <option>--select-car</option>
+                    @foreach ($carlists as $data)
+                        <option value="{{ $data->carname }},{{ $data->brandname }}">
+                            {{ $data->carname }}, {{ $data->brandname }}
+                        </option>
+                    @endforeach
+                </select>
                 <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once</div>
                 <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Register</button>
             </div>
@@ -904,6 +912,29 @@
                     });
                 }
             });
+        });
+    });
+
+     //This is Check on Raod Price filter
+     jQuery('#checkonroad').submit(function(e) {
+        e.preventDefault();
+        var formdata = jQuery('#checkonroad').serialize();
+        console.log(formdata);
+        jQuery.ajax({
+            url: "{{ route('filterhomepagecars') }}",
+            data: formdata,
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data) {
+                console.log(data);
+                if (data.success) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    alert("error");
+                }
+            }
         });
     });
 </script>

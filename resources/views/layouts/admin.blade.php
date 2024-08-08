@@ -269,10 +269,15 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('dealerslist') }}">
-                                <i class="uil-calling"></i>
-                                <span>Dealers List</span>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-car-sideview"></i>
+                                <span>Dealer</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/adddealerdetails">Add Dealer Details</a></li>
+                                <li><a href="/dealerslist/New Car Dealer">New Car Dealers</a></li>
+                                <li><a href="/dealerslist/Old Car Dealer">Old Car Dealers</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">

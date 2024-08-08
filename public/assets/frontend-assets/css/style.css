@@ -496,7 +496,7 @@ ul {
 /* =-=-=-=-=-=-= Preloader =-=-=-=-=-=-= */
 .preloader {
     background-color: #ffffff;
-    background-image: url("../images/sb-loader.gif");
+    background-image: url("../images/tire.gif");
     background-position: center center;
     background-repeat: no-repeat;
     height: 100%;

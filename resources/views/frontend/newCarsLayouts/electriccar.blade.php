@@ -2,9 +2,7 @@
 @section('content')
 @section('title', 'Electric Car ')
 
-
 <div>
-
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding  p-0 pt-4">
         <!-- Main Container -->
@@ -32,32 +30,26 @@
     <!-- =-=-=-=-=-=-= Electric Cars Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
         <!-- Main Container -->
-        <div class="container popular-cars">
+        <div class="container card popular-cars">
             <!-- Row -->
             <div class="row">
-                <!-- Heading Area -->
-                <div class="heading-panel">
-                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                        <!-- Main Title -->
-                        <h1> <span class="heading-color">Electric</span> Cars</h1>
-                    </div>
-                </div>
-
-
-
-                <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
+                        <div class="heading-panel">
+                            <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                                <!-- Main Title -->
+                                <h1> <span class="heading-color">Electric</span> Cars</h1>
+                            </div>
+                        </div>
                         <div class=" popular-slider container owl-carousel owl-theme">
+                            @foreach ($electricfinal as $row)
                             <div class="item">
                                 <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
                                     <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
-
                                             <div class="image">
                                                 <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/310x174/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80"
+                                                    src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
 
@@ -66,149 +58,19 @@
 
                                                 <h3>
                                                     <a title="" href="#">
-                                                        Tata Punch EV
+                                                        {{$row->brandname}} {{$row->carname}}
                                                     </a>
                                                 </h3>
 
-                                                <div class="ad-price">Rs. 12.33 Lakh
+                                                <div class="ad-price">Rs. {{$row->price}} Lakh
                                                     <span class="text-muted ps-2">onwards</span>
                                                 </div>
-                                                <p class="text-muted fs-5">On Road Price(incl. GST, Ahmedabad)</p>
                                             </div>
                                         </div>
-                                        <!-- Listing Ad Grid -->
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/310x174/n/cw/ec/139619/seal-exterior-right-front-three-quarter-9.png?isig=0&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        BYD Seal
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 45.77 Lakh
-                                                    <span class="text-muted ps-2">onwards</span>
-                                                </div>
-                                                <p class="text-muted fs-5">On Road Price(incl. GST, Ahmedabad)</p>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/310x174/n/cw/ec/125193/comet-ev-exterior-right-side-view-23.jpeg?isig=0&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        MG Comet EV
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 7.38 Lakh
-                                                    <span class="text-muted ps-2">onwards</span>
-                                                </div>
-                                                <p class="text-muted fs-5">On Road Price(incl. GST, Ahmedabad)</p>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/310x174/n/cw/ec/149123/nexon-ev-exterior-right-front-three-quarter-3.jpeg?isig=0&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Tata Nexon EV
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 16.19 Lakh
-                                                    <span class="text-muted ps-2">onwards</span>
-                                                </div>
-                                                <p class="text-muted fs-5">On Road Price(incl. GST, Ahmedabad)</p>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/310x174/n/cw/ec/110289/ioniq-5-exterior-right-front-three-quarter-95.jpeg?isig=0&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Hyundai Ioniq 5
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 51.59 Lakh
-                                                    <span class="text-muted ps-2">onwards</span>
-                                                </div>
-                                                <p class="text-muted fs-5">On Road Price(incl. GST, Ahmedabad)</p>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -224,32 +86,26 @@
     <!-- =-=-=-=-=-=-= Hybrid Cars Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
         <!-- Main Container -->
-        <div class="container popular-cars">
+        <div class="container card popular-cars">
             <!-- Row -->
             <div class="row">
-                <!-- Heading Area -->
-                <div class="heading-panel">
-                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                        <!-- Main Title -->
-                        <h1> <span class="heading-color">Hybrid </span> Cars</h1>
-                    </div>
-                </div>
-
-
-
-                <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
+
+                        <div class="heading-panel">
+                            <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                                <h1> <span class="heading-color">Hybrid </span> Cars</h1>
+                            </div>
+                        </div>
                         <div class=" popular-slider container owl-carousel owl-theme">
+                            @foreach ($hybridCars as $data)
                             <div class="item">
                                 <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
                                     <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
-
                                             <div class="image">
                                                 <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/310x174/n/cw/ec/123185/grand-vitara-exterior-right-front-three-quarter-4.jpeg?isig=0&q=80"
+                                                    src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
 
@@ -258,340 +114,29 @@
 
                                                 <h3>
                                                     <a title="" href="#">
-                                                        Maruti Suzuki Grand Vitara
+                                                        {{$data->brandname}} {{$data->carname}}
                                                     </a>
                                                 </h3>
 
-                                                <div class="ad-price">Rs. 12.18 Lakh
+                                                <div class="ad-price">Rs. {{$data->price}} Lakh
                                                     <span class="text-muted ps-2">onwards</span>
                                                 </div>
-                                                <p class="text-muted fs-5">On Road Price(incl. GST, Ahmedabad)</p>
                                             </div>
                                         </div>
-                                        <!-- Listing Ad Grid -->
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/310x174/n/cw/ec/124027/urban-cruiser-hyryder-exterior-right-front-three-quarter-72.jpeg?isig=0&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Toyota Urban Cruiser Hyryder
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 12.35 Lakh
-                                                    <span class="text-muted ps-2">onwards</span>
-                                                </div>
-                                                <p class="text-muted fs-5">On Road Price(incl. GST, Ahmedabad)</p>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/310x174/n/cw/ec/115025/innova-hycross-exterior-right-front-three-quarter-73.jpeg?isig=0&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Toyota Innova Hycross
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 21.98 Lakh
-                                                    <span class="text-muted ps-2">onwards</span>
-                                                </div>
-                                                <p class="text-muted fs-5">On Road Price(incl. GST, Ahmedabad)</p>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/310x174/n/cw/ec/147201/invicto-exterior-right-front-three-quarter-69.jpeg?isig=0&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Maruti Suzuki Invicto
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 28.16 Lakh
-                                                    <span class="text-muted ps-2">onwards</span>
-                                                </div>
-                                                <p class="text-muted fs-5">On Road Price(incl. GST, Ahmedabad)</p>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
-                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                        <div class="category-grid-box-1">
-
-                                            <div class="image">
-                                                <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/310x174/n/cw/ec/154483/vellfire-exterior-right-front-three-quarter-2.jpeg?isig=0&q=80"
-                                                    class="img-responsive">
-                                                <div class="ribbon popular"></div>
-
-                                            </div>
-                                            <div class="short-description-1 clearfix">
-
-                                                <h3>
-                                                    <a title="" href="#">
-                                                        Toyota Vellfire
-                                                    </a>
-                                                </h3>
-
-                                                <div class="ad-price">Rs. 1.34 Crore
-                                                    <span class="text-muted ps-2">onwards</span>
-                                                </div>
-                                                <p class="text-muted fs-5">On Road Price(incl. GST, Ahmedabad)</p>
-                                            </div>
-                                        </div>
-                                        <!-- Listing Ad Grid -->
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
-                <!-- Middle Content Box End -->
-                <a href="#" class="  ">
-                    View All Hybrid Cars <i class="bi bi-chevron-right"></i>
-                </a>
-                <!-- Row End -->
             </div>
-            <!-- Main Container End -->
         </div>
     </section>
     <!-- =-=-=-=-=-=-= Hybrid Cars Cars Ads End =-=-=-=-=-=-= -->
 
-    <!-- =-=-=-=-=-=-= Compare Cars =-=-=-=-=-=-= -->
-    <section class="custom-padding ">
-        <!-- Main Container -->
-        <div class="container">
-            <!-- Row -->
-            <div class="row">
-                <!-- Heading Area -->
-                <div class="heading-panel">
-                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                        <!-- Main Title -->
-                        <h1>Compare<span class="heading-color"> Electric</span> Cars</h1>
-                    </div>
-                </div>
-
-
-
-                <!-- Middle Content Box -->
-                <div class="col-md-12 col-xs-12 col-sm-12">
-                    <div class="row">
-                        <div class=" comapare-slider container owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="grid-style-2">
-
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
-                                        <div class="comparison-box">
-                                            <div class="col-md-6 col-sm-6 col-xs-6 p-2">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/148309/punch-ev-exterior-right-front-three-quarter-5.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Tata </div>
-                                                        <div class=""><a href="#">Punch EV</a></div>
-                                                        <span class="ad-price">Rs. 12.33 Lakh
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="vsbox">vs</div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6 p-2">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/149123/nexon-ev-exterior-right-front-three-quarter-3.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Tata </div>
-                                                        <div class=""><a href="#">Nexon EV</a></div>
-                                                        <span class="ad-price">Rs. 16.19 Lakh
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <a href="#">
-                                                <button class="btn btn-theme rounded-4 btn-lg btn-block   mt-3">Compare
-                                                    Now</button>
-                                            </a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
-                                        <div class="comparison-box">
-                                            <div class="col-md-6 col-sm-6 col-xs-6 p-2">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Mahindra </div>
-                                                        <div class=""><a href="#">XUV 3XO</a></div>
-                                                        <span class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="vsbox">vs</div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6 p-2">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Tata </div>
-                                                        <div class=""><a href="#">Nexon</a></div>
-                                                        <span class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <a href="#">
-                                                <button class="btn btn-theme rounded-4 btn-lg btn-block ">Compare
-                                                    Now</button>
-                                            </a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="grid-style-2">
-
-                                    <div class="col-md-12 col-xs-12 col-sm-12">
-                                        <div class="comparison-box">
-                                            <div class="col-md-6 col-sm-6 col-xs-6 p-2">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Mahindra </div>
-                                                        <div class=""><a href="#">XUV 3XO</a></div>
-                                                        <span class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="vsbox">vs</div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6 p-2">
-                                                <div class="compare-grid">
-                                                    <a href="#" class="">
-                                                        <img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
-                                                            alt="" class="img-responsive">
-                                                    </a>
-                                                    <div>
-                                                        <div class="text-muted">Tata </div>
-                                                        <div class=""><a href="#">Nexon</a></div>
-                                                        <span class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <a href="#">
-                                                <button class="btn btn-theme rounded-4 btn-lg btn-block   mt-3">Compare
-                                                    Now</button>
-                                            </a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="/compareresult" class="  ">
-                            Compare Cars of Your Choice >
-                        </a>
-                    </div>
-                </div>
-                <!-- Middle Content Box End -->
-
-                <!-- Row End -->
-            </div>
-            <!-- Main Container End -->
-        </div>
-    </section>
-    <!-- =-=-=-=-=-=-= Compare Cars End =-=-=-=-=-=-= -->
+    {{-- THIS IS COMPARE CAR CARDS COMPONENET --}}
+    <x-compare-cars />
 
 
     <!-- =-=-=-=-=-=-= Latest Car Updates  Ads =-=-=-=-=-=-= -->
@@ -638,8 +183,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -664,8 +208,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -690,8 +233,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -716,8 +258,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -754,8 +295,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -780,8 +320,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -806,8 +345,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -832,8 +370,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -870,8 +407,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -896,8 +432,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -922,8 +457,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -948,8 +482,7 @@
                                                 <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                     <div class="blog-post">
                                                         <div class="post-img">
-                                                            <a href="#"> <img class="img-responsive"
-                                                                    alt=""
+                                                            <a href="#"> <img class="img-responsive" alt=""
                                                                     src="https://imgd.aeplcdn.com/370x208/n/cw/ec/179813/force-motors-gurkha-right-front-three-quarter2.jpeg?isig=0&q=80">
                                                             </a>
 
@@ -1358,59 +891,10 @@
 
 
     <!-- =-=-=-=-=-=-= New Car FAQs  =-=-=-=-=-=-= -->
-    <section class="custom-padding used-cars">
-        <!-- Main Container -->
-        <div class="container popular-cars card">
-
-            <!-- Middle Content Box -->
-            <div class="col-md-12 col-xs-12 col-sm-12">
-                <div class="row">
-                    <!-- Heading Area -->
-                    <div class="heading-panel">
-                        <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                            <!-- Main Title -->
-                            <h1>FAQs on <span class="heading-color">Electric Cars</span> </h1>
-                        </div>
-                    </div>
-                    <ul class="accordion">
-                        <li>
-                            <h3 class="accordion-title"><a href="#">Q: Which are the popular electric cars
-                                    in India</a></h3>
-                            <div class="accordion-content">
-                                <p>Top 3 popular electric cars in India are Tata Punch EV, BYD Seal and MG Comet EV.
-                                    To checkout the complete list of electric cars, click here</p>
-                            </div>
-                        </li>
-                        <li>
-                            <h3 class="accordion-title"><a href="#">Q: Are there any hybrid cars available
-                                    in India</a></h3>
-                            <div class="accordion-content">
-                                <p>Yes. There are hybrid cars available in India. Top 3 hybrid cars are Maruti
-                                    Suzuki Grand Vitara, Toyota Urban Cruiser Hyryder and Toyota Innova Hycross. To
-                                    checkout the complete list of hybrid cars.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <h3 class="accordion-title"><a href="#">Q: Are there any upcoming electric cars
-                                    in India</a></h3>
-                            <div class="accordion-content">
-                                <p> Yes. There are upcoming electric cars in India. Tata Harrier EV, Fisker Ocean EV
-                                    and Tata Altroz EV are the upcoming electric cars which are planned to launch
-                                    soon in India. To checkout the complete list of all electric cars.</p>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-            <!-- Middle Content Box End -->
-
-        </div>
-    </section>
+    <x-electric-car-faq />
     <!-- =-=-=-=-=-=-= New Car FAQs End =-=-=-=-=-=-= -->
 
-    <x-all-brands  cartype="brandfilter" />
-
-    <!-- Main Content Area End -->
+    <!-- =-=-=-=-=-=-= All Brands Component  =-=-=-=-=-=-= -->
+    <x-all-brands cartype="brandfilter" />
 </div>
 @endsection

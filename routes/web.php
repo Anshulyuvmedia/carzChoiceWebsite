@@ -142,7 +142,8 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('prosandcons/{id}', 'prosandcons')->name('prosandcons');
     Route::get('variantfaqs/{id}/{carname}', 'variantfaqs')->name('variantfaqs');
     Route::get('addvehicleimages/{id}/{carname}', 'addvehicleimages')->name('addvehicleimages');
-    Route::get('dealerslist', 'dealerslist')->name('dealerslist');
+    Route::get('dealerslist/{status}', 'dealerslist')->name('dealerslist');
+    Route::get('adddealerdetails', 'adddealerdetails')->name('adddealerdetails');
 
 });
 
