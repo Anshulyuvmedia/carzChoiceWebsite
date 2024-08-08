@@ -52,14 +52,14 @@
                     </div>
                 </div>
                 <!-- Middle Content Area -->
-                <div class="col-md-12 col-xs-12 col-sm-12">
+                <div class="col-md-12 col-xs-12 col-sm-12 ">
 
                     @foreach ($new as $data)
-                        <table>
+                        <table class="card">
                             <tbody>
                                 <tr>
                                     <td>
-                                        Select Car
+                                        Selected Cars
                                     </td>
                                     @foreach ($data['vehicles'] as $row)
                                         <td>
@@ -89,122 +89,74 @@
                                             <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
                                                 alt="" class="center-block">
                                             <h4>{{ $row->brandname }} {{ $row->carname }}</h4>
-                                            <h4>{{ $row->carmodalname }}</h4>
-                                            <h4>Rs. {{ $row->price }}/-</h4>
-                                            @php
+                                            <div>{{ $row->carmodalname }}</div>
+                                            <div>Rs. {{ $row->price }}/-</div>
+                                            {{-- @php
                                                 $colors = json_decode($row->colors,true);
                                             @endphp
                                             <div class="row d-flex justify-content-center gap-2 mt-3">
                                                 @foreach ($colors as $data)
                                                 <div class="card col-1 p-2" style="background-color: {{$data['value']}}; color:white; height:30px;">
-                                                    {{-- {{$data['label']}} --}}
+                                                    {{$data['label']}}
                                                 </div>
                                                 @endforeach
-                                            </div>
+                                            </div> --}}
                                         </td>
                                     @endforeach
                                 </tr>
                             </tbody>
                         </table>
-                            @endforeach
+                    @endforeach
 
 
 
 
-                    <div class="shadow-sm p-3 bg-dark rounded-3 mt-5" id="Specifications">
-                        <h3 class=" fw-bold text-danger">Specifications</h3>
-                    </div>
-                    @if (!empty($new))
-                        {{-- Assuming all vehicles have the same specification structure --}}
-                        @if (!empty($data['vehicles'][0]->specifications))
+                    <div class=" card my-5" id="Specifications">
+                        <h3 class=" fw-bold text-uppercase bg-secondary-subtle p-3 text-center rounded-4">Specifications
+                        </h3>
 
-                            @php
-                                // Group specifications by type
-                                $groupedSpecifications = [];
-                                foreach ($data['vehicles'][0]->specifications as $specification) {
-                                    $groupedSpecifications[$specification['type']][] = $specification;
-                                }
-                            @endphp
+                        @if (!empty($new))
+                            {{-- Assuming all vehicles have the same specification structure --}}
+                            @if (!empty($data['vehicles'][0]->specifications))
 
-                            @foreach ($groupedSpecifications as $type => $specifications)
-                                <ul class="accordion">
-                                    <li>
-                                        <h3 class="accordion-title"><a href="#">{{ $type }}</a></h3>
-                                        <div class="accordion-content">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Specification</th>
-                                                        @foreach ($data['vehicles'] as $vehicle)
-                                                            <th>{{ $vehicle->carname }} ({{ $vehicle->carmodalname }})
-                                                            </th>
-                                                        @endforeach
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($specifications as $spec)
-                                                        <tr>
-                                                            <td>{{ $spec['label'] }}</td>
-                                                            @foreach ($data['vehicles'] as $vehicle)
-                                                                @php
-                                                                    // Find the corresponding specification in the current vehicle
-                                                                    $vehicleSpec = collect(
-                                                                        $vehicle->specifications,
-                                                                    )->firstWhere('label', $spec['label']);
-                                                                @endphp
-                                                                <td>{{ $vehicleSpec['value'] ?? 'N/A' }}</td>
-                                                            @endforeach
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </li>
-                                </ul>
-                            @endforeach
+                                @php
+                                    // Group specifications by type
+                                    $groupedSpecifications = [];
+                                    foreach ($data['vehicles'][0]->specifications as $specification) {
+                                        $groupedSpecifications[$specification['type']][] = $specification;
+                                    }
+                                @endphp
 
-                        @endif
-                    @else
-                        <p>No comparison data available.</p>
-                    @endif
-
-
-                    <div class="shadow-sm p-3 bg-dark rounded-3" id="Features">
-                        <h3 class=" fw-bold text-danger">Features</h3>
-                    </div>
-
-                    @if (!empty($new) && isset($new[0]['vehicles'][0]->features))
-                        @foreach ($new as $data)
-                            @if (!empty($data['vehicles'][0]->features))
-                                @foreach ($data['vehicles'][0]->features as $index => $feature)
+                                @foreach ($groupedSpecifications as $type => $specifications)
                                     <ul class="accordion">
                                         <li>
-                                            <h3 class="accordion-title"><a href="#">{{ $feature['type'] }}</a>
+                                            <h3 class="accordion-title mb-3"><a href="#">{{ $type }}</a>
                                             </h3>
-                                            <div class="accordion-content">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="text-center">Feature</th>
+                                            <div class="accordion-content card">
+                                                <table class="table table-hover table-borderless ">
+                                                    <thead class="table-borderless">
+                                                        <tr class="table-Light">
+                                                            <th class="text-center ">Specification</th>
                                                             @foreach ($data['vehicles'] as $vehicle)
-                                                                <th class="text-center">{{ $vehicle->carname }}
+                                                                <th class="text-center ">{{ $vehicle->carname }}
                                                                     ({{ $vehicle->carmodalname }})
                                                                 </th>
                                                             @endforeach
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        @foreach ($data['vehicles'][0]->features[$index]['label'] ?? [] as $labelIndex => $label)
+                                                    <tbody class="table-borderless">
+                                                        @foreach ($specifications as $spec)
                                                             <tr>
-                                                                <td>{{ $label }}</td>
+                                                                <th class="table-Light text-start border-end">
+                                                                    {{ $spec['label'] }}</th>
                                                                 @foreach ($data['vehicles'] as $vehicle)
-                                                                    <td>
-                                                                        @if (isset($vehicle->features[$index]['value'][$labelIndex]))
-                                                                            {{ $vehicle->features[$index]['value'][$labelIndex] == 1 ? '✅' : '❌' }}
-                                                                        @else
-                                                                            ❌
-                                                                        @endif
-                                                                    </td>
+                                                                    @php
+                                                                        // Find the corresponding specification in the current vehicle
+                                                                        $vehicleSpec = collect(
+                                                                            $vehicle->specifications,
+                                                                        )->firstWhere('label', $spec['label']);
+                                                                    @endphp
+                                                                    <td>{{ $vehicleSpec['value'] ?? 'N/A' }}</td>
                                                                 @endforeach
                                                             </tr>
                                                         @endforeach
@@ -214,12 +166,65 @@
                                         </li>
                                     </ul>
                                 @endforeach
-                            @endif
-                        @endforeach
-                    @else
-                        <p>No comparison data available.</p>
-                    @endif
 
+                            @endif
+                        @else
+                            <p>No comparison data available.</p>
+                        @endif
+                    </div>
+
+                    <div class=" card my-5" id="Features">
+                        <h3 class="fw-bold text-uppercase bg-secondary-subtle p-3 text-center rounded-4">Features</h3>
+
+
+                        @if (!empty($new) && isset($new[0]['vehicles'][0]->features))
+                            @foreach ($new as $data)
+                                @if (!empty($data['vehicles'][0]->features))
+                                    @foreach ($data['vehicles'][0]->features as $index => $feature)
+                                        <ul class="accordion">
+                                            <li>
+                                                <h3 class="accordion-title"><a
+                                                        href="#">{{ $feature['type'] }}</a>
+                                                </h3>
+                                                <div class="accordion-content card">
+                                                    <table class="table table-hover table-borderless">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="text-center">Feature</th>
+                                                                @foreach ($data['vehicles'] as $vehicle)
+                                                                    <th class="text-center">{{ $vehicle->carname }}
+                                                                        ({{ $vehicle->carmodalname }})
+                                                                    </th>
+                                                                @endforeach
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="">
+                                                            @foreach ($data['vehicles'][0]->features[$index]['label'] ?? [] as $labelIndex => $label)
+                                                                <tr>
+                                                                    <th class="table-Light text-start border-end">{{ $label }}</th>
+                                                                    @foreach ($data['vehicles'] as $vehicle)
+                                                                        <td>
+                                                                            @if (isset($vehicle->features[$index]['value'][$labelIndex]))
+                                                                                {{ $vehicle->features[$index]['value'][$labelIndex] == 1 ? '✅' : '❌' }}
+                                                                            @else
+                                                                                ❌
+                                                                            @endif
+                                                                        </td>
+                                                                    @endforeach
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    @endforeach
+                                @endif
+                            @endforeach
+                        @else
+                            <p>No comparison data available.</p>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

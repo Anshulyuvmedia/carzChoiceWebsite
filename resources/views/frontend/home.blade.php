@@ -1,15 +1,7 @@
 @extends('frontend.layouts.website')
 @section('content')
 @section('title', 'Home')
-<style>
-    .mycustombtn{
-        position: fixed;
-        right: -33px;
-        bottom: 40%;
-        transform: rotate(270deg);
-        z-index: 99;
-    }
-</style>
+
 <div>
     <!-- =-=-=-=-=-=-= Home Banner  =-=-=-=-=-=-= -->
     <div id="banner" class="hideInMobile"
@@ -273,8 +265,7 @@
 
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
-        <button class="btn btn-theme rounded-bottom rounded-4 mycustombtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-        aria-controls="offcanvasWithBothOptions">Book Now</button>
+        
         <div class="container featured-cars">
             <!-- Row -->
             <div class="row">

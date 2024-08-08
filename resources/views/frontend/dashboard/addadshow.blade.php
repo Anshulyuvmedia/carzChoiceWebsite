@@ -5,8 +5,8 @@
     <style>
         #heading {
             text-transform: uppercase;
-            color: #ff3232;
-            font-weight: normal
+            color: #037cef;
+            font-weight: 700;
         }
 
         #msform {
@@ -35,7 +35,7 @@
             display: none
         }
 
-        #msform input,
+        /* #msform input,
         #msform textarea {
             padding: 8px 15px 8px 15px;
             border: 1px solid #ccc;
@@ -49,26 +49,24 @@
             background-color: #ECEFF1;
             font-size: 16px;
             letter-spacing: 1px
-        }
+        } */
 
         #msform input:focus,
         #msform textarea:focus {
             -moz-box-shadow: none !important;
             -webkit-box-shadow: none !important;
             box-shadow: none !important;
-            border: 1px solid #ff3232;
-            ;
+            border: 1px solid #037cef;
             outline-width: 0
         }
 
         #msform .action-button {
             width: 100px;
-            background: #ff3232;
-            ;
+            background: #037cef;
             font-weight: bold;
             color: white;
             border: 0 none;
-            border-radius: 0px;
+            border-radius: 10px;
             cursor: pointer;
             padding: 10px 5px;
             margin: 10px 0px 10px 5px;
@@ -77,16 +75,16 @@
 
         #msform .action-button:hover,
         #msform .action-button:focus {
-            background-color: #ff3232;
+            background-color: #037cef;
         }
 
         #msform .action-button-previous {
             width: 100px;
-            background: #616161;
+            background: #ffffff;
             font-weight: bold;
-            color: white;
-            border: 0 none;
-            border-radius: 0px;
+            color: rgb(0, 0, 0);
+            border: 2px solid black;
+            border-radius: 10px;
             cursor: pointer;
             padding: 10px 5px;
             margin: 10px 5px 10px 0px;
@@ -96,6 +94,8 @@
         #msform .action-button-previous:hover,
         #msform .action-button-previous:focus {
             background-color: #000000
+            color: white;
+
         }
 
         .card {
@@ -106,14 +106,14 @@
 
         .fs-title {
             font-size: 25px;
-            color: #ff3232;
+            color: #037cef;
             margin-bottom: 15px;
             font-weight: normal;
             text-align: left
         }
 
         .purple-text {
-            color: #ff3232;
+            color: #037cef;
             font-weight: normal
         }
 
@@ -137,7 +137,7 @@
         }
 
         #progressbar .active {
-            color: #ff3232
+            color: #037cef
         }
 
         #progressbar li {
@@ -195,7 +195,7 @@
 
         #progressbar li.active:before,
         #progressbar li.active:after {
-            background: #ff3232
+            background: #037cef
         }
 
         .progress {
@@ -203,7 +203,7 @@
         }
 
         .progress-bar {
-            background-color: #ff3232
+            background-color: #037cef
         }
 
         .fit-image {
@@ -309,12 +309,12 @@
                                             </div>
                                             <div class="col-lg-4 mt-3">
                                                 <label class="fieldlabels">State</label>
-                                                <input type="text" value="" id="stateid" name="state"
+                                                <input class="form-control" type="text" value="" id="stateid" name="state"
                                                     placeholder="state" required />
                                             </div>
                                             <div class="col-lg-4 mt-3">
                                                 <label class="fieldlabels">Pincode</label>
-                                                <input type="text" value="" id="pincodeid" name="pincode"
+                                                <input class="form-control" type="text" value="" id="pincodeid" name="pincode"
                                                     placeholder="pincode" required />
                                             </div>
                                         </div>
@@ -334,37 +334,37 @@
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Price</label>
-                                                <input type="text" name="price" placeholder="selling price"
+                                                <input class="form-control" type="text" name="price" placeholder="selling price"
                                                     required />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Kilometers Driven</label>
-                                                <input type="text" name="kilometersdriven"
+                                                <input class="form-control" type="text" name="kilometersdriven"
                                                     placeholder="kilometers driven" required />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Fuel Type</label>
-                                                <input type="text" name="fueltype" placeholder="enter fuel type"
+                                                <input class="form-control" type="text" name="fueltype" placeholder="enter fuel type"
                                                     required />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Registration year</label>
-                                                <input type="text" name="registeryear"
+                                                <input class="form-control" type="text" name="registeryear"
                                                     placeholder="enter registration year" required />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Manufacturing year</label>
-                                                <input type="text" name="manufactureyear"
+                                                <input class="form-control" type="text" name="manufactureyear"
                                                     placeholder="enter manufacturing year" required />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">No. of owners</label>
-                                                <input type="text" name="ownernumbers"
+                                                <input class="form-control" type="text" name="ownernumbers"
                                                     placeholder="enter number of owners" required />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Transmission Type</label>
-                                                <input type="text" name="transmissiontype"
+                                                <input class="form-control" type="text" name="transmissiontype"
                                                     placeholder="enter tranmission type" required />
                                             </div>
                                             <div class="col-lg-4">
@@ -381,17 +381,17 @@
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Insurance</label>
-                                                <input type="text" name="insurance"
+                                                <input class="form-control" type="text" name="insurance"
                                                     placeholder="enter insurance availibility" required />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Registration type</label>
-                                                <input type="text" name="registertype"
+                                                <input class="form-control" type="text" name="registertype"
                                                     placeholder="enter registration type" required />
                                             </div>
                                             <div class="col-lg-4">
                                                 <label class="fieldlabels">Last Updated</label>
-                                                <input type="text" name="lastupdated"
+                                                <input class="form-control" type="text" name="lastupdated"
                                                     placeholder="last updated on" required />
                                             </div>
                                         </div>
@@ -608,7 +608,7 @@
             </select>
         </td>
         <td>
-            <input type="file" name="images[]" placeholder="state" />
+            <input class="form-control" type="file" name="images[]" placeholder="state" />
         </td>
         <td>
             <a href="#"><button class="btn btn-danger btn-sm deleteRow" id="sa-warning">delete</button></a>

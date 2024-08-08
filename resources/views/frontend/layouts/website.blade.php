@@ -69,7 +69,7 @@
 
 <body class="position-relative">
     <!-- Preloader - style you can find in spinners.css -->
-    <header class="sticky-top bg-white ">
+    <header class="sticky-top bg-white shadow">
         <!-- =-=-=-=-=-=-= Preloader =-=-=-=-=-=-= -->
         <div class="preloader"></div>
 
@@ -80,217 +80,176 @@
                 <div class="container">
                     <div class="row">
                         <!-- Header Top Left -->
-                        <div class="header-top-left col-md-6 col-sm-6 col-xs-12 hidden-xs">
+                        {{-- <div class="header-top-left col-md-6 col-sm-6 col-xs-12 hidden-xs">
                             <ul class="listnone">
-                                {{-- <li><a href=""><i class="fa fa-heart-o" aria-hidden="true"></i> About</a></li> --}}
+                                <li><a href=""><i class="fa fa-heart-o" aria-hidden="true"></i> About</a></li>
 
                             </ul>
-                        </div>
-                        <!-- Header Top Right Social -->
-                        {{-- <div class="header-right col-md-6 col-sm-6 col-xs-12 ">
-                            <div class="pull-right">
-                                <ul class="listnone">
-                                    <li>
-                                        <a href="/loginuser">
-                                            <i class="bi bi-door-open-fill"></i> Log in
-                                        </a>
-                                    </li>
-                                    <li class="hidden-xs hidden-sm">
-                                        <a href="/registration">
-                                            <i class="fa fa-unlock" aria-hidden="true"></i> Register
-                                        </a>
-                                    </li>
-                                    <li class="dropdown">
-                                        @if (Auth::guard('registeruser')->user())
-                                            <a href="/userprofile">
-                                                <img class="img-circle resize border border-info"
-                                                    alt=""
-                                                    src="{{ asset('assets/backend-assets/images/' . Auth::guard('registeruser')->user()->dp) }}">
-
-                                                <span class="myname hidden-xs">
-                                                    {{ Auth::guard('registeruser')->user()->fullname }}
-                                                </span>
-                                            </a>
-                                        @else
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                                role="button" aria-haspopup="true" aria-expanded="false"><img
-                                                    class="img-circle resize" alt=""
-                                                    src="{{ asset('assets/frontend-assets/images/users/3.jpg') }}">
-                                                <span class="myname hidden-xs"> Guest User </span>
-                                            </a>
-                                        @endif
-                                        <ul class="dropdown-menu">
-                                            <li><a href="/userprofile">User Profile</a></li>
-                                            <li><a href="/userarchive">Archives</a></li>
-                                            <li><a href="/useractiveads">Active Ads</a></li>
-                                            <li><a href="/userfavourites">Favourite Ads</a></li>
-                                            <li><a href="/usermessages">Message Panel</a></li>
-                                            <li><a href="/userdeactive">Account Deactivation</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="postyourad" class="btn btn-theme rounded-0">Sell Your Car</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div> --}}
+                        
                     </div>
                 </div>
             </div>
             <!-- Top Bar End -->
             <!-- Navigation Menu -->
-            <div class="clearfix"></div>
+            
             <!-- menu start -->
             <nav id="menu-1" class="mega-menu">
                 <!-- menu list items container -->
                 <section class="menu-list-items ">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 d-flex align-items-center justify-content-between">
+                        <div class="row ">
+                            <div class=" d-flex align-items-center justify-content-between">
                                 <!-- menu logo -->
-                                <ul class="menu-logo">
-                                    <li>
-                                        <a href="/" class="">
-                                            <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}"
-                                                alt="logo" width="120">
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- menu links -->
-                                <ul class="menu-links">
-                                    <!-- active class -->
-                                    <li>
-                                        <a href="/">Home</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="javascript:void(0)">New Cars
-                                            <i class="fa fa-angle-down fa-indicator"></i>
-                                        </a>
-                                        <div class="drop-down grid-col-12">
-                                            <!--grid row-->
-                                            <div class="grid-row">
-                                                <!--grid column 3-->
-                                                <div class="grid-col-3">
-                                                    <h3>Condition</h3>
-                                                    <ul>
-                                                        <li><a href="/new-cars">Explore New Cars</a></li>
-                                                        <li><a data-value="Upcoming" class="brandfilter">Upcoming
-                                                                Cars</a></li>
-                                                        <li><a data-value="Newly Launched" class="brandfilter">New
-                                                                Launches </a></li>
-                                                        <li><a href="/electric-car">Electric Cars </a></li>
-                                                        <li><a href="/car-loan">Car Loan </a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="grid-col-3">
-                                                    <ul>
-                                                        <li><a href="/car-images">Car Images </a></li>
-                                                        <li><a href="/dealer-showroom">Find Dealer Showroom</a></li>
-                                                        {{-- <li><a href="/dealer-location">Find Dealer By Location</a></li> --}}
-                                                    </ul>
-                                                </div>
-
-                                                <div class="grid-col-6">
-                                                    <h3>Brands</h3>
-                                                    @php
-                                                        use App\Models\Master;
-                                                        $brands = Master::where('type', 'Brand')->get();
-                                                        // $bodytype = Master::where('type', 'Body Type')->get();
-                                                    @endphp
-                                                    <ul class="by-make list-inline">
-                                                        @foreach ($brands->take(12) as $data)
-                                                            <li>
-                                                                <a href="javascript:void(0);" class="brandfilter"
-                                                                    data-value="{{ $data->value }}">
-                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
-                                                                        class="img-responsive" alt="Brand Image">
-                                                                </a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    {{-- Used Cars --}}
-                                    <li>
-                                        <a href="javascript:void(0)">Used Cars <i
-                                                class="fa fa-angle-down fa-indicator"></i></a>
-                                        <div class="drop-down grid-col-12">
-                                            <!--grid row-->
-                                            <div class="grid-row">
-                                                <!--grid column 3-->
-                                                <div class="grid-col-2">
-                                                    <h3>Condition</h3>
-                                                    <ul>
-                                                        <li><a href="/used-car">Explore Used Cars</a></li>
-                                                        <li><a href="/usedcar-bylocation">Usedcar by location</a></li>
-                                                        <li><a href="/find-dealer">Find Dealer </a></li>
-                                                        <li><a href="/dealer-profile">Dealer Profile</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="grid-col-10">
-                                                    <h3>Search Used Cars by Brands</h3>
-                                                    <ul class="by-make list-inline">
-                                                        @foreach ($brands->take(14) as $data)
-                                                            <li>
-                                                                <a href="javascript:void(0);" class="brandfilter"
-                                                                    data-value="{{ $data->value }}">
-                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
-                                                                        class="img-responsive" alt="Brand Image">
-                                                                </a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="/news">News </a>
-                                    </li>
-
-                                </ul>
-
-                                <ul class="listnone d-flex justify-content-between align-items-center pe-5">
-                                    <li class="dropdown me-3">
-                                        @if (Auth::guard('registeruser')->user())
-                                            <a href="/userprofile" class="dropdown-toggle d-flex align-items-center"
-                                                data-toggle="dropdown" role="button" aria-haspopup="true"
-                                                aria-expanded="false">
-                                                <img class="img-circle resize border border-info " alt="user-profile"
-                                                    src="{{ asset('assets/backend-assets/images/' . Auth::guard('registeruser')->user()->dp) }}">
-
-                                                <span class="myname hidden-xs">
-                                                    {{ Auth::guard('registeruser')->user()->fullname }}
-                                                </span>
+                                <div class="col-md-2">
+                                    <ul class="menu-logo">
+                                        <li>
+                                            <a href="/" class="">
+                                                <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}"
+                                                    alt="logo" width="120">
                                             </a>
-                                            <ul
-                                                class="dropdown-menu dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-                                                <li><a href="/userprofile">User Profile</a></li>
-                                                <li><a {{ route('logoutuserfront') }}>Logout</a></li>
-                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-7 d-flex align-items-center justify-content-center">
+
+                                    <!-- menu links -->
+                                    <ul class="menu-links ">
+                                        <!-- active class -->
+                                        <li>
+                                            <a href="/">Home</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="javascript:void(0)">New Cars
+                                                <i class="fa fa-angle-down fa-indicator"></i>
+                                            </a>
+                                            <div class="drop-down grid-col-12">
+                                                <!--grid row-->
+                                                <div class="grid-row">
+                                                    <!--grid column 3-->
+                                                    <div class="grid-col-3">
+                                                        <h3>Explore</h3>
+                                                        <ul>
+                                                            <li><a href="/new-cars">Explore New Cars</a></li>
+                                                            <li><a data-value="Upcoming" class="brandfilter">Upcoming
+                                                                    Cars</a></li>
+                                                            <li><a data-value="Newly Launched" class="brandfilter">New
+                                                                    Launches </a></li>
+                                                            <li><a href="/electric-car">Electric Cars </a></li>
+                                                            <li><a href="/car-loan">Car Loan </a></li>
+                                                            <li><a href="/car-images">Car Images </a></li>
+                                                            <li><a href="/dealer-showroom">Find Dealer Showroom</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="grid-col-9">
+                                                        <h3>Search New Cars by Brands</h3>
+                                                        @php
+                                                            use App\Models\Master;
+                                                            $brands = Master::where('type', 'Brand')->get();
+                                                            // $bodytype = Master::where('type', 'Body Type')->get();
+                                                        @endphp
+                                                        <ul class="by-make list-inline">
+                                                            @foreach ($brands->take(16) as $data)
+                                                                <li>
+                                                                    <a href="javascript:void(0);" class="brandfilter"
+                                                                        data-value="{{ $data->value }}">
+                                                                        <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
+                                                                            class="img-responsive" alt="Brand Image">
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {{-- Used Cars --}}
+                                        <li>
+                                            <a href="javascript:void(0)">Used Cars <i
+                                                    class="fa fa-angle-down fa-indicator"></i></a>
+                                            <div class="drop-down grid-col-12">
+                                                <!--grid row-->
+                                                <div class="grid-row">
+                                                    <!--grid column 3-->
+                                                    <div class="grid-col-3">
+                                                        <h3>Explore</h3>
+                                                        <ul>
+                                                            <li><a href="/used-car">Explore Used Cars</a></li>
+                                                            <li><a href="/usedcar-bylocation">Usedcar by location</a>
+                                                            </li>
+                                                            <li><a href="/find-dealer">Find Dealer </a></li>
+                                                            <li><a href="/dealer-profile">Dealer Profile</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="grid-col-9">
+                                                        <h3>Search Used Cars by Brands</h3>
+                                                        <ul class="by-make list-inline">
+                                                            @foreach ($brands->take(16) as $data)
+                                                                <li>
+                                                                    <a href="javascript:void(0);" class="brandfilter"
+                                                                        data-value="{{ $data->value }}">
+                                                                        <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
+                                                                            class="img-responsive" alt="Brand Image">
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="/news">News </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+                                <div class="col-md-3 d-flex align-items-center justify-content-end">
+
+                                    <ul class="listnone d-flex justify-content-between align-items-center">
+                                        @if (Auth::guard('registeruser')->user())
+                                        <li class="">
+                                            <a href="/addadshow" class="btn btn-theme btn-sm">Sell Your Car</a>
+                                        </li>
+                                            <li class="dropdown ms-3">
+                                                <a href="/userprofile"
+                                                    class="dropdown-toggle d-flex align-items-center"
+                                                    data-toggle="dropdown" role="button" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    <img class="img-circle resize border border-info "
+                                                        alt="user-profile"
+                                                        src="{{ asset('assets/backend-assets/images/' . Auth::guard('registeruser')->user()->dp) }}">
+
+                                                    <span class="myname hidden-xs">
+                                                        {{ Auth::guard('registeruser')->user()->fullname }}
+                                                    </span>
+                                                </a>
+                                                <ul
+                                                    class="dropdown-menu dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                                    <li><a href="/userprofile">User Profile</a></li>
+                                                    <li><a href="{{ route('logoutuserfront') }}"">Logout</a></li>
+                                                </ul>
+                                            </li>
+                                            
                                         @else
-                                    <li class="me-3">
-                                        <a href="/loginuser">
-                                            <i class="bi bi-door-open-fill"></i> Log in
-                                        </a>
-                                    </li>
-                                    @endif
+                                            <li class="me-3">
+                                                <a href="/loginuser" class="btn btn-theme btn-outline">
+                                                    <i class="bi bi-door-open-fill"></i> Log in
+                                                </a>
+                                            </li>
+                                        @endif
 
-                                    </li>
-                                    <li class="hideInMobile">
-                                        <a href="postyourad" class="btn btn-theme ">Sell Your Car</a>
-                                    </li>
-                                </ul>
 
+                                        
+                                    </ul>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </section>
             </nav>
             <!-- menu end -->
@@ -298,7 +257,8 @@
         <!-- =-=-=-=-=-=-= Main Header End  =-=-=-=-=-=-= -->
 
     </header>
-
+    <button class="btn btn-theme rounded-bottom rounded-4 mycustombtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+    aria-controls="offcanvasWithBothOptions">Book Now</button>
 
     <div class="main-content-area clearfix">
         @yield('content')

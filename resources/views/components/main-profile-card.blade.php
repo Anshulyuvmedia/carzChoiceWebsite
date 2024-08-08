@@ -28,14 +28,14 @@ $user = json_decode($data);
                         <span class="label label-success">{{ $user->usertype }}</span>
                   </div>
                   <div class="col-md-7 col-sm-12 col-xs-12">
-                        <div class="row ad-history  d-flex justify-content-end">
-                           <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="row ad-history  d-flex justify-content-around">
+                           <div class="col-md-4 col-sm-4 col-xs-5">
                               <div class="user-stats rounded-4">
                                     <h2>{{ $addpostcount }}</h2>
                                     <small>Total Ads</small>
                               </div>
                            </div>
-                           <div class="col-md-4 col-sm-4 col-xs-12">
+                           <div class="col-md-4 col-sm-4 col-xs-5">
                               <div class="user-stats rounded-4">
                                     <h2>413</h2>
                                     <small>Favourites Ads</small>

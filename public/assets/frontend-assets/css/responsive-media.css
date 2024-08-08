@@ -842,7 +842,7 @@
     }
     
     .dropdown-menu {
-        left: -90px;
+        left: -110px;
     }
 
     .slider-banner {
@@ -1649,7 +1649,7 @@
         margin-bottom: 10px;
     }
     .dashboard-menu-container ul li {
-        width: 50%;
+        width: 33%;
         float: left;
         border-bottom: 1px solid #f1f1f1;
     }
