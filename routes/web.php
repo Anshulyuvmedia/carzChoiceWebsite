@@ -105,6 +105,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('usedcarfilter/{filtertype}', 'usedcarfilter')->name('usedcarfilter');
     Route::post('filtercarsbylocation/{city}', 'filtercarsbylocation')->name('filtercarsbylocation');
     Route::post('filterdealersbycity/{cityname}', 'filterdealersbycity')->name('filterdealersbycity');
+    Route::get('filterdistrictbystate/{state}', 'filterdistrictbystate')->name('filterdistrictbystate');
 
 });
 
@@ -203,7 +204,6 @@ Route::controller(Store::class)->group(function() {
     Route::post('/filterdealers', 'filterdealers')->name('filterdealers');
     Route::post('/updatevariantshowhidestatus', 'updatevariantshowhidestatus')->name('updatevariantshowhidestatus');
 });
-
 
 
 

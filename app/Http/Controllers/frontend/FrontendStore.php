@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Exception;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 class FrontendStore extends Controller
 {
@@ -955,5 +956,11 @@ class FrontendStore extends Controller
 
         $dealers = RegisterDealer::where('district',$cityname)->get();
         return response()->json($dealers);
+    }
+
+    public function filterdistrictbystate($state)
+    {
+        $districtsdata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->where('StateName',$state)->get();
+        return response()->json($districtsdata);
     }
 }

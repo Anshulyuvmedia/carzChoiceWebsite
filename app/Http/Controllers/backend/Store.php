@@ -300,7 +300,6 @@ class Store extends Controller
                 'email' => 'required|email',
                 'city' => 'required',
                 'state' => 'required',
-                'vehicle' => 'required',
             ]);
             $nonRequiredFields = [
                 'remarks' => $request->input('remarks'),

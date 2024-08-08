@@ -127,8 +127,8 @@ class frontViewController extends Controller
             }
             return $item;
         });
-
-        return view('frontend.home', compact('imagesdata', 'bodytype', 'carlists', 'adposts', 'matches', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
+        $statedata = PostOffices::select('StateName', DB::raw('COUNT(id) as count'))->groupBy('StateName')->get();
+        return view('frontend.home', compact('imagesdata','statedata', 'bodytype', 'carlists', 'adposts', 'matches', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
     }
     public function carlistingdetails($id)
     {
