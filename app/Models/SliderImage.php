@@ -10,5 +10,6 @@ class SliderImage extends Model
     protected $fillable = [
         'mainbannerimg',
         'checkonroadimg',
+        'mobileimages',
     ];
 }

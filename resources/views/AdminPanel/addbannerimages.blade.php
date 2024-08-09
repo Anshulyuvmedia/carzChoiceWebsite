@@ -28,18 +28,23 @@
                         <form action="{{ route('updatebannerimages') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3 row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <label for="example-search-input" class="form-label">Upload Main Banner Image</label>
                                     <input class="form-control" placeholder="company name" name="mainbannerimg"
                                         type="file" value="" id="example-search-input">
                                     <input type="hidden" name="imageid" value="{{$imagesdata[0]->id}}">
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <label for="example-search-input" class="form-label">Upload Check on Road Image</label>
                                     <input class="form-control" placeholder="company name" name="checkonroadimg"
                                         type="file" value="" id="example-search-input">
                                 </div>
-                                <div class="col-lg-4 d-flex align-items-end">
+                                <div class="col-lg-3">
+                                    <label for="example-search-input" class="form-label">Upload Images for Mobile Slider</label>
+                                    <input class="form-control" multiple placeholder="company name" name="mobileimages[]"
+                                        type="file" value="" id="example-search-input">
+                                </div>
+                                <div class="col-lg-3 d-flex align-items-end">
                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Update</button>
                                 </div>
                             </div>
@@ -56,17 +61,22 @@
                         <form action="{{ route('insertbannerimages') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3 row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <label for="example-search-input" class="form-label">Upload Main Banner Image</label>
                                     <input class="form-control" placeholder="company name" name="mainbannerimg"
                                         type="file" value="" id="example-search-input">
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <label for="example-search-input" class="form-label">Upload Check on Road Image</label>
                                     <input class="form-control" placeholder="company name" name="checkonroadimg"
                                         type="file" value="" id="example-search-input">
                                 </div>
-                                <div class="col-lg-4 d-flex align-items-end">
+                                <div class="col-lg-3">
+                                    <label for="example-search-input" class="form-label">Upload Images for Mobile Slider</label>
+                                    <input class="form-control" multiple placeholder="company name" name="mobileimages[]"
+                                        type="file" value="" id="example-search-input">
+                                </div>
+                                <div class="col-lg-3 d-flex align-items-end">
                                     <button type="submit" class="btn btn-success waves-effect waves-light">Upload</button>
                                 </div>
                             </div>
@@ -102,6 +112,18 @@
                                         @if ($row->checkonroadimg)
                                             <img src="{{asset("assets/backend-assets/images/" . $row->checkonroadimg) }}" alt="Thumbnail" width="200px" >
                                         @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <p class="fw-bold">Mobile Slider Images</p>
+                                        <div>
+                                            @if ($row->mobileimages)
+                                                @foreach (explode(',', $row->mobileimages) as $mobileimage)
+                                                    <img src="{{ $mobileimage }}" alt="Thumbnail" width="200px">
+                                                @endforeach
+                                            @endif
+                                        </div>
                                     </td>
                                 </tr>
                                 @endforeach

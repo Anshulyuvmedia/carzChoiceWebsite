@@ -506,9 +506,6 @@ class FrontendStore extends Controller
             }
         }
 
-
-
-
         // Step 2: Based on the type, filter AddVariant data
         switch ($type) {
             case 'Newly Launched':
@@ -962,5 +959,18 @@ class FrontendStore extends Controller
     {
         $districtsdata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->where('StateName',$state)->get();
         return response()->json($districtsdata);
+    }
+
+    public function filternewcardealersbybrand($brand){
+
+        $dealers = RegisterDealer::where('dealertype','=','New Car Dealer')->whereJsonContains('brands', $brand)->get();
+        // dd($dealers);
+        return response()->json($dealers);
+    }
+    public function filternewcardealersbycity($citynamedeal){
+
+        $dealerscity = RegisterDealer::where('dealertype','=','New Car Dealer')->where('district', $citynamedeal)->get();
+        // dd($dealers);
+        return response()->json($dealerscity);
     }
 }

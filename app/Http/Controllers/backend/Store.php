@@ -159,7 +159,7 @@ class Store extends Controller
 
             if ($req->hasFile('blogimg')) {
                 $req->validate([
-                    'blogimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'blogimg' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
                 ]);
                 $file = $req->file('blogimg');
                 $filename = time() . '_' . $file->getClientOriginalName();
@@ -172,8 +172,8 @@ class Store extends Controller
             return back()->with('success', 'Blog Added..!!!!');
 
         } catch (Exception $e) {
-            //return redirect()->route('addblog')->with('error', $e->getMessage());
-            return redirect()->route('addblog')->with('error', 'Not Added Try Again...!!!!');
+            return redirect()->route('addblog')->with('error', $e->getMessage());
+            //return redirect()->route('addblog')->with('error', 'Not Added Try Again...!!!!');
         }
     }
 
@@ -770,7 +770,21 @@ class Store extends Controller
                 $fileroad->move(public_path('assets/backend-assets/images'), $filenameroad);
                 $imagedata['checkonroadimg'] = $filenameroad;
             }
-            // dd($imagedata);
+
+            //Mutiple Image Upload
+            $image = array();
+            if ($files = $req->file('mobileimages')) {
+                foreach ($files as $file) {
+                    $image_name = md5(rand(1000, 10000));
+                    $extension = strtolower($file->getClientOriginalExtension());
+                    $image_fullname = $image_name . '.' . $extension;
+                    $uploaded_path = "public/assets/backend-assets/images/";
+                    $image_url = $uploaded_path . $image_fullname;
+                    $file->move($uploaded_path, $image_fullname);
+                    $image[] = $image_url;
+                }
+            }
+            $imagedata->mobileimages = count($image) > 0 ? implode(',', $image) : null;
             $imagedata->save();
             return back()->with('success', 'Images Added..!!!!');
 

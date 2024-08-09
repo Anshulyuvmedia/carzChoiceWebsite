@@ -113,7 +113,7 @@
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle header-profile-user"
-                                src="{{ asset('assets/backend-assets/images/defaultuser.png') }}" alt="Header Avatar">
+                                src="{{ asset('assets/backend-assets/images/logowhite.jpg') }}" alt="Header Avatar">
                             @if (Auth::user())
                             <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Welcome
                                 {{ Auth::user()->name }}</span>

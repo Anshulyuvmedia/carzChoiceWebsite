@@ -15,7 +15,6 @@
     <div id="banner" class="hideInMobile"
         style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->mainbannerimg) }}')">
         <div class="container">
-
             <div class="row">
                 <div class="col-6">
                     <div class="search-container">
@@ -117,33 +116,17 @@
         <div class="row">
             <div class="col-12">
                 <div class="homebannerslider owl-carousel owl-theme">
+                    @if ($imagesdata->mobileimages)
+                    @foreach (explode(',', $imagesdata->mobileimages) as $mobileimage)
                     <div class="item">
                         <div class="sliderr">
                             <div class="slider-banner">
-                                <img class="img-fluid"
-                                    src="{{ asset('assets/frontend-assets/images/home/banner-1.webp') }}"
-                                    alt="banner-1">
+                                <img class="img-fluid" src="{{ asset($mobileimage) }}" alt="banner-1" />
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="sliderr">
-                            <div class="slider-banner">
-                                <img class="img-fluid"
-                                    src="{{ asset('assets/frontend-assets/images/home/banner-2.webp') }}"
-                                    alt="banner-1">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="sliderr">
-                            <div class="slider-banner">
-                                <img class="img-fluid"
-                                    src="{{ asset('assets/frontend-assets/images/home/banner-3.webp') }}"
-                                    alt="banner-1">
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -486,7 +469,6 @@
 
                                                         </div>
                                                     </div>
-                                                    <!-- Listing Ad Grid -->
                                                 </div>
                                             </div>
                                         </div>
@@ -494,31 +476,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Middle Content Box End -->
                         </div>
                     </div>
-                    <!-- Row End -->
                 </div>
             </div>
-            <!-- Main Container End -->
         </div>
     </section>
     <!-- =-=-=-=-=-=-= Featured Ads End =-=-=-=-=-=-= -->
 
     <!-- =-=-=-=-=-=-= Popular Cars Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
-        <!-- Main Container -->
         <div class="container popular-cars">
-            <!-- Row -->
             <div class="row">
-
-
-                <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row card">
                         <div class="heading-panel">
                             <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                                <!-- Main Title -->
                                 <h1>Get <span class="heading-color"> Offers</span> on Popular Cars</h1>
                             </div>
                         </div>
@@ -526,7 +499,6 @@
                             @foreach ($matchesoffer as $data)
                             <div class="item">
                                 <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
                                     <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             {{-- <div class="featured-ribbon">
@@ -557,7 +529,8 @@
                                                     <span class="text-muted ps-2">onwards</span>
                                                 </div>
                                                 <a class="" data-bs-toggle="offcanvas"
-                                                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                                                    data-bs-target="#offcanvasWithBothOptions"
+                                                    aria-controls="offcanvasWithBothOptions">
                                                     <button class="btn btn-theme rounded-4 btn-sm ">
                                                         Get Offer
                                                     </button>
@@ -655,9 +628,11 @@
         <!--Image One-->
         {{-- <div class="background-1"></div> --}}
         <!--Image Two-->
+        @if (!empty($data->checkonroadimg))
         <div class="background-2"
             style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->checkonroadimg) }}')">
         </div>
+        @endif
 
         <div class="container">
             <div class="row clearfix">
@@ -677,13 +652,11 @@
                                         <h4>Check On-Road Price</h4>
                                         <form id="checkonroad">
                                             <div class="search-form ">
-                                                    <select name="carname"
-                                                    class="form-control search-year rounded-4"
+                                                <select name="carname" class="form-control search-year rounded-4"
                                                     id="dynamiccarname">
                                                     <option value="0">--select-car--</option>
                                                     @foreach ($carlists as $data)
-                                                    <option
-                                                        value="{{ $data->carname }},{{ $data->brandname }}">
+                                                    <option value="{{ $data->carname }},{{ $data->brandname }}">
                                                         {{ $data->carname }}, {{ $data->brandname }}
                                                     </option>
                                                     @endforeach
@@ -805,6 +778,15 @@
                 <label for="formGroupExampleInput" class="form-label mt-3">Email</label>
                 <input type="email" class="form-control" name="email" id="formGroupExampleInput"
                     placeholder="Enter Email Address">
+                <label for="formGroupExampleInput" class="form-label mt-3">Select Car</label>
+                <select class="selectpicker" data-show-subtext="true" data-live-search="true">
+                    <option>--select-car</option>
+                    @foreach ($variantdata as $data)
+                    <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
+                        {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
+                    </option>
+                    @endforeach
+                </select>
                 <label>State <span class="color-red">*</span></label>
                 <select class="form-control" id="dynamic_selectstate" name="state" required>
                     <option value="">--select state--</option>
@@ -815,15 +797,6 @@
                 <label>District <span class="color-red">*</span></label>
                 <select class="form-control" name="city" id="dynamic_district" required>
                     <option value="">--select district--</option>
-                </select>
-                <label for="formGroupExampleInput" class="form-label mt-3">Select Car</label>
-                <select class="selectpicker" data-show-subtext="true" data-live-search="true">
-                    <option>--select-car</option>
-                    @foreach ($carlists as $data)
-                        <option value="{{ $data->carname }},{{ $data->brandname }}">
-                            {{ $data->carname }}, {{ $data->brandname }}
-                        </option>
-                    @endforeach
                 </select>
                 <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once</div>
                 <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Register</button>
@@ -872,7 +845,7 @@
             console.log(bodytype);
 
             $.ajax({
-                url: "/filterByAttribute/",
+                url: "/filterByAttribute/" + bodytype,
                 type: 'POST',
                 data: {
                     attribute: bodytype

@@ -15,7 +15,6 @@ class LatestCarUpdates extends Component
         $this->carnews = Blog::orderBy('created_at','desc')->where('categorytype','=','Car News')->get();
         $this->expert = Blog::orderBy('created_at','desc')->where('categorytype','=','Expert Reviews')->get();
         $this->videos = Blog::orderBy('created_at','desc')->where('categorytype','=','Videos')->get();
-
     }
 
     public function render(): View|Closure|string

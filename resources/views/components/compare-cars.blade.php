@@ -6,8 +6,7 @@
                 <div class="row">
                     <div class="heading-panel">
                         <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                            <!-- Main Title -->
-                            <h1>Compare <span class="heading-color"> Cars</span> </h1>
+                            <h1>Compare <span class="heading-color">Cars</span> </h1>
                         </div>
                     </div>
                     <div class=" comapare-slider container owl-carousel owl-theme">

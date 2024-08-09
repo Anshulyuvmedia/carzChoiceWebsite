@@ -32,7 +32,8 @@ class AdminView extends Controller
     public function adminprofile()
     {
         $user = Auth::user();
-        return view('AdminPanel.adminprofile', compact('user'));
+        $registeredusers = RegisterUser::orderBy('created_at','desc')->get();
+        return view('AdminPanel.adminprofile', compact('user','registeredusers'));
     }
 
     public function companyprofile()

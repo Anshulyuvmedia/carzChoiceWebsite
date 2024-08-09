@@ -28,7 +28,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <div class="text-center">
-                            <div class="dropdown float-end">
+                            {{-- <div class="dropdown float-end">
                                 <a class="text-body dropdown-toggle font-size-18" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true">
                                     <i class="uil uil-ellipsis-v"></i>
@@ -39,23 +39,16 @@
                                     <a class="dropdown-item" href="#">Action</a>
                                     <a class="dropdown-item" href="#">Remove</a>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="clearfix"></div>
                             <div>
-                                <img src="{{asset('assets/backend-assets/images/defaultuser.png')}}" alt=""
+                                <img src="{{asset('assets/backend-assets/images/logowhite.jpg')}}" alt=""
                                     class="avatar-lg rounded-circle img-thumbnail">
                             </div>
                             <h5 class="mt-3 mb-1">{{$user->name}}</h5>
-                            <p class="text-muted">UI/UX Designer</p>
-
-                            <div class="mt-4">
-                                <button type="button" class="btn btn-light btn-sm"><i
-                                        class="uil uil-envelope-alt me-2"></i> Message</button>
-                            </div>
+                            <p class="text-muted">CarzChoice</p>
                         </div>
-
                         <hr class="my-4">
-
                         <div class="text-muted">
                             <h5 class="font-size-16">About</h5>
                             <p>Hi I'm {{$user->name}},has been the industry's standard dummy text To an English person,
@@ -97,8 +90,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="tab" href="#tasks" role="tab">
-                                <i class="uil uil-clipboard-notes font-size-20"></i>
-                                <span class="d-none d-sm-block">Cars</span>
+                                <i class="uil uil-user font-size-20"></i>
+                                <span class="d-none d-sm-block">Registered Users</span>
                             </a>
                         </li>
                         {{-- <li class="nav-item">
@@ -144,155 +137,33 @@
                         </div>
                         <div class="tab-pane" id="tasks" role="tabpanel">
                             <div>
-                                <h5 class="font-size-16 mb-4">Projects</h5>
-
-                                <div class="table-responsive">
-                                    <table class="table table-nowrap table-hover mb-0">
+                                <div class="table-responsive ">
+                                    <table class="table table-nowrap table-hover mb-0 table-bordered">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Projects</th>
-                                                <th scope="col">Date</th>
+                                                <th scope="col">S.No</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Contact</th>
+                                                <th scope="col">User Type</th>
                                                 <th scope="col">Status</th>
-                                                <th scope="col" style="width: 120px;">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($registeredusers as $index => $users)
                                             <tr>
-                                                <th scope="row">01</th>
-                                                <td><a href="#" class="text-reset ">Brand Logo Design</a></td>
+                                                <th scope="row">{{$index + 1}}</th>
+                                                <td><a href="#" class="text-reset ">{{$users->fullname}}</a></td>
+                                                <td>{{$users->contactno}}</td>
+                                                <td>{{$users->usertype}}</td>
                                                 <td>
-                                                    18 Jun, 2020
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        class="badge bg-primary-subtle text-primary font-size-12">Open</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#"
-                                                            role="button" data-bs-toggle="dropdown"
-                                                            aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else
-                                                                here</a>
-                                                        </div>
-                                                    </div>
+                                                    @if($users->verifystatus == 1)
+                                                        <span class="badge bg-success-subtle text-success font-size-12">Verified</span>
+                                                    @else
+                                                        <span class="badge bg-danger-subtle text-danger font-size-12">Not Verified</span>
+                                                    @endif
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">02</th>
-                                                <td><a href="#" class="text-reset">Minible Admin</a></td>
-                                                <td>
-                                                    06 Jun, 2020
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        class="badge bg-primary-subtle text-primary font-size-12">Open</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#"
-                                                            role="button" data-bs-toggle="dropdown"
-                                                            aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else
-                                                                here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">03</th>
-                                                <td><a href="#" class="text-reset">Chat app Design</a></td>
-                                                <td>
-                                                    28 May, 2020
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        class="badge bg-success-subtle text-success font-size-12">Complete</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#"
-                                                            role="button" data-bs-toggle="dropdown"
-                                                            aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else
-                                                                here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">04</th>
-                                                <td><a href="#" class="text-reset">Minible Landing</a></td>
-                                                <td>
-                                                    13 May, 2020
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        class="badge bg-success-subtle  text-success font-size-12">Complete</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#"
-                                                            role="button" data-bs-toggle="dropdown"
-                                                            aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else
-                                                                here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">05</th>
-                                                <td><a href="#" class="text-reset ">Authentication Pages</a></td>
-                                                <td>
-                                                    06 May, 2020
-                                                </td>
-                                                <td>
-                                                    <span
-                                                        class="badge bg-success-subtle text-success font-size-12">Complete</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a class="text-muted dropdown-toggle font-size-18 px-2" href="#"
-                                                            role="button" data-bs-toggle="dropdown"
-                                                            aria-haspopup="true">
-                                                            <i class="uil uil-ellipsis-v"></i>
-                                                        </a>
-
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Action</a>
-                                                            <a class="dropdown-item" href="#">Another action</a>
-                                                            <a class="dropdown-item" href="#">Something else
-                                                                here</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
