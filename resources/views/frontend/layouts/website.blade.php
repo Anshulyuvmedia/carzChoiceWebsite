@@ -18,7 +18,8 @@
     <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
     <link rel="icon" href="{{ asset('assets/frontend-assets/images/favicon.ico') }}" type="image/x-icon" />
     <!-- =-=-=-=-=-=-= Mobile Specific =-=-=-=-=-=-= -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- =-=-=-=-=-=-= Bootstrap CSS Style =-=-=-=-=-=-= -->
     <link rel="stylesheet" href="{{ asset('assets/frontend-assets/css/bootstrap.css') }}">
@@ -87,13 +88,13 @@
 
                             </ul>
                         </div> --}}
-                        
+
                     </div>
                 </div>
             </div>
             <!-- Top Bar End -->
             <!-- Navigation Menu -->
-            
+
             <!-- menu start -->
             <nav id="menu-1" class="mega-menu">
                 <!-- menu list items container -->
@@ -140,7 +141,8 @@
                                                             <li><a href="/electric-car">Electric Cars </a></li>
                                                             <li><a href="/car-loan">Car Loan </a></li>
                                                             <li><a href="/car-images">Car Images </a></li>
-                                                            <li><a href="/dealer-showroom">Find Dealer Showroom</a></li>
+                                                            <li><a href="/dealer-showroom">Find Dealer Showroom</a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                     <div class="grid-col-9">
@@ -213,9 +215,9 @@
 
                                     <ul class="listnone d-flex justify-content-between align-items-center">
                                         @if (Auth::guard('registeruser')->user())
-                                        <li class="">
-                                            <a href="/addadshow" class="btn btn-theme btn-sm">Sell Your Car</a>
-                                        </li>
+                                            <li class="">
+                                                <a href="/addadshow" class="btn btn-theme btn-sm">Sell Your Car</a>
+                                            </li>
                                             <li class="dropdown ms-3">
                                                 <a href="/userprofile"
                                                     class="dropdown-toggle d-flex align-items-center"
@@ -235,7 +237,6 @@
                                                     <li><a href="{{ route('logoutuserfront') }}"">Logout</a></li>
                                                 </ul>
                                             </li>
-                                            
                                         @else
                                             <li class="me-3">
                                                 <a href="/loginuser" class="btn btn-theme btn-outline">
@@ -245,7 +246,7 @@
                                         @endif
 
 
-                                        
+
                                     </ul>
 
                                 </div>
@@ -258,8 +259,8 @@
         <!-- =-=-=-=-=-=-= Main Header End  =-=-=-=-=-=-= -->
 
     </header>
-    <button class="btn btn-theme rounded-bottom rounded-4 mycustombtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-    aria-controls="offcanvasWithBothOptions">Book Now</button>
+    <button class="btn btn-theme rounded-bottom rounded-4 mycustombtn" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book Now</button>
 
     <div class="main-content-area clearfix">
         @yield('content')
@@ -401,10 +402,92 @@
         </nav>
     </div>
 
+    @php
+        use App\Models\AddVariant;
+        use App\Models\PostOffices;
+
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
+        $statedata = PostOffices::select('StateName', DB::raw('COUNT(id) as count'))->groupBy('StateName')->get();
+
+    @endphp
+    <!-- Off-canvas HTML Structure -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold fs-4" id="offcanvasWithBothOptionsLabel">Book Your Vehicle Now</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Provide your contact details for Test Drive, EMI options, Offers & Exchange Benefits</p>
+            <form action="{{ route('insertlead') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" name="fullname" id="formGroupExampleInput"
+                        placeholder="Enter Fullname">
+                    <label for="formGroupExampleInput" class="form-label mt-3">Contact Number</label>
+                    <input type="tel" class="form-control" name="mobile" id="formGroupExampleInput"
+                        placeholder="Enter Mobile Number">
+                    <label for="formGroupExampleInput" class="form-label mt-3">Email</label>
+                    <input type="email" class="form-control" name="email" id="formGroupExampleInput"
+                        placeholder="Enter Email Address">
+                    <label for="formGroupExampleInput" class="form-label mt-3">Select Car</label>
+                    <select class="selectpicker" data-show-subtext="true" data-live-search="true">
+                        <option>--select-car</option>
+                        @foreach ($variantdata as $data)
+                            <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
+                                {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
+                            </option>
+                        @endforeach
+                    </select>
+                    <label>State <span class="color-red">*</span></label>
+                    <select class="form-control" id="dynamic_selectstate" name="state" required>
+                        <option value="">--select state--</option>
+                        @foreach ($statedata as $row)
+                            <option value="{{ $row->StateName }}">{{ $row->StateName }}</option>
+                        @endforeach
+                    </select>
+                    <label>District <span class="color-red">*</span></label>
+                    <select class="form-control" name="city" id="dynamic_district" required>
+                        <option value="">--select district--</option>
+                    </select>
+                    <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once
+                    </div>
+                    <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        //This is District Filter By State in Offcanvas
+        $(function() {
+            $('#dynamic_selectstate').on('change', function() {
+                var state = $(this).val();
+                console.log(state);
+                $.ajax({
+                    url: "/filterdistrictbystate/" + state,
+                    type: "GET",
+                    success: function(data) {
+                        console.log(data);
+                        var dropdown1 = $('#dynamic_district');
+                        dropdown1.empty();
+                        dropdown1.append($('<option selected>Choose...</option>'));
+                        data.forEach(function(item) {
+                            dropdown1.append($('<option value="' + item.District +
+                                '">' +
+                                item.District +
+                                '</option>'));
+                        });
+                    }
+                });
+            });
+        });
+
+
+
         document.addEventListener("DOMContentLoaded", () => {
             const list = document.querySelectorAll(".nav__item");
 

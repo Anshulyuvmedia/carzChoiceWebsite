@@ -841,7 +841,7 @@
 
     }
     
-    .dropdown-menu {
+    .listnone .dropdown-menu {
         left: -110px;
     }
 
