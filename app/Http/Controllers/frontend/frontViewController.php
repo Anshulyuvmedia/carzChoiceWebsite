@@ -34,6 +34,7 @@ class frontViewController extends Controller
     public function home()
     {
         $imagesdata = SliderImage::first();
+        // dd($imagesdata);
         $adposts = AdPost::orderBy('created_at', 'desc')->get();
         $carlists = Carlist::get();
         $bodytype = Master::where('type', '=', 'Body Type')->get();
@@ -127,8 +128,8 @@ class frontViewController extends Controller
             }
             return $item;
         });
-
-        return view('frontend.home', compact('imagesdata', 'bodytype', 'carlists', 'adposts', 'matches', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
+        $statedata = PostOffices::select('StateName', DB::raw('COUNT(id) as count'))->groupBy('StateName')->get();
+        return view('frontend.home', compact('imagesdata','variantdata', 'statedata', 'bodytype', 'carlists', 'adposts', 'matches', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
     }
     public function carlistingdetails($id)
     {
@@ -176,7 +177,7 @@ class frontViewController extends Controller
                 }
             }
         }
-        return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pros', 'cons', 'variantsfaqs', 'similarcars','matchingDealers'));
+        return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pros', 'cons', 'variantsfaqs', 'similarcars', 'matchingDealers'));
     }
     public function carlisting()
     {
@@ -352,6 +353,8 @@ class frontViewController extends Controller
     }
     public function newcars()
     {
+        $carlists = Carlist::get();
+
         $trending = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
             ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
             ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
@@ -439,7 +442,8 @@ class frontViewController extends Controller
             }
             return $item;
         });
-        return view('frontend.newCarsLayouts.newcars', compact('matches', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
+        $statedata = PostOffices::select('StateName', DB::raw('COUNT(id) as count'))->groupBy('StateName')->get();
+        return view('frontend.newCarsLayouts.newcars', compact('matches', 'carlists', 'statedata', 'matchespopular', 'matchesupcoming', 'matchesoffer', 'matchestopcarsindia'));
     }
     public function upcomingcar()
     {
@@ -471,7 +475,27 @@ class frontViewController extends Controller
     }
     public function electriccar()
     {
-        return view('frontend.newCarsLayouts.electriccar');
+        $electriccars = CarList::join('add_variants', 'car_lists.carname', '=', 'add_variants.carname')
+            ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
+            ->select('add_variants.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+            ->where('vehicle_images.type', '=', 'Outer view')
+            ->where('showhidestatus', '=', 1)
+            ->get();
+
+        //dd($electriccars);
+        $electricfinal = $electriccars->filter(function($car) {
+            $fueltypes = json_decode($car->fueltype, true);
+            return is_array($fueltypes) && in_array('Electric', $fueltypes);
+        });
+
+        // Filter for Hybrid cars
+        $hybridCars = $electriccars->filter(function($car) {
+            $fueltypes = json_decode($car->fueltype, true);
+
+            // Check if 'Hybrid' is in the decoded array
+            return is_array($fueltypes) && in_array('Hybrid', $fueltypes);
+        });
+        return view('frontend.newCarsLayouts.electriccar',compact('electricfinal','hybridCars','electriccars'));
     }
     public function usedcar()
     {
@@ -576,7 +600,7 @@ class frontViewController extends Controller
 
     public function finddealer()
     {
-        $dealers = RegisterDealer::orderBy('created_at', 'desc')->get();
+        $dealers = RegisterDealer::where('dealertype','Old Car Dealer')->orderBy('created_at', 'desc')->get();
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
         return view('frontend.dealerlayouts.finddealer', compact('dealers', 'statedata'));
     }
@@ -587,7 +611,105 @@ class frontViewController extends Controller
     }
     public function dealershowroom()
     {
-        return view('frontend.newCarsLayouts.dealershowroom');
+        $brands = Master::where('type', 'brand')->get();
+        $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+        $dealers = RegisterDealer::where('dealertype','New Car Dealer')->orderBy('created_at', 'desc')->get();
+
+        $imagesdata = SliderImage::first();
+        $adposts = AdPost::orderBy('created_at', 'desc')->get();
+        $carlists = Carlist::get();
+        $bodytype = Master::where('type', '=', 'Body Type')->get();
+
+
+        $trending = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
+            ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
+            ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+            ->where('vehicle_images.type', '=', 'Outer view')
+            ->where('display_settings.category', '=', 'Trending')
+            ->get();
+
+        $popular = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
+            ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
+            ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+            ->where('vehicle_images.type', '=', 'Outer view')
+            ->where('display_settings.category', '=', 'Popular')->get();
+
+        $upcoming = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
+            ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
+            ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+            ->where('vehicle_images.type', '=', 'Outer view')
+            ->where('display_settings.category', '=', 'Upcoming')->get();
+
+        $offer = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
+            ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
+            ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+            ->where('vehicle_images.type', '=', 'Outer view')
+            ->where('display_settings.type', '=', 'Offers On Popular Cars')->get();
+
+        $topcarindia = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
+            ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
+            ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+            ->where('vehicle_images.type', '=', 'Outer view')
+            ->where('display_settings.type', '=', 'Top Cars In India')->get();
+
+
+        //Matching Variants from Carname field...
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
+        $trendingCarNames = $trending->pluck('carname');
+        $trendingPopularNames = $popular->pluck('carname');
+        $trendingUpcomingNames = $upcoming->pluck('carname');
+        $offer = $offer->pluck('carname');
+        $topcarsinindia = $topcarindia->pluck('carname');
+
+        $matches = $variantdata->whereIn('carname', $trendingCarNames);
+        $matches = $matches->map(function ($item) use ($trending) {
+            $trendingItem = $trending->firstWhere('carname', $item->carname);
+            if ($trendingItem) {
+                $item->addimage = $trendingItem->addimage;
+            }
+            return $item;
+        });
+
+        $matchespopular = $variantdata->whereIn('carname', $trendingPopularNames);
+        $matchespopular = $matchespopular->map(function ($item) use ($popular) {
+            $trendingItem = $popular->firstWhere('carname', $item->carname);
+            if ($trendingItem) {
+                $item->addimage = $trendingItem->addimage;
+            }
+            return $item;
+        });
+
+
+        $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames);
+        $matchesupcoming = $matchesupcoming->map(function ($item) use ($upcoming) {
+            $trendingItem = $upcoming->firstWhere('carname', $item->carname);
+            if ($trendingItem) {
+                $item->addimage = $trendingItem->addimage;
+            }
+            return $item;
+        });
+
+
+
+        $matchesoffer = $variantdata->whereIn('carname', $offer);
+        $matchesoffer = $matchesoffer->map(function ($item) use ($offer) {
+            $trendingItem = $offer->firstWhere('carname', $item->carname);
+            if ($trendingItem) {
+                $item->addimage = $trendingItem->addimage;
+            }
+            return $item;
+        });
+
+
+        $matchestopcarsindia = $variantdata->whereIn('carname', $topcarsinindia);
+        $matchestopcarsindia = $matchestopcarsindia->map(function ($item) use ($topcarindia) {
+            $trendingItem = $topcarindia->firstWhere('carname', $item->carname);
+            if ($trendingItem) {
+                $item->addimage = $trendingItem->addimage;
+            }
+            return $item;
+        });
+        return view('frontend.newCarsLayouts.dealershowroom', compact('imagesdata','brands', 'statedata','dealers', 'matches', 'matchespopular', 'matchesupcoming',));
     }
     public function dealerbylocation()
     {

@@ -32,7 +32,8 @@ class AdminView extends Controller
     public function adminprofile()
     {
         $user = Auth::user();
-        return view('AdminPanel.adminprofile', compact('user'));
+        $registeredusers = RegisterUser::orderBy('created_at','desc')->get();
+        return view('AdminPanel.adminprofile', compact('user','registeredusers'));
     }
 
     public function companyprofile()
@@ -250,10 +251,16 @@ class AdminView extends Controller
         return view('AdminPanel.vehicleimages',compact('data','colors','imageslist','carnamedata','masterdata','mastercolordata','vehicleimgdata','carlistdata'));
     }
 
-    public function dealerslist(){
-        $registereddealers = RegisterDealer::orderBy('created_at', 'desc')->get();
+    public function dealerslist($status){
+        $registereddealers = RegisterDealer::where('dealertype',$status)->orderBy('created_at', 'desc')->get();
         $masterdata = Master::where('type', '=', 'Brand')->get();
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
         return view('AdminPanel.dealerslist', compact('registereddealers','masterdata','statedata'));
+    }
+
+    public function adddealerdetails(){
+        $brands = Master::where('type', '=', 'Brand')->get();
+        $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+        return view('AdminPanel.adddealerdetails', compact('brands','statedata'));
     }
 }

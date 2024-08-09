@@ -7,14 +7,13 @@
     <div id="banner" class="hideInMobile"
         style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->mainbannerimg) }}')">
         <div class="container">
-
             <div class="row">
                 <div class="col-6">
                     <div class="search-container">
                         <!-- Form -->
                         <h2>What are you looking for ?</h2>
                         <p>Search <strong>267,241</strong> new ads -<strong> 83 </strong> added today</p>
-                        <a class="btn btn-theme rounded-4">Post Your Ad</a>
+                        <a href="{{ route('addadshow') }}" class="btn btn-theme rounded-4">Post Your Ad</a>
                     </div>
                 </div>
                 <div class="col-6">
@@ -26,10 +25,12 @@
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs">
                                             <li class="nav-item active">
-                                                <a class="nav-link" data-toggle="tab" href="#tab1">Search Car In Details </a>
+                                                <a class="nav-link" data-toggle="tab" href="#tab1">Search Car In Details
+                                                </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#tab2">Search Car By Type</a>
+                                                <a class="nav-link" data-toggle="tab" href="#tab2">Search Car By
+                                                    Type</a>
                                             </li>
                                         </ul>
                                         <!-- Tab panes -->
@@ -42,7 +43,8 @@
                                                             <div class="col-md-6 no-padding">
                                                                 <div class="form-group">
                                                                     <label>Select Car Type</label>
-                                                                    <select name="cartype" class="form-control make rounded-4"
+                                                                    <select name="cartype"
+                                                                        class="form-control make rounded-4"
                                                                         id="dynamicselect">
                                                                         <option value="Used" selected>Used</option>
                                                                         <option value="New">New</option>
@@ -52,19 +54,21 @@
                                                             <div class="col-md-6 no-padding">
                                                                 <div class="form-group">
                                                                     <label>Type the car to select</label>
-                                                                    <select name="carname" class="form-control search-year rounded-4"
+                                                                    <select name="carname"
+                                                                        class="form-control search-year rounded-4"
                                                                         id="dynamiccarname">
                                                                         <option value="0">--select-car--</option>
                                                                         @foreach ($carlists as $data)
-                                                                            <option
-                                                                                value="{{ $data->carname }},{{ $data->brandname }}">
-                                                                                {{ $data->carname }}, {{ $data->brandname }}
-                                                                            </option>
+                                                                        <option
+                                                                            value="{{ $data->carname }},{{ $data->brandname }}">
+                                                                            {{ $data->carname }}, {{ $data->brandname }}
+                                                                        </option>
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <button type="submit" value="submit" class="btn btn-theme">Search
+                                                            <button type="submit" value="submit"
+                                                                class="btn btn-theme">Search
                                                                 Now</button>
                                                         </div>
 
@@ -75,15 +79,15 @@
                                                 <form>
                                                     <div class="search-form row">
                                                         @foreach ($bodytype->take(8) as $row)
-                                                            <div class="col-md-3 p-2">
-                                                                <div class="box">
-                                                                    <a id="cartypefilter" data-value="{{ $row->value }}">
-                                                                        <img alt="Convertible" width="75"
-                                                                            src="{{ asset('assets/backend-assets/images/' . $row->iconimage) }}">
-                                                                        <h4>{{ $row->value }}</h4>
-                                                                    </a>
-                                                                </div>
+                                                        <div class="col-md-3 p-2">
+                                                            <div class="box">
+                                                                <a id="cartypefilter" data-value="{{ $row->value }}">
+                                                                    <img alt="Convertible" width="75"
+                                                                        src="{{ asset('assets/backend-assets/images/' . $row->iconimage) }}">
+                                                                    <h4>{{ $row->value }}</h4>
+                                                                </a>
                                                             </div>
+                                                        </div>
                                                         @endforeach
                                                     </div>
                                                 </form>
@@ -104,33 +108,17 @@
         <div class="row">
             <div class="col-12">
                 <div class="homebannerslider owl-carousel owl-theme">
+                    @if ($imagesdata->mobileimages)
+                    @foreach (explode(',', $imagesdata->mobileimages) as $mobileimage)
                     <div class="item">
                         <div class="sliderr">
                             <div class="slider-banner">
-                                <img class="img-fluid"
-                                    src="{{ asset('assets/frontend-assets/images/home/banner-1.webp') }}"
-                                    alt="banner-1">
+                                <img class="img-fluid" src="{{ asset($mobileimage) }}" alt="banner-1" />
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="sliderr">
-                            <div class="slider-banner">
-                                <img class="img-fluid"
-                                    src="{{ asset('assets/frontend-assets/images/home/banner-2.webp') }}"
-                                    alt="banner-1">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="sliderr">
-                            <div class="slider-banner">
-                                <img class="img-fluid"
-                                    src="{{ asset('assets/frontend-assets/images/home/banner-3.webp') }}"
-                                    alt="banner-1">
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -230,8 +218,7 @@
 
                             <div class="filterImage">
                                 <img class="img-fluid"
-                                    src="{{ asset('assets/frontend-assets/images/home/offers.webp') }}"
-                                    alt="Offers">
+                                    src="{{ asset('assets/frontend-assets/images/home/offers.webp') }}" alt="Offers">
                             </div>
                         </div>
                     </a>
@@ -244,8 +231,8 @@
                             </div>
 
                             <div class="filterImage">
-                                <img class="img-fluid"
-                                    src="{{ asset('assets/frontend-assets/images/home/loan.webp') }}" alt="new-car">
+                                <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/loan.webp') }}"
+                                    alt="new-car">
                             </div>
                         </div>
                     </a>
@@ -256,12 +243,13 @@
             </div>
         </div>
         <span class="">
-            <a data-toggle="collapse" data-target="#MobNavi" aria-expanded="false" aria-controls="MobNavi">View More <i class="bi bi-arrow-right-short"></i>
+            <a data-toggle="collapse" data-target="#MobNavi" aria-expanded="false" aria-controls="MobNavi">View More <i
+                    class="bi bi-arrow-right-short"></i>
             </a>
         </span>
     </div>
     <!-- =-=-=-=-=-=-= Home Banner End =-=-=-=-=-=-= -->
-    
+
 
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
@@ -300,55 +288,55 @@
                                 <div class="row">
                                     <div class=" featured-slider owl-carousel owl-theme">
                                         @foreach ($matches as $data)
-                                            <div class="item">
-                                                <div class="grid-style-2">
-                                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                                        <div class="category-grid-box-1">
-                                                            <div class="featured-ribbon">
-                                                                <span>Trending</span>
-                                                            </div>
-                                                            <div class="image">
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Trending</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <a class=""
+                                                                href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
+                                                                <img alt="Carz Choice"
+                                                                    src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                    class="img-responsive">
+                                                                <div class="ribbon popular"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+
+                                                            <h3>
                                                                 <a class=""
                                                                     href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
-                                                                    <img alt="Carz Choice"
-                                                                        src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
-                                                                        class="img-responsive">
-                                                                    <div class="ribbon popular"></div>
+                                                                    {{ $data->brandname }}
+                                                                    {{ $data->carname }}
                                                                 </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. {{ $data->price }}
+                                                                <span class="text-muted ps-2">onwards</span>
                                                             </div>
-                                                            <div class="short-description-1 clearfix">
 
-                                                                <h3>
-                                                                    <a class=""
-                                                                        href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
 
-                                                                        {{ $data->brandname }}
-                                                                        {{ $data->carname }}
-                                                                    </a>
-                                                                </h3>
-                                                                <div class="ad-price">Rs. {{ $data->price }}
-                                                                    <span class="text-muted ps-2">onwards</span>
-                                                                </div>
+                                                            <a class=""
+                                                                href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                <button class="btn btn-theme rounded-4 btn-sm">
+                                                                    View Details
+                                                                    <i class="bi bi-arrow-up-right"></i>
+                                                                </button>
+                                                            </a>
 
-                                                                <p class="location">
-                                                                    <i class="fa fa-map-marker"></i>
-                                                                    On-Road Price, Delhi
-                                                                </p>
-
-                                                                <a class=""
-                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
-                                                                    <button class="btn btn-theme rounded-4 btn-sm">
-                                                                        View Details
-                                                                        <i class="bi bi-arrow-up-right"></i>
-                                                                    </button>
-                                                                </a>
-
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -361,57 +349,57 @@
                                 <div class="row">
                                     <div class=" featured-slider owl-carousel owl-theme">
                                         @foreach ($matchespopular as $data)
-                                            <div class="item">
-                                                <div class="grid-style-2">
-                                                    <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                        <div class="category-grid-box-1">
-                                                            <div class="featured-ribbon">
-                                                                <span>Popular</span>
-                                                            </div>
-                                                            <div class="image">
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Popular</span>
+                                                        </div>
+                                                        <div class="image">
+                                                            <a class=""
+                                                                href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
+                                                                <img alt="Carz Choice"
+                                                                    src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                    class="img-responsive">
+                                                                <div class="ribbon popular"></div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+
+
+                                                            <h3>
                                                                 <a class=""
                                                                     href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
-                                                                    <img alt="Carz Choice"
-                                                                        src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
-                                                                        class="img-responsive">
-                                                                    <div class="ribbon popular"></div>
+                                                                    {{ $data->brandname }}
+                                                                    {{ $data->carname }}
                                                                 </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. {{ $data->price }}
+                                                                <span class="text-muted ps-2">onwards</span>
                                                             </div>
-                                                            <div class="short-description-1 clearfix">
 
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
 
-                                                                <h3>
-                                                                    <a class=""
-                                                                        href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                            <a class=""
+                                                                href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
-                                                                        {{ $data->brandname }}
-                                                                        {{ $data->carname }}
-                                                                    </a>
-                                                                </h3>
-                                                                <div class="ad-price">Rs. {{ $data->price }}
-                                                                    <span class="text-muted ps-2">onwards</span>
-                                                                </div>
+                                                                <button class="btn btn-theme rounded-4 btn-sm  ">
+                                                                    Check Offers
+                                                                    <i class="bi bi-arrow-up-right"></i>
+                                                                </button>
+                                                            </a>
 
-                                                                <p class="location">
-                                                                    <i class="fa fa-map-marker"></i>
-                                                                    On-Road Price, Delhi
-                                                                </p>
-
-                                                                <a class=""
-                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
-
-                                                                    <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                        Check Offers
-                                                                        <i class="bi bi-arrow-up-right"></i>
-                                                                    </button>
-                                                                </a>
-
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -425,134 +413,125 @@
                                 <div class="row">
                                     <div class=" featured-slider owl-carousel owl-theme">
                                         @foreach ($matchesupcoming as $data)
-                                            <div class="item">
-                                                <div class="grid-style-2">
-                                                    <!-- Listing Ad Grid -->
-                                                    <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                        <div class="category-grid-box-1">
-                                                            <div class="featured-ribbon">
-                                                                <span>Upcoming</span>
-                                                            </div>
-                                                            <div class="image">
-                                                                <a class=""
-                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
-
-                                                                    <img alt="Carz Choice"
-                                                                        src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
-                                                                        class="img-responsive">
-                                                                </a>
-                                                            </div>
-                                                            <div class="short-description-1 clearfix">
-
-
-                                                                <h3>
-                                                                    <a class=""
-                                                                        href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
-
-                                                                        {{ $data->brandname }}
-                                                                        {{ $data->carname }}
-                                                                    </a>
-                                                                </h3>
-                                                                <div class="ad-price">Rs. {{ $data->price }}
-                                                                    <span class="text-muted ps-2">onwards</span>
-                                                                </div>
-
-                                                                <p class="location">
-                                                                    <i class="fa fa-map-marker"></i>
-                                                                    On-Road Price, Delhi
-                                                                </p>
-
-                                                                <a class=""
-                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
-                                                                    <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                        View Details
-                                                                        <i class="bi bi-arrow-up-right"></i>
-                                                                    </button>
-                                                                </a>
-
-                                                            </div>
+                                        <div class="item">
+                                            <div class="grid-style-2">
+                                                <!-- Listing Ad Grid -->
+                                                <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
+                                                    <div class="category-grid-box-1">
+                                                        <div class="featured-ribbon">
+                                                            <span>Upcoming</span>
                                                         </div>
-                                                        <!-- Listing Ad Grid -->
+                                                        <div class="image">
+                                                            <a class=""
+                                                                href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
+                                                                <img alt="Carz Choice"
+                                                                    src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                    class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="short-description-1 clearfix">
+
+
+                                                            <h3>
+                                                                <a class=""
+                                                                    href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
+                                                                    {{ $data->brandname }}
+                                                                    {{ $data->carname }}
+                                                                </a>
+                                                            </h3>
+                                                            <div class="ad-price">Rs. {{ $data->price }}
+                                                                <span class="text-muted ps-2">onwards</span>
+                                                            </div>
+
+                                                            <p class="location">
+                                                                <i class="fa fa-map-marker"></i>
+                                                                On-Road Price, Delhi
+                                                            </p>
+
+                                                            <a class=""
+                                                                href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                <button class="btn btn-theme rounded-4 btn-sm  ">
+                                                                    View Details
+                                                                    <i class="bi bi-arrow-up-right"></i>
+                                                                </button>
+                                                            </a>
+
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
                             </div>
-                            <!-- Middle Content Box End -->
                         </div>
                     </div>
-                    <!-- Row End -->
                 </div>
             </div>
-            <!-- Main Container End -->
         </div>
     </section>
     <!-- =-=-=-=-=-=-= Featured Ads End =-=-=-=-=-=-= -->
 
     <!-- =-=-=-=-=-=-= Popular Cars Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
-        <!-- Main Container -->
         <div class="container popular-cars">
-            <!-- Row -->
             <div class="row">
-
-
-                <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row card">
                         <div class="heading-panel">
                             <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                                <!-- Main Title -->
                                 <h1>Get <span class="heading-color"> Offers</span> on Popular Cars</h1>
                             </div>
                         </div>
                         <div class=" popular-slider container owl-carousel owl-theme px-2">
                             @foreach ($matchesoffer as $data)
-                                <div class="item">
-                                    <div class="grid-style-2">
-                                        <!-- Listing Ad Grid -->
-                                        <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                            <div class="category-grid-box-1">
-                                                {{-- <div class="featured-ribbon">
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                        <div class="category-grid-box-1">
+                                            {{-- <div class="featured-ribbon">
                                                 <span>Featured</span>
                                             </div> --}}
-                                                <div class="image">
-                                                    <img alt="Carz Choice"
-                                                        src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                        class="img-responsive">
-                                                    <div class="ribbon popular"></div>
-                                                    {{-- <div class="price-tag">
+                                            <div class="image">
+                                                <img alt="Carz Choice"
+                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                                {{-- <div class="price-tag">
                                                     <div class="price"><span>$205,000</span></div>
                                                 </div> --}}
-                                                </div>
-                                                <div class="short-description-1 clearfix">
-                                                    {{-- <div class="category-title">
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                {{-- <div class="category-title">
                                                     <span><a href="#">Sports &
                                                             Equipment</a></span>
                                                 </div> --}}
 
-                                                    <h3>
-                                                        <a title="" href="#">
-                                                            {{ $data->brandname }} {{ $data->carname }}
-                                                        </a>
-                                                    </h3>
-
-                                                    <div class="ad-price">Rs. {{ $data->price }}
-                                                        <span class="text-muted ps-2">onwards</span>
-                                                    </div>
-                                                    <a class="  ">
-                                                        <button class="btn btn-theme rounded-4 btn-sm ">
-                                                            Get Offer
-                                                        </button>
+                                                <h3>
+                                                    <a title="" href="#">
+                                                        {{ $data->brandname }} {{ $data->carname }}
                                                     </a>
+                                                </h3>
+
+                                                <div class="ad-price">Rs. {{ $data->price }}
+                                                    <span class="text-muted ps-2">onwards</span>
                                                 </div>
+                                                <a class="" data-bs-toggle="offcanvas"
+                                                    data-bs-target="#offcanvasWithBothOptions"
+                                                    aria-controls="offcanvasWithBothOptions">
+                                                    <button class="btn btn-theme rounded-4 btn-sm ">
+                                                        Get Offer
+                                                    </button>
+                                                </a>
                                             </div>
-                                            <!-- Listing Ad Grid -->
                                         </div>
+                                        <!-- Listing Ad Grid -->
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -567,7 +546,7 @@
     <!-- =-=-=-=-=-=-= Popular Cars Ads End =-=-=-=-=-=-= -->
 
     {{-- THIS IS ALL BRANDS COMPONENET --}}
-    <x-all-brands cartype="brandfilter"/>
+    <x-all-brands cartype="brandfilter" />
 
 
     {{-- THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET --}}
@@ -587,41 +566,41 @@
                 <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row card">
-                         <!-- Heading Area -->
-                <div class="heading-panel">
-                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                        <!-- Main Title -->
-                        <h1>Top Cars <span class="heading-color"> In India</span> </h1>
-                    </div>
-                </div>
+                        <!-- Heading Area -->
+                        <div class="heading-panel">
+                            <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                                <!-- Main Title -->
+                                <h1>Top Cars <span class="heading-color"> In India</span> </h1>
+                            </div>
+                        </div>
 
                         <div class=" popular-slider container owl-carousel owl-theme">
                             @foreach ($matchestopcarsindia as $data)
-                                <div class="item">
-                                    <div class="grid-style-2">
-                                        <!-- Listing Ad Grid -->
-                                        <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                            <div class="category-grid-box-1">
-                                                <div class="image">
-                                                    <img alt="Carz Choice"
-                                                        src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
-                                                        class="img-responsive">
-                                                    <div class="ribbon popular"></div>
-                                                </div>
-                                                <div class="short-description-1 clearfix">
-                                                    <h3>
-                                                        <a title="" href="#">
-                                                            Top SUVs in India
-                                                        </a>
-                                                    </h3>
-                                                    <p class="text-muted ps-2">
-                                                        {{ $data->brandname }} {{ $data->carname }}
-                                                    </p>
-                                                </div>
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <!-- Listing Ad Grid -->
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                        <div class="category-grid-box-1">
+                                            <div class="image">
+                                                <img alt="Carz Choice"
+                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                <h3>
+                                                    <a title="" href="#">
+                                                        Top SUVs in India
+                                                    </a>
+                                                </h3>
+                                                <p class="text-muted ps-2">
+                                                    {{ $data->brandname }} {{ $data->carname }}
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -640,9 +619,11 @@
         <!--Image One-->
         {{-- <div class="background-1"></div> --}}
         <!--Image Two-->
+        @if (!empty($data->checkonroadimg))
         <div class="background-2"
             style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->checkonroadimg) }}')">
         </div>
+        @endif
 
         <div class="container">
             <div class="row clearfix">
@@ -652,24 +633,26 @@
                 </div>
                 <!--Transparent Column-->
                 <div class="service-column col-lg-6 col-md-6">
-                    <div class="inner-box wow fadeInRight animated rounded-4" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="inner-box wow fadeInRight animated rounded-4" data-wow-delay="0ms"
+                        data-wow-duration="1500ms">
                         <div class="row clearfix">
                             <!--Icon Column-->
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="services-grid-3">
                                     <div class="content-area">
                                         <h4>Check On-Road Price</h4>
-                                        <form>
+                                        <form id="checkonroad">
                                             <div class="search-form ">
-                                                <div class="search-form-inner ">
-                                                    <div class="col-md-12 no-padding">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control rounded-4"
-                                                                placeholder="Eg Honda Civic , Audi , Ford." />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group  ">
+                                                <select name="carname" class="form-control search-year rounded-4"
+                                                    id="dynamiccarname">
+                                                    <option value="0">--select-car--</option>
+                                                    @foreach ($carlists as $data)
+                                                    <option value="{{ $data->carname }},{{ $data->brandname }}">
+                                                        {{ $data->carname }}, {{ $data->brandname }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
+                                                <div class="form-group mt-3">
                                                     <button type="submit" value="submit"
                                                         class="btn btn-lg btn-theme">Search</button>
                                                 </div>
@@ -717,34 +700,33 @@
                         </div>
                         <div class=" popular-slider container owl-carousel owl-theme">
                             @foreach ($adposts as $row)
-                                @php
-                                    $imagearray = json_decode($row->images, true);
-                                @endphp
-                                <div class="item">
-                                    <div class="grid-style-2">
-                                        <div class="col-md-12 col-xs-12 col-sm-12 px-2">
-                                            <div class="category-grid-box-1">
-                                                <div class="image">
-                                                    <img alt="Carz Choice"
-                                                        src="{{ asset($imagearray[0]['imageurl']) }}"
-                                                        class="img-responsive">
-                                                    <div class="ribbon popular"></div>
-                                                </div>
-                                                <div class="short-description-1 clearfix">
-                                                    <h3>
-                                                        <a title="" href="#">
-                                                            Used {{ $row->brandname }} {{ $row->carname }}
-                                                        </a>
-                                                    </h3>
-                                                    <span class="ad-price">Rs. {{ $row->price }}
-                                                        <span class="text-muted ps-2">Starting Price</span>
-                                                    </span>
+                            @php
+                            $imagearray = json_decode($row->images, true);
+                            @endphp
+                            <div class="item">
+                                <div class="grid-style-2">
+                                    <div class="col-md-12 col-xs-12 col-sm-12 px-2">
+                                        <div class="category-grid-box-1">
+                                            <div class="image">
+                                                <img alt="Carz Choice" src="{{ asset($imagearray[0]['imageurl']) }}"
+                                                    class="img-responsive">
+                                                <div class="ribbon popular"></div>
+                                            </div>
+                                            <div class="short-description-1 clearfix">
+                                                <h3>
+                                                    <a title="" href="#">
+                                                        Used {{ $row->brandname }} {{ $row->carname }}
+                                                    </a>
+                                                </h3>
+                                                <span class="ad-price">Rs. {{ $row->price }}
+                                                    <span class="text-muted ps-2">Starting Price</span>
+                                                </span>
 
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -766,21 +748,51 @@
 </div>
 
 
+<!-- Off-canvas HTML Structure -->
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
     aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header border-bottom">
-        <h5 class="offcanvas-title fw-bold fs-4" id="offcanvasWithBothOptionsLabel">Mahindra Scorpio N</h5>
+        <h5 class="offcanvas-title fw-bold fs-4" id="offcanvasWithBothOptionsLabel">Book Your Vehicle Now</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <p>Provide your contact details for Test Drive, EMI options, Offers & Exchange Benefits</p>
-        <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Contact Number</label>
-            <input type="tel" class="form-control" id="formGroupExampleInput" placeholder="Enter Mobile Number">
-            <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once</div>
-            <button class="btn btn-theme rounded-4 btn-lg btn-block">Register</button>
-        </div>
-
+        <form action="{{ route('insertlead') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="fullname" id="formGroupExampleInput"
+                    placeholder="Enter Fullname">
+                <label for="formGroupExampleInput" class="form-label mt-3">Contact Number</label>
+                <input type="tel" class="form-control" name="mobile" id="formGroupExampleInput"
+                    placeholder="Enter Mobile Number">
+                <label for="formGroupExampleInput" class="form-label mt-3">Email</label>
+                <input type="email" class="form-control" name="email" id="formGroupExampleInput"
+                    placeholder="Enter Email Address">
+                <label for="formGroupExampleInput" class="form-label mt-3">Select Car</label>
+                <select class="selectpicker" data-show-subtext="true" data-live-search="true">
+                    <option>--select-car</option>
+                    @foreach ($variantdata as $data)
+                    <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
+                        {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
+                    </option>
+                    @endforeach
+                </select>
+                <label>State <span class="color-red">*</span></label>
+                <select class="form-control" id="dynamic_selectstate" name="state" required>
+                    <option value="">--select state--</option>
+                    @foreach ($statedata as $row)
+                    <option value="{{ $row->StateName }}">{{ $row->StateName }}</option>
+                    @endforeach
+                </select>
+                <label>District <span class="color-red">*</span></label>
+                <select class="form-control" name="city" id="dynamic_district" required>
+                    <option value="">--select district--</option>
+                </select>
+                <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once</div>
+                <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Register</button>
+            </div>
+        </form>
     </div>
 </div>
 <script>
@@ -824,7 +836,7 @@
             console.log(bodytype);
 
             $.ajax({
-                url: "/filterByAttribute/",
+                url: "/filterByAttribute/" + bodytype,
                 type: 'POST',
                 data: {
                     attribute: bodytype
@@ -841,6 +853,52 @@
                     }
                 }
             });
+        });
+    });
+
+    //This is District Filter By State in Offcanvas
+    $(function() {
+        $('#dynamic_selectstate').on('change', function() {
+            var state = $(this).val();
+            console.log(state);
+            $.ajax({
+                url: "/filterdistrictbystate/" + state,
+                type: "GET",
+                success: function(data) {
+                    console.log(data);
+                    var dropdown1 = $('#dynamic_district');
+                    dropdown1.empty();
+                    dropdown1.append($('<option selected>Choose...</option>'));
+                    data.forEach(function(item) {
+                        dropdown1.append($('<option value="' + item.District + '">' +
+                            item.District +
+                            '</option>'));
+                    });
+                }
+            });
+        });
+    });
+
+     //This is Check on Raod Price filter
+     jQuery('#checkonroad').submit(function(e) {
+        e.preventDefault();
+        var formdata = jQuery('#checkonroad').serialize();
+        console.log(formdata);
+        jQuery.ajax({
+            url: "{{ route('filterhomepagecars') }}",
+            data: formdata,
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data) {
+                console.log(data);
+                if (data.success) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    alert("error");
+                }
+            }
         });
     });
 </script>

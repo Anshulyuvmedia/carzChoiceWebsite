@@ -1,16 +1,12 @@
 <section class="custom-padding ">
     <div class="container card">
         <div class="row">
-
-
-
             <!-- Middle Content Box -->
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="row">
                     <div class="heading-panel">
                         <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                            <!-- Main Title -->
-                            <h1>Compare <span class="heading-color"> Cars</span> </h1>
+                            <h1>Compare <span class="heading-color">Cars</span> </h1>
                         </div>
                     </div>
                     <div class=" comapare-slider container owl-carousel owl-theme">
@@ -31,7 +27,7 @@
                                                             <div class=""><a href="#">{{ $row->carname }}
                                                                     {{ $row->carmodalname }}
                                                                 </a></div>
-                                                            <span class="ad-price">Rs. {{ $row->price }}
+                                                            <span class="ad-price">Rs. {{ $row->price }} Lakh
                                                                 <span class="text-muted ps-2">onwards</span>
                                                             </span>
                                                         </div>

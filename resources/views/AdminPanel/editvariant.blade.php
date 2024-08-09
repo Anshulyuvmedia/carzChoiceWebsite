@@ -31,8 +31,7 @@
                                     <select name="carname" class="form-select mb-3" id="subcategory">
                                         <option value="">--select car--</option>
                                         @foreach ($carlistdata as $row)
-                                        <option value="{{ $row->carname }}" {{ $row->carname == $variantdata->carname ?
-                                            'selected' : '' }}>
+                                        <option value="{{ $row->carname }}" {{ $row->carname == $variantdata->carname ?'selected' : '' }}>
                                             {{ $row->carname }}</option>
                                         @endforeach
                                     </select>

@@ -1,8 +1,6 @@
 <section class="custom-padding ">
     <div class="container featured-cars">
         <div class="row">
-            
-
             <div class="card">
                 <div class="heading-panel">
                     <div class="col-xs-12 col-md-12 col-sm-12 left-side">

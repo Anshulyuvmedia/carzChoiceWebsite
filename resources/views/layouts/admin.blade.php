@@ -113,7 +113,7 @@
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle header-profile-user"
-                                src="{{ asset('assets/backend-assets/images/defaultuser.png') }}" alt="Header Avatar">
+                                src="{{ asset('assets/backend-assets/images/logowhite.jpg') }}" alt="Header Avatar">
                             @if (Auth::user())
                             <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Welcome
                                 {{ Auth::user()->name }}</span>
@@ -269,10 +269,15 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('dealerslist') }}">
-                                <i class="uil-calling"></i>
-                                <span>Dealers List</span>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="uil-car-sideview"></i>
+                                <span>Dealer</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="/adddealerdetails">Add Dealer Details</a></li>
+                                <li><a href="/dealerslist/New Car Dealer">New Car Dealers</a></li>
+                                <li><a href="/dealerslist/Old Car Dealer">Old Car Dealers</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">

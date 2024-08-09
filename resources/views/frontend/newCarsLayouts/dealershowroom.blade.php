@@ -1,10 +1,9 @@
+
 @extends('frontend.layouts.website')
 @section('content')
 @section('title', 'New Car Dealer')
-
-
 <!-- =-=-=-=-=-=-= Breadcrumb =-=-=-=-=-=-= -->
-<div class="page-header-area-2 gray">
+<div class="page-header-area-2 ">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -22,21 +21,25 @@
                 </div>
                 <div class="header-listing">
                     <div class="col-md-3  col-xs-12 col-sm-12 p-0">
-                        <div class="custom-select-box">
-
-                            <label class="control-label">Brand </label>
-                            <input placeholder="Select Your Brand" type="text" class=" form-control Car"
-                                data-bs-target="#selectBrand" data-bs-toggle="modal" type="button">
-                            </input>
+                        <div class="form-group">
+                            <label>Select Brand</label>
+                            <select name="cartype" class="form-control make rounded-4" id="dynamicbrand">
+                                <option selected>--select--</option>
+                                @foreach ($brands as $data)
+                                <option value="{{$data->value}}">{{$data->value}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-                    <div class="col-md-3 col-xs-12 col-sm-12 p-0">
-
-                        <div class="custom-select-box">
-                            <label for="selectLocation">City:</label>
-                            <input placeholder="Select a City" type="text" class=" form-control City"
-                                data-bs-target="#selectLocation" data-bs-toggle="modal" type="button">
-                            </input>
+                    <div class="col-md-3 col-xs-12 col-sm-12 p-0 ms-3">
+                        <div class="form-group">
+                            <label>Select City</label>
+                            <select name="cartype" class="form-control make rounded-4" id="dynamiccity">
+                                <option selected>--select--</option>
+                                @foreach ($statedata as $data)
+                                <option value="{{$data->District}}">{{$data->District}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -46,150 +49,72 @@
 </div>
 <!-- =-=-=-=-=-=-= Breadcrumb End =-=-=-=-=-=-= -->
 
-<!-- =-=-=-=-=-=-= All Brands =-=-=-=-=-=-= -->
-<section class="client-section py-5 gray">
+<section class="section-padding no-top">
     <div class="container">
         <div class="row">
-            <div class="heading-panel">
-                <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                    <!-- Main Title -->
-                    <h1>Explore dealer <span class="heading-color">showrooms by brand</span> </h1>
-                </div>
+            <div class="header-page mb-2">
+                <h1 class="text-dark fs-3 fw-bold">Popular Dealers</h1>
             </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="brand-logo-area clients-bg">
-                    <div class="client-brand-list">
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/1.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/2.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/3.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/4.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/5.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/6.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/7.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/8.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/9.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="sigle-clients-brand">
-                            <a href="#"><img src="{{ asset('assets/frontend-assets/images/brands/11.png') }}"
-                                    alt=""></a>
+            @foreach ($dealers as $row)
+            <div class="col-md-4 col-lg-4 col-sx-12">
+                <div class="" id="dealersdivs">
+                    <div class="ads-list-archive" >
+                        <div class="no-padding">
+                            <div class="ad-archive-desc">
+                                <div class="d-flex justify-content-between ">
+                                    <div class="">
+                                        <a href="/dealer-profile">
+                                            <h3>{{$row->businessname}}</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="category-title fs-4">
+                                    {{$row->district}} {{$row->state}} - {{$row->pincode}}
+                                </div>
+                                <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
+                                        used cars available at dealership</span></div>
+                                <div class="d-flex mt-3">
+                                    <div class="me-3">
+                                        <a href="{{ route('dealerprofile',['id' => $row->id])}}">
+                                            <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="#">
+                                            <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
+                                                <i class="bi bi-telephone"></i>
+                                                {{$row->mobilenumber}}
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </section>
+{{-- THIS IS ALL BRANDS COMPONENET --}}
+<x-all-brands cartype="brandfilter" />
+
 <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
 
-<!-- =-=-=-=-=-=-= Feature and Benefits =-=-=-=-=-=-= -->
-<div class="page-header-area-2 gray ">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
-                <div class="small-breadcrumb">
-                    <div class="header-page">
-                        <h1>Tools You May Need</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 ">
-                <div class="panel-body recent-ads ">
-                    <!-- Ads -->
-                    <div class="recent-ads-list">
-                        <div class="recent-ads-container d-flex align-items-center  ">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/user-reviews-2.svg"
-                                        alt="" style="width: 40px;">
-                                </a>
-                            </div>
-                           
-                            <div class="recent-ads-list-content">
-                                <h3 class="recent-ads-list-title">
-                                    <a href="#">User Reviews </a>
-                                </h3>
-                                <p>Read reviews shared by car users</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-6 ">
-                <div class="panel-body recent-ads ">
-                    <!-- Ads -->
-                    <div class="recent-ads-list">
-                        <div class="recent-ads-container d-flex align-items-center  ">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/used-car.svg"
-                                        alt="" style="width: 40px;">
-                                </a>
-                            </div>
-                           
-                            <div class="recent-ads-list-content">
-                                <h3 class="recent-ads-list-title">
-                                    <a href="#">Used Cars in Navi Mumbai</a>
-                                </h3>
-                                <p>6271 Used Cars in Navi Mumbai</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-
-            
-        </div>
-    </div>
-</div>
-<!-- =-=-=-=-=-=-= Feature and Benefits  End =-=-=-=-=-=-= -->
-
 <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
-<section class="custom-padding gray">
-    <!-- Main Container -->
+<section class="custom-padding ">
     <div class="container featured-cars">
         <!-- Row -->
         <div class="row">
-            <!-- Heading Area -->
-            <div class="heading-panel">
-                <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                    <!-- Main Title -->
-                    <h1> <span class="heading-color"> Featured</span> Cars</h1>
-                </div>
-            </div>
-
             <div class="card">
-
+                <!-- Heading Area -->
+                <div class="heading-panel">
+                    <div class="col-xs-12 col-md-12 col-sm-12 left-side">
+                        <!-- Main Title -->
+                        <h1> <span class="heading-color"> Featured</span> Cars</h1>
+                    </div>
+                </div>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="nav-item active">
@@ -212,34 +137,35 @@
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row">
                                 <div class=" featured-slider owl-carousel owl-theme">
+                                    @foreach ($matches as $data)
                                     <div class="item">
                                         <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
+                                            <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="featured-ribbon">
-                                                        <span>Featured</span>
+                                                        <span>Trending</span>
                                                     </div>
                                                     <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
+                                                        <a class=""
+                                                            href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
+                                                            <img alt="Carz Choice"
+                                                                src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                        </a>
                                                     </div>
                                                     <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
 
                                                         <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
+                                                            <a class=""
+                                                                href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
+                                                                {{ $data->brandname }}
+                                                                {{ $data->carname }}
                                                             </a>
                                                         </h3>
-                                                        <div class="ad-price">Rs. 110,000
+                                                        <div class="ad-price">Rs. {{ $data->price }}
                                                             <span class="text-muted ps-2">onwards</span>
                                                         </div>
 
@@ -248,224 +174,23 @@
                                                             On-Road Price, Delhi
                                                         </p>
 
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
+                                                        <a class=""
+                                                            href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                            <button class="btn btn-theme rounded-4 btn-sm">
+                                                                View Details
+                                                                <i class="bi bi-arrow-up-right"></i>
                                                             </button>
                                                         </a>
 
                                                     </div>
                                                 </div>
-                                                <!-- Listing Ad Grid -->
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
-                        <!-- Middle Content Box End -->
                     </div>
 
                     <div class="tab-pane fade" style="margin-top: 20px;" id="popular">
@@ -473,34 +198,36 @@
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row">
                                 <div class=" featured-slider owl-carousel owl-theme">
+                                    @foreach ($matchespopular as $data)
                                     <div class="item">
                                         <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
                                             <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="featured-ribbon">
-                                                        <span>Featured</span>
+                                                        <span>Popular</span>
                                                     </div>
                                                     <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
+                                                        <a class=""
+                                                            href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
+                                                            <img alt="Carz Choice"
+                                                                src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                class="img-responsive">
+                                                            <div class="ribbon popular"></div>
+                                                        </a>
                                                     </div>
                                                     <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
+
 
                                                         <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
+                                                            <a class=""
+                                                                href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
+                                                                {{ $data->brandname }}
+                                                                {{ $data->carname }}
                                                             </a>
                                                         </h3>
-                                                        <div class="ad-price">Rs. 110,000
+                                                        <div class="ad-price">Rs. {{ $data->price }}
                                                             <span class="text-muted ps-2">onwards</span>
                                                         </div>
 
@@ -509,220 +236,21 @@
                                                             On-Road Price, Delhi
                                                         </p>
 
-                                                        <a class="" href="#">
+                                                        <a class=""
+                                                            href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
                                                             <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
+                                                                Check Offers
+                                                                <i class="bi bi-arrow-up-right"></i>
                                                             </button>
                                                         </a>
 
                                                     </div>
                                                 </div>
-                                                <!-- Listing Ad Grid -->
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -734,34 +262,36 @@
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row">
                                 <div class=" featured-slider owl-carousel owl-theme">
+                                    @foreach ($matchesupcoming as $data)
                                     <div class="item">
                                         <div class="grid-style-2">
                                             <!-- Listing Ad Grid -->
                                             <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
                                                 <div class="category-grid-box-1">
                                                     <div class="featured-ribbon">
-                                                        <span>Featured</span>
+                                                        <span>Upcoming</span>
                                                     </div>
                                                     <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
+                                                        <a class=""
+                                                            href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
+                                                            <img alt="Carz Choice"
+                                                                src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                class="img-responsive">
+                                                        </a>
                                                     </div>
                                                     <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
+
 
                                                         <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
+                                                            <a class=""
+                                                                href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+
+                                                                {{ $data->brandname }}
+                                                                {{ $data->carname }}
                                                             </a>
                                                         </h3>
-                                                        <div class="ad-price">Rs. 110,000
+                                                        <div class="ad-price">Rs. {{ $data->price }}
                                                             <span class="text-muted ps-2">onwards</span>
                                                         </div>
 
@@ -770,243 +300,32 @@
                                                             On-Road Price, Delhi
                                                         </p>
 
-                                                        <a class="" href="#">
+                                                        <a class=""
+                                                            href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
                                                             <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
+                                                                View Details
+                                                                <i class="bi bi-arrow-up-right"></i>
                                                             </button>
                                                         </a>
 
                                                     </div>
                                                 </div>
-                                                <!-- Listing Ad Grid -->
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item">
-                                        <div class="grid-style-2">
-                                            <!-- Listing Ad Grid -->
-                                            <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                <div class="category-grid-box-1">
-                                                    <div class="featured-ribbon">
-                                                        <span>Featured</span>
-                                                    </div>
-                                                    <div class="image">
-                                                        <img alt="Carz Choice"
-                                                            src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
-                                                            class="img-responsive">
-                                                        <div class="ribbon popular"></div>
-                                                        {{-- <div class="price-tag">
-                                                            <div class="price"><span>$205,000</span></div>
-                                                        </div> --}}
-                                                    </div>
-                                                    <div class="short-description-1 clearfix">
-                                                        {{-- <div class="category-title"> 
-                                                            <span><a href="#">Sports &
-                                                                    Equipment</a></span> </div> --}}
-
-                                                        <h3>
-                                                            <a title="" href="#">
-                                                                Mahindra XUV 3XO
-                                                            </a>
-                                                        </h3>
-                                                        <div class="ad-price">Rs. 110,000
-                                                            <span class="text-muted ps-2">onwards</span>
-                                                        </div>
-
-                                                        <p class="location">
-                                                            <i class="fa fa-map-marker"></i>
-                                                            On-Road Price, Delhi
-                                                        </p>
-
-                                                        <a class="" href="#">
-                                                            <button class="btn btn-theme rounded-4 btn-sm  ">
-                                                                <i class="fa fa-phone"></i>
-                                                                View Details.
-                                                            </button>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- Listing Ad Grid -->
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
-                        <!-- Middle Content Box End -->
                     </div>
                 </div>
-                <!-- Row End -->
             </div>
         </div>
-        <!-- Main Container End -->
     </div>
 </section>
 <!-- =-=-=-=-=-=-= Featured Ads End =-=-=-=-=-=-= -->
 
-
-
-
-
-
-
-
-<div class="modal fade" id="selectLocation" aria-hidden="true" aria-labelledby="selectLocationlabel"
-    tabindex="-1">
+<div class="modal fade" id="selectLocation" aria-hidden="true" aria-labelledby="selectLocationlabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header text-center">
@@ -1072,8 +391,7 @@
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
                                     <a href="#" class="switch-modal" umbai">
 
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg"
-                                            alt="Navi Mumbai">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg" alt="Navi Mumbai">
                                         <div class="mt-2 fs-6 text-muted" style="line-height: 1.3em;">Navi Mumbai
                                         </div>
                                     </a>
@@ -1122,8 +440,7 @@
                                 <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
                                     <a href="#">
 
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg"
-                                            alt="Chandigarh">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg" alt="Chandigarh">
                                         <div class="fs-6 text-muted">Chandigarh</div>
                                     </a>
 
@@ -1162,8 +479,6 @@
     </div>
 </div>
 
-
-
 <div class="modal fade" id="selectBrand" aria-hidden="true" aria-labelledby="selectBrandlabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered ">
         <div class="modal-content">
@@ -1194,15 +509,13 @@
                                     </h3>
                                     <div class="accordion-content">
                                         <div class="list-group">
-                                            <a href="#" data-bs-title="Maruti Suzuki, Fronx"
-                                                data-bs-target="#selectCar" data-bs-toggle="modal"
-                                                class="list-group-item list-group-item-action">
+                                            <a href="#" data-bs-title="Maruti Suzuki, Fronx" data-bs-target="#selectCar"
+                                                data-bs-toggle="modal" class="list-group-item list-group-item-action">
                                                 Fronx
                                             </a>
 
-                                            <a href="#" data-bs-title="Maruti Suzuki, Swift"
-                                                data-bs-target="#selectCar" data-bs-toggle="modal"
-                                                class="list-group-item list-group-item-action">
+                                            <a href="#" data-bs-title="Maruti Suzuki, Swift" data-bs-target="#selectCar"
+                                                data-bs-toggle="modal" class="list-group-item list-group-item-action">
                                                 Swift
                                             </a>
                                             <a href="#" data-bs-title="Maruti Suzuki, Grand Vitara"
@@ -1229,8 +542,8 @@
                                             <a href="#" data-bs-title="Tata, Punch" data-bs-target="#selectCar"
                                                 data-bs-toggle="modal"
                                                 class="list-group-item list-group-item-action">Punch</a>
-                                            <a href="#" data-bs-title="Tata, Altroz"
-                                                data-bs-target="#selectCar" data-bs-toggle="modal"
+                                            <a href="#" data-bs-title="Tata, Altroz" data-bs-target="#selectCar"
+                                                data-bs-toggle="modal"
                                                 class="list-group-item list-group-item-action">Altroz</a>
                                         </div>
                                     </div>
@@ -1276,7 +589,8 @@
                             </ul>
                         </div>
                         {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
-                            <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open second modal</button>
+                            <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCar"
+                                data-bs-toggle="modal">Open second modal</button>
                         </div> --}}
                     </div>
 
@@ -1285,7 +599,8 @@
 
             {{-- <div class="modal-footer">
                 <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCar" data-bs-toggle="modal">Open
+                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCar"
+                        data-bs-toggle="modal">Open
                         second modal</button>
                 </div>
             </div> --}}
@@ -1422,8 +737,6 @@
         </div>
     </div>
 </div>
-
-
 <script>
     document.querySelectorAll('.accordion-title a').forEach(item => {
         item.addEventListener('click', event => {
@@ -1445,7 +758,6 @@
         })
     }
 </script>
-
 <script>
     document.querySelectorAll('.modal').forEach(modal => {
         modal.addEventListener('hidden.bs.modal', () => {
@@ -1454,6 +766,132 @@
         });
     });
 </script>
-
-
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+
+    //This is Filter dealers by Brands
+     $(document).ready(function() {
+        $('#dynamicbrand').on('change', function() {
+            const brand = $('#dynamicbrand').val();
+            console.log(brand);
+
+            //Here is AJAX Code...
+            if (brand) {
+                $.ajax({
+                    url: '/filternewcardealersbybrand/' + brand,
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        $('#dealersdivs').empty();
+                        response.forEach(function(row) {
+                            var div = `
+                             <div class="ads-list-archive" >
+                             <div class="clearfix visible-xs-block"></div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
+                                    <div class="ad-archive-desc">
+                                        <div class="d-flex justify-content-between ">
+                                            <div class="">
+                                                <a href="/dealer-profile">
+                                                    <h3>${row.businessname}</h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="category-title fs-4">
+                                            ${row.district} ${row.district} - ${row.pincode}
+                                        </div>
+                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
+                                                used cars available at dealership</span></div>
+                                        <div class="d-flex mt-3">
+                                            <div class="me-3">
+                                                <a href="/dealer-profile">
+                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="tel:{{$data->mobilenumber}}">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
+                                                        <i class="bi bi-telephone"></i>
+                                                        ${row.mobilenumber}
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            `;
+                            $('#dealersdivs').append(div);
+                        });
+                    },
+                });
+            }
+        });
+    });
+
+
+    //This is Filter dealers by City
+     $(document).ready(function() {
+        $('#dynamiccity').on('change', function() {
+            const cityname = $('#dynamiccity').val();
+            console.log(cityname);
+
+            //Here is AJAX Code...
+            if (cityname) {
+                $.ajax({
+                    url: '/filternewcardealersbycity/' + cityname,
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                    },
+                    success: function(dealerscity) {
+                        console.log(dealerscity);
+                        $('#dealersdivs').empty();
+                        dealerscity.forEach(function(row) {
+                            var div = `
+                             <div class="ads-list-archive" >
+                             <div class="clearfix visible-xs-block"></div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
+                                    <div class="ad-archive-desc">
+                                        <div class="d-flex justify-content-between ">
+                                            <div class="">
+                                                <a href="/dealer-profile">
+                                                    <h3>${row.businessname}</h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="category-title fs-4">
+                                            ${row.district} ${row.district} - ${row.pincode}
+                                        </div>
+                                        <div class="fw-bold fs-4 text-dark">Cars Available: <span class=""> 31+
+                                                used cars available at dealership</span></div>
+                                        <div class="d-flex mt-3">
+                                            <div class="me-3">
+                                                <a href="/dealer-profile">
+                                                    <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="tel:{{$data->mobilenumber}}">
+                                                    <div class="btn btn-theme rounded-4 btn-sm  rounded-3">
+                                                        <i class="bi bi-telephone"></i>
+                                                        ${row.mobilenumber}
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            `;
+                            $('#dealersdivs').append(div);
+                        });
+                    },
+                });
+            }
+        });
+    });
+</script>

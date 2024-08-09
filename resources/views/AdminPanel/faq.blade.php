@@ -1,3 +1,4 @@
+
 {{-- “सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।” --}}
 @extends('layouts.admin')
 @section('main-section')
@@ -24,7 +25,6 @@
                             <li class="breadcrumb-item active">@yield('title')</li>
                         </ol>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -23,7 +23,6 @@ Route::middleware([
 });
 
 Route::controller(frontViewController::class)->group(function () {
-
     Route::get('/', 'home');
     Route::get('carlistingdetails/{id}', 'carlistingdetails')->name('carlistingdetails');
     Route::get('carlisting', 'carlisting');
@@ -39,8 +38,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('new-car-launches', 'newcarlaunches');
     Route::get('electric-car', 'electriccar');
     Route::get('used-car', 'usedcar');
-    Route::get('usedcar-bylocation/{filtertypenew}', '
-    ')->name('usedcarbylocation');
+    Route::get('usedcar-bylocation/{filtertypenew}', 'usedcarbylocation')->name('usedcarbylocation');
     Route::get('car-loan', 'carloan')->name('carloan');
     Route::get('find-car/{filtertype}', 'findcar')->name('findcar');
     Route::get('car-view-images/{carname}', 'carviewimages')->name('carviewimages');
@@ -105,6 +103,9 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('usedcarfilter/{filtertype}', 'usedcarfilter')->name('usedcarfilter');
     Route::post('filtercarsbylocation/{city}', 'filtercarsbylocation')->name('filtercarsbylocation');
     Route::post('filterdealersbycity/{cityname}', 'filterdealersbycity')->name('filterdealersbycity');
+    Route::get('filterdistrictbystate/{state}', 'filterdistrictbystate')->name('filterdistrictbystate');
+    Route::post('filternewcardealersbybrand/{brand}', 'filternewcardealersbybrand')->name('filternewcardealersbybrand');
+    Route::post('filternewcardealersbycity/{citynamedeal}', 'filternewcardealersbycity')->name('filternewcardealersbycity');
 
 });
 
@@ -141,7 +142,8 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('prosandcons/{id}', 'prosandcons')->name('prosandcons');
     Route::get('variantfaqs/{id}/{carname}', 'variantfaqs')->name('variantfaqs');
     Route::get('addvehicleimages/{id}/{carname}', 'addvehicleimages')->name('addvehicleimages');
-    Route::get('dealerslist', 'dealerslist')->name('dealerslist');
+    Route::get('dealerslist/{status}', 'dealerslist')->name('dealerslist');
+    Route::get('adddealerdetails', 'adddealerdetails')->name('adddealerdetails');
 
 });
 
@@ -203,7 +205,6 @@ Route::controller(Store::class)->group(function() {
     Route::post('/filterdealers', 'filterdealers')->name('filterdealers');
     Route::post('/updatevariantshowhidestatus', 'updatevariantshowhidestatus')->name('updatevariantshowhidestatus');
 });
-
 
 
 

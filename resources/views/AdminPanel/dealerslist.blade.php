@@ -32,6 +32,16 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
+                        @php
+                                $urlvalue = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+                                // echo $urlvalue;
+                                $cardTitle = '';
+                                if ($urlvalue == 'New Car Dealer') {
+                                    $cardTitle = "New Car Dealers";
+                                }elseif($urlvalue == 'Old Car Dealer') {
+                                    $cardTitle = "Old Car Dealers";
+                                }
+                        @endphp
                         <form action="#">
                             <div class="row">
                                 <div class="col-lg-3">

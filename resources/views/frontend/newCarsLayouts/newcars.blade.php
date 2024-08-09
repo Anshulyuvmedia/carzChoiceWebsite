@@ -318,20 +318,21 @@
                                                         </a>
                                                     </h3>
 
-                                                    <div class="ad-price">Rs. {{ $data->price }}
-                                                        <span class="text-muted ps-2">onwards</span>
-                                                    </div>
-                                                    <a class="  ">
-                                                        <button class="btn btn-theme rounded-4 btn-sm ">
-                                                            Get Offer
-                                                        </button>
-                                                    </a>
+                                                <div class="ad-price">Rs. {{$data->price}}
+                                                    <span class="text-muted ps-2">onwards</span>
                                                 </div>
+                                                <a class=""  data-bs-toggle="offcanvas"
+                                                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                                                    <button class="btn btn-theme rounded-4 btn-sm ">
+                                                        Get Offer
+                                                    </button>
+                                                </a>
                                             </div>
-                                            <!-- Listing Ad Grid -->
                                         </div>
+                                        <!-- Listing Ad Grid -->
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
                     </div>
@@ -430,4 +431,77 @@
     <x-new-car-faq />
 
 </div>
+
+<!-- Off-canvas HTML Structure -->
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold fs-4" id="offcanvasWithBothOptionsLabel">Book Your Vehicle Now</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <p>Provide your contact details for Test Drive, EMI options, Offers & Exchange Benefits</p>
+        <form action="{{ route('insertlead') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="fullname" id="formGroupExampleInput"
+                    placeholder="Enter Fullname">
+                <label for="formGroupExampleInput" class="form-label mt-3">Contact Number</label>
+                <input type="tel" class="form-control" name="mobile" id="formGroupExampleInput"
+                    placeholder="Enter Mobile Number">
+                <label for="formGroupExampleInput" class="form-label mt-3">Email</label>
+                <input type="email" class="form-control" name="email" id="formGroupExampleInput"
+                    placeholder="Enter Email Address">
+                <label>State <span class="color-red">*</span></label>
+                <select class="form-control" id="dynamic_selectstate" name="state" required>
+                    <option value="">--select state--</option>
+                    @foreach ($statedata as $row)
+                    <option value="{{ $row->StateName }}">{{ $row->StateName }}</option>
+                    @endforeach
+                </select>
+                <label>District <span class="color-red">*</span></label>
+                <select class="form-control" name="city" id="dynamic_district" required>
+                    <option value="">--select district--</option>
+                </select>
+                <label for="formGroupExampleInput" class="form-label mt-3">Select Car</label>
+                <select class="selectpicker" data-show-subtext="true" data-live-search="true">
+                    <option>--select-car</option>
+                    @foreach ($carlists as $data)
+                        <option value="{{ $data->carname }},{{ $data->brandname }}">
+                            {{ $data->carname }}, {{ $data->brandname }}
+                        </option>
+                    @endforeach
+                </select>
+                <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once</div>
+                <button type="submit" class="btn btn-theme rounded-4 btn-lg btn-block">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    //This is District Filter By State in Offcanvas
+    $(function() {
+        $('#dynamic_selectstate').on('change', function() {
+            var state = $(this).val();
+            console.log(state);
+            $.ajax({
+                url: "/filterdistrictbystate/" + state,
+                type: "GET",
+                success: function(data) {
+                    console.log(data);
+                    var dropdown1 = $('#dynamic_district');
+                    dropdown1.empty();
+                    dropdown1.append($('<option selected>Choose...</option>'));
+                    data.forEach(function(item) {
+                        dropdown1.append($('<option value="' + item.District + '">' +
+                            item.District +
+                            '</option>'));
+                    });
+                }
+            });
+        });
+    });
+</script>

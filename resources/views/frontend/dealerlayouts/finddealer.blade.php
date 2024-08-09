@@ -1,6 +1,6 @@
 @extends('frontend.layouts.website')
 @section('content')
-@section('title', 'Find Dealer')
+@section('title', 'Used Car Dealer')
 
 
 <!-- =-=-=-=-=-=-= Breadcrumb =-=-=-=-=-=-= -->
@@ -11,7 +11,7 @@
                 <div class="small-breadcrumb">
 
                     <div class="header-page">
-                        <h1>Find Dealer</h1>
+                        <h1>Used Car Dealer</h1>
                         <p>Explore 4499+ best priced used cars near you in Mumbai at Carz Choice. Also, explore emi
                             options and other services on used cars with 156+ used car dealers in Mumbai. Carz Choice
                             simplifies your second hand car buying process by helping you choose best used car dealers
@@ -36,30 +36,18 @@
 
 <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
 <section class="section-padding no-top gray">
-    <!-- Main Container -->
     <div class="container">
-        <!-- Row -->
         <div class="row">
-            <!-- Sorting Filters -->
-
-            <!-- Middle Content Area -->
             <div class="col-md-8 col-lg-8 col-sx-12">
-
-                <!-- Row -->
                 <div class="row">
-
-                    <!-- Sorting Filters End-->
                     <div class="clearfix"></div>
-                    <!-- Ads Archive -->
                     <div class="">
-
                         <div class="header-page mb-2">
                             <h1 class="text-dark fs-3 fw-bold">Premium Dealers</h1>
                         </div>
-
                         <div class="" id="dealersdiv">
                             @foreach ($dealers as $data)
-                            <div class="ads-list-archive" >
+                            <div class="ads-list-archive">
                                 <div class="col-lg-12 col-md-12 col-sm-12 no-padding">
                                     <div class="ad-archive-desc">
                                         <div class="d-flex justify-content-between ">
@@ -128,7 +116,8 @@
                             <a data-city="Pune" class="list-group-item list-group-item-action popularecityfilter">
                                 Pune <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
-                            <a data-city="Navi Mumbai" class="list-group-item list-group-item-action popularecityfilter">
+                            <a data-city="Navi Mumbai"
+                                class="list-group-item list-group-item-action popularecityfilter">
                                 Navi Mumbai <span class="pull-right"><i class="bi bi-chevron-right"></i></span>
                             </a>
                             <a data-city="Hyderabad" class="list-group-item list-group-item-action popularecityfilter">
