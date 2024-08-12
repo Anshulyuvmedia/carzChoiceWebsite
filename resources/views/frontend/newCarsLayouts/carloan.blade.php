@@ -167,13 +167,13 @@
                     <li role="presentation" class="nav-item active">
                         <a class="nav-link tabtype" data-value="newcar" aria-controls="trending" role="tab"
                             data-toggle="tab" href="#newcar">
-                            New Car
+                            New Car Loan
                         </a>
                     </li>
                     <li role="presentation" class="nav-item">
                         <a class="nav-link tabtype" data-value="usedcar" aria-controls="popular" role="tab"
                             data-toggle="tab" href="#usedcar">
-                            Used Car
+                            Used Car Loan
                         </a>
                     </li>
                 </ul>

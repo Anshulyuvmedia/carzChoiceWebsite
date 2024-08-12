@@ -24,12 +24,9 @@
 
                                                         <div>
                                                             <div class="text-muted">{{ $row->brandname }}</div>
-                                                            <div class=""><a href="#">{{ $row->carname }}
-                                                                    {{ $row->carmodalname }}
-                                                                </a></div>
-                                                            <span class="ad-price">Rs. {{ $row->price }} Lakh
-                                                                <span class="text-muted ps-2">onwards</span>
-                                                            </span>
+                                                            <div class=""><a href="#">{{ $row->carname }} </a></div>
+                                                            <div class="text-muted">{{ $row->carmodalname }}</div>
+                                                            <span class="ad-price">Rs. {{ $row->price }}Lakh</span>
                                                         </div>
 
                                                     </div>

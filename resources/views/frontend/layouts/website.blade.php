@@ -140,7 +140,7 @@
                                                                     Launches </a></li>
                                                             <li><a href="/electric-car">Electric Cars </a></li>
                                                             <li><a href="/car-loan">Car Loan </a></li>
-                                                            <li><a href="/car-images">Car Images </a></li>
+                                                            <li><a data-target="#share-ad" data-toggle="modal">EMI Calculator </a></li>
                                                             <li><a href="/dealer-showroom">Find Dealer Showroom</a>
                                                             </li>
                                                         </ul>
@@ -313,7 +313,6 @@
                         <!-- Follow Us End -->
                     </div>
                     <div class="col-md-2  col-sm-6 col-xs-12">
-                        <!-- Follow Us -->
                         <div class="widget my-quicklinks">
                             <h5>Quick Links</h5>
                             <ul>
@@ -323,26 +322,19 @@
                                 <li><a href="/contactus">Contact Us</a></li>
                             </ul>
                         </div>
-                        <!-- Follow Us End -->
                     </div>
-                    <div class="col-md-5  col-sm-6 col-xs-12">
-                        <!-- Newslatter -->
-                        <div class="widget widget-newsletter">
-                            <h5>Singup for Weekly Newsletter</h5>
-                            <div class="fieldset">
-                                <p>We may send you information about related events, webinars, products and services
-                                    which we believe.</p>
-                                <form>
-                                    <input class="" value="Enter your email address" type="text">
-                                    <input class="submit-btn" name="submit" value="Submit" type="submit">
-                                </form>
-                            </div>
+                    <div class="col-md-2  col-sm-6 col-xs-12">
+                        <div class="widget my-quicklinks">
+                            <h5>Important Links</h5>
+                            <ul>
+                                <li><a href="/privacypolicy">Privacy Policy</a></li>
+                                <li><a href="/disclaimer">Disclaimer</a></li>
+                            </ul>
                         </div>
-                        <div class="copyright">
-                            <p>© 2024 Car Choice All rights reserved. Design by <a href="http://yuvmedia.in"
-                                    target="_blank">Yuvmedia</a> </p>
-                        </div>
-                        <!-- Newslatter -->
+                    </div>
+                    <div class="copyright d-flex justify-content-center">
+                        <p>© 2024 Car Choice All rights reserved.<a href="https://carchoice.yuvjobs.com/"
+                                target="_blank">CARZCHOICE</a></p>
                     </div>
                 </div>
             </div>
@@ -459,6 +451,32 @@
         </div>
     </div>
 
+{{-- emi calc modal --}}
+<div class="modal fade share-ad" id="share-ad" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Car EMI Calculator</h3>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body emi-calc">
+                <div id="ecww-widgetwrapper" style="min-width:250px;width:100%;">
+                    <div id="ecww-widget"
+                        style="position:relative;padding-top:0;padding-bottom:0px;height:0;overflow:hidden;">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- EMI Calculator Widget START -->
+<script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
     <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -486,8 +504,6 @@
             });
         });
 
-
-
         document.addEventListener("DOMContentLoaded", () => {
             const list = document.querySelectorAll(".nav__item");
 
@@ -512,7 +528,6 @@
                 });
             });
         });
-
 
         //New Car Filter
         $(document).ready(function() {

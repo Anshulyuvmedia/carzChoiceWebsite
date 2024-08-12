@@ -40,24 +40,29 @@
                                 <div class="grid-style-2">
                                     <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
+                                            <a class="" href="{{ route('carlistingdetails', ['id' => $row->id]) }}">
                                             <div class="image">
                                                 <img alt="Carz Choice"
                                                     src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
-
                                             </div>
+                                            </a>
                                             <div class="short-description-1 clearfix">
-
                                                 <h3>
                                                     <a title="" href="#">
                                                         {{$row->brandname}} {{$row->carname}}
                                                     </a>
                                                 </h3>
-
                                                 <div class="ad-price">Rs. {{$row->price}} Lakh
                                                     <span class="text-muted ps-2">onwards</span>
                                                 </div>
+                                                <a class="" href="{{ route('carlistingdetails', ['id' => $row->id]) }}">
+                                                    <button class="btn btn-theme rounded-4 btn-sm  ">
+                                                        View Details
+                                                        <i class="bi bi-arrow-up-right"></i>
+                                                    </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -95,13 +100,14 @@
                                 <div class="grid-style-2">
                                     <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
+                                            <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
                                             <div class="image">
                                                 <img alt="Carz Choice"
                                                     src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
-
                                             </div>
+                                            </a>
                                             <div class="short-description-1 clearfix">
 
                                                 <h3>
@@ -113,6 +119,12 @@
                                                 <div class="ad-price">Rs. {{$data->price}} Lakh
                                                     <span class="text-muted ps-2">onwards</span>
                                                 </div>
+                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                    <button class="btn btn-theme rounded-4 btn-sm  ">
+                                                        View Details
+                                                        <i class="bi bi-arrow-up-right"></i>
+                                                    </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

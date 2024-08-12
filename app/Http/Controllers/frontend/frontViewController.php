@@ -317,7 +317,7 @@ class frontViewController extends Controller
 
         return view('frontend.newsdetails', compact('blogdata', 'variantdata', 'imagesdata'));
     }
-    private function formatYouTubeUrl($url)
+    public static function formatYouTubeUrl($url)
     {
         // Check if the URL is of the type "https://www.youtube.com/watch?v=VIDEO_ID"
         if (preg_match('/youtube\.com\/watch\?v=([^\&\?\/]+)/', $url, $id)) {
@@ -483,19 +483,19 @@ class frontViewController extends Controller
             ->get();
 
         //dd($electriccars);
-        $electricfinal = $electriccars->filter(function($car) {
+        $electricfinal = $electriccars->filter(function ($car) {
             $fueltypes = json_decode($car->fueltype, true);
             return is_array($fueltypes) && in_array('Electric', $fueltypes);
         });
 
         // Filter for Hybrid cars
-        $hybridCars = $electriccars->filter(function($car) {
+        $hybridCars = $electriccars->filter(function ($car) {
             $fueltypes = json_decode($car->fueltype, true);
 
             // Check if 'Hybrid' is in the decoded array
             return is_array($fueltypes) && in_array('Hybrid', $fueltypes);
         });
-        return view('frontend.newCarsLayouts.electriccar',compact('electricfinal','hybridCars','electriccars'));
+        return view('frontend.newCarsLayouts.electriccar', compact('electricfinal', 'hybridCars', 'electriccars'));
     }
     public function usedcar()
     {
@@ -577,9 +577,9 @@ class frontViewController extends Controller
         // Step 1: Retrieve car image data and count occurrences of each vehicle
         $carimagedata = VehicleImage::join('car_lists', 'vehicle_images.vehicle', 'car_lists.carname')
             ->select('vehicle_images.*', 'car_lists.brandname')
-            ->where('type', 'Outer view')->get()->unique('vehicle');
+            ->where('type', 'Outer view')->paginate(3);     // unique is removed from here due to pagination
 
-        // Step 2: Count the occurrences of each vehicle in the 'vehicle' column
+
         $vehicleCounts = VehicleImage::select('vehicle')
             // ->where('type', 'Outer view')
             ->groupBy('vehicle')
@@ -591,8 +591,6 @@ class frontViewController extends Controller
             $item->vehicle_count = $vehicleCounts->get($item->vehicle, 0);
         });
 
-        // Debugging: Dump the modified carimagedata to check the counts
-        // dd($carimagedata);
 
         // Step 4: Return the view with the modified carimagedata
         return view('frontend.carLayouts.carimages', compact('carimagedata'));
@@ -600,7 +598,7 @@ class frontViewController extends Controller
 
     public function finddealer()
     {
-        $dealers = RegisterDealer::where('dealertype','Old Car Dealer')->orderBy('created_at', 'desc')->get();
+        $dealers = RegisterDealer::where('dealertype', 'Old Car Dealer')->orderBy('created_at', 'desc')->get();
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
         return view('frontend.dealerlayouts.finddealer', compact('dealers', 'statedata'));
     }
@@ -613,7 +611,7 @@ class frontViewController extends Controller
     {
         $brands = Master::where('type', 'brand')->get();
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-        $dealers = RegisterDealer::where('dealertype','New Car Dealer')->orderBy('created_at', 'desc')->get();
+        $dealers = RegisterDealer::where('dealertype', 'New Car Dealer')->orderBy('created_at', 'desc')->get();
 
         $imagesdata = SliderImage::first();
         $adposts = AdPost::orderBy('created_at', 'desc')->get();
@@ -709,7 +707,7 @@ class frontViewController extends Controller
             }
             return $item;
         });
-        return view('frontend.newCarsLayouts.dealershowroom', compact('imagesdata','brands', 'statedata','dealers', 'matches', 'matchespopular', 'matchesupcoming',));
+        return view('frontend.newCarsLayouts.dealershowroom', compact('imagesdata', 'brands', 'statedata', 'dealers', 'matches', 'matchespopular', 'matchesupcoming', ));
     }
     public function dealerbylocation()
     {
@@ -740,5 +738,37 @@ class frontViewController extends Controller
         } else {
             return view('frontend.loginuser');
         }
+    }
+
+    public function carvideos()
+    {
+        $allcarvideos = VehicleImage::join('car_lists', 'vehicle_images.vehicle', 'car_lists.carname')
+            ->select('vehicle_images.*', 'car_lists.brandname')
+            ->where('type', 'Outer view')->paginate(3);
+
+        $vehicleCounts = VehicleImage::select('vehicle')
+            ->groupBy('vehicle')
+            ->selectRaw('vehicle, COUNT(*) as count')
+            ->pluck('count', 'vehicle');
+
+        // Append the count to each entry in carimagedata
+        $allcarvideos->each(function ($item) use ($vehicleCounts) {
+            $item->vehicle_count = $vehicleCounts->get($item->vehicle, 0);
+        });
+
+        // Reference the formatYouTubeUrl function from the controller context
+        $allcarvideos->each(function ($item) {
+            $item->videourl = $this->formatYouTubeUrl($item->videourl);
+        });
+
+        // dd($allcarvideos);
+        return view('frontend.carLayouts.carvideos', compact('allcarvideos'));
+    }
+
+    public function privacypolicy(){
+        return view('frontend.privacypolicy');
+    }
+    public function disclaimer(){
+        return view('frontend.disclaimer');
     }
 }

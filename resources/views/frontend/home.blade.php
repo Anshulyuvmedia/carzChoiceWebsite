@@ -253,7 +253,7 @@
 
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
-        
+
         <div class="container featured-cars">
             <!-- Row -->
             <div class="row">
@@ -545,6 +545,7 @@
     </section>
     <!-- =-=-=-=-=-=-= Popular Cars Ads End =-=-=-=-=-=-= -->
 
+
     {{-- THIS IS ALL BRANDS COMPONENET --}}
     <x-all-brands cartype="brandfilter" />
 
@@ -556,29 +557,23 @@
 
     <!-- =-=-=-=-=-=-= Top Cars In India  =-=-=-=-=-=-= -->
     <section class="custom-padding ">
-        <!-- Main Container -->
         <div class="container popular-cars">
-            <!-- Row -->
             <div class="row">
-
-
-
-                <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row card">
-                        <!-- Heading Area -->
                         <div class="heading-panel">
                             <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                                <!-- Main Title -->
                                 <h1>Top Cars <span class="heading-color"> In India</span> </h1>
                             </div>
                         </div>
 
                         <div class=" popular-slider container owl-carousel owl-theme">
                             @foreach ($matchestopcarsindia as $data)
+                            {{-- @php
+                                dd($data);
+                            @endphp --}}
                             <div class="item">
                                 <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
                                     <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             <div class="image">
@@ -589,8 +584,8 @@
                                             </div>
                                             <div class="short-description-1 clearfix">
                                                 <h3>
-                                                    <a title="" href="#">
-                                                        Top SUVs in India
+                                                    <a title="" class="brandfilter">
+                                                        Top {{ $data->bodytype }} in India
                                                     </a>
                                                 </h3>
                                                 <p class="text-muted ps-2">
@@ -605,11 +600,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Middle Content Box End -->
-
-                <!-- Row End -->
             </div>
-            <!-- Main Container End -->
         </div>
     </section>
     <!-- =-=-=-=-=-=-= Top Cars In India End =-=-=-=-=-=-= -->
@@ -619,11 +610,9 @@
         <!--Image One-->
         {{-- <div class="background-1"></div> --}}
         <!--Image Two-->
-        @if (!empty($data->checkonroadimg))
         <div class="background-2"
             style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->checkonroadimg) }}')">
         </div>
-        @endif
 
         <div class="container">
             <div class="row clearfix">
@@ -811,7 +800,7 @@
         });
     });
 
-    
+
 
      //This is Check on Raod Price filter
      jQuery('#checkonroad').submit(function(e) {

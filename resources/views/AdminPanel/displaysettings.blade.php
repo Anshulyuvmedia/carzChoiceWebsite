@@ -154,5 +154,27 @@
             }
         });
     });
+
+    //Getting Body Type if my type is = Top Cars In India
+    $(document).ready(function() {
+    $('#dynamic_selecttype').change(function() {
+        var selectedType = $(this).val();
+        var dropdown1 = $('#dynamic_category');
+        if (selectedType === 'Top Cars In India') {
+            $.ajax({
+                url: '/getbrandsnames',
+                method: 'GET',
+                success: function(response) {
+                    dropdown1.empty();
+                        dropdown1.append($('<option value="Trending">Trending</option>'));
+                        dropdown1.append($('<option value="Popular">Popular</option>'));
+                        dropdown1.append($('<option value="Upcoming">Upcoming</option>'));
+                        $('#typediv').show();
+                }
+            });
+        }
+    });
+});
+
 </script>
 @endpush

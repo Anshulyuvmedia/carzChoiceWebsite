@@ -42,7 +42,8 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('car-loan', 'carloan')->name('carloan');
     Route::get('find-car/{filtertype}', 'findcar')->name('findcar');
     Route::get('car-view-images/{carname}', 'carviewimages')->name('carviewimages');
-    Route::get('car-images', 'carimages');
+    Route::get('car-images', 'carimages')->name('carimages');
+    Route::get('car-videos', 'carvideos')->name('carvideos');
     Route::get('find-dealer', 'finddealer')->name('finddealer');
     Route::get('dealer-profile/{id}', 'dealerprofile')->name('dealerprofile');
     Route::get('dealer-showroom', 'dealershowroom');
@@ -67,6 +68,9 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('error404', 'error404');
     Route::get('contactus', 'contactus');
     Route::get('services', 'services');
+    Route::get('privacypolicy', 'privacypolicy')->name('privacypolicy');
+    Route::get('disclaimer', 'disclaimer')->name('disclaimer');
+
 
 });
 

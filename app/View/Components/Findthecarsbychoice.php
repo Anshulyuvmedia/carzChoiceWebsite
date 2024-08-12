@@ -9,7 +9,7 @@ use App\Models\Master;
 
 class Findthecarsbychoice extends Component
 {
-    public $budgets, $bodytypes, $fueltypes, $transmissions, $seatings,$cartype;
+    public $budgets, $bodytypes, $fueltypes, $transmissions, $seatings,$cartype,$milages;
     public function __construct($cartype)
     {
         $this->cartype = $cartype;
@@ -18,6 +18,7 @@ class Findthecarsbychoice extends Component
         $this->fueltypes = Master::where('type','=','Fuel Type')->get();
         $this->transmissions = Master::where('type','=','Transmission')->get();
         $this->seatings = Master::where('type','=','Seating Capacity')->get();
+        $this->milages = Master::where('type', '=', 'Mileage')->get();
     }
     public function render(): View|Closure|string
     {
