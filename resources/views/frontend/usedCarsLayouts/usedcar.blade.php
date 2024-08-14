@@ -372,7 +372,7 @@
 
 
 {{-- THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET --}}
-<x-find-the-cars-by-choice cartype="usedfiltercar" />
+<x-findthecarsbychoice cartype="usedfiltercar" />
 
 <!-- =-=-=-=-=-=-= Tools You May Need =-=-=-=-=-=-= -->
 <div class="page-header-area-2 gray ">
