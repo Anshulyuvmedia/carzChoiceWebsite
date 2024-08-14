@@ -290,6 +290,12 @@
                                 <li><a href="{{ route('comparecars')}}">Compare Cars</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="{{ route('allreviews') }}">
+                                <i class="uil-star"></i>
+                                <span>Reviews</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <!-- Sidebar -->

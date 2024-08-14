@@ -13,6 +13,7 @@ use App\Models\CarLoanEnquiry;
 use App\Models\ColorVariant;
 use App\Models\RegisterDealer;
 use App\Models\PostOffices;
+use App\Models\Review;
 use App\Models\VariantFaq;
 use App\Models\CompanyProfile;
 use App\Models\CompareVehicle;
@@ -272,5 +273,16 @@ class AdminView extends Controller
         $brands = Master::where('type', '=', 'Brand')->get();
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
         return view('AdminPanel.adddealerdetails', compact('brands', 'statedata'));
+    }
+
+    public function viewreviews(){
+        $variantdata = AddVariant::all();
+        return view('AdminPanel.happycustomers',compact('variantdata'));
+    }
+
+    public function allreviews(){
+        $variantdata = AddVariant::all();
+        $allreviews = Review::orderBy('created_at','desc')->get();
+        return view('AdminPanel.allreviews',compact('allreviews','variantdata'));
     }
 }

@@ -70,6 +70,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('services', 'services');
     Route::get('privacypolicy', 'privacypolicy')->name('privacypolicy');
     Route::get('disclaimer', 'disclaimer')->name('disclaimer');
+    Route::get('happycustomers', 'happycustomers')->name('happycustomers');
 
 
 });
@@ -114,6 +115,9 @@ Route::controller(FrontendStore::class)->group(function() {
 });
 
 
+
+
+
 //Admin Panel Routes
 Route::get('/admin/login', function() { return view('auth.login'); });
 Route::get('/logoutuser', [Authentication::class, 'logout'])->name('logoutuser');
@@ -148,6 +152,8 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('addvehicleimages/{id}/{carname}', 'addvehicleimages')->name('addvehicleimages');
     Route::get('dealerslist/{status}', 'dealerslist')->name('dealerslist');
     Route::get('adddealerdetails', 'adddealerdetails')->name('adddealerdetails');
+    Route::get('viewreviews', 'viewreviews')->name('viewreviews');
+    Route::get('allreviews', 'allreviews')->name('allreviews');
 
 });
 
@@ -208,6 +214,10 @@ Route::controller(Store::class)->group(function() {
     Route::get('deletedealer/{id}', 'deletedealer')->name('deletedealer');
     Route::post('/filterdealers', 'filterdealers')->name('filterdealers');
     Route::post('/updatevariantshowhidestatus', 'updatevariantshowhidestatus')->name('updatevariantshowhidestatus');
+    Route::post('/inserthappycustomers', 'inserthappycustomers')->name('inserthappycustomers');
+    Route::get('deletereview/{id}', 'deletereview')->name('deletereview');
+    Route::post('/updatereviews', 'updatereviews')->name('updatereviews');
+
 });
 
 

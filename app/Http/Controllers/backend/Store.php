@@ -10,6 +10,7 @@ use App\Models\DisplaySetting;
 use App\Models\ProsandCons;
 use App\Models\ProsCons;
 use App\Models\RegisterDealer;
+use App\Models\Review;
 use App\Models\SliderImage;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -1049,5 +1050,73 @@ class Store extends Controller
         }
         return response()->json(['success' => false], 404);
     }
+
+    public function inserthappycustomers(Request $req)
+    {
+        try {
+            if ($req->hasFile('reviewimg')) {
+                $req->validate([
+                    'reviewimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $filereviewimg = $req->file('reviewimg');
+                $filenameroad = time() . '_' . $filereviewimg->getClientOriginalName();
+                $filereviewimg->move(public_path('assets/backend-assets/images'), $filenameroad);
+                $imagedata['reviewimg'] = $filenameroad;
+            }
+
+            $data = Review::create([
+                'vehicle' => $req->vehicle,
+                'customerfullname' => $req->customerfullname,
+                'discription' => $req->discription,
+                'ratings' => $req->ratings,
+                'reviewimg' => $imagedata['reviewimg'] ?? null,
+            ]);
+            return back()->with('success', 'Review Added..!!!!');
+        } catch (Exception $e) {
+            return redirect()->route('viewreviews')->with('error', $e->getMessage());
+            //return redirect()->route('viewreviews')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deletereview($id)
+    {
+        $data = Review::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function updatereviews(Request $req)
+    {
+        try {
+            $review = Review::find($req->reviewid);
+
+            if ($req->hasFile('reviewimg')) {
+                $req->validate([
+                    'reviewimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $filereviewimg = $req->file('reviewimg');
+                $filenameroad = time() . '_' . $filereviewimg->getClientOriginalName();
+                $filereviewimg->move(public_path('assets/backend-assets/images'), $filenameroad);
+                $imagedata['reviewimg'] = $filenameroad;
+            } else {
+                // If no new image is uploaded, keep the old image
+                $imagedata['reviewimg'] = $review->reviewimg;
+            }
+
+            $faqs = Review::where('id', $req->reviewid)->update([
+                'vehicle' => $req->vehicle,
+                'customerfullname' => $req->customerfullname,
+                'discription' => $req->discription,
+                'ratings' => $req->ratings,
+                'reviewimg' => $imagedata['reviewimg'],
+            ]);
+
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            //return back()->with('error', $e->getMessage());
+            return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
+
 }
 

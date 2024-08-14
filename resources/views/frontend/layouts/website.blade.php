@@ -205,9 +205,21 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href="/news">News </a>
+                                            <a href="javascript:void(0)">Reviews & News<i
+                                                    class="fa fa-angle-down fa-indicator"></i></a>
+                                            <div class="drop-down grid-col-12">
+                                                <!--grid row-->
+                                                <div class="grid-row">
+                                                    <div class="grid-col-6">
+                                                        <h3>Explore</h3>
+                                                        <ul>
+                                                            <li><a href="/news">News </a></li>
+                                                            <li><a href="/happycustomers">User Reviews</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </li>
-
                                     </ul>
                                 </div>
 

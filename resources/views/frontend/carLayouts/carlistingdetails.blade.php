@@ -1054,12 +1054,11 @@
                 </div>
             </div>
         </div>
+    </div>
     </section>
 
 </div>
 <!-- Main Content Area End -->
-
-
 <!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= -->
 <div class="modal fade price-quote" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -1128,6 +1127,8 @@
         </div>
     </div>
 </div>
+
+
 <!-- =-=-=-=-=-=-= Share Modal =-=-=-=-=-=-= -->
 <div class="modal fade share-ad" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -1257,8 +1258,6 @@
 
     </div>
 </div>
-
-
 
 
 {{-- car variant --}}

@@ -17,6 +17,7 @@ use App\Models\Faqs;
 use App\Models\PostOffices;
 use App\Models\CompareVehicle;
 use App\Models\ProsCons;
+use App\Models\Review;
 use App\Models\SliderImage;
 use App\Models\VariantFaq;
 use App\Models\VehicleImage;
@@ -770,5 +771,11 @@ class frontViewController extends Controller
     }
     public function disclaimer(){
         return view('frontend.disclaimer');
+    }
+
+    public function happycustomers(){
+        $allreviews = Review::orderBy('created_at','desc')->paginate(2);
+        $countofreviews = Review::get()->count();
+        return view('frontend.happycustomers',compact('allreviews','countofreviews'));
     }
 }
