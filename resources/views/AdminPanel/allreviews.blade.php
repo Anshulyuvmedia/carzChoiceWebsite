@@ -49,38 +49,50 @@
                                     <th>Customer Name</th>
                                     <th>Ratings</th>
                                     <th>Discription</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody id="table-body">
                                 @foreach ($allreviews as $index => $row)
-                                    <tr>
-                                        <td>{{ $index + 1 }}</td>
-                                        <td>{{ $row->created_at->format('d/M/y')}}&nbsp;&nbsp;<span class="text-secondary fs-6">({{ $row->created_at->diffForHumans()}})</span></td>
-                                        <td>{{ $row->vehicle }}</td>
-                                        <td>{{ $row->customerfullname }}</td>
-                                        <td>{{ $row->ratings }} ⭐</td>
-                                        <td>{{ substr($row->discription, 0,50) }}....</td>
-                                        <td>
-                                            <ul class="list-inline mb-0">
-                                                <li class="list-inline-item">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal"
-                                                        data-record="{{ json_encode($row) }}"
-                                                        class="px-2 text-primary editbtnmodal"><i
-                                                            class="uil uil-pen font-size-18" data-bs-toggle="tooltip"
-                                                            data-bs-placement="top" data-bs-title="Edit"></i></a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="#" onclick="confirmDelete('{{ $row->id }}')"
-                                                        class="px-2 text-danger"><i
-                                                            class="uil uil-trash-alt font-size-18"
-                                                            data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            data-bs-title="Delete Review"></i></a>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $row->created_at->format('d/M/y')}}&nbsp;&nbsp;<span
+                                            class="text-secondary fs-6">({{ $row->created_at->diffForHumans()}})</span>
+                                    </td>
+                                    <td>{{ $row->vehicle }}</td>
+                                    <td>{{ $row->customerfullname }}</td>
+                                    <td>{{ $row->ratings }} ⭐</td>
+                                    <td>{{ substr($row->discription, 0,50) }}....</td>
+                                    <td>
+                                        <select name="status" class="form-select leadstatus"
+                                            id="inputGroupSelect01_{{ $row->id }}" required>
+                                            <option value="">--select review status--</option>
+                                            <option value="Unapproved" {{ $row->reviewstatus == 'Unapproved' ?
+                                                'selected' : '' }}>Unapproved</option>
+                                            <option value="Approved" {{ $row->reviewstatus == 'Approved' ? 'selected' :
+                                                '' }}>Approved</option>
+                                        </select>
+                                        <input type="hidden" name="reviewid" value="{{ $row->id }}" class="leadid">
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                    data-record="{{ json_encode($row) }}"
+                                                    class="px-2 text-primary editbtnmodal"><i
+                                                        class="uil uil-pen font-size-18" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" data-bs-title="Edit"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#" onclick="confirmDelete('{{ $row->id }}')"
+                                                    class="px-2 text-danger"><i class="uil uil-trash-alt font-size-18"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        data-bs-title="Delete Review"></i></a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -227,6 +239,48 @@
                 </div>
             `;
             $('#modalbody').append(modalbody);
+        });
+    });
+</script>
+<script>
+    //Review Status Functionality
+    $(document).ready(function() {
+        var leadid;
+        $('#table-body').on('change', '.leadstatus', function() {
+            var selectedStatus = $(this).val();
+            reviewid = $(this).closest('tr').find('.leadid').val();
+            swal({
+                    title: "Update Review Status",
+                    text: "Are you sure you want to update the Review status?",
+                    icon: "info",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willUpdate) => {
+                    if (willUpdate) {
+                        $.ajax({
+                            url: '/updatereviewstatus',
+                            method: 'POST',
+                            data: {
+                                _token: '{{ csrf_token() }}',
+                                status: selectedStatus,
+                                reviewid: reviewid
+                            },
+                            success: function(response) {
+                                if (response.success) {
+                                    swal("Success", "Status Updated Successfully.",
+                                        "success");
+                                } else {
+                                    swal("Error", "Failed to update Lead status.",
+                                        "error");
+                                }
+                            },
+                            error: function() {
+                                swal("Error", "An error occurred.", "error");
+                            }
+                        });
+                    }
+                });
         });
     });
 </script>

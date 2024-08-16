@@ -18,7 +18,7 @@
                             <h1 class="fw-bolder text-black fs-1">{{ $cardetails->carname }}</h1>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
+                    {{-- <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="border border-1 rounded-3 fs-5 p-2 text-black">
                             <span class="text-bg-success p-2 rounded-3">
                                 <i class="bi bi-star-fill"></i>
@@ -31,67 +31,41 @@
                                 <span class="text-success ms-3">Rate & Win</span>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-md-12 col-xs-12 col-sm-8 mt-3">
                         {!! $cardetails->summary !!}
                     </div>
 
                     <div class="col-md-12 col-xs-12 col-sm-12 ">
                         <div class="row my-3">
-
                             <ul class="nav nav-underline">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="#">Overview</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">360° View</a>
+                                    <a class="nav-link" href="#pricesection">Price</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Variants</a>
+                                    <a class="nav-link" href="#reviewssection">Reviews</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Offers</a>
+                                    <a class="nav-link" href="#specificaitonssections">Specifications</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Variants</a>
+                                    <a class="nav-link" href="#keyfeaturesections">Key Features</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Key Specs</a>
+                                    <a class="nav-link" href="#prosconssection">Pros & Cons</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Expert Opinion</a>
+                                    <a class="nav-link" href="#comparisionsection">Comparison</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Similar Cars</a>
+                                    <a class="nav-link" href="#colorsection">Colours</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Colours</a>
+                                    <a class="nav-link" href="#mileagesection">Mileages</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Brochure</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Mileage</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">User Reviews</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">News</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Expert Reviews</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Videos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Images</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">FAQs</a>
-                                </li>
-
                             </ul>
                         </div>
                     </div>
@@ -99,7 +73,6 @@
 
                 <div class="col-md-12 col-xs-12 col-sm-12 ">
                     <div class="row my-3 border rounded-4">
-
                         <div class="col-md-6 col-xs-12 col-sm-12 p-3">
                             <div class="singlepage-detail rounded-4">
                                 <div id="single-slider" class="flexslider p-2 mb-0 pb-0">
@@ -199,8 +172,9 @@
                                     </div>
                                     <div class="mt-5">
                                         <a href="#" class="btn btn-theme btn-block rounded-3" data-bs-toggle="offcanvas"
-                                            data-bs-target="#offcanvasWithBothOptions3"
-                                            aria-controls="offcanvasWithBothOptions3">Get Offer</a>
+                                            data-bs-target="#offcanvasWithBothOptions"
+                                            aria-controls="offcanvasWithBothOptions"
+                                            data-carname="{{ $cardetails->brandname }},{{ $cardetails->carname }}({{ $cardetails->carmodalname }})">Get Offer</a>
                                     </div>
                                     <div class="mt-5">
 
@@ -254,7 +228,7 @@
                 <div class="col-md-8 col-xs-12 col-sm-12">
                     <!-- Single Ad -->
                     <div class="singlepage-detail ">
-                        <div class="content-box-grid rounded-4">
+                        <div class="content-box-grid rounded-4" id="pricesection">
                             <!-- Heading Area -->
                             <div class="short-features">
                                 <!-- Heading Area -->
@@ -350,7 +324,7 @@
                         </div>
 
                         <!-- Price Alert -->
-                        <div class="alert-box-container margin-top-30">
+                        {{-- <div class="alert-box-container margin-top-30">
                             <div class="d-flex justify-content-between well align-items-center rounded-4">
                                 <div>
                                     <h3>Contact Mahindra</h3>
@@ -362,10 +336,70 @@
                                         aria-controls="offcanvasWithBothOptions">Get Assistance</a>
                                 </div>
                             </div>
+                        </div> --}}
+                        <div class="alert-box-container margin-top-30"  id="reviewssection">
+                            <div class=" well align-items-center rounded-4">
+                                <div>
+                                    <h3>Give Review to {{ $cardetails->brandname }} {{ $cardetails->carname }}</h3>
+                                </div>
+                                <p>How was your experience with this car?</p>
+                                @if(Auth::guard('registeruser')->check())
+                                <form action="{{ route('inserthappycustomers') }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="">
+                                            <input class="form-control mb-3" placeholder="Enter your fullname"
+                                                name="vehicle" type="hidden"
+                                                value="{{ $cardetails->brandname }} {{ $cardetails->carname }} ({{ $cardetails->carmodalname }})"
+                                                id="example-text-input" required>
+                                            <input class="form-control mb-3" placeholder="Enter your fullname"
+                                                name="customerfullname" type="hidden" value="" id="example-text-input"
+                                                required>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label class="">Ratings</label>
+                                            <select name="ratings" class="form-control" id="" required>
+                                                <option value="">--give rating--</option>
+                                                <option value="1">1 Star⭐</option>
+                                                <option value="2">2 Stars⭐⭐</option>
+                                                <option value="3">3 Stars⭐⭐⭐</option>
+                                                <option value="4">4 Stars⭐⭐⭐⭐</option>
+                                                <option value="5">5 Stars⭐⭐⭐⭐⭐</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label for="example-text-input" class="">Upload Review Image</label>
+                                            <input class="form-control mb-3" placeholder="Enter your fullname"
+                                                name="reviewimg" type="file" value="" id="example-text-input">
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <label for="example-email-input" class="">Review Discription</label>
+                                            <textarea rows="3" name="discription" class="form-control resize-none"
+                                                placeholder="enter remarks..."></textarea>
+                                        </div>
+                                        <div class="d-flex justify-content-center mt-3">
+                                            <button type="submit" class="btn btn-theme rounded-4">
+                                                Submit Rating
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                @else
+                                    <div class="d-flex justify-content-start mt-3">
+                                        <a href="/loginuser">
+                                            <button type="submit" class="btn btn-theme rounded-4">
+                                                Login to Give Review
+                                            </button>
+                                        </a>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
 
 
-                        <div class="well alert-box-container margin-top-20">
+                        <div class="well alert-box-container margin-top-20" id="specificaitonssections">
                             <h3>{{ $cardetails->brandname }} {{ $cardetails->carname }} Car Specifications</h3>
                             <table class="table table-light border rounded-3 table-hover">
 
@@ -445,7 +479,7 @@
                         <!-- Collapsible content -->
 
                         <h3>{{ $cardetails->brandname }} {{ $cardetails->carname }} Key Features</h3>
-                        <div class="well alert-box-container margin-top-20">
+                        <div class="well alert-box-container margin-top-20" id="keyfeaturesections">
                             <ul class="accordion">
                                 <li>
                                     <h3 class="accordion-title"><a href="#">Features</a></h3>
@@ -512,7 +546,7 @@
                         </div>
 
 
-                        <div class="well alert-box-container pro-cons margin-top-20 p-5">
+                        <div class="well alert-box-container pro-cons margin-top-20 p-5" id="prosconssection">
                             <h3>How is the {{ $cardetails->brandname }} {{ $cardetails->carname }} car?</h3>
                             <div class="row mt-3 px-3">
                                 <div class="col-md-5 shadow-sm  p-3 me-3 rounded-3 border">
@@ -564,7 +598,7 @@
 
                     <!-- =-=-=-=-=-=-= Compare section =-=-=-=-=-=-= -->
 
-                    <div class="grid-panel margin-top-30">
+                    <div class="grid-panel margin-top-30" id="comparisionsection">
                         <div class="heading-panel">
                             <div class="col-xs-12 col-md-12 col-sm-12">
                                 <h3 class="main-title text-left">
@@ -793,7 +827,7 @@
                         </div>
                     </div>
 
-                    <div class="well alert-box-container margin-top-20">
+                    <div class="well alert-box-container margin-top-20" id="colorsection">
                         <h3>{{ $cardetails->carname }} Colours</h3>
                         <p>
                             {{ $cardetails->carname }} is available/sold in the following colours in India.
@@ -847,7 +881,7 @@
 
                     </div>
 
-                    <div class="well alert-box-container margin-top-20">
+                    <div class="well alert-box-container margin-top-20" id="mileagesection">
                         <h3>{{ $cardetails->brandname }} {{ $cardetails->carname }} N Mileage</h3>
                         <p>
                             {{ $cardetails->brandname }} {{ $cardetails->carname }} N mileage claimed by owners is
@@ -1002,7 +1036,7 @@
                                             <div class="recent-ads-list">
                                                 <div class="recent-ads-container">
                                                     <div class="recent-ads-list-image">
-                                                        <a href="#" class="recent-ads-list-image-inner">
+                                                        <a href="{{ route('finddealer') }}" class="recent-ads-list-image-inner">
                                                             <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/locate-dealer.svg"
                                                                 alt="">
                                                         </a><!-- /.recent-ads-list-image-inner -->
@@ -1010,7 +1044,7 @@
                                                     <!-- /.recent-ads-list-image -->
                                                     <div class="recent-ads-list-content">
                                                         <h3 class="recent-ads-list-title">
-                                                            <a href="#">Locate Dealer </a>
+                                                            <a href="{{ route('finddealer') }}">Locate Dealer </a>
                                                         </h3>
                                                         <div class="recent-ads-list-location">
                                                             Find a dealer near your current location
@@ -1026,7 +1060,7 @@
                                             <div class="recent-ads-list">
                                                 <div class="recent-ads-container">
                                                     <div class="recent-ads-list-image">
-                                                        <a href="#" class="recent-ads-list-image-inner">
+                                                        <a href="/used-car" class="recent-ads-list-image-inner">
                                                             <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/used-car.svg"
                                                                 alt="">
                                                         </a>
@@ -1034,7 +1068,7 @@
                                                     <!-- /.recent-ads-list-image -->
                                                     <div class="recent-ads-list-content">
                                                         <h3 class="recent-ads-list-title">
-                                                            <a href="#">Used Cars</a>
+                                                            <a href="/used-car">Used Cars</a>
                                                         </h3>
 
                                                         <div class="recent-ads-list-location">
@@ -1054,8 +1088,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    </section>
+</div>
+</section>
 
 </div>
 <!-- Main Content Area End -->
@@ -1857,4 +1891,23 @@
         });
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const offcanvasElement = document.getElementById('offcanvasWithBothOptions');
+        const selectCarElement = offcanvasElement.querySelector('select');
+
+        offcanvasElement.addEventListener('show.bs.offcanvas', function (event) {
+            const button = event.relatedTarget;
+            const carName = button.getAttribute('data-carname');
+            const options = selectCarElement.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === carName) {
+                    selectCarElement.selectedIndex = i;
+                    break;
+                }
+            }
+        });
+    });
+</script>
+
 @endsection

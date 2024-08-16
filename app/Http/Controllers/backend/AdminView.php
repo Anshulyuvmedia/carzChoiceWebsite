@@ -2,7 +2,6 @@
 #{{--“सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।”--}}
 
 namespace App\Http\Controllers\backend;
-
 use App\Http\Controllers\Controller;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -11,6 +10,7 @@ use App\Models\Blog;
 use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
 use App\Models\ColorVariant;
+use App\Models\InsuranceLead;
 use App\Models\RegisterDealer;
 use App\Models\PostOffices;
 use App\Models\Review;
@@ -31,6 +31,17 @@ use DB;
 
 class AdminView extends Controller
 {
+    public function dashboard(){
+        $registeruserscount = RegisterUser::get()->count();
+        $dealerscount = RegisterDealer::get()->count();
+        $Leadscount = Lead::get()->count();
+        $allvariants = AddVariant::get()->count();
+        $registeredusers = RegisterUser::orderBy('created_at', 'desc')->get();
+        $registereddealers = RegisterDealer::orderBy('created_at', 'desc')->get();
+        $loanenquiries = CarLoanEnquiry::orderBy('created_at', 'desc')->get();
+        $insuranceenq = InsuranceLead::orderBy('created_at', 'desc')->get();
+        return view('AdminPanel.admindashboard',compact('registeruserscount','insuranceenq','dealerscount','Leadscount','allvariants','registeredusers','registereddealers','loanenquiries'));
+    }
     public function adminprofile()
     {
         $user = Auth::user();
@@ -284,5 +295,10 @@ class AdminView extends Controller
         $variantdata = AddVariant::all();
         $allreviews = Review::orderBy('created_at','desc')->get();
         return view('AdminPanel.allreviews',compact('allreviews','variantdata'));
+    }
+
+    public function allinsuranceleads(){
+        $leads = InsuranceLead::orderBy('created_at','desc')->get();
+        return view('AdminPanel.insuranceleads',compact('leads'));
     }
 }

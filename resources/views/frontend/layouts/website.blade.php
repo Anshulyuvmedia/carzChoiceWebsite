@@ -182,7 +182,6 @@
                                                             <li><a href="/usedcar-bylocation">Usedcar by location</a>
                                                             </li>
                                                             <li><a href="/find-dealer">Find Dealer </a></li>
-                                                            <li><a href="/dealer-profile">Dealer Profile</a></li>
                                                         </ul>
                                                     </div>
 
@@ -219,6 +218,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('carinsurance') }}">Car Insurance</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -439,10 +441,10 @@
                     <select class="selectpicker" data-show-subtext="true" data-live-search="true">
                         <option>--select-car</option>
                         @foreach ($variantdata as $data)
-                            <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
-                                {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
-                            </option>
-                        @endforeach
+                        <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
+                            {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
+                        </option>
+                     @endforeach
                     </select>
                     <label>State <span class="color-red">*</span></label>
                     <select class="form-control" id="dynamic_selectstate" name="state" required>

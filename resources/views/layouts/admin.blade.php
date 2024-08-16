@@ -243,6 +243,7 @@
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('leadmanagement') }}">Lead Management</a></li>
                                 <li><a href="{{ route('allenquiriessite')}}">Enquiries from Website</a></li>
+                                <li><a href="{{ route('allinsuranceleads')}}">Enquiries for Insurance</a></li>
                             </ul>
                         </li>
                         {{-- <li>

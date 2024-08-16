@@ -1143,5 +1143,15 @@ class Store extends Controller
         }
     }
 
+    public function updatereviewstatus(Request $req)
+    {
+        $reviewstatus = Review::find($req->reviewid);
+        if ($reviewstatus) {
+            $reviewstatus->reviewstatus = $req->status;
+            $reviewstatus->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
 }
 

@@ -774,8 +774,14 @@ class frontViewController extends Controller
     }
 
     public function happycustomers(){
-        $allreviews = Review::orderBy('created_at','desc')->paginate(2);
+        $allreviews = Review::orderBy('created_at','desc')->where('reviewstatus','=','Approved')->paginate(2);
         $countofreviews = Review::get()->count();
         return view('frontend.happycustomers',compact('allreviews','countofreviews'));
+    }
+
+    public function carinsurance(){
+        $brands = Master::where('type', '=', 'Brand')->get();
+        $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+        return view('frontend.carinsurance',compact('brands','statedata'));
     }
 }

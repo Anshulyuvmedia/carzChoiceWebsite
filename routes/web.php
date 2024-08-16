@@ -17,9 +17,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('AdminPanel.admindashboard');
-    })->name('Admindashboard');
+    Route::get('/dashboard', [AdminView::class, 'dashboard'])->name('Admindashboard');
 });
 
 Route::controller(frontViewController::class)->group(function () {
@@ -71,7 +69,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('privacypolicy', 'privacypolicy')->name('privacypolicy');
     Route::get('disclaimer', 'disclaimer')->name('disclaimer');
     Route::get('happycustomers', 'happycustomers')->name('happycustomers');
-
+    Route::get('carinsurance', 'carinsurance')->name('carinsurance');
 
 });
 
@@ -111,6 +109,8 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::get('filterdistrictbystate/{state}', 'filterdistrictbystate')->name('filterdistrictbystate');
     Route::post('filternewcardealersbybrand/{brand}', 'filternewcardealersbybrand')->name('filternewcardealersbybrand');
     Route::post('filternewcardealersbycity/{citynamedeal}', 'filternewcardealersbycity')->name('filternewcardealersbycity');
+    Route::post('requestinsurance', 'requestinsurance')->name('requestinsurance');
+    Route::post('insertrating', 'insertrating')->name('insertrating');
 
 });
 
@@ -154,6 +154,7 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('adddealerdetails', 'adddealerdetails')->name('adddealerdetails');
     Route::get('viewreviews', 'viewreviews')->name('viewreviews');
     Route::get('allreviews', 'allreviews')->name('allreviews');
+    Route::get('allinsuranceleads', 'allinsuranceleads')->name('allinsuranceleads');
 
 });
 
@@ -217,6 +218,7 @@ Route::controller(Store::class)->group(function() {
     Route::post('/inserthappycustomers', 'inserthappycustomers')->name('inserthappycustomers');
     Route::get('deletereview/{id}', 'deletereview')->name('deletereview');
     Route::post('/updatereviews', 'updatereviews')->name('updatereviews');
+    Route::post('/updatereviewstatus', 'updatereviewstatus')->name('updatereviewstatus');
 
 });
 

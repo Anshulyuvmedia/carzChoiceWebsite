@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\InsuranceLead;
 use App\Models\Master;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -14,6 +15,7 @@ use App\Models\CompareVehicle;
 use App\Models\DisplaySetting;
 use App\Models\PostOffices;
 use App\Models\Pincode;
+use App\Models\Review;
 use App\Models\RegisterDealer;
 use App\Models\VehicleImage;
 use App\Models\RegisterUser;
@@ -96,11 +98,10 @@ class FrontendStore extends Controller
     {
         $credentials = $request->only('email', 'password');
         $data = RegisterUser::where('email', '=', $credentials)->first();
-        // dd($data);
+        $previousUrl = $request->input('previous_url');
+        // dd($previousUrl);
         if ($data && Auth::guard('registeruser')->attempt($credentials)) {
-            //dd("HELLO");
-            // Authentication passed...
-            return redirect()->route('userprofile');
+            return redirect($previousUrl ?? route('userprofile'));
         }
         return redirect()->route('loginuser')->with('failure', 'Invalid credentials');
     }
@@ -1005,5 +1006,51 @@ class FrontendStore extends Controller
         $dealerscity = RegisterDealer::where('dealertype', '=', 'New Car Dealer')->where('district', $citynamedeal)->get();
         // dd($dealers);
         return response()->json($dealerscity);
+    }
+
+    public function requestinsurance(Request $req){
+        // dd($rq->all());
+        try {
+            InsuranceLead::create([
+                'brandname' => $req->brandname,
+                'carname' => $req->carname,
+                'modalname' => $req->modalname,
+                'city' => $req->city,
+                'registerdate' => $req->registerdate,
+                'fullname' => $req->fullname,
+                'emailaddress' => $req->emailaddress,
+                'phonenumber' => $req->phonenumber,
+            ]);
+            return back()->with('success', 'Successfull');
+        } catch (Exception $e) {
+            return redirect()->route('carinsurance')->with('error', $e->getMessage());
+            //return redirect()->route('carinsurance')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+    public function insertrating(Request $req)
+    {
+        try {
+            if ($req->hasFile('reviewimg')) {
+                $req->validate([
+                    'reviewimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $filereviewimg = $req->file('reviewimg');
+                $filenameroad = time() . '_' . $filereviewimg->getClientOriginalName();
+                $filereviewimg->move(public_path('assets/backend-assets/images'), $filenameroad);
+                $imagedata['reviewimg'] = $filenameroad;
+            }
+
+            $data = Review::create([
+                'vehicle' => $req->vehicle,
+                'customerfullname' => $req->customerfullname,
+                'discription' => $req->discription,
+                'ratings' => $req->ratings,
+                'reviewimg' => $imagedata['reviewimg'] ?? null,
+            ]);
+            return back()->with('success', 'Review Added..!!!!');
+        } catch (Exception $e) {
+            return redirect()->route('carlistingdetails')->with('error', $e->getMessage());
+            //return redirect()->route('carlistingdetails')->with('error', 'Not Added Try Again...!!!!');
+        }
     }
 }
