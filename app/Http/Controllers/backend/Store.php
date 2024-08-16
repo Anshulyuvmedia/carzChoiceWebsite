@@ -799,9 +799,7 @@ class Store extends Controller
     {
         try {
             $imagedata = SliderImage::findOrFail($req->imageid);
-            // dd($imagedata);
 
-            // Update Banner image if provided
             if ($req->hasFile('mainbannerimg')) {
                 $req->validate([
                     'mainbannerimg' => 'image',
@@ -820,7 +818,7 @@ class Store extends Controller
                 $imagedata['mainbannerimg'] = $filename;
             }
 
-            // Update Checkon Road image if provided
+            // Update Checkon Road Image if provided
             if ($req->hasFile('checkonroadimg')) {
                 $req->validate([
                     'checkonroadimg' => 'image',
@@ -839,6 +837,33 @@ class Store extends Controller
                 $imagedata['checkonroadimg'] = $filenameroad;
             }
 
+            // Handle Multiple Image Uploads for Mobile Images
+            $image = [];
+            if ($files = $req->file('mobileimages')) {
+                // If new images are uploaded, delete existing images
+                if ($imagedata->mobileimages) {
+                    $existingImages = explode(',', $imagedata->mobileimages);
+                    foreach ($existingImages as $existingImage) {
+                        $existingImagePath = public_path($existingImage);
+                        if (file_exists($existingImagePath)) {
+                            unlink($existingImagePath);
+                        }
+                    }
+                }
+
+                // Upload new images
+                foreach ($files as $file) {
+                    $image_name = md5(rand(1000, 10000));
+                    $extension = strtolower($file->getClientOriginalExtension());
+                    $image_fullname = $image_name . '.' . $extension;
+                    $uploaded_path = "assets/backend-assets/images/";
+                    $image_url = $uploaded_path . $image_fullname;
+                    $file->move(public_path($uploaded_path), $image_fullname);
+                    $image[] = $image_url;
+                }
+            }
+
+            $imagedata->mobileimages = count($image) > 0 ? implode(',', $image) : null;
             $imagedata->save();
             return back()->with('success', 'Images Updated..!!!!');
         } catch (Exception $e) {
