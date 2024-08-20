@@ -243,16 +243,22 @@ class AdminView extends Controller
 
     public function prosandcons($id)
     {
-        $proscons = ProsCons::first();
-        $pros = json_decode($proscons->pros, true);
-        $cons = json_decode($proscons->cons, true);
+        $proscons = ProsCons::where('vehicleid',$id)->first();
+        // dd($proscons);
+        $pros = [];
+        $cons = [];
         $vehicleid = $id;
+        if($proscons){
+            $pros = $proscons->pros;
+            $cons = $proscons->cons;
+            $vehicleid = $id;
+        }
         return view('AdminPanel.prosandcons', compact('vehicleid', 'pros', 'cons', 'proscons'));
     }
 
     public function variantfaqs($id, $carname)
     {
-        $faqs = VariantFaq::get();
+        $faqs = VariantFaq::where('vehicleid',$id)->get();
         $vehicleid = $id;
         $carnamedata = $carname;
         return view('AdminPanel.variantfaqs', compact('vehicleid', 'faqs', 'carnamedata'));

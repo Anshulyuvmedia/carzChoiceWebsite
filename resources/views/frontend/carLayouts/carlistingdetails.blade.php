@@ -15,7 +15,8 @@
                 <div class="pricing-area">
                     <div class="col-md-8 col-xs-12 col-sm-8">
                         <div>
-                            <h1 class="fw-bolder text-black fs-1">{{ $cardetails->carname }}</h1>
+                            <h1 class="fw-bolder text-black fs-1">{{ $cardetails->carname }} ({{
+                                $cardetails->carmodalname }})</h1>
                         </div>
                     </div>
                     {{-- <div class="col-md-4 col-sm-4 col-xs-12">
@@ -115,7 +116,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-6 col-xs-12 col-sm-12 border rounded-end-4 bg-white">
-                                    <a href="#" data-target="#selectLocation" data-toggle="modal">
+                                    <a href="#" data-bs-target="#selectLocation" data-bs-toggle="modal">
                                         <div class="d-flex justify-content-between align-items-center p-2">
                                             <div>
                                                 <small>City</small>
@@ -174,7 +175,8 @@
                                         <a href="#" class="btn btn-theme btn-block rounded-3" data-bs-toggle="offcanvas"
                                             data-bs-target="#offcanvasWithBothOptions"
                                             aria-controls="offcanvasWithBothOptions"
-                                            data-carname="{{ $cardetails->brandname }},{{ $cardetails->carname }}({{ $cardetails->carmodalname }})">Get Offer</a>
+                                            data-carname="{{ $cardetails->brandname }},{{ $cardetails->carname }}({{ $cardetails->carmodalname }})">Get
+                                            Offer</a>
                                     </div>
                                     <div class="mt-5">
 
@@ -234,7 +236,7 @@
                                 <!-- Heading Area -->
                                 <div class="heading-panel">
                                     <h3 class="main-title text-left">
-                                        {{ $cardetails->brandname }} {{ $cardetails->carname }} N Price
+                                        {{ $cardetails->brandname }} {{ $cardetails->carname }} Price
                                     </h3>
                                 </div>
                                 {!! $cardetails->summary !!}
@@ -244,29 +246,29 @@
                                 <div>
                                     <div class="d-flex pb-3" style=" overflow-x: auto;">
                                         <div class="me-3">
-                                            <input type="checkbox" class="btn-check " id="btn-check-1-outlined"
-                                                autocomplete="off" value="Petrol">
+                                            <input type="checkbox" class="btn-check variantcheck"
+                                                id="btn-check-1-outlined" autocomplete="off" value="Petrol">
                                             <label class="btn btn-outline-success border rounded-3"
                                                 for="btn-check-1-outlined">Petrol</label>
 
                                         </div>
                                         <div class="me-3">
-                                            <input type="checkbox" class="btn-check " id="btn-check-2-outlined"
-                                                autocomplete="off" value="CNG">
+                                            <input type="checkbox" class="btn-check variantcheck"
+                                                id="btn-check-2-outlined" autocomplete="off" value="CNG">
                                             <label class="btn btn-outline-success border rounded-3"
                                                 for="btn-check-2-outlined">CNG</label>
 
                                         </div>
                                         <div class="me-3">
-                                            <input type="checkbox" class="btn-check " id="btn-check-3-outlined"
-                                                autocomplete="off" value="Manual">
+                                            <input type="checkbox" class="btn-check variantcheck"
+                                                id="btn-check-3-outlined" autocomplete="off" value="Manual">
                                             <label class="btn btn-outline-success border rounded-3"
                                                 for="btn-check-3-outlined">Manual</label>
 
                                         </div>
                                         <div class="me-3">
-                                            <input type="checkbox" class="btn-check " id="btn-check-4-outlined"
-                                                autocomplete="off" value="Automatic">
+                                            <input type="checkbox" class="btn-check variantcheck"
+                                                id="btn-check-4-outlined" autocomplete="off" value="Automatic">
                                             <label class="btn btn-outline-success border rounded-3"
                                                 for="btn-check-4-outlined">Automatic</label>
 
@@ -337,7 +339,7 @@
                                 </div>
                             </div>
                         </div> --}}
-                        <div class="alert-box-container margin-top-30"  id="reviewssection">
+                        <div class="alert-box-container margin-top-30" id="reviewssection">
                             <div class=" well align-items-center rounded-4">
                                 <div>
                                     <h3>Give Review to {{ $cardetails->brandname }} {{ $cardetails->carname }}</h3>
@@ -387,13 +389,13 @@
                                     </div>
                                 </form>
                                 @else
-                                    <div class="d-flex justify-content-start mt-3">
-                                        <a href="/loginuser">
-                                            <button type="submit" class="btn btn-theme rounded-4">
-                                                Login to Give Review
-                                            </button>
-                                        </a>
-                                    </div>
+                                <div class="d-flex justify-content-start mt-3">
+                                    <a href="/loginuser">
+                                        <button type="submit" class="btn btn-theme rounded-4">
+                                            Login to Give Review
+                                        </button>
+                                    </a>
+                                </div>
                                 @endif
                             </div>
                         </div>
@@ -797,7 +799,7 @@
                             </div>
                         </div>
                     </div>
-
+                    modalbtncheck
                     <!-- Price Alert -->
                     <div class="alert-box-container margin-top-30">
 
@@ -1036,7 +1038,8 @@
                                             <div class="recent-ads-list">
                                                 <div class="recent-ads-container">
                                                     <div class="recent-ads-list-image">
-                                                        <a href="{{ route('finddealer') }}" class="recent-ads-list-image-inner">
+                                                        <a href="{{ route('finddealer') }}"
+                                                            class="recent-ads-list-image-inner">
                                                             <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/locate-dealer.svg"
                                                                 alt="">
                                                         </a><!-- /.recent-ads-list-image-inner -->
@@ -1092,8 +1095,6 @@
 </section>
 
 </div>
-<!-- Main Content Area End -->
-<!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= -->
 <div class="modal fade price-quote" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -1123,14 +1124,10 @@
                                 <div class="recent-ads-list-price">
                                     $ 17,000
                                 </div>
-                                <!-- /.recent-ads-list-price -->
                             </div>
-                            <!-- /.recent-ads-list-content -->
                         </div>
-                        <!-- /.recent-ads-container -->
                     </div>
                 </div>
-                <!-- content goes here -->
                 <form>
                     <div class="form-group  col-md-6  col-sm-6">
                         <label>Your Name</label>
@@ -1309,301 +1306,79 @@
                 <form>
                     <div class="form-group col-md-12">
                         <label>Your Car</label>
-                        <input type="text" id="CarrName" class="form-control" placeholder="Enter Your Car Name">
+                        <input type="hidden" name="" id="modalcarname" value="{{ $cardetails->carname }}">
+                        <input type="text" id="CarrName"
+                            value="{{ $cardetails->brandname }} {{ $cardetails->carname }} ({{ $cardetails->carmodalname }})"
+                            class="form-control" placeholder="Enter Your Car Name">
                     </div>
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="d-flex pb-3" style=" overflow-x: auto;">
                                 <div class="me-3">
-                                    <input type="checkbox" class="btn-check " id="btn-check-1-outlined"
-                                        autocomplete="off">
+                                    <input type="checkbox" class="btn-check modalbtncheck" id="modalbtncheck-1"
+                                        autocomplete="off" value="Petrol">
                                     <label class="btn btn-outline-success border rounded-3"
-                                        for="btn-check-1-outlined">Petrol</label>
+                                        for="modalbtncheck-1">Petrol</label>
 
                                 </div>
                                 <div class="me-3">
-                                    <input type="checkbox" class="btn-check " id="btn-check-2-outlined"
-                                        autocomplete="off">
+                                    <input type="checkbox" class="btn-check modalbtncheck" id="modalbtncheck-2"
+                                        autocomplete="off" value="CNG">
                                     <label class="btn btn-outline-success border rounded-3"
-                                        for="btn-check-2-outlined">CNG</label>
+                                        for="modalbtncheck-2">CNG</label>
 
                                 </div>
                                 <div class="me-3">
-                                    <input type="checkbox" class="btn-check " id="btn-check-3-outlined"
-                                        autocomplete="off">
+                                    <input type="checkbox" class="btn-check modalbtncheck" id="modalbtncheck-3"
+                                        autocomplete="off" value="Manual">
                                     <label class="btn btn-outline-success border rounded-3"
-                                        for="btn-check-3-outlined">Manual</label>
+                                        for="modalbtncheck-3">Manual</label>
 
                                 </div>
                                 <div class="me-3">
-                                    <input type="checkbox" class="btn-check " id="btn-check-4-outlined"
-                                        autocomplete="off">
+                                    <input type="checkbox" class="btn-check modalbtncheck" id="modalbtncheck-4"
+                                        autocomplete="off" value="Automatic">
                                     <label class="btn btn-outline-success border rounded-3"
-                                        for="btn-check-4-outlined">Automatic</label>
+                                        for="modalbtncheck-4">Automatic</label>
 
                                 </div>
                             </div>
 
                             <h6 class="pb-3">Select a variant</h6>
-                            <div>
-                                <a href="#" class="list-group-item list-group-item-action">
+                            <div id="modalvariantdiv">
+                                @foreach ($cardetails['variants'] as $rowqqqq)
+                                <a href="/carlistingdetails/{{ $rowqqqq->id }}"
+                                    class="list-group-item list-group-item-action">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
-                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
+                                        <h5 class="mb-1 fw-bold text-danger">{{ $rowqqqq->carname }}, ({{
+                                            $rowqqqq->carmodalname }})
+                                        </h5>
+                                        <small class="text-body-secondary fw-bold ">Rs. {{ $rowqqqq->price }}
+                                            Lakh</small>
                                     </div>
                                     <div class="d-flex w-100 justify-content-between">
                                         <div class="mb-1">
                                             <ul class="d-flex">
                                                 <li class="me-2">
-                                                    Petrol
-                                                </li>
-                                                <li class="me-2">
-                                                    Manual
+                                                    {{ implode(', ', json_decode($rowqqqq->fueltype)) }}
                                                 </li>
                                             </ul>
                                         </div>
                                         <small class="text-body-secondary">On-Road</small>
                                     </div>
-
                                 </a>
-                                <a href="#" class="list-group-item list-group-item-action">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
-                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
-                                    </div>
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <div class="mb-1">
-                                            <ul class="d-flex">
-                                                <li class="me-2">
-                                                    Petrol
-                                                </li>
-                                                <li class="me-2">
-                                                    Manual
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <small class="text-body-secondary">On-Road</small>
-                                    </div>
-
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 fw-bold text-danger">Sigma 1.2L MT</h5>
-                                        <small class="text-body-secondary fw-bold ">Rs. 8.71 Lakh</small>
-                                    </div>
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <div class="mb-1">
-                                            <ul class="d-flex">
-                                                <li class="me-2">
-                                                    Petrol
-                                                </li>
-                                                <li class="me-2">
-                                                    Manual
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <small class="text-body-secondary">On-Road</small>
-                                    </div>
-
-                                </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="col-md-12 margin-bottom-20 margin-top-20">
-                        <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
-                            class="btn btn-theme rounded-4 btn-block">Select Brand</button>
-                    </div> --}}
                 </form>
             </div>
-            {{-- <div class="modal-footer">
-                <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button type="button" data-bs-target="#selectBrand" data-bs-toggle="modal"
-                        class="btn btn-theme rounded-4 btn-block rounded-3">Go Back</button>
-                </div>
-            </div> --}}
         </div>
     </div>
 </div>
 
 
 {{-- car selectLocation --}}
-
-<div class="modal fade selectLocation" id="selectLocation" aria-hidden="true" aria-labelledby="selectBrandlabel"
-    tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg ">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h3 class="modal-title " id="selectBrandlabel">Select Your City </h3>
-                <div class="header-bg"></div>
-                {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
-            </div>
-
-            <div class="modal-body">
-                <!-- content goes here -->
-                <form>
-                    <div class=" text-center">
-                        <a href="#">
-                            <i class="bi bi-crosshair"></i>
-                            Detect my location
-                        </a>
-                    </div>
-                    <div class="form-group col-md-12">
-
-                        <input type="text" id="carLocation" class="form-control" placeholder="Enter Your Name">
-                    </div>
-
-
-                    <div class="row mt-3">
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <h6 class="pb-3 text-center">Popular Cities</h6>
-
-                            <div class="row flex-wrap justify-content-center">
-                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal" data-bs-location="Mumbai"
-                                        data-bs-target="#selectCity" data-bs-toggle="modal">
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/ergk3sa_1483598.jpg" alt="Mumbai">
-                                        <div class="fs-6 text-muted">Mumbai</div>
-                                    </a>
-                                </div>
-
-                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal" data-bs-location="Bangalore"
-                                        data-bs-target="#selectCity" data-bs-toggle="modal">
-
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/k88k3sa_1483601.jpg" alt="Bangalore">
-                                        <div class="fs-6 text-muted">Bangalore</div>
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal" data-bs-location="Delhi"
-                                        data-bs-target="#selectCity" data-bs-toggle="modal">
-
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/1jnk3sa_1483607.jpg" alt="Delhi">
-                                        <div class="fs-6 text-muted">Delhi</div>
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal" data-bs-location="Pune"
-                                        data-bs-target="#selectCity" data-bs-toggle="modal">
-
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/53hk3sa_1483599.jpg" alt="Pune">
-                                        <div class="fs-6 text-muted">Pune</div>
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" class="switch-modal" data-bs-location="Navi M data-bs-target="
-                                        #selectCity" data-bs-toggle="modal" umbai">
-
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg" alt="Navi Mumbai">
-                                        <div class="mt-2 fs-6 text-muted" style="line-height: 1.3em;">Navi Mumbai
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-
-                            <div class="row flex-wrap justify-content-center mt-3">
-
-                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" data-bs-location="Hyderabad" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal">
-
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/sj7k3sa_1483605.jpg" alt="Hyderabad">
-                                        <div class="fs-6 text-muted">Hyderabad</div>
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" data-bs-location="Ahmedabad" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal">
-
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/z2fk3sa_1483597.jpg" alt="Ahmedabad">
-                                        <div class="fs-6 text-muted">Ahmedabad</div>
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" data-bs-location="Chennai" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal">
-
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/zhlk3sa_1483604.jpg" alt="Chennai">
-                                        <div class="fs-6 text-muted">Chennai</div>
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" data-bs-location="Kolkata" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal">
-
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/9omk3sa_1483606.jpg" alt="Kolkata">
-                                        <div class="fs-6 text-muted">Kolkata</div>
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
-                                    <a href="#" data-bs-location="Chandigarh" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal">
-
-                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg" alt="Chandigarh">
-                                        <div class="fs-6 text-muted">Chandigarh</div>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h6 class="py-3 fs-3 text-center">All Cities</h6>
-                            <div class="list-group " style="height: 150px; overflow-y: auto;">
-                                <a href="#" data-bs-location="A&N Islands, Andaman Nicobar" data-bs-target="#selectCity"
-                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                    A&N Islands, Andaman Nicobar
-                                </a>
-
-                                <a href="#" data-bs-location="Abohar, Punjab" data-bs-target="#selectCity"
-                                    data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                    <a href="#" data-bs-location="Abohar, Punjab" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                        Abohar, Punjab
-                                    </a>
-                                    <a href="#" data-bs-location="Abu, Rajasthan" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                        Abu, Rajasthan
-                                    </a>
-                                    <a href="#" data-bs-location="Abu, Rajasthan" data-bs-target="#selectCity"
-                                        data-bs-toggle="modal" class="list-group-item list-group-item-action">
-                                        Abu, Rajasthan
-                                    </a>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-
-            {{-- <div class="modal-footer">
-                <div class="col-md-12 margin-bottom-20 margin-top-20">
-                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCity"
-                        data-bs-toggle="modal">Open
-                        City Modal</button>
-                </div>
-            </div> --}}
-        </div>
-    </div>
-</div>
 
 
 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="compareOffcanvas" aria-labelledby="offcanvasBottomLabel">
@@ -1630,7 +1405,220 @@
     </div>
 </div>
 
+<div class="modal fade" id="selectLocation" aria-hidden="true" aria-labelledby="selectBrandlabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h3 class="modal-title " id="selectBrandlabel">Select Your City </h3>
+                <div class="header-bg"></div>
+                {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+            </div>
 
+            <div class="modal-body">
+                <!-- content goes here -->
+                <form>
+                    {{-- <div class=" text-center">
+                        <a href="#">
+                            <i class="bi bi-crosshair"></i>
+                            Detect my location
+                        </a>
+                    </div> --}}
+                    <div class="form-group col-md-12">
+
+                        <input type="text" id="carLocation" class="form-control" placeholder="Enter Your Name">
+                    </div>
+
+
+                    <div class="row mt-3">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <h6 class="pb-3 text-center">Popular Cities</h6>
+
+                            <div class="row flex-wrap justify-content-center">
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Mumbai"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/ergk3sa_1483598.jpg" alt="Mumbai">
+                                        <div class="fs-6 text-muted">Mumbai</div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Bangalore"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/k88k3sa_1483601.jpg" alt="Bangalore">
+                                        <div class="fs-6 text-muted">Bangalore</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Delhi"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/1jnk3sa_1483607.jpg" alt="Delhi">
+                                        <div class="fs-6 text-muted">Delhi</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Pune"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/53hk3sa_1483599.jpg" alt="Pune">
+                                        <div class="fs-6 text-muted">Pune</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal cityanchor"
+                                        data-bs-location="Navi M data-bs-target=" #selectCity" data-bs-toggle="modal"
+                                        umbai">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/o0ik3sa_1483600.jpg" alt="Navi Mumbai">
+                                        <div class="mt-2 fs-6 text-muted" style="line-height: 1.3em;">Navi Mumbai
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <div class="row flex-wrap justify-content-center mt-3">
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Hyderabad"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/sj7k3sa_1483605.jpg" alt="Hyderabad">
+                                        <div class="fs-6 text-muted">Hyderabad</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Ahmedabad"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/z2fk3sa_1483597.jpg" alt="Ahmedabad">
+                                        <div class="fs-6 text-muted">Ahmedabad</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Chennai"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/zhlk3sa_1483604.jpg" alt="Chennai">
+                                        <div class="fs-6 text-muted">Chennai</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Kolkata"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/9omk3sa_1483606.jpg" alt="Kolkata">
+                                        <div class="fs-6 text-muted">Kolkata</div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-2 col-2 d-flex flex-column text-center px-2">
+                                    <a href="#" class="switch-modal cityanchor" data-bs-location="Chandigarh"
+                                        data-bs-target="#selectCity" data-bs-toggle="modal">
+
+                                        <img src="https://imgd.aeplcdn.com/0x0/n/u5jk3sa_1483602.jpg" alt="Chandigarh">
+                                        <div class="fs-6 text-muted">Chandigarh</div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 class="py-3 fs-3 text-center">All Cities</h6>
+                            <div class="list-group " style="height: 150px; overflow-y: auto;">
+                                @foreach ($pincodedata->take(50) as $row)
+                                <a id="locationid" data-value="{{ $row->City }}, {{ $row->State }}"
+                                    class="list-group-item list-group-item-action">
+                                    {{ $row->City }}, {{ $row->State }}
+                                </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            {{-- <div class="modal-footer">
+                <div class="col-md-12 margin-bottom-20 margin-top-20">
+                    <button class="btn btn-theme rounded-4 btn-block" data-bs-target="#selectCity"
+                        data-bs-toggle="modal">Open
+                        City Modal</button>
+                </div>
+            </div> --}}
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="selectCity" aria-hidden="true" aria-labelledby="selectBrandlabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h3 class="modal-title " id="selectBrandlabel">Select Your City </h3>
+                <div class="header-bg"></div>
+                {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+            </div>
+
+            <div class="modal-body">
+                <!-- content goes here -->
+                <form>
+                    <div class=" text-center">
+                        <a href="#" id="getLocationBtn">
+                            <i class="bi bi-crosshair"></i>
+                            Detect my location
+                        </a>
+                    </div>
+                    <p id="locationInfo"></p>
+                    <div class="search-form">
+                        <div class="form-group col-md-12">
+                            <input type="text" id="selectedloaction" value="" class="form-control"
+                                placeholder="Enter Your Name">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 class="pb-3 text-center">All Cities</h6>
+                            <div class="list-group p-2" id="locationdiv"
+                                style="height: 300px; overflow-y: auto; scrollbar-width: thin;">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <div class="col-md-12 margin-bottom-20 margin-top-20">
+                    <button class="btn btn-theme rounded-4 btn-sm" data-bs-target="#selectLocation"
+                        data-bs-toggle="modal">Go
+                        Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     document.querySelectorAll('.modal').forEach(modal => {
@@ -1717,13 +1705,13 @@
         }
 
         // Handle checkbox changes for filtering
-        $('.btn-check').on('change', function() {
+        $('.variantcheck').on('change', function() {
             const carname = document.querySelector('#CarrName').value;
             console.log(carname);
 
             // Checkboxes values that are checked
             var checkedValues = [];
-            $('.btn-check:checked').each(function() {
+            $('.variantcheck:checked').each(function() {
                 checkedValues.push($(this).val());
             });
             console.log('Checked values:', checkedValues);
@@ -1871,14 +1859,9 @@
                         <div class="short-description-1 clearfix">
                             <a title="" href="#">
                                 <div class="fs-5 fw-bold">
-                                    ${carData.brandname} ${carData.carname}, ${carData.model}
+                                    ${carData.brandname} ${carData.carname}, ${carData.carmodalname}
                                 </div>
                             </a>
-                            <div class="text-muted fs-5">
-                                <div class="d-flex">
-                                    ${fuelTypes}
-                                </div>
-                            </div>
                             <div class="ad-price fs-5">Rs. ${carData.price}
                                 <span class="text-muted ps-2">onwards</span>
                             </div>
@@ -1909,5 +1892,217 @@
         });
     });
 </script>
+<script>
+    document.querySelectorAll('.cityanchor').forEach(item => {
+        item.addEventListener('click', event => {
+            const location = event.currentTarget.getAttribute('data-bs-location');
+            console.log(location);
+            $('#selectedloaction').val(location);
 
+            $.ajax({
+                url: '/filtercities/' + location,
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(responsehaibhai) {
+                    console.log(responsehaibhai);
+                    $('#locationdiv').empty();
+                    responsehaibhai.forEach(function(item) {
+                        var newdiv = `
+                         <a id="fulllocation" data-fulllocation="${item.PostOfficeName} - ${item.City}, ${item.Pincode}"
+                                    data-bs-target="#selectCity" data-bs-toggle="modal"
+                                    class="list-group-item list-group-item-action">
+                                   ${item.PostOfficeName} - ${item.City}, ${item.Pincode}
+                                </a>
+                    `;
+                        $('#locationdiv').append(newdiv);
+                    });
+
+                }
+            });
+            $(document).ready(function() {
+                $(document).on('click', '#fulllocation', function() {
+                    loc = $(this).data('fulllocation');
+                    console.log(loc);
+                    $('#cityvalue').val(loc);
+                    $('#usecarcity').val(loc);
+                    $('#selectLocation').modal('hide');
+
+                });
+            });
+        });
+    });
+
+    setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 2000);
+
+        setTimeout(function() {
+            $('#dangerAlert').fadeOut('slow');
+        }, 2000);
+</script>
+<script>
+    //Modal Checkboxes Functionality
+     $('.modalbtncheck').on('change', function() {
+            const carname = document.querySelector('#modalcarname').value;
+            console.log(carname);
+
+            // Checkboxes values that are checked
+            var checkedValues = [];
+            $('.modalbtncheck:checked').each(function() {
+                checkedValues.push($(this).val());
+            });
+            console.log('Checked values:', checkedValues);
+
+            // AJAX Request
+            $.ajax({
+                url: '/modalvariantsfilterdetails',
+                method: 'POST',
+                data: {
+                    'checkboxes': checkedValues,
+                    'carname': carname,
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(variantdatamodal) {
+                    // console.log(variantdatamodal);
+                    $('#modalvariantdiv').empty();
+
+                    variantdatamodal.forEach(function(item) {
+                        var fuelTypesArray = [];
+                        var transmissionsArray = [];
+
+                        if (item.fueltype) {
+                            try {
+                                fuelTypesArray = JSON.parse(item.fueltype);
+                            } catch (e) {
+                                console.error('Invalid fueltype JSON:', item
+                                    .fueltype);
+                            }
+                        }
+
+                        if (item.transmission) {
+                            try {
+                                transmissionsArray = JSON.parse(item.transmission);
+                            } catch (e) {
+                                console.error('Invalid transmission JSON:', item
+                                    .transmission);
+                            }
+                        }
+
+                        // Ensure they are arrays before mapping
+                        fuelTypesArray = Array.isArray(fuelTypesArray) ?
+                            fuelTypesArray : [];
+                        transmissionsArray = Array.isArray(transmissionsArray) ?
+                            transmissionsArray : [];
+
+                        var fuelTypes = fuelTypesArray.map(function(fuel) {
+                            return `<li class="me-2">${fuel},</li>`;
+                        }).join('');
+
+                        var transmissions = transmissionsArray.map(function(trans) {
+                            return `<li class="me-2">${trans},</li>`;
+                        }).join('');
+
+                        // Create the new tr
+                        var newbody = `
+                          <a href="/carlistingdetails/${item.id}" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1 fw-bold text-danger">${item.carname} (${item.carmodalname})</h5>
+                                        <small class="text-body-secondary fw-bold ">Rs. ${item.price} Lakh</small>
+                                    </div>
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <div class="mb-1">
+                                            <ul class="d-flex">
+                                                <li class="me-2">
+                                                     ${fuelTypes}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <small class="text-body-secondary">On-Road</small>
+                                    </div>
+                                </a>
+                `;
+                        $('#modalvariantdiv').append(newbody);
+                    });
+                }
+            });
+        });
+</script>
+<script>
+    document.getElementById("getLocationBtn").addEventListener("click", function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            document.getElementById("locationInfo").innerText = "Geolocation is not supported by this browser.";
+        }
+    });
+
+    function showPosition(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const address = approximateAddress(latitude, longitude);
+        document.getElementById("locationInfo").innerText = "Address: " + address;
+    }
+
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                document.getElementById("locationInfo").innerText = "User denied the request for Geolocation.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                document.getElementById("locationInfo").innerText = "Location information is unavailable.";
+                break;
+            case error.TIMEOUT:
+                document.getElementById("locationInfo").innerText = "The request to get user location timed out.";
+                break;
+            case error.UNKNOWN_ERROR:
+                document.getElementById("locationInfo").innerText = "An unknown error occurred.";
+                break;
+        }
+    }
+
+    function approximateAddress(lat, lon) {
+        // Hardcoded locations
+        const knownLocations = [
+            { lat: 26.4589296, lon: 74.6048946, address: "Ajmer, Rajasthan, India" },
+            { lat: 40.712776, lon: -74.005974, address: "New York, NY, USA" },
+            { lat: 48.856613, lon: 2.352222, address: "Paris, France" }
+            // Add more known locations if needed
+        ];
+
+        // Find the closest known location
+        let closestLocation = knownLocations[0];
+        let minDistance = Number.MAX_VALUE;
+
+        knownLocations.forEach(location => {
+            const distance = getDistance(lat, lon, location.lat, location.lon);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestLocation = location;
+            }
+        });
+
+        return closestLocation ? closestLocation.address : "Unknown Location";
+    }
+
+    // Function to calculate distance between two coordinates (Haversine formula)
+    function getDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Radius of the Earth in km
+        const dLat = deg2rad(lat2 - lat1);
+        const dLon = deg2rad(lon2 - lon1);
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c; // Distance in km
+    }
+
+    function deg2rad(deg) {
+        return deg * (Math.PI / 180);
+    }
+</script>
 @endsection

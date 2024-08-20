@@ -86,6 +86,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('updatePassword', 'updatePassword')->name('updatePassword');
     Route::post('edituserprofile', 'edituserprofile')->name('edituserprofile');
     Route::get('filterbrandname/{selectedbrandname}', 'filterbrandname')->name('filterbrandname');
+    Route::get('filtervariantscompare/{brand}', 'filtervariantscompare')->name('filtervariantscompare');
     Route::get('filtermodalname/{selectedcar}', 'filtermodalname')->name('filtermodalname');
     Route::post('insertadpost', 'insertadpost')->name('insertadpost');
     Route::get('deleteadpost/{id}', 'deleteadpost')->name('deleteadpost');
@@ -100,6 +101,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('/filterByAttribute/{filtertype}', 'filterByAttribute')->name('filterByAttribute');
     Route::post('/showcomparecars/{fullId}', 'showcomparecars')->name('showcomparecars');
     Route::post('filterbyfuelcardetails', 'filterbyfuelcardetails')->name('filterbyfuelcardetails');
+    Route::post('modalvariantsfilterdetails', 'modalvariantsfilterdetails')->name('modalvariantsfilterdetails');
     Route::post('insertcompareoffcanvas', 'insertcompareoffcanvas')->name('insertcompareoffcanvas');
     Route::post('makefilterfindcar', 'makefilterfindcar')->name('makefilterfindcar');
     Route::post('registerdealer', 'registerdealer')->name('registerdealer');

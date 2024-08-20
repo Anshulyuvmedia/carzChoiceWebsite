@@ -297,6 +297,13 @@
                                 <span>Reviews</span>
                             </a>
                         </li>
+                        <li>
+                            <form method="POST" action="{{ route('logoutuser') }}" x-data>
+                                <a class="dropdown-item" href="{{ route('logoutuser') }}"><i
+                                        class="uil-sign-in-alt font-size-18 align-middle me-1 text-muted"></i>
+                                    <span class="align-middle">Log out</span></a>
+                            </form>
+                        </li>
                     </ul>
                 </div>
                 <!-- Sidebar -->

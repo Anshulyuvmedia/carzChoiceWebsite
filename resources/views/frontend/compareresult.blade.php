@@ -52,40 +52,40 @@
                     </div>
                 </div>
                 <!-- Middle Content Area -->
-                <div class="col-md-12 col-xs-12 col-sm-12 ">
-
-                    @foreach ($new as $data)
-                        <table class="card">
-                            <tbody>
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                    <table class="card">
+                        <tbody>
+                                @foreach ($new as $data)
                                 <tr>
                                     <td>
                                         Selected Cars
                                     </td>
-                                    @foreach ($data['vehicles'] as $row)
+                                    @foreach ($data['vehicles'] as $index => $row)
                                         <td>
-                                            <div class="form-group">
-                                                <select class=" form-control make">
-                                                    <option label="Any Make"></option>
-                                                    <option>BMW</option>
-                                                    <option>Honda </option>
-                                                    <option>Hyundai </option>
-                                                    <option>Nissan </option>
-                                                    <option>Mercedes Benz </option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <select class=" form-control search-year">
-                                                    <option label="Any Year"></option>
-                                                    <option>Year</option>
-                                                    <option>2010</option>
-                                                    <option>2011</option>
-                                                    <option>2012</option>
-                                                    <option>2013</option>
-                                                    <option>2014</option>
-                                                    <option>2015</option>
-                                                    <option>2016</option>
-                                                </select>
-                                            </div>
+                                            <form action="{{ route('insertcompareoffcanvas') }}" method="post" id="">
+                                                @csrf
+                                                <div>
+                                                    <div class="form-group">
+                                                        <select class="form-control make" name="brand{{$index}}" id="dynamic_selectbrandname_{{$index}}" data-index="{{$index}}">
+                                                            <option>--select brand--</option>
+                                                            @foreach ($allbrands as $data)
+                                                                <option value="{{$data->label}}">{{$data->label}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                        <input type="hidden" name="compareid[]"  id="compareidsinput_{{$index}}">
+                                                    <div class="form-group">
+                                                        <select class=" form-control search-year" id="carnamelabel_{{$index}}">
+                                                            <option>--select variant--</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center mt-3">
+                                                        <button type="submit" class="btn btn-outline btn-theme rounded-4">
+                                                            Compare
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
                                             <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
                                                 alt="" class="center-block">
                                             <h4>{{ $row->brandname }} {{ $row->carname }}</h4>
@@ -104,13 +104,10 @@
                                         </td>
                                     @endforeach
                                 </tr>
+                                @endforeach
                             </tbody>
+
                         </table>
-                    @endforeach
-
-
-
-
                     <div class=" card my-5" id="Specifications">
                         <h3 class=" fw-bold text-uppercase bg-secondary-subtle p-3 text-center rounded-4">Specifications
                         </h3>
@@ -231,3 +228,51 @@
     </section>
 </div>
 @endsection
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    //Compare Filter
+    $(function() {
+    $(document).on('change', '[id^=dynamic_selectbrandname_]', function() {
+        var selectedBrandName = $(this).val();
+        var index = $(this).data('index');
+        console.log(selectedBrandName, index);
+
+        $.ajax({
+            url: "/filtervariantscompare/" + selectedBrandName,
+            type: "GET",
+            success: function(data) {
+                console.log('Data from server:', data);
+                var dropdown1 = $('#carnamelabel_' + index);
+                dropdown1.empty();
+                dropdown1.append($('<option selected>Choose...</option>'));
+                data.forEach(function(item) {
+                    dropdown1.append($('<option data-id="'+ item.id +'" value="' + item.carname + " " +  item.carmodalname + '">' + item.carname + " " + item.carmodalname +'</option>'));
+                });
+            }
+        });
+    });
+});
+
+
+$(function() {
+    var ids = [];
+
+    $(document).on('change', '[id^=carnamelabel_]', function() {
+        var idvalue = $(this).find(':selected').data('id').toString();
+        var index = $(this).data('index');
+        if (!ids.includes(idvalue)) {
+            ids.push(idvalue);
+        }
+        $('#compareidsinput').val(ids);
+
+        console.log("IDS : " + ids);
+    });
+
+    $('form').on('submit', function() {
+        var index = $(this).find('select.make').data('index');
+        $('#compareidsinput').val(ids);
+        $('#compareidsinput_' + index).val(ids);
+        console.log("Form Submitted with IDS JSON: " + ids);
+    });
+});
+</script>

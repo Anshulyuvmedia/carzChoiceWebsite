@@ -214,6 +214,12 @@ class FrontendStore extends Controller
         // dd($statedata);
         return response()->json($carlistdata);
     }
+    public function filtervariantscompare($brand)
+    {
+        $varidata = AddVariant::where('brandname', $brand)->get();
+        // dd($statedata);
+        return response()->json($varidata);
+    }
     public function filtermodalname($selectedcar)
     {
         $carmodalname = AddVariant::where('showhidestatus', '=', 1)->where('carname', $selectedcar)->get();
@@ -698,20 +704,41 @@ class FrontendStore extends Controller
         $variantdata = $variantdata->get();
         return response()->json($variantdata);
     }
+    public function modalvariantsfilterdetails(Request $rq)
+    {
+        $carname = $rq->input('carname');
+        $checkboxes = $rq->input('checkboxes');
+
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->where('carname', $carname);
+
+        // Check if checkboxes are not empty
+        if (!empty($checkboxes)) {
+            $variantdata->where(function ($query) use ($checkboxes) {
+                foreach ($checkboxes as $value) {
+                    $query->orWhereJsonContains('fueltype', $value);
+                    $query->orWhereJsonContains('transmission', $value);
+                }
+            });
+        }
+        $variantdatamodal = $variantdata->get();
+        // dd($variantdatamodal);
+        return response()->json($variantdatamodal);
+    }
 
     public function insertcompareoffcanvas(Request $rq)
     {
-        // if (Auth::guard('registeruser')->check()) {
-        //     $user = Auth::guard('registeruser')->user();
+        if (is_array($rq->compareid) && count($rq->compareid) == 1) {
+            $compareIdsArray = explode(',', $rq->compareid[0]);
+            //dd($compareIdsArray);
+        } else {
+            $compareIdsArray = $rq->compareid;
+        }
+        $vehicles = json_encode($compareIdsArray);
         $compare = CompareVehicle::create([
-            'vehicles' => json_encode($rq->compareid),
-            // 'userid' => $user->id,
+            'vehicles' => $vehicles,
         ]);
-        // dd($compare);
+
         return redirect()->route('compareresult', ['id' => $compare->id]);
-        // } else {
-        //     return view('frontend.loginuser');
-        // }
     }
 
     public function makefilterfindcar(Request $rq)
@@ -1008,7 +1035,8 @@ class FrontendStore extends Controller
         return response()->json($dealerscity);
     }
 
-    public function requestinsurance(Request $req){
+    public function requestinsurance(Request $req)
+    {
         // dd($rq->all());
         try {
             InsuranceLead::create([
