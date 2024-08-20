@@ -511,7 +511,10 @@ class frontViewController extends Controller
     {
         $adposts = AdPost::orderBy('created_at', 'desc')->get();
         $usedcarfaq = Faqs::where('category', '=', 'Old Car')->get();
-        return view('frontend.usedCarsLayouts.usedcar', compact('adposts', 'usedcarfaq'));
+        $minivans = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Minivan')->get();
+        $compactsuvs = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Compact SUV')->get();
+        $sedans = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Sedan')->get();
+        return view('frontend.usedCarsLayouts.usedcar', compact('adposts', 'usedcarfaq','minivans','compactsuvs','sedans'));
     }
     public function usedcarbylocation($filtertype)
     {
@@ -546,7 +549,10 @@ class frontViewController extends Controller
             ];
         }
         //dd($vehiclesByBrand);
-        return view('frontend.newCarsLayouts.carloan', compact('vehiclesByBrand', 'pincodedata'));
+        $minivans = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Minivan')->get();
+        $compactsuvs = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Compact SUV')->get();
+        $sedans = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Sedan')->get();
+        return view('frontend.newCarsLayouts.carloan', compact('vehiclesByBrand', 'pincodedata','minivans','compactsuvs','sedans'));
     }
     public function findcar($filtertype)
     {

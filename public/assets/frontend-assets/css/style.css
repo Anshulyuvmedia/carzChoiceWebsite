@@ -3285,6 +3285,8 @@ div.boxicon:last-child {
     background-color: #fff;
     padding: 10px 15px;
     border-radius: 10px;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0px 0px 20px #ebebebb2;
 }
 
 .search-widget {

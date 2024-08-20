@@ -95,7 +95,7 @@
                                     <td>
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaledit"
                                                     data-car-list="{{ json_encode($row) }}"
                                                     class="px-2 text-primary editbtnmodal"><i
                                                         class="uil uil-pen font-size-18" data-bs-toggle="tooltip"
@@ -124,6 +124,31 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+{{--Edit details Modal--}}
+<div class="modal fade" id="exampleModaledit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form action="{{ route('updatecarlist') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body" id="modalbodyedit">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success waves-effect waves-light">Update</button>
+                </div>
+            </form>
+
+
         </div>
     </div>
 </div>
@@ -214,7 +239,7 @@
     $('#table-body').on('click', '.editbtnmodal', function() {
         const carlist = $(this).data('car-list');
         console.log(carlist);
-
+        $('#modalbodyedit').empty();
         let brands = `<option value="">--select brand--</option>`;
         masterdata.forEach(function(row) {
             brands += `<option value="${row.label}" ${carlist.brandname === row.label ? 'selected' : ''}>${row.label}</option>`;
@@ -241,7 +266,7 @@
             </div>
         `;
 
-        $('#modalbody').empty().append(modalbody);
+        $('#modalbodyedit').append(modalbody);
     });
 
 </script>

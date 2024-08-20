@@ -11,7 +11,7 @@
                     <h1>Find Used Cars?</h1>
                     <p>Buy, <strong>sell and check price</strong> of used cars</p>
                 </div>
-                <div class="search-section">
+                {{-- <div class="search-section">
                     <div id="form-panel">
                         <ul class="list-unstyled search-options clearfix">
 
@@ -68,7 +68,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -219,61 +219,44 @@
 
             <div class="col-md-6">
                 <div class="panel-body recent-ads d-flex">
-                    <!-- Ads -->
                     <div class="recent-ads-list">
                         <div class="recent-ads-container">
                             <div class="recent-ads-list-image">
                                 <a href="#" class="recent-ads-list-image-inner">
                                     <img src="{{ 'assets\frontend-assets\images\moneybag-icon.png' }}" alt="">
-                                </a><!-- /.recent-ads-list-image-inner -->
+                                </a>
                             </div>
-                            <!-- /.recent-ads-list-image -->
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#">Sell your car </a>
+                                    <a href="{{ route('addadshow') }}">Sell your car </a>
                                 </h3>
                                 <div class="recent-ads-list-location">
                                     13,000 cars get sold every month. Just 3 steps and your ad is live
                                 </div>
-                                <div>
-                                    <a href="#">Know more</a>
-                                </div>
-                                <!-- /.recent-ads-list-price -->
                             </div>
-                            <!-- /.recent-ads-list-content -->
                         </div>
-                        <!-- /.recent-ads-container -->
                     </div>
 
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="panel-body recent-ads d-flex">
-                    <!-- Ads -->
                     <div class="recent-ads-list  ">
                         <div class="recent-ads-container">
                             <div class="recent-ads-list-image">
                                 <a href="#" class="recent-ads-list-image-inner">
                                     <img src="assets\frontend-assets\images\calc-icon.png" alt="">
-                                </a><!-- /.recent-ads-list-image-inner -->
+                                </a>
                             </div>
-                            <!-- /.recent-ads-list-image -->
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#">Check car value</a>
+                                    <a href="/find-dealer">Find Dealer</a>
                                 </h3>
-
                                 <div class="recent-ads-list-location">
-                                    Find out the true market value of a used car
+                                    Find out the best dealers
                                 </div>
-                                <div>
-                                    <a href="#">Know more</a>
-                                </div>
-                                <!-- /.recent-ads-list-price -->
                             </div>
-                            <!-- /.recent-ads-list-content -->
                         </div>
-                        <!-- /.recent-ads-container -->
                     </div>
                 </div>
             </div>
@@ -285,13 +268,13 @@
 
 
 <!-- =-=-=-=-=-=-= select by city =-=-=-=-=-=-= -->
-<div class="page-header-area-2 gray used-cars">
+<div class="page-header-area-2  used-cars mt-5 mb-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
                 <div class="small-breadcrumb">
                     <div class="header-page text-center">
-                        <h1>TOOLS YOU MIGHT NEED</h1>
+                        <h1>Cars you Must Explore</h1>
                     </div>
                 </div>
             </div>
@@ -302,14 +285,13 @@
                         <div class="recent-ads-container">
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#">Popular Hatchbacks </a>
+                                    <p>Popular Minivans</p>
                                 </h3>
                                 <div>
                                     <ul>
-                                        <li><a href="#">Maruti Swift</a></li>
-                                        <li><a href="#">Hyundai i10t</a></li>
-                                        <li><a href="#">Ford Figo</a></li>
-                                        <li><a href="#">View All Hatchbacks</a></li>
+                                        @foreach ($minivans->take(4) as $vans)
+                                            <li><a href="/carlistingdetails/{{$vans->id}}">{{$vans->brandname}} {{$vans->carname}}-{{$vans->carmodalname}}</a></li>
+                                        @endforeach
                                     </ul>
 
                                 </div>
@@ -325,14 +307,13 @@
                         <div class="recent-ads-container">
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#">Popular Sedans </a>
+                                    <p>Popular Compact SUV's </p>
                                 </h3>
                                 <div>
                                     <ul>
-                                        <li><a href="#">Maruti Dzire</a></li>
-                                        <li><a href="#">Honda City</a></li>
-                                        <li><a href="#">Hyundai Verna</a></li>
-                                        <li><a href="#">View All Sedans</a></li>
+                                        @foreach ($compactsuvs->take(4) as $suvs)
+                                            <li><a href="/carlistingdetails/{{$suvs->id}}">{{$suvs->brandname}} {{$suvs->carname}}-{{$suvs->carmodalname}}</a></li>
+                                        @endforeach
                                     </ul>
 
                                 </div>
@@ -348,14 +329,13 @@
                         <div class="recent-ads-container">
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#">Popular SUVs </a>
+                                    <p>Popular Sedans </p>
                                 </h3>
                                 <div>
                                     <ul>
-                                        <li><a href="#">Toyota Innova</a></li>
-                                        <li><a href="#">Mahindra Scorpio</a></li>
-                                        <li><a href="#">Maruti Ertiga</a></li>
-                                        <li><a href="#">View All SUVs</a></li>
+                                        @foreach ($sedans->take(4) as $sedan)
+                                            <li><a href="/carlistingdetails/{{$sedan->id}}">{{$sedan->brandname}} {{$sedan->carname}}-{{$sedan->carmodalname}}</a></li>
+                                        @endforeach
                                     </ul>
 
                                 </div>
@@ -375,42 +355,14 @@
 <x-findthecarsbychoice cartype="usedfiltercar" />
 
 <!-- =-=-=-=-=-=-= Tools You May Need =-=-=-=-=-=-= -->
-<div class="page-header-area-2 gray ">
+<div class="page-header-area-2 gray py-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
                 <div class="small-breadcrumb">
-                    <div class="header-page">
+                    <div class="header-page text-center">
                         <h1>Tools You May Need</h1>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="panel-body recent-ads ">
-                    <!-- Ads -->
-                    <div class="recent-ads-list">
-                        <div class="recent-ads-container d-flex ">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/car-valuation.svg"
-                                        alt="Valuation">
-                                </a><!-- /.recent-ads-list-image-inner -->
-                            </div>
-                            <!-- /.recent-ads-list-image -->
-                            <div class="recent-ads-list-content">
-                                <h3 class="recent-ads-list-title">
-                                    <a href="#">Used Car Valuation </a>
-                                </h3>
-                                <p>Find out the true value of a car</p>
-
-                                <!-- /.recent-ads-list-price -->
-                            </div>
-                            <!-- /.recent-ads-list-content -->
-                        </div>
-                        <!-- /.recent-ads-container -->
-                    </div>
-
                 </div>
             </div>
             <div class="col-md-4">
@@ -419,7 +371,7 @@
                     <div class="recent-ads-list  ">
                         <div class="recent-ads-container d-flex">
                             <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
+                                <a href="/car-loan" class="recent-ads-list-image-inner">
                                     <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/car-loans-02.svg"
                                         alt="">
                                 </a><!-- /.recent-ads-list-image-inner -->
@@ -427,37 +379,9 @@
                             <!-- /.recent-ads-list-image -->
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#"> Instant Car Loan</a>
+                                    <a href="/car-loan"> Instant Car Loan</a>
                                 </h3>
                                 <p>Apply and Get Best Car Loan Offers within minutes</p>
-
-                                <!-- /.recent-ads-list-price -->
-                            </div>
-                            <!-- /.recent-ads-list-content -->
-                        </div>
-                        <!-- /.recent-ads-container -->
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div class="col-md-4 ">
-                <div class="panel-body recent-ads d-flex">
-                    <!-- Ads -->
-                    <div class="recent-ads-list  ">
-                        <div class="recent-ads-container d-flex">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/used-car.svg"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="recent-ads-list-content">
-                                <h3 class="recent-ads-list-title">
-                                    <a href="#">Explore Used Cars</a>
-                                </h3>
-                                <p>Explore 8043 second hand cars in Mumbai at best prices</p>
                             </div>
                         </div>
                     </div>
@@ -470,7 +394,7 @@
                     <div class="recent-ads-list  ">
                         <div class="recent-ads-container d-flex">
                             <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
+                                <a href="/find-dealer" class="recent-ads-list-image-inner">
                                     <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/locate-dealer.svg"
                                         alt="">
                                 </a><!-- /.recent-ads-list-image-inner -->
@@ -478,7 +402,7 @@
                             <!-- /.recent-ads-list-image -->
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#">Locate Dealer</a>
+                                    <a href="/find-dealer">Locate Dealer</a>
                                 </h3>
                                 <p>Explore a used car dealer near you in Mumbai</p>
 
@@ -499,14 +423,14 @@
                     <div class="recent-ads-list  ">
                         <div class="recent-ads-container d-flex">
                             <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
+                                <a href="/new-cars" class="recent-ads-list-image-inner">
                                     <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/car.svg" alt="">
                                 </a><!-- /.recent-ads-list-image-inner -->
                             </div>
                             <!-- /.recent-ads-list-image -->
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#">Explore New Cars</a>
+                                    <a href="/new-cars">Explore New Cars</a>
                                 </h3>
                                 <p>Explore new cars in Mumbai Under your budget</p>
 

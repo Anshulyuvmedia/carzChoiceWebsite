@@ -3,12 +3,20 @@
 @section('main-section')
 @section('title', 'All Variants')
 <div class="page-content">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css">
+    <style>
+        table.dataTable th.dt-type-numeric,
+        table.dataTable th.dt-type-date,
+        table.dataTable td.dt-type-numeric,
+        table.dataTable td.dt-type-date {
+            text-align: left !important;
+        }
+    </style>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <h4 class="mb-0">@yield('title')</h4>
-
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">dashboard</a></li>&nbsp;/
@@ -23,7 +31,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body table-responsive">
-                        <table id="datatable-buttons" class="table  table-bordered dt-responsive nowrap"
+                        <table id="example" class="table  table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
@@ -31,7 +39,6 @@
                                     <th>Brand</th>
                                     <th>Car</th>
                                     <th>Modal</th>
-                                    <th>Status</th>
                                     <th>Price</th>
                                     <th>Body Type</th>
                                     <th>Mileage</th>
@@ -51,7 +58,6 @@
                                     <td>{{ $row->brandname }}</td>
                                     <td>{{ $row->carname }}</td>
                                     <td>{{ $row->carmodalname }}</td>
-                                    <td>{{ $row->availabelstatus }}</td>
                                     <td>{{ $row->price }}</td>
                                     <td>{{ $row->bodytype }}</td>
                                     <td>
@@ -77,9 +83,8 @@
                                             </tbody>
                                         </table>
                                     </td>
-                                    <td>{{ $row->engine }}</td>
-                                    <td>{{ implode(', ', json_decode($row->fueltype)) }}</td> {{-- decoding JSON and
-                                    merging Array Values --}}
+                                    <td>{{ substr($row->engine,0,10) }}.....</td>
+                                    <td>{{ implode(', ', json_decode($row->fueltype)) }}</td> {{-- decoding JSON and merging Array Values --}}
                                     <td>{{ implode(', ', json_decode($row->transmission)) }}</td>
                                     <td>{{ $row->seatingcapacity }}</td>
                                     <td>{{ $row->userreportedmilage }}</td>
@@ -200,6 +205,17 @@
                     swal("Error", "An error occurred.", "error");
                 }
             });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#example').DataTable({
+            layout: {
+                topStart: {
+                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                }
+            },
+
         });
     });
 </script>

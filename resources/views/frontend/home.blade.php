@@ -3,7 +3,6 @@
 @section('title', 'Home')
 
 <div>
-    <!-- =-=-=-=-=-=-= Home Banner  =-=-=-=-=-=-= -->
     <div id="banner" class="hideInMobile"
         style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->mainbannerimg) }}')">
         <div class="container">
