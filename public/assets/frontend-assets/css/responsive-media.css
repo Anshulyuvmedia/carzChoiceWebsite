@@ -831,16 +831,39 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-    
+
     .hideInMobile {
         display: none;
     }
-    
+
     .hideInDesktop {
         display: block;
 
     }
-    
+    #banner{
+        background-image: none !important;
+        min-height: 400px;
+    }
+    #banner::before{
+        background-color: white;
+    }
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        border-top: 0px !important;
+        font-size: 14px;
+    }
+    .compare-detial table tr td h4 {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .compare-detial tr td div{
+        font-size: 14px;
+    }
+    .mobilecard{
+        padding: 0px 15px;
+    }
+    .search-form .form-group{
+        margin-bottom: 0px;
+    }
     .listnone .dropdown-menu {
         left: -110px;
     }
@@ -861,7 +884,7 @@
         overflow: hidden;
         padding: 0 10px 0 10px
     }
-    
+
     .main-search.home {
         min-height: 570px;
     }
@@ -963,29 +986,26 @@
         .select2-selection--single
         .select2-selection__rendered {
         font-size: 14px;
-        line-height: 55px;
+        line-height: 42px;
     }
     .search-container .select2-container--default .select2-selection--single {
         height: 55px;
     }
-    .select2-container--default
-        .select2-selection--single
-        .select2-selection__arrow {
-        height: 50px;
-        right: 10px;
-    }
+
     .search-container
         .select2-container--default
         .select2-selection--single
         .select2-selection__arrow {
-        top: 4px;
+        top: -3px;
     }
+
     .search-container button {
         font-size: 14px;
-        height: 55px;
+        height: 40px;
     }
     .search-container {
-        padding: 200px 0 0;
+        padding: 50px 0 0;
+        border-radius: 20px;
     }
 
     .heading-text {
@@ -1075,7 +1095,7 @@
         display: none;
     }
     .select2-container--default .select2-selection--single {
-        margin-bottom: 20px !important;
+        margin-bottom: 0px !important;
     }
 
     .parallex-text h4 {
@@ -1878,7 +1898,7 @@
     }
     .search-style-2 .tab-content .search-form .btn {
         margin-right: 8px;
-        margin-top: 0;
+        margin-top: 8px;
     }
     .search-style-2 .tab-content .search-form .btn.extra-top {
         margin-top: 10px;

@@ -13,7 +13,7 @@ use App\Models\DisplaySetting;
 use App\Models\Master;
 use App\Models\CarList;
 use App\Models\Pincode;
-use App\Models\Faqs;
+use App\Models\faqs;
 use App\Models\PostOffices;
 use App\Models\CompareVehicle;
 use App\Models\ProsCons;
@@ -510,7 +510,7 @@ class frontViewController extends Controller
     public function usedcar()
     {
         $adposts = AdPost::orderBy('created_at', 'desc')->get();
-        $usedcarfaq = Faqs::where('category', '=', 'Old Car')->get();
+        $usedcarfaq = faqs::where('category', '=', 'Old Car')->get();
         $minivans = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Minivan')->get();
         $compactsuvs = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Compact SUV')->get();
         $sedans = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Sedan')->get();

@@ -344,7 +344,7 @@ strong {
 }
 
 .custom-padding {
-    padding: 25px 5px 20px 5px;
+    padding: 1rem;
     background-color: #fafafa;
 }
 
@@ -1133,6 +1133,8 @@ img.resize {
     position: relative;
     width: 100%;
 }
+
+
 
 #banner::before {
     background-color: rgba(34, 34, 34, 0.6);
@@ -6613,7 +6615,7 @@ fieldset[disabled] .btn-purple.active {
 }
 
 .client-section {
-    padding: 25px 5px 20px 5px;
+    padding: 1rem;
     background-color: #fafafa;
 }
 
@@ -11231,9 +11233,44 @@ textarea {
     right: -33px;
     bottom: 40%;
     transform: rotate(270deg);
-    z-index: 99;
+    z-index: 199;
 }
 
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     border-top: 0px !important;
+}
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px !important;
+    height: 40px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 40px !important;
+    text-align: left;
+}
+.select2-container--default .select2-selection--single .select2-selection__clear{
+    display: none !important;
+}
+.select2-container--default
+        .select2-selection--single
+        .select2-selection__arrow {
+        height: 40px !important;
+        right: 10px;
+    }
+
+#mobilehighlights{
+    position: fixed;
+    bottom: 13%;
+    z-index: 199;
+    background-color: #ffffff;
+    width: 75%;
+    border: 1px solid #e0d4d4;
+    border-radius: 20px;
+    left: 9%;
+    padding: 5px 0;
+}
+.highlightbtn{
+    cursor: pointer;
 }

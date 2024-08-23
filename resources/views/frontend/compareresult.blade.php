@@ -1,7 +1,6 @@
 @extends('frontend.layouts.website')
 @section('content')
 @section('title', 'Compare Result')
-
 <!-- =-=-=-=-=-=-= Breadcrumb =-=-=-=-=-=-= -->
 <div class="page-header-area-2 gray">
     <div class="container">
@@ -57,7 +56,7 @@
                         <tbody>
                                 @foreach ($new as $data)
                                 <tr>
-                                    <td>
+                                    <td class="hideInMobile">
                                         Selected Cars
                                     </td>
                                     @foreach ($data['vehicles'] as $index => $row)
@@ -111,13 +110,12 @@
                     <div class=" card my-5" id="Specifications">
                         <h3 class=" fw-bold text-uppercase bg-secondary-subtle p-3 text-center rounded-4">Specifications
                         </h3>
-
+                        @foreach ($new as $data)
                         @if (!empty($new))
                             {{-- Assuming all vehicles have the same specification structure --}}
                             @if (!empty($data['vehicles'][0]->specifications))
-
                                 @php
-                                    // Group specifications by type
+                                //    dd($data['vehicles'][0]->specifications);
                                     $groupedSpecifications = [];
                                     foreach ($data['vehicles'][0]->specifications as $specification) {
                                         $groupedSpecifications[$specification['type']][] = $specification;
@@ -168,12 +166,11 @@
                         @else
                             <p>No comparison data available.</p>
                         @endif
+                        @endforeach
                     </div>
 
                     <div class=" card my-5" id="Features">
                         <h3 class="fw-bold text-uppercase bg-secondary-subtle p-3 text-center rounded-4">Features</h3>
-
-
                         @if (!empty($new) && isset($new[0]['vehicles'][0]->features))
                             @foreach ($new as $data)
                                 @if (!empty($data['vehicles'][0]->features))
@@ -224,55 +221,157 @@
                     </div>
                 </div>
             </div>
+            <div class="hideInDesktop">
+                <div class="row d-flex" id="mobilehighlights">
+                    <div class="col-6 text-center">
+                            <button class="border-0 btn-outline btn-sm text-wrap highlightbtn text-black" id="highlightDifferences"><i class="fa fa-eye" aria-hidden="true"></i> Hide Similarities</button>
+                    </div>
+                    <div class="col-6 text-center border-start">
+                            <button class="border-0 btn-outline btn-sm text-wrap highlightbtn text-black" id="highlight"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Highlight Differences</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </div>
+<script>
+            //Hide Similatires Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const highlightButton = document.getElementById('highlightDifferences');
+            let isHighlighted = false; // Track the current state of the button
+
+            highlightButton.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Get all the table rows under the Specifications and Features sections
+                const specificationsRows = document.querySelectorAll('#Specifications .accordion-content tbody tr');
+                const featuresRows = document.querySelectorAll('#Features .accordion-content tbody tr');
+
+                const toggleRows = (rows) => {
+                    if (isHighlighted) {
+                        // If already highlighted, unhide all rows and reset the button text
+                        rows.forEach(row => {
+                            row.style.display = ''; // Show all rows
+                        });
+                    } else {
+                        // If not highlighted, hide rows where all values are the same
+                        rows.forEach(row => {
+                            const cells = row.querySelectorAll('td');
+                            let allSame = true;
+
+                            // Collect all cell values for comparison
+                            const values = Array.from(cells).map(cell => cell.textContent.trim());
+
+                            // Check if all values are the same
+                            for (let i = 1; i < values.length; i++) {
+                                if (values[i] !== values[0]) {
+                                    allSame = false;
+                                    break;
+                                }
+                            }
+
+                            // Hide or show the row based on comparison
+                            if (allSame) {
+                                row.style.display = 'none'; // Hide if all values are the same
+                            } else {
+                                row.style.display = ''; // Show if there are differences
+                            }
+                        });
+                    }
+                };
+
+                // Toggle visibility for both sections
+                toggleRows(specificationsRows);
+                toggleRows(featuresRows);
+
+                // Update button text and icon
+                if (isHighlighted) {
+                    highlightButton.innerHTML = '<i class="fa fa-eye" aria-hidden="true"></i> Hide Similarities';
+                } else {
+                    highlightButton.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"></i> Show All';
+                }
+
+                // Toggle the state
+                isHighlighted = !isHighlighted;
+            });
+        });
+</script>
+<script>
+    document.getElementById('highlight').addEventListener('click', function() {
+        let specRows = document.querySelectorAll('#Specifications .accordion-content tbody tr');
+        let featureRows = document.querySelectorAll('#Features .accordion-content tbody tr');
+
+        // Helper function to highlight rows with same values
+        function highlightRows(rows) {
+            rows.forEach(row => {
+                let cells = row.querySelectorAll('td');
+                let values = Array.from(cells).map(cell => cell.textContent.trim());
+                if (!values.every(value => value === values[0])) {
+                // Toggle the class based on its current state
+                if (row.classList.contains('table-success')) {
+                    row.classList.remove('table-success');
+                } else {
+                    row.classList.add('table-success');
+                }
+            } else {
+                // Ensure the class is removed if values are the same
+                row.classList.remove('table-success');
+            }
+            });
+        }
+        highlightRows(specRows);
+        highlightRows(featureRows);
+    });
+</script>
 @endsection
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
     //Compare Filter
-    $(function() {
-    $(document).on('change', '[id^=dynamic_selectbrandname_]', function() {
-        var selectedBrandName = $(this).val();
-        var index = $(this).data('index');
-        console.log(selectedBrandName, index);
+        $(function() {
+            $(document).on('change', '[id^=dynamic_selectbrandname_]', function() {
+                var selectedBrandName = $(this).val();
+                var index = $(this).data('index');
+                console.log(selectedBrandName, index);
 
-        $.ajax({
-            url: "/filtervariantscompare/" + selectedBrandName,
-            type: "GET",
-            success: function(data) {
-                console.log('Data from server:', data);
-                var dropdown1 = $('#carnamelabel_' + index);
-                dropdown1.empty();
-                dropdown1.append($('<option selected>Choose...</option>'));
-                data.forEach(function(item) {
-                    dropdown1.append($('<option data-id="'+ item.id +'" value="' + item.carname + " " +  item.carmodalname + '">' + item.carname + " " + item.carmodalname +'</option>'));
+                $.ajax({
+                    url: "/filtervariantscompare/" + selectedBrandName,
+                    type: "GET",
+                    success: function(data) {
+                        console.log('Data from server:', data);
+                        var dropdown1 = $('#carnamelabel_' + index);
+                        dropdown1.empty();
+                        dropdown1.append($('<option selected>Choose...</option>'));
+                        data.forEach(function(item) {
+                            dropdown1.append($('<option data-id="'+ item.id +'" value="' + item.carname + " " +  item.carmodalname + '">' + item.carname + " " + item.carmodalname +'</option>'));
+                        });
+                    }
                 });
-            }
+            });
         });
-    });
-});
 
 
-$(function() {
-    var ids = [];
+        $(function() {
+            var ids = [];
 
-    $(document).on('change', '[id^=carnamelabel_]', function() {
-        var idvalue = $(this).find(':selected').data('id').toString();
-        var index = $(this).data('index');
-        if (!ids.includes(idvalue)) {
-            ids.push(idvalue);
-        }
-        $('#compareidsinput').val(ids);
+            $(document).on('change', '[id^=carnamelabel_]', function() {
+                var idvalue = $(this).find(':selected').data('id').toString();
+                var index = $(this).data('index');
+                if (!ids.includes(idvalue)) {
+                    ids.push(idvalue);
+                }
+                $('#compareidsinput').val(ids);
 
-        console.log("IDS : " + ids);
-    });
+                console.log("IDS : " + ids);
+            });
 
-    $('form').on('submit', function() {
-        var index = $(this).find('select.make').data('index');
-        $('#compareidsinput').val(ids);
-        $('#compareidsinput_' + index).val(ids);
-        console.log("Form Submitted with IDS JSON: " + ids);
-    });
-});
+            $('form').on('submit', function() {
+                var index = $(this).find('select.make').data('index');
+                $('#compareidsinput').val(ids);
+                $('#compareidsinput_' + index).val(ids);
+                console.log("Form Submitted with IDS JSON: " + ids);
+            });
+        });
 </script>
+
+
+

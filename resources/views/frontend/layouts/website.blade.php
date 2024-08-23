@@ -10,13 +10,13 @@
     <meta name="author" content="ScriptsBundle">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title') | Carz Choice</title>
+    <title>@yield('title') - Carz Choice</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
-    <link rel="icon" href="{{ asset('assets/frontend-assets/images/favicon.ico') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" type="image/x-icon" />
     <!-- =-=-=-=-=-=-= Mobile Specific =-=-=-=-=-=-= -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.css" />
@@ -284,12 +284,12 @@
 
 
     <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
-    <footer class="footer-bg">
+    <footer class="footer-bg ">
         <!-- Footer Content -->
-        <div class="footer-top">
+        <div class="footer-top p-0 pt-md-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3  col-sm-6 col-xs-12">
+                    <div class="col-md-3 hideInMobile  col-sm-6 col-xs-12">
                         <!-- Info Widget -->
                         <div class="widget">
                             <div class="logo">
@@ -307,7 +307,7 @@
                         </div>
                         <!-- Info Widget Exit -->
                     </div>
-                    <div class="col-md-2 col-sm-6 col-xs-12">
+                    <div class="col-md-2 hideInMobile col-sm-6 col-xs-12">
                         <!-- Follow Us -->
                         <div class="widget socail-icons">
                             <h5>Follow Us</h5>
@@ -326,7 +326,7 @@
                         </div>
                         <!-- Follow Us End -->
                     </div>
-                    <div class="col-md-2  col-sm-6 col-xs-12">
+                    <div class="col-md-2 hideInMobile  col-sm-6 col-xs-12">
                         <div class="widget my-quicklinks">
                             <h5>Quick Links</h5>
                             <ul>
@@ -337,7 +337,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-2  col-sm-6 col-xs-12">
+                    <div class="col-md-2 hideInMobile  col-sm-6 col-xs-12">
                         <div class="widget my-quicklinks">
                             <h5>Important Links</h5>
                             <ul>
@@ -353,7 +353,6 @@
                 </div>
             </div>
         </div>
-
     </footer>
     <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
 

@@ -1,13 +1,13 @@
 @extends('frontend.layouts.website')
 @section('content')
-@section('title', 'Home')
+@section('title', 'New Cars, Used Cars, Buy a Car, Sell Your Car')
 
 <div>
-    <div id="banner" class="hideInMobile"
+    <div id="banner" class=""
         style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->mainbannerimg) }}')">
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 hideInMobile">
                     <div class="search-container">
                         <!-- Form -->
                         <h2>What are you looking for ?</h2>
@@ -15,9 +15,24 @@
                         <a href="{{ route('addadshow') }}" class="btn btn-theme rounded-4">Post Your Ad</a>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="search-container advance-search  hideInMobile">
-                        <div class="section-search search-style-2 card">
+                <div class="col-12 hideInDesktop">
+                    <div class="homebannerslider owl-carousel owl-theme mt-4">
+                        @if ($imagesdata->mobileimages)
+                        @foreach (explode(',', $imagesdata->mobileimages) as $mobileimage)
+                        <div class="item">
+                            <div class="sliderr">
+                                <div class="slider-banner">
+                                    <img class="img-fluid rounded-4" src="{{ asset($mobileimage) }}" alt="banner-1" />
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        @endif
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="search-container advance-search">
+                        <div class="section-search search-style-2 card mobilecard">
                             <div class="p-3 pb-0">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 p-0">
@@ -28,7 +43,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#tab2">Search Car By
+                                                <a class="nav-link" id="navlinktwo" data-toggle="tab" href="#tab2">Search Car By
                                                     Type</a>
                                             </li>
                                         </ul>
@@ -38,10 +53,10 @@
                                                 <form id="searchform">
                                                     @csrf
                                                     <div class="search-form pull-left">
-                                                        <div class="search-form-inner pull-left">
-                                                            <div class="col-md-6 no-padding">
+                                                        <div class="search-form-inner pull-left d-flex flex-wrap">
+                                                            <div class="col-md-6 col-3 no-padding">
                                                                 <div class="form-group">
-                                                                    <label>Select Car Type</label>
+                                                                    <label class="hideInMobile">Select Car Type</label>
                                                                     <select name="cartype"
                                                                         class="form-control make rounded-4"
                                                                         id="dynamicselect">
@@ -50,9 +65,9 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 no-padding">
+                                                            <div class="col-md-6 col-9 no-padding">
                                                                 <div class="form-group">
-                                                                    <label>Type the car to select</label>
+                                                                    <label class="hideInMobile">Type the car to select</label>
                                                                     <select name="carname"
                                                                         class="form-control search-year rounded-4"
                                                                         id="dynamiccarname">
@@ -70,7 +85,6 @@
                                                                 class="btn btn-theme">Search
                                                                 Now</button>
                                                         </div>
-
                                                     </div>
                                                 </form>
                                             </div>
@@ -78,7 +92,7 @@
                                                 <form>
                                                     <div class="search-form row">
                                                         @foreach ($bodytype->take(8) as $row)
-                                                        <div class="col-md-3 p-2">
+                                                        <div class="col-md-3 col-4 p-2">
                                                             <div class="box">
                                                                 <a id="cartypefilter" data-value="{{ $row->value }}">
                                                                     <img alt="Convertible" width="75"
@@ -102,26 +116,6 @@
         </div>
     </div>
 
-
-    <div class="container hideInDesktop">
-        <div class="row">
-            <div class="col-12">
-                <div class="homebannerslider owl-carousel owl-theme">
-                    @if ($imagesdata->mobileimages)
-                    @foreach (explode(',', $imagesdata->mobileimages) as $mobileimage)
-                    <div class="item">
-                        <div class="sliderr">
-                            <div class="slider-banner">
-                                <img class="img-fluid" src="{{ asset($mobileimage) }}" alt="banner-1" />
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class=" container hideInDesktop mb-5">
         <div class="row p-3  g-3">
@@ -605,7 +599,7 @@
     <!-- =-=-=-=-=-=-= Top Cars In India End =-=-=-=-=-=-= -->
 
     <!-- =-=-=-=-=-=-=  On-Road Price  =-=-=-=-=-=-= -->
-    <section class="section-padding-120 our-services">
+    <section class="section-padding-120 our-services hideInMobile">
         <!--Image One-->
         {{-- <div class="background-1"></div> --}}
         <!--Image Two-->
