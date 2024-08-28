@@ -61,6 +61,4 @@ class CarListsImport implements ToCollection, WithStartRow
             );
         }
     }
-
-
 }

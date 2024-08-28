@@ -55,54 +55,51 @@
                     <table class="card">
                         <tbody>
                                 @foreach ($new as $data)
-                                <tr>
-                                    <td class="hideInMobile">
-                                        Selected Cars
-                                    </td>
-                                    @foreach ($data['vehicles'] as $index => $row)
-                                        <td>
-                                            <form action="{{ route('insertcompareoffcanvas') }}" method="post" id="">
-                                                @csrf
-                                                <div>
-                                                    <div class="form-group">
-                                                        <select class="form-control make" name="brand{{$index}}" id="dynamic_selectbrandname_{{$index}}" data-index="{{$index}}">
-                                                            <option>--select brand--</option>
-                                                            @foreach ($allbrands as $data)
-                                                                <option value="{{$data->label}}">{{$data->label}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                        <input type="hidden" name="compareid[]"  id="compareidsinput_{{$index}}">
-                                                    <div class="form-group">
-                                                        <select class=" form-control search-year" id="carnamelabel_{{$index}}">
-                                                            <option>--select variant--</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="d-flex justify-content-center mt-3">
-                                                        <button type="submit" class="btn btn-outline btn-theme rounded-4">
-                                                            Compare
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
-                                                alt="" class="center-block">
-                                            <h4>{{ $row->brandname }} {{ $row->carname }}</h4>
-                                            <div>{{ $row->carmodalname }}</div>
-                                            <div>Rs. {{ $row->price }}/-</div>
-                                            {{-- @php
-                                                $colors = json_decode($row->colors,true);
-                                            @endphp
-                                            <div class="row d-flex justify-content-center gap-2 mt-3">
-                                                @foreach ($colors as $data)
-                                                <div class="card col-1 p-2" style="background-color: {{$data['value']}}; color:white; height:30px;">
-                                                    {{$data['label']}}
-                                                </div>
-                                                @endforeach
-                                            </div> --}}
+                                     @php
+                                        $idsOnLoad = $data['vehicles'][0]->id . ',' . $data['vehicles'][1]->id;
+                                        //dd($idsOnLoad);
+
+                                    @endphp
+                                    <form action="{{ route('insertcompareoffcanvas') }}" method="post" id="">
+                                        @csrf
+                                    <tr>
+                                        <td class="hideInMobile">
+                                            <div class="d-flex justify-content-center mt-3">
+                                                <button type="submit" class="btn btn-outline btn-theme rounded-4">
+                                                    Compare
+                                                </button>
+                                            </div>
                                         </td>
-                                    @endforeach
-                                </tr>
+                                        @foreach ($data['vehicles'] as $index => $row)
+                                            <td>
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <select class="form-control make" name="brand{{$index}}" id="dynamic_selectbrandname_{{$index}}" data-index="{{$index}}">
+                                                                <option>--select brand--</option>
+                                                                @foreach ($allbrands as $data)
+                                                                <option value="{{ $data->label }}" {{ $data->label === $row->brandname ? 'selected' : '' }}>
+                                                                    {{ $data->label }}
+                                                                </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                            <input class="idsonload" value="{{$idsOnLoad}}" type="hidden" name="compareid[]"  id="compareidsinput_{{$index}}">
+                                                        <div class="form-group">
+                                                            <select class="form-control search-year" id="carnamelabel_{{$index}}" data-index="{{$index}}" data-selected-value="{{ $row->carname }} {{ $row->carmodalname }}">
+                                                                <option>--select variant--</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
+                                                    alt="" class="center-block">
+                                                <h4>{{ $row->brandname }} {{ $row->carname }}</h4>
+                                                <div>{{ $row->carmodalname }}</div>
+                                                <div>Rs. {{ $row->price }}/-</div>
+                                            </td>
+                                        @endforeach
+                                    </tr>
+                                </form>
                                 @endforeach
                             </tbody>
 
@@ -340,7 +337,7 @@
                         console.log('Data from server:', data);
                         var dropdown1 = $('#carnamelabel_' + index);
                         dropdown1.empty();
-                        dropdown1.append($('<option selected>Choose...</option>'));
+                        dropdown1.append($('<option selected>--select variant--</option>'));
                         data.forEach(function(item) {
                             dropdown1.append($('<option data-id="'+ item.id +'" value="' + item.carname + " " +  item.carmodalname + '">' + item.carname + " " + item.carmodalname +'</option>'));
                         });
@@ -349,28 +346,96 @@
             });
         });
 
+        $(document).ready(function() {
+                $('[id^=dynamic_selectbrandname_]').each(function() {
+                    var selectedBrandName = $(this).val();
+                    var index = $(this).data('index');
+                    console.log(selectedBrandName, index);
+                    $.ajax({
+                        url: "/filtervariantscompare/" + selectedBrandName,
+                        type: "GET",
+                        success: function(data) {
+                            console.log('Data from server:', data);
+                            var dropdown1 = $('#carnamelabel_' + index);
+                            var currentSelectedValue = dropdown1.data('selected-value');
+                            dropdown1.empty();
+                            dropdown1.append($('<option>--select variant--</option>'));
+                            data.forEach(function(item) {
+                                var optionValue = item.carname + " " + item.carmodalname;
+                                var option = $('<option data-id="'+ item.id +'" value="' + optionValue + '">' + optionValue + '</option>');
+
+                                // Set the selected option if it matches the stored value
+                                if (optionValue === currentSelectedValue) {
+                                    option.prop('selected', true);
+                                }
+                                dropdown1.append(option);
+                            });
+                        }
+                    });
+                });
+        });
 
         $(function() {
-            var ids = [];
+    // Clear all hidden input values on page load
+    $('.idsonload').val('');
 
-            $(document).on('change', '[id^=carnamelabel_]', function() {
-                var idvalue = $(this).find(':selected').data('id').toString();
-                var index = $(this).data('index');
-                if (!ids.includes(idvalue)) {
-                    ids.push(idvalue);
-                }
-                $('#compareidsinput').val(ids);
+    // Initialize the ids array
+    var ids = [];
 
-                console.log("IDS : " + ids);
-            });
+    console.log("Initial empty IDS: ", ids);
 
-            $('form').on('submit', function() {
-                var index = $(this).find('select.make').data('index');
-                $('#compareidsinput').val(ids);
-                $('#compareidsinput_' + index).val(ids);
-                console.log("Form Submitted with IDS JSON: " + ids);
-            });
+    // Handle change event on dropdowns
+    $(document).on('change', '[id^=carnamelabel_]', function() {
+        var selectedOption = $(this).find(':selected');
+        var idvalue = String(selectedOption.data('id')); // Convert to string
+        var index = $(this).data('index');
+
+        console.log("Dropdown changed - index: " + index + ", idvalue: " + idvalue);
+
+        // Ensure that the correct ID is stored at the correct index
+        ids[index] = idvalue;
+
+        // Update the corresponding hidden input field
+        $('#compareidsinput_' + index).val(idvalue);
+
+        console.log("Updated IDS array after change: ", ids);
+    });
+
+    // Handle form submission
+    $('form').on('submit', function() {
+        // Iterate over each hidden input
+        $(this).find('.idsonload').each(function(index) {
+            // Set the value from the ids array, or an empty string if undefined
+            $(this).val(ids[index] || '');
         });
+
+        console.log("Form Submitted with IDS array: ", ids);
+    });
+});
+
+        // $(function() {
+        //     var idsStr = $('.idsonload').val();
+        //     var ids = idsStr ? idsStr.split(',').map(String) : [];
+        //     console.log("ON LOAD IDS: ", ids);
+
+        //     // Handle change event on dropdowns
+        //     $(document).on('change', '[id^=carnamelabel_]', function() {
+        //         var selectedOption = $(this).find(':selected');
+        //         var idvalue = String(selectedOption.data('id')); // Convert to string
+        //         var index = $(this).data('index');
+
+        //         console.log("Dropdown changed - index: " + index + ", idvalue: " + idvalue);
+
+        //             // Ensure that the correct ID is stored at the correct index
+        //     ids[index] = idvalue;
+
+        //     // Update the corresponding hidden input field
+        //     $('#compareidsinput_' + index).val(idvalue);
+        //     console.log("Updated IDS array after change: ", ids);
+        //     });
+        //     $('.idsonload').val(ids);
+        // });
+
 </script>
 
 

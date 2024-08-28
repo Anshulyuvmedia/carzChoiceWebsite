@@ -727,12 +727,14 @@ class FrontendStore extends Controller
 
     public function insertcompareoffcanvas(Request $rq)
     {
+        dd($rq->all());
+
         if (is_array($rq->compareid) && count($rq->compareid) == 1) {
             $compareIdsArray = explode(',', $rq->compareid[0]);
-            //dd($compareIdsArray);
         } else {
             $compareIdsArray = $rq->compareid;
         }
+        //dd($compareIdsArray);
         $vehicles = json_encode($compareIdsArray);
         $compare = CompareVehicle::create([
             'vehicles' => $vehicles,

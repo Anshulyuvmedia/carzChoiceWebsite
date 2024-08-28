@@ -38,11 +38,11 @@
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Car Name</label>
                                     <input class="form-control" placeholder="enter car name" name="carname" type="text"
-                                        value="" id="example-text-input" >
+                                        value="" id="example-text-input" required>
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Select Brand</label>
-                                    <select name="brandname" class="form-select" id="subcategory" >
+                                    <select name="brandname" class="form-select" id="subcategory" required>
                                         <option value="">--select brand--</option>
                                         @foreach ($masterdata as $row)
                                         <option value="{{ $row->label }}">{{ $row->label }}</option>

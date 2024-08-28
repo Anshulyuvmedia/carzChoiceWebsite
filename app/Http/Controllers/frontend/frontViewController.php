@@ -211,7 +211,7 @@ class frontViewController extends Controller
     {
         $new = session('new', []);
         $data = CompareVehicle::where('id', $id)->first();
-        // dd($data);
+        // dd($data->vehicles);
         $new = [];
         $ids = json_decode($data->vehicles);
         $specs = AddSpecification::whereIn('vehicleid', $ids)->get();
@@ -225,7 +225,7 @@ class frontViewController extends Controller
             ->whereIn('add_variants.id', $ids)
             ->get();
 
-        //dd($newarray);
+       //dd($newarray);
         // Fetch images for the vehicles based on carname from newarray
         $images = VehicleImage::whereIn('vehicle', $newarray->pluck('carname'))
             ->where('type', 'Outer view')
@@ -238,7 +238,7 @@ class frontViewController extends Controller
             $vehicle->features = json_decode($features->where('vehicleid', $vehicle->id)->first()->features ?? '[]', true);
         }
         $new[] = ['id' => $data->id, 'vehicles' => $newarray];
-        // dd($new);
+         //dd($new);
 
         $allbrands = Master::where('type','=','Brand')->get();
         return view('frontend.compareresult', compact('new','allbrands'));

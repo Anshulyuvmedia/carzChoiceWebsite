@@ -1,7 +1,7 @@
 {{--“सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।”--}}
 @extends('layouts.admin')
 @section('main-section')
-@section('title', 'All Blogs')
+@section('title', 'All News')
 <div class="page-content">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css">
     <style>

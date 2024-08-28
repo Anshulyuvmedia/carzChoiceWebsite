@@ -1,7 +1,7 @@
 {{--“सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।”--}}
 @extends('layouts.admin')
 @section('main-section')
-@section('title', 'Add Blog')
+@section('title', 'Add News')
 <div class="page-content">
     <div class="container-fluid">
         <div class="row">

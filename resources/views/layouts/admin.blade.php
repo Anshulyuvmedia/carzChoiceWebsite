@@ -215,11 +215,11 @@
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="uil-blogger-alt"></i>
-                                <span>Blog</span>
+                                <span>News</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ route('addblog') }}">Add Blog</a></li>
-                                <li><a href="{{ route('bloglist') }}">Blogs List</a></li>
+                                <li><a href="{{ route('addblog') }}">Add News</a></li>
+                                <li><a href="{{ route('bloglist') }}">All News</a></li>
                             </ul>
                         </li>
 
