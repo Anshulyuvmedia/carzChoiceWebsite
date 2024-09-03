@@ -210,6 +210,7 @@
 
     $(document).ready(function() {
         $('#example').DataTable({
+            pageLength: 15,
             layout: {
                 topStart: {
                     buttons: ['copy', 'csv', 'excel', 'pdf', 'print']

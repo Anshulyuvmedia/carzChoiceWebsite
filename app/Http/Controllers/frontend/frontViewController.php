@@ -135,6 +135,7 @@ class frontViewController extends Controller
     public function carlistingdetails($id)
     {
         $cardetails = AddVariant::where('id', $id)->where('showhidestatus', '=', 1)->first();
+        // dd($cardetails);
         $new = [];
         $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
         $spces = AddSpecification::where('vehicleid', $id)->get();

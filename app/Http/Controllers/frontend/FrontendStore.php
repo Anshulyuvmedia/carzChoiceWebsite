@@ -229,8 +229,8 @@ class FrontendStore extends Controller
 
     public function insertadpost(Request $rq)
     {
-        //dd($rq->all());
         try {
+            $loggedInUser = Auth::guard('registeruser')->user();
             $data = $rq->validate([
                 'brandname' => 'required',
                 'carname' => 'required',
@@ -274,7 +274,7 @@ class FrontendStore extends Controller
             }
 
             $jsonImageData = json_encode($imageData);
-            AdPost::create([
+            $finaldata = AdPost::create([
                 'brandname' => $rq->brandname,
                 'carname' => $rq->carname,
                 'modalname' => $rq->modalname,
@@ -292,9 +292,11 @@ class FrontendStore extends Controller
                 'insurance' => $rq->insurance,
                 'registertype' => $rq->registertype,
                 'lastupdated' => $rq->lastupdated,
-                'images' => $jsonImageData
+                'images' => $jsonImageData,
+                'userid' => $loggedInUser->id,
 
             ]);
+            // dd($finaldata);
             Log::info('Add Post Inserted Successfully: ', ['adpost' => $data]);
             return back()->with('success', 'Ad Post Added..!!!!');
         } catch (Exception $e) {

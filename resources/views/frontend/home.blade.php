@@ -121,15 +121,15 @@
         <div class="row p-3  g-3">
             <div class="col-6">
                 <a href="/new-cars">
-                    <div class="card p-3 rounded-4" style="background: #995ded;">
-                        <div class="maineHeading">
+                    <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #995ded;">
+                        <div class="maineHeading" style="color: #995ded;">
                             New Cars
                         </div>
                         <div class="subTitle">
                             with exciting offers <i class="bi bi-arrow-right-short"></i>
                         </div>
                         <div class="filterImage">
-                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/newcar.webp') }}"
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/new-car.png') }}"
                                 alt="New car">
                         </div>
                     </div>
@@ -137,15 +137,15 @@
             </div>
             <div class="col-6">
                 <a href="/used-car">
-                    <div class="card p-3 rounded-4" style="background: #f75d34;">
-                        <div class="maineHeading">
+                    <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #f75d34;">
+                        <div class="maineHeading" style="color: #f75d34;">
                             Buy Used Car
                         </div>
                         <div class="subTitle">
                             pre-owned cars for sale <i class="bi bi-arrow-right-short"></i>
                         </div>
                         <div class="filterImage">
-                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/usedcar.webp') }}"
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/cars.png') }}"
                                 alt="Buy Used Car">
                         </div>
                     </div>
@@ -154,15 +154,15 @@
             </div>
             <div class="col-6">
                 <a href="/addadshow">
-                    <div class="card p-3 rounded-4" style="background: #5ca7f9;">
-                        <div class="maineHeading">
+                    <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #5ca7f9">
+                        <div class="maineHeading"  style="color: #5ca7f9;">
                             Sell Car
                         </div>
                         <div class="subTitle">
                             at the best price <i class="bi bi-arrow-right-short"></i>
                         </div>
                         <div class="filterImage">
-                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/sellcar.webp') }}"
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/car-rental.png') }}"
                                 alt="Sell Car">
                         </div>
                     </div>
@@ -170,15 +170,15 @@
             </div>
             <div class="col-6">
                 <a href="/compare">
-                    <div class="card p-3 rounded-4" style="background: #52dc99;">
-                        <div class="maineHeading">
+                    <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #52dc99;">
+                        <div class="maineHeading" style="color: #52dc99;">
                             Compare
                         </div>
                         <div class="subTitle">
                             and find the right car <i class="bi bi-arrow-right-short"></i>
                         </div>
                         <div class="filterImage">
-                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/compare.webp') }}"
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/car.png') }}"
                                 alt="Compare">
                         </div>
                     </div>
@@ -190,41 +190,26 @@
             <div class="row p-3 g-3">
                 <div class="col-4">
                     <a href="/news">
-                        <div class="card p-3 rounded-4" style="background: #5d76ed;">
-                            <div class="maineHeading">
+                        <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #5d76ed;">
+                            <div class="maineHeading" style="color: #5d76ed;">
                                 News
                             </div>
                             <div class="filterImage">
-                                <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/news.webp') }}"
+                                <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/newspaper.png') }}"
                                     alt="News">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4">
-                    <a href="/offers">
-                        <div class="card p-3 rounded-4" style="background: #f9b25c;">
-                            <div class="maineHeading">
-                                Offers
-                            </div>
-
-                            <div class="filterImage">
-                                <img class="img-fluid"
-                                    src="{{ asset('assets/frontend-assets/images/home/offers.webp') }}" alt="Offers">
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-4">
                     <a href="/car-loan">
-                        <div class="card p-3 rounded-4" style="background: #49c3e9;">
-                            <div class="maineHeading">
+                        <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #49c3e9;">
+                            <div class="maineHeading" style="color: #49c3e9;">
                                 Loan
                             </div>
 
                             <div class="filterImage">
-                                <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/loan.webp') }}"
+                                <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/car-loan.png') }}"
                                     alt="new-car">
                             </div>
                         </div>

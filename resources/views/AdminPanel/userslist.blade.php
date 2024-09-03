@@ -43,6 +43,7 @@
                                     <th>Verification Status</th>
                                     <th>Login Status</th>
                                     <th>Action</th>
+                                    <th>All Cars</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,6 +81,11 @@
                                                         data-bs-placement="top" data-bs-title="Delete User"></i></a>
                                             </li>
                                         </ul>
+                                    </td>
+                                    <td>
+                                        <a href="/dealeradposts/{{$row->id}}">
+                                            <button type="button" class="btn btn-info btn-sm"><i class="uil-eye align-bottom me-1"></i>View Cars</button>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -1,7 +1,7 @@
 {{-- “सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।” --}}
 @extends('layouts.admin')
 @section('main-section')
-@section('title',  'Add ' . $carnamedata . ' Images')
+@section('title', 'Add ' . $carnamedata . ' Images')
 <div class="page-content">
     <div class="container-fluid">
         <div class="row">
@@ -35,19 +35,26 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-lg-2">
+                                <div class="col-lg-3">
                                     <label class="">Select Color</label>
                                     <select name="color" class="form-select" required>
                                         <option value="">--select color--</option>
-                                        @if(is_array($colors))
+                                        @if (is_array($colors) || is_object($colors))
                                         @foreach ($colors as $color)
-                                            <option value="{{json_encode($color)}}">{{ $color->label }} - {{ $color->value }}</option>
+                                            @php
+                                                $colorLabel = $color->label; // Extract the label
+                                                $colorValues = implode(', ', $color->value); // Convert the value array to a comma-separated string
+                                                $encodedColor = json_encode($color->value); // Encode the value array to JSON for the option value
+                                            @endphp
+                                            <option value="{{ $encodedColor }}">{{ $colorLabel }} - {{ $colorValues }}</option>
                                         @endforeach
-                                        @endif
+                                    @endif
                                     </select>
                                 </div>
-                                <input class="form-control" placeholder="enter value" name="vehicle" type="hidden" value="{{$data->carname}}">
-                                <input class="form-control" placeholder="enter value" name="variantid" type="hidden" value="{{$data->id}}">
+                                <input class="form-control" placeholder="enter value" name="vehicle" type="hidden"
+                                    value="{{ $data->carname }}">
+                                <input class="form-control" placeholder="enter value" name="variantid" type="hidden"
+                                    value="{{ $data->id }}">
                                 <div class="col-lg-2">
                                     <label for="example-search-input" class="">Title</label>
                                     <input class="form-control" placeholder="enter value" name="title" type="text"
@@ -114,29 +121,61 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $row->type }}</td>
-                                        @php
-                                        $colors = json_decode($row->color, true);
-                                    @endphp
+                                            @php
+                                                // Decode JSON into an associative array
+                                                $color = json_decode($row->color, true);
+                                                // dd($color);
+                                            @endphp
                                         <td>
-                                            <div class="rounded-pill" style="background-color:{{ $colors['value'] }}; color:white;">
-                                                {{ $colors['label'] }}
-                                            </div>
+                                            @if (json_last_error() === JSON_ERROR_NONE && isset($color[0]['label'], $color[0]['value']))
+                                                @php
+                                                    // Split the labels by comma
+                                                    $labels = explode(',', $color[0]['label']);
+                                                    // dd($labels);
+                                                    $values = $color[0]['value'];
+                                                @endphp
+
+                                                @if (count($values) === 2)
+                                                        <div class="">
+                                                            <div class="text-center fw-bold text-dark">
+                                                                {{  $labels[0] }},{{  $labels[1] }}
+                                                            </div>
+                                                            <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                                    style="height: 50px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
+
+                                                            </div>
+                                                        </div>
+                                                @else
+                                                    @foreach ($values as $key => $colorValue)
+                                                            <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                                 style="background-color: {{ $colorValue }};">
+                                                                {{ $labels[$key] ?? '' }}
+                                                            </div>
+                                                    @endforeach
+                                                @endif
+                                            @else
+                                                <li>
+                                                    <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark">
+                                                        Invalid color data
+                                                    </div>
+                                                </li>
+                                            @endif
                                         </td>
                                         <td>{{ $row->vehicle }}</td>
                                         <td>{{ $row->title }}</td>
                                         <td>
                                             @if ($row->mediatype == 'image')
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
-                                            data-record-view="{{ json_encode($row) }}"
-                                            class="px-2 text-primary viewbtnmodal">
-                                                <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
-                                                    alt="Thumbnail" width="100px" class="square-100">
-                                            </a>
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
+                                                    data-record-view="{{ json_encode($row) }}"
+                                                    class="px-2 text-primary viewbtnmodal">
+                                                    <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
+                                                        alt="Thumbnail" width="100px" class="square-100">
+                                                </a>
                                             @endif
                                             @if ($row->mediatype == 'video')
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
-                                            data-record-view="{{ json_encode($row) }}"
-                                            class="px-2 text-primary viewbtnmodal"><i
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
+                                                    data-record-view="{{ json_encode($row) }}"
+                                                    class="px-2 text-primary viewbtnmodal"><i
                                                         class="bi bi-youtube"></i>&nbsp;&nbsp;View Video</a>
                                             @endif
                                         </td>
@@ -187,12 +226,12 @@
                 <h5 class="modal-title" id="exampleModalLabel">All Details</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-                <div class="modal-body" id="viewmodalbody">
-                    {{-- Modal Body Appends here --}}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
+            <div class="modal-body" id="viewmodalbody">
+                {{-- Modal Body Appends here --}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>
@@ -423,10 +462,12 @@
                 var mediaContentnew = '';
 
                 if (viewdata.mediatype === 'image') {
-                    mediaContentnew = `<img src="/assets/backend-assets/images/${viewdata.addimage}" alt="Image" class="img-fluid rounded-bottom">`;
+                    mediaContentnew =
+                        `<img src="/assets/backend-assets/images/${viewdata.addimage}" alt="Image" class="img-fluid rounded-bottom">`;
                 } else if (viewdata.mediatype === 'video') {
                     var videoId = extractVideoId(viewdata.videourl);
-                    mediaContentnew = `<iframe width="100%" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+                    mediaContentnew =
+                        `<iframe width="100%" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
                 }
 
                 mediaContainernew.innerHTML = mediaContentnew;

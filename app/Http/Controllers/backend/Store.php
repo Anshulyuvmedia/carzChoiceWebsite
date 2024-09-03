@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdPost;
 use App\Models\CarLoanEnquiry;
 use App\Models\ColorVariant;
 use App\Models\CompareVehicle;
@@ -489,7 +490,7 @@ class Store extends Controller
 
     public function updatevehicleimgs(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         try {
             $vehicledata = VehicleImage::findOrFail($request->vehicleimgid);
             $vehicledata->type = $request->type;
@@ -576,6 +577,18 @@ class Store extends Controller
                 'userreportedmilage' => 'required',
             ]);
 
+            //Brochure Upload
+            if ($rq->hasFile('brochure')) {
+                $rq->validate([
+                    'brochure' => 'mimes:pdf|max:2048',
+                ]);
+                $brochurepdf = $rq->file('brochure');
+                $finalfile = time() . '_' . $brochurepdf->getClientOriginalName();
+                $brochurepdf->move(public_path('assets/backend-assets/images'), $finalfile);
+                $data['brochure'] = $finalfile;
+                // dd($finalfile);
+            }
+
             AddVariant::create([
                 'carname' => $rq->carname,
                 'brandname' => $rq->brandname,
@@ -592,8 +605,10 @@ class Store extends Controller
                 'userreportedmilage' => $rq->userreportedmilage,
                 'keyfeatures' => $rq->keyfeatures,
                 'summary' => $rq->summary,
-
+                'brochure' => $finalfile ?? null,
             ]);
+
+            //dd($data);
             Log::info('Variant Inserted Successfully: ', ['user' => $data]);
             return back()->with('success', 'Variant Added..!!!!');
 
@@ -612,6 +627,17 @@ class Store extends Controller
 
     public function updatevariants(Request $req)
     {
+         //Brochure Upload
+         if ($req->hasFile('brochure')) {
+            $req->validate([
+                'brochure' => 'mimes:pdf|max:2048',
+            ]);
+            $brochurepdf = $req->file('brochure');
+            $finalfile = time() . '_' . $brochurepdf->getClientOriginalName();
+            $brochurepdf->move(public_path('assets/backend-assets/images'), $finalfile);
+            $data['brochure'] = $finalfile;
+            // dd($finalfile);
+        }
         try {
             $variantdata = AddVariant::findOrFail($req->variantid);
             $variantdata->carname = $req->carname;
@@ -628,6 +654,7 @@ class Store extends Controller
             $variantdata->userreportedmilage = $req->userreportedmilage;
             $variantdata->keyfeatures = $req->keyfeatures;
             $variantdata->summary = $req->summary;
+            $variantdata->brochure = $finalfile;
             $variantdata->save();
             return back()->with('success', 'Variant Updated successfully.');
 
@@ -994,27 +1021,30 @@ class Store extends Controller
 
     public function insertcolorvariants(Request $request)
     {
+
         $colorNames = $request->input('colornames');
         $vehicleid = $request->input('vehicleid');
         $colorCodes = $request->input('colorcodes');
+        $colorone = $request->input('colorone');
+        $colortwo = $request->input('colortwo');
+
 
         $colors = [];
         foreach ($colorNames as $index => $row) {
             if ($row != null) {
                 $colors[] = [
                     'label' => $row,
-                    'value' => $colorCodes[$index],
+                    'value' => [$colorone,$colortwo],
                 ];
             }
         }
-
-        $colorsJson = json_encode($colors);
+        // dd( $colorsJson);
         try {
             $data = CarList::find($vehicleid);
 
             if ($data) {
                 $data->update([
-                    'colors' => $colorsJson,
+                    'colors' => $colors,
                 ]);
 
                 return redirect()->back()->with('success', 'Colors updated successfully!');
@@ -1149,6 +1179,18 @@ class Store extends Controller
         if ($reviewstatus) {
             $reviewstatus->reviewstatus = $req->status;
             $reviewstatus->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
+
+    public function updateactivationstatus(Request $req)
+    {
+        $adpostdata = AdPost::find($req->record_id);
+        // dd($adpostdata);
+        if ($adpostdata) {
+            $adpostdata->activationstatus = $req->status;
+            $adpostdata->save();
             return response()->json(['success' => true]);
         }
         return response()->json(['success' => false], 404);

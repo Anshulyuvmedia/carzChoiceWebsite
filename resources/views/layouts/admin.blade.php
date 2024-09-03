@@ -30,6 +30,7 @@
         href="{{ asset('assets/backend-assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
         rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/backend-assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{asset('assets/backend-assets/libs/spectrum-colorpicker2/spectrum.min.css')}}" rel="stylesheet" type="text/css"> --}}
     @stack('styles')
 
 </head>
@@ -313,11 +314,20 @@
 
         <div class="main-content">
             @yield('main-section')
+
+            <script src="{{ asset('assets/backend-assets/libs/jquery/jquery.min.js') }}"></script>
+            <script src="{{asset('assets/backend-assets/libs/select2/js/select2.min.js')}}"></script>
+
+
+
             <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
             <script src="{{ asset('assets/backend-assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
             <script src="{{asset('assets/backend-assets/libs/flatpickr/flatpickr.min.js')}}">
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
+            <script src="{{asset('assets/backend-assets/js/pages/form-advanced.init.js')}}"></script>
+
+
             @stack('scripts')
             <footer class="footer">
                 <div class="container-fluid">
@@ -344,7 +354,6 @@
 
 
     <!-- JAVASCRIPTS -->
-    <script src="{{ asset('assets/backend-assets/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/metismenu/metisMenu.min.js') }}"></script>
     <script src="{{ asset('assets/backend-assets/libs/simplebar/simplebar.min.js') }}"></script>
@@ -360,8 +369,7 @@
 
     <script src="{{asset('assets/backend-assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('assets/backend-assets/libs/%40chenfengyuan/datepicker/datepicker.min.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/libs/select2/js/select2.min.js')}}"></script>
-    <script src="{{asset('assets/backend-assets/js/pages/form-advanced.init.js')}}"></script>
+
 
 
      <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>

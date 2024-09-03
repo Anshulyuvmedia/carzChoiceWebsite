@@ -821,8 +821,11 @@
                                         </span>
                                     </div>
                                     <div class="col-md-3 col-xs-12 col-sm-12 ">
-                                        <a class="btn btn-theme rounded-4 btn-sm rounded-3 pull-left">Download
-                                            Brochure</a>
+                                        <a href="{{ asset('assets/backend-assets/images/' . $cardetails->brochure) }}"
+                                            download="{{ $cardetails->brochure }}"
+                                            class="btn btn-theme rounded-4 btn-sm rounded-3 pull-left">
+                                            Download Brochure
+                                         </a>
                                     </div>
                                 </div>
                             </div>
@@ -843,6 +846,8 @@
                                         @php
                                         // Decode JSON into an associative array
                                         $color = json_decode($image->color, true);
+                                        $values = $color[0]['label'];
+                                        // dd($color);
                                         @endphp
                                         <li>
                                             <a href="{{asset('assets/backend-assets/images/' . $image->addimage) }}"
@@ -850,7 +855,9 @@
                                                 <img alt="{{ $image->title }}"
                                                     src="{{ asset('assets/backend-assets/images/' . $image->addimage) }}" />
                                             </a>
-                                            <p class="flex-caption text-capitalize"> {{ $color['label'] }}</p>
+                                            <p class="flex-caption text-capitalize">
+                                                {{ $values }}
+                                            </p>
                                         </li>
                                         @endforeach
                                     </ul>
@@ -858,26 +865,47 @@
                                 <div id="carousel-color" class="flexslider p-2 mb-0">
                                     <ul class="slides">
                                         @foreach ($cardetails->images as $image)
-                                        @php
-                                        // Decode JSON into an associative array
-                                        $color = json_decode($image->color, true);
-                                        @endphp
-                                        @if (json_last_error() === JSON_ERROR_NONE && isset($color['value']))
-                                        <li>
-                                            <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
-                                                style="background-color: {{ $color['value'] }}">
-                                            </div>
-                                        </li>
-                                        @else
-                                        <li>
-                                            <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark">
-                                                Invalid color data
-                                            </div>
-                                        </li>
-                                        @endif
+                                            @php
+                                                // Decode JSON into an associative array
+                                                $color = json_decode($image->color, true);
+                                                // dd($color);
+                                            @endphp
+
+                                            @if (json_last_error() === JSON_ERROR_NONE && isset($color[0]['label'], $color[0]['value']))
+                                                @php
+                                                    // Split the labels by comma
+                                                    $labels = explode(',', $color[0]['label']);
+                                                    $values = $color[0]['value'];
+                                                @endphp
+
+                                                @if (count($values) === 2)
+                                                    <li>
+                                                        <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                             style="height: 50px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
+
+                                                        </div>
+                                                    </li>
+                                                @else
+                                                    @foreach ($values as $key => $colorValue)
+                                                        <li>
+                                                            <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                                 style="background-color: {{ $colorValue }};">
+                                                                {{ $labels[$key] ?? '' }}
+                                                            </div>
+                                                        </li>
+                                                    @endforeach
+                                                @endif
+                                            @else
+                                                <li>
+                                                    <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark">
+                                                        Invalid color data
+                                                    </div>
+                                                </li>
+                                            @endif
                                         @endforeach
                                     </ul>
                                 </div>
+
                             </div>
                         </div>
 

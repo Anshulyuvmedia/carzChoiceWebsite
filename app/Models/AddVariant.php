@@ -24,5 +24,6 @@ class AddVariant extends Model
         'keyfeatures',
         'summary',
         'showhidestatus',
+        'brochure',
     ];
 }

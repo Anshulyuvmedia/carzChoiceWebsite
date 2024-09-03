@@ -157,6 +157,7 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('viewreviews', 'viewreviews')->name('viewreviews');
     Route::get('allreviews', 'allreviews')->name('allreviews');
     Route::get('allinsuranceleads', 'allinsuranceleads')->name('allinsuranceleads');
+    Route::get('dealeradposts/{id}', 'dealeradposts')->name('dealeradposts');
 
 });
 
@@ -221,6 +222,8 @@ Route::controller(Store::class)->group(function() {
     Route::get('deletereview/{id}', 'deletereview')->name('deletereview');
     Route::post('/updatereviews', 'updatereviews')->name('updatereviews');
     Route::post('/updatereviewstatus', 'updatereviewstatus')->name('updatereviewstatus');
+    Route::post('/updateactivationstatus', 'updateactivationstatus')->name('updateactivationstatus');
+
 
 });
 

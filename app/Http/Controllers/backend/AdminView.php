@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
 use App\Models\AddVariant;
+use App\Models\AdPost;
 use App\Models\Blog;
 use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
@@ -139,6 +140,7 @@ class AdminView extends Controller
     public function editvariant($id)
     {
         $variantdata = AddVariant::find($id);
+        // dd($variantdata);
         $carlistdata = CarList::get();
         return view('AdminPanel.editvariant', compact('variantdata', 'carlistdata'));
     }
@@ -274,6 +276,7 @@ class AdminView extends Controller
         $carlistdata = CarList::get();
         $imageslist = CarList::where('carname', $data->carname)->get()->pluck('colors');
         $colors = json_decode($imageslist[0]);
+        //dd($colors);
         return view('AdminPanel.vehicleimages', compact('data', 'colors', 'imageslist', 'carnamedata', 'masterdata', 'mastercolordata', 'vehicleimgdata', 'carlistdata'));
     }
 
@@ -306,5 +309,10 @@ class AdminView extends Controller
     public function allinsuranceleads(){
         $leads = InsuranceLead::orderBy('created_at','desc')->get();
         return view('AdminPanel.insuranceleads',compact('leads'));
+    }
+
+    public function dealeradposts($id){
+        $adposts = AdPost::where('userid',$id)->orderBy('created_at','DESC')->get();
+        return view('AdminPanel.dealeradposts',compact('adposts'));
     }
 }

@@ -87,6 +87,11 @@
                                         type="text" value="{{ $variantdata->engine }}" id="example-text-input">
                                 </div>
                                 <div class="col-lg-4">
+                                    <label class="">Upload Brochure</label>
+                                    <input class="form-control" placeholder="" accept=".pdf" name="brochure" type="file"
+                                        value="" id="example-text-input" required>
+                                </div>
+                                <div class="col-lg-4">
                                     @php
                                     $selectedtransmissions = json_decode($variantdata->transmission, true) ?? [];
                                     @endphp

@@ -284,75 +284,69 @@
 
 
     <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
-    <footer class="footer-bg ">
-        <!-- Footer Content -->
-        <div class="footer-top p-0 pt-md-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 hideInMobile  col-sm-6 col-xs-12">
-                        <!-- Info Widget -->
-                        <div class="widget">
-                            <div class="logo">
-                                <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo"
-                                    width="120">
-
+    <footer class="footer-bg">
+        <div class="footer-top pt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 hideInMobile col-sm-6 col-xs-12">
+                            <div class="widget">
+                                <h5 class="mb-0">New Cars</h5>
+                                <ul class="mt-3">
+                                    <li><a href="/new-cars" class="text-secondary">Explore New Cars</a></li>
+                                    <li><a data-value="Upcoming" class="brandfilter text-secondary">Upcoming Cars</a></li>
+                                    <li><a href="/car-loan" class="text-secondary">Car Loan </a></li>
+                                    <li><a href="/electric-car" class="text-secondary">Electric Cars </a></li>
+                                    <li><a data-target="#share-ad" data-toggle="modal"  class="text-secondary">EMI Calculator </a></li>
+                                </ul>
                             </div>
-
-                            <ul class="apps-donwloads">
-                                <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}"
-                                        alt=""></li>
-                                <li><img src="{{ asset('assets/frontend-assets/images/appstore.png') }}"
-                                        alt=""></li>
-                            </ul>
                         </div>
-                        <!-- Info Widget Exit -->
-                    </div>
-                    <div class="col-md-2 hideInMobile col-sm-6 col-xs-12">
-                        <!-- Follow Us -->
-                        <div class="widget socail-icons">
-                            <h5>Follow Us</h5>
-                            <ul>
-                                <li><a class="Facebook"><i class="fa fa-facebook"></i></a><span>Facebook</span></li>
-                                <li><a class="Twitter" href="#"><i
-                                            class="fa fa-twitter"></i></a><span>Twitter</span>
-                                </li>
-                                <span><a class="Linkedin" href="#"><i
-                                            class="fa fa-linkedin"></i></a><span>Linkedin</span>
-                                    </li>
-                                    <li><a class="Google" href="#"><i
-                                                class="fa fa-google-plus"></i></a><span>Google+</span>
-                                    </li>
-                            </ul>
+                        <div class="col-md-2 hideInMobile col-sm-6 col-xs-12">
+                            <div class="widget">
+                                <h5>Old Cars</h5>
+                                <ul class="mt-3">
+                                    <li><a href="/used-car"  class="text-secondary">Explore Used Cars</a></li>
+                                    <li><a href="/usedcar-bylocation"  class="text-secondary">Usedcar by location</a></li>
+                                    <li><a href="/find-dealer"  class="text-secondary">Find Dealer</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <!-- Follow Us End -->
-                    </div>
-                    <div class="col-md-2 hideInMobile  col-sm-6 col-xs-12">
-                        <div class="widget my-quicklinks">
-                            <h5>Quick Links</h5>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="/services">Services</a></li>
-                                <li><a href="/pricing">Pricing</a></li>
-                                <li><a href="/contactus">Contact Us</a></li>
-                            </ul>
+                        <div class="col-md-2 hideInMobile  col-sm-6 col-xs-12">
+                            <div class="widget my-quicklinks">
+                                <h5>Quick Links</h5>
+                                <ul class="mt-3">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="/services">Services</a></li>
+                                    <li><a href="/pricing">Pricing</a></li>
+                                    <li><a href="/contactus">Contact Us</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-2 hideInMobile  col-sm-6 col-xs-12">
-                        <div class="widget my-quicklinks">
-                            <h5>Important Links</h5>
-                            <ul>
-                                <li><a href="/privacypolicy">Privacy Policy</a></li>
-                                <li><a href="/disclaimer">Disclaimer</a></li>
-                            </ul>
+                        <div class="col-md-2 hideInMobile  col-sm-6 col-xs-12">
+                            <div class="widget my-quicklinks">
+                                <h5>Important Links</h5>
+                                <ul class="mt-3">
+                                    <li><a href="/privacypolicy">Privacy Policy</a></li>
+                                    <li><a href="/disclaimer">Disclaimer</a></li>
+                                    <li><a href="/carinsurance">Car Insurance</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="copyright d-flex justify-content-center">
-                        <p>© 2024 Car Choice All rights reserved.<a href="https://carchoice.yuvjobs.com/"
-                                target="_blank">CARZCHOICE</a></p>
+                        <div class="col-md-3 hideInMobile  col-sm-6 col-xs-12">
+                            <!-- Info Widget -->
+                            <div class="widget">
+                                <div class="logo">
+                                    <img src="{{ asset('assets/frontend-assets/images/logowhitepng.png') }}" alt="logo"
+                                        width="180">
+                                </div>
+                                <div class="content">
+                                    <p class="text-secondary fs-4">Carzchoice is your go-to platform for everything cars! From expert reviews and comparisons to the latest car listings.</p>
+                                </div>
+                            </div>
+                            <!-- Info Widget Exit -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </footer>
     <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
 
