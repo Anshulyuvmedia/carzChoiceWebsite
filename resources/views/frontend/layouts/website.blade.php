@@ -103,7 +103,7 @@
                         <div class="row ">
                             <div class=" d-flex align-items-center justify-content-between">
                                 <!-- menu logo -->
-                                <div class="col-md-2">
+                                <div class="col-md-2 col-3">
                                     <ul class="menu-logo">
                                         <li>
                                             <a href="/" class="">
@@ -225,7 +225,7 @@
                                     </ul>
                                 </div>
 
-                                <div class="col-md-3 d-flex align-items-center justify-content-end">
+                                <div class="col-md-4 col-9 d-flex align-items-center justify-content-end">
 
                                     <ul class="listnone d-flex justify-content-between align-items-center">
                                         @if (Auth::guard('registeruser')->user())
@@ -255,6 +255,9 @@
                                             <li class="me-3">
                                                 <a href="/loginuser" class="btn btn-theme btn-outline">
                                                     <i class="bi bi-door-open-fill"></i> Log in
+                                                </a>
+                                                <a href="tel:919315510156" class="btn btn-theme btn-outline">
+                                                    <i class="bi bi-telephone-fill"></i>+91-9315510156
                                                 </a>
                                             </li>
                                         @endif
