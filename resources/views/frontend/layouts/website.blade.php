@@ -287,9 +287,9 @@
 
 
     <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
-    <footer class="footer-bg">
+    <footer class="footer-bg ">
         <div class="footer-top pt-5">
-                <div class="container">
+                <div class="container hideInMobile">
                     <div class="row">
                         <div class="col-md-2 hideInMobile col-sm-6 col-xs-12">
                             <div class="widget">

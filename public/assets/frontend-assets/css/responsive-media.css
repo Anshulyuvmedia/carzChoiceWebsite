@@ -840,6 +840,12 @@
         display: block;
 
     }
+    footer.footer-bg {
+        background: none;
+        padding-bottom: 25px;
+        padding-top: 25px;
+        border-top: 0px dashed #ddd;
+    }
     #banner{
         background-image: none !important;
         min-height: 400px;
