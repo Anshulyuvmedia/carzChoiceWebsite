@@ -225,7 +225,7 @@
                                     </ul>
                                 </div>
 
-                                <div class="col-md-4 col-9 d-flex align-items-center justify-content-end">
+                                <div class="col-md-4 col-8 d-flex align-items-center justify-content-end logincall">
 
                                     <ul class="listnone d-flex justify-content-between align-items-center">
                                         @if (Auth::guard('registeruser')->user())
@@ -256,8 +256,10 @@
                                                 <a href="/loginuser" class="btn btn-theme btn-outline">
                                                     <i class="bi bi-door-open-fill"></i> Log in
                                                 </a>
+                                            </li>
+                                            <li class="me-3">
                                                 <a href="tel:919315510156" class="btn btn-theme btn-outline">
-                                                    <i class="bi bi-telephone-fill"></i>+91-9315510156
+                                                    <i class="bi bi-telephone-fill"></i> Call Now
                                                 </a>
                                             </li>
                                         @endif
