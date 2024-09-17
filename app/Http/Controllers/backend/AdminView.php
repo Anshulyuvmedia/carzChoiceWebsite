@@ -126,7 +126,8 @@ class AdminView extends Controller
 
     public function addvariant()
     {
-        $cardata = CarList::get();
+        $cardata = CarList::select('brandname', DB::raw('COUNT(id) as count'))->groupBy('brandname')->get();
+        // dd($cardata);ss
         $bodytype = Master::where('type', 'Body Type')->get();
         return view('AdminPanel.addvariant', compact('cardata', 'bodytype'));
     }

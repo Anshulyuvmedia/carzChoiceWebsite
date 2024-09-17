@@ -562,19 +562,20 @@ class Store extends Controller
         // dd($rq->all());
         try {
             $data = $rq->validate([
-                'carname' => 'required',
-                'carmodalname' => 'required',
-                'brandname' => 'required',
-                'availabelstatus' => 'required',
-                'price' => 'required',
-                'pricetype' => 'required',
-                'bodytype' => 'required',
-                'mileage' => 'required',
-                'engine' => 'required',
-                'fueltype' => 'required',
-                'transmission' => 'required',
-                'seatingcapacity' => 'required',
-                'userreportedmilage' => 'required',
+                'carname' => 'required|nullable',
+                'carmodalname' => 'required|nullable',
+                'brandname' => 'required|nullable',
+                'availabelstatus' => 'required|nullable',
+                'price' => 'required|nullable',
+                'pricetype' => 'required|nullable',
+                'bodytype' => 'required|nullable',
+                'mileage' => 'required|nullable',
+                'engine' => 'required|nullable',
+                'fueltype' => 'required|nullable',
+                'transmission' => 'required|nullable',
+                'seatingcapacity' => 'required|nullable',
+                'userreportedmilage' => 'required|nullable',
+                'brochure' => 'nullable',
             ]);
 
             //Brochure Upload
@@ -613,8 +614,8 @@ class Store extends Controller
             return back()->with('success', 'Variant Added..!!!!');
 
         } catch (Exception $e) {
-            //return redirect()->route('addvariant')->with('error', $e->getMessage());
-            return redirect()->route('addvariant')->with('error', 'Not Added Try Again...!!!!');
+            return redirect()->route('addvariant')->with('error', $e->getMessage());
+            //return redirect()->route('addvariant')->with('error', 'Not Added Try Again...!!!!');
         }
     }
 
@@ -1194,6 +1195,43 @@ class Store extends Controller
             return response()->json(['success' => true]);
         }
         return response()->json(['success' => false], 404);
+    }
+
+    public function updatemaster(Request $request)
+    {
+        try {
+            $carlist = Master::where('id', $request->masterid)->update([
+                'label' => $request->label,
+                'value' => $request->value,
+            ]);
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            //return back()->with('error', $e->getMessage());
+            return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
+    public function updatesubmaster(Request $request)
+    {
+        try {
+            if ($request->hasFile('iconimage')) {
+                $request->validate([
+                    'iconimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $file = $request->file('iconimage');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/backend-assets/images'), $filename);
+            }
+            $carlist = Master::where('id', $request->submasterid)->update([
+                'label' => $request->label,
+                'type' => $request->type,
+                'value' => $request->value,
+                'iconimage' => $filename,
+            ]);
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            //return back()->with('error', $e->getMessage());
+            return back()->with('error', 'Not Updated..Try Again.....');
+        }
     }
 }
 

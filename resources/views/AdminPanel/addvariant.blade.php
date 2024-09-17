@@ -38,7 +38,7 @@
                             </form>
                         </div>
                        <div class="mt-2">
-                            <a class="mt-2 text-info" href="{{asset('assets/backend-assets/images/SampleExcel/variants.xlsx')}}" download="Sample Data of Variants">Click to Download Sample File</a>
+                            <a class="mt-2 text-danger fw-bold" href="{{asset('assets/backend-assets/images/SampleExcel/variants.xlsx')}}" download="Sample Data of Variants">Click to Download Sample File</a>
                        </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                                 <div class="col-lg-3">
                                     <label class="">Brand Name</label>
                                     <select name="brandname" class="form-select mb-3" id="dynamic_selectbrandname"
-                                        required>
+                                    >
                                         <option value="">--select car--</option>
                                         @foreach ($cardata as $row)
                                             <option value="{{ $row->brandname }}">{{ $row->brandname }}</option>
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Car Name</label>
-                                    <select name="carname" class="form-select mb-3" id="carnamelabel" required>
+                                    <select name="carname" class="form-select mb-3" id="carnamelabel">
                                         <option value="">--select car--</option>
                                         <!--Append here car name-->
                                     </select>
@@ -71,11 +71,11 @@
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Car Modal Name</label>
                                     <input class="form-control mb-3" placeholder="enter modal name" name="carmodalname"
-                                        type="text" value="" id="carmodal" required>
+                                        type="text" value="" id="carmodal">
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Select Status</label>
-                                    <select name="availabelstatus" class="form-select mb-3" id="cartypeid" required>
+                                    <select name="availabelstatus" class="form-select mb-3" id="cartypeid">
                                         <option value="">--select status--</option>
                                         <option value="Available">Available</option>
                                         <option value="Not Available">Not Available</option>
@@ -85,11 +85,11 @@
                                 <div class="col-lg-2">
                                     <label for="example-text-input" class="">Price</label>
                                     <input class="form-control mb-3" placeholder="enter car price" name="price"
-                                        type="text" value="" id="example-text-input" required>
+                                        type="text" value="" id="example-text-input">
                                 </div>
                                 <div class="col-lg-2">
                                     <label class="">Price Type</label>
-                                    <select name="pricetype" class="form-select mb-3" id="cartypeid" required>
+                                    <select name="pricetype" class="form-select mb-3" id="cartypeid">
                                         <option value="">--select price type--</option>
                                         <option value="Lakh">Lakh</option>
                                         <option value="Cr">Cr</option>
@@ -98,25 +98,25 @@
                                 <div class="col-lg-2">
                                     <label for="example-text-input" class="">Engine</label>
                                     <input class="form-control mb-3" placeholder="enter engine" name="engine"
-                                        type="text" value="" id="example-text-input" required>
+                                        type="text" value="" id="example-text-input">
                                 </div>
                                 <div class="col-lg-2">
                                     <label class="">Body Type</label>
-                                    <select name="bodytype" class="form-select" id="subcategory" required>
+                                    <select name="bodytype" class="form-select" id="subcategory">
                                         <option value="">--select body type--</option>
                                         @foreach ($bodytype as $body)
                                             <option value="{{ $body->value }}">{{ $body->value }}</option>
-                                        @endforeach ($i = 1; $i <= 8; $i++)\
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
                                     <label class="">Upload Brochure</label>
                                     <input class="form-control" placeholder="" accept=".pdf" name="brochure" type="file"
-                                        value="" id="example-text-input" required>
+                                        value="" id="example-text-input" >
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Seating Capacity</label>
-                                    <select name="seatingcapacity" class="form-select" id="subcategory" required>
+                                    <select name="seatingcapacity" class="form-select" id="subcategory">
                                         <option value="">--select seates capacity--</option>
                                         @for ($i = 1; $i <= 8; $i++)
                                             <option value="{{ $i }}">{{ $i }}</option>
@@ -137,7 +137,7 @@
                                     <label for="example-text-input" class="">User Report Mileage</label>
                                     <input class="form-control" placeholder="enter user report mileage"
                                         name="userreportedmilage" type="text" value=""
-                                        id="example-text-input" required>
+                                        id="example-text-input">
                                 </div>
                                 <div class="col-lg-12">
                                     <label class="form-label">Fuel Type</label>
@@ -173,27 +173,7 @@
                         </form>
                     </div>
                 </div>
-            </div> <!-- end col -->
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('updatecarlist') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body" id="modalbody">
-                    {{-- Modal Body Appends here --}}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-success waves-effect waves-light">Update</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>
@@ -211,25 +191,23 @@
         swal("Error", "{{ session('error') }}", "error");
     </script>
 @endif
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
 <script>
-    function confirmDelete(id) {
-        let smiley = '😊';
-        swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this data!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location.href = "/deletecarlist/" + id;
-                } else {
-                    swal("Great Decision....!! Your data is safe! " + smiley);
-                }
+    $(document).ready(function() {
+        $('#fueltype').on('change', function() {
+            // Get selected fuel types
+            let selectedFuelTypes = $(this).val();
+            $('#mileageInputs').empty();
+            selectedFuelTypes.forEach(function(fuelType) {
+                $('#mileageInputs').append(`
+                <div class="col-lg-4">
+                    <label for="mileage-${fuelType}" class="mt-3">Mileage for ${fuelType}</label>
+                    <input class="form-control ms-2" placeholder="enter mileage for ${fuelType}" name="mileage[${fuelType}]" type="text" id="mileage-${fuelType}">
+                </div>
+            `);
             });
-    }
+        });
+    });
 </script>
 <script>
     ClassicEditor
@@ -245,23 +223,7 @@
             console.error(error);
         });
 </script>
-<script>
-    $(document).ready(function() {
-        $('#fueltype').on('change', function() {
-            // Get selected fuel types
-            let selectedFuelTypes = $(this).val();
-            $('#mileageInputs').empty();
-            selectedFuelTypes.forEach(function(fuelType) {
-                $('#mileageInputs').append(`
-                <div class="col-lg-4">
-                    <label for="mileage-${fuelType}" class="mt-3">Mileage for ${fuelType}</label>
-                    <input class="form-control ms-2" placeholder="enter mileage for ${fuelType}" name="mileage[${fuelType}]" type="text" id="mileage-${fuelType}" required>
-                </div>
-            `);
-            });
-        });
-    });
-</script>
+
 <script>
     $(function() {
         $('#dynamic_selectbrandname').on('change', function() {
