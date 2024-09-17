@@ -27,7 +27,7 @@
         <div class="container">
             <!--This is Main Card Profile-->
             @include('components.main-profile-card')
-            <div class="row margin-top-40 grid-style-2 ">
+            <div class="row margin-top-40 grid-style-2">
                 <div class="col-md-12 col-sm-12 col-xs-12 text-right mb-3">
                     <div class="pull-left fs-3 fw-bold text-black">
                         My Listings
@@ -49,10 +49,10 @@
                         <div class="image">
                             <img alt="Carz Choice" src="{{ asset($imagearray[0]['imageurl']) }}" class="img-responsive" style=" aspect-ratio: 16/9;">
                             <div class="ribbon popular"></div>
-                            
+
                         </div>
                         <div class="short-description-1 clearfix">
-                            
+
                             <p class="location"><i class="fa fa-map-marker"></i>{{$data->district}}, {{$data->state}}</p>
                             <h3><a title="" class="fs-3" href="#">{{$data->brandname}} {{$data->carname}} {{$data->modalname}}</a></h3>
                             <ul class="list-unstyled">

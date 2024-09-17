@@ -17,9 +17,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('AdminPanel.admindashboard');
-    })->name('Admindashboard');
+    Route::get('/dashboard', [AdminView::class, 'dashboard'])->name('Admindashboard');
 });
 
 Route::controller(frontViewController::class)->group(function () {
@@ -42,7 +40,8 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('car-loan', 'carloan')->name('carloan');
     Route::get('find-car/{filtertype}', 'findcar')->name('findcar');
     Route::get('car-view-images/{carname}', 'carviewimages')->name('carviewimages');
-    Route::get('car-images', 'carimages');
+    Route::get('car-images', 'carimages')->name('carimages');
+    Route::get('car-videos', 'carvideos')->name('carvideos');
     Route::get('find-dealer', 'finddealer')->name('finddealer');
     Route::get('dealer-profile/{id}', 'dealerprofile')->name('dealerprofile');
     Route::get('dealer-showroom', 'dealershowroom');
@@ -67,6 +66,10 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('error404', 'error404');
     Route::get('contactus', 'contactus');
     Route::get('services', 'services');
+    Route::get('privacypolicy', 'privacypolicy')->name('privacypolicy');
+    Route::get('disclaimer', 'disclaimer')->name('disclaimer');
+    Route::get('happycustomers', 'happycustomers')->name('happycustomers');
+    Route::get('carinsurance', 'carinsurance')->name('carinsurance');
 
 });
 
@@ -83,6 +86,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('updatePassword', 'updatePassword')->name('updatePassword');
     Route::post('edituserprofile', 'edituserprofile')->name('edituserprofile');
     Route::get('filterbrandname/{selectedbrandname}', 'filterbrandname')->name('filterbrandname');
+    Route::get('filtervariantscompare/{brand}', 'filtervariantscompare')->name('filtervariantscompare');
     Route::get('filtermodalname/{selectedcar}', 'filtermodalname')->name('filtermodalname');
     Route::post('insertadpost', 'insertadpost')->name('insertadpost');
     Route::get('deleteadpost/{id}', 'deleteadpost')->name('deleteadpost');
@@ -97,6 +101,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('/filterByAttribute/{filtertype}', 'filterByAttribute')->name('filterByAttribute');
     Route::post('/showcomparecars/{fullId}', 'showcomparecars')->name('showcomparecars');
     Route::post('filterbyfuelcardetails', 'filterbyfuelcardetails')->name('filterbyfuelcardetails');
+    Route::post('modalvariantsfilterdetails', 'modalvariantsfilterdetails')->name('modalvariantsfilterdetails');
     Route::post('insertcompareoffcanvas', 'insertcompareoffcanvas')->name('insertcompareoffcanvas');
     Route::post('makefilterfindcar', 'makefilterfindcar')->name('makefilterfindcar');
     Route::post('registerdealer', 'registerdealer')->name('registerdealer');
@@ -106,8 +111,13 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::get('filterdistrictbystate/{state}', 'filterdistrictbystate')->name('filterdistrictbystate');
     Route::post('filternewcardealersbybrand/{brand}', 'filternewcardealersbybrand')->name('filternewcardealersbybrand');
     Route::post('filternewcardealersbycity/{citynamedeal}', 'filternewcardealersbycity')->name('filternewcardealersbycity');
+    Route::post('requestinsurance', 'requestinsurance')->name('requestinsurance');
+    Route::post('insertrating', 'insertrating')->name('insertrating');
 
 });
+
+
+
 
 
 //Admin Panel Routes
@@ -144,6 +154,10 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('addvehicleimages/{id}/{carname}', 'addvehicleimages')->name('addvehicleimages');
     Route::get('dealerslist/{status}', 'dealerslist')->name('dealerslist');
     Route::get('adddealerdetails', 'adddealerdetails')->name('adddealerdetails');
+    Route::get('viewreviews', 'viewreviews')->name('viewreviews');
+    Route::get('allreviews', 'allreviews')->name('allreviews');
+    Route::get('allinsuranceleads', 'allinsuranceleads')->name('allinsuranceleads');
+    Route::get('dealeradposts/{id}', 'dealeradposts')->name('dealeradposts');
 
 });
 
@@ -204,6 +218,13 @@ Route::controller(Store::class)->group(function() {
     Route::get('deletedealer/{id}', 'deletedealer')->name('deletedealer');
     Route::post('/filterdealers', 'filterdealers')->name('filterdealers');
     Route::post('/updatevariantshowhidestatus', 'updatevariantshowhidestatus')->name('updatevariantshowhidestatus');
+    Route::post('/inserthappycustomers', 'inserthappycustomers')->name('inserthappycustomers');
+    Route::get('deletereview/{id}', 'deletereview')->name('deletereview');
+    Route::post('/updatereviews', 'updatereviews')->name('updatereviews');
+    Route::post('/updatereviewstatus', 'updatereviewstatus')->name('updatereviewstatus');
+    Route::post('/updateactivationstatus', 'updateactivationstatus')->name('updateactivationstatus');
+
+
 });
 
 

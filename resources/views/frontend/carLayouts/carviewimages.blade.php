@@ -89,7 +89,7 @@
 
                         <!-- Middle Content Box -->
                         @foreach ($uniqueTypes as $type)
-                            @php   
+                            @php
                                 // Filter images for the current type
                                 $filteredTypes = $allcarimage->where('type', $type->type);
                                 // Count of images for the current type
@@ -344,29 +344,35 @@
                                                                         alt="Thumbnail" />
                                                                 </a>
                                                             </div>
-                                                            <div
-                                                                class="short-description-1 d-flex justify-content-between ">
-                                                                <div class="d-flex">
+                                                            <div class="short-description-1 d-flex justify-content-between ">
                                                                     @php
-                                                                        // Decode JSON into an associative array
                                                                         $colors = json_decode($imagedata->color, true);
-                                                                        // dd($colors); // Uncomment to debug and see the structure of $colors
+                                                                        $labels = explode(',', $colors[0]['label']);
+                                                                        $values = $colors[0]['value'];
+                                                                        // dd($values);
                                                                     @endphp
-                                                                    <div class=" d-flex ">
-                                                                        <div class="p-3 border me-2 rounded-pill"
-                                                                            style="background-color: {{ $colors['value'] }}; height: 25px; width: 25px;">
-                                                                        </div>
-                                                                        <div class="text-capitalize">
-                                                                            {{ $colors['label'] ?? 'Unknown Color' }}
-                                                                        </div>
-                                                                    </div>
+                                                                        @if (count($values) === 2)
+                                                                        <div class="d-flex align-items-center justify-content-evenly" style="width: 100%;">
+                                                                            <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                                                    style="height: 50px; width:50px; border-radius: 10px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
 
-
-                                                                </div>
+                                                                            </div>
+                                                                            <div class="text-center fw-bold text-dark">
+                                                                                {{  $labels[0] }},{{  $labels[1] }}
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                            @foreach ($values as $key => $colorValue)
+                                                                                    <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                                                        style="background-color: {{ $colorValue }};">
+                                                                                        {{ $labels[$key] ?? '' }}
+                                                                                    </div>
+                                                                            @endforeach
+                                                                        @endif
 
 
                                                                 <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
-                                                                    download="{{ $imagedata->addimage }}">
+                                                                    download="{{ $imagedata->addimage }}" style="display: flex; align-items:center; ">
                                                                     <span class="rounded-pill text-white pull-right"
                                                                         style="background-color: rgb(113 113 113);height: 29px;width: 30px;text-align: center;font-size: 15px;">
                                                                         <i class="bi bi-download"></i>

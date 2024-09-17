@@ -1,14 +1,13 @@
 @extends('frontend.layouts.website')
 @section('content')
-@section('title', 'Home')
+@section('title', 'New Cars, Used Cars, Buy a Car, Sell Your Car')
 
 <div>
-    <!-- =-=-=-=-=-=-= Home Banner  =-=-=-=-=-=-= -->
-    <div id="banner" class="hideInMobile"
+    <div id="banner" class=""
         style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->mainbannerimg) }}')">
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 hideInMobile">
                     <div class="search-container">
                         <!-- Form -->
                         <h2>What are you looking for ?</h2>
@@ -16,9 +15,24 @@
                         <a href="{{ route('addadshow') }}" class="btn btn-theme rounded-4">Post Your Ad</a>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="search-container advance-search  hideInMobile">
-                        <div class="section-search search-style-2 card">
+                <div class="col-12 hideInDesktop">
+                    <div class="homebannerslider owl-carousel owl-theme mt-4">
+                        @if ($imagesdata->mobileimages)
+                        @foreach (explode(',', $imagesdata->mobileimages) as $mobileimage)
+                        <div class="item">
+                            <div class="sliderr">
+                                <div class="slider-banner">
+                                    <img class="img-fluid rounded-4" src="{{ asset($mobileimage) }}" alt="banner-1" />
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        @endif
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="search-container advance-search">
+                        <div class="section-search search-style-2 card mobilecard">
                             <div class="p-3 pb-0">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 p-0">
@@ -29,7 +43,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#tab2">Search Car By
+                                                <a class="nav-link" id="navlinktwo" data-toggle="tab" href="#tab2">Search Car By
                                                     Type</a>
                                             </li>
                                         </ul>
@@ -39,10 +53,10 @@
                                                 <form id="searchform">
                                                     @csrf
                                                     <div class="search-form pull-left">
-                                                        <div class="search-form-inner pull-left">
-                                                            <div class="col-md-6 no-padding">
+                                                        <div class="search-form-inner pull-left d-flex flex-wrap">
+                                                            <div class="col-md-6 col-3 no-padding">
                                                                 <div class="form-group">
-                                                                    <label>Select Car Type</label>
+                                                                    <label class="hideInMobile">Select Car Type</label>
                                                                     <select name="cartype"
                                                                         class="form-control make rounded-4"
                                                                         id="dynamicselect">
@@ -51,9 +65,9 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 no-padding">
+                                                            <div class="col-md-6 col-9 no-padding">
                                                                 <div class="form-group">
-                                                                    <label>Type the car to select</label>
+                                                                    <label class="hideInMobile">Type the car to select</label>
                                                                     <select name="carname"
                                                                         class="form-control search-year rounded-4"
                                                                         id="dynamiccarname">
@@ -71,7 +85,6 @@
                                                                 class="btn btn-theme">Search
                                                                 Now</button>
                                                         </div>
-
                                                     </div>
                                                 </form>
                                             </div>
@@ -79,7 +92,7 @@
                                                 <form>
                                                     <div class="search-form row">
                                                         @foreach ($bodytype->take(8) as $row)
-                                                        <div class="col-md-3 p-2">
+                                                        <div class="col-md-3 col-4 p-2">
                                                             <div class="box">
                                                                 <a id="cartypefilter" data-value="{{ $row->value }}">
                                                                     <img alt="Convertible" width="75"
@@ -104,39 +117,19 @@
     </div>
 
 
-    <div class="container hideInDesktop">
-        <div class="row">
-            <div class="col-12">
-                <div class="homebannerslider owl-carousel owl-theme">
-                    @if ($imagesdata->mobileimages)
-                    @foreach (explode(',', $imagesdata->mobileimages) as $mobileimage)
-                    <div class="item">
-                        <div class="sliderr">
-                            <div class="slider-banner">
-                                <img class="img-fluid" src="{{ asset($mobileimage) }}" alt="banner-1" />
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class=" container hideInDesktop mb-5">
         <div class="row p-3  g-3">
             <div class="col-6">
                 <a href="/new-cars">
-                    <div class="card p-3 rounded-4" style="background: #995ded;">
-                        <div class="maineHeading">
+                    <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #995ded;">
+                        <div class="maineHeading" style="color: #995ded;">
                             New Cars
                         </div>
                         <div class="subTitle">
                             with exciting offers <i class="bi bi-arrow-right-short"></i>
                         </div>
                         <div class="filterImage">
-                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/newcar.webp') }}"
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/new-car.png') }}"
                                 alt="New car">
                         </div>
                     </div>
@@ -144,15 +137,15 @@
             </div>
             <div class="col-6">
                 <a href="/used-car">
-                    <div class="card p-3 rounded-4" style="background: #f75d34;">
-                        <div class="maineHeading">
+                    <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #f75d34;">
+                        <div class="maineHeading" style="color: #f75d34;">
                             Buy Used Car
                         </div>
                         <div class="subTitle">
                             pre-owned cars for sale <i class="bi bi-arrow-right-short"></i>
                         </div>
                         <div class="filterImage">
-                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/usedcar.webp') }}"
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/cars.png') }}"
                                 alt="Buy Used Car">
                         </div>
                     </div>
@@ -161,15 +154,15 @@
             </div>
             <div class="col-6">
                 <a href="/addadshow">
-                    <div class="card p-3 rounded-4" style="background: #5ca7f9;">
-                        <div class="maineHeading">
+                    <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #5ca7f9">
+                        <div class="maineHeading"  style="color: #5ca7f9;">
                             Sell Car
                         </div>
                         <div class="subTitle">
                             at the best price <i class="bi bi-arrow-right-short"></i>
                         </div>
                         <div class="filterImage">
-                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/sellcar.webp') }}"
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/car-rental.png') }}"
                                 alt="Sell Car">
                         </div>
                     </div>
@@ -177,15 +170,15 @@
             </div>
             <div class="col-6">
                 <a href="/compare">
-                    <div class="card p-3 rounded-4" style="background: #52dc99;">
-                        <div class="maineHeading">
+                    <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #52dc99;">
+                        <div class="maineHeading" style="color: #52dc99;">
                             Compare
                         </div>
                         <div class="subTitle">
                             and find the right car <i class="bi bi-arrow-right-short"></i>
                         </div>
                         <div class="filterImage">
-                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/compare.webp') }}"
+                            <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/car.png') }}"
                                 alt="Compare">
                         </div>
                     </div>
@@ -197,41 +190,26 @@
             <div class="row p-3 g-3">
                 <div class="col-4">
                     <a href="/news">
-                        <div class="card p-3 rounded-4" style="background: #5d76ed;">
-                            <div class="maineHeading">
+                        <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #5d76ed;">
+                            <div class="maineHeading" style="color: #5d76ed;">
                                 News
                             </div>
                             <div class="filterImage">
-                                <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/news.webp') }}"
+                                <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/newspaper.png') }}"
                                     alt="News">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4">
-                    <a href="/offers">
-                        <div class="card p-3 rounded-4" style="background: #f9b25c;">
-                            <div class="maineHeading">
-                                Offers
-                            </div>
-
-                            <div class="filterImage">
-                                <img class="img-fluid"
-                                    src="{{ asset('assets/frontend-assets/images/home/offers.webp') }}" alt="Offers">
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-4">
                     <a href="/car-loan">
-                        <div class="card p-3 rounded-4" style="background: #49c3e9;">
-                            <div class="maineHeading">
+                        <div class="card p-3 rounded-4" style="background: #ffffff; border: 2px solid #49c3e9;">
+                            <div class="maineHeading" style="color: #49c3e9;">
                                 Loan
                             </div>
 
                             <div class="filterImage">
-                                <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/home/loan.webp') }}"
+                                <img class="img-fluid" src="{{ asset('assets/frontend-assets/images/car-loan.png') }}"
                                     alt="new-car">
                             </div>
                         </div>
@@ -253,7 +231,7 @@
 
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
-        
+
         <div class="container featured-cars">
             <!-- Row -->
             <div class="row">
@@ -545,40 +523,35 @@
     </section>
     <!-- =-=-=-=-=-=-= Popular Cars Ads End =-=-=-=-=-=-= -->
 
+
     {{-- THIS IS ALL BRANDS COMPONENET --}}
     <x-all-brands cartype="brandfilter" />
 
 
     {{-- THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET --}}
-    <x-find-the-cars-by-choice cartype="brandfilter" />
+    <x-findthecarsbychoice cartype="brandfilter" />
 
 
 
     <!-- =-=-=-=-=-=-= Top Cars In India  =-=-=-=-=-=-= -->
     <section class="custom-padding ">
-        <!-- Main Container -->
         <div class="container popular-cars">
-            <!-- Row -->
             <div class="row">
-
-
-
-                <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row card">
-                        <!-- Heading Area -->
                         <div class="heading-panel">
                             <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                                <!-- Main Title -->
                                 <h1>Top Cars <span class="heading-color"> In India</span> </h1>
                             </div>
                         </div>
 
                         <div class=" popular-slider container owl-carousel owl-theme">
                             @foreach ($matchestopcarsindia as $data)
+                            {{-- @php
+                                dd($data);
+                            @endphp --}}
                             <div class="item">
                                 <div class="grid-style-2">
-                                    <!-- Listing Ad Grid -->
                                     <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                         <div class="category-grid-box-1">
                                             <div class="image">
@@ -589,8 +562,8 @@
                                             </div>
                                             <div class="short-description-1 clearfix">
                                                 <h3>
-                                                    <a title="" href="#">
-                                                        Top SUVs in India
+                                                    <a title="" class="brandfilter">
+                                                        Top {{ $data->bodytype }} in India
                                                     </a>
                                                 </h3>
                                                 <p class="text-muted ps-2">
@@ -605,17 +578,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- Middle Content Box End -->
-
-                <!-- Row End -->
             </div>
-            <!-- Main Container End -->
         </div>
     </section>
     <!-- =-=-=-=-=-=-= Top Cars In India End =-=-=-=-=-=-= -->
 
     <!-- =-=-=-=-=-=-=  On-Road Price  =-=-=-=-=-=-= -->
-    <section class="section-padding-120 our-services">
+    <section class="section-padding-120 our-services hideInMobile">
         <!--Image One-->
         {{-- <div class="background-1"></div> --}}
         <!--Image Two-->
@@ -811,7 +780,7 @@
         });
     });
 
-    
+
 
      //This is Check on Raod Price filter
      jQuery('#checkonroad').submit(function(e) {

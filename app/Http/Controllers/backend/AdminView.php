@@ -6,12 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
 use App\Models\AddVariant;
+use App\Models\AdPost;
 use App\Models\Blog;
 use App\Models\CarList;
 use App\Models\CarLoanEnquiry;
 use App\Models\ColorVariant;
+use App\Models\InsuranceLead;
 use App\Models\RegisterDealer;
 use App\Models\PostOffices;
+use App\Models\Review;
 use App\Models\VariantFaq;
 use App\Models\CompanyProfile;
 use App\Models\CompareVehicle;
@@ -29,11 +32,22 @@ use DB;
 
 class AdminView extends Controller
 {
+    public function dashboard(){
+        $registeruserscount = RegisterUser::get()->count();
+        $dealerscount = RegisterDealer::get()->count();
+        $Leadscount = Lead::get()->count();
+        $allvariants = AddVariant::get()->count();
+        $registeredusers = RegisterUser::orderBy('created_at', 'desc')->get();
+        $registereddealers = RegisterDealer::orderBy('created_at', 'desc')->get();
+        $loanenquiries = CarLoanEnquiry::orderBy('created_at', 'desc')->get();
+        $insuranceenq = InsuranceLead::orderBy('created_at', 'desc')->get();
+        return view('AdminPanel.admindashboard',compact('registeruserscount','insuranceenq','dealerscount','Leadscount','allvariants','registeredusers','registereddealers','loanenquiries'));
+    }
     public function adminprofile()
     {
         $user = Auth::user();
-        $registeredusers = RegisterUser::orderBy('created_at','desc')->get();
-        return view('AdminPanel.adminprofile', compact('user','registeredusers'));
+        $registeredusers = RegisterUser::orderBy('created_at', 'desc')->get();
+        return view('AdminPanel.adminprofile', compact('user', 'registeredusers'));
     }
 
     public function companyprofile()
@@ -56,7 +70,7 @@ class AdminView extends Controller
     {
         $blogdata = Master::where('type', '=', 'Blog')->get();
         $carname = CarList::get();
-        return view('AdminPanel.addblog', compact('blogdata','carname'));
+        return view('AdminPanel.addblog', compact('blogdata', 'carname'));
     }
 
     public function bloglist()
@@ -71,7 +85,7 @@ class AdminView extends Controller
         $masterdata = Master::where('type', '=', 'Blog')->get();
         // dd($blogdata);
         $carname = CarList::get();
-        return view('AdminPanel.editblog', compact('blogdata', 'masterdata','carname'));
+        return view('AdminPanel.editblog', compact('blogdata', 'masterdata', 'carname'));
     }
 
     public function formattributes()
@@ -114,7 +128,7 @@ class AdminView extends Controller
     {
         $cardata = CarList::get();
         $bodytype = Master::where('type', 'Body Type')->get();
-        return view('AdminPanel.addvariant', compact('cardata','bodytype'));
+        return view('AdminPanel.addvariant', compact('cardata', 'bodytype'));
     }
 
     public function variantslist()
@@ -126,6 +140,7 @@ class AdminView extends Controller
     public function editvariant($id)
     {
         $variantdata = AddVariant::find($id);
+        // dd($variantdata);
         $carlistdata = CarList::get();
         return view('AdminPanel.editvariant', compact('variantdata', 'carlistdata'));
     }
@@ -190,77 +205,114 @@ class AdminView extends Controller
             }
         }
 
-        return view('AdminPanel.addspecifications', compact('specifications','specificationslist', 'groupedspecs'))->with('vehicleid', $id);
+        return view('AdminPanel.addspecifications', compact('specifications', 'specificationslist', 'groupedspecs'))->with('vehicleid', $id);
     }
 
-    public function addbannerimmages(){
+    public function addbannerimmages()
+    {
         $imagesdata = SliderImage::get();
-        return view('AdminPanel.addbannerimages',compact('imagesdata'));
+        return view('AdminPanel.addbannerimages', compact('imagesdata'));
     }
 
-    public function displaysettings(){
+    public function displaysettings()
+    {
         $carlistdrop = Carlist::get();
-        $carlistdata = CarList::join('display_settings','display_settings.vehicleid','=','car_lists.id')
-        ->select('display_settings.*','car_lists.carname','car_lists.brandname')->get();
-        return view('AdminPanel.displaysettings',compact('carlistdata','carlistdrop'));
+        $carlistdata = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
+            ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname')->get();
+        return view('AdminPanel.displaysettings', compact('carlistdata', 'carlistdrop'));
     }
 
-    public function comparecars(){
-        $variantlist = AddVariant::where('showhidestatus','=',1)->get();
+    public function comparecars()
+    {
+        $variantlist = AddVariant::where('showhidestatus', '=', 1)->get();
         $compare = CompareVehicle::get();
         $new = [];
-        foreach($compare as $data){
+        foreach ($compare as $data) {
             $ids = json_decode($data->vehicles);
-            $newarray = AddVariant::whereIn('id', $ids)->select('carname','carmodalname')
-            ->where('showhidestatus','=',1)->get();
+            $newarray = AddVariant::whereIn('id', $ids)->select('carname', 'carmodalname')
+                ->where('showhidestatus', '=', 1)->get();
             $new[] = ['id' => $data->id, 'vehicles' => $newarray];
         }
         $array = $new;
-        return view('AdminPanel.comparecars',compact('variantlist','array'));
+        return view('AdminPanel.comparecars', compact('variantlist', 'array'));
     }
 
-    public function allenquiriessite(){
-        $allenquiries  = CarLoanEnquiry::orderBy('created_at','desc')->get();
-        return view('AdminPanel.allenquiries',compact('allenquiries'));
+    public function allenquiriessite()
+    {
+        $allenquiries = CarLoanEnquiry::orderBy('created_at', 'desc')->get();
+        return view('AdminPanel.allenquiries', compact('allenquiries'));
     }
 
-    public function prosandcons($id){
-        $proscons = ProsCons::first();
-        $pros = json_decode($proscons->pros, true);
-        $cons = json_decode($proscons->cons, true);
+    public function prosandcons($id)
+    {
+        $proscons = ProsCons::where('vehicleid',$id)->first();
+        // dd($proscons);
+        $pros = [];
+        $cons = [];
         $vehicleid = $id;
-        return view('AdminPanel.prosandcons',compact('vehicleid','pros','cons','proscons'));
+        if($proscons){
+            $pros = $proscons->pros;
+            $cons = $proscons->cons;
+            $vehicleid = $id;
+        }
+        return view('AdminPanel.prosandcons', compact('vehicleid', 'pros', 'cons', 'proscons'));
     }
 
-    public function variantfaqs($id,$carname){
-        $faqs = VariantFaq::get();
+    public function variantfaqs($id, $carname)
+    {
+        $faqs = VariantFaq::where('vehicleid',$id)->get();
         $vehicleid = $id;
         $carnamedata = $carname;
-        return view('AdminPanel.variantfaqs',compact('vehicleid','faqs','carnamedata'));
+        return view('AdminPanel.variantfaqs', compact('vehicleid', 'faqs', 'carnamedata'));
     }
 
-    public function addvehicleimages($id,$carname){
+    public function addvehicleimages($id, $carname)
+    {
         $carnamedata = $carname;
         $data = AddVariant::find($id);
         $masterdata = Master::where('type', '=', 'Vehicle Image')->get();
         $mastercolordata = Master::where('type', '=', 'Color')->get();
         $vehicleimgdata = VehicleImage::where('vehicle', '=', $carname)->orderBy('created_at', 'desc')->get();
         $carlistdata = CarList::get();
-        $imageslist = CarList::where('carname',$data->carname)->get()->pluck('colors');
+        $imageslist = CarList::where('carname', $data->carname)->get()->pluck('colors');
         $colors = json_decode($imageslist[0]);
-        return view('AdminPanel.vehicleimages',compact('data','colors','imageslist','carnamedata','masterdata','mastercolordata','vehicleimgdata','carlistdata'));
+        //dd($colors);
+        return view('AdminPanel.vehicleimages', compact('data', 'colors', 'imageslist', 'carnamedata', 'masterdata', 'mastercolordata', 'vehicleimgdata', 'carlistdata'));
     }
 
-    public function dealerslist($status){
-        $registereddealers = RegisterDealer::where('dealertype',$status)->orderBy('created_at', 'desc')->get();
+    public function dealerslist($status)
+    {
+        $registereddealers = RegisterDealer::where('dealertype', $status)->orderBy('created_at', 'desc')->get();
         $masterdata = Master::where('type', '=', 'Brand')->get();
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-        return view('AdminPanel.dealerslist', compact('registereddealers','masterdata','statedata'));
+        return view('AdminPanel.dealerslist', compact('registereddealers', 'masterdata', 'statedata'));
     }
 
-    public function adddealerdetails(){
+    public function adddealerdetails()
+    {
         $brands = Master::where('type', '=', 'Brand')->get();
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-        return view('AdminPanel.adddealerdetails', compact('brands','statedata'));
+        return view('AdminPanel.adddealerdetails', compact('brands', 'statedata'));
+    }
+
+    public function viewreviews(){
+        $variantdata = AddVariant::all();
+        return view('AdminPanel.happycustomers',compact('variantdata'));
+    }
+
+    public function allreviews(){
+        $variantdata = AddVariant::all();
+        $allreviews = Review::orderBy('created_at','desc')->get();
+        return view('AdminPanel.allreviews',compact('allreviews','variantdata'));
+    }
+
+    public function allinsuranceleads(){
+        $leads = InsuranceLead::orderBy('created_at','desc')->get();
+        return view('AdminPanel.insuranceleads',compact('leads'));
+    }
+
+    public function dealeradposts($id){
+        $adposts = AdPost::where('userid',$id)->orderBy('created_at','DESC')->get();
+        return view('AdminPanel.dealeradposts',compact('adposts'));
     }
 }

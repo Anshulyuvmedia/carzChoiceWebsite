@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdPost;
 use App\Models\CarLoanEnquiry;
 use App\Models\ColorVariant;
 use App\Models\CompareVehicle;
@@ -10,6 +11,7 @@ use App\Models\DisplaySetting;
 use App\Models\ProsandCons;
 use App\Models\ProsCons;
 use App\Models\RegisterDealer;
+use App\Models\Review;
 use App\Models\SliderImage;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -488,7 +490,7 @@ class Store extends Controller
 
     public function updatevehicleimgs(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         try {
             $vehicledata = VehicleImage::findOrFail($request->vehicleimgid);
             $vehicledata->type = $request->type;
@@ -575,6 +577,18 @@ class Store extends Controller
                 'userreportedmilage' => 'required',
             ]);
 
+            //Brochure Upload
+            if ($rq->hasFile('brochure')) {
+                $rq->validate([
+                    'brochure' => 'mimes:pdf|max:2048',
+                ]);
+                $brochurepdf = $rq->file('brochure');
+                $finalfile = time() . '_' . $brochurepdf->getClientOriginalName();
+                $brochurepdf->move(public_path('assets/backend-assets/images'), $finalfile);
+                $data['brochure'] = $finalfile;
+                // dd($finalfile);
+            }
+
             AddVariant::create([
                 'carname' => $rq->carname,
                 'brandname' => $rq->brandname,
@@ -591,8 +605,10 @@ class Store extends Controller
                 'userreportedmilage' => $rq->userreportedmilage,
                 'keyfeatures' => $rq->keyfeatures,
                 'summary' => $rq->summary,
-
+                'brochure' => $finalfile ?? null,
             ]);
+
+            //dd($data);
             Log::info('Variant Inserted Successfully: ', ['user' => $data]);
             return back()->with('success', 'Variant Added..!!!!');
 
@@ -611,6 +627,17 @@ class Store extends Controller
 
     public function updatevariants(Request $req)
     {
+         //Brochure Upload
+         if ($req->hasFile('brochure')) {
+            $req->validate([
+                'brochure' => 'mimes:pdf|max:2048',
+            ]);
+            $brochurepdf = $req->file('brochure');
+            $finalfile = time() . '_' . $brochurepdf->getClientOriginalName();
+            $brochurepdf->move(public_path('assets/backend-assets/images'), $finalfile);
+            $data['brochure'] = $finalfile;
+            // dd($finalfile);
+        }
         try {
             $variantdata = AddVariant::findOrFail($req->variantid);
             $variantdata->carname = $req->carname;
@@ -627,6 +654,7 @@ class Store extends Controller
             $variantdata->userreportedmilage = $req->userreportedmilage;
             $variantdata->keyfeatures = $req->keyfeatures;
             $variantdata->summary = $req->summary;
+            $variantdata->brochure = $finalfile;
             $variantdata->save();
             return back()->with('success', 'Variant Updated successfully.');
 
@@ -798,9 +826,7 @@ class Store extends Controller
     {
         try {
             $imagedata = SliderImage::findOrFail($req->imageid);
-            // dd($imagedata);
 
-            // Update Banner image if provided
             if ($req->hasFile('mainbannerimg')) {
                 $req->validate([
                     'mainbannerimg' => 'image',
@@ -819,7 +845,7 @@ class Store extends Controller
                 $imagedata['mainbannerimg'] = $filename;
             }
 
-            // Update Checkon Road image if provided
+            // Update Checkon Road Image if provided
             if ($req->hasFile('checkonroadimg')) {
                 $req->validate([
                     'checkonroadimg' => 'image',
@@ -838,6 +864,33 @@ class Store extends Controller
                 $imagedata['checkonroadimg'] = $filenameroad;
             }
 
+            // Handle Multiple Image Uploads for Mobile Images
+            $image = [];
+            if ($files = $req->file('mobileimages')) {
+                // If new images are uploaded, delete existing images
+                if ($imagedata->mobileimages) {
+                    $existingImages = explode(',', $imagedata->mobileimages);
+                    foreach ($existingImages as $existingImage) {
+                        $existingImagePath = public_path($existingImage);
+                        if (file_exists($existingImagePath)) {
+                            unlink($existingImagePath);
+                        }
+                    }
+                }
+
+                // Upload new images
+                foreach ($files as $file) {
+                    $image_name = md5(rand(1000, 10000));
+                    $extension = strtolower($file->getClientOriginalExtension());
+                    $image_fullname = $image_name . '.' . $extension;
+                    $uploaded_path = "assets/backend-assets/images/";
+                    $image_url = $uploaded_path . $image_fullname;
+                    $file->move(public_path($uploaded_path), $image_fullname);
+                    $image[] = $image_url;
+                }
+            }
+
+            $imagedata->mobileimages = count($image) > 0 ? implode(',', $image) : null;
             $imagedata->save();
             return back()->with('success', 'Images Updated..!!!!');
         } catch (Exception $e) {
@@ -968,27 +1021,30 @@ class Store extends Controller
 
     public function insertcolorvariants(Request $request)
     {
+
         $colorNames = $request->input('colornames');
         $vehicleid = $request->input('vehicleid');
         $colorCodes = $request->input('colorcodes');
+        $colorone = $request->input('colorone');
+        $colortwo = $request->input('colortwo');
+
 
         $colors = [];
         foreach ($colorNames as $index => $row) {
             if ($row != null) {
                 $colors[] = [
                     'label' => $row,
-                    'value' => $colorCodes[$index],
+                    'value' => [$colorone,$colortwo],
                 ];
             }
         }
-
-        $colorsJson = json_encode($colors);
+        // dd( $colorsJson);
         try {
             $data = CarList::find($vehicleid);
 
             if ($data) {
                 $data->update([
-                    'colors' => $colorsJson,
+                    'colors' => $colors,
                 ]);
 
                 return redirect()->back()->with('success', 'Colors updated successfully!');
@@ -1045,6 +1101,96 @@ class Store extends Controller
         if ($login) {
             $login->showhidestatus = $request->status;
             $login->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
+
+    public function inserthappycustomers(Request $req)
+    {
+        try {
+            if ($req->hasFile('reviewimg')) {
+                $req->validate([
+                    'reviewimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $filereviewimg = $req->file('reviewimg');
+                $filenameroad = time() . '_' . $filereviewimg->getClientOriginalName();
+                $filereviewimg->move(public_path('assets/backend-assets/images'), $filenameroad);
+                $imagedata['reviewimg'] = $filenameroad;
+            }
+
+            $data = Review::create([
+                'vehicle' => $req->vehicle,
+                'customerfullname' => $req->customerfullname,
+                'discription' => $req->discription,
+                'ratings' => $req->ratings,
+                'reviewimg' => $imagedata['reviewimg'] ?? null,
+            ]);
+            return back()->with('success', 'Review Added..!!!!');
+        } catch (Exception $e) {
+            return redirect()->route('viewreviews')->with('error', $e->getMessage());
+            //return redirect()->route('viewreviews')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+
+    public function deletereview($id)
+    {
+        $data = Review::find($id);
+        $data->delete();
+        return back()->with('success', "Deleted....!!!");
+    }
+
+    public function updatereviews(Request $req)
+    {
+        try {
+            $review = Review::find($req->reviewid);
+
+            if ($req->hasFile('reviewimg')) {
+                $req->validate([
+                    'reviewimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $filereviewimg = $req->file('reviewimg');
+                $filenameroad = time() . '_' . $filereviewimg->getClientOriginalName();
+                $filereviewimg->move(public_path('assets/backend-assets/images'), $filenameroad);
+                $imagedata['reviewimg'] = $filenameroad;
+            } else {
+                // If no new image is uploaded, keep the old image
+                $imagedata['reviewimg'] = $review->reviewimg;
+            }
+
+            $faqs = Review::where('id', $req->reviewid)->update([
+                'vehicle' => $req->vehicle,
+                'customerfullname' => $req->customerfullname,
+                'discription' => $req->discription,
+                'ratings' => $req->ratings,
+                'reviewimg' => $imagedata['reviewimg'],
+            ]);
+
+            return back()->with('success', "Updated..!!!");
+        } catch (Exception $e) {
+            //return back()->with('error', $e->getMessage());
+            return back()->with('error', 'Not Updated..Try Again.....');
+        }
+    }
+
+    public function updatereviewstatus(Request $req)
+    {
+        $reviewstatus = Review::find($req->reviewid);
+        if ($reviewstatus) {
+            $reviewstatus->reviewstatus = $req->status;
+            $reviewstatus->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
+
+    public function updateactivationstatus(Request $req)
+    {
+        $adpostdata = AdPost::find($req->record_id);
+        // dd($adpostdata);
+        if ($adpostdata) {
+            $adpostdata->activationstatus = $req->status;
+            $adpostdata->save();
             return response()->json(['success' => true]);
         }
         return response()->json(['success' => false], 404);

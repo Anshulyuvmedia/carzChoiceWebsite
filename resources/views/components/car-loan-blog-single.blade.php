@@ -1,18 +1,13 @@
 <!-- =-=-=-=-=-=-= Latest Car Updates  Ads =-=-=-=-=-=-= -->
-<section class="custom-padding ">
+<section class="custom-padding mt-0">
     <!-- Main Container -->
     <div class="container featured-cars card">
-        <!-- Row -->
         <div class="row">
-
             <div>
-                <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
-                        <!-- Heading Area -->
                         <div class="heading-panel">
                             <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                                <!-- Main Title -->
                                 <h1>Latest News on <span class="heading-color"> Car Loans</span> </h1>
                             </div>
                         </div>
@@ -50,15 +45,12 @@
                             @endforeach
                         </div>
                     </div>
-                    <a href="/news" class="  ">
+                    <a href="/news" class="">
                         View All New <i class="bi bi-chevron-right"></i>
                     </a>
                 </div>
-                <!-- Middle Content Box End -->
             </div>
-
         </div>
-        <!-- Main Container End -->
     </div>
 </section>
 <!-- =-=-=-=-=-=-= Latest Car Updates End =-=-=-=-=-=-= -->

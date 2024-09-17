@@ -1,3 +1,4 @@
+
 {{-- “सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।” --}}
 @extends('layouts.admin')
 @section('main-section')
@@ -81,12 +82,12 @@
                                         <option value=" Coming soon">Coming soon</option>
                                     </select>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label for="example-text-input" class="">Price</label>
                                     <input class="form-control mb-3" placeholder="enter car price" name="price"
                                         type="text" value="" id="example-text-input" required>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label class="">Price Type</label>
                                     <select name="pricetype" class="form-select mb-3" id="cartypeid" required>
                                         <option value="">--select price type--</option>
@@ -94,12 +95,12 @@
                                         <option value="Cr">Cr</option>
                                     </select>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label for="example-text-input" class="">Engine</label>
                                     <input class="form-control mb-3" placeholder="enter engine" name="engine"
                                         type="text" value="" id="example-text-input" required>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-2">
                                     <label class="">Body Type</label>
                                     <select name="bodytype" class="form-select" id="subcategory" required>
                                         <option value="">--select body type--</option>
@@ -107,6 +108,11 @@
                                             <option value="{{ $body->value }}">{{ $body->value }}</option>
                                         @endforeach ($i = 1; $i <= 8; $i++)\
                                     </select>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label class="">Upload Brochure</label>
+                                    <input class="form-control" placeholder="" accept=".pdf" name="brochure" type="file"
+                                        value="" id="example-text-input" required>
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Seating Capacity</label>

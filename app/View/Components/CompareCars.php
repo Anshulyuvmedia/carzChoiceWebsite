@@ -8,12 +8,21 @@ use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use App\Models\CompareVehicle;
 use App\Models\AddVariant;
+use Auth;
 class CompareCars extends Component
 {
     public $variantlist, $compare,$new, $array;
     public function __construct()
     {
-        $compare = CompareVehicle::get();
+
+        $compare = [];
+        if(Auth::guard('registeruser')->check()){
+            $user = Auth::guard('registeruser')->user();
+            // dd($user->id);
+            $compare =  CompareVehicle::where('adminid','=','1') ->orWhere('userid','=',$user->id)->get();
+        }else{
+            $compare =  CompareVehicle::where('adminid','=','1')->get();
+        }
         $new = [];
         foreach ($compare as $index => $data) {
             $ids = json_decode($data->vehicles);

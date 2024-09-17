@@ -47,6 +47,7 @@
                                         <label>Email</label>
                                         <input placeholder="Your Email" name="email" class="form-control" type="email">
                                     </div>
+                                    <input type="hidden" name="previous_url" value="{{ url()->previous() }}">
                                     <div class="form-group">
                                         <label>Password</label>
                                         <input placeholder="Your Password" name="password" class="form-control" type="password">
@@ -74,7 +75,7 @@
                                     <button type="submit" class="btn btn-theme btn-lg btn-block">Login With Us</button>
                                 </form>
                                 <div class="text-center mt-3">
-                                    Dont have an account? <a href="/registration">Register Now!</a> 
+                                    Dont have an account? <a href="/registration">Register Now!</a>
                                 </div>
                             </div>
                         </div>

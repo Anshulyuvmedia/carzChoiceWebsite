@@ -24,126 +24,6 @@
 </section>
 <!-- =-=-=-=-=-=-= Home Banner 2 End =-=-=-=-=-=-= -->
 
-<!-- =-=-=-=-=-=-= How does this work? =-=-=-=-=-=-= -->
-<div class="page-header-area-2   ">
-    <div class="container card">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
-                <div class="small-breadcrumb">
-                    <div class="header-page">
-                        <h1>How does this work?</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="panel-body recent-ads ">
-                    <!-- Ads -->
-                    <div class="recent-ads-list">
-                        <div class="recent-ads-container d-grid ">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/fill-in-your-details.svg"
-                                        alt="">
-                                </a><!-- /.recent-ads-list-image-inner -->
-                            </div>
-                            <!-- /.recent-ads-list-image -->
-                            <div class="recent-ads-list-content">
-                                <h3 class="recent-ads-list-title">
-                                    <a href="#">Fill in your details once </a>
-                                </h3>
-
-                                <!-- /.recent-ads-list-price -->
-                            </div>
-                            <!-- /.recent-ads-list-content -->
-                        </div>
-                        <!-- /.recent-ads-container -->
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="panel-body recent-ads d-flex">
-                    <!-- Ads -->
-                    <div class="recent-ads-list  ">
-                        <div class="recent-ads-container d-grid">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/credit-score.svg"
-                                        alt="">
-                                </a><!-- /.recent-ads-list-image-inner -->
-                            </div>
-                            <!-- /.recent-ads-list-image -->
-                            <div class="recent-ads-list-content">
-                                <h3 class="recent-ads-list-title">
-                                    <a href="#"> No impact credit report</a>
-                                </h3>
-
-                                <!-- /.recent-ads-list-price -->
-                            </div>
-                            <!-- /.recent-ads-list-content -->
-                        </div>
-                        <!-- /.recent-ads-container -->
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div class="col-md-3 ">
-                <div class="panel-body recent-ads d-flex">
-                    <!-- Ads -->
-                    <div class="recent-ads-list  ">
-                        <div class="recent-ads-container d-grid">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/get-approval-voucher.svg"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="recent-ads-list-content">
-                                <h3 class="recent-ads-list-title">
-                                    <a href="#">Get approval voucher</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="panel-body recent-ads d-flex">
-                    <!-- Ads -->
-                    <div class="recent-ads-list  ">
-                        <div class="recent-ads-container d-grid">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/visit-dealer-to-buy-car.svg"
-                                        alt="">
-                                </a><!-- /.recent-ads-list-image-inner -->
-                            </div>
-                            <!-- /.recent-ads-list-image -->
-                            <div class="recent-ads-list-content">
-                                <h3 class="recent-ads-list-title">
-                                    <a href="#">Visit dealer to buy car</a>
-                                </h3>
-
-                                <!-- /.recent-ads-list-price -->
-                            </div>
-                            <!-- /.recent-ads-list-content -->
-                        </div>
-                        <!-- /.recent-ads-container -->
-                    </div>
-
-
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</div>
-<!-- =-=-=-=-=-=-= How does this work? End =-=-=-=-=-=-= -->
 
 <!-- =-=-=-=-=-=-= Looking for a Car Loan? =-=-=-=-=-=-= -->
 <div class="page-header-area-2  ">
@@ -162,18 +42,18 @@
                 </div>
             </div>
 
-            <div class="card shadow-none">
+            <div class="card shadow-none mt-4">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="nav-item active">
                         <a class="nav-link tabtype" data-value="newcar" aria-controls="trending" role="tab"
                             data-toggle="tab" href="#newcar">
-                            New Car
+                            New Car Loan
                         </a>
                     </li>
                     <li role="presentation" class="nav-item">
                         <a class="nav-link tabtype" data-value="usedcar" aria-controls="popular" role="tab"
                             data-toggle="tab" href="#usedcar">
-                            Used Car
+                            Used Car Loan
                         </a>
                     </li>
                 </ul>
@@ -506,87 +386,78 @@
 <!-- =-=-=-=-=-=-= Car Loan EMI Calculator End =-=-=-=-=-=-= -->
 
 
-<!-- =-=-=-=-=-=-= Feature and Benefits =-=-=-=-=-=-= -->
-<div class="page-header-area-2   ">
-    <div class="container card">
+<div class="page-header-area-2  used-cars mt-5 mb-0 py-5">
+    <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
                 <div class="small-breadcrumb">
-                    <div class="header-page">
-                        <h1>Feature and Benefits</h1>
+                    <div class="header-page text-center">
+                        <h1>Cars you Must Explore</h1>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4 ">
-                <div class="panel-body recent-ads ">
-                    <!-- Ads -->
+            <div class="col-md-4">
+                <div class="panel-body recent-ads d-flex">
                     <div class="recent-ads-list">
-                        <div class="recent-ads-container d-flex align-items-center  ">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/check-on-road-price.svg"
-                                        alt="" style="width: 40px;">
-                                </a><!-- /.recent-ads-list-image-inner -->
-                            </div>
-                            <!-- /.recent-ads-list-image -->
+                        <div class="recent-ads-container">
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#">Loan upto 100% of On-Road Price </a>
+                                    <p>Popular Minivans</p>
                                 </h3>
+                                <div>
+                                    <ul>
+                                        @foreach ($minivans->take(4) as $vans)
+                                            <li><a href="/carlistingdetails/{{$vans->id}}">{{$vans->brandname}} {{$vans->carname}}-{{$vans->carmodalname}}</a></li>
+                                        @endforeach
+                                    </ul>
 
-                                <!-- /.recent-ads-list-price -->
+                                </div>
+
                             </div>
-                            <!-- /.recent-ads-list-content -->
                         </div>
-                        <!-- /.recent-ads-container -->
                     </div>
-
                 </div>
             </div>
-            <div class="col-md-4 ">
-                <div class="panel-body recent-ads ">
-                    <!-- Ads -->
-                    <div class="recent-ads-list  ">
-                        <div class="recent-ads-container d-flex align-items-center ">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/interest-rate.svg"
-                                        alt="">
-                                </a><!-- /.recent-ads-list-image-inner -->
-                            </div>
-                            <!-- /.recent-ads-list-image -->
+            <div class="col-md-4">
+                <div class="panel-body recent-ads d-flex">
+                    <div class="recent-ads-list">
+                        <div class="recent-ads-container">
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#">Attractive Interest Rates</a>
+                                    <p>Popular Compact SUV's </p>
                                 </h3>
+                                <div>
+                                    <ul>
+                                        @foreach ($compactsuvs->take(4) as $suvs)
+                                            <li><a href="/carlistingdetails/{{$suvs->id}}">{{$suvs->brandname}} {{$suvs->carname}}-{{$suvs->carmodalname}}</a></li>
+                                        @endforeach
+                                    </ul>
 
-                                <!-- /.recent-ads-list-price -->
+                                </div>
+
                             </div>
-                            <!-- /.recent-ads-list-content -->
                         </div>
-                        <!-- /.recent-ads-container -->
                     </div>
-
-
                 </div>
             </div>
-
-            <div class="col-md-4  ">
-                <div class="panel-body recent-ads ">
-                    <!-- Ads -->
-                    <div class="recent-ads-list  ">
-                        <div class="recent-ads-container d-flex align-items-center ">
-                            <div class="recent-ads-list-image">
-                                <a href="#" class="recent-ads-list-image-inner">
-                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/flexible-tenure.svg"
-                                        alt="">
-                                </a>
-                            </div>
+            <div class="col-md-4">
+                <div class="panel-body recent-ads d-flex">
+                    <div class="recent-ads-list">
+                        <div class="recent-ads-container">
                             <div class="recent-ads-list-content">
                                 <h3 class="recent-ads-list-title">
-                                    <a href="#">Flexible EMI Tenure</a>
+                                    <p>Popular Sedans </p>
                                 </h3>
+                                <div>
+                                    <ul>
+                                        @foreach ($sedans->take(4) as $sedan)
+                                            <li><a href="/carlistingdetails/{{$sedan->id}}">{{$sedan->brandname}} {{$sedan->carname}}-{{$sedan->carmodalname}}</a></li>
+                                        @endforeach
+                                    </ul>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -595,12 +466,92 @@
         </div>
     </div>
 </div>
-<!-- =-=-=-=-=-=-= Feature and Benefits  End =-=-=-=-=-=-= -->
 
 {{-- THIS IS CAR LOAN BLOG SINGLE COMPONENT --}}
 <x-car-loan-blog-single />
 
+<!-- =-=-=-=-=-=-= Tools You May Need =-=-=-=-=-=-= -->
+<div class="page-header-area-2 gray py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3">
+                <div class="small-breadcrumb">
+                    <div class="header-page text-center">
+                        <h1>Tools You May Need</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel-body recent-ads d-flex">
+                    <div class="recent-ads-list  ">
+                        <div class="recent-ads-container d-flex">
+                            <div class="recent-ads-list-image">
+                                <a href="/car-loan" class="recent-ads-list-image-inner">
+                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/car-loans-02.svg"
+                                        alt="">
+                                </a>
+                            </div>
+                            <div class="recent-ads-list-content">
+                                <h3 class="recent-ads-list-title">
+                                    <a href="/car-loan"> Instant Car Loan</a>
+                                </h3>
+                                <p>Apply and Get Best Car Loan Offers within minutes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-md-4">
+                <div class="panel-body recent-ads d-flex">
+                    <div class="recent-ads-list  ">
+                        <div class="recent-ads-container d-flex">
+                            <div class="recent-ads-list-image">
+                                <a href="/find-dealer" class="recent-ads-list-image-inner">
+                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/locate-dealer.svg"
+                                        alt="">
+                                </a>
+                            </div>
+                            <div class="recent-ads-list-content">
+                                <h3 class="recent-ads-list-title">
+                                    <a href="/find-dealer">Locate Dealer</a>
+                                </h3>
+                                <p>Explore a used car dealer near you in Mumbai</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="panel-body recent-ads d-flex">
+                    <div class="recent-ads-list  ">
+                        <div class="recent-ads-container d-flex">
+                            <div class="recent-ads-list-image">
+                                <a href="/new-cars" class="recent-ads-list-image-inner">
+                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/car.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="recent-ads-list-content">
+                                <h3 class="recent-ads-list-title">
+                                    <a href="/new-cars">Explore New Cars</a>
+                                </h3>
+                                <p>Explore new cars in Mumbai Under your budget</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- =-=-=-=-=-=-= Tools You May Need End =-=-=-=-=-=-= -->
 
 {{-- THIS IS NEW CAR LOAN FAQ COMPONENET --}}
 <x-car-loan-faq />

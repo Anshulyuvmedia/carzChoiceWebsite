@@ -13,10 +13,11 @@ use App\Models\DisplaySetting;
 use App\Models\Master;
 use App\Models\CarList;
 use App\Models\Pincode;
-use App\Models\Faqs;
+use App\Models\faqs;
 use App\Models\PostOffices;
 use App\Models\CompareVehicle;
 use App\Models\ProsCons;
+use App\Models\Review;
 use App\Models\SliderImage;
 use App\Models\VariantFaq;
 use App\Models\VehicleImage;
@@ -41,11 +42,11 @@ class frontViewController extends Controller
 
 
         $trending = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
-            ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
-            ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
-            ->where('vehicle_images.type', '=', 'Outer view')
-            ->where('display_settings.category', '=', 'Trending')
-            ->get();
+        ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
+        ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+        ->where('vehicle_images.type', '=', 'Outer view')
+        ->where('display_settings.category', '=', 'Trending')
+        ->get();
 
         $popular = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
             ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
@@ -80,7 +81,7 @@ class frontViewController extends Controller
         $offer = $offer->pluck('carname');
         $topcarsinindia = $topcarindia->pluck('carname');
 
-        $matches = $variantdata->whereIn('carname', $trendingCarNames);
+        $matches = $variantdata->whereIn('carname', $trendingCarNames)->unique('carname');
         $matches = $matches->map(function ($item) use ($trending) {
             $trendingItem = $trending->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -89,7 +90,7 @@ class frontViewController extends Controller
             return $item;
         });
 
-        $matchespopular = $variantdata->whereIn('carname', $trendingPopularNames);
+        $matchespopular = $variantdata->whereIn('carname', $trendingPopularNames)->unique('carname');
         $matchespopular = $matchespopular->map(function ($item) use ($popular) {
             $trendingItem = $popular->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -99,7 +100,7 @@ class frontViewController extends Controller
         });
 
 
-        $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames);
+        $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames)->unique('carname');
         $matchesupcoming = $matchesupcoming->map(function ($item) use ($upcoming) {
             $trendingItem = $upcoming->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -110,7 +111,7 @@ class frontViewController extends Controller
 
 
 
-        $matchesoffer = $variantdata->whereIn('carname', $offer);
+        $matchesoffer = $variantdata->whereIn('carname', $offer)->unique('carname');
         $matchesoffer = $matchesoffer->map(function ($item) use ($offer) {
             $trendingItem = $offer->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -120,7 +121,7 @@ class frontViewController extends Controller
         });
 
 
-        $matchestopcarsindia = $variantdata->whereIn('carname', $topcarsinindia);
+        $matchestopcarsindia = $variantdata->whereIn('carname', $topcarsinindia)->unique('carname');
         $matchestopcarsindia = $matchestopcarsindia->map(function ($item) use ($topcarindia) {
             $trendingItem = $topcarindia->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -134,11 +135,12 @@ class frontViewController extends Controller
     public function carlistingdetails($id)
     {
         $cardetails = AddVariant::where('id', $id)->where('showhidestatus', '=', 1)->first();
+        // dd($cardetails);
         $new = [];
         $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
         $spces = AddSpecification::where('vehicleid', $id)->get();
         $features = AddFeature::where('vehicleid', $id)->get();
-        $variants = AddVariant::where('carname', $cardetails->carname)->where('id', $id)->where('showhidestatus', '=', 1)->get();
+        $variants = AddVariant::where('carname', $cardetails->carname)->where('showhidestatus', '=', 1)->get();
         $similarcars = AddVariant::where('bodytype', $cardetails->bodytype)->where('id', $id)->where('showhidestatus', '=', 1)->get()->unique('carname');
         $carNames = $similarcars->pluck('carname')->toArray();
         $similarcarsimages = VehicleImage::whereIn('vehicle', $carNames)->get();
@@ -149,9 +151,15 @@ class frontViewController extends Controller
 
 
         $variantsfaqs = VariantFaq::where('vehicleid', $id)->get();
-        $proscons = ProsCons::first();
-        $pros = json_decode($proscons->pros, true);
-        $cons = json_decode($proscons->cons, true);
+        $proscons = ProsCons::where('vehicleid', $id)->first();
+        // dd($id);
+        $pros = [];
+        $cons = [];
+        if($proscons){
+
+            $pros = json_decode($proscons->pros, true);
+            $cons = json_decode($proscons->cons, true);
+        }
 
         $cardetails->images = json_decode($images);
         $cardetails->specificaitons = json_decode($spces);
@@ -177,7 +185,10 @@ class frontViewController extends Controller
                 }
             }
         }
-        return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pros', 'cons', 'variantsfaqs', 'similarcars', 'matchingDealers'));
+        $pincodedata = Pincode::select('State', 'City', 'District', DB::raw('GROUP_CONCAT(DISTINCT PostOfficeName) as PostOfficeNames'), DB::raw('COUNT(*) as count'))
+        ->groupBy('State', 'City', 'District')
+        ->get();
+        return view('frontend.carLayouts.carlistingdetails', compact('cardetails','pincodedata', 'pros', 'cons', 'variantsfaqs', 'similarcars', 'matchingDealers'));
     }
     public function carlisting()
     {
@@ -200,10 +211,8 @@ class frontViewController extends Controller
     public function compareresult($id)
     {
         $new = session('new', []);
-
-
         $data = CompareVehicle::where('id', $id)->first();
-        // dd($data);
+        // dd($data->vehicles);
         $new = [];
         $ids = json_decode($data->vehicles);
         $specs = AddSpecification::whereIn('vehicleid', $ids)->get();
@@ -217,7 +226,7 @@ class frontViewController extends Controller
             ->whereIn('add_variants.id', $ids)
             ->get();
 
-        //dd($newarray);
+       //dd($newarray);
         // Fetch images for the vehicles based on carname from newarray
         $images = VehicleImage::whereIn('vehicle', $newarray->pluck('carname'))
             ->where('type', 'Outer view')
@@ -230,8 +239,10 @@ class frontViewController extends Controller
             $vehicle->features = json_decode($features->where('vehicleid', $vehicle->id)->first()->features ?? '[]', true);
         }
         $new[] = ['id' => $data->id, 'vehicles' => $newarray];
-        // dd($new);
-        return view('frontend.compareresult', compact('new'));
+         //dd($new);
+
+        $allbrands = Master::where('type','=','Brand')->get();
+        return view('frontend.compareresult', compact('new','allbrands'));
     }
     public function loginuser()
     {
@@ -317,7 +328,7 @@ class frontViewController extends Controller
 
         return view('frontend.newsdetails', compact('blogdata', 'variantdata', 'imagesdata'));
     }
-    private function formatYouTubeUrl($url)
+    public static function formatYouTubeUrl($url)
     {
         // Check if the URL is of the type "https://www.youtube.com/watch?v=VIDEO_ID"
         if (preg_match('/youtube\.com\/watch\?v=([^\&\?\/]+)/', $url, $id)) {
@@ -483,25 +494,28 @@ class frontViewController extends Controller
             ->get();
 
         //dd($electriccars);
-        $electricfinal = $electriccars->filter(function($car) {
+        $electricfinal = $electriccars->filter(function ($car) {
             $fueltypes = json_decode($car->fueltype, true);
             return is_array($fueltypes) && in_array('Electric', $fueltypes);
         });
 
         // Filter for Hybrid cars
-        $hybridCars = $electriccars->filter(function($car) {
+        $hybridCars = $electriccars->filter(function ($car) {
             $fueltypes = json_decode($car->fueltype, true);
 
             // Check if 'Hybrid' is in the decoded array
             return is_array($fueltypes) && in_array('Hybrid', $fueltypes);
         });
-        return view('frontend.newCarsLayouts.electriccar',compact('electricfinal','hybridCars','electriccars'));
+        return view('frontend.newCarsLayouts.electriccar', compact('electricfinal', 'hybridCars', 'electriccars'));
     }
     public function usedcar()
     {
         $adposts = AdPost::orderBy('created_at', 'desc')->get();
-        $usedcarfaq = Faqs::where('category', '=', 'Old Car')->get();
-        return view('frontend.usedCarsLayouts.usedcar', compact('adposts', 'usedcarfaq'));
+        $usedcarfaq = faqs::where('category', '=', 'Old Car')->get();
+        $minivans = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Minivan')->get();
+        $compactsuvs = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Compact SUV')->get();
+        $sedans = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Sedan')->get();
+        return view('frontend.usedCarsLayouts.usedcar', compact('adposts', 'usedcarfaq','minivans','compactsuvs','sedans'));
     }
     public function usedcarbylocation($filtertype)
     {
@@ -536,7 +550,10 @@ class frontViewController extends Controller
             ];
         }
         //dd($vehiclesByBrand);
-        return view('frontend.newCarsLayouts.carloan', compact('vehiclesByBrand', 'pincodedata'));
+        $minivans = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Minivan')->get();
+        $compactsuvs = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Compact SUV')->get();
+        $sedans = AddVariant::where('showhidestatus', '=', 1)->where('bodytype','=','Sedan')->get();
+        return view('frontend.newCarsLayouts.carloan', compact('vehiclesByBrand', 'pincodedata','minivans','compactsuvs','sedans'));
     }
     public function findcar($filtertype)
     {
@@ -577,9 +594,9 @@ class frontViewController extends Controller
         // Step 1: Retrieve car image data and count occurrences of each vehicle
         $carimagedata = VehicleImage::join('car_lists', 'vehicle_images.vehicle', 'car_lists.carname')
             ->select('vehicle_images.*', 'car_lists.brandname')
-            ->where('type', 'Outer view')->get()->unique('vehicle');
+            ->where('type', 'Outer view')->paginate(3);     // unique is removed from here due to pagination
 
-        // Step 2: Count the occurrences of each vehicle in the 'vehicle' column
+
         $vehicleCounts = VehicleImage::select('vehicle')
             // ->where('type', 'Outer view')
             ->groupBy('vehicle')
@@ -591,8 +608,6 @@ class frontViewController extends Controller
             $item->vehicle_count = $vehicleCounts->get($item->vehicle, 0);
         });
 
-        // Debugging: Dump the modified carimagedata to check the counts
-        // dd($carimagedata);
 
         // Step 4: Return the view with the modified carimagedata
         return view('frontend.carLayouts.carimages', compact('carimagedata'));
@@ -600,7 +615,7 @@ class frontViewController extends Controller
 
     public function finddealer()
     {
-        $dealers = RegisterDealer::where('dealertype','Old Car Dealer')->orderBy('created_at', 'desc')->get();
+        $dealers = RegisterDealer::where('dealertype', 'Old Car Dealer')->orderBy('created_at', 'desc')->get();
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
         return view('frontend.dealerlayouts.finddealer', compact('dealers', 'statedata'));
     }
@@ -613,7 +628,7 @@ class frontViewController extends Controller
     {
         $brands = Master::where('type', 'brand')->get();
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-        $dealers = RegisterDealer::where('dealertype','New Car Dealer')->orderBy('created_at', 'desc')->get();
+        $dealers = RegisterDealer::where('dealertype', 'New Car Dealer')->orderBy('created_at', 'desc')->get();
 
         $imagesdata = SliderImage::first();
         $adposts = AdPost::orderBy('created_at', 'desc')->get();
@@ -709,7 +724,7 @@ class frontViewController extends Controller
             }
             return $item;
         });
-        return view('frontend.newCarsLayouts.dealershowroom', compact('imagesdata','brands', 'statedata','dealers', 'matches', 'matchespopular', 'matchesupcoming',));
+        return view('frontend.newCarsLayouts.dealershowroom', compact('imagesdata', 'brands', 'statedata', 'dealers', 'matches', 'matchespopular', 'matchesupcoming', ));
     }
     public function dealerbylocation()
     {
@@ -740,5 +755,49 @@ class frontViewController extends Controller
         } else {
             return view('frontend.loginuser');
         }
+    }
+
+    public function carvideos()
+    {
+        $allcarvideos = VehicleImage::join('car_lists', 'vehicle_images.vehicle', 'car_lists.carname')
+            ->select('vehicle_images.*', 'car_lists.brandname')
+            ->where('type', 'Outer view')->paginate(3);
+
+        $vehicleCounts = VehicleImage::select('vehicle')
+            ->groupBy('vehicle')
+            ->selectRaw('vehicle, COUNT(*) as count')
+            ->pluck('count', 'vehicle');
+
+        // Append the count to each entry in carimagedata
+        $allcarvideos->each(function ($item) use ($vehicleCounts) {
+            $item->vehicle_count = $vehicleCounts->get($item->vehicle, 0);
+        });
+
+        // Reference the formatYouTubeUrl function from the controller context
+        $allcarvideos->each(function ($item) {
+            $item->videourl = $this->formatYouTubeUrl($item->videourl);
+        });
+
+        // dd($allcarvideos);
+        return view('frontend.carLayouts.carvideos', compact('allcarvideos'));
+    }
+
+    public function privacypolicy(){
+        return view('frontend.privacypolicy');
+    }
+    public function disclaimer(){
+        return view('frontend.disclaimer');
+    }
+
+    public function happycustomers(){
+        $allreviews = Review::orderBy('created_at','desc')->where('reviewstatus','=','Approved')->paginate(2);
+        $countofreviews = Review::get()->count();
+        return view('frontend.happycustomers',compact('allreviews','countofreviews'));
+    }
+
+    public function carinsurance(){
+        $brands = Master::where('type', '=', 'Brand')->get();
+        $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
+        return view('frontend.carinsurance',compact('brands','statedata'));
     }
 }

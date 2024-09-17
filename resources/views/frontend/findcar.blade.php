@@ -49,10 +49,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xs-6 col-sm-5 ">
+                            {{-- <div class="col-md-6 col-xs-6 col-sm-5 ">
                                 <div class="header-listing">
                                     <div class="custom-select-box">
-                                        {{-- <label for="order">Sort by :</label> --}}
                                         <select name="order" class="custom-select  form-control rounded-4">
                                             <option value="0">Most popular</option>
                                             <option value="1">The latest</option>
@@ -60,7 +59,7 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <!-- Sorting Filters End-->
@@ -118,20 +117,14 @@
                             <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
                         </ul>
                     </div> --}}
-                    <!-- Pagination End -->
                 </div>
-                <!-- Row End -->
             </div>
-            <!-- Middle Content Area  End -->
-            <!-- Left Sidebar -->
             <div class="col-md-4 col-sx-12">
 
                 <div class="header-page mb-2">
                     <h1 class="text-dark fs-3 fw-bold">Car Buyer's Tools</h1>
                 </div>
-                <!-- Sidebar Widgets -->
                 <div class="sidebar">
-                    <!-- Panel group -->
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
                         <!-- Latest Ads Panel -->
@@ -144,65 +137,50 @@
                                     <div class="recent-ads-list">
                                         <div class="recent-ads-container">
                                             <div class="recent-ads-list-image">
-                                                <a href="#" class="recent-ads-list-image-inner">
+                                                <a href="/find-dealer" class="recent-ads-list-image-inner">
                                                     <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/locate-dealer.svg"
                                                         alt="">
-                                                </a><!-- /.recent-ads-list-image-inner -->
+                                                </a>
                                             </div>
-                                            <!-- /.recent-ads-list-image -->
                                             <div class="recent-ads-list-content">
                                                 <h3 class="recent-ads-list-title">
-                                                    <a href="#">Locate Dealer </a>
+                                                    <a href="/find-dealer">Locate Dealer </a>
                                                 </h3>
                                                 <div class="recent-ads-list-location">
                                                     Find a dealer near your current location
                                                 </div>
-
-                                                <!-- /.recent-ads-list-price -->
                                             </div>
-                                            <!-- /.recent-ads-list-content -->
                                         </div>
-                                        <!-- /.recent-ads-container -->
                                     </div>
                                     <!-- Ads -->
                                     <div class="recent-ads-list">
                                         <div class="recent-ads-container">
                                             <div class="recent-ads-list-image">
-                                                <a href="#" class="recent-ads-list-image-inner">
+                                                <a href="/used-car" class="recent-ads-list-image-inner">
                                                     <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/used-car.svg"
                                                         alt="">
-                                                </a><!-- /.recent-ads-list-image-inner -->
+                                                </a>
                                             </div>
-                                            <!-- /.recent-ads-list-image -->
                                             <div class="recent-ads-list-content">
                                                 <h3 class="recent-ads-list-title">
-                                                    <a href="#">Used Cars</a>
+                                                    <a href="/used-car">Used Cars</a>
                                                 </h3>
 
                                                 <div class="recent-ads-list-location">
                                                     Explore best priced used cars in good conditions near you
                                                 </div>
-                                                <!-- /.recent-ads-list-price -->
                                             </div>
-                                            <!-- /.recent-ads-list-content -->
                                         </div>
-                                        <!-- /.recent-ads-container -->
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-                        <!-- Latest Ads Panel End -->
                     </div>
-                    <!-- panel-group end -->
                 </div>
-                <!-- Sidebar Widgets End -->
             </div>
-            <!-- Left Sidebar End -->
         </div>
-        <!-- Row End -->
     </div>
-    <!-- Main Container End -->
 </section>
 <!-- =-=-=-=-=-=-= Ads Archives End =-=-=-=-=-=-= -->
 

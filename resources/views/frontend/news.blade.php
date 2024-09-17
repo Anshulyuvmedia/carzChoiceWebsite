@@ -19,7 +19,7 @@
                         <h1>Latest News & Trends</h1>
                     </div>
                 </div>
-               
+
 
                 <!-- Tab panes -->
             </div>
@@ -41,17 +41,14 @@
                         <li role="presentation" class="nav-item">
                             <a class="nav-link" aria-controls="Exterior" href="/reviews">REVIEWS</a>
                         </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" aria-controls="Interior" href="#SPECIALREPORTS">SPECIAL REPORTS</a>
-                        </li>
                         <li role="presentation" class="nav-item ">
                             <a class="nav-link" aria-controls="Colours" href="/car-images">IMAGES</a>
                         </li>
                         <li role="presentation" class="nav-item">
-                            <a class="nav-link" aria-controls="Colours" href="#VIDEOS">VIDEOS</a>
+                            <a class="nav-link" aria-controls="Colours" href="/car-videos">VIDEOS</a>
                         </li>
                     </ul>
-                    
+
                 </div>
                         <div class="posts-masonry">
                             @foreach ($blogdata as $data)
@@ -90,7 +87,7 @@
                         <div class="justify-content-around">
                             {{ $blogdata->links('pagination::bootstrap-5') }}
                         </div>
-                    
+
                 </div>
             </div>
         </div>

@@ -33,7 +33,6 @@
         <div class="container">
             <!-- Row -->
             <div class="row">
-                <!-- Middle Content Area -->
                 <div class="col-md-8 col-xs-12 col-sm-12">
 
                     <div class="comment-info">
@@ -42,10 +41,6 @@
                         <div class="author-desc ms-0">
                             <div class="author-title">
                                 <strong>By Carz Choice</strong>
-                                <ul class="list-inline pull-right">
-                                    <li> <i class="bi bi-eye"></i></li>
-                                    <li>19,371 Views</li>
-                                </ul>
                             </div>
                             <small>{{ $blogdata->formatted_date }}</small>
                         </div>
@@ -62,7 +57,7 @@
 
 
                             </div>
-                            
+
                             <h3 class="post-title fs-3"> {{ $blogdata->blogtitle }}
                             </h3>
                             <div class="post-excerpt">
@@ -211,7 +206,7 @@
                                 </div>
                             @endif
 
-                            
+
                         </div>
                         <!-- Sidebar Widgets End -->
                     </div>

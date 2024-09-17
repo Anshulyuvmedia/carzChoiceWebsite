@@ -35,6 +35,10 @@
                           <a class="nav-link" aria-controls="seatingcapacity" role="tab" data-toggle="tab"
                               href="#seatingcapacity">Seating Capacity</a>
                       </li>
+                      <li role="presentation" class="nav-item">
+                          <a class="nav-link" aria-controls="milages" role="tab" data-toggle="tab"
+                              href="#milages">Mileages</a>
+                      </li>
                   </ul>
                   <!-- Tab panes -->
                   <div class="tab-content clearfix pt-5 ">
@@ -135,11 +139,23 @@
                               </div>
                           </div>
                       </div>
+                      <div class="tab-pane fade" id="milages">
+                          <div class="col-md-12 col-xs-12 col-sm-12">
+                              <div class="row">
+                                  <div class="d-flex flex-row flex-wrap">
+                                      @foreach ($milages as $data)
+                                          <a href="javascript:void(0);" class="{{$cartype}} me-3 mb-3" data-value="{{ $data->value }}">
+                                              <button type="button"
+                                                  class="btn btn-default btn-sm rounded-pill">{{ $data->value }}</button>
+                                          </a>
+                                      @endforeach
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                   </div>
-                  <!-- Row End -->
               </div>
           </div>
-          <!-- Main Container End -->
       </div>
   </section>
   <!-- =-=-=-=-=-=-= Cars Of Your Choice End =-=-=-=-=-=-= -->

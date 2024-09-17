@@ -26,8 +26,8 @@ class CarListsImport implements ToCollection, WithStartRow
 
             $brandName = $row[0];
             $carName = $row[1];
-            $colorName = $row[2];
-            $colorCode = $row[3];
+            $colorNames = explode(',', $row[2]); // Split color names by comma
+            $colorCodes = explode(',', $row[3]); // Split color codes by comma
 
             // Use a combination of brandName and carName as the key to aggregate data
             $key = "{$brandName}-{$carName}";
@@ -41,17 +41,16 @@ class CarListsImport implements ToCollection, WithStartRow
                 ];
             }
 
-            // Add the color to the car entry if it's not already present
-            $existingColors = array_column($carData[$key]['colors'], 'value');
-            if (!in_array($colorCode, $existingColors)) {
-                $carData[$key]['colors'][] = [
-                    'label' => $colorName,
-                    'value' => $colorCode
+            // Combine color names and codes, making sure they are in pairs
+            if (count($colorNames) === count($colorCodes)) {
+                $combinedColors = [
+                    'label' => implode(',', $colorNames), // Combine labels
+                    'value' => array_map('trim', $colorCodes) // Combine and trim codes
                 ];
+
+                $carData[$key]['colors'][] = $combinedColors;
             }
         }
-
-
 
         // Convert colors array to JSON and save to the database
         foreach ($carData as $data) {
@@ -60,6 +59,7 @@ class CarListsImport implements ToCollection, WithStartRow
                 ['colors' => json_encode($data['colors'])]
             );
         }
+        // dd($carData);
     }
 
 

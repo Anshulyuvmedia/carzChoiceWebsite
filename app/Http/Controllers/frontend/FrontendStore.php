@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\InsuranceLead;
 use App\Models\Master;
 use App\Models\AddFeature;
 use App\Models\AddSpecification;
@@ -14,6 +15,7 @@ use App\Models\CompareVehicle;
 use App\Models\DisplaySetting;
 use App\Models\PostOffices;
 use App\Models\Pincode;
+use App\Models\Review;
 use App\Models\RegisterDealer;
 use App\Models\VehicleImage;
 use App\Models\RegisterUser;
@@ -96,11 +98,10 @@ class FrontendStore extends Controller
     {
         $credentials = $request->only('email', 'password');
         $data = RegisterUser::where('email', '=', $credentials)->first();
-        // dd($data);
+        $previousUrl = $request->input('previous_url');
+        // dd($previousUrl);
         if ($data && Auth::guard('registeruser')->attempt($credentials)) {
-            //dd("HELLO");
-            // Authentication passed...
-            return redirect()->route('userprofile');
+            return redirect($previousUrl ?? route('userprofile'));
         }
         return redirect()->route('loginuser')->with('failure', 'Invalid credentials');
     }
@@ -213,17 +214,23 @@ class FrontendStore extends Controller
         // dd($statedata);
         return response()->json($carlistdata);
     }
+    public function filtervariantscompare($brand)
+    {
+        $varidata = AddVariant::where('brandname', $brand)->get();
+        // dd($statedata);
+        return response()->json($varidata);
+    }
     public function filtermodalname($selectedcar)
     {
-        $carmodalname = AddVariant::where('showhidestatus','=',1)->where('carname', $selectedcar)->get();
+        $carmodalname = AddVariant::where('showhidestatus', '=', 1)->where('carname', $selectedcar)->get();
         // dd($statedata);
         return response()->json($carmodalname);
     }
 
     public function insertadpost(Request $rq)
     {
-        //dd($rq->all());
         try {
+            $loggedInUser = Auth::guard('registeruser')->user();
             $data = $rq->validate([
                 'brandname' => 'required',
                 'carname' => 'required',
@@ -267,7 +274,7 @@ class FrontendStore extends Controller
             }
 
             $jsonImageData = json_encode($imageData);
-            AdPost::create([
+            $finaldata = AdPost::create([
                 'brandname' => $rq->brandname,
                 'carname' => $rq->carname,
                 'modalname' => $rq->modalname,
@@ -285,9 +292,11 @@ class FrontendStore extends Controller
                 'insurance' => $rq->insurance,
                 'registertype' => $rq->registertype,
                 'lastupdated' => $rq->lastupdated,
-                'images' => $jsonImageData
+                'images' => $jsonImageData,
+                'userid' => $loggedInUser->id,
 
             ]);
+            // dd($finaldata);
             Log::info('Add Post Inserted Successfully: ', ['adpost' => $data]);
             return back()->with('success', 'Ad Post Added..!!!!');
         } catch (Exception $e) {
@@ -400,7 +409,7 @@ class FrontendStore extends Controller
             ->where('display_settings.category', '=', 'Upcoming')->get();
 
 
-        $variantdata = AddVariant::where('showhidestatus','=',1)->get();
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
         $trendingUpcomingNames = $upcoming->pluck('carname');
 
         $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames);
@@ -419,7 +428,7 @@ class FrontendStore extends Controller
 
     public function filtervariants($finalvalue)
     {
-        $variantdata = AddVariant::where('showhidestatus','=',1)->where('carname', $finalvalue)->get();
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->where('carname', $finalvalue)->get();
         return response()->json($variantdata);
     }
 
@@ -428,7 +437,7 @@ class FrontendStore extends Controller
         $carname = $rq->input('carname');
         $checkboxes = $rq->input('checkboxes');
 
-        $variantdata = AddVariant::where('showhidestatus','=',1)->where('carname', $carname);
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->where('carname', $carname);
 
         // Check if checkboxes are not empty
         if (!empty($checkboxes)) {
@@ -490,7 +499,7 @@ class FrontendStore extends Controller
     {
 
         $attribute = $request->input('attribute');
-        // dd($request);
+        //dd($attribute);
 
         // Step 1: Retrieve the type corresponding to the given attribute from Master table
         if ($attribute == 'Upcoming' || $attribute == 'Newly Launched') {
@@ -534,7 +543,7 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->where('add_variants.brandname', $attribute)
-                    ->where('add_variants.showhidestatus','=',1)
+                    ->where('add_variants.showhidestatus', '=', 1)
                     ->get()->unique('carname');
                 break;
 
@@ -542,7 +551,7 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->where('add_variants.bodytype', $attribute)
-                    ->where('add_variants.showhidestatus','=',1)
+                    ->where('add_variants.showhidestatus', '=', 1)
                     ->get()->unique('carname');
                 break;
 
@@ -550,7 +559,7 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->whereJsonContains('add_variants.fueltype', $attribute)
-                    ->where('add_variants.showhidestatus','=',1)
+                    ->where('add_variants.showhidestatus', '=', 1)
                     ->get()->unique('carname');
                 break;
 
@@ -558,7 +567,7 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->whereJsonContains('add_variants.transmission', $attribute)
-                    ->where('add_variants.showhidestatus','=',1)
+                    ->where('add_variants.showhidestatus', '=', 1)
                     ->get()->unique('carname');
                 break;
 
@@ -570,24 +579,52 @@ class FrontendStore extends Controller
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
                     ->where('add_variants.seatingcapacity', '<', $avalseat)
-                    ->where('add_variants.showhidestatus','=',1)
+                    ->where('add_variants.showhidestatus', '=', 1)
                     ->get()->unique('carname');
                 break;
 
             case 'Budget':
-
                 $parts = explode(' ', $attribute);
-                $budgetvalue = intval($parts[1]) * 100000;
-                // dd($budgetvalue);
+                $lowerValue = null;
+                $upperValue = null;
+
+                if ($parts[0] === "Below") {
+                    $upperValue = intval($parts[1]);
+                } elseif ($parts[0] === "Over") {
+                    $lowerValue = intval($parts[1]);
+                } elseif ($parts[0] === "Range") {
+                    $rangeParts = explode('-', $parts[1]);
+                    $lowerValue = intval($rangeParts[0]);
+                    $upperValue = intval($rangeParts[1]);
+                }
 
                 $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
                     ->select('add_variants.*', 'vehicle_images.addimage')
-                    ->where('add_variants.price', '<', $budgetvalue)
-                    ->where('add_variants.showhidestatus','=',1)
-                    ->get()->unique('carname');
-                // dd($variantData);
+                    ->where('add_variants.showhidestatus', '=', 1)
+                    ->get();
+
+                $filteredVariants = $variantData->filter(function ($variant) use ($lowerValue, $upperValue) {
+                    $mileages = json_decode($variant->mileages, true);
+
+                    foreach ($mileages as $fuelType => $mileage) {
+                        $mileage = intval($mileage);
+
+                        if ($lowerValue !== null && $mileage < $lowerValue) {
+                            continue;
+                        }
+
+                        if ($upperValue !== null && $mileage > $upperValue) {
+                            continue;
+                        }
+
+                        return true;
+                    }
+
+                    return false;
+                })->unique('carname');
 
                 break;
+
 
             default:
                 return response()->json([
@@ -595,7 +632,7 @@ class FrontendStore extends Controller
                     'message' => 'Invalid type'
                 ], 400);
         }
-                // dd($variantData);
+        // dd($variantData);
 
         // Store the result in session
         session(['variants' => $variantData]);
@@ -603,7 +640,7 @@ class FrontendStore extends Controller
         // Return the response
         return response()->json([
             'success' => true,
-            'redirect_url' => route('findcar', ['filtertype' => $attribute." New"])
+            'redirect_url' => route('findcar', ['filtertype' => $attribute . " New"])
         ], 200);
     }
 
@@ -624,7 +661,7 @@ class FrontendStore extends Controller
 
         // Fetch details for the vehicles based on IDs
         $newarray = AddVariant::whereIn('id', $ids)
-            ->where('showhidestatus','=',1)
+            ->where('showhidestatus', '=', 1)
             ->select('id', 'carname', 'carmodalname', 'brandname', 'price')
             ->get();
 
@@ -655,7 +692,7 @@ class FrontendStore extends Controller
         $carname = $rq->input('carname');
         $checkboxes = $rq->input('checkboxes');
 
-        $variantdata = AddVariant::where('showhidestatus','=',1)->where('carname', $carname);
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->where('carname', $carname);
 
         // Check if checkboxes are not empty
         if (!empty($checkboxes)) {
@@ -669,20 +706,43 @@ class FrontendStore extends Controller
         $variantdata = $variantdata->get();
         return response()->json($variantdata);
     }
+    public function modalvariantsfilterdetails(Request $rq)
+    {
+        $carname = $rq->input('carname');
+        $checkboxes = $rq->input('checkboxes');
+
+        $variantdata = AddVariant::where('showhidestatus', '=', 1)->where('carname', $carname);
+
+        // Check if checkboxes are not empty
+        if (!empty($checkboxes)) {
+            $variantdata->where(function ($query) use ($checkboxes) {
+                foreach ($checkboxes as $value) {
+                    $query->orWhereJsonContains('fueltype', $value);
+                    $query->orWhereJsonContains('transmission', $value);
+                }
+            });
+        }
+        $variantdatamodal = $variantdata->get();
+        // dd($variantdatamodal);
+        return response()->json($variantdatamodal);
+    }
 
     public function insertcompareoffcanvas(Request $rq)
     {
-        // if (Auth::guard('registeruser')->check()) {
-        //     $user = Auth::guard('registeruser')->user();
+        dd($rq->all());
+
+        if (is_array($rq->compareid) && count($rq->compareid) == 1) {
+            $compareIdsArray = explode(',', $rq->compareid[0]);
+        } else {
+            $compareIdsArray = $rq->compareid;
+        }
+        //dd($compareIdsArray);
+        $vehicles = json_encode($compareIdsArray);
         $compare = CompareVehicle::create([
-            'vehicles' => json_encode($rq->compareid),
-            // 'userid' => $user->id,
+            'vehicles' => $vehicles,
         ]);
-        // dd($compare);
+
         return redirect()->route('compareresult', ['id' => $compare->id]);
-        // } else {
-        //     return view('frontend.loginuser');
-        // }
     }
 
     public function makefilterfindcar(Request $rq)
@@ -732,8 +792,8 @@ class FrontendStore extends Controller
         }
 
         $query->leftJoin('vehicle_images', 'add_variants.id', '=', 'vehicle_images.variantid')
-        ->where('add_variants.showhidestatus','=',1)
-        ->select('add_variants.*', 'vehicle_images.addimage');
+            ->where('add_variants.showhidestatus', '=', 1)
+            ->select('add_variants.*', 'vehicle_images.addimage');
 
         $variants = $query->get();
 
@@ -741,7 +801,8 @@ class FrontendStore extends Controller
         return response()->json($variants);
     }
 
-    public function registerdealer(Request $req){
+    public function registerdealer(Request $req)
+    {
         // dd($rq->all());
         try {
 
@@ -811,7 +872,7 @@ class FrontendStore extends Controller
         // Step 2: Based on the type, filter AddVariant data
         switch ($type) {
             case 'Brand':
-                $variantData = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('brandname', $attribute)->get()->unique('carname');
+                $variantData = AdPost::select('*', 'images as addimage', 'ad_posts.modalname as carmodalname')->where('brandname', $attribute)->get()->unique('carname');
                 $variantData->transform(function ($item) {
                     $images = json_decode($item->addimage, true);
                     if (is_array($images) && !empty($images)) {
@@ -825,9 +886,9 @@ class FrontendStore extends Controller
                 break;
 
             case 'Body Type':
-                $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
-                ->select('add_variants.bodytype','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->where('add_variants.showhidestatus','=',1)->where('add_variants.bodytype', $attribute)
-                ->get()->unique('carname');
+                $variantData = AdPost::join('add_variants', 'add_variants.carname', '=', 'ad_posts.carname')
+                    ->select('add_variants.bodytype', 'ad_posts.*', 'ad_posts.images as addimage', 'ad_posts.modalname as carmodalname')->where('add_variants.showhidestatus', '=', 1)->where('add_variants.bodytype', $attribute)
+                    ->get()->unique('carname');
                 $variantData->transform(function ($item) {
                     $images = json_decode($item->addimage, true);
                     if (is_array($images) && !empty($images)) {
@@ -842,7 +903,7 @@ class FrontendStore extends Controller
                 break;
 
             case 'Fuel Type':
-                $variantData = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('fueltype', $attribute)->get()->unique('carname');
+                $variantData = AdPost::select('*', 'images as addimage', 'ad_posts.modalname as carmodalname')->where('fueltype', $attribute)->get()->unique('carname');
 
                 $variantData->transform(function ($item) {
                     $images = json_decode($item->addimage, true);
@@ -857,10 +918,10 @@ class FrontendStore extends Controller
                 break;
 
             case 'Transmission':
-                $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
-                ->where('add_variants.showhidestatus','=',1)
-                ->select('add_variants.bodytype','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->whereJsonContains('add_variants.transmission', $attribute)
-                ->get()->unique('carname');
+                $variantData = AdPost::join('add_variants', 'add_variants.carname', '=', 'ad_posts.carname')
+                    ->where('add_variants.showhidestatus', '=', 1)
+                    ->select('add_variants.bodytype', 'ad_posts.*', 'ad_posts.images as addimage', 'ad_posts.modalname as carmodalname')->whereJsonContains('add_variants.transmission', $attribute)
+                    ->get()->unique('carname');
                 $variantData->transform(function ($item) {
                     $images = json_decode($item->addimage, true);
                     if (is_array($images) && !empty($images)) {
@@ -876,10 +937,10 @@ class FrontendStore extends Controller
             case 'Seating Capacity':
                 $parts = explode(' ', $attribute);
                 $avalseat = intval($parts[0]);
-                $variantData = AdPost::join('add_variants','add_variants.carname','=','ad_posts.carname')
-                ->where('add_variants.showhidestatus','=',1)
-                ->select('add_variants.seatingcapacity','ad_posts.*','ad_posts.images as addimage','ad_posts.modalname as carmodalname')->where('add_variants.seatingcapacity', '<', $avalseat)
-                ->get()->unique('carname');
+                $variantData = AdPost::join('add_variants', 'add_variants.carname', '=', 'ad_posts.carname')
+                    ->where('add_variants.showhidestatus', '=', 1)
+                    ->select('add_variants.seatingcapacity', 'ad_posts.*', 'ad_posts.images as addimage', 'ad_posts.modalname as carmodalname')->where('add_variants.seatingcapacity', '<', $avalseat)
+                    ->get()->unique('carname');
                 $variantData->transform(function ($item) {
                     $images = json_decode($item->addimage, true);
                     if (is_array($images) && !empty($images)) {
@@ -896,7 +957,7 @@ class FrontendStore extends Controller
                 $parts = explode(' ', $attribute);
                 $budgetvalue = intval($parts[1]) * 100000;
                 // dd($budgetvalue);
-                $variantData = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('price', '<', $budgetvalue)->get()->unique('carname');
+                $variantData = AdPost::select('*', 'images as addimage', 'ad_posts.modalname as carmodalname')->where('price', '<', $budgetvalue)->get()->unique('carname');
                 $variantData->transform(function ($item) {
                     $images = json_decode($item->addimage, true);
                     if (is_array($images) && !empty($images)) {
@@ -923,13 +984,14 @@ class FrontendStore extends Controller
         // Return the response
         return response()->json([
             'success' => true,
-            'redirect_url' => route('findcar',['filtertype' => $attribute." Used"])
+            'redirect_url' => route('findcar', ['filtertype' => $attribute . " Used"])
         ], 200);
     }
 
-    public function filtercarsbylocation($city){
+    public function filtercarsbylocation($city)
+    {
         $cityname = $city;
-        $data = AdPost::select('*','images as addimage','ad_posts.modalname as carmodalname')->where('District',$cityname)->get();
+        $data = AdPost::select('*', 'images as addimage', 'ad_posts.modalname as carmodalname')->where('District', $cityname)->get();
         $data->transform(function ($item) {
             $images = json_decode($item->addimage, true);
             if (is_array($images) && !empty($images)) {
@@ -945,32 +1007,82 @@ class FrontendStore extends Controller
         // Return the response
         return response()->json([
             'success' => true,
-            'redirect_url' => route('usedcarbylocation',['filtertypenew' => $city])
+            'redirect_url' => route('usedcarbylocation', ['filtertypenew' => $city])
         ], 200);
     }
 
-    public function filterdealersbycity($cityname){
+    public function filterdealersbycity($cityname)
+    {
 
-        $dealers = RegisterDealer::where('district',$cityname)->get();
+        $dealers = RegisterDealer::where('district', $cityname)->get();
         return response()->json($dealers);
     }
 
     public function filterdistrictbystate($state)
     {
-        $districtsdata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->where('StateName',$state)->get();
+        $districtsdata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->where('StateName', $state)->get();
         return response()->json($districtsdata);
     }
 
-    public function filternewcardealersbybrand($brand){
+    public function filternewcardealersbybrand($brand)
+    {
 
-        $dealers = RegisterDealer::where('dealertype','=','New Car Dealer')->whereJsonContains('brands', $brand)->get();
+        $dealers = RegisterDealer::where('dealertype', '=', 'New Car Dealer')->whereJsonContains('brands', $brand)->get();
         // dd($dealers);
         return response()->json($dealers);
     }
-    public function filternewcardealersbycity($citynamedeal){
+    public function filternewcardealersbycity($citynamedeal)
+    {
 
-        $dealerscity = RegisterDealer::where('dealertype','=','New Car Dealer')->where('district', $citynamedeal)->get();
+        $dealerscity = RegisterDealer::where('dealertype', '=', 'New Car Dealer')->where('district', $citynamedeal)->get();
         // dd($dealers);
         return response()->json($dealerscity);
+    }
+
+    public function requestinsurance(Request $req)
+    {
+        // dd($rq->all());
+        try {
+            InsuranceLead::create([
+                'brandname' => $req->brandname,
+                'carname' => $req->carname,
+                'modalname' => $req->modalname,
+                'city' => $req->city,
+                'registerdate' => $req->registerdate,
+                'fullname' => $req->fullname,
+                'emailaddress' => $req->emailaddress,
+                'phonenumber' => $req->phonenumber,
+            ]);
+            return back()->with('success', 'Successfull');
+        } catch (Exception $e) {
+            return redirect()->route('carinsurance')->with('error', $e->getMessage());
+            //return redirect()->route('carinsurance')->with('error', 'Not Added Try Again...!!!!');
+        }
+    }
+    public function insertrating(Request $req)
+    {
+        try {
+            if ($req->hasFile('reviewimg')) {
+                $req->validate([
+                    'reviewimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $filereviewimg = $req->file('reviewimg');
+                $filenameroad = time() . '_' . $filereviewimg->getClientOriginalName();
+                $filereviewimg->move(public_path('assets/backend-assets/images'), $filenameroad);
+                $imagedata['reviewimg'] = $filenameroad;
+            }
+
+            $data = Review::create([
+                'vehicle' => $req->vehicle,
+                'customerfullname' => $req->customerfullname,
+                'discription' => $req->discription,
+                'ratings' => $req->ratings,
+                'reviewimg' => $imagedata['reviewimg'] ?? null,
+            ]);
+            return back()->with('success', 'Review Added..!!!!');
+        } catch (Exception $e) {
+            return redirect()->route('carlistingdetails')->with('error', $e->getMessage());
+            //return redirect()->route('carlistingdetails')->with('error', 'Not Added Try Again...!!!!');
+        }
     }
 }

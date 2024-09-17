@@ -10,13 +10,13 @@
     <meta name="author" content="ScriptsBundle">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title') | Carz Choice</title>
+    <title>@yield('title') - Carz Choice</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
-    <link rel="icon" href="{{ asset('assets/frontend-assets/images/favicon.ico') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" type="image/x-icon" />
     <!-- =-=-=-=-=-=-= Mobile Specific =-=-=-=-=-=-= -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.css" />
@@ -103,7 +103,7 @@
                         <div class="row ">
                             <div class=" d-flex align-items-center justify-content-between">
                                 <!-- menu logo -->
-                                <div class="col-md-2">
+                                <div class="col-md-2 col-3">
                                     <ul class="menu-logo">
                                         <li>
                                             <a href="/" class="">
@@ -140,7 +140,7 @@
                                                                     Launches </a></li>
                                                             <li><a href="/electric-car">Electric Cars </a></li>
                                                             <li><a href="/car-loan">Car Loan </a></li>
-                                                            <li><a href="/car-images">Car Images </a></li>
+                                                            <li><a data-target="#share-ad" data-toggle="modal">EMI Calculator </a></li>
                                                             <li><a href="/dealer-showroom">Find Dealer Showroom</a>
                                                             </li>
                                                         </ul>
@@ -182,7 +182,6 @@
                                                             <li><a href="/usedcar-bylocation">Usedcar by location</a>
                                                             </li>
                                                             <li><a href="/find-dealer">Find Dealer </a></li>
-                                                            <li><a href="/dealer-profile">Dealer Profile</a></li>
                                                         </ul>
                                                     </div>
 
@@ -205,13 +204,28 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href="/news">News </a>
+                                            <a href="javascript:void(0)">Reviews & News<i
+                                                    class="fa fa-angle-down fa-indicator"></i></a>
+                                            <div class="drop-down grid-col-12">
+                                                <!--grid row-->
+                                                <div class="grid-row">
+                                                    <div class="grid-col-6">
+                                                        <h3>Explore</h3>
+                                                        <ul>
+                                                            <li><a href="/news">News </a></li>
+                                                            <li><a href="/happycustomers">User Reviews</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </li>
-
+                                        <li>
+                                            <a href="{{ route('carinsurance') }}">Car Insurance</a>
+                                        </li>
                                     </ul>
                                 </div>
 
-                                <div class="col-md-3 d-flex align-items-center justify-content-end">
+                                <div class="col-md-4 col-8 d-flex align-items-center justify-content-end logincall">
 
                                     <ul class="listnone d-flex justify-content-between align-items-center">
                                         @if (Auth::guard('registeruser')->user())
@@ -243,6 +257,11 @@
                                                     <i class="bi bi-door-open-fill"></i> Log in
                                                 </a>
                                             </li>
+                                            <li class="me-3">
+                                                <a href="tel:919315510156" class="btn btn-theme btn-outline">
+                                                    <i class="bi bi-telephone-fill"></i> Call Now
+                                                </a>
+                                            </li>
                                         @endif
 
 
@@ -270,84 +289,69 @@
 
 
     <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
-    <footer class="footer-bg">
-        <!-- Footer Content -->
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3  col-sm-6 col-xs-12">
-                        <!-- Info Widget -->
-                        <div class="widget">
-                            <div class="logo">
-                                <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo"
-                                    width="120">
-
-                            </div>
-
-                            <ul class="apps-donwloads">
-                                <li><img src="{{ asset('assets/frontend-assets/images/googleplay.png') }}"
-                                        alt=""></li>
-                                <li><img src="{{ asset('assets/frontend-assets/images/appstore.png') }}"
-                                        alt=""></li>
-                            </ul>
-                        </div>
-                        <!-- Info Widget Exit -->
-                    </div>
-                    <div class="col-md-2 col-sm-6 col-xs-12">
-                        <!-- Follow Us -->
-                        <div class="widget socail-icons">
-                            <h5>Follow Us</h5>
-                            <ul>
-                                <li><a class="Facebook"><i class="fa fa-facebook"></i></a><span>Facebook</span></li>
-                                <li><a class="Twitter" href="#"><i
-                                            class="fa fa-twitter"></i></a><span>Twitter</span>
-                                </li>
-                                <span><a class="Linkedin" href="#"><i
-                                            class="fa fa-linkedin"></i></a><span>Linkedin</span>
-                                    </li>
-                                    <li><a class="Google" href="#"><i
-                                                class="fa fa-google-plus"></i></a><span>Google+</span>
-                                    </li>
-                            </ul>
-                        </div>
-                        <!-- Follow Us End -->
-                    </div>
-                    <div class="col-md-2  col-sm-6 col-xs-12">
-                        <!-- Follow Us -->
-                        <div class="widget my-quicklinks">
-                            <h5>Quick Links</h5>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="/services">Services</a></li>
-                                <li><a href="/pricing">Pricing</a></li>
-                                <li><a href="/contactus">Contact Us</a></li>
-                            </ul>
-                        </div>
-                        <!-- Follow Us End -->
-                    </div>
-                    <div class="col-md-5  col-sm-6 col-xs-12">
-                        <!-- Newslatter -->
-                        <div class="widget widget-newsletter">
-                            <h5>Singup for Weekly Newsletter</h5>
-                            <div class="fieldset">
-                                <p>We may send you information about related events, webinars, products and services
-                                    which we believe.</p>
-                                <form>
-                                    <input class="" value="Enter your email address" type="text">
-                                    <input class="submit-btn" name="submit" value="Submit" type="submit">
-                                </form>
+    <footer class="footer-bg ">
+        <div class="footer-top pt-5">
+                <div class="container hideInMobile">
+                    <div class="row">
+                        <div class="col-md-2 hideInMobile col-sm-6 col-xs-12">
+                            <div class="widget">
+                                <h5 class="mb-0">New Cars</h5>
+                                <ul class="mt-3">
+                                    <li><a href="/new-cars" class="text-secondary">Explore New Cars</a></li>
+                                    <li><a data-value="Upcoming" class="brandfilter text-secondary">Upcoming Cars</a></li>
+                                    <li><a href="/car-loan" class="text-secondary">Car Loan </a></li>
+                                    <li><a href="/electric-car" class="text-secondary">Electric Cars </a></li>
+                                    <li><a data-target="#share-ad" data-toggle="modal"  class="text-secondary">EMI Calculator </a></li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="copyright">
-                            <p>© 2024 Car Choice All rights reserved. Design by <a href="http://yuvmedia.in"
-                                    target="_blank">Yuvmedia</a> </p>
+                        <div class="col-md-2 hideInMobile col-sm-6 col-xs-12">
+                            <div class="widget">
+                                <h5>Old Cars</h5>
+                                <ul class="mt-3">
+                                    <li><a href="/used-car"  class="text-secondary">Explore Used Cars</a></li>
+                                    <li><a href="/usedcar-bylocation"  class="text-secondary">Usedcar by location</a></li>
+                                    <li><a href="/find-dealer"  class="text-secondary">Find Dealer</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <!-- Newslatter -->
+                        <div class="col-md-2 hideInMobile  col-sm-6 col-xs-12">
+                            <div class="widget my-quicklinks">
+                                <h5>Quick Links</h5>
+                                <ul class="mt-3">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="/services">Services</a></li>
+                                    <li><a href="/pricing">Pricing</a></li>
+                                    <li><a href="/contactus">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2 hideInMobile  col-sm-6 col-xs-12">
+                            <div class="widget my-quicklinks">
+                                <h5>Important Links</h5>
+                                <ul class="mt-3">
+                                    <li><a href="/privacypolicy">Privacy Policy</a></li>
+                                    <li><a href="/disclaimer">Disclaimer</a></li>
+                                    <li><a href="/carinsurance">Car Insurance</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 hideInMobile  col-sm-6 col-xs-12">
+                            <!-- Info Widget -->
+                            <div class="widget">
+                                <div class="logo">
+                                    <img src="{{ asset('assets/frontend-assets/images/logowhitepng.png') }}" alt="logo"
+                                        width="180">
+                                </div>
+                                <div class="content">
+                                    <p class="text-secondary fs-4">Carzchoice is your go-to platform for everything cars! From expert reviews and comparisons to the latest car listings.</p>
+                                </div>
+                            </div>
+                            <!-- Info Widget Exit -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
     </footer>
     <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
 
@@ -435,10 +439,10 @@
                     <select class="selectpicker rounded-4" data-show-subtext="true" data-live-search="true">
                         <option>--select-car</option>
                         @foreach ($variantdata as $data)
-                            <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
-                                {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
-                            </option>
-                        @endforeach
+                        <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
+                            {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
+                        </option>
+                     @endforeach
                     </select>
                     <label>State <span class="color-red">*</span></label>
                     <select class="form-control" id="dynamic_selectstate" name="state" required>
@@ -459,6 +463,32 @@
         </div>
     </div>
 
+{{-- emi calc modal --}}
+<div class="modal fade share-ad" id="share-ad" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Car EMI Calculator</h3>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body emi-calc">
+                <div id="ecww-widgetwrapper" style="min-width:250px;width:100%;">
+                    <div id="ecww-widget"
+                        style="position:relative;padding-top:0;padding-bottom:0px;height:0;overflow:hidden;">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- EMI Calculator Widget START -->
+<script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
     <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -486,8 +516,6 @@
             });
         });
 
-
-
         document.addEventListener("DOMContentLoaded", () => {
             const list = document.querySelectorAll(".nav__item");
 
@@ -512,7 +540,6 @@
                 });
             });
         });
-
 
         //New Car Filter
         $(document).ready(function() {

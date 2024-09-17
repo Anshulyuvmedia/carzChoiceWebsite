@@ -34,8 +34,6 @@
             <div class="row">
                 <!-- Middle Content Area -->
                 <div class="col-md-12 col-xs-12 col-sm-12 news">
-
-
                     <!-- Nav tabs -->
                     <div class="card border-0  shadow-none mb-0 ">
                         <ul class="nav nav-tabs">
@@ -46,14 +44,11 @@
                             <li role="presentation" class="nav-item active">
                                 <a class="nav-link" aria-controls="Exterior" href="/reviews">REVIEWS</a>
                             </li>
-                            <li role="presentation" class="nav-item">
-                                <a class="nav-link" aria-controls="Interior" href="#SPECIALREPORTS">SPECIAL REPORTS</a>
-                            </li>
                             <li role="presentation" class="nav-item ">
                                 <a class="nav-link" aria-controls="Colours" href="/car-images">IMAGES</a>
                             </li>
                             <li role="presentation" class="nav-item">
-                                <a class="nav-link" aria-controls="Colours" href="#VIDEOS">VIDEOS</a>
+                                <a class="nav-link" aria-controls="Colours" href="/car-videos">VIDEOS</a>
                             </li>
                         </ul>
                     </div>
@@ -85,22 +80,11 @@
                             </div>
                             <!-- Review Post-->
                         @endforeach
-
-
                     </div>
-                    <div class="col-md-12 col-xs-12 col-sm-12">
-                        <ul class="pagination pagination-lg">
-                            <li> <a href="#"> <i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
-                            <li> <a href="#">1</a> </li>
-                            <li class="active"> <a href="#">2</a> </li>
-                            <li> <a href="#">3</a> </li>
-                            <li> <a href="#">4</a> </li>
-                            <li><a href="#"> <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-
                 </div>
-
+                <div class="justify-content-around">
+                    {{ $reviewdata->links('pagination::bootstrap-5') }}
+                </div>
             </div>
             <!-- Row End -->
         </div>

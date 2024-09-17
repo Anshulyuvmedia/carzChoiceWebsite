@@ -38,12 +38,12 @@
 
 
     {{-- THIS IS FIND THE CARS BY YOUR CHOICE COMPONENET --}}
-    <x-find-the-cars-by-choice cartype="brandfilter" />
+    <x-findthecarsbychoice cartype="brandfilter" />
 
 
     <!-- =-=-=-=-=-=-= Featured Ads =-=-=-=-=-=-= -->
     <section class="custom-padding ">
-        
+
         <div class="container featured-cars">
             <!-- Row -->
             <div class="row">

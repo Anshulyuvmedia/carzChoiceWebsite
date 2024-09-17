@@ -105,8 +105,7 @@
                                             <select name="enquirystatus" class="form-select enquirystatus"
                                                 id="inputGroupSelect01_{{ $row->id }}" required>
                                                 <option value="">--select enquiry status--</option>
-                                                <option value="intrested"
-                                                    {{ $row->enquirystatus == 'intrested' ? 'selected' : '' }}>
+                                                <option value="intrested"  {{ $row->enquirystatus == 'intrested' ? 'selected' : '' }}>
                                                     Intrested
                                                 </option>
                                                 <option value="not intrested"
