@@ -619,11 +619,11 @@
         <!--Image One-->
         {{-- <div class="background-1"></div> --}}
         <!--Image Two-->
-        @if (!empty($data->checkonroadimg))
+        
         <div class="background-2"
             style="background-image: url('{{ asset('assets/backend-assets/images/' . $imagesdata->checkonroadimg) }}')">
         </div>
-        @endif
+        
 
         <div class="container">
             <div class="row clearfix">

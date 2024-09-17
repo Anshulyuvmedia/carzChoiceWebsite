@@ -432,7 +432,7 @@
                     <input type="email" class="form-control" name="email" id="formGroupExampleInput"
                         placeholder="Enter Email Address">
                     <label for="formGroupExampleInput" class="form-label mt-3">Select Car</label>
-                    <select class="selectpicker" data-show-subtext="true" data-live-search="true">
+                    <select class="selectpicker rounded-4" data-show-subtext="true" data-live-search="true">
                         <option>--select-car</option>
                         @foreach ($variantdata as $data)
                             <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
