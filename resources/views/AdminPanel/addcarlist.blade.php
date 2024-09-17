@@ -72,6 +72,9 @@
                                     </div>
                                 </div>
                             </form>
+                            <div class="mt-2">
+                                <a class="mt-2 text-danger fw-bold" href="{{asset('assets/backend-assets/images/SampleExcel/carlist.xlsx')}}" download="Sample Data of Car List">Click to Download Sample Excel of Car List</a>
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -108,10 +111,7 @@
                                                             data-bs-placement="top" data-bs-title="Edit"></i></a>
                                                 </li>
                                                 <li class="list-inline-item">
-                                                    <a href="#" onclick="confirmDelete('{{ $row->id }}')"
-                                                        class="px-2 text-danger" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Delete"><i
-                                                            class="uil uil-trash-alt font-size-18"></i></a>
+                                                    <a href="#" onclick="confirmDelete('{{ $row->id }}')" class="px-2 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="uil uil-trash-alt font-size-18"></i></a>
                                                 </li>
                                                 <li class="list-inline-item">
                                                     <a href="#" data-bs-target="#exampleModalcolor"
@@ -177,8 +177,9 @@
                             <input type="hidden" name="vehicleid" id="vehicleid" value="">
                             <div class="mb-3">
                                 <button data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-title="Click to Add More" class="btn btn-success addpros float-end" type="button"
-                                    id="button-addon2"> <i class="fa fa-plus" aria-hidden="true"></i> </button>
+                                    data-bs-title="Click to Add More" class="btn btn-success addpros float-end"
+                                    type="button" id="button-addon2"> <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -191,8 +192,6 @@
                     <button type="submit" class="btn btn-success waves-effect waves-light">Add</button>
                 </div>
             </form>
-
-
         </div>
     </div>
 </div>
@@ -212,23 +211,25 @@
 @endif
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    function confirmDelete(id) {
+     function confirmDelete(id) {
         let smiley = '😊';
         swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this data!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location.href = "/deletecarlist/" + id;
-                } else {
-                    swal("Great Decision....!! Your data is safe! " + smiley);
-                }
-            });
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                window.location.href = "/deletecarlist/" + id;
+            }else {
+                swal("Great Decision....!! Your data is safe! " + smiley);
+            }
+        });
     }
+</script>
+<script>
     document.getElementById('applyGradient').addEventListener('click', function() {
         const colorpicker - showinput - intial = document.getElementById('color1').value;
         console.log(color1);
@@ -292,22 +293,22 @@
 
 <script>
     $(document).on('click', '.colorvariants', function() {
-    const data = $(this).data('value');
-    $('#vehicleid').val(data.id);
-    const converted = JSON.parse(data.colors); // Convert JSON string to array
-    console.log(converted);
-    $('#tablebody').empty();
+        const data = $(this).data('value');
+        $('#vehicleid').val(data.id);
+        const converted = JSON.parse(data.colors); // Convert JSON string to array
+        console.log(converted);
+        $('#tablebody').empty();
 
-    // Iterate over each color variant
-    converted.forEach((element, index) => {
-        console.log(element);
+        // Iterate over each color variant
+        converted.forEach((element, index) => {
+            console.log(element);
 
-        // Extract color values from the array
-        const colorone = element.value[0]; // First color
-        const colortwo = element.value[1]; // Second color
-        console.log(colorone);
-        console.log(colortwo);
-        var tr = `
+            // Extract color values from the array
+            const colorone = element.value[0]; // First color
+            const colortwo = element.value[1]; // Second color
+            console.log(colorone);
+            console.log(colortwo);
+            var tr = `
         <div class="col-lg-12 mt-3">
             <div class="input-group mb-3">
                 <span class="input-group-text">Color Name</span>
@@ -320,25 +321,27 @@
             </div>
         </div>
         `;
-        $('#tablebody').append(tr);
-        $('head').append(
-            '<link rel="stylesheet" href="{{ asset('assets/backend-assets/libs/spectrum-colorpicker2/spectrum.min.css') }}" type="text/css" />'
-        );
-        $('head').append('<style>.sp-original-input-container {width: 138px;}</style>');
-        $.getScript("{{ asset('assets/backend-assets/libs/spectrum-colorpicker2/spectrum.min.js') }}",
-            function() {
-                initializeColorPicker(index);
-            });
+            $('#tablebody').append(tr);
+            $('head').append(
+                '<link rel="stylesheet" href="{{ asset('assets/backend-assets/libs/spectrum-colorpicker2/spectrum.min.css') }}" type="text/css" />'
+            );
+            $('head').append('<style>.sp-original-input-container {width: 138px;}</style>');
+            $.getScript(
+                "{{ asset('assets/backend-assets/libs/spectrum-colorpicker2/spectrum.min.js') }}",
+                function() {
+                    initializeColorPicker(index);
+                });
+
             function initializeColorPicker(index) {
-        $(`.color-picker${index}`).spectrum({
-            showInput: true,
-            preferredFormat: "hex",
-            showInitial: true,
-            allowEmpty: false
+                $(`.color-picker${index}`).spectrum({
+                    showInput: true,
+                    preferredFormat: "hex",
+                    showInitial: true,
+                    allowEmpty: false
+                });
+            }
         });
-    }
     });
-});
 
 
     $(document).on('click', '.addpros', function() {
@@ -380,6 +383,5 @@
     $(document).on('click', '.deleteRow', function() {
         $(this).closest('.input-group').remove();
     });
-
 </script>
 @endpush

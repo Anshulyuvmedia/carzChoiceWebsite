@@ -85,6 +85,30 @@
         </div>
     </div>
 </div>
+{{-- Edit details Modal --}}
+<div class="modal fade" id="exampleModaledit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form action="{{ route('updatesubmaster') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body" id="modalbodyedit">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success waves-effect waves-light">Update</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
 @endsection
 
 @push('scripts')
@@ -138,24 +162,80 @@
                 data.forEach(function(element, index) {
                     var row = '<tr>';
                     row += '<td>' + (index + 1) + '</td>';
-                    row += '<td>' + element.type + '</td>';     
+                    row += '<td>' + element.type + '</td>';
                     row += '<td>' + element.label + '</td>';
                     row += '<td>' + element.value + '</td>';
                     row += '<td>' + (element.iconimage ?
                         '<img src="assets/backend-assets/images/' + element.iconimage +
                         '" alt="Icon Image" width="100">' : '') + '</td>';
                     row += '<td>' +
-                        '<button type="button" class="btn btn-danger waves-effect waves-light btn-sm" onclick="confirmDelete(' +
-                        element.id + ')">' +
-                        '<i class="uil-trash-alt"></i>' +
-                        '</button>' +
+                            '<ul class="list-inline mb-0">' +
+                                '<li class="list-inline-item">' +
+                                    '<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaledit" ' +
+                                    'data-car-list=\'' + JSON.stringify(element) + '\' ' +
+                                    'class="px-2 text-primary editbtnmodal"><i ' +
+                                    'class="uil uil-pen font-size-18" data-bs-toggle="tooltip" ' +
+                                    'data-bs-placement="top" data-bs-title="Edit"></i></a>' +
+                                '</li>' +
+                                '<li class="list-inline-item">' +
+                                    '<button type="button" class="btn btn-danger waves-effect waves-light btn-sm" ' +
+                                    'onclick="confirmDelete(' + element.id + ')">' +
+                                    '<i class="uil-trash-alt"></i>' +
+                                    '</button>' +
+                                '</li>' +
+                            '</ul>' +
                         '</td>';
+
                     row += '</tr>';
                     $('#table-body').append(row);
                 });
-
             }
         });
+    });
+</script>
+<script>
+    //Edit Functionality
+    $('#table-body').on('click', '.editbtnmodal', function() {
+        const carlist = $(this).data('car-list');
+        console.log(carlist);
+        $('#modalbodyedit').empty();
+        const imageSrc = carlist.iconimage ? 'assets/backend-assets/images/' + carlist.iconimage : '';
+        const modalbody = `
+           <div class="mb-3 row">
+                <div class="col-lg-6">
+                    <div class="mt-2 mb-2">
+                         <label>Select Master Category</label>
+                    <select name="type" class="form-select" id="subcategory" required>
+                        <option value="">--select master category--</option>
+                        @foreach ($submasterdata as $row)
+                            <option value="{{ $row->label }}" ${carlist.type === '{{ $row->label }}' ? 'selected' : ''}>{{ $row->label }}</option>
+                        @endforeach
+                    </select>
+                    </div>
+                    <div class="mt-2 mb-2">
+                        <label for="labelval">Label</label>
+                        <input class="form-control" placeholder="enter label" name="label" type="text"
+                            value="${carlist.label}" id="labelval" onchange="labelValue()" required>
+                             <input type="hidden" name="submasterid" value="${carlist.id}" id="">
+                    </div>
+                    <div class="mt-2 mb-2">
+                        <label for="valueval">Value</label>
+                        <input class="form-control" placeholder="enter value" name="value" type="text"
+                            value="${carlist.value}" id="valueval" required>
+                    </div>
+                    <div class="mt-2 mb-2">
+                        <label for="iconimage">Icon Image</label>
+                        <input class="form-control" placeholder="enter value" name="iconimage" type="file" value="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-pre">
+                        <img src="${imageSrc}" alt="">
+                    </div>
+                </div>
+            </div>
+        `;
+        $('#modalbodyedit').append(modalbody);
     });
 </script>
 @endpush

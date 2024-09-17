@@ -223,6 +223,8 @@ Route::controller(Store::class)->group(function() {
     Route::post('/updatereviews', 'updatereviews')->name('updatereviews');
     Route::post('/updatereviewstatus', 'updatereviewstatus')->name('updatereviewstatus');
     Route::post('/updateactivationstatus', 'updateactivationstatus')->name('updateactivationstatus');
+    Route::post('updatemaster', 'updatemaster')->name('updatemaster');
+    Route::post('updatesubmaster', 'updatesubmaster')->name('updatesubmaster');
 
 
 });

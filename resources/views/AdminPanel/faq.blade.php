@@ -100,9 +100,9 @@
                                                 </li>
                                                 <li class="list-inline-item">
                                                     <a href="#" onclick="confirmDelete('{{ $row->id }}')"
-                                                        class="px-2 text-danger" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Delete"><i
-                                                            class="uil uil-trash-alt font-size-18"></i></a>
+                                                        class="px-2 text-danger"><i
+                                                            class="uil uil-trash-alt font-size-18"  data-bs-toggle="tooltip"
+                                                            data-bs-placement="top" data-bs-title="Delete"></i></a>
                                                 </li>
                                             </ul>
                                         </td>

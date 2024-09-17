@@ -335,12 +335,11 @@
                         <div class="col-sm-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> © Carz Choice
+                            </script> © Carzchoice
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                Design & Developed by <i class="mdi mdi-heart text-danger"></i> by <a
-                                    href="https://yuvmedia.in/" target="_blank" class="text-reset">YUVMEDIA</a>
+                                All Rights Reserved
                             </div>
                         </div>
                     </div>

@@ -42,8 +42,8 @@
                                     <th>Email</th>
                                     <th>Verification Status</th>
                                     <th>Login Status</th>
+                                    <th>User's Cars</th>
                                     <th>Action</th>
-                                    <th>All Cars</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,13 +67,18 @@
                                         </div>
                                     </td>
                                     <td>
+                                        <a href="/dealeradposts/{{$row->id}}">
+                                            <button type="button" class="btn btn-info btn-sm"><i class="uil-eye align-bottom me-1"></i>View Cars</button>
+                                        </a>
+                                    </td>
+                                    <td>
                                         <ul class="list-inline mb-0">
-                                            <li class="list-inline-item">
+                                            {{-- <li class="list-inline-item">
                                                 <a href="#"
                                                     class="px-2 text-primary"><i
                                                         class="uil-eye font-size-18" data-bs-toggle="tooltip"
                                                         data-bs-placement="top" data-bs-title="View Ads"></i></a>
-                                            </li>
+                                            </li> --}}
                                             <li class="list-inline-item">
                                                 <a href="#" onclick="confirmDelete('{{ $row->id }}')"
                                                     class="px-2 text-danger"><i
@@ -81,11 +86,6 @@
                                                         data-bs-placement="top" data-bs-title="Delete User"></i></a>
                                             </li>
                                         </ul>
-                                    </td>
-                                    <td>
-                                        <a href="/dealeradposts/{{$row->id}}">
-                                            <button type="button" class="btn btn-info btn-sm"><i class="uil-eye align-bottom me-1"></i>View Cars</button>
-                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
