@@ -1,81 +1,3 @@
-/*
-Template: Carz Choice Car Dealership And Car Services
-Author: ScriptsBundle
-Version: 1.0
-Designed and Development by: ScriptsBundle
-*/
-/*
-====================================
-[ CSS TABLE CONTENT ]
-------------------------------------
-    1.0 -  General Style
-	2.0 -  Helper Classes
-    3.0 -  Typography
-	4.0 -  Pre Loader
-	5.0 -  Style Switcher
-    6.0 -  Heading Styles
-	7.0 -  Top Bar
-	8.0 -  Main Header
-    9.0 -  Home With Main Search
-	10.0 -  Home With Background Rotator Slider
-    11.0 -  Grid Listing 1
-	12.0 -  Grid Listing 2
-	13.0 -  Listing View 1
-	14.0 -  Listing View 2
-	15.0 -  Single Ad Details
-	16.0 -  Listing Sidebar & Blog Sidebar
-    17.0 -  Single Blog Post
-	18.0 -  Featured Sliders
-    19.0 -  Featured Sliders 2
-    20.0 -  Price Range Slider
-    21.0 -  Breadcrumbs
-    22.0 -  Carousel Slider
-	23.0 -  Parallex Overlays
-	24.0 -  Template Common Styling
-	25.0 -  Bootstrap Clearfix
-	26.0 -  Backgrounds
-	27.0 -  Login & Register Page
-	28.0 -  Ads Tabs
-	29.0 -  Site Map
-	30.0 -  Comming Soon
-	31.0 -  404 Page
-	32.0 -  Post Ad
-	33.0 -  Search Layout
-	34.0 -  Theme Buttons & Panels
-	35.0 -  Page Components
-	36.0 -  Scroll Back To Top
-	37.0 -  Sticky Post Ad Button
-	38.0 -  Happy Clients
-	39.0 -  Funfacts
-	40.0 -  App Download Section 2
-	41.0 -  App Download Section 3
-	42.0 -  Overview Modal
-	43.0 -  Modal Popup
-	44.0 -  How It Works
-	45.0 -  Pagination
-	46.0 -  Profile & Dashboard
-	47.0 -  Message Panel
-	48.0 -  Pricing
-	49.0 -  Listing Filter
-	50.0 -  Review & Comparison
-	51.0 -  Car By Body Type
-	52.0 -  Car Inspection
-	53.0 -  Advanced Search
-	54.0 -  Tabs Section
-	55.0 -  Featured Slider
-	56.0 -  Sell or Buy
-	57.0 -  Comparison
-	58.0 -  User Testimonials
-	59.0 -  Search Modal
-	60.0 -  Why Choose Us
-	61.0 -  About Us
-	62.0 -  Services
-	63.0 -  Footer
--------------------------------------
-[ END CSS TABLE CONTENT ]
-=====================================
-*/
-
 /* =-=-=-=-=-=-= General Styling =-=-=-=-=-=-= */
 html,
 body {
@@ -9976,14 +9898,14 @@ body .over-hidden {
 /* =-=-=-=-=-=-= Footer =-=-=-=-=-=-= */
 
 footer.footer-bg {
-    padding-bottom: 100px;
-    padding-top: 100px;
+    
+    padding: 50px 200px 0;
     position: relative;
     border-top: 1px dashed #ddd;
-    background: rgba(0, 0, 0, 0) url("../../frontend-assets/images/background-01.jpg");
+    /* background: rgba(0, 0, 0, 0) url("../../frontend-assets/images/background-01.jpg"); */
     background-size: cover;
     background-repeat: repeat-x;
-    /* background: linear-gradient(141deg, #ffffff, #037cef 224%); */
+    background: #000000;
 
 }
 .footer-bg .footer-top,
@@ -9992,10 +9914,10 @@ footer.footer-bg {
     border-top: medium none;
 }
 
-.footer-bg .footer-top {
-    padding: 70px 0 10px;
-    margin-left: 14%;
-}
+/* .footer-bg .footer-top { */
+    /* padding: 70px 0 10px; */
+    /* margin-left: 14%; */
+/* } */
 
 .footer-bg .copyrights .copyright-content {
     border-top: 1px solid #ccc;
@@ -10004,7 +9926,7 @@ footer.footer-bg {
 
 .footer-top {
     background-color: #202020;
-    padding: 70px 0 30px;
+    /* padding: 70px 0 30px; */
 }
 
 .footer-top .widget .logo {
@@ -10013,18 +9935,21 @@ footer.footer-bg {
 
 .footer-top .widget p {
     margin-bottom: 20px;
+    color: #c2c2c2;
 }
 
 .footer-top .widget h5 {
-    font-size: 18px;
+    font-size: 22px;
     display: block;
     margin: 0 0 0px;
-    color: #232323;
+    color: #00d4fb;
     font-weight: 500;
+    text-transform: uppercase;
+    font-weight: 100;
 }
 
 .footer-top .widget ul li {
-    display: inline-block;
+    display: block;
     margin: 0 4px 4px 0;
 }
 
@@ -10056,7 +9981,16 @@ footer.footer-bg {
 }
 
 .footer-top .widget.my-quicklinks ul li a {
-    color: #777;
+    color: #c2c2c2;
+}
+.footer-top .widget ul li a {
+    color: #c2c2c2;
+}
+.footer-top .widget ul li a:hover {
+    color: #ef0303;
+}
+.footer-top .widget.my-quicklinks ul li a:hover {
+    color: #ef0303 !important;
 }
 
 .footer-top .widget.socail-icons ul li a {

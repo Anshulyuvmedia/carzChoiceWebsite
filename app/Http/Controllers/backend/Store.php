@@ -562,19 +562,19 @@ class Store extends Controller
         // dd($rq->all());
         try {
             $data = $rq->validate([
+                'brandname' => 'required',
                 'carname' => 'required',
                 'carmodalname' => 'required',
-                'brandname' => 'required',
                 'availabelstatus' => 'required',
                 'price' => 'required',
                 'pricetype' => 'required',
-                'bodytype' => 'required',
-                'mileage' => 'required',
                 'engine' => 'required',
-                'fueltype' => 'required',
-                'transmission' => 'required',
+                'bodytype' => 'required',
                 'seatingcapacity' => 'required',
+                'transmission' => 'required',
                 'userreportedmilage' => 'required',
+                'fueltype' => 'required',
+                'mileage' => 'required',
             ]);
 
             //Brochure Upload
@@ -613,8 +613,8 @@ class Store extends Controller
             return back()->with('success', 'Variant Added..!!!!');
 
         } catch (Exception $e) {
-            //return redirect()->route('addvariant')->with('error', $e->getMessage());
-            return redirect()->route('addvariant')->with('error', 'Not Added Try Again...!!!!');
+            return redirect()->route('addvariant')->with('error', $e->getMessage());
+            // return redirect()->route('addvariant')->with('error', 'Not Added Try Again...!!!!');
         }
     }
 

@@ -844,7 +844,7 @@
         background: none;
         padding-bottom: 25px;
         padding-top: 25px;
-        border-top: 0px dashed #ddd;
+        border-top: 0px dashed #000000;
     }
     .logincall{
         padding-right: 0px;

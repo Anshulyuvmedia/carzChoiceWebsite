@@ -172,7 +172,7 @@
                                 </div>
                             </div>
                             <!-- Tags -->
-                            <div class="widget border-0">
+                            {{-- <div class="widget border-0">
                                 <div class="widget-heading">
                                     <h4 class="panel-title"><a>Sign up for our Newsletter
                                         </a></h4>
@@ -185,7 +185,7 @@
                                     </div>
                                     <button class="btn btn-theme rounded-4 rounded-3 w-100">Submit</button>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             @if ($blogdata->embed_url)
                                 <div class="widget">

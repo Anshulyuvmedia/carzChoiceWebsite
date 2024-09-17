@@ -140,7 +140,8 @@
                                                                     Launches </a></li>
                                                             <li><a href="/electric-car">Electric Cars </a></li>
                                                             <li><a href="/car-loan">Car Loan </a></li>
-                                                            <li><a data-target="#share-ad" data-toggle="modal">EMI Calculator </a></li>
+                                                            <li><a data-target="#share-ad" data-toggle="modal">EMI
+                                                                    Calculator </a></li>
                                                             <li><a href="/dealer-showroom">Find Dealer Showroom</a>
                                                             </li>
                                                         </ul>
@@ -179,8 +180,7 @@
                                                         <h3>Explore</h3>
                                                         <ul>
                                                             <li><a href="/used-car">Explore Used Cars</a></li>
-                                                            <li><a href="/usedcar-bylocation">Usedcar by location</a>
-                                                            </li>
+                                                            <li><a href="/carinsurance">Car Insurance</a></li>
                                                             <li><a href="/find-dealer">Find Dealer </a></li>
                                                         </ul>
                                                     </div>
@@ -289,69 +289,88 @@
 
 
     <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
-    <footer class="footer-bg ">
-        <div class="footer-top pt-5">
-                <div class="container hideInMobile">
-                    <div class="row">
-                        <div class="col-md-2 hideInMobile col-sm-6 col-xs-12">
-                            <div class="widget">
-                                <h5 class="mb-0">New Cars</h5>
-                                <ul class="mt-3">
-                                    <li><a href="/new-cars" class="text-secondary">Explore New Cars</a></li>
-                                    <li><a data-value="Upcoming" class="brandfilter text-secondary">Upcoming Cars</a></li>
-                                    <li><a href="/car-loan" class="text-secondary">Car Loan </a></li>
-                                    <li><a href="/electric-car" class="text-secondary">Electric Cars </a></li>
-                                    <li><a data-target="#share-ad" data-toggle="modal"  class="text-secondary">EMI Calculator </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-2 hideInMobile col-sm-6 col-xs-12">
-                            <div class="widget">
-                                <h5>Old Cars</h5>
-                                <ul class="mt-3">
-                                    <li><a href="/used-car"  class="text-secondary">Explore Used Cars</a></li>
-                                    <li><a href="/usedcar-bylocation"  class="text-secondary">Usedcar by location</a></li>
-                                    <li><a href="/find-dealer"  class="text-secondary">Find Dealer</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-2 hideInMobile  col-sm-6 col-xs-12">
-                            <div class="widget my-quicklinks">
-                                <h5>Quick Links</h5>
-                                <ul class="mt-3">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="/services">Services</a></li>
-                                    <li><a href="/pricing">Pricing</a></li>
-                                    <li><a href="/contactus">Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-2 hideInMobile  col-sm-6 col-xs-12">
-                            <div class="widget my-quicklinks">
-                                <h5>Important Links</h5>
-                                <ul class="mt-3">
-                                    <li><a href="/privacypolicy">Privacy Policy</a></li>
-                                    <li><a href="/disclaimer">Disclaimer</a></li>
-                                    <li><a href="/carinsurance">Car Insurance</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 hideInMobile  col-sm-6 col-xs-12">
-                            <!-- Info Widget -->
-                            <div class="widget">
-                                <div class="logo">
-                                    <img src="{{ asset('assets/frontend-assets/images/logowhitepng.png') }}" alt="logo"
-                                        width="180">
-                                </div>
-                                <div class="content">
-                                    <p class="text-secondary fs-4">Carzchoice is your go-to platform for everything cars! From expert reviews and comparisons to the latest car listings.</p>
-                                </div>
-                            </div>
-                            <!-- Info Widget Exit -->
+    <footer class="footer-bg">
+        <div class="footer-top">
+            <div class="container-fluid hideInMobile">
+                <div class="row">
+                    <div class="col-md-12 hideInMobile  col-sm-6 col-xs-12">
+                        <div class="widget my-quicklinks border-bottom border-secondary">
+                            <ul class="mt-3 d-flex justify-content-between">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="/services">Services</a></li>
+                                <li><a href="/pricing">Pricing</a></li>
+                                <li><a href="/contactus">Contact Us</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+                <div class="row py-5">
+                    <div class="col-md-3  hideInMobile  col-sm-6 col-xs-12">
+                        <!-- Info Widget -->
+                        <div class="widget w-75">
+                            <div class="logo">
+                                <img src="{{ asset('assets/frontend-assets/images/logowhitepng.png') }}"
+                                    alt="logo" width="180">
+                            </div>
+                            <div class="content">
+                                <p class="fs-4">Carzchoice is your go-to platform for everything cars!
+                                    From expert reviews and comparisons to the latest car listings.</p>
+                            </div>
+                        </div>
+                        <!-- Info Widget Exit -->
+                    </div>
+                    <div class="col-md-3 hideInMobile col-sm-6 col-xs-12">
+                        <div class="widget">
+                            <h5>New Cars</h5>
+                            <ul class="mt-3">
+                                <li><a href="/new-cars" class="">Explore New Cars</a></li>
+                                <li><a data-value="Upcoming" class="brandfilter ">Upcoming Cars</a></li>
+                                <li><a href="/car-loan" class="">Car Loan </a></li>
+                                <li><a href="/electric-car" class="">Electric Cars </a></li>
+                                <li><a data-target="#share-ad" data-toggle="modal" class="">EMI Calculator
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 hideInMobile col-sm-6 col-xs-12">
+                        <div class="widget">
+                            <h5>Old Cars</h5>
+                            <ul class="mt-3">
+                                <li><a href="/used-car" class="">Explore Used Cars</a></li>
+                                <li><a href="/car-loan" class="">Car Loan </a></li>
+                                <li><a href="/find-dealer" class="">Find Dealer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 hideInMobile  col-sm-6 col-xs-12">
+                        <div class="widget my-quicklinks">
+                            <h5>Important Links</h5>
+                            <ul class="mt-3">
+                                <li><a href="/privacypolicy">Privacy Policy</a></li>
+                                <li><a href="/disclaimer">Disclaimer</a></li>
+                                <li><a href="/carinsurance">Car Insurance</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+            <div class="row border-top border-secondary pt-3 ">
+                <div class="col-md-8 text-secondary fw-bold">
+                    <p>Copyright © 2024 All Rights Reserved.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="widget my-quicklinks ">
+                        <ul class="mt-3 d-flex justify-content-around">
+                            <li><a href="#"><i class="bi bi-facebook fs-2"></i></a></li>
+                            <li><a href="#"><i class="bi bi-twitter-x fs-2"></i></a></li>
+                            <li><a href="#"><i class="bi bi-instagram fs-2"></i></a></li>
+                            <li><a href="#"><i class="bi bi-youtube fs-2"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
     <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
 
@@ -439,10 +458,10 @@
                     <select class="selectpicker rounded-4" data-show-subtext="true" data-live-search="true">
                         <option>--select-car</option>
                         @foreach ($variantdata as $data)
-                        <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
-                            {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
-                        </option>
-                     @endforeach
+                            <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
+                                {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
+                            </option>
+                        @endforeach
                     </select>
                     <label>State <span class="color-red">*</span></label>
                     <select class="form-control" id="dynamic_selectstate" name="state" required>
@@ -463,32 +482,32 @@
         </div>
     </div>
 
-{{-- emi calc modal --}}
-<div class="modal fade share-ad" id="share-ad" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg ">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Car EMI Calculator</h3>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">×</span>
-                    <span class="sr-only">Close</span>
-                </button>
-            </div>
-            <div class="modal-body emi-calc">
-                <div id="ecww-widgetwrapper" style="min-width:250px;width:100%;">
-                    <div id="ecww-widget"
-                        style="position:relative;padding-top:0;padding-bottom:0px;height:0;overflow:hidden;">
+    {{-- emi calc modal --}}
+    <div class="modal fade share-ad" id="share-ad" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Car EMI Calculator</h3>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                </div>
+                <div class="modal-body emi-calc">
+                    <div id="ecww-widgetwrapper" style="min-width:250px;width:100%;">
+                        <div id="ecww-widget"
+                            style="position:relative;padding-top:0;padding-bottom:0px;height:0;overflow:hidden;">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
+                <div class="modal-footer">
 
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- EMI Calculator Widget START -->
-<script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
+    <!-- EMI Calculator Widget START -->
+    <script src="https://emicalculator.net/widget/2.0/js/emicalc-loader.min.js" type="text/javascript"></script>
     <!-- =-=-=-=-=-=-= All Brands End =-=-=-=-=-=-= -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
