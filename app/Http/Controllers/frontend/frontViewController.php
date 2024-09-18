@@ -135,7 +135,7 @@ class frontViewController extends Controller
     public function carlistingdetails($id)
     {
         $cardetails = AddVariant::where('id', $id)->where('showhidestatus', '=', 1)->first();
-        // dd($cardetails);
+
         $new = [];
         $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
         $spces = AddSpecification::where('vehicleid', $id)->get();
@@ -143,13 +143,17 @@ class frontViewController extends Controller
         $variants = AddVariant::where('carname', $cardetails->carname)->where('showhidestatus', '=', 1)->get();
         $similarcars = AddVariant::where('bodytype', $cardetails->bodytype)->where('id', $id)->where('showhidestatus', '=', 1)->get()->unique('carname');
         $carNames = $similarcars->pluck('carname')->toArray();
+
+        //Related to similar cars
         $similarcarsimages = VehicleImage::whereIn('vehicle', $carNames)->get();
+        //dd($similarcarsimages);
         // Merge images into newarray based on index
         foreach ($similarcars as $key => $vehicle) {
             $vehicle->addimage = $similarcarsimages->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
         }
 
-
+        //Related to similar cars
+       // dd( $vehicle);
         $variantsfaqs = VariantFaq::where('vehicleid', $id)->get();
         $proscons = ProsCons::where('vehicleid', $id)->first();
         // dd($id);
@@ -166,7 +170,7 @@ class frontViewController extends Controller
         $cardetails->features = json_decode($features);
         $cardetails->variants = json_decode($variants);
 
-
+        // dd($cardetails);
         //Getting Dealers of Particular Brands
         $dealers = RegisterDealer::get();
         $variants = AddVariant::where('showhidestatus', '=', 1)->get();
@@ -188,6 +192,7 @@ class frontViewController extends Controller
         $pincodedata = Pincode::select('State', 'City', 'District', DB::raw('GROUP_CONCAT(DISTINCT PostOfficeName) as PostOfficeNames'), DB::raw('COUNT(*) as count'))
         ->groupBy('State', 'City', 'District')
         ->get();
+        //dd($similarcars);
         return view('frontend.carLayouts.carlistingdetails', compact('cardetails','pincodedata', 'pros', 'cons', 'variantsfaqs', 'similarcars', 'matchingDealers'));
     }
     public function carlisting()

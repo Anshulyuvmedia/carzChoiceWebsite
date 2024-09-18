@@ -31,7 +31,7 @@
                                     <select name="type" class="form-select" id="subcategory" required>
                                         <option value="">--select category--</option>
                                         @foreach ($masterdata as $row)
-                                            <option value="{{ $row->label }}">{{ $row->label }}</option>
+                                        <option value="{{ $row->label }}">{{ $row->label }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -41,14 +41,16 @@
                                         <option value="">--select color--</option>
                                         @if (is_array($colors) || is_object($colors))
                                         @foreach ($colors as $color)
-                                            @php
-                                                $colorLabel = $color->label; // Extract the label
-                                                $colorValues = implode(', ', $color->value); // Convert the value array to a comma-separated string
-                                                $encodedColor = json_encode($color->value); // Encode the value array to JSON for the option value
-                                            @endphp
-                                            <option value="{{ $encodedColor }}">{{ $colorLabel }} - {{ $colorValues }}</option>
+                                        @php
+
+                                        $colorLabel = $color->label; // Extract the label
+                                        $colorValues = implode(', ', $color->value); // Convert the value array to a
+                                        $encodedColor = json_encode($color); // Encode the value array to JSON
+                                        //for the option value
+                                        @endphp
+                                        <option value="{{$encodedColor}}">{{ $colorLabel }} - {{ $colorValues }}</option>
                                         @endforeach
-                                    @endif
+                                        @endif
                                     </select>
                                 </div>
                                 <input class="form-control" placeholder="enter value" name="vehicle" type="hidden"
@@ -118,40 +120,27 @@
                             </thead>
                             <tbody id="table-body">
                                 @foreach ($vehicleimgdata as $index => $row)
-                                    <tr>
-                                        <td>{{ $index + 1 }}</td>
-                                        <td>{{ $row->type }}</td>
-                                            @php
-                                                // Decode JSON into an associative array
-                                                $color = json_decode($row->color, true);
-                                                // dd($color);
-                                            @endphp
-                                        <td>
-                                            @if (json_last_error() === JSON_ERROR_NONE && isset($color[0]['label'], $color[0]['value']))
+                                <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $row->type }}</td>
+                                    @php
+                                    // Decode JSON into an associative array
+                                    $color = json_decode($row->color, true);
+                                    @endphp
+                                    <td>
+                                        @if (json_last_error() === JSON_ERROR_NONE && isset($color['label'], $color['value']))
                                                 @php
                                                     // Split the labels by comma
-                                                    $labels = explode(',', $color[0]['label']);
-                                                    // dd($labels);
-                                                    $values = $color[0]['value'];
+                                                    $labels = $color['label'];
+                                                    $values = $color['value'];
                                                 @endphp
 
-                                                @if (count($values) === 2)
-                                                        <div class="">
-                                                            <div class="text-center fw-bold text-dark">
-                                                                {{  $labels[0] }},{{  $labels[1] }}
-                                                            </div>
-                                                            <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
-                                                                    style="height: 50px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
+                                                @if (count($values) != 0)
+                                                <p>{{$labels}}</p>
+                                                <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                     style="height: 50px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
 
-                                                            </div>
-                                                        </div>
-                                                @else
-                                                    @foreach ($values as $key => $colorValue)
-                                                            <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
-                                                                 style="background-color: {{ $colorValue }};">
-                                                                {{ $labels[$key] ?? '' }}
-                                                            </div>
-                                                    @endforeach
+                                                </div>
                                                 @endif
                                             @else
                                                 <li>
@@ -160,36 +149,36 @@
                                                     </div>
                                                 </li>
                                             @endif
-                                        </td>
-                                        <td>{{ $row->vehicle }}</td>
-                                        <td>{{ $row->title }}</td>
-                                        <td>
-                                            @if ($row->mediatype == 'image')
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
-                                                    data-record-view="{{ json_encode($row) }}"
-                                                    class="px-2 text-primary viewbtnmodal">
-                                                    <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
-                                                        alt="Thumbnail" width="100px" class="square-100">
-                                                </a>
-                                            @endif
-                                            @if ($row->mediatype == 'video')
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
-                                                    data-record-view="{{ json_encode($row) }}"
-                                                    class="px-2 text-primary viewbtnmodal"><i
-                                                        class="bi bi-youtube"></i>&nbsp;&nbsp;View Video</a>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <ul class="list-inline mb-0">
-                                                <li class="list-inline-item">
-                                                    <a href="#" onclick="confirmDelete('{{ $row->id }}')"
-                                                        class="px-2 text-danger" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Delete"><i
-                                                            class="uil uil-trash-alt font-size-18"></i></a>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                    </td>
+                                    <td>{{ $row->vehicle }}</td>
+                                    <td>{{ $row->title }}</td>
+                                    <td>
+                                        @if ($row->mediatype == 'image')
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
+                                            data-record-view="{{ json_encode($row) }}"
+                                            class="px-2 text-primary viewbtnmodal">
+                                            <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
+                                                alt="Thumbnail" width="100px" class="square-100">
+                                        </a>
+                                        @endif
+                                        @if ($row->mediatype == 'video')
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
+                                            data-record-view="{{ json_encode($row) }}"
+                                            class="px-2 text-primary viewbtnmodal"><i
+                                                class="bi bi-youtube"></i>&nbsp;&nbsp;View Video</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="#" onclick="confirmDelete('{{ $row->id }}')"
+                                                    class="px-2 text-danger" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="Delete"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -239,15 +228,15 @@
 
 @push('scripts')
 @if (session('success'))
-    <script>
-        swal("Success", "{{ session('success') }}", "success");
-    </script>
+<script>
+    swal("Success", "{{ session('success') }}", "success");
+</script>
 @endif
 
 @if (session('error'))
-    <script>
-        swal("Error", "{{ session('error') }}", "error");
-    </script>
+<script>
+    swal("Error", "{{ session('error') }}", "error");
+</script>
 @endif
 
 <script>

@@ -347,8 +347,8 @@
                                                             <div class="short-description-1 d-flex justify-content-between ">
                                                                     @php
                                                                         $colors = json_decode($imagedata->color, true);
-                                                                        $labels = explode(',', $colors[0]['label']);
-                                                                        $values = $colors[0]['value'];
+                                                                        $labels = $colors['label'];
+                                                                        $values = $colors['value'];
                                                                         // dd($values);
                                                                     @endphp
                                                                         @if (count($values) === 2)
@@ -358,7 +358,7 @@
 
                                                                             </div>
                                                                             <div class="text-center fw-bold text-dark">
-                                                                                {{  $labels[0] }},{{  $labels[1] }}
+                                                                                {{  $labels }}
                                                                             </div>
                                                                         </div>
                                                                         @else

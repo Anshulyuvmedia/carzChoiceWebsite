@@ -825,7 +825,7 @@
                                             download="{{ $cardetails->brochure }}"
                                             class="btn btn-theme rounded-4 btn-sm rounded-3 pull-left">
                                             Download Brochure
-                                         </a>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -844,10 +844,11 @@
                                     <ul class="slides">
                                         @foreach ($cardetails->images as $image)
                                         @php
+                                        //dd( $image);
                                         // Decode JSON into an associative array
                                         $color = json_decode($image->color, true);
-                                        $values = $color[0]['label'];
-                                        // dd($color);
+                                        $values = $color['label'];
+                                        // dd($values);
                                         @endphp
                                         <li>
                                             <a href="{{asset('assets/backend-assets/images/' . $image->addimage) }}"
@@ -863,47 +864,39 @@
                                     </ul>
                                 </div>
                                 <div id="carousel-color" class="flexslider p-2 mb-0">
-                                    <ul class="slides">
-                                        @foreach ($cardetails->images as $image)
-                                            @php
-                                                // Decode JSON into an associative array
-                                                $color = json_decode($image->color, true);
-                                                // dd($color);
-                                            @endphp
-
-                                            @if (json_last_error() === JSON_ERROR_NONE && isset($color[0]['label'], $color[0]['value']))
-                                                @php
-                                                    // Split the labels by comma
-                                                    $labels = explode(',', $color[0]['label']);
-                                                    $values = $color[0]['value'];
-                                                @endphp
-
-                                                @if (count($values) === 2)
-                                                    <li>
-                                                        <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
-                                                             style="height: 50px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
-
-                                                        </div>
-                                                    </li>
-                                                @else
-                                                    @foreach ($values as $key => $colorValue)
-                                                        <li>
-                                                            <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
-                                                                 style="background-color: {{ $colorValue }};">
-                                                                {{ $labels[$key] ?? '' }}
-                                                            </div>
-                                                        </li>
-                                                    @endforeach
-                                                @endif
-                                            @else
+                                    <div class="singlepage-detail rounded-4">
+                                        <div id="carousel" class="flexslider p-2 mb-0">
+                                            <ul class="slides">
+                                                @foreach ($cardetails['images'] as $row)
                                                 <li>
-                                                    <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark">
-                                                        Invalid color data
+                                                    @php
+                                                    // Decode JSON into an associative array
+                                                    $color = json_decode($row->color, true);
+                                                    // dd($color);
+                                                    @endphp
+
+                                                    @if (json_last_error() === JSON_ERROR_NONE && isset($color['label'],
+                                                    $color['value']))
+                                                    @php
+                                                    // Split the labels by comma
+                                                    $labels = $color['label'];
+                                                    $values = $color['value'];
+                                                    @endphp
+
+                                                    @if (count($values) != 0)
+
+                                                    <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                        style="height: 50px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
+
                                                     </div>
+                                                    @endif
+                                                    @endif
                                                 </li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                             </div>

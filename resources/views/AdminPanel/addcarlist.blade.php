@@ -314,9 +314,9 @@
                 <span class="input-group-text">Color Name</span>
                 <input type="text" name="colornames[]" value="${element.label}" aria-label="First name" placeholder="Enter color name" class="form-control">
                 <span class="input-group-text">Color 1</span>
-                <input class="form-control color-picker${index}" name="colorone" id="colorpicker1-${index}" value="${colorone}">
+                <input class="form-control color-picker${index}" name="colorone[]" id="colorpicker1-${index}" value="${colorone}">
                 <span class="input-group-text">Color 2</span>
-                <input class="form-control color-picker${index}" name="colortwo" id="colorpicker2-${index}" value="${colortwo}">
+                <input class="form-control color-picker${index}" name="colortwo[]" id="colorpicker2-${index}" value="${colortwo}">
                 <button class="btn btn-danger deleteRow" type="button" id="button-addon2"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </div>
         </div>
@@ -352,9 +352,9 @@
                     <span class="input-group-text">Color Name</span>
                     <input type="text" name="colornames[]" aria-label="First name" placeholder="enter color name" class="form-control">
                     <span class="input-group-text">Color 1</span>
-                    <input class="form-control color-picker${index}" name="colorone" id="colorpicker${index}" value="">
+                    <input class="form-control color-picker${index}" name="colorone[]" id="colorpicker${index}" value="">
                      <span class="input-group-text">Color 2</span>
-                    <input class="form-control color-picker${index}" name="colortwo" id="colorpicker${index}" value="">
+                    <input class="form-control color-picker${index}" name="colortwo[]" id="colorpicker${index}" value="">
                     <button class="btn btn-danger deleteRow" type="button" id="button-addon2"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </div>
             </div>

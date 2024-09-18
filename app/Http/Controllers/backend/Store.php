@@ -451,6 +451,7 @@ class Store extends Controller
 
     public function insertvehicleimages(Request $request)
     {
+        // dd($request->all());
         try {
             // Validate request data
             $data = $request->validate([
@@ -471,9 +472,9 @@ class Store extends Controller
                 $file->move(public_path('assets/backend-assets/images'), $filename);
                 $data['addimage'] = $filename;
             }
-            $vehicleimages = VehicleImage::create($data);
-            Log::info('Inserted Successfully: ', ['lead' => $vehicleimages]);
 
+
+            $vehicleimages = VehicleImage::create($data);
             return back()->with('success', 'Inserted Successfully..!!!!');
         } catch (Exception $e) {
             Log::error('Insert Failed: ', ['error' => $e->getMessage()]);
@@ -1035,11 +1036,10 @@ class Store extends Controller
             if ($row != null) {
                 $colors[] = [
                     'label' => $row,
-                    'value' => [$colorone,$colortwo],
+                    'value' => [$colorone[$index],$colortwo[$index]],
                 ];
             }
         }
-        // dd( $colorsJson);
         try {
             $data = CarList::find($vehicleid);
 
