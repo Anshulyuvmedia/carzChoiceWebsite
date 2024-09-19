@@ -77,15 +77,15 @@
                                                                                 class="border-dark-subtle {{ $row->inputtype == 'checkbox' ? 'form-check-input' : 'form-control' }}""
                                                                                 name="values[{{ $formlabel }}][{{ $index }}]"
                                                                                 type={{ $row->inputtype }}
-                                                                                value="1"
+                                                                                placeholder="Enter value here..."
                                                                                 id="formCheck{{ $formlabel }}{{ $index }}" />
                                                                         @else
                                                                             <input type="hidden"
                                                                                 name="values[{{ $formlabel }}][{{ $index }}]"
                                                                                 value="0">
                                                                             <textarea class="border-dark-subtle {{ $row->inputtype == 'checkbox' ? 'form-check-input' : 'form-control' }}""
-                                                                                name="values[{{ $formlabel }}][{{ $index }}]" value="1"
-                                                                                id="formCheck{{ $formlabel }}{{ $index }}" />
+                                                                                name="values[{{ $formlabel }}][{{ $index }}]" placeholder="Enter value here..."
+                                                                                id="formCheck{{ $formlabel }}{{ $index }}">
                                                                             </textarea>
                                                                         @endif
                                                                     </td>
@@ -167,22 +167,22 @@
                                                                                 <input type="hidden"
                                                                                     name="valuesupdate[{{ $type }}][{{ $index }}]"
                                                                                     value="0">
-                                                                                <textarea class="border-dark-subtle {{ $type == 'checkbox' ? 'form-check-input' : 'form-control' }}""
-                                                                                    name="valuesupdate[{{ $type }}][{{ $index }}]" value="{{ $data->value[$index] }}""
-                                                                                    id="formCheck{{ $type }}{{ $index }}" />
+                                                                                <textarea class="border-dark-subtle {{ $type == 'checkbox' ? 'form-check-input' : 'form-control' }}"
+                                                                                    name="valuesupdate[{{ $type }}][{{ $index }}]" placeholder="Enter value here..."
+                                                                                    value="{{ $data->value[$index] }}" id="formCheck{{ $type }}{{ $index }}">
                                                                             </textarea>
                                                                             @else
                                                                                 <input type="hidden"
                                                                                     name="valuesupdate[{{ $type }}][{{ $index }}]"
                                                                                     value="0">
                                                                                 <input
-                                                                                    class="border-dark-subtle {{ $type == 'checkbox' ? 'form-check-input' : 'form-control' }}""
+                                                                                    class="border-dark-subtle {{ $type == 'checkbox' ? 'form-check-input' : 'form-control' }}"
                                                                                     name="valuesupdate[{{ $type }}][{{ $index }}]"
                                                                                     type={{ $type }}
-                                                                                    value="{{ $data->value[$index] }}""
+                                                                                    placeholder="Enter value here..."
+                                                                                    value="{{ $data->value[$index] }}"
                                                                                     id="formCheck{{ $type }}{{ $index }}" />
                                                                             @endif
-
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach
