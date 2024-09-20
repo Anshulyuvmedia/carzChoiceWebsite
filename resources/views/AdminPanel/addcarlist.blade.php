@@ -171,14 +171,24 @@
             <form action="{{ route('insertcolorvariants') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body" id="modalbody">
-                    <label for="">Enter Color Name & Color Code</label>
                     <div class="row">
+                        <div class="">
+                            <ul>
+                                <li>
+                                    <div class="mt-2 text-black" >NOTE : <span class="text-danger fs-5">Both Colors Must be Filled.</span></div>
+                                </li>
+                                <li>
+                                    <div class="mt-2 text-black" >NOTE : <span class="text-danger fs-5">In case of single color, fill both fields with same color.</span></div>
+                                </li>
+                            </ul>
+                        </div>
                         <div class="col-lg-12">
                             <input type="hidden" name="vehicleid" id="vehicleid" value="">
                             <div class="mb-3">
                                 <button data-bs-toggle="tooltip" data-bs-placement="top"
                                     data-bs-title="Click to Add More" class="btn btn-success addpros float-end"
                                     type="button" id="button-addon2"> <i class="fa fa-plus" aria-hidden="true"></i>
+                                    Add New Color
                                 </button>
                             </div>
                         </div>
@@ -350,11 +360,11 @@
             <div class="col-lg-12">
                 <div class="input-group mb-3">
                     <span class="input-group-text">Color Name</span>
-                    <input type="text" name="colornames[]" aria-label="First name" placeholder="enter color name" class="form-control">
+                    <input type="text" name="colornames[]" required aria-label="First name" placeholder="enter color name" class="form-control">
                     <span class="input-group-text">Color 1</span>
-                    <input class="form-control color-picker${index}" name="colorone[]" id="colorpicker${index}" value="">
+                    <input class="form-control color-picker${index}" name="colorone[]" required id="colorpicker${index}" value="">
                      <span class="input-group-text">Color 2</span>
-                    <input class="form-control color-picker${index}" name="colortwo[]" id="colorpicker${index}" value="">
+                    <input class="form-control color-picker${index}" name="colortwo[]" required id="colorpicker${index}" value="">
                     <button class="btn btn-danger deleteRow" type="button" id="button-addon2"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </div>
             </div>

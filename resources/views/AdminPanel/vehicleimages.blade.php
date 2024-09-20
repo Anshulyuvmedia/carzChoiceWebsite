@@ -26,7 +26,7 @@
                         <form action="{{ route('insertvehicleimages') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3 row">
-                                <div class="col-lg-2">
+                                <div class="col-md-2">
                                     <label class="">Select Category</label>
                                     <select name="type" class="form-select" id="subcategory" required>
                                         <option value="">--select category--</option>
@@ -35,7 +35,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-md-2">
                                     <label class="">Select Color</label>
                                     <select name="color" class="form-select" required>
                                         <option value="">--select color--</option>
@@ -53,16 +53,12 @@
                                         @endif
                                     </select>
                                 </div>
-                                <input class="form-control" placeholder="enter value" name="vehicle" type="hidden"
-                                    value="{{ $data->carname }}">
-                                <input class="form-control" placeholder="enter value" name="variantid" type="hidden"
-                                    value="{{ $data->id }}">
-                                <div class="col-lg-2">
+                                <div class="col-md-2">
                                     <label for="example-search-input" class="">Title</label>
                                     <input class="form-control" placeholder="enter value" name="title" type="text"
                                         value="" id="labelval" onchange="labelValue()" required>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <label class="form-label" for="inputGroupSelect01">Media Type</label>
                                     <div class="input-group">
                                         <select class="form-select" id="type" onchange="files()" name="mediatype"
@@ -73,21 +69,21 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-3 d-none mt-3" id="uploadimage">
+                                <div class="col-md-2 d-none mt-0" id="uploadimage">
                                     <div>
                                         <label for="placeholderInput" class="form-label">Upload Image</label>
                                         <input type="file" id="uploadimage" class="form-control"
                                             placeholder="enter label" name="addimage" value="0">
                                     </div>
                                 </div>
-                                <div class="col-md-3 d-none mt-3" id="urlinput">
+                                <div class="col-md-2 d-none mt-0" id="urlinput">
                                     <div>
                                         <label for="placeholderInput" class="form-label">Enter Youtube URL</label>
                                         <input type="text" class="form-control" placeholder="enter video link"
                                             name="videourl" id="videolink" value="https://dummy.com">
                                     </div>
                                 </div>
-                                <div class="col-lg-3 d-flex align-items-end">
+                                <div class="col-md-2 d-flex align-items-end">
                                     <button type="submit" class="btn btn-success waves-effect waves-light">Add</button>
                                 </div>
                                 {{-- <div class="col-lg-3">
@@ -96,6 +92,10 @@
                                         value="">
                                 </div> --}}
                             </div>
+                                <input class="form-control" placeholder="enter value" name="vehicle" type="hidden"
+                                    value="{{ $data->carname }}">
+                                <input class="form-control" placeholder="enter value" name="variantid" type="hidden"
+                                    value="{{ $data->id }}">
                         </form>
                     </div>
                 </div>
