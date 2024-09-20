@@ -451,7 +451,7 @@ class Store extends Controller
 
     public function insertvehicleimages(Request $request)
     {
-        // dd($request->all());
+        //dd($request->all());
         try {
             // Validate request data
             $data = $request->validate([

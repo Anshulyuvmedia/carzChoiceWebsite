@@ -275,7 +275,7 @@ class AdminView extends Controller
         $vehicleimgdata = VehicleImage::where('vehicle', '=', $carname)->orderBy('created_at', 'desc')->get();
         $carlistdata = CarList::get();
         $imageslist = CarList::where('carname', $data->carname)->get()->pluck('colors');
-        $colors = json_decode($imageslist[0]);
+        $colors = isset($imageslist[0]) ? json_decode($imageslist[0]) : [];
         //dd($colors);
         return view('AdminPanel.vehicleimages', compact('data', 'colors', 'imageslist', 'carnamedata', 'masterdata', 'mastercolordata', 'vehicleimgdata', 'carlistdata'));
     }
