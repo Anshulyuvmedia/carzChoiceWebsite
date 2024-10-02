@@ -22,22 +22,21 @@ class VariantsImport implements ToCollection, WithStartRow
             if (count($row) < 15) {
                 continue; // Skip invalid rows
             }
-
-            $carName = $row[0] ?? null;
-            $brandName = $row[1] ?? null;
-            $carModelName = $row[2] ?? null;
-            $availableStatus = $row[3] ?? null;
-            $price = $row[4] ?? null;
-            $priceType = $row[5] ?? null;
-            $bodyType = $row[6] ?? null;
-            $mileageARAI = $row[7] ?? null;
-            $engine = $row[8] ?? null;
-            $fuelType = $row[9] ?? null; // e.g., "Petrol, CNG"
-            $transmission = $row[10] ?? null; // e.g., "Automatic, Manual"
-            $seatingCapacity = $row[11] ?? null;
-            $userReportedMileage = $row[12] ?? null;
-            $keyFeatures = $row[13] ?? null;
-            $summary = $row[14] ?? null;
+            $carName = $row[0] ? trim($row[0]) : null;
+            $brandName = $row[1] ? trim($row[1]) : null;
+            $carModelName = $row[2] ? trim($row[2]) : null;
+            $availableStatus = $row[3] ? trim($row[3]) : null;
+            $price = $row[4] ? trim($row[4]) : null;
+            $priceType = $row[5] ? trim($row[5]) : null;
+            $bodyType = $row[6] ? trim($row[6]) : null;
+            $mileageARAI = $row[7] ? trim($row[7]) : null;
+            $engine = $row[8] ? trim($row[8]) : null;
+            $fuelType = $row[9] ? trim($row[9]) : null; // e.g., "Petrol, CNG"
+            $transmission = $row[10] ? trim($row[10]) : null; // e.g., "Automatic, Manual"
+            $seatingCapacity = $row[11] ? trim($row[11]) : null;
+            $userReportedMileage = $row[12] ? trim($row[12]) : null;
+            $keyFeatures = $row[13] ? trim($row[13]) : null;
+            $summary = $row[14] ? trim($row[14]) : null;
 
             // Convert  fuelType and transmission to arrays
             $fuelTypeArray = $fuelType ? array_map('trim', explode(',', $fuelType)) : [];
@@ -50,9 +49,10 @@ class VariantsImport implements ToCollection, WithStartRow
 
             // Save data to the database
             $data = AddVariant::updateOrCreate(
-                ['brandname' => $brandName, 'carname' => $carName],
+                ['carmodalname' => $carModelName], // The criteria to search for duplicates in carmodalname
                 [
-                    'carmodalname' => $carModelName,
+                    'brandname' => $brandName,
+                    'carname' => $carName,
                     'availabelstatus' => $availableStatus,
                     'price' => $price,
                     'pricetype' => $priceType,
@@ -67,6 +67,7 @@ class VariantsImport implements ToCollection, WithStartRow
                     'summary' => $summary,
                 ]
             );
+
             // dd($data);
         }
     }

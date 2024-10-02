@@ -560,26 +560,27 @@ class Store extends Controller
 
     public function insertvariants(Request $rq)
     {
-        // dd($rq->all());
         try {
+            // Validate the input fields
             $data = $rq->validate([
-                'carname' => 'required|nullable',
-                'carmodalname' => 'required|nullable',
-                'brandname' => 'required|nullable',
-                'availabelstatus' => 'required|nullable',
-                'price' => 'required|nullable',
-                'pricetype' => 'required|nullable',
-                'bodytype' => 'required|nullable',
-                'mileage' => 'required|nullable',
-                'engine' => 'required|nullable',
-                'fueltype' => 'required|nullable',
-                'transmission' => 'required|nullable',
-                'seatingcapacity' => 'required|nullable',
-                'userreportedmilage' => 'required|nullable',
+                'carname' => 'required',
+                'carmodalname' => 'required',
+                'brandname' => 'required',
+                'availabelstatus' => 'required',
+                'price' => 'required',
+                'pricetype' => 'required',
+                'bodytype' => 'required',
+                'mileage' => 'required',
+                'engine' => 'required',
+                'fueltype' => 'required',
+                'transmission' => 'required',
+                'seatingcapacity' => 'required',
+                'userreportedmilage' => 'required',
                 'brochure' => 'nullable',
+                'colors' => 'required', // Ensure colors is required
             ]);
 
-            //Brochure Upload
+            // Brochure Upload
             if ($rq->hasFile('brochure')) {
                 $rq->validate([
                     'brochure' => 'mimes:pdf|max:2048',
@@ -588,10 +589,22 @@ class Store extends Controller
                 $finalfile = time() . '_' . $brochurepdf->getClientOriginalName();
                 $brochurepdf->move(public_path('assets/backend-assets/images'), $finalfile);
                 $data['brochure'] = $finalfile;
-                // dd($finalfile);
             }
 
-            AddVariant::create([
+            // Storing Colors in JSON format like label and value
+            $colorsArray = $rq->colors; // Fetch the colors from the request, assuming it's already an array
+            $formattedColors = [];
+            foreach ($colorsArray as $colorOption) {
+                list($label, $values) = explode('|', $colorOption); // Split label and values
+                $colorValues = explode(',', $values); // Split the colors by comma
+                $formattedColors[] = [
+                    'label' => $label,
+                    'value' => $colorValues
+                ];
+            }
+
+            // Create a new variant record
+            $variantdata = AddVariant::create([
                 'carname' => $rq->carname,
                 'brandname' => $rq->brandname,
                 'carmodalname' => $rq->carmodalname,
@@ -601,22 +614,21 @@ class Store extends Controller
                 'bodytype' => $rq->bodytype,
                 'mileage' => json_encode($rq->mileage),
                 'engine' => $rq->engine,
-                'fueltype' => json_encode($rq->fueltype),    //These values are coming from multiple dropown and storing as ARRAY...
+                'fueltype' => json_encode($rq->fueltype),
                 'transmission' => json_encode($rq->transmission),
+                'colors' => json_encode($formattedColors), // Store formatted colors
                 'seatingcapacity' => $rq->seatingcapacity,
                 'userreportedmilage' => $rq->userreportedmilage,
                 'keyfeatures' => $rq->keyfeatures,
                 'summary' => $rq->summary,
                 'brochure' => $finalfile ?? null,
             ]);
+            //dd($variantdata);
 
-            //dd($data);
-            Log::info('Variant Inserted Successfully: ', ['user' => $data]);
             return back()->with('success', 'Variant Added..!!!!');
 
         } catch (Exception $e) {
             return redirect()->route('addvariant')->with('error', $e->getMessage());
-            //return redirect()->route('addvariant')->with('error', 'Not Added Try Again...!!!!');
         }
     }
 
@@ -629,16 +641,16 @@ class Store extends Controller
 
     public function updatevariants(Request $req)
     {
-         //Brochure Upload
-         if ($req->hasFile('brochure')) {
+        //dd($req->all());
+        $finalfile = $variantdata->brochure ?? null;
+        if ($req->hasFile('brochure')) {
             $req->validate([
                 'brochure' => 'mimes:pdf|max:2048',
             ]);
             $brochurepdf = $req->file('brochure');
             $finalfile = time() . '_' . $brochurepdf->getClientOriginalName();
             $brochurepdf->move(public_path('assets/backend-assets/images'), $finalfile);
-            $data['brochure'] = $finalfile;
-            // dd($finalfile);
+
         }
         try {
             $variantdata = AddVariant::findOrFail($req->variantid);
@@ -656,7 +668,10 @@ class Store extends Controller
             $variantdata->userreportedmilage = $req->userreportedmilage;
             $variantdata->keyfeatures = $req->keyfeatures;
             $variantdata->summary = $req->summary;
-            $variantdata->brochure = $finalfile;
+            if ($finalfile) {
+                $variantdata->brochure = $finalfile;
+            }
+            // dd( $finalfile);
             $variantdata->save();
             return back()->with('success', 'Variant Updated successfully.');
 
@@ -686,6 +701,7 @@ class Store extends Controller
 
     public function storefeatures(Request $req)
     {
+        //dd($req->all());
         $formlabels = $req->input('formlabels');
         $featurenames = $req->input('featurenames');
         $values = $req->input('values');
@@ -1036,7 +1052,7 @@ class Store extends Controller
             if ($row != null) {
                 $colors[] = [
                     'label' => $row,
-                    'value' => [$colorone[$index],$colortwo[$index]],
+                    'value' => [$colorone[$index], $colortwo[$index]],
                 ];
             }
         }
@@ -1110,9 +1126,16 @@ class Store extends Controller
     public function inserthappycustomers(Request $req)
     {
         try {
+            $data = $req->validate([
+                'vehicle' => 'required',
+                'customerfullname' => 'required',
+                'ratings' => 'required',
+                'discription' => 'required',
+                'reviewimg' => 'required',
+            ]);
             if ($req->hasFile('reviewimg')) {
                 $req->validate([
-                    'reviewimg' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'reviewimg' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
                 ]);
                 $filereviewimg = $req->file('reviewimg');
                 $filenameroad = time() . '_' . $filereviewimg->getClientOriginalName();

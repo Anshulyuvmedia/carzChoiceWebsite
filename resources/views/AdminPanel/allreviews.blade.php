@@ -39,6 +39,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mt-2 text-black mb-2 alert-danger">NOTE : <span class="text-danger fs-5">Only reviews with an approved status will be visible on the website.</span></div>
                         <table id="example" class="table   table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
@@ -176,7 +177,7 @@
     $(document).ready(function() {
         $('#table-body').on('click', '.editbtnmodal', function() {
             var reviewdata = $(this).data('record');
-            console.log(reviewdata.vehicle);
+            console.log(reviewdata);
             $('#modalbody').empty();
 
 

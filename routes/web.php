@@ -87,7 +87,7 @@ Route::controller(FrontendStore::class)->group(function() {
     Route::post('edituserprofile', 'edituserprofile')->name('edituserprofile');
     Route::get('filterbrandname/{selectedbrandname}', 'filterbrandname')->name('filterbrandname');
     Route::get('filtervariantscompare/{brand}', 'filtervariantscompare')->name('filtervariantscompare');
-    Route::get('filtermodalname/{selectedcar}', 'filtermodalname')->name('filtermodalname');
+    Route::get('filtercolors/{selectedcar}', 'filtercolors')->name('filtercolors');
     Route::post('insertadpost', 'insertadpost')->name('insertadpost');
     Route::get('deleteadpost/{id}', 'deleteadpost')->name('deleteadpost');
     Route::post('updateadpost', 'updateadpost')->name('updateadpost');
@@ -117,9 +117,6 @@ Route::controller(FrontendStore::class)->group(function() {
 });
 
 
-
-
-
 //Admin Panel Routes
 Route::get('/admin/login', function() { return view('auth.login'); });
 Route::get('/logoutuser', [Authentication::class, 'logout'])->name('logoutuser');
@@ -143,7 +140,7 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('variantslist', 'variantslist')->name('variantslist');
     Route::get('editvariant/{id}', 'editvariant')->name('editvariant');
     Route::get('userslist', 'userslist')->name('userslist');
-    Route::get('addfeatures/{id}', 'addfeatures')->name('addfeatures');
+    Route::get('addfeatures/{id}/{carname}/{variantname}', 'addfeatures')->name('addfeatures');
     Route::get('addspecifications/{id}', 'addspecifications')->name('addspecifications');
     Route::get('addbannerimmages', 'addbannerimmages')->name('addbannerimmages');
     Route::get('displaysettings', 'displaysettings')->name('displaysettings');
@@ -230,9 +227,9 @@ Route::controller(Store::class)->group(function() {
 });
 
 
-
 //Excel Routes
 Route::get('/import-excel', [ExcelCarList::class,'index'])->name('import.excel');
-Route::get('/import-excelvarinats', [ExcelCarList::class,'index'])->name('import.excelvarinats');
 Route::post('/import-excel', [ExcelCarList::class,'import']);
+
+Route::get('/import-excelvarinats', [ExcelCarList::class,'index'])->name('import.excelvarinats');
 Route::post('/import-excelvarinats', [ExcelCarList::class,'importvariants']);

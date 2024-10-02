@@ -25,5 +25,6 @@ class AddVariant extends Model
         'summary',
         'showhidestatus',
         'brochure',
+        'colors',
     ];
 }

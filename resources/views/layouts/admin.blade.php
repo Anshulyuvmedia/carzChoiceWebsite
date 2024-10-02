@@ -260,7 +260,6 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('addcarlist') }}">Add Car List</a></li>
-                                <li><a href="{{ route('addvariant') }}">Add Variant</a></li>
                                 <li><a href="{{ route('variantslist') }}">Variants List</a></li>
                             </ul>
                         </li>

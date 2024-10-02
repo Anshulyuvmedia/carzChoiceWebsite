@@ -140,9 +140,10 @@ class AdminView extends Controller
     public function editvariant($id)
     {
         $variantdata = AddVariant::find($id);
-        // dd($variantdata);
+        $bodytypes = Master::where('type' , '=','Body Type')->get();
+        //dd(vars: $bodytype);
         $carlistdata = CarList::get();
-        return view('AdminPanel.editvariant', compact('variantdata', 'carlistdata'));
+        return view('AdminPanel.editvariant', compact('variantdata', 'carlistdata','bodytypes'));
     }
 
     public function userslist()
@@ -151,8 +152,14 @@ class AdminView extends Controller
         return view('AdminPanel.userslist', compact('registeredusers'));
     }
 
-    public function addfeatures($id)
+    public function addfeatures($id, $car,$variantname)
     {
+        $carname = $car;
+        $variant = $variantname;
+        $carvariants = AddVariant::join('add_features','add_features.vehicleid','=','add_variants.id')
+        ->select('add_variants.*')
+        ->where('showhidestatus', '=', 1)
+        ->where('carname',$carname)->get();
         $features = FormAttribute::where('cartype', '=', 'features')->get();
         $featureslist = AddFeature::where('vehicleid', '=', $id)->get();
         $grouped = [];
@@ -176,9 +183,12 @@ class AdminView extends Controller
             }
         }
 
-        return view('AdminPanel.addfeatures', compact('features', 'featureslist', 'grouped'))->with('vehicleid', $id);
+        return view('AdminPanel.addfeatures', compact('features', 'featureslist', 'grouped','carvariants'))->with([
+            'vehicleid' => $id,
+            'carname' => $carname,
+            'variant' => $variant,
+        ]);
     }
-
 
     public function addspecifications($id)
     {

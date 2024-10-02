@@ -16,7 +16,10 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-0">@yield('title')</h4>
+                    <div class="col-lg-4 d-flex align-items-end">
+                        <h4 class="me-3">@yield('title')</h4>
+                        <a href="{{ route('addvariant') }}" class="btn btn-success waves-effect waves-light"><i class="uil-plus"></i> Add New Variant</a>
+                    </div>
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">dashboard</a></li>&nbsp;/
@@ -44,10 +47,10 @@
                                     <th>Mileage</th>
                                     <th>Engine</th>
                                     <th>Fuel Type</th>
-                                    <th>Transmission Type</th>
-                                    <th>Seating Capactiy</th>
-                                    <th>Reported Mileage</th>
-                                    <th>Show/Hide Status</th>
+                                    {{-- <th>Transmission</th> --}}
+                                    {{-- <th>Seating Capactiy</th> --}}
+                                    {{-- <th>Reported Mileage</th> --}}
+                                    <th>Show/Hide</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -84,10 +87,11 @@
                                         </table>
                                     </td>
                                     <td>{{ substr($row->engine,0,10) }}.....</td>
-                                    <td>{{ implode(', ', json_decode($row->fueltype)) }}</td> {{-- decoding JSON and merging Array Values --}}
-                                    <td>{{ implode(', ', json_decode($row->transmission)) }}</td>
-                                    <td>{{ $row->seatingcapacity }}</td>
-                                    <td>{{ $row->userreportedmilage }}</td>
+                                    <td>{{ implode(', ', json_decode($row->fueltype)) }}</td> {{-- decoding JSON and
+                                    merging Array Values --}}
+                                    {{-- <td>{{ implode(', ', json_decode($row->transmission)) }}</td> --}}
+                                    {{-- <td>{{ $row->seatingcapacity }}</td> --}}
+                                    {{-- <td>{{ $row->userreportedmilage }}</td> --}}
                                     <td>
                                         <div class="square-switch">
                                             <input data-id="{{ $row->id }}" type="checkbox"
@@ -101,15 +105,15 @@
                                     <td>
                                         <div class="flex-shrink-0">
                                             <div class="dropdown chat-noti-dropdown">
-                                                <button class="btn dropdown-toggle py-0" type="button"
+                                                <button class="btn btn-primary text-white dropdown-toggle btn-sm py-0" type="button"
                                                     data-bs-toggle="dropdown" aria-haspopup="true"
                                                     aria-expanded="false">
-                                                    <i class="uil uil-ellipsis-h"></i>
+                                                    <i class="uil uil-pen"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
                                                     <a href="{{ route('addvehicleimages', ['id' => $row->id, 'carname' => $row->carname]) }}"
                                                         class="dropdown-item">Add Vehicle Images</a>
-                                                    <a href="{{ route('addfeatures', ['id' => $row->id]) }}"
+                                                    <a href="{{ route('addfeatures', ['id' => $row->id, 'carname' => $row->carname,  'variantname' =>  $row->carmodalname]) }}"
                                                         class="dropdown-item">Add Features</a>
                                                     <a href="{{ route('addspecifications', ['id' => $row->id]) }}"
                                                         class=" dropdown-item">Add Specifications</a>
@@ -210,7 +214,7 @@
 
     $(document).ready(function() {
         $('#example').DataTable({
-            pageLength: 15,
+            pageLength: 10,
             layout: {
                 topStart: {
                     buttons: ['copy', 'csv', 'excel', 'pdf', 'print']

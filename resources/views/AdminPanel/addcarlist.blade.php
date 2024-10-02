@@ -94,7 +94,7 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody id="table-body">
+                            <tbody id="table-body" class="customtable">
                                 @foreach ($carlistdata as $index => $row)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
@@ -322,11 +322,11 @@
         <div class="col-lg-12 mt-3">
             <div class="input-group mb-3">
                 <span class="input-group-text">Color Name</span>
-                <input type="text" name="colornames[]" value="${element.label}" aria-label="First name" placeholder="Enter color name" class="form-control">
+                <input type="text" name="colornames[]" value="${element.label}" required aria-label="First name" placeholder="Enter color name" class="form-control">
                 <span class="input-group-text">Color 1</span>
-                <input class="form-control color-picker${index}" name="colorone[]" id="colorpicker1-${index}" value="${colorone}">
+                <input class="form-control color-picker${index}" name="colorone[]" required id="colorpicker1-${index}" value="${colorone}">
                 <span class="input-group-text">Color 2</span>
-                <input class="form-control color-picker${index}" name="colortwo[]" id="colorpicker2-${index}" value="${colortwo}">
+                <input class="form-control color-picker${index}" name="colortwo[]" required id="colorpicker2-${index}" value="${colortwo}">
                 <button class="btn btn-danger deleteRow" type="button" id="button-addon2"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </div>
         </div>

@@ -38,15 +38,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#Features">Features</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#Brochure">Brochure</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#Colours">Colours</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#Reviews">User Reviews</a>
-                            </li>
                         </ul>
                     </div>
                 </div>

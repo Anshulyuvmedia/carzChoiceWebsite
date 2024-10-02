@@ -228,6 +228,80 @@
 
                 <!-- Middle Content Area -->
                 <div class="col-md-8 col-xs-12 col-sm-12">
+
+
+                    <div class="well alert-box-container margin-top-20" id="colorsection">
+                        <h3>{{ $cardetails->carname }} Colours</h3>
+                        <p>
+                            {{ $cardetails->carname }} is available/sold in the following colours in India.
+                        </p>
+
+                        <div class="col-md-12 col-xs-12 col-sm-12 p-0">
+                            <div class="singlepage-detail">
+                                <div id="single-color-slider" class="flexslider p-2 mb-0 pb-0">
+                                    <ul class="slides">
+                                        @foreach ($cardetails->images as $image)
+                                        @php
+                                        //dd( $image);
+                                        // Decode JSON into an associative array
+                                        $color = json_decode($image->color, true);
+                                        $values = $color['label'];
+                                        // dd($values);
+                                        @endphp
+                                        <li>
+                                            <a href="{{asset('assets/backend-assets/images/' . $image->addimage) }}"
+                                                data-fancybox="group">
+                                                <img alt="{{ $image->title }}"
+                                                    src="{{ asset('assets/backend-assets/images/' . $image->addimage) }}" />
+                                            </a>
+                                            <p class="flex-caption text-capitalize">
+                                                {{ $values }}
+                                            </p>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <div id="carousel-color" class="flexslider p-2 mb-0">
+                                    <div class="singlepage-detail rounded-4">
+                                        <div id="carousel" class="flexslider p-2 mb-0">
+                                            <ul class="slides">
+                                                @foreach ($cardetails['images'] as $row)
+                                                <li>
+                                                    @php
+                                                    // Decode JSON into an associative array
+                                                    $color = json_decode($row->color, true);
+                                                    // dd($color);
+                                                    @endphp
+
+                                                    @if (json_last_error() === JSON_ERROR_NONE && isset($color['label'],
+                                                    $color['value']))
+                                                    @php
+                                                    // Split the labels by comma
+                                                    $labels = $color['label'];
+                                                    $values = $color['value'];
+                                                    @endphp
+
+                                                    @if (count($values) != 0)
+
+                                                    <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
+                                                        style="height: 50px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
+
+                                                    </div>
+                                                    @endif
+                                                    @endif
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
                     <!-- Single Ad -->
                     <div class="singlepage-detail ">
                         <div class="content-box-grid rounded-4" id="pricesection">
@@ -614,12 +688,11 @@
                                         <tr class="imagebox">
                                             <td class="stickydivision">
                                                 <div>
-                                                    @foreach ($cardetails['images'] as $row)
-                                                    <div class="">
-                                                        <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
-                                                            alt="scorpio-n">
+                                                    @if (isset($cardetails['images'][0]))
+                                                    <div>
+                                                        <img src="{{ asset('assets/backend-assets/images/' . $cardetails['images'][0]->addimage) }}" alt="scorpio-n">
                                                     </div>
-                                                    @endforeach
+                                                @endif
                                                     <div class="text-center">
                                                         {{ $cardetails->brandname }} {{ $cardetails->carname }}
                                                     </div>
@@ -799,7 +872,6 @@
                             </div>
                         </div>
                     </div>
-                    modalbtncheck
                     <!-- Price Alert -->
                     <div class="alert-box-container margin-top-30">
 
@@ -832,77 +904,6 @@
                         </div>
                     </div>
 
-                    <div class="well alert-box-container margin-top-20" id="colorsection">
-                        <h3>{{ $cardetails->carname }} Colours</h3>
-                        <p>
-                            {{ $cardetails->carname }} is available/sold in the following colours in India.
-                        </p>
-
-                        <div class="col-md-12 col-xs-12 col-sm-12 p-0">
-                            <div class="singlepage-detail">
-                                <div id="single-color-slider" class="flexslider p-2 mb-0 pb-0">
-                                    <ul class="slides">
-                                        @foreach ($cardetails->images as $image)
-                                        @php
-                                        //dd( $image);
-                                        // Decode JSON into an associative array
-                                        $color = json_decode($image->color, true);
-                                        $values = $color['label'];
-                                        // dd($values);
-                                        @endphp
-                                        <li>
-                                            <a href="{{asset('assets/backend-assets/images/' . $image->addimage) }}"
-                                                data-fancybox="group">
-                                                <img alt="{{ $image->title }}"
-                                                    src="{{ asset('assets/backend-assets/images/' . $image->addimage) }}" />
-                                            </a>
-                                            <p class="flex-caption text-capitalize">
-                                                {{ $values }}
-                                            </p>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <div id="carousel-color" class="flexslider p-2 mb-0">
-                                    <div class="singlepage-detail rounded-4">
-                                        <div id="carousel" class="flexslider p-2 mb-0">
-                                            <ul class="slides">
-                                                @foreach ($cardetails['images'] as $row)
-                                                <li>
-                                                    @php
-                                                    // Decode JSON into an associative array
-                                                    $color = json_decode($row->color, true);
-                                                    // dd($color);
-                                                    @endphp
-
-                                                    @if (json_last_error() === JSON_ERROR_NONE && isset($color['label'],
-                                                    $color['value']))
-                                                    @php
-                                                    // Split the labels by comma
-                                                    $labels = $color['label'];
-                                                    $values = $color['value'];
-                                                    @endphp
-
-                                                    @if (count($values) != 0)
-
-                                                    <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
-                                                        style="height: 50px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
-
-                                                    </div>
-                                                    @endif
-                                                    @endif
-                                                </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
 
                     <div class="well alert-box-container margin-top-20" id="mileagesection">
                         <h3>{{ $cardetails->brandname }} {{ $cardetails->carname }} N Mileage</h3>

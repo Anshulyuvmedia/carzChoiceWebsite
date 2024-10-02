@@ -38,7 +38,7 @@
                             <div class="mb-3 row">
                                 <div class="col-lg-3">
                                     <label class="">Select Vehicle</label>
-                                    <select name="vehicle" class="form-select" id="" required>
+                                    <select name="vehicle" class="form-select" id="" >
                                         <option value="">--select vehicle--</option>
                                         @foreach ($variantdata as $value)
                                         <option value="{{$value->brandname}} {{$value->carname}} ({{$value->carmodalname}})">{{$value->brandname}}
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Ratings</label>
-                                    <select name="ratings" class="form-select" id="" required>
+                                    <select name="ratings" class="form-select" id="">
                                         <option value="">--give rating--</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -60,12 +60,12 @@
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Customer Full Name</label>
                                     <input class="form-control mb-3" placeholder="enter your fullname"
-                                        name="customerfullname" type="text" value="" id="example-text-input" required>
+                                        name="customerfullname" type="text" value="" id="example-text-input">
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Upload Review Image</label>
                                     <input class="form-control mb-3" placeholder="enter your fullname" name="reviewimg"
-                                        type="file" value="" id="example-text-input" required>
+                                        type="file" value="" id="example-text-input">
                                 </div>
 
                                 <div class="col-lg-12">

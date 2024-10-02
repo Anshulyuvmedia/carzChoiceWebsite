@@ -16,6 +16,7 @@ class CarListsImport implements ToCollection, WithStartRow
     }
     public function collection(Collection $rows)
     {
+        // dd($rows);
         $carData = [];
 
         foreach ($rows as $row) {
@@ -24,10 +25,11 @@ class CarListsImport implements ToCollection, WithStartRow
                 continue; // Skip invalid rows
             }
 
-            $brandName = $row[0];
-            $carName = $row[1];
-            $colorNames = explode(',', $row[2]); // Split color names by comma
-            $colorCodes = explode(',', $row[3]); // Split color codes by comma
+            $brandName = $row[0] ? trim($row[0]) : null;
+            $carName = $row[1] ? trim($row[1]) : null;
+            $colorNames = $row[2] ? trim($row[2]) : null;
+            // dd($colorNames);
+            $colorCodes = explode(',', $row[3] ? trim($row[3]) : null); // Split color codes by comma
 
             // Use a combination of brandName and carName as the key to aggregate data
             $key = "{$brandName}-{$carName}";
@@ -42,16 +44,16 @@ class CarListsImport implements ToCollection, WithStartRow
             }
 
             // Combine color names and codes, making sure they are in pairs
-            if (count($colorNames) === count($colorCodes)) {
+            if ($colorNames!=null) {
                 $combinedColors = [
-                    'label' => implode(',', $colorNames), // Combine labels
+                    'label' => $colorNames,
                     'value' => array_map('trim', $colorCodes) // Combine and trim codes
                 ];
 
                 $carData[$key]['colors'][] = $combinedColors;
             }
         }
-
+        // dd($carData);
         // Convert colors array to JSON and save to the database
         foreach ($carData as $data) {
             CarList::updateOrCreate(
@@ -59,7 +61,6 @@ class CarListsImport implements ToCollection, WithStartRow
                 ['colors' => json_encode($data['colors'])]
             );
         }
-        // dd($carData);
     }
 
 

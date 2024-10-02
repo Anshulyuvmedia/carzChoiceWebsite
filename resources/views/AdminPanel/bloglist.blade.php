@@ -41,7 +41,7 @@
                                     <th>Car Name</th>
                                     <th>Blog Image</th>
                                     <th>Title</th>
-                                    <th>Description</th>
+                                    {{-- <th>Description</th> --}}
                                     <th>Video URL</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -58,8 +58,8 @@
                                             <img src="{{asset("assets/backend-assets/images/" . $row->blogimg) }}" alt="Thumbnail" width="100px">
                                         @endif
                                     </td>
-                                    <td>{{$row->blogtitle}}</td>
-                                    <td>{{ substr($row->description, 0,50) }}...</td>
+                                    <td>{{substr($row->blogtitle, 0,10)}}...</td>
+                                    {{-- <td>{{ substr($row->description, 0,50) }}...</td> --}}
                                     <td>
                                         @if($row->vurl)
                                         <a href="{{$row->vurl}}" target="_blank">

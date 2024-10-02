@@ -9898,7 +9898,7 @@ body .over-hidden {
 /* =-=-=-=-=-=-= Footer =-=-=-=-=-=-= */
 
 footer.footer-bg {
-    
+
     padding: 50px 200px 0;
     position: relative;
     border-top: 1px dashed #ddd;
@@ -9981,16 +9981,16 @@ footer.footer-bg {
 }
 
 .footer-top .widget.my-quicklinks ul li a {
-    color: #c2c2c2;
+    color: #ffffff;
 }
 .footer-top .widget ul li a {
-    color: #c2c2c2;
+    color: #ffffff;
 }
 .footer-top .widget ul li a:hover {
-    color: #ef0303;
+    color: #04aeee;
 }
 .footer-top .widget.my-quicklinks ul li a:hover {
-    color: #ef0303 !important;
+    color: #04aeee !important;
 }
 
 .footer-top .widget.socail-icons ul li a {
@@ -11243,4 +11243,9 @@ textarea {
 }
 .highlightbtn {
     cursor: pointer;
+}
+.customtable{
+    height: 500px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }

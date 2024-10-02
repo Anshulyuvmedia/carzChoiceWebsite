@@ -20,18 +20,27 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="{{ route('updatevariants') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
+            <form action="{{ route('updatevariants') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="row mb-0 p-2">
+                            <div class="col-lg-12 d-flex justify-content-end mt-3">
+                                <a href="{{ route('variantslist') }}" class="btn btn-info waves-effect waves-light"><i
+                                        class="uil-left-arrow-from-left me-2"></i>All Variants</a>
+                                <button type="submit" class="btn btn-success waves-effect waves-light ms-2">Update
+                                    Variant</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
                             <div class="mb-3 row">
                                 <div class="col-lg-3">
                                     <label class="">Select Car Name</label>
                                     <select name="carname" class="form-select mb-3" id="subcategory">
                                         <option value="">--select car--</option>
                                         @foreach ($carlistdata as $row)
-                                        <option value="{{ $row->carname }}" {{ $row->carname == $variantdata->carname ?'selected' : '' }}>
+                                        <option value="{{ $row->carname }}" {{ $row->carname == $variantdata->carname
+                                            ?'selected' : '' }}>
                                             {{ $row->carname }}</option>
                                         @endforeach
                                     </select>
@@ -50,15 +59,13 @@
                                             'selected' : '' }}>
                                             Available</option>
                                         <option value="Not Available" {{ $variantdata->availabelstatus ==
-                                            'Not
-                                            Available'
-                                            ? 'selected'
-                                            : '' }}>
+                                            'Not Available' ? 'selected': '' }}>
                                             Not Available</option>
-                                        <option value=" Coming soon" {{ $variantdata->availabelstatus == ' Coming soon'
+                                        <option value="Coming soon" {{ $variantdata->availabelstatus == ' Coming soon'
                                             ? 'selected' : '' }}>
                                             Coming soon</option>
-                                        <option value=" Newly Launched" {{ $variantdata->availabelstatus == ' Newly Launched'
+                                        <option value="Newly Launched" {{ $variantdata->availabelstatus == ' Newly
+                                            Launched'
                                             ? 'selected' : '' }}>
                                             Newly Launched</option>
                                     </select>
@@ -86,10 +93,21 @@
                                     <input class="form-control mb-3" placeholder="enter engine" name="engine"
                                         type="text" value="{{ $variantdata->engine }}" id="example-text-input">
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <label class="">Upload Brochure</label>
                                     <input class="form-control" placeholder="" accept=".pdf" name="brochure" type="file"
-                                        value="" id="example-text-input" required>
+                                        value="" id="example-text-input">
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="">Body Type</label>
+                                    <select name="bodytype" class="form-select mb-3" id="subcategory">
+                                        <option value="">--select Body Type--</option>
+                                        @foreach ($bodytypes as $row)
+                                        <option value="{{ $row->label }}" {{ $row->label == $variantdata->bodytype ?
+                                            'selected' : '' }}>
+                                            {{ $row->label }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="col-lg-4">
                                     @php
@@ -115,11 +133,11 @@
                                         <option value="">--select seating capacity--</option>
                                         @for ($i = 1; $i <= 8; $i++) <option value="{{ $i }}" {{ $variantdata->
                                             seatingcapacity == $i ? 'selected' : '' }}>
-                                            {{ $i }}</option>
+                                            {{ $i }}
+                                            </option>
                                             @endfor
-                                            <option value="8+" {{ $variantdata->seatingcapacity == '8+' ? 'selected' :
-                                                '' }}>
-                                                8+</option>
+                                            <option value="8+" {{ $variantdata->seatingcapacity == '8+' ? 'selected' :''
+                                                }}>8+</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
@@ -160,8 +178,8 @@
                                                 }}</label>
                                             <input class="form-control ms-2" value="{{ $mileage }}"
                                                 placeholder="enter mileage for {{ $fuelType }}"
-                                                name="mileage[{{ $fuelType }}]" type="text" id="mileage-{{ $fuelType }}"
-                                                required>
+                                                name="mileage[{{ $fuelType }}]" type="text"
+                                                id="mileage-{{ $fuelType }}">
                                         </div>
                                         @endforeach
                                     </div>
@@ -182,13 +200,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12 d-flex justify-content-end mt-3">
-                                <button type="submit" class="btn btn-success waves-effect waves-light">Update</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div> <!-- end col -->
+            </form>
         </div>
     </div>
 </div>
@@ -279,7 +294,7 @@
                 $('#mileageInputs').append(`
                     <div class="col-lg-4">
                         <label for="mileage-${fuelType}" class="mt-3">Mileage for ${fuelType}</label>
-                        <input class="form-control ms-2" placeholder="enter mileage for ${fuelType}" name="mileage[${fuelType}]" type="text" id="mileage-${fuelType}" required>
+                        <input class="form-control ms-2" placeholder="enter mileage for ${fuelType}" name="mileage[${fuelType}]" type="text" id="mileage-${fuelType}">
                     </div>
                 `);
             });

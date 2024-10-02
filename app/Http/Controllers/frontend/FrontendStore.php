@@ -220,11 +220,15 @@ class FrontendStore extends Controller
         // dd($statedata);
         return response()->json($varidata);
     }
-    public function filtermodalname($selectedcar)
+    public function filtercolors($selectedcar)
     {
-        $carmodalname = AddVariant::where('showhidestatus', '=', 1)->where('carname', $selectedcar)->get();
-        // dd($statedata);
-        return response()->json($carmodalname);
+        $car = CarList::where('carname', $selectedcar)->first();
+        if ($car && $car->colors) {
+            $colors = json_decode($car->colors, true);
+            return response()->json($colors);
+        } else {
+            return response()->json([]);
+        }
     }
 
     public function insertadpost(Request $rq)
@@ -729,7 +733,7 @@ class FrontendStore extends Controller
 
     public function insertcompareoffcanvas(Request $rq)
     {
-        dd($rq->all());
+        //dd($rq->all());
 
         if (is_array($rq->compareid) && count($rq->compareid) == 1) {
             $compareIdsArray = explode(',', $rq->compareid[0]);
