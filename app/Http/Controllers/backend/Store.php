@@ -40,6 +40,7 @@ class Store extends Controller
     public function updatecompanyprofile(Request $req, $id)
     {
         try {
+            // Validate the request data
             $companyprofiledata = $req->validate([
                 'companyname' => 'required',
                 'companylogo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -57,7 +58,8 @@ class Store extends Controller
 
             // Retrieve the existing CompanyProfile record by $id
             $companyProfile = CompanyProfile::findOrFail($id);
-            // dd($companyProfile);
+
+            // Update the company profile fields
             $companyProfile->companyname = $companyprofiledata['companyname'];
             $companyProfile->email = $companyprofiledata['email'];
             $companyProfile->phonenumber = $companyprofiledata['phonenumber'];
@@ -69,9 +71,19 @@ class Store extends Controller
             $companyProfile->twurl = $companyprofiledata['twurl'];
             $companyProfile->linkurl = $companyprofiledata['linkurl'];
             $companyProfile->address = $companyprofiledata['address'];
+
+            // Handle company logo upload like blog image
             if ($req->hasFile('companylogo')) {
-                $companyProfile->companylogo = $req->file('companylogo')->store('logos', 'public');
+                $req->validate([
+                    'companylogo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+                $file = $req->file('companylogo');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('assets/backend-assets/'), $filename);
+                $companyProfile->companylogo = $filename;
             }
+
+
             $companyProfile->save();
 
             return back()->with('success', 'Profile Updated successfully.');
@@ -80,6 +92,7 @@ class Store extends Controller
             return back()->with('error', 'Failed to update profile. ' . $e->getMessage());
         }
     }
+
 
     public function storemaster(Request $req)
     {

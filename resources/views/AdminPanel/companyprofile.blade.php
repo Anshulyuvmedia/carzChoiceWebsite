@@ -25,9 +25,11 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{route('updatecompanyprofile',['id'=>'1'])}}" method="POST"
-                            enctype="multipart/form-data">
+                        <form action="{{route('updatecompanyprofile',['id'=>'1'])}}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            <div class="mb-3 d-flex justify-content-end">
+                                <button type="submit" class="btn btn-success waves-effect waves-light">Update</button>
+                            </div>
                             <div class="mb-3 row">
                                 <label for="example-text-input" class="col-md-2 col-form-label">Company Name</label>
                                 <div class="col-md-10">
@@ -115,9 +117,6 @@
                                         placeholder="Your full address...">{{$data->address}}</textarea>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary waves-effect waves-light">Update</button>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -126,9 +125,9 @@
                 <div class="card">
                     <div class="card-body">
                         @if($data->companylogo)
-                        <img src="{{ asset('storage/' . $data->companylogo) }}" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/backend-assets/' . $data->companylogo) }}" class="img-fluid" alt="">
                         @else
-                        <img src="{{ asset('storage/logos' . '/defaultuser.png') }}" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/backend-assets/' . '/defaultuser.png') }}" class="img-fluid" alt="">
                         @endif
                     </div>
                 </div>

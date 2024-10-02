@@ -131,6 +131,7 @@
 <script>
     $(document).ready(function() {
     $('#example').DataTable({
+        pageLength: 7,
         layout: {
             topStart: {
                 buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
