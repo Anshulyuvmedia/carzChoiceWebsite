@@ -160,6 +160,7 @@ class AdminView extends Controller
         ->select('add_variants.*')
         ->where('showhidestatus', '=', 1)
         ->where('carname',$carname)->get();
+        // dd($carvariants);
         $features = FormAttribute::where('cartype', '=', 'features')->get();
         $featureslist = AddFeature::where('vehicleid', '=', $id)->get();
         $grouped = [];

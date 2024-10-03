@@ -68,7 +68,7 @@
                                                                     <td>{{ $row->value }} <input type="hidden"
                                                                             name="featurenames[{{ $formlabel }}][]"
                                                                             value="{{ $row->value }}"></td>
-                                                                    
+
                                                                     <td>
                                                                         @if ($row->inputtype != 'textarea')
                                                                             <input type="hidden"
@@ -78,7 +78,7 @@
                                                                                 class="border-dark-subtle {{ $row->inputtype == 'checkbox' ? 'form-check-input' : 'form-control' }}""
                                                                                 name="values[{{ $formlabel }}][{{ $index }}]"
                                                                                 type={{ $row->inputtype }}
-                                                                                value="1"
+                                                                                value=""
                                                                                 placeholder="Enter value here..."
                                                                                 id="example-text-input-{{ $formlabel }}{{ $index }}" />
                                                                         @else
@@ -86,7 +86,7 @@
                                                                                 name="values[{{ $formlabel }}][{{ $index }}]"
                                                                                 value="0">
                                                                             <textarea class="border-dark-subtle {{ $row->inputtype == 'checkbox' ? 'form-check-input' : 'form-control' }}""
-                                                                                name="values[{{ $formlabel }}][{{ $index }}]" value="1" placeholder="Enter value here..."
+                                                                                name="values[{{ $formlabel }}][{{ $index }}]" value="" placeholder="Enter value here..."
                                                                                 id="example-text-input-{{ $formlabel }}{{ $index }}">
                                                                             </textarea>
                                                                         @endif
@@ -153,7 +153,7 @@
                                                                     <td>{{ $row->label }} <input type="hidden"
                                                                             name="featurenames[{{ $formlabel }}][]"
                                                                             value="{{ $row->label }}"></td>
-                                                                    
+
                                                                     <td>
                                                                         @if ($formlabel == 'checkbox')
                                                                             <input type="hidden"
