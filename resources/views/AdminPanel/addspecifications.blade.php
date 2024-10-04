@@ -7,7 +7,26 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-0">@yield('title')</h4>
+                    <h4 class="me-3">{{ $carname }} {{ $variant }} Specifications</h4>
+                    <div class="col-lg-3 p-0">
+                        <form action="{{ route('getspecstocopy') }}" method="POST" id="copyform">
+                            @csrf
+                            <label class="mb-0 fs-6">Copy Features of :</label>
+                            <div class="p-0 d-flex justify-content-start">
+                                <select name="basevariant" class="form-select mb-0" id="variantdrop" required>
+                                    <option value="">--select variant--</option>
+                                    @foreach ($carvariants as $row)
+                                        <option data-variant="{{ $row->id }}" value="{{ $row->id }}">
+                                            {{ $row->carmodalname }}</option>
+                                    @endforeach
+                                </select>
+                                <input type="hidden" name="currentvehicleid" value="{{ $vehicleid }}">
+                                <button type="submit" class="btn btn-success ms-2"
+                                    onclick="confirmcopyfetures(event, '{{ $vehicleid }}')"
+                                    class="text-danger dropdown-item">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">dashboard</a></li>&nbsp;/
@@ -224,24 +243,6 @@
 @endif
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    function confirmDelete(id) {
-        let smiley = '😊';
-        swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this data!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location.href = "/deletevariants/" + id;
-                } else {
-                    swal("Great Decision....!! Your data is safe! " + smiley);
-                }
-            });
-    }
-
     function toggleTable(button) {
         const table = button.nextElementSibling;
         if (table.style.display === "none") {
@@ -249,6 +250,33 @@
         } else {
             table.style.display = "none";
         }
+    }
+</script>
+<script>
+    function confirmcopyfetures(event, id) {
+        event.preventDefault();
+        let smiley = '😊';
+        swal({
+                title: "Are you sure?",
+                text: "You want to copy Specifications of this variant!",
+                icon: "warning",
+                buttons: {
+                    cancel: "Cancel",
+                    confirm: {
+                        text: "Proceed",
+                        value: true,
+                        visible: true,
+                    }
+                },
+                // dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    document.getElementById('copyform').submit();
+                } else {
+                    swal("Great Decision....!! Specifications will not be copy! " + smiley);
+                }
+            });
     }
 </script>
 @endpush

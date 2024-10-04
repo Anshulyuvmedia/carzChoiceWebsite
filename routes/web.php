@@ -141,7 +141,7 @@ Route::controller(AdminView::class)->group(function() {
     Route::get('editvariant/{id}', 'editvariant')->name('editvariant');
     Route::get('userslist', 'userslist')->name('userslist');
     Route::get('addfeatures/{id}/{carname}/{variantname}', 'addfeatures')->name('addfeatures');
-    Route::get('addspecifications/{id}', 'addspecifications')->name('addspecifications');
+    Route::get('addspecifications/{id}/{carname}/{variantname}', 'addspecifications')->name('addspecifications');
     Route::get('addbannerimmages', 'addbannerimmages')->name('addbannerimmages');
     Route::get('displaysettings', 'displaysettings')->name('displaysettings');
     Route::get('comparecars', 'comparecars')->name('comparecars');
@@ -222,6 +222,9 @@ Route::controller(Store::class)->group(function() {
     Route::post('/updateactivationstatus', 'updateactivationstatus')->name('updateactivationstatus');
     Route::post('updatemaster', 'updatemaster')->name('updatemaster');
     Route::post('updatesubmaster', 'updatesubmaster')->name('updatesubmaster');
+    Route::post('getfeaturestocopy', 'getfeaturestocopy')->name('getfeaturestocopy');
+    Route::post('getspecstocopy', 'getspecstocopy')->name('getspecstocopy');
+
 
 
 });

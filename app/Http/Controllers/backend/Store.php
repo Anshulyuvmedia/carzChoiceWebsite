@@ -1269,5 +1269,68 @@ class Store extends Controller
             return back()->with('error', 'Not Updated..Try Again.....');
         }
     }
-}
 
+    public function getfeaturestocopy(Request $req)
+    {
+        // Retrieve features from the base variant
+        $features = AddFeature::where('vehicleid', $req->basevariant)->pluck('features')->first();
+
+        if (!$features) {
+            return back()->with('error', 'No Variant Selected');
+        }
+
+        try {
+            // Check if the current vehicle already has features
+            $existingFeature = AddFeature::where('vehicleid', $req->currentvehicleid)->exists();
+
+            if ($existingFeature) {
+                // If the vehicle has features, update them
+                AddFeature::where('vehicleid', $req->currentvehicleid)->update([
+                    'features' => $features,
+                ]);
+            } else {
+                // If the vehicle doesn't have features, create a new entry
+                AddFeature::create([
+                    'vehicleid' => $req->currentvehicleid,
+                    'features' => $features,
+                ]);
+            }
+
+            return back()->with('success', 'Features Copied.');
+        } catch (Exception $f) {
+            return back()->with('error', $f->getMessage());
+        }
+    }
+    public function getspecstocopy(Request $req)
+    {
+        // Retrieve features from the base variant
+        $specs = AddSpecification::where('vehicleid', $req->basevariant)->pluck('specifications')->first();
+
+        if (!$specs) {
+            return back()->with('error', 'No Variant Selected');
+        }
+
+        try {
+            // Check if the current vehicle already has specs
+            $existingFeature = AddSpecification::where('vehicleid', $req->currentvehicleid)->exists();
+
+            if ($existingFeature) {
+                // If the vehicle has specs, update them
+                AddSpecification::where('vehicleid', $req->currentvehicleid)->update([
+                    'specifications' => $specs,
+                ]);
+            } else {
+                // If the vehicle doesn't have specs, create a new entry
+                AddSpecification::create([
+                    'vehicleid' => $req->currentvehicleid,
+                    'specifications' => $specs,
+                ]);
+            }
+
+            return back()->with('success', 'Specifications Copied.');
+        } catch (Exception $f) {
+            return back()->with('error', $f->getMessage());
+        }
+    }
+
+}

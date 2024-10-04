@@ -183,7 +183,7 @@ class AdminView extends Controller
                 }
             }
         }
-
+        //DD( $grouped);
         return view('AdminPanel.addfeatures', compact('features', 'featureslist', 'grouped','carvariants'))->with([
             'vehicleid' => $id,
             'carname' => $carname,
@@ -191,10 +191,16 @@ class AdminView extends Controller
         ]);
     }
 
-    public function addspecifications($id)
+    public function addspecifications($id, $car,$variantname)
     {
+        $carname = $car;
+        $variant = $variantname;
         $specifications = FormAttribute::where('cartype', '=', 'specifications')->get();
         $specificationslist = AddSpecification::where('vehicleid', '=', $id)->get();
+        $carvariants = AddVariant::join('add_specifications','add_specifications.vehicleid','=','add_variants.id')
+        ->select('add_variants.*')
+        ->where('showhidestatus', '=', 1)
+        ->where('carname',$carname)->get();
         $groupedspecs = [];
 
         if (count($specificationslist) > 0) {
@@ -216,7 +222,11 @@ class AdminView extends Controller
             }
         }
 
-        return view('AdminPanel.addspecifications', compact('specifications', 'specificationslist', 'groupedspecs'))->with('vehicleid', $id);
+        return view('AdminPanel.addspecifications', compact('specifications', 'specificationslist', 'groupedspecs','carvariants'))->with([
+            'vehicleid' => $id,
+            'carname' => $carname,
+            'variant' => $variant,
+        ]);
     }
 
     public function addbannerimmages()

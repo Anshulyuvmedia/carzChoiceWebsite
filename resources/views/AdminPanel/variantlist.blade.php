@@ -115,7 +115,7 @@
                                                         class="dropdown-item">Add Vehicle Images</a>
                                                     <a href="{{ route('addfeatures', ['id' => $row->id, 'carname' => $row->carname,  'variantname' =>  $row->carmodalname]) }}"
                                                         class="dropdown-item">Add Features</a>
-                                                    <a href="{{ route('addspecifications', ['id' => $row->id]) }}"
+                                                    <a href="{{ route('addspecifications', ['id' => $row->id, 'carname' => $row->carname,  'variantname' =>  $row->carmodalname]) }}"
                                                         class=" dropdown-item">Add Specifications</a>
                                                     <a href="{{ route('prosandcons', ['id' => $row->id]) }}"
                                                         class="dropdown-item">Add Pros & Cons</a>
