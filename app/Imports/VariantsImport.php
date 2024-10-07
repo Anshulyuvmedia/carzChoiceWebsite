@@ -22,12 +22,12 @@ class VariantsImport implements ToCollection, WithStartRow
             if (count($row) < 15) {
                 continue; // Skip invalid rows
             }
-            $carName = $row[0] ? trim($row[0]) : null;
-            $brandName = $row[1] ? trim($row[1]) : null;
-            $carModelName = $row[2] ? trim($row[2]) : null;
-            $availableStatus = $row[3] ? trim($row[3]) : null;
-            $price = $row[4] ? trim($row[4]) : null;
-            $priceType = $row[5] ? trim($row[5]) : null;
+            $carName = $row[0] ? trim($row[0]) : 'Car Name';
+            $brandName = $row[1] ? trim($row[1]) : 'Brand Name';
+            $carModelName = $row[2] ? trim($row[2]) : 'Model Name';
+            $availableStatus = $row[3] ? trim($row[3]) : '0';
+            $price = $row[4] ? trim($row[4]) : '0';
+            $priceType = $row[5] ? trim($row[5]) : 'Lakhs';
             $bodyType = $row[6] ? trim($row[6]) : null;
             $mileageARAI = $row[7] ? trim($row[7]) : null;
             $engine = $row[8] ? trim($row[8]) : null;
