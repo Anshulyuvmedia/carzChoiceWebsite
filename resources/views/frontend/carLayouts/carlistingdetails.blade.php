@@ -350,16 +350,16 @@
                                     </div>
                                     {{-- table --}}
                                     <table class="table table-light border rounded-3 table-hover">
-                                        <thead>
+                                        <thead style="width: 100%; display:table;">
                                             <tr>
                                                 <th scope="col" class="text-muted">Variants</th>
-                                                <th scope="col" class="text-muted">On-Road Price</th>
-                                                <th scope="col" class="text-end text-muted">Compare</th>
+                                                <th scope="col" class="text-muted uniqureth">On-Road Price</th>
+                                                <th scope="col" class="text-end text-muted uniqurethtwo">Compare</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="table-body">
+                                        <tbody id="table-body" style="overflow-y: auto; overflow-x: hidden;  display: block; max-height: 400px; scrollbar-width: thin; width: 100%;">
                                             @foreach ($cardetails['variants'] as $rowqqqq)
-                                            <tr>
+                                            <tr style="display: table; width: 100%; table-layout: fixed;">
                                                 <input type="hidden" name="" id="CarrName"
                                                     value="{{ $rowqqqq->carname }}">
                                                 <td>
@@ -371,8 +371,8 @@
                                                         {{ implode(', ', json_decode($rowqqqq->fueltype)) }}
                                                     </div>
                                                 </td>
-                                                <td class="fw-bold">Rs. {{ $rowqqqq->price }} Lakh</td>
-                                                <td>
+                                                <td class="fw-bold uniquetd">Rs. {{ $rowqqqq->price }} Lakh</td>
+                                                <td class="uniquetdone" >
                                                     <div class="form-check form-check-reverse">
                                                         <label class="form-check-label" for="flexCheckDefault1">
                                                             Add to compare
@@ -690,9 +690,10 @@
                                                 <div>
                                                     @if (isset($cardetails['images'][0]))
                                                     <div>
-                                                        <img src="{{ asset('assets/backend-assets/images/' . $cardetails['images'][0]->addimage) }}" alt="scorpio-n">
+                                                        <img src="{{ asset('assets/backend-assets/images/' . $cardetails['images'][0]->addimage) }}"
+                                                            alt="scorpio-n">
                                                     </div>
-                                                @endif
+                                                    @endif
                                                     <div class="text-center">
                                                         {{ $cardetails->brandname }} {{ $cardetails->carname }}
                                                     </div>
@@ -1367,7 +1368,7 @@
                             </div>
 
                             <h6 class="pb-3">Select a variant</h6>
-                            <div id="modalvariantdiv">
+                            <div id="modalvariantdiv" style="height: 300px; overflow-y: auto; scrollbar-width: thin;">
                                 @foreach ($cardetails['variants'] as $rowqqqq)
                                 <a href="/carlistingdetails/{{ $rowqqqq->id }}"
                                     class="list-group-item list-group-item-action">
@@ -1792,20 +1793,20 @@
 
                         // Create the new tr
                         var newbody = `
-                    <tr>
+                    <tr style="display: table; width: 100%; table-layout: fixed;">
                         <input type="hidden" name="" id="CarrName" value="${item.carname}">
                         <td>
                             <div>
                                 ${item.carname}, (${item.carmodalname})
                             </div>
-                            <div class="text-muted fs-6">
+                            <div class="text-muted">
                                 <ul class="d-flex" style="column-count : 4;">
                                     ${fuelTypes} |&nbsp;&nbsp;${transmissions}
                                 </ul>
                             </div>
                         </td>
-                        <td class="fw-bold">Rs. ${item.price} Lakh</td>
-                        <td>
+                        <td class="fw-bold uniquetd" >Rs. ${item.price} Lakh</td>
+                        <td class="uniquetdone">
                             <div class="form-check form-check-reverse">
                                 <label class="form-check-label" for="comparecheck-${item.id}">
                                     Add to compare

@@ -36,7 +36,7 @@
                             <div class="mb-3 row">
                                 <div class="col-lg-3">
                                     <label class="">Select Car Name</label>
-                                    <select name="carname" class="form-select mb-3" id="subcategory">
+                                    <select name="carname" class="form-select mb-3" id="subcategory" required>
                                         <option value="">--select car--</option>
                                         @foreach ($carlistdata as $row)
                                         <option value="{{ $row->carname }}" {{ $row->carname == $variantdata->carname
@@ -48,12 +48,12 @@
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Car Modal Name</label>
                                     <input class="form-control mb-3" placeholder="enter modal name" name="carmodalname"
-                                        type="text" value="{{ $variantdata->carmodalname }}" id="example-text-input">
+                                        type="text" value="{{ $variantdata->carmodalname }}" id="example-text-input" required>
                                     <input type="hidden" name="variantid" value="{{ $variantdata->id }}">
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Select Status</label>
-                                    <select name="availabelstatus" class="form-select mb-3" id="cartypeid">
+                                    <select name="availabelstatus" class="form-select mb-3" id="cartypeid" required>
                                         <option value="">--select status--</option>
                                         <option value="Available" {{ $variantdata->availabelstatus == 'Available' ?
                                             'selected' : '' }}>
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Body Type</label>
-                                    <select name="bodytype" class="form-select mb-3" id="subcategory">
+                                    <select name="bodytype" class="form-select mb-3" id="subcategory" required>
                                         <option value="">--select Body Type--</option>
                                         @foreach ($bodytypes as $row)
                                         <option value="{{ $row->label }}" {{ $row->label == $variantdata->bodytype ?
@@ -115,7 +115,7 @@
                                     @endphp
                                     <label class="form-label">Transmission</label>
                                     <select name="transmission[]" class="select2 form-control select2-multiple"
-                                        multiple="multiple" data-placeholder="Choose type...">
+                                        multiple="multiple" data-placeholder="Choose type..." required>
                                         <option value="Automatic" {{ in_array('Automatic', $selectedtransmissions)
                                             ? 'selected' : '' }}>
                                             Automatic</option>
@@ -153,7 +153,7 @@
                                     <label class="form-label">Fuel Type</label>
                                     <select name="fueltype[]" id="fueltype"
                                         class="select2 form-control select2-multiple mb-3" multiple="multiple"
-                                        data-placeholder="Choose fuel type ...">
+                                        data-placeholder="Choose fuel type ..." required>
                                         <option value="Hybrid" {{ in_array('Hybrid', $selectedFuelTypes) ? 'selected'
                                             : '' }}>Hybrid</option>
                                         <option value="Petrol" {{ in_array('Petrol', $selectedFuelTypes) ? 'selected'

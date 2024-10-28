@@ -1,4 +1,4 @@
-/* 
+/*
  * 	Core Owl Carousel CSS File
  *	v2.0.0
  */
@@ -20,6 +20,7 @@
 	/* position relative and z-index fix webkit rendering fonts issue */
 	position: relative;
 	z-index:1;
+    height: fit-content;
 }
 
 
@@ -130,7 +131,7 @@
 	min-height: 1px;
 	float: left;
 	-webkit-backface-visibility: hidden;
-	-webkit-tap-highlight-color: rgba(0,0,0,0); 
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	-webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;

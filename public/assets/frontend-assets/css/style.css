@@ -11249,3 +11249,13 @@ textarea {
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
+
+.uniqureth{
+    width:190px;
+}
+.uniqurethtwo{
+    width:100px;
+}
+.uniquetd, .uniquetdone{
+    width:140px;
+}

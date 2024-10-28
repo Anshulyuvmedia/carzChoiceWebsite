@@ -832,6 +832,15 @@
 
 @media (min-width: 320px) and (max-width: 767px) {
 
+    .uniqureth,.uniquetd{
+        width:110px;
+    }
+    .uniqurethtwo,.uniquetdone{
+        width:80px;
+    }
+
+
+
     .hideInMobile {
         display: none;
     }

@@ -65,7 +65,7 @@
                                     <select name="brandname" class="form-select mb-3" id="dynamic_selectbrandname">
                                         <option value="">--select car--</option>
                                         @foreach ($cardata as $row)
-                                            <option value="{{ $row->brandname }}">{{ $row->brandname }}</option>
+                                        <option value="{{ $row->brandname }}">{{ $row->brandname }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -120,7 +120,7 @@
                                     <select name="bodytype" class="form-select" id="subcategory">
                                         <option value="">--select body type--</option>
                                         @foreach ($bodytype as $body)
-                                            <option value="{{ $body->value }}">{{ $body->value }}</option>
+                                        <option value="{{ $body->value }}">{{ $body->value }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -130,10 +130,9 @@
                                     <label class="">Seating Capacity <span class="text-danger">*</span></label>
                                     <select name="seatingcapacity" class="form-select" id="subcategory">
                                         <option value="">--select seates capacity--</option>
-                                        @for ($i = 1; $i <= 8; $i++)
-                                            <option value="{{ $i }}">{{ $i }}</option>
-                                        @endfor
-                                        <option value="8+">8+</option>
+                                        @for ($i = 1; $i <= 8; $i++) <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
+                                            <option value="8+">8+</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
@@ -149,14 +148,13 @@
                                     <label for="example-text-input" class="">User Report Mileage <span
                                             class="text-danger">*</span></label>
                                     <input class="form-control" placeholder="enter user report mileage"
-                                        name="userreportedmilage" type="text" value=""
-                                        id="example-text-input">
+                                        name="userreportedmilage" type="text" value="" id="example-text-input">
                                 </div>
 
                                 <div class="col-lg-3">
                                     <label class="">Upload Brochure</label>
-                                    <input class="form-control" placeholder="" accept=".pdf" name="brochure"
-                                        type="file" value="" id="example-text-input">
+                                    <input class="form-control" placeholder="" accept=".pdf" name="brochure" type="file"
+                                        value="" id="example-text-input">
                                 </div>
                             </div>
                             <div class="row">
@@ -165,9 +163,9 @@
                                         <div class="col-lg-12">
                                             <label class="form-label">Fuel Type <span
                                                     class="text-danger">*</span></label>
-                                            <select name="fueltype[]"
-                                                class="select2 form-control select2-multiple mb-3" multiple="multiple"
-                                                data-placeholder="Choose fuel type ..." id="fueltype">
+                                            <select name="fueltype[]" class="select2 form-control select2-multiple mb-3"
+                                                multiple="multiple" data-placeholder="Choose fuel type ..."
+                                                id="fueltype">
                                                 <option value="Hybrid">Hybrid</option>
                                                 <option value="Petrol">Petrol</option>
                                                 <option value="Diesel">Diesel</option>
@@ -188,8 +186,7 @@
                                                     class="text-muted fs-6">(At least select a car
                                                     first)</span></label>
                                             <select name="colors[]" class="select2 form-control select2-multiple mb-3"
-                                                multiple="multiple" data-placeholder="Choose color ..."
-                                                id="colors">
+                                                multiple="multiple" data-placeholder="Choose color ..." id="colors">
                                                 <!-- Colors inputs will be appended here -->
                                             </select>
                                         </div>
@@ -222,16 +219,19 @@
 @endsection
 
 @push('scripts')
-@if (session('success'))
+@if(session('success') && Session::has('insertedCount') && Session::has('updatedCount'))
     <script>
-        swal("Success", "{{ session('success') }}", "success");
+        const insertedCount = "{{ Session::get('insertedCount') }}";
+        const updatedCount = "{{ Session::get('updatedCount') }}";
+        swal("Success", "{{ session('success') }}\nTotal New Inserted Variants: " + insertedCount + "\nTotal Existing Updated Variants: " + updatedCount, "success");
     </script>
 @endif
 
+
 @if (session('error'))
-    <script>
-        swal("Error", "{{ session('error') }}", "error");
-    </script>
+<script>
+    swal("Error", "{{ session('error') }}", "error");
+</script>
 @endif
 {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
 
