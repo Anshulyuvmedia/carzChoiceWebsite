@@ -230,7 +230,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="img-pre">
-                        <img class="img-fluid" src="${imageSrc}" alt="">
+                        <img class="img-fluid" src="${imageSrc}" alt="Icon Image">
                     </div>
                 </div>
             </div>

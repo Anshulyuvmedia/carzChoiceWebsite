@@ -114,11 +114,11 @@
                         <div class="form-group">
                             <label class="form-label">Enter 6-Digit OTP</label>
                             <div class="row">
-                                @for ($i = 1; $i <= 6; $i++) <div class="col">
-                                    <input type="text" class="form-control border-danger" maxlength="1" pattern="[0-9]"
-                                        name="otptest{{ $i }}" title="Please enter a number." required>
+                                @for ($i = 1; $i <= 6; $i++)
+                                    <div class="col">
+                                        <input type="text" class="form-control border-danger" maxlength="1" pattern="[0-9]" name="otptest{{ $i }}" title="Please enter a number." required>
                                     </div>
-                                    @endfor
+                                @endfor
                             <input type="hidden" name="registerid" value="" id="registerid">
                         </div>
                         <div class="mt-3 mb-3">
