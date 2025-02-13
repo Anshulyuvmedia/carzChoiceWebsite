@@ -652,18 +652,10 @@
         <div class="container popular-cars card">
             <!-- Row -->
             <div class="row">
-
-
-
-
-                <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
-
-                        <!-- Heading Area -->
                         <div class="heading-panel">
                             <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                                <!-- Main Title -->
                                 <h1>Used cars <span class="heading-color"> In India</span> </h1>
                             </div>
                         </div>
@@ -700,11 +692,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Middle Content Box End -->
-
-                <!-- Row End -->
             </div>
-            <!-- Main Container End -->
         </div>
     </section>
     <!-- =-=-=-=-=-=-= Top Cars In India End =-=-=-=-=-=-= -->

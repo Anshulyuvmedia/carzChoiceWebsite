@@ -12,14 +12,12 @@
 
     <title>@yield('title') - Carz Choice</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
     <link rel="icon" href="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" type="image/x-icon" />
     <!-- =-=-=-=-=-=-= Mobile Specific =-=-=-=-=-=-= -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- =-=-=-=-=-=-= Bootstrap CSS Style =-=-=-=-=-=-= -->
     <link rel="stylesheet" href="{{ asset('assets/frontend-assets/css/bootstrap.css') }}">
@@ -51,14 +49,12 @@
     <!-- =-=-=-=-=-=-= Check boxes =-=-=-=-=-=-= -->
     <link href="{{ asset('assets/frontend-assets/skins/minimal/minimal.css') }}" rel="stylesheet">
     <!-- =-=-=-=-=-=-= PrettyPhoto =-=-=-=-=-=-= -->
-    <link rel="stylesheet" href="{{ asset('assets/frontend-assets/css/jquery.fancybox.min.css') }}" type="text/css"
-        media="screen" />
+    <link rel="stylesheet" href="{{ asset('assets/frontend-assets/css/jquery.fancybox.min.css') }}" type="text/css" media="screen" />
     <!-- =-=-=-=-=-=-= Responsive Media =-=-=-=-=-=-= -->
     <link href="{{ asset('assets/frontend-assets/css/responsive-media.css') }}" rel="stylesheet">
     <!-- =-=-=-=-=-=-= Template Color =-=-=-=-=-=-= -->
     <link rel="stylesheet" id="color" href="{{ asset('assets/frontend-assets/css/colors/defualt.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600%7CSource+Sans+Pro:400,400i,600"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600%7CSource+Sans+Pro:400,400i,600" rel="stylesheet">
     <!-- JavaScripts -->
     <script src="{{ asset('assets/frontend-assets/js/modernizr.js') }}"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -107,8 +103,7 @@
                                     <ul class="menu-logo">
                                         <li>
                                             <a href="/" class="">
-                                                <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}"
-                                                    alt="logo" width="120">
+                                                <img src="{{ asset('assets/frontend-assets/images/logo-light.jpg') }}" alt="logo" width="120">
                                             </a>
                                         </li>
                                     </ul>
@@ -149,19 +144,17 @@
                                                     <div class="grid-col-9">
                                                         <h3>Search New Cars by Brands</h3>
                                                         @php
-                                                            use App\Models\Master;
-                                                            $brands = Master::where('type', 'Brand')->get();
-                                                            // $bodytype = Master::where('type', 'Body Type')->get();
+                                                        use App\Models\Master;
+                                                        $brands = Master::where('type', 'Brand')->get();
+                                                        // $bodytype = Master::where('type', 'Body Type')->get();
                                                         @endphp
                                                         <ul class="by-make list-inline">
                                                             @foreach ($brands->take(16) as $data)
-                                                                <li>
-                                                                    <a href="javascript:void(0);" class="brandfilter"
-                                                                        data-value="{{ $data->value }}">
-                                                                        <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
-                                                                            class="img-responsive" alt="Brand Image">
-                                                                    </a>
-                                                                </li>
+                                                            <li>
+                                                                <a href="javascript:void(0);" class="brandfilter" data-value="{{ $data->value }}">
+                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}" class="img-responsive" alt="Brand Image">
+                                                                </a>
+                                                            </li>
                                                             @endforeach
                                                         </ul>
                                                     </div>
@@ -170,8 +163,7 @@
                                         </li>
                                         {{-- Used Cars --}}
                                         <li>
-                                            <a href="javascript:void(0)">Used Cars <i
-                                                    class="fa fa-angle-down fa-indicator"></i></a>
+                                            <a href="javascript:void(0)">Used Cars <i class="fa fa-angle-down fa-indicator"></i></a>
                                             <div class="drop-down grid-col-12">
                                                 <!--grid row-->
                                                 <div class="grid-row">
@@ -189,13 +181,11 @@
                                                         <h3>Search Used Cars by Brands</h3>
                                                         <ul class="by-make list-inline">
                                                             @foreach ($brands->take(16) as $data)
-                                                                <li>
-                                                                    <a href="javascript:void(0);" class="brandfilter"
-                                                                        data-value="{{ $data->value }}">
-                                                                        <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
-                                                                            class="img-responsive" alt="Brand Image">
-                                                                    </a>
-                                                                </li>
+                                                            <li>
+                                                                <a href="javascript:void(0);" class="brandfilter" data-value="{{ $data->value }}">
+                                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}" class="img-responsive" alt="Brand Image">
+                                                                </a>
+                                                            </li>
                                                             @endforeach
                                                         </ul>
                                                     </div>
@@ -204,8 +194,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)">Reviews & News<i
-                                                    class="fa fa-angle-down fa-indicator"></i></a>
+                                            <a href="javascript:void(0)">Reviews & News<i class="fa fa-angle-down fa-indicator"></i></a>
                                             <div class="drop-down grid-col-12">
                                                 <!--grid row-->
                                                 <div class="grid-row">
@@ -229,44 +218,38 @@
 
                                     <ul class="listnone d-flex justify-content-between align-items-center">
                                         @if (Auth::guard('registeruser')->user())
-                                            <li class="">
-                                                <a href="/addadshow" class="btn btn-theme btn-sm">Sell Your Car</a>
-                                            </li>
-                                            <li class="dropdown ms-3">
-                                                <a href="/userprofile"
-                                                    class="dropdown-toggle d-flex align-items-center"
-                                                    data-toggle="dropdown" role="button" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <img class="img-circle resize border border-info "
-                                                        alt="user-profile"
-                                                        src="{{ asset('assets/backend-assets/images/' . Auth::guard('registeruser')->user()->dp) }}">
+                                        <li class="">
+                                            <a href="/addadshow" class="btn btn-theme btn-sm">Sell Your Car</a>
+                                        </li>
+                                        <li class="dropdown ms-3">
+                                            <a href="/userprofile" class="dropdown-toggle d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                <img class="img-circle resize border border-info " alt="user-profile" src="{{ asset('assets/backend-assets/images/' . Auth::guard('registeruser')->user()->dp) }}">
 
-                                                    <span class="myname hidden-xs">
-                                                        {{ Auth::guard('registeruser')->user()->fullname }}
-                                                    </span>
-                                                </a>
-                                                <ul
-                                                    class="dropdown-menu dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-                                                    <li><a href="/userprofile">User Profile</a></li>
-                                                    <li><a href="{{ route('logoutuserfront') }}"">Logout</a></li>
+                                                <span class="myname hidden-xs">
+                                                    {{ Auth::guard('registeruser')->user()->fullname }}
+                                                </span>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                                <li><a href="/userprofile">User Profile</a></li>
+                                                <li><a href="{{ route('logoutuserfront') }}"">Logout</a></li>
                                                 </ul>
                                             </li>
                                         @else
-                                            <li class="me-3">
-                                                <a href="/loginuser" class="btn btn-theme btn-outline">
-                                                    <i class="bi bi-door-open-fill"></i> Log in
-                                                </a>
-                                            </li>
-                                            <li class="me-3">
-                                                <a href="tel:919315510156" class="btn btn-theme btn-outline">
-                                                    <i class="bi bi-telephone-fill"></i> Call Now
-                                                </a>
-                                            </li>
-                                        @endif
+                                            <li class=" me-3">
+                                                        <a href="/loginuser" class="btn btn-theme btn-outline">
+                                                            <i class="bi bi-door-open-fill"></i> Log in
+                                                        </a>
+                                                </li>
+                                                <li class="me-3">
+                                                    <a href="tel:919315510156" class="btn btn-theme btn-outline">
+                                                        <i class="bi bi-telephone-fill"></i> Call Now
+                                                    </a>
+                                                </li>
+                                                @endif
 
 
 
-                                    </ul>
+                                            </ul>
 
                                 </div>
                             </div>
@@ -278,8 +261,7 @@
         <!-- =-=-=-=-=-=-= Main Header End  =-=-=-=-=-=-= -->
 
     </header>
-    <button class="btn btn-theme rounded-bottom rounded-4 mycustombtn" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book Now</button>
+    <button class="btn btn-theme rounded-bottom rounded-4 mycustombtn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book Now</button>
 
     <div class="main-content-area clearfix">
         @yield('content')
@@ -309,8 +291,7 @@
                         <!-- Info Widget -->
                         <div class="widget w-75">
                             <div class="logo">
-                                <img src="{{ asset('assets/frontend-assets/images/logowhitepng.png') }}"
-                                    alt="logo" width="180">
+                                <img src="{{ asset('assets/frontend-assets/images/logowhitepng.png') }}" alt="logo" width="180">
                             </div>
                             <div class="content">
                                 <p class="fs-4">Carzchoice is your go-to platform for everything cars!
@@ -426,16 +407,15 @@
     </div>
 
     @php
-        use App\Models\AddVariant;
-        use App\Models\PostOffices;
+    use App\Models\AddVariant;
+    use App\Models\PostOffices;
 
-        $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
-        $statedata = PostOffices::select('StateName', DB::raw('COUNT(id) as count'))->groupBy('StateName')->get();
+    $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
+    $statedata = PostOffices::select('StateName', DB::raw('COUNT(id) as count'))->groupBy('StateName')->get();
 
     @endphp
     <!-- Off-canvas HTML Structure -->
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-        aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header border-bottom">
             <h5 class="offcanvas-title fw-bold fs-4" id="offcanvasWithBothOptionsLabel">Book Your Vehicle Now</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -446,32 +426,29 @@
                 @csrf
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" name="fullname" id="formGroupExampleInput"
-                        placeholder="Enter Fullname">
+                    <input type="text" class="form-control" name="fullname" id="formGroupExampleInput" placeholder="Enter Fullname">
                     <label for="formGroupExampleInput" class="form-label mt-3">Contact Number</label>
-                    <input type="tel" class="form-control" name="mobile" id="formGroupExampleInput"
-                        placeholder="Enter Mobile Number">
+                    <input type="tel" class="form-control" name="mobile" id="formGroupExampleInput" placeholder="Enter Mobile Number">
                     <label for="formGroupExampleInput" class="form-label mt-3">Email</label>
-                    <input type="email" class="form-control" name="email" id="formGroupExampleInput"
-                        placeholder="Enter Email Address">
+                    <input type="email" class="form-control" name="email" id="formGroupExampleInput" placeholder="Enter Email Address">
                     <label for="formGroupExampleInput" class="form-label mt-3">Select Car</label>
-                    <select class="selectpicker rounded-4" data-show-subtext="true" data-live-search="true">
+                    <select name="vehiclename" class="selectpicker rounded-4" data-show-subtext="true" data-live-search="true">
                         <option>--select-car</option>
                         @foreach ($variantdata as $data)
-                            <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
-                                {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
-                            </option>
+                        <option value="{{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})">
+                            {{ $data->brandname }},{{ $data->carname }}({{ $data->carmodalname }})
+                        </option>
                         @endforeach
                     </select>
                     <label>State <span class="color-red">*</span></label>
-                    <select class="form-control" id="dynamic_selectstate" name="state" required>
+                    <select name="statename" class="form-control" id="dynamic_selectstate">
                         <option value="">--select state--</option>
                         @foreach ($statedata as $row)
-                            <option value="{{ $row->StateName }}">{{ $row->StateName }}</option>
+                        <option value="{{ $row->StateName }}">{{ $row->StateName }}</option>
                         @endforeach
                     </select>
                     <label>District <span class="color-red">*</span></label>
-                    <select class="form-control" name="city" id="dynamic_district" required>
+                    <select class="form-control" name="city" id="dynamic_district">
                         <option value="">--select district--</option>
                     </select>
                     <div class="form-text" id="basic-addon4">Your details are safe with us and we only ask this once
@@ -495,8 +472,7 @@
                 </div>
                 <div class="modal-body emi-calc">
                     <div id="ecww-widgetwrapper" style="min-width:250px;width:100%;">
-                        <div id="ecww-widget"
-                            style="position:relative;padding-top:0;padding-bottom:0px;height:0;overflow:hidden;">
+                        <div id="ecww-widget" style="position:relative;padding-top:0;padding-bottom:0px;height:0;overflow:hidden;">
                         </div>
                     </div>
                 </div>
@@ -517,9 +493,9 @@
                 var state = $(this).val();
                 console.log(state);
                 $.ajax({
-                    url: "/filterdistrictbystate/" + state,
-                    type: "GET",
-                    success: function(data) {
+                    url: "/filterdistrictbystate/" + state
+                    , type: "GET"
+                    , success: function(data) {
                         console.log(data);
                         var dropdown1 = $('#dynamic_district');
                         dropdown1.empty();
@@ -567,15 +543,15 @@
                 console.log(carbrand);
 
                 $.ajax({
-                    url: "/filterByAttribute/" + carbrand,
-                    type: 'POST',
-                    data: {
+                    url: "/filterByAttribute/" + carbrand
+                    , type: 'POST'
+                    , data: {
                         attribute: carbrand
-                    },
-                    headers: {
+                    }
+                    , headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function(data) {
+                    }
+                    , success: function(data) {
                         console.log(data);
                         if (data.success) {
                             window.location.href = data.redirect_url;
@@ -594,15 +570,15 @@
                 console.log(carbrand);
 
                 $.ajax({
-                    url: "/usedcarfilter/" + carbrand,
-                    type: 'POST',
-                    data: {
+                    url: "/usedcarfilter/" + carbrand
+                    , type: 'POST'
+                    , data: {
                         attribute: carbrand
-                    },
-                    headers: {
+                    }
+                    , headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function(data) {
+                    }
+                    , success: function(data) {
                         console.log(data);
                         if (data.success) {
                             window.location.href = data.redirect_url;
@@ -623,35 +599,36 @@
                 //Here is AJAX Code...
                 if (city) {
                     $.ajax({
-                        url: '/filtercarsbylocation/' + city,
-                        method: 'POST',
-                        data: {
-                            _token: '{{ csrf_token() }}',
-                        },
-                        success: function(response) {
+                        url: '/filtercarsbylocation/' + city
+                        , method: 'POST'
+                        , data: {
+                            _token: '{{ csrf_token() }}'
+                        , }
+                        , success: function(response) {
                             console.log(response);
                             if (response.success) {
                                 window.location.href = response.redirect_url;
                             } else {
                                 alert("error");
                             }
-                        },
-                    });
+                        }
+                    , });
 
                 }
 
             });
         });
+
     </script>
 
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
+        var Tawk_API = Tawk_API || {}
+            , Tawk_LoadStart = new Date();
         (function() {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
+            var s1 = document.createElement("script")
+                , s0 = document.getElementsByTagName("script")[0];
             s1.async = true;
             s1.src = 'https://embed.tawk.to/66adc27f1601a2195ba0466f/1i4bbvgqe';
             s1.charset = 'UTF-8';
@@ -661,22 +638,23 @@
         Tawk_API.customStyle = {
             visibility: {
                 desktop: {
-                    position: 'br',
-                    xOffset: '60px',
-                    yOffset: 20
-                },
-                mobile: {
-                    position: 'br',
-                    xOffset: 0,
-                    yOffset: 100
-                },
-                bubble: {
-                    rotate: '0deg',
-                    xOffset: -20,
-                    yOffset: 0
+                    position: 'br'
+                    , xOffset: '60px'
+                    , yOffset: 20
+                }
+                , mobile: {
+                    position: 'br'
+                    , xOffset: 0
+                    , yOffset: 100
+                }
+                , bubble: {
+                    rotate: '0deg'
+                    , xOffset: -20
+                    , yOffset: 0
                 }
             }
         };
+
     </script>
     <!--End of Tawk.to Script-->
 
@@ -728,18 +706,26 @@
     <script type="text/javascript" src="{{ asset('assets/frontend-assets/js/perfect-scrollbar.min.js') }}"></script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/js/bootstrap-select.js"></script>
+    <div id="google_translate_element"></div>
 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 

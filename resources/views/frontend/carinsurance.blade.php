@@ -150,10 +150,7 @@
                     dropdown1.empty();
                     dropdown1.append($('<option selected>Choose...</option>'));
                     response.forEach(function(item) {
-                        dropdown1.append($('<option value="' + item.carmodalname +
-                            '">' +
-                            item.carmodalname +
-                            '</option>'));
+                        dropdown1.append($('<option value="' + item.carmodalname +'">' + item.carmodalname +'</option>'));
                     });
                 }
             });

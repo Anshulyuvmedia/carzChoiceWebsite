@@ -963,7 +963,8 @@ class Store extends Controller
     public function insertcompare(Request $rq)
     {
 
-        $adminuser = Auth::user()->first();
+        $adminuser = Auth::user();
+        // dd(  $adminuser );
         try {
             $userdata = CompareVehicle::create([
                 'adminid' => $adminuser->id,

@@ -97,9 +97,9 @@
                                         @else
                                             <td>{{ $row->carname }}</td>
                                         @endif
-                                        <td>{{ $row->enquirytype }}</td>
+                                        <td>{{ ucfirst($row->enquirytype) }}</td>
                                         <td>{{ $row->city }}</td>
-                                        <td>{{ $row->fullname }}</td>
+                                        <td>{{ ucwords($row->fullname) }}</td>
                                         <td>{{ $row->mobileno }}</td>
                                         <td>
                                             <select name="enquirystatus" class="form-select enquirystatus"

@@ -805,4 +805,9 @@ class frontViewController extends Controller
         $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
         return view('frontend.carinsurance',compact('brands','statedata'));
     }
+
+    public function filtermodalname($carname){
+        $modalnames = AddVariant::where('carname',$carname)->get();
+        return response()->json($modalnames);
+    }
 }

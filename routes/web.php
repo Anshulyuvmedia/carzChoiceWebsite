@@ -70,6 +70,8 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('disclaimer', 'disclaimer')->name('disclaimer');
     Route::get('happycustomers', 'happycustomers')->name('happycustomers');
     Route::get('carinsurance', 'carinsurance')->name('carinsurance');
+    Route::get('filtermodalname/{carname}', 'filtermodalname')->name('filtermodalname');
+    
 
 });
 
