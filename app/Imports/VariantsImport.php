@@ -18,14 +18,15 @@ class VariantsImport implements ToCollection, WithStartRow, WithChunkReading
 
     public function collection(Collection $rows)
     {
-        $insertedCount = 0;
-        $updatedCount = 0;
-        $updatedVariants = []; // Array to hold names of updated variants
+        // $insertedCount = 0;
+        // $updatedCount = 0;
+        // $updatedVariants = []; // Array to hold names of updated variants
 
         foreach ($rows as $row) {
-            if (count($row) < 15) {
-                continue; // Skip invalid rows
+            if (count($row) < 15 || collect($row)->every(fn($value) => trim($value) === '')) {
+                continue;
             }
+            
 
             $carName = $row[0] ? trim($row[0]) : 'Car Name';
             $brandName = $row[1] ? trim($row[1]) : 'Brand Name';
@@ -76,15 +77,15 @@ class VariantsImport implements ToCollection, WithStartRow, WithChunkReading
                 ]
             );
 
-            if ($data->wasRecentlyCreated) {
-                $insertedCount++;
-            } else {
-                $updatedCount++;
-                $updatedVariants[] = $carModelName; // Add updated variant name to the array
-            }
+            // if ($data->wasRecentlyCreated) {
+            //     $insertedCount++;
+            // } else {
+            //     $updatedCount++;
+            //     $updatedVariants[] = $carModelName; // Add updated variant name to the array
+            // }
         }
-        Session::flash('insertedCount', $insertedCount);
-        Session::flash('updatedCount', $updatedCount);
+        // Session::flash('insertedCount', $insertedCount);
+        // Session::flash('updatedCount', $updatedCount);
 
 
         //dd("Inserted: $insertedCount, Updated: $updatedCount", "Updated Variants:", $updatedVariants);

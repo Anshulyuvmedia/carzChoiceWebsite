@@ -21,8 +21,8 @@ class CarListsImport implements ToCollection, WithStartRow
 
         foreach ($rows as $row) {
             // Ensure there are enough columns in the row
-            if (count($row) < 4) {
-                continue; // Skip invalid rows
+            if (count($row) < 4 || collect($row)->every(fn($value) => trim($value) === '')) {
+                continue;
             }
 
             $brandName = $row[0] ? trim($row[0]) : null;

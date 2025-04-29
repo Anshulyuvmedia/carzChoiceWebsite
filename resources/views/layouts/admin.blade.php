@@ -256,11 +256,13 @@
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="uil-car-sideview"></i>
-                                <span>Cars</span>
+                                <span>Car Listing</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('addcarlist') }}">Add Car List</a></li>
                                 <li><a href="{{ route('variantslist') }}">Variants List</a></li>
+                                <li><a href="{{ route('displaysettings')}}">Display Settings of Cars</a></li>
+                                <li><a href="{{ route('comparecars')}}">Add Compare Cars</a></li>
                             </ul>
                         </li>
                         <li>
@@ -287,8 +289,6 @@
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a href="{{ route('addbannerimmages') }}">Add Banner Images</a></li>
-                                <li><a href="{{ route('displaysettings')}}">Display Settings</a></li>
-                                <li><a href="{{ route('comparecars')}}">Compare Cars</a></li>
                             </ul>
                         </li>
                         <li>

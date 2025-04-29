@@ -24,14 +24,14 @@
                 @csrf
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="row mb-0 p-2">
+                    <div class="card-header">
+                        <div class="row">
                             <div class="col-lg-12 d-flex justify-content-end mt-3">
-                                <a href="{{ route('variantslist') }}" class="btn btn-info waves-effect waves-light"><i
-                                        class="uil-left-arrow-from-left me-2"></i>All Variants</a>
-                                <button type="submit" class="btn btn-success waves-effect waves-light ms-2">Update
+                                <button type="submit" class="btn btn-outline-secondary waves-effect waves-light">Update
                                     Variant</button>
                             </div>
                         </div>
+                    </div>
                         <div class="card-body">
                             <div class="mb-3 row">
                                 <div class="col-lg-3">

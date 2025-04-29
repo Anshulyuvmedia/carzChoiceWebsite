@@ -563,15 +563,14 @@
                                         <ul>
                                             @foreach ($cardetails->features as $feature)
                                             @php
-                                            $json = json_decode($feature->features);
+                                            $json = json_decode($feature->features, true);
                                             @endphp
 
-                                            @foreach (array_slice($json[0]->label, 0, count($json[0]->label)) as $index
-                                            => $item)
-                                            @if ($json[0]->value[$index] == 1)
-                                            <li>{{ $item }}</li>
+                                            @if (isset($json[0]['label']) && isset($json[0]['value']))
+                                                @foreach ($json[0]['label'] as $index => $item)
+                                                    <li>{{ $item }}</li>
+                                                @endforeach
                                             @endif
-                                            @endforeach
                                             @endforeach
                                         </ul>
                                     </div>

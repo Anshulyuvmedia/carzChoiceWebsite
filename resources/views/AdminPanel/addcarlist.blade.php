@@ -112,18 +112,18 @@
                                                         data-bs-placement="top" data-bs-title="Edit"></i></a>
                                             </li>
                                             <li class="list-inline-item">
-                                                <a href="#" onclick="confirmDelete('{{ $row->id }}')"
-                                                    class="px-2 text-danger" data-bs-toggle="tooltip"
-                                                    data-bs-placement="top" data-bs-title="Delete"><i
-                                                        class="uil uil-trash-alt font-size-18"></i></a>
-                                            </li>
-                                            <li class="list-inline-item">
                                                 <a href="#" data-bs-target="#exampleModalcolor" data-bs-toggle="modal"
                                                     data-value="{{ json_encode($row) }}"
                                                     class="px-2 text-info colorvariants"><i
                                                         class="uil-palette font-size-18" data-bs-toggle="tooltip"
                                                         data-bs-placement="top"
                                                         data-bs-title="Add Color Variant"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#" onclick="confirmDelete('{{ $row->id }}')"
+                                                    class="px-2 text-danger" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="Delete"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
                                             </li>
                                         </ul>
                                     </td>

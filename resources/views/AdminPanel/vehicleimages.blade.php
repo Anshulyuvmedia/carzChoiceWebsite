@@ -176,6 +176,12 @@
                                                     data-bs-placement="top" data-bs-title="Delete"><i
                                                         class="uil uil-trash-alt font-size-18"></i></a>
                                             </li>
+                                            {{-- <li class="list-inline-item">
+                                                <a href="#"  data-record="{{ json_encode($row) }}"
+                                                    class="px-2 text-danger editbtnmodal" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="Delete"><i
+                                                        class="uil uil-edit-alt font-size-18"></i></a>
+                                            </li> --}}
                                         </ul>
                                     </td>
                                 </tr>
@@ -261,12 +267,12 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     // Edit Functionality
+
+    $('#table-body').on('click', '.editbtnmodal', function() {
     var masterdata = @json($masterdata);
     var mastercolordata = @json($mastercolordata);
     console.log(mastercolordata);
     var carlistdata = @json($carlistdata);
-
-    $('#table-body').on('click', '.editbtnmodal', function() {
         var vehicledata = $(this).data('record');
         console.log(vehicledata);
         $('#modalbody').empty();

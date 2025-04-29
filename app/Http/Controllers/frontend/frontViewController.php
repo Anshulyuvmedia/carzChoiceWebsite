@@ -192,7 +192,7 @@ class frontViewController extends Controller
         $pincodedata = Pincode::select('State', 'City', 'District', DB::raw('GROUP_CONCAT(DISTINCT PostOfficeName) as PostOfficeNames'), DB::raw('COUNT(*) as count'))
         ->groupBy('State', 'City', 'District')
         ->get();
-        //dd($similarcars);
+        //dd($cardetails);
         return view('frontend.carLayouts.carlistingdetails', compact('cardetails','pincodedata', 'pros', 'cons', 'variantsfaqs', 'similarcars', 'matchingDealers'));
     }
     public function carlisting()
@@ -410,7 +410,7 @@ class frontViewController extends Controller
         $offer = $offer->pluck('carname');
         $topcarsinindia = $topcarindia->pluck('carname');
 
-        $matches = $variantdata->whereIn('carname', $trendingCarNames);
+        $matches = $variantdata->whereIn('carname', $trendingCarNames)->unique('carname');
         $matches = $matches->map(function ($item) use ($trending) {
             $trendingItem = $trending->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -419,7 +419,7 @@ class frontViewController extends Controller
             return $item;
         });
 
-        $matchespopular = $variantdata->whereIn('carname', $trendingPopularNames);
+        $matchespopular = $variantdata->whereIn('carname', $trendingPopularNames)->unique('carname');
         $matchespopular = $matchespopular->map(function ($item) use ($popular) {
             $trendingItem = $popular->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -429,7 +429,7 @@ class frontViewController extends Controller
         });
 
 
-        $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames);
+        $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames)->unique('carname');
         $matchesupcoming = $matchesupcoming->map(function ($item) use ($upcoming) {
             $trendingItem = $upcoming->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -440,7 +440,7 @@ class frontViewController extends Controller
 
 
 
-        $matchesoffer = $variantdata->whereIn('carname', $offer);
+        $matchesoffer = $variantdata->whereIn('carname', $offer)->unique('carname');
         $matchesoffer = $matchesoffer->map(function ($item) use ($offer) {
             $trendingItem = $offer->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -450,7 +450,7 @@ class frontViewController extends Controller
         });
 
 
-        $matchestopcarsindia = $variantdata->whereIn('carname', $topcarsinindia);
+        $matchestopcarsindia = $variantdata->whereIn('carname', $topcarsinindia)->unique('carname');
         $matchestopcarsindia = $matchestopcarsindia->map(function ($item) use ($topcarindia) {
             $trendingItem = $topcarindia->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -467,13 +467,13 @@ class frontViewController extends Controller
             ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
             ->select('display_settings.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
             ->where('vehicle_images.type', '=', 'Outer view')
-            ->where('display_settings.category', '=', 'Upcoming')->get();
-
+            ->where('display_settings.category', '=', 'Upcoming')
+            ->get();
+    
         $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
         $trendingUpcomingNames = $upcoming->pluck('carname');
         $matchesupcoming = $variantdata->whereIn('carname', $trendingUpcomingNames);
-
-
+    
         $matchesupcoming = $matchesupcoming->map(function ($item) use ($upcoming) {
             $trendingItem = $upcoming->firstWhere('carname', $item->carname);
             if ($trendingItem) {
@@ -481,10 +481,14 @@ class frontViewController extends Controller
             }
             return $item;
         });
-
+    
+        // ✅ Make it unique by carname
+        $matchesupcoming = $matchesupcoming->unique('carname')->values();
+    
         $brands = Master::where('type', 'Brand')->get();
         return view('frontend.newCarsLayouts.upcomingcar', compact('matchesupcoming', 'brands'));
     }
+    
     public function newcarlaunches()
     {
         return view('frontend.newCarsLayouts.newcarlaunches');
@@ -741,7 +745,7 @@ class frontViewController extends Controller
         if (Auth::guard('registeruser')->check()) {
             $color = Master::where('type', '=', 'Color')->get();
             $statedata = PostOffices::select('District', DB::raw('COUNT(id) as count'))->groupBy('District')->get();
-            $carlistdata = CarList::get();
+            $carlistdata = CarList::get()->unique('brandname');
             return view('frontend.dashboard.addadshow', compact('statedata', 'carlistdata', 'color'));
         } else {
             return view('frontend.loginuser');
