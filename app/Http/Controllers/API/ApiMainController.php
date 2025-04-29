@@ -32,19 +32,24 @@ class ApiMainController extends Controller
     public function loginuser(Request $request)
     {
         $credentials = $request->only('email', 'password');
-        $data = RegisterUser::where('email', $credentials['email'])->first();
-
-        if ($data && Auth::guard('registeruser')->attempt($credentials)) {
+    
+        if (Auth::guard('registeruser')->attempt($credentials)) {
+            $user = Auth::guard('registeruser')->user();
+    
+            // Create Sanctum token
+            $token = $user->createToken('auth_token')->plainTextToken;
+    
             return response()->json([
                 'success' => true,
                 'message' => 'Login successful',
-                'data' => $data
+                'data' => $user,
+                'token' => $token,
             ]);
         }
-
+    
         return response()->json([
             'success' => false,
-            'message' => 'Invalid credentials'
+            'message' => 'Invalid credentials',
         ], 401);
     }
 

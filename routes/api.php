@@ -4,11 +4,13 @@ use App\Http\Controllers\API\ApiMainController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\RegisterUser;
+use App\Http\Controllers\ChatTokenController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::post('/generate-chat-token', [ChatTokenController::class, 'generate']);
 
 Route::controller(ApiMainController::class)->group(function() {
     Route::post('loginuser', 'loginuser')->name('api.loginuser');
