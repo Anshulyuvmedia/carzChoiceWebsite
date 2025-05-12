@@ -43,6 +43,7 @@ Route::controller(ApiMainController::class)->group(function() {
     Route::get('/viewtheircars/{id}', 'viewtheircars')->name('api.viewtheircars');
     Route::get('carlistingdetails/{id}', 'carlistingdetails')->name('api.carlistingdetails');
     Route::post('newcarloan', 'newcarloan')->name('newcarloan');
+    Route::get('newcardealercarlist/{id}', 'newcardealercarlist')->name('api.newcardealercarlist');
     Route::get('myoldvehiclelist/{id}', 'myoldvehiclelist')->name('api.myoldvehiclelist');
     Route::get('oldcarlistingdetails/{id}', 'oldcarlistingdetails')->name('api.oldcarlistingdetails');
     Route::get('getCityList', 'getCityList')->name('api.getCityList');
@@ -53,4 +54,6 @@ Route::controller(ApiMainController::class)->group(function() {
     Route::post('insertcarloanenquiry', 'insertcarloanenquiry')->name('api.insertcarloanenquiry');
     Route::get('fetchSliderImages', 'fetchSliderImages')->name('api.fetchSliderImages');
     Route::get('/getmyenquires/{id}', 'getmyenquires')->name('api.getmyenquires');
+    Route::get('/getcarcolorimages/{id}', 'getcarcolorimages')->name('api.getcarcolorimages');
+    Route::get('/getcarimagesgallery/{id}', 'getcarimagesgallery')->name('api.getcarimagesgallery');
 });

@@ -8,7 +8,7 @@ class ChatTokenController extends Controller
 {
     public function generate(Request $request)
     {
-        Log::info('Chat token request:', $request->all());
+        // Log::info('Chat token request:', $request->all());
         $userId = $request->input('userId');
         $userName = $request->input('userName');
     

@@ -1,6 +1,7 @@
 <?php
 # “सहनशीलता, क्षमता से अधिक श्रेष्ठ है और धैर्य सौन्दर्य से अधिक श्रेष्ठ है।”
 namespace App\Http\Controllers\API;
+
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Models\RegisterDealer;
@@ -32,13 +33,13 @@ class ApiMainController extends Controller
     public function loginuser(Request $request)
     {
         $credentials = $request->only('email', 'password');
-    
+
         if (Auth::guard('registeruser')->attempt($credentials)) {
             $user = Auth::guard('registeruser')->user();
-    
+
             // Create Sanctum token
             $token = $user->createToken('auth_token')->plainTextToken;
-    
+
             return response()->json([
                 'success' => true,
                 'message' => 'Login successful',
@@ -46,7 +47,7 @@ class ApiMainController extends Controller
                 'token' => $token,
             ]);
         }
-    
+
         return response()->json([
             'success' => false,
             'message' => 'Invalid credentials',
@@ -91,6 +92,7 @@ class ApiMainController extends Controller
             'userData' => $userData
         ]);
     }
+
     public function updateUserProfile(Request $request, $id)
     {
         // Find the existing user
@@ -132,43 +134,43 @@ class ApiMainController extends Controller
     }
 
 
-   public function registerdealer(Request $req)
+    public function registerdealer(Request $req)
     {
         try {
             // Debugging: Check received data
             // Log::info($req->all());
-    
+
             // ✅ Ensure brands is properly handled
             $brands = $req->brands;
             if (is_string($brands)) {
                 $brands = json_decode($brands, true); // Convert JSON string to array
             }
             $brands = is_array($brands) ? json_encode($brands, JSON_UNESCAPED_UNICODE) : json_encode([]);
-    
+
             // ✅ Handle multiple business pics
             $businesspics = [];
             if ($req->hasFile('businesspics')) {
                 $files = is_array($req->file('businesspics')) ? $req->file('businesspics') : [$req->file('businesspics')];
-    
+
                 foreach ($files as $file) {
                     $filename = md5(uniqid()) . '.' . $file->getClientOriginalExtension();
                     $file->move(public_path('assets/backend-assets/images/'), $filename);
                     $businesspics[] = "assets/backend-assets/images/" . $filename;
                 }
             }
-    
+
             // ✅ Handle multiple office pics
             $officepics = [];
             if ($req->hasFile('officepics')) {
                 $files = is_array($req->file('officepics')) ? $req->file('officepics') : [$req->file('officepics')];
-    
+
                 foreach ($files as $file) {
                     $filename = md5(uniqid()) . '.' . $file->getClientOriginalExtension();
                     $file->move(public_path('assets/backend-assets/images/'), $filename);
                     $officepics[] = "assets/backend-assets/images/" . $filename;
                 }
             }
-    
+
             // ✅ Store dealer data
             $dataDealer = RegisterDealer::create([
                 'businessname'   => $req->businessname,
@@ -184,11 +186,11 @@ class ApiMainController extends Controller
                 'businesspics'   => !empty($businesspics) ? implode(',', $businesspics) : null,
                 'officepics'     => !empty($officepics) ? implode(',', $officepics) : null,
             ]);
-            
-            RegisterUser::where('id','=',$req->id)->update([
+
+            RegisterUser::where('id', '=', $req->id)->update([
                 'usertype' => 'Dealer',
             ]);
-    
+
             return response()->json([
                 'success'    => true,
                 'message'    => 'Registration successful',
@@ -196,7 +198,7 @@ class ApiMainController extends Controller
             ]);
         } catch (Exception $e) {
             Log::error("Dealer Registration Error: " . $e->getMessage());
-    
+
             return response()->json([
                 'success' => false,
                 'message' => $e->getMessage()
@@ -208,7 +210,7 @@ class ApiMainController extends Controller
 
     public function dealerprofile($id)
     {
-        $dealerData = RegisterDealer::where('id', '=', $id)->get();
+        $dealerData = RegisterDealer::where('userid', '=', $id)->get();
         return response()->json([
             'success' => true,
             'dealerData' => $dealerData
@@ -217,10 +219,10 @@ class ApiMainController extends Controller
 
     public function featuredCars()
     {
-        $imagesdata = SliderImage::first();
-        $adposts = AdPost::orderBy('created_at', 'desc')->get();
-        $carlists = CarList::get();
-        $bodytype = Master::where('type', '=', 'Body Type')->get();
+        // $imagesdata = SliderImage::first();
+        // $adposts = AdPost::orderBy('created_at', 'desc')->get();
+        // $carlists = CarList::get();
+        // $bodytype = Master::where('type', '=', 'Body Type')->get();
 
         $trending = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
             ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
@@ -255,10 +257,11 @@ class ApiMainController extends Controller
             ->where('display_settings.type', '=', 'Top Cars In India')->get();
 
         $variantdata = AddVariant::where('showhidestatus', '=', 1)->get();
+
         $trendingCarNames = $trending->pluck('carname');
         $trendingPopularNames = $popular->pluck('carname');
         $trendingUpcomingNames = $upcoming->pluck('carname');
-        $offer = $offer->pluck('carname');
+        $offerCarNames = $offer->pluck('carname');
         $topcarsinindia = $topcarindia->pluck('carname');
 
         $matches = $variantdata->whereIn('carname', $trendingCarNames)->unique('carname');
@@ -290,7 +293,7 @@ class ApiMainController extends Controller
         });
 
         $matchesoffer = $variantdata->whereIn('carname', $offer)->unique('carname');
-        $matchesoffer = $matchesoffer->map(function ($item) use ($offer) {
+        $matchesoffer = $matchesoffer->map(function ($item) use ($offerCarNames) {
             $trendingItem = $offer->firstWhere('carname', $item->carname);
             if ($trendingItem) {
                 $item->addimage = $trendingItem->addimage;
@@ -307,17 +310,17 @@ class ApiMainController extends Controller
             return $item;
         });
 
-        $statedata = PostOffices::select('StateName', DB::raw('COUNT(id) as count'))->groupBy('StateName')->get();
+        // $statedata = PostOffices::select('StateName', DB::raw('COUNT(id) as count'))->groupBy('StateName')->get();
 
         return response()->json([
             'success' => true,
             'data' => [
-                'imagesdata' => $imagesdata,
-                'variantdata' => $variantdata,
-                'statedata' => $statedata,
-                'bodytype' => $bodytype,
-                'carlists' => $carlists,
-                'adposts' => $adposts,
+                // 'imagesdata' => $imagesdata,
+                // 'variantdata' => $variantdata,
+                // 'statedata' => $statedata,
+                // 'bodytype' => $bodytype,
+                // 'carlists' => $carlists,
+                // 'adposts' => $adposts,
                 'matches' => $matches,
                 'matchespopular' => $matchespopular,
                 'matchesupcoming' => $matchesupcoming,
@@ -363,6 +366,7 @@ class ApiMainController extends Controller
             'carModal' => $carModal
         ]);
     }
+
     public function getCarVariant($modalname)
     {
         $carModal = AddVariant::where('carname', '=', $modalname)->pluck('carmodalname');
@@ -645,14 +649,14 @@ class ApiMainController extends Controller
             ]
         ]);
     }
-    
+
     public function getmyenquires($id)
     {
         $leaddata = Lead::where('userid', $id)->orderby('created_at', 'desc')->get();
         return response()->json([
-                'success' => true,
-                'data' => $leaddata
-            ]);
+            'success' => true,
+            'data' => $leaddata
+        ]);
     }
 
     public function bookvehiclenow(Request $request)
@@ -669,18 +673,21 @@ class ApiMainController extends Controller
             ]);
 
             $leads = Lead::UpdateOrCreate(
-                ['carid' => $request->carid,'userid' => $request->userid,'mobile' => $request->mobile],
+                ['carid' => $request->carid, 'userid' => $request->userid, 'mobile' => $request->mobile],
                 [
-                'fullname' => $request->fullname ?? 'Unknown', // Provide a default value
-                'userid' => $request->userid,
-                'carid' => $request->carid,
-                'mobile' => $request->mobile,
-                'email' => $request->email,
-                'city' => $request->city,
-                'vehicle' => $request->vehiclename,
-                'state' => $request->statename,
-                'remarks' => $request->remarks ?? '',
-            ]);
+                    'fullname' => $request->fullname ?? 'Unknown', // Provide a default value
+                    'userid' => $request->userid,
+                    'dealerid' => $request->dealerid,
+                    'dealername' => $request->dealername,
+                    'carid' => $request->carid,
+                    'mobile' => $request->mobile,
+                    'email' => $request->email,
+                    'city' => $request->city,
+                    'vehicle' => $request->vehiclename,
+                    'state' => $request->statename,
+                    'remarks' => $request->remarks ?? '',
+                ]
+            );
 
             // Log::info('Lead Inserted Successfully: ', ['lead' => $leads]);
 
@@ -823,9 +830,15 @@ class ApiMainController extends Controller
         ]);
     }
 
+    public function newvehiclelist()
+    {
+        $newvehicles = AddVariant::where('showhidestatus', '=', '1')->orderByDesc('created_at')->get()->unique('carname');;
+        return response()->json($newvehicles);
+    }
+    
     public function oldvehiclelist()
     {
-        $oldvehicles = AdPost::where('activationstatus' ,'=', 'Activated')->orderByDesc('created_at')->get();
+        $oldvehicles = AdPost::where('activationstatus', '=', 'Activated')->orderByDesc('created_at')->get();
         return response()->json($oldvehicles);
     }
 
@@ -837,6 +850,23 @@ class ApiMainController extends Controller
             'oldvehicles' => $oldvehicles
         ]);
     }
+
+    public function newcardealercarlist($id)
+    {
+        $brandlist = RegisterDealer::where('userid', '=', $id)->pluck('brands')->first();
+
+        $brandArray = json_decode($brandlist, true);
+
+        $carData = AddVariant::whereIn('brandname', $brandArray)
+            ->get()
+            ->unique('carname');
+
+        return response()->json([
+            'success' => true,
+            'dealercarlist' => $carData
+        ]);
+    }
+
 
     public function sellvehicle(Request $rq)
     {
@@ -992,9 +1022,10 @@ class ApiMainController extends Controller
             return response()->json(['success' => false, 'message' => 'Car details not found'], 404);
         }
 
-        $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
-        $specs = AddSpecification::where('vehicleid', $id)->get();
-        $features = AddFeature::where('vehicleid', $id)->get();
+        $images = VehicleImage::where('vehicle', $cardetails->carname)->pluck('addimage');
+
+        $specs = AddSpecification::where('vehicleid', $id)->pluck('specifications')->toArray();
+        $features = AddFeature::where('vehicleid', $id)->pluck('features')->toArray();
         $variants = AddVariant::where('carname', $cardetails->carname)->where('showhidestatus', '=', 1)->get();
 
 
@@ -1007,7 +1038,7 @@ class ApiMainController extends Controller
             $vehicle->addimage = $similarcarsimages->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
         }
 
-        $variantsfaqs = VariantFaq::where('vehicleid', $id)->get();
+        // $variantsfaqs = VariantFaq::where('vehicleid', $id)->get();
         $proscons = ProsCons::where('vehicleid', $id)->first();
         $pros = $proscons ? json_decode($proscons->pros, true) : [];
         $cons = $proscons ? json_decode($proscons->cons, true) : [];
@@ -1027,20 +1058,55 @@ class ApiMainController extends Controller
             }
         }
 
-        $pincodedata = Pincode::select('State', 'City', 'District', DB::raw('GROUP_CONCAT(DISTINCT PostOfficeName) as PostOfficeNames'), DB::raw('COUNT(*) as count'))
-            ->groupBy('State', 'City', 'District')
-            ->get();
+        // $pincodedata = Pincode::select('State', 'City', 'District', DB::raw('GROUP_CONCAT(DISTINCT PostOfficeName) as PostOfficeNames'), DB::raw('COUNT(*) as count'))
+        //     ->groupBy('State', 'City', 'District')
+        //     ->get();
 
         return response()->json([
             'success' => true,
             'data' => [
                 'cardetails' => $cardetails,
-                'pincodedata' => $pincodedata,
-                'pros' => $pros,
-                'cons' => $cons,
-                'variantsfaqs' => $variantsfaqs,
-                'similarcars' => $similarcars,
-                'matchingDealers' => $matchingDealers
+                // 'pincodedata' => $pincodedata,
+                // 'pros' => $pros,
+                // 'cons' => $cons,
+                // 'variantsfaqs' => $variantsfaqs,
+                // 'similarcars' => $similarcars,
+                // 'matchingDealers' => $matchingDealers
+            ]
+        ]);
+    }
+
+    public function getcarcolorimages($id)
+    {
+        $cardetails = AddVariant::where('id', $id)->where('showhidestatus', '=', 1)->first();
+
+        if (!$cardetails) {
+            return response()->json(['success' => false, 'message' => 'Car details not found'], 404);
+        }
+
+        $colorImages = VehicleImage::where('vehicle', $cardetails->carname)->where('type', '=' , 'Colour Images')->select('addimage', 'type', 'color')->get()->toArray();
+
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'colorImages' => $colorImages
+            ]
+        ]);
+    }
+    public function getcarimagesgallery($id)
+    {
+        $cardetails = AddVariant::where('id', $id)->where('showhidestatus', '=', 1)->first();
+
+        if (!$cardetails) {
+            return response()->json(['success' => false, 'message' => 'Car details not found'], 404);
+        }
+
+        $viewImages = VehicleImage::where('vehicle', $cardetails->carname)->where('type','!=','Colour Images')->select('addimage', 'type', 'title')->get()->toArray();
+
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'viewImages' => $viewImages
             ]
         ]);
     }
@@ -1391,7 +1457,7 @@ class ApiMainController extends Controller
 
     public function insertcarloanenquiry(Request $rq)
     {
-        
+
         try {
             $finaldata = CarLoanEnquiry::create([
                 'carname' => $rq->carname,
@@ -1415,17 +1481,14 @@ class ApiMainController extends Controller
             ], 500);
         }
     }
-    
+
     public function fetchSliderImages()
     {
         $imagesdata = SliderImage::first(['mobileimages']); // Use array syntax for selecting columns
-    
+
         return response()->json([
             'success' => true,
             'data' => $imagesdata // Remove extra `$` — it was $$imagesdata before
         ], 200); // 200 is more appropriate for success
     }
-    
-    
-
 }

@@ -137,7 +137,7 @@ class frontViewController extends Controller
         $cardetails = AddVariant::where('id', $id)->where('showhidestatus', '=', 1)->first();
 
         $new = [];
-        $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
+        $images = VehicleImage::where('vehicle', $cardetails->carname)->get(); // we have to get separate images for color and gallery by unique type
         $spces = AddSpecification::where('vehicleid', $id)->get();
         $features = AddFeature::where('vehicleid', $id)->get();
         $variants = AddVariant::where('carname', $cardetails->carname)->where('showhidestatus', '=', 1)->get();

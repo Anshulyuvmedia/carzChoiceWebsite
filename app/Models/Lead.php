@@ -18,5 +18,7 @@ class Lead extends Model
         'vehicle',
         'remarks',
         'leadstatus',
+        'dealerid',
+        'dealername',
     ];
 }
