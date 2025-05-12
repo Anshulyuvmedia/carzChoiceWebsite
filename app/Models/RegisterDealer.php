@@ -19,5 +19,6 @@ class RegisterDealer extends Model
         'email',
         'businesspics',
         'officepics',
+        'userid',
     ];
 }

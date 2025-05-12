@@ -71,8 +71,6 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('happycustomers', 'happycustomers')->name('happycustomers');
     Route::get('carinsurance', 'carinsurance')->name('carinsurance');
     Route::get('filtermodalname/{carname}', 'filtermodalname')->name('filtermodalname');
-    
-
 });
 
 //Frontend Functionality Routes

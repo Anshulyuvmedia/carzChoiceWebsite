@@ -9,6 +9,8 @@ class Lead extends Model
 {
     protected $fillable = [
         'fullname',
+        'userid',
+        'carid',
         'mobile',
         'email',
         'city',
@@ -16,5 +18,7 @@ class Lead extends Model
         'vehicle',
         'remarks',
         'leadstatus',
+        'dealerid',
+        'dealername',
     ];
 }
