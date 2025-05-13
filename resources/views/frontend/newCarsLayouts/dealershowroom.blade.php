@@ -63,7 +63,7 @@
                             <div class="ad-archive-desc">
                                 <div class="d-flex justify-content-between ">
                                     <div class="">
-                                        <a href="/dealer-profile">
+                                        <a href="{{ route('dealerprofile',['id' => $row->id])}}">
                                             <h3>{{$row->businessname}}</h3>
                                         </a>
                                     </div>
@@ -795,7 +795,7 @@
                                     <div class="ad-archive-desc">
                                         <div class="d-flex justify-content-between ">
                                             <div class="">
-                                                <a href="/dealer-profile">
+                                                <a href="/dealer-profile/${row.id}">
                                                     <h3>${row.businessname}</h3>
                                                 </a>
                                             </div>
@@ -807,7 +807,7 @@
                                                 used cars available at dealership</span></div>
                                         <div class="d-flex mt-3">
                                             <div class="me-3">
-                                                <a href="/dealer-profile">
+                                                <a href="/dealer-profile/${row.id}">
                                                     <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
                                                 </a>
                                             </div>
@@ -858,7 +858,7 @@
                                     <div class="ad-archive-desc">
                                         <div class="d-flex justify-content-between ">
                                             <div class="">
-                                                <a href="/dealer-profile">
+                                                <a href="/dealer-profile/${row.id}">
                                                     <h3>${row.businessname}</h3>
                                                 </a>
                                             </div>
@@ -870,7 +870,7 @@
                                                 used cars available at dealership</span></div>
                                         <div class="d-flex mt-3">
                                             <div class="me-3">
-                                                <a href="/dealer-profile">
+                                                <a href="/dealer-profile/${row.id}">
                                                     <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
                                                 </a>
                                             </div>

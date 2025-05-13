@@ -31,7 +31,7 @@
                                     <select name="categorytype" class="form-select" id="subcategory">
                                         <option value="">--select blog category--</option>
                                         @foreach ($masterdata as $row)
-                                        <option {{ $row->label == $row->label ? 'selected' : '' }} value="{{ $row->label }}">
+                                        <option {{ $row->label == $blogdata->categorytype ? 'selected' : '' }} value="{{ $row->label }}">
                                             {{ $row->label }}</option>
                                         @endforeach
                                     </select>
@@ -43,7 +43,7 @@
                                     <select name="carname" class="form-select">
                                         <option value="">-- Select related Car --</option>
                                         @foreach ($carname as $row)
-                                        <option {{ $row->carname == $row->carname ? 'selected' : '' }} value="{{ $row->carname }}">{{ $row->carname }}</option>
+                                        <option {{ $row->carname == $blogdata->carname ? 'selected' : '' }} value="{{ $row->carname }}">{{ $row->carname }}</option>
                                         @endforeach
                                     </select>
                                 </div>

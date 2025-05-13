@@ -11,8 +11,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/backend-assets/images/logowhite.jpg') }}">
 
     <!-- Bootstrap Css -->
-    <link href="{{ asset('assets/backend-assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ asset('assets/backend-assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{ asset('assets/backend-assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/backend-assets/css/line.css') }}" rel="stylesheet" type="text/css" />
@@ -22,13 +21,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
 
     <!-- DataTables -->
-    <link href="{{ asset('assets/backend-assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}"
-        rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/backend-assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}"
-        rel="stylesheet" type="text/css" />
-    <link
-        href="{{ asset('assets/backend-assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}"
-        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/backend-assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/backend-assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/backend-assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/backend-assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
     {{-- <link href="{{asset('assets/backend-assets/libs/spectrum-colorpicker2/spectrum.min.css')}}" rel="stylesheet" type="text/css"> --}}
     @stack('styles')
@@ -62,8 +57,7 @@
                         </a>
                     </div>
 
-                    <button type="button"
-                        class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
 
@@ -78,22 +72,17 @@
 
                 <div class="d-flex">
                     <div class="dropdown d-inline-block d-lg-none ms-2">
-                        <button type="button" class="btn header-item noti-icon waves-effect"
-                            id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
+                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="uil-search"></i>
                         </button>
-                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
-                            aria-labelledby="page-header-search-dropdown">
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
 
                             <form class="p-3">
                                 <div class="m-0">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search ..."
-                                            aria-label="Recipient's username">
+                                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="submit"><i
-                                                    class="mdi mdi-magnify"></i></button>
+                                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -103,31 +92,26 @@
 
 
                     <div class="dropdown d-none d-lg-inline-block ms-1">
-                        <button type="button" class="btn header-item noti-icon waves-effect"
-                            data-bs-toggle="fullscreen">
+                        <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
                             <i class="uil-minus-path"></i>
                         </button>
                     </div>
 
 
                     <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user"
-                                src="{{ asset('assets/backend-assets/images/logowhite.jpg') }}" alt="Header Avatar">
-                            @if (Auth::user())
-                            <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Welcome
-                                {{ Auth::user()->name }}</span>
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle header-profile-user" src="{{ asset('assets/backend-assets/images/logowhite.jpg') }}" alt="Header Avatar">
+                            @if (Auth::check())
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Welcome {{ Auth::user()->name }}</span>
                             @else
                             <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15">Guest User</span>
                             @endif
+
                             <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
-                            <a class="dropdown-item" href="/adminprofile"><i
-                                    class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span
-                                    class="align-middle">View Profile</span></a>
+                            <a class="dropdown-item" href="/adminprofile"><i class="uil uil-user-circle font-size-18 align-middle text-muted me-1"></i> <span class="align-middle">View Profile</span></a>
                             {{-- <a class="dropdown-item" href="#"><i
                                     class="uil uil-wallet font-size-18 align-middle me-1 text-muted"></i> <span
                                     class="align-middle">My Wallet</span></a>
@@ -139,8 +123,7 @@
                                     class="uil uil-lock-alt font-size-18 align-middle me-1 text-muted"></i> <span
                                     class="align-middle">Lock screen</span></a> --}}
                             <form method="POST" action="{{ route('logoutuser') }}" x-data>
-                                <a class="dropdown-item" href="{{ route('logoutuser') }}"><i
-                                        class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i>
+                                <a class="dropdown-item" href="{{ route('logoutuser') }}"><i class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i>
                                     <span class="align-middle">Log out</span></a>
                             </form>
                         </div>
@@ -249,9 +232,9 @@
                         </li>
                         {{-- <li>
                             <a href="{{ route('vehicleimages') }}">
-                                <i class="uil-comment-image"></i>
-                                <span>Add Vehicle Images</span>
-                            </a>
+                        <i class="uil-comment-image"></i>
+                        <span>Add Vehicle Images</span>
+                        </a>
                         </li> --}}
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -299,8 +282,7 @@
                         </li>
                         <li>
                             <form method="POST" action="{{ route('logoutuser') }}" x-data>
-                                <a class="dropdown-item" href="{{ route('logoutuser') }}"><i
-                                        class="uil-sign-in-alt font-size-18 align-middle me-1 text-muted"></i>
+                                <a class="dropdown-item" href="{{ route('logoutuser') }}"><i class="uil-sign-in-alt font-size-18 align-middle me-1 text-muted"></i>
                                     <span class="align-middle">Log out</span></a>
                             </form>
                         </li>
@@ -323,7 +305,9 @@
             <script src="{{ asset('assets/backend-assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
             <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
             <script src="{{asset('assets/backend-assets/libs/flatpickr/flatpickr.min.js')}}">
-            <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}"></script>
+                <script src="{{ asset('assets/backend-assets/js/pages/form-editor.init.js') }}">
+
+            </script>
             <script src="{{asset('assets/backend-assets/js/pages/form-advanced.init.js')}}"></script>
 
 
@@ -334,6 +318,7 @@
                         <div class="col-sm-6">
                             <script>
                                 document.write(new Date().getFullYear())
+
                             </script> © Carzchoice
                         </div>
                         <div class="col-sm-6">
@@ -370,7 +355,7 @@
 
 
 
-     <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/dataTables.buttons.js"></script>
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.dataTables.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>

@@ -201,8 +201,11 @@ class frontViewController extends Controller
     }
     public function reviews()
     {
-        $reviewdata = Blog::orderBy('created_at', 'desc')->where('categorytype', '=', 'Expert Reviews')->paginate(3);
-        // dd($blogdata);
+        $reviewdata = Blog::orderBy('created_at', 'desc')
+        ->where('categorytype', '=', 'Expert Reviews')
+        ->where('status', '=', '1')
+        ->paginate(3);
+        //dd($blogdata);
         return view('frontend.reviews', compact('reviewdata'));
     }
     public function reviewsdetails()
@@ -306,7 +309,10 @@ class frontViewController extends Controller
     }
     public function news()
     {
-        $blogdata = Blog::orderBy('created_at', 'desc')->where('categorytype', '=', 'Car News')->paginate(3);
+        $blogdata = Blog::orderBy('created_at', 'desc')
+        ->where('categorytype', '=', 'Car News')
+        ->where('status','=','1')
+        ->paginate(3);
         // dd($blogdata);
 
         return view('frontend.news', compact('blogdata'));

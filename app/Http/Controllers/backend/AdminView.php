@@ -46,6 +46,7 @@ class AdminView extends Controller
     public function adminprofile()
     {
         $user = Auth::user();
+        //dd( $user);
         $registeredusers = RegisterUser::orderBy('created_at', 'desc')->get();
         return view('AdminPanel.adminprofile', compact('user', 'registeredusers'));
     }
@@ -76,14 +77,15 @@ class AdminView extends Controller
     public function bloglist()
     {
         $bloglistdata = Blog::orderBy('created_at', 'desc')->get();
-        return view('AdminPanel.bloglist', compact('bloglistdata'));
+        $blogcount = Blog::count();
+        return view('AdminPanel.bloglist', compact('bloglistdata','blogcount'));
     }
 
     public function editblog($id)
     {
         $blogdata = Blog::find($id);
         $masterdata = Master::where('type', '=', 'Blog')->get();
-        // dd($blogdata);
+        //dd($masterdata);
         $carname = CarList::get();
         return view('AdminPanel.editblog', compact('blogdata', 'masterdata', 'carname'));
     }
@@ -297,7 +299,7 @@ class AdminView extends Controller
         $carlistdata = CarList::get();
         $imageslist = CarList::where('carname', $data->carname)->get()->pluck('colors');
         $colors = isset($imageslist[0]) ? json_decode($imageslist[0]) : [];
-        //dd($colors);
+        //dd($mastercolordata);
         return view('AdminPanel.vehicleimages', compact('data', 'colors', 'imageslist', 'carnamedata', 'masterdata', 'mastercolordata', 'vehicleimgdata', 'carlistdata'));
     }
 
