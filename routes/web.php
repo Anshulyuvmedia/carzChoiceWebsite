@@ -46,6 +46,8 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('dealer-profile/{id}', 'dealerprofile')->name('dealerprofile');
     Route::get('dealer-showroom', 'dealershowroom');
     Route::get('dealer-location', 'dealerbylocation');
+    Route::get('usedcardetails/{id}', 'usedcardetails')->name('usedcardetails');
+
 
 
     //when user logged in

@@ -242,6 +242,7 @@ class FrontendStore extends Controller
                 'district' => 'required',
                 'state' => 'required',
                 'pincode' => 'required',
+                'bodytype' => 'required',
                 'price' => 'required',
                 'kilometersdriven' => 'required',
                 'fueltype' => 'required',
@@ -298,6 +299,7 @@ class FrontendStore extends Controller
                 'lastupdated' => $rq->lastupdated,
                 'images' => $jsonImageData,
                 'userid' => $loggedInUser->id,
+                'bodytype' => $loggedInUser->bodytype,
 
             ]);
             // dd($finaldata);
@@ -329,6 +331,7 @@ class FrontendStore extends Controller
                 'pincode' => 'required',
                 'price' => 'required',
                 'kilometersdriven' => 'required',
+                'bodytype' => 'required',
                 'fueltype' => 'required',
                 'registeryear' => 'required',
                 'manufactureyear' => 'required',
@@ -393,7 +396,8 @@ class FrontendStore extends Controller
                 'insurance' => $rq->insurance,
                 'registertype' => $rq->registertype,
                 'lastupdated' => $rq->lastupdated,
-                'images' => $jsonImageData
+                'images' => $jsonImageData,
+                'bodytype' => $rq->bodytype,
             ]);
 
             Log::info('Ad Post Updated Successfully: ', ['adpost' => $data]);

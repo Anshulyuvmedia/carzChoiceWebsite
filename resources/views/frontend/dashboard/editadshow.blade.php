@@ -355,6 +355,18 @@
                                                     required value="{{ $adshowdata->fueltype }}" />
                                             </div>
                                             <div class="col-lg-4">
+                                                <label>Body Type <span class="color-red">*</span></label>
+                                                <select class="form-control" id=""
+                                                    name="bodytype" required>
+                                                    <option value="">--select body type--</option>
+                                                    @foreach ($bodytypes as $row)
+                                                        <option
+                                                            {{ $row->value == $adshowdata->bodytype ? 'selected' : '' }} value="{{ $row->value }}">{{ $row->value }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-4">
                                                 <label class="fieldlabels">Registration year</label>
                                                 <input type="text" name="registeryear"
                                                     placeholder="enter registration year" required

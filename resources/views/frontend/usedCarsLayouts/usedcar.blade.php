@@ -499,9 +499,10 @@
                                             <div class="ad-price">Rs. {{$row->price}}
                                                 <span class="text-muted ps-2">Starting Price</span>
                                             </div>
-                                            <a class="  ">
+                                            <a href="{{ route('usedcardetails', ['id' => $row->id]) }}">
                                                 <button class="btn btn-theme rounded-4 btn-sm ">
-                                                    Get Offer
+                                                    View Details
+                                                    <i class="bi bi-arrow-up-right"></i>
                                                 </button>
                                             </a>
                                         </div>

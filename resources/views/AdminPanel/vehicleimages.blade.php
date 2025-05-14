@@ -3,6 +3,15 @@
 @section('main-section')
 @section('title', 'Add ' . $carnamedata . ' Images')
 <div class="page-content">
+ <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css">
+    <style>
+        table.dataTable th.dt-type-numeric,
+        table.dataTable th.dt-type-date,
+        table.dataTable td.dt-type-numeric,
+        table.dataTable td.dt-type-date {
+            text-align: left !important;
+        }
+    </style>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -99,7 +108,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body table-responsive">
-                        <table id="datatable-buttons" class="table table-hover  table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                      <table id="example" class="table  table-bordered dt-responsive nowrap"
+                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
                                     <th>S.No</th>
@@ -245,7 +255,17 @@
                 }
             });
     }
+     $(document).ready(function() {
+        $('#example').DataTable({
+            pageLength: 10,
+            layout: {
+                topStart: {
+                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                }
+            },
 
+        });
+    });
 </script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
