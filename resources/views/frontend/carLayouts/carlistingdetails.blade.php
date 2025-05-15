@@ -131,23 +131,10 @@
                                 <div class="col-md-12 col-xs-12 col-sm-12 p-4 ">
                                     <div class="fs-1 fw-bold text-dark">
                                         Rs. {{ $cardetails->price }} Lakh
-                                        <span><a class="text-danger fs-5"> View Price Breakup</a></span>
                                     </div>
-                                    <div>
-                                        On-Road Price, Panvel
-                                    </div>
+                                    <span><a class="text-danger fs-5"> View Price Breakup</a></span>
                                     <div class="my-3 p-3 rounded-3 shadow-sm d-flex justify-content-between" style="background-color: #F9F9F9">
                                         <div>
-                                            EMI Rs. 26,488
-                                            <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title='EMI Calculated basis <br />
-                                                                Down Payment - Rs. 2,06,853,<br />
-                                                                Interest Rate - 10% p.a.,<br />
-                                                                Tenure - 5 Years.<br />
-                                                                For exact EMI quotes please get in touch Authorized Dealer<br />
-                                                                Fill in your details and get best loan deals visit Carz Choice Car Loan page'>
-                                            </i>
-
-                                            <span class="ms-2">For 5 Years</span>
                                             <div>
                                                 <a href="#" data-target="#share-ad" data-toggle="modal">
                                                     EMI Calculator
@@ -160,9 +147,6 @@
                                             </a>
                                         </div>
 
-                                    </div>
-                                    <div>
-                                        <i class="bi bi-clock"></i> Waiting Period: 7-14 Weeks
                                     </div>
                                     <div class="mt-5">
                                         <a href="#" class="btn btn-theme btn-block rounded-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" data-carname="{{ $cardetails->brandname }},{{ $cardetails->carname }}({{ $cardetails->carmodalname }})">Get
@@ -352,7 +336,7 @@
                                     </table>
 
                                     <div class="float-end">
-                                        <a href="#" class="btn btn-theme rounded-4 btn-sm rounded-3" data-bs-toggle="offcanvas" data-bs-target="#compareOffcanvas" aria-controls="offcanvasBottom">
+                                        <a href="#" class="btn btn-theme rounded-4 btn-sm rounded-3">
                                             Compare Cars
                                         </a>
                                     </div>
@@ -493,25 +477,37 @@
 
                         <!-- Collapsible content -->
 
-                        <h3>{{ $cardetails->brandname }} {{ $cardetails->carname }} Key Features</h3>
                         <div class="well alert-box-container margin-top-20" id="keyfeaturesections">
+                            <h3 class="text-dark fw-bold">{{ $cardetails->brandname }} {{ $cardetails->carname }} Key Features & Specifications</h3>
                             <ul class="accordion">
                                 <li>
                                     <h3 class="accordion-title"><a href="#">Features</a></h3>
                                     <div class="accordion-content">
-                                        <ul>
-                                            @foreach ($cardetails->features as $feature)
-                                            @php
-                                            $json = json_decode($feature->features, true);
-                                            @endphp
-
-                                            @if (isset($json[0]['label']) && isset($json[0]['value']))
-                                            @foreach ($json[0]['label'] as $index => $item)
-                                            <li>{{ $item }}</li>
-                                            @endforeach
-                                            @endif
-                                            @endforeach
-                                        </ul>
+                                        @if (!empty($cardetails->features))
+                                        @foreach ($cardetails->features as $feature)
+                                        @php
+                                        $json = json_decode($feature->features, true);
+                                        @endphp
+                                        @if (isset($json[0]['label']) && isset($json[0]['value']))
+                                        @foreach ($json as $category)
+                                        <div class="features">
+                                            <h4 class="category-title text-primary fw-bold mb-2">{{ $category['type'] }}</h3>
+                                                <ul>
+                                                    <div class="row">
+                                                        @foreach ($category['label'] as $index => $label)
+                                                        @if ($category['value'][$index] === '1')
+                                                        <div class="col-md-6">
+                                                            <li class="feature-item"><i class="bi bi-check-circle-fill text-success me-2"></i> {{ $label }}</li>
+                                                        </div>
+                                                        @endif
+                                                        @endforeach
+                                                    </div>
+                                                </ul>
+                                        </div>
+                                        @endforeach
+                                        @endif
+                                        @endforeach
+                                        @endif
                                     </div>
                                 </li>
                                 <li>
@@ -1309,8 +1305,7 @@
 
 {{-- car selectLocation --}}
 
-
-<div class="offcanvas offcanvas-bottom" tabindex="-1" id="compareOffcanvas" aria-labelledby="offcanvasBottomLabel">
+<div class="offcanvas offcanvas-bottom" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header ">
         <div class="d-grid justify-content-center w-100 border-bottom pb-3">
             <h5 class="offcanvas-title fw-bold" id="offcanvasBottomLabel">Compare Cars</h5>
@@ -1630,6 +1625,20 @@
             $('.variantcheck:checked').each(function() {
                 checkedValues.push($(this).val());
             });
+            // Disable unchecked checkboxes if the count is 3 or more
+            if (checkedValues.length >= 3) {
+                $('.comparecheck:not(:checked)').each(function() {
+                    $(this).prop('disabled', true)
+                        .attr('title', 'Maximum of 3 selections allowed')
+                        .attr('data-bs-placement', 'top')
+                        .attr('data-bs-toggle', 'tooltip');
+                });
+            } else {
+                // Enable all checkboxes and remove tooltips if the count is less than 3
+                $('.comparecheck').prop('disabled', false)
+                    .removeAttr('title')
+                    .removeAttr('data-bs-toggle');
+            }
             console.log('Checked values:', checkedValues);
 
             // AJAX Request
@@ -1724,6 +1733,24 @@
                 checkedValues.push(item);
                 ids.push(item.id);
             });
+            // Disable unchecked checkboxes if the count is 3 or more
+            if (checkedValues.length >= 3) {
+                $('.comparecheck:not(:checked)').each(function() {
+                    $(this).prop('disabled', true)
+                        .attr('title', 'Maximum of 3 selections allowed')
+                        .attr('data-bs-placement', 'top')
+                        .attr('data-bs-toggle', 'tooltip');
+                });
+            } else {
+                // Enable all checkboxes and remove tooltips if the count is less than 3
+                $('.comparecheck').prop('disabled', false)
+                    .removeAttr('title')
+                    .removeAttr('data-bs-toggle');
+            }
+            if (checkedValues.length > 0) {
+                var offcanvasElement = new bootstrap.Offcanvas(document.getElementById('offcanvasScrolling'));
+                offcanvasElement.show();
+            }
             console.log('Checked values:', checkedValues);
             console.log('IDs values:', ids);
 

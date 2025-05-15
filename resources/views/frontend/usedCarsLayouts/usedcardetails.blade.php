@@ -327,8 +327,12 @@
                             <h3 class="accordion-title"><a href="#">Specifications</a></h3>
                             <div class="accordion-content">
                                 @php
+                                $json = [];
+                                if (!empty($cardetails->specifications) && !empty($cardetails->specifications[0])) {
                                 $json = json_decode($cardetails->specifications[0], true);
+                                }
                                 @endphp
+
                                 @if (!empty($json))
                                 @foreach (array_unique(array_column($json, 'type')) as $type)
                                 <h4 class="category-title text-primary fw-bold mb-2">{{ $type }}</h4>

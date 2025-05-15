@@ -894,7 +894,7 @@ class frontViewController extends Controller
         // $pincodedata = Pincode::select('State', 'City', 'District', DB::raw('GROUP_CONCAT(DISTINCT PostOfficeName) as PostOfficeNames'), DB::raw('COUNT(*) as count'))
         // ->groupBy('State', 'City', 'District')
         // ->get();
-       
+       //dd( $cardetails);
         return view('frontend.usedCarsLayouts.usedcardetails', compact('specs', 'features', 'cardetails','similarcars','pros','cons','faqs'));
 
     }
