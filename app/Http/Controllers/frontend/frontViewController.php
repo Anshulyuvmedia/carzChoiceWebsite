@@ -141,7 +141,7 @@ class frontViewController extends Controller
         $spces = AddSpecification::where('vehicleid', $id)->get();
         $features = AddFeature::where('vehicleid', $id)->get();
         $variants = AddVariant::where('carname', $cardetails->carname)->where('showhidestatus', '=', 1)->get();
-        $similarcars = AddVariant::where('bodytype', $cardetails->bodytype)->where('id', $id)->where('showhidestatus', '=', 1)->get()->unique('carname');
+        $similarcars = AddVariant::where('bodytype', $cardetails->bodytype)->where('carname', '!=', $cardetails->carname)->where('id','!=', $id)->where('showhidestatus', '=', 1)->get()->unique('carname');
         $carNames = $similarcars->pluck('carname')->toArray();
 
         //Related to similar cars
@@ -192,8 +192,10 @@ class frontViewController extends Controller
         $pincodedata = Pincode::select('State', 'City', 'District', DB::raw('GROUP_CONCAT(DISTINCT PostOfficeName) as PostOfficeNames'), DB::raw('COUNT(*) as count'))
             ->groupBy('State', 'City', 'District')
             ->get();
-        //dd($cardetails);
-        return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pincodedata', 'pros', 'cons', 'variantsfaqs', 'similarcars', 'matchingDealers'));
+
+        $colorImages = VehicleImage::where('vehicle', $cardetails->carname)->where('type', '=', 'Colour Images')->select('addimage', 'type', 'color')->get();
+        //dd($colorImages);
+        return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pincodedata', 'pros', 'cons', 'variantsfaqs', 'similarcars', 'matchingDealers','colorImages'));
     }
     public function carlisting()
     {

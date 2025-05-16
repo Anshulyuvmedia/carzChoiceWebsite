@@ -202,12 +202,12 @@
                             <div class="singlepage-detail">
                                 <div id="single-color-slider" class="flexslider p-2 mb-0 pb-0">
                                     <ul class="slides">
-                                        @foreach ($cardetails->images as $image)
+                                        @foreach ($colorImages as $image)
                                         @php
-                                        //dd( $image);
                                         // Decode JSON into an associative array
-                                        $color = json_decode($image->color, true);
-                                        $values = $color['label'];
+                                            $color = json_decode($image->color, true);
+                                            $values = $color['label'];
+                                            //dd( $color);
                                         // dd($values);
                                         @endphp
                                         <li>
@@ -225,7 +225,7 @@
                                     <div class="singlepage-detail rounded-4">
                                         <div id="carousel" class="flexslider p-2 mb-0">
                                             <ul class="slides">
-                                                @foreach ($cardetails['images'] as $row)
+                                                @foreach ($colorImages as $row)
                                                 <li>
                                                     @php
                                                     // Decode JSON into an associative array
@@ -313,9 +313,11 @@
                                             <tr style="display: table; width: 100%; table-layout: fixed;">
                                                 <input type="hidden" name="" id="CarrName" value="{{ $rowqqqq->carname }}">
                                                 <td>
-                                                    <div>
-                                                        {{ $rowqqqq->carname }}, ({{ $rowqqqq->carmodalname }})
-                                                    </div>
+                                                    <a href="{{ route('carlistingdetails', ['id' => $rowqqqq->id]) }}">
+                                                        <div>
+                                                            {{ $rowqqqq->carname }}, ({{ $rowqqqq->carmodalname }})
+                                                        </div>
+                                                    </a>
                                                     <div class="text-muted fs-4">
                                                         {{ $rowqqqq->engine }} cc,
                                                         {{ implode(', ', json_decode($rowqqqq->fueltype)) }}
@@ -1698,9 +1700,11 @@
                     <tr style="display: table; width: 100%; table-layout: fixed;">
                         <input type="hidden" name="" id="CarrName" value="${item.carname}">
                         <td>
+                             <a href="/carlistingdetails/${item.id}">
                             <div>
                                 ${item.carname}, (${item.carmodalname})
                             </div>
+                            </a>
                             <div class="text-muted">
                                 <ul class="d-flex" style="column-count : 4;">
                                     ${fuelTypes} |&nbsp;&nbsp;${transmissions}
