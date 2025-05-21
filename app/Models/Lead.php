@@ -11,6 +11,7 @@ class Lead extends Model
         'fullname',
         'userid',
         'carid',
+        'cartype',
         'mobile',
         'email',
         'city',

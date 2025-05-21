@@ -27,6 +27,7 @@ use App\Models\Lead;
 use App\Models\AddSpecification;
 use Auth, DB, Log, Cache, Exception;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class ApiMainController extends Controller
 {
@@ -92,8 +93,7 @@ class ApiMainController extends Controller
             'userData' => $userData
         ]);
     }
-
-    public function updateUserProfile(Request $request, $id)
+    public function updateuserprofile(Request $request, $id)
     {
         // Find the existing user
         $user = RegisterUser::find($id);
@@ -105,15 +105,36 @@ class ApiMainController extends Controller
             ], 404);
         }
 
+        // Validate input
+            $validated = $request->validate([
+                'fullname' => 'required|string|max:255',
+                'email' => 'required|email|max:255',
+                'contactno' => 'required|string|max:20',
+                'district' => 'required|string|max:255',
+                'pincode' => 'required|string|max:10',
+                'state' => 'required|string|max:255',
+                'addresss' => 'required|string|max:500',
+                'dp' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Optional image
+            ]);
+
+            // Update user fields
+            $user->fullname = $request->fullname;
+            $user->email = $request->email;
+            $user->contactno = $request->contactno;
+            $user->district = $request->district;
+            $user->pincode = $request->pincode;
+            $user->state = $request->state;
+            $user->addresss = $request->addresss;
+
         // Update user fields
-        $user->fullname = $request->input('name');
-        $user->contactno = $request->input('mobile');
-        $user->usertype = $request->input('usertype');
-        $user->email = $request->input('email');
-        $user->district = $request->input('district');
-        $user->state = $request->input('state');
-        $user->pincode = $request->input('pincode');
-        $user->addresss = $request->input('addresss');
+        // $user->fullname = $request->input('name');
+        // $user->contactno = $request->input('mobile');
+        // $user->usertype = $request->input('usertype');
+        // $user->email = $request->input('email');
+        // $user->district = $request->input('district');
+        // $user->state = $request->input('state');
+        // $user->pincode = $request->input('pincode');
+        // $user->addresss = $request->input('addresss');
 
         // Handle profile image upload
         if ($request->hasFile('dp')) {
@@ -132,7 +153,7 @@ class ApiMainController extends Controller
             'userData' => $user
         ]);
     }
-
+    
 
     public function registerdealer(Request $req)
     {
@@ -346,7 +367,9 @@ class ApiMainController extends Controller
             'fuelTypes' => Master::where('type', '=', 'Fuel Type')->get(),
             'transmissions' => Master::where('type', '=', 'Transmission')->get(),
             'budgets' => Master::where('type', '=', 'Budget')->get(),
+            'bodyType' => Master::where('type', '=', 'Body Type')->get(),
             'city' => AdPost::select('district')->distinct()->get(),
+            'newcarcity' => RegisterDealer::select('district')->distinct()->get(),
             'color' => AdPost::select('color')->distinct()->get(),
 
         ];
@@ -379,130 +402,142 @@ class ApiMainController extends Controller
 
     public function filterByAttribute(Request $request)
     {
-        $attribute = $request->input('attribute');
-        // Log::info('Checking attribute:', ['attribute' => $attribute]);
+        // Validating inputs
+        $request->validate([
+            'bodyType' => 'nullable|string',
+            'brand' => 'nullable|string',
+            'budget' => 'nullable|string',
+            'fuelType' => 'nullable|string',
+            'transmission' => 'nullable|string',
+            'location' => 'nullable|string',
+        ]);
 
-        if ($attribute == 'Upcoming' || $attribute == 'Newly Launched') {
-            $type = $attribute;
-        } else {
-            $type = Master::where('value', $attribute)->pluck('type')->first();
-            if (!$type) {
+        // Extracting input parameters
+        $bodyType = $request->input('bodyType');
+        $brand = $request->input('brand');
+        $budget = $request->input('budget');
+        $fuelType = $request->input('fuelType');
+        $transmission = $request->input('transmission');
+        $location = $request->input('location');
+
+        // Generating cache key
+        $cacheKey = 'variants_data_' . md5(json_encode([$bodyType, $brand, $budget, $fuelType, $transmission, $location]));
+
+        // Validating attributes against Master table
+        if ($bodyType && !Master::where('value', $bodyType)->where('type', 'Body Type')->exists()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid body type',
+            ], 400);
+        }
+        if ($brand && !Master::where('value', $brand)->where('type', 'Brand')->exists()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid brand',
+            ], 400);
+        }
+        if ($fuelType && !Master::where('value', $fuelType)->where('type', 'Fuel Type')->exists()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid fuel type',
+            ], 400);
+        }
+        if ($transmission && !Master::where('value', $transmission)->where('type', 'Transmission')->exists()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid transmission',
+            ], 400);
+        }
+
+        // Base query with distinct to avoid duplicates
+        $query = AddVariant::join('vehicle_images', function ($join) {
+            $join->on('vehicle_images.vehicle', '=', 'add_variants.carname')
+                ->where('vehicle_images.type', '=', 'Outer view')
+                ->whereRaw('vehicle_images.id = (SELECT MIN(id) FROM vehicle_images WHERE vehicle = add_variants.carname AND type = "Outer view")');
+        })
+            ->join('car_lists', 'car_lists.carname', '=', 'add_variants.carname')
+            ->select('add_variants.id', 'add_variants.*', 'vehicle_images.addimage')
+            ->where('add_variants.showhidestatus', '=', 1)
+            ->distinct();
+
+        // Applying location filter
+        if ($location) {
+            $query->where('car_lists.district', $location);
+        }
+
+        // Applying attribute filters
+        if ($bodyType) {
+            $query->where('add_variants.bodytype', $bodyType);
+        }
+
+        if ($brand) {
+            $query->where('add_variants.brandname', $brand);
+        }
+
+        if ($fuelType) {
+            $query->whereJsonContains('add_variants.fueltype', $fuelType);
+        }
+
+        if ($transmission) {
+            $query->whereJsonContains('add_variants.transmission', $transmission);
+        }
+
+        if ($budget) {
+            $parts = explode(' ', $budget);
+            $lowerValue = null;
+            $upperValue = null;
+
+            if ($parts[0] === "UNDER" && isset($parts[1]) && is_numeric($parts[1])) {
+                $lakhValue = intval($parts[1]);
+                $upperValue = $lakhValue * 100000;
+            } elseif ($budget === "Luxury Cars") {
+                $lowerValue = 3000000;
+            } else {
                 return response()->json([
                     'success' => false,
-                    'message' => 'Invalid attribute'
+                    'message' => 'Invalid budget format',
                 ], 400);
+            }
+
+            if ($lowerValue !== null) {
+                $query->where('add_variants.price', '>=', $lowerValue);
+            }
+            if ($upperValue !== null) {
+                $query->where('add_variants.price', '<=', $upperValue);
             }
         }
 
+        // Handling special cases (Upcoming, Newly Launched)
+        if ($bodyType == 'Upcoming' || $bodyType == 'Newly Launched') {
+            $type = $bodyType;
+            $variantData = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
+                ->join('vehicle_images', function ($join) {
+                    $join->on('vehicle_images.vehicle', '=', 'car_lists.carname')
+                        ->where('vehicle_images.type', '=', 'Outer view')
+                        ->whereRaw('vehicle_images.id = (SELECT MIN(id) FROM vehicle_images WHERE vehicle = car_lists.carname AND type = "Outer view")');
+                })
+                ->join('add_variants', 'add_variants.carname', '=', 'car_lists.carname')
+                ->select('add_variants.id', 'display_settings.*', 'add_variants.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
+                ->where('add_variants.availabelstatus', '=', $type)
+                ->distinct();
 
-        switch ($type) {
-            case 'Newly Launched':
-                $variantData = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
-                    ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
-                    ->join('add_variants', 'add_variants.carname', '=', 'car_lists.carname')
-                    ->select('display_settings.*', 'add_variants.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
-                    ->where('vehicle_images.type', '=', 'Outer view')
-                    ->where('add_variants.availabelstatus', '=', 'Newly Launched')->get()->unique('carmodalname');
-                break;
-            case 'Upcoming':
-                $variantData = CarList::join('display_settings', 'display_settings.vehicleid', '=', 'car_lists.id')
-                    ->join('vehicle_images', 'vehicle_images.vehicle', '=', 'car_lists.carname')
-                    ->join('add_variants', 'add_variants.carname', '=', 'car_lists.carname')
-                    ->select('display_settings.*', 'add_variants.*', 'car_lists.carname', 'car_lists.brandname', 'vehicle_images.addimage')
-                    ->where('vehicle_images.type', '=', 'Outer view')
-                    ->where('display_settings.category', '=', 'Upcoming')->get();
-                break;
-            case 'Brand':
-                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
-                    ->select('add_variants.*', 'vehicle_images.addimage')
-                    ->where('add_variants.brandname', $attribute)
-                    ->where('add_variants.showhidestatus', '=', 1)
-                    ->get()->unique('carname');
-                break;
-            case 'Body Type':
-                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
-                    ->select('add_variants.*', 'vehicle_images.addimage')
-                    ->where('add_variants.bodytype', $attribute)
-                    ->where('add_variants.showhidestatus', '=', 1)
-                    ->get()->unique('carname');
-                break;
-            case 'Fuel Type':
-                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
-                    ->select('add_variants.*', 'vehicle_images.addimage')
-                    ->whereJsonContains('add_variants.fueltype', $attribute)
-                    ->where('add_variants.showhidestatus', '=', 1)
-                    ->get()->unique('carname');
-                break;
-            case 'Transmission':
-                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
-                    ->select('add_variants.*', 'vehicle_images.addimage')
-                    ->whereJsonContains('add_variants.transmission', $attribute)
-                    ->where('add_variants.showhidestatus', '=', 1)
-                    ->get()->unique('carname');
-                break;
-            case 'Seating Capacity':
-                $parts = explode(' ', $attribute);
-                $avalseat = intval($parts[0]);
-                // Log::info('Checking type:', ['avalseat' => $avalseat]);
-                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
-                    ->select('add_variants.*', 'vehicle_images.addimage')
-                    ->where('add_variants.seatingcapacity', '<=', $avalseat)
-                    ->where('add_variants.showhidestatus', '=', 1)
-                    ->get()->unique('carname');
-                break;
-            case 'Budget':
-                $parts = explode(' ', $attribute);
-                $lowerValue = null;
-                $upperValue = null;
+            if ($location) {
+                $variantData->where('car_lists.district', $location);
+            }
 
-                if ($parts[0] === "Below") {
-                    $upperValue = intval($parts[1]);
-                } elseif ($parts[0] === "Over") {
-                    $lowerValue = intval($parts[1]);
-                } elseif ($parts[0] === "Range") {
-                    $rangeParts = explode('-', $parts[1]);
-                    $lowerValue = intval($rangeParts[0]);
-                    $upperValue = intval($rangeParts[1]);
-                }
-
-                $variantData = AddVariant::join('vehicle_images', 'vehicle_images.vehicle', '=', 'add_variants.carname')
-                    ->select('add_variants.*', 'vehicle_images.addimage')
-                    ->where('add_variants.showhidestatus', '=', 1)
-                    ->get();
-
-                $variantData = $variantData->filter(function ($variant) use ($lowerValue, $upperValue) {
-                    $mileages = json_decode($variant->mileages, true);
-
-                    foreach ($mileages as $fuelType => $mileage) {
-                        $mileage = intval($mileage);
-
-                        if ($lowerValue !== null && $mileage < $lowerValue) {
-                            continue;
-                        }
-
-                        if ($upperValue !== null && $mileage > $upperValue) {
-                            continue;
-                        }
-
-                        return true;
-                    }
-
-                    return false;
-                })->unique('carname');
-                break;
-            default:
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Invalid type'
-                ], 400);
+            $variantData = $variantData->get()->unique('carname')->values();
+        } else {
+            $variantData = $query->get()->unique('carname')->values();
         }
-        Cache::forget('variants_data');
-        Cache::put('variants_data', $variantData, now()->addMinutes(10));    // New thing learned data will be stored in cache till 10 minutes
+
+        // Caching results for 5 minutes
+        Cache::forget($cacheKey);
+        Cache::put($cacheKey, $variantData, now()->addMinutes(5));
 
         return response()->json([
             'success' => true,
             'variants' => $variantData,
-            'redirect_url' => route('api.findcar', ['filtertype' => $attribute . " New"])
+            'redirect_url' => route('api.findcar', ['filtertype' => 'Filtered New']),
         ], 200);
     }
 
@@ -652,7 +687,15 @@ class ApiMainController extends Controller
 
     public function getmyenquires($id)
     {
-        $leaddata = Lead::where('userid', $id)->orderby('created_at', 'desc')->get();
+        $leaddata = Lead::where('userid', $id)->where('cartype', '!=', 'newcarlead')->orderby('created_at', 'desc')->get();
+        return response()->json([
+            'success' => true,
+            'data' => $leaddata
+        ]);
+    }
+    public function getnewcarenquires($id)
+    {
+        $leaddata = Lead::where('userid', $id)->where('cartype', '=', 'newcarlead')->orderby('created_at', 'desc')->get();
         return response()->json([
             'success' => true,
             'data' => $leaddata
@@ -680,6 +723,7 @@ class ApiMainController extends Controller
                     'dealerid' => $request->dealerid,
                     'dealername' => $request->dealername,
                     'carid' => $request->carid,
+                    'cartype' => $request->cartype,
                     'mobile' => $request->mobile,
                     'email' => $request->email,
                     'city' => $request->city,
@@ -835,7 +879,7 @@ class ApiMainController extends Controller
         $newvehicles = AddVariant::where('showhidestatus', '=', '1')->orderByDesc('created_at')->get()->unique('carname');;
         return response()->json($newvehicles);
     }
-    
+
     public function oldvehiclelist()
     {
         $oldvehicles = AdPost::where('activationstatus', '=', 'Activated')->orderByDesc('created_at')->get();
@@ -853,19 +897,39 @@ class ApiMainController extends Controller
 
     public function newcardealercarlist($id)
     {
-        $brandlist = RegisterDealer::where('userid', '=', $id)->pluck('brands')->first();
-
+        $brandlist = RegisterDealer::where('userid', $id)->pluck('brands')->first();
         $brandArray = json_decode($brandlist, true);
 
         $carData = AddVariant::whereIn('brandname', $brandArray)
+            ->where('add_variants.showhidestatus', 1)
             ->get()
-            ->unique('carname');
+            ->unique('carname')
+            ->values();
+
+        $carNames = $carData->pluck('carname')->toArray();
+
+        // Get only the first image per car of type 'Outer view'
+        $images = VehicleImage::whereIn('vehicle', $carNames)
+            ->where('type', 'Outer view')
+            ->get()
+            ->groupBy('vehicle')
+            ->map(function ($group) {
+                return $group->first()->addimage ?? null;
+            });
+
+        // Attach the single image to each car
+        $carData->transform(function ($car) use ($images) {
+            $car->carimage = $images[$car->carname] ?? null;
+            return $car;
+        });
 
         return response()->json([
             'success' => true,
             'dealercarlist' => $carData
         ]);
     }
+
+
 
 
     public function sellvehicle(Request $rq)
@@ -1026,19 +1090,40 @@ class ApiMainController extends Controller
 
         $specs = AddSpecification::where('vehicleid', $id)->pluck('specifications')->toArray();
         $features = AddFeature::where('vehicleid', $id)->pluck('features')->toArray();
+
         $variants = AddVariant::where('carname', $cardetails->carname)->where('showhidestatus', '=', 1)->get();
 
 
-        $similarcars = AddVariant::where('bodytype', $cardetails->bodytype)->where('id', '!=', $id)->where('showhidestatus', '=', 1)->get()->unique('carname');
+        // $similarcars = AddVariant::where('bodytype', $cardetails->bodytype)->where('id', '!=', $id)->where('showhidestatus', '=', 1)->get()->unique('carname');
+
+        // $carNames = $similarcars->pluck('carname')->toArray();
+
+        // // Related to similar cars
+        // $similarcarsimages = VehicleImage::whereIn('vehicle', $carNames)->get();
+        // foreach ($similarcars as $vehicle) {
+        //     $vehicle->addimage = $similarcarsimages->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
+        // }
+
+        // Fetch similar cars of the same bodytype, excluding all variants of the current car
+        $similarcars = AddVariant::where('bodytype', $cardetails->bodytype)
+            ->where('carname', '!=', $cardetails->carname) // Exclude all variants of the current car
+            ->where('id', '!=', $id) // Still exclude the current variant (redundant but safe)
+            ->where('showhidestatus', '=', 1)
+            ->get()
+            ->unique('carname'); // Ensure only one variant per car model
+
+        // Get the list of car names (now excluding the current car's name)
         $carNames = $similarcars->pluck('carname')->toArray();
 
-        // Related to similar cars
+        // Fetch images for the similar cars
         $similarcarsimages = VehicleImage::whereIn('vehicle', $carNames)->get();
+
+        // Assign images to each similar car
         foreach ($similarcars as $vehicle) {
             $vehicle->addimage = $similarcarsimages->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
         }
 
-        // $variantsfaqs = VariantFaq::where('vehicleid', $id)->get();
+        $variantsfaqs = VariantFaq::where('vehicleid', $id)->get();
         $proscons = ProsCons::where('vehicleid', $id)->first();
         $pros = $proscons ? json_decode($proscons->pros, true) : [];
         $cons = $proscons ? json_decode($proscons->cons, true) : [];
@@ -1067,10 +1152,10 @@ class ApiMainController extends Controller
             'data' => [
                 'cardetails' => $cardetails,
                 // 'pincodedata' => $pincodedata,
-                // 'pros' => $pros,
-                // 'cons' => $cons,
-                // 'variantsfaqs' => $variantsfaqs,
-                // 'similarcars' => $similarcars,
+                'pros' => $pros,
+                'cons' => $cons,
+                'variantsfaqs' => $variantsfaqs,
+                'similarcars' => $similarcars,
                 // 'matchingDealers' => $matchingDealers
             ]
         ]);
@@ -1084,7 +1169,7 @@ class ApiMainController extends Controller
             return response()->json(['success' => false, 'message' => 'Car details not found'], 404);
         }
 
-        $colorImages = VehicleImage::where('vehicle', $cardetails->carname)->where('type', '=' , 'Colour Images')->select('addimage', 'type', 'color')->get()->toArray();
+        $colorImages = VehicleImage::where('vehicle', $cardetails->carname)->where('type', '=', 'Colour Images')->select('addimage', 'type', 'color')->get()->toArray();
 
         return response()->json([
             'success' => true,
@@ -1101,7 +1186,7 @@ class ApiMainController extends Controller
             return response()->json(['success' => false, 'message' => 'Car details not found'], 404);
         }
 
-        $viewImages = VehicleImage::where('vehicle', $cardetails->carname)->where('type','!=','Colour Images')->select('addimage', 'type', 'title')->get()->toArray();
+        $viewImages = VehicleImage::where('vehicle', $cardetails->carname)->where('type', '!=', 'Colour Images')->select('addimage', 'type', 'title')->get()->toArray();
 
         return response()->json([
             'success' => true,
@@ -1490,5 +1575,80 @@ class ApiMainController extends Controller
             'success' => true,
             'data' => $imagesdata // Remove extra `$` — it was $$imagesdata before
         ], 200); // 200 is more appropriate for success
+    }
+
+    public function comparevariants(Request $request)
+    {
+        // Validate the request parameters
+        $variantId1 = $request->query('variantId1');
+        $variantId2 = $request->query('variantId2');
+
+        if (!$variantId1 || !$variantId2) {
+            return response()->json(['success' => false, 'message' => 'Two variant IDs are required'], 400);
+        }
+
+        // \Log::info('Comparing variants', ['variantId1' => $variantId1, 'variantId2' => $variantId2]);
+
+        $ids = [$variantId1, $variantId2];
+
+        // Fetch specifications and features for the vehicles
+        $specs = AddSpecification::whereIn('vehicleid', $ids)->get();
+        $features = AddFeature::whereIn('vehicleid', $ids)->get();
+
+        // Fetch details for the vehicles based on IDs
+        $vehicles = AddVariant::join('car_lists', 'car_lists.carname', '=', 'add_variants.carname')
+            ->where('add_variants.showhidestatus', '=', 1)
+            ->select(
+                'add_variants.id',
+                'add_variants.carname',
+                'add_variants.carmodalname',
+                'add_variants.brandname',
+                'add_variants.price',
+                'add_variants.pricetype',
+                'add_variants.fueltype',
+                'add_variants.transmission',
+                'add_variants.mileage',
+                'add_variants.engine',
+                'add_variants.bodytype',
+                'car_lists.colors'
+            )
+            ->whereIn('add_variants.id', $ids)
+            ->get();
+
+        if ($vehicles->count() !== 2) {
+            return response()->json(['success' => false, 'message' => 'Could not fetch details for the selected vehicles'], 404);
+        }
+
+        // Fetch images for the vehicles based on carname
+        $images = VehicleImage::whereIn('vehicle', $vehicles->pluck('carname'))
+            ->where('type', 'Outer view')
+            ->get();
+
+        // Format the vehicle data
+        $formattedVehicles = $vehicles->map(function ($vehicle) use ($images, $specs, $features) {
+            // Attach image
+            $vehicle->addimage = $images->where('vehicle', $vehicle->carname)->first()->addimage ?? null;
+
+            // Attach specifications
+            $vehicleSpecs = $specs->where('vehicleid', $vehicle->id)->first();
+            $vehicle->specifications = $vehicleSpecs ? json_decode($vehicleSpecs->specifications, true) : [];
+
+            // Attach features
+            $vehicleFeatures = $features->where('vehicleid', $vehicle->id)->first();
+            $vehicle->features = $vehicleFeatures ? json_decode($vehicleFeatures->features, true) : ['Feature not available'];
+
+            return $vehicle;
+        });
+
+        // Prepare the response with the two variants
+        $responseData = [
+            'variant1' => $formattedVehicles[0],
+            'variant2' => $formattedVehicles[1],
+        ];
+
+        return response()->json([
+            'success' => true,
+            'data' => $responseData
+        ]);
     }
 }
