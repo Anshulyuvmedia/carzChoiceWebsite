@@ -27,6 +27,7 @@ class AdPost extends Model
         'lastupdated',
         'images',
         'userid',
+        'bodytype',
         'activationstatus',
     ];
 }

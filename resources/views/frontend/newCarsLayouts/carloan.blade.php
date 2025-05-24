@@ -628,7 +628,7 @@
 
 {{-- second modal --}}
 <div class="modal fade" id="selectCar" aria-hidden="true" aria-labelledby="selectedCarlabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title" id="selectedCarlabel">Select Car Model</h3>

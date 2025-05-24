@@ -504,33 +504,54 @@ class Store extends Controller
 
     public function updatevehicleimgs(Request $request)
     {
-        dd($request->all());
+        //dd( $request->all());
         try {
-            $vehicledata = VehicleImage::findOrFail($request->vehicleimgid);
+            // Fetch the existing vehicle image record by ID
+            $vehicledata = VehicleImage::where('id', $request->vehicleimgid)->first();
+            // Update the basic fields
             $vehicledata->type = $request->type;
-            $vehicledata->color = $request->color;
-            $vehicledata->vehicle = $request->vehicle;
+            $vehicledata->color = $request->color ?? $vehicledata->color;
             $vehicledata->title = $request->title;
             $vehicledata->mediatype = $request->mediatype;
-            $vehicledata->videourl = $request->videourl;
 
-            if ($request->hasFile('addimage')) {
+            // Handle media type logic
+            if ($request->mediatype === 'video') {
+                // Update video URL if media type is video
+                $vehicledata->videourl = $request->videourl;
+                // Clear the image field as it is a video
+                $vehicledata->addimage = null;
+            } elseif ($request->mediatype === 'image' && $request->hasFile('addimage')) {
+                // Validate the uploaded image
                 $request->validate([
-                    'addimage' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'addimage' => 'image|mimes:jpeg,png,jpg,webp',
                 ]);
+
+                // Process the image file
                 $file = $request->file('addimage');
                 $filename = time() . '_' . $file->getClientOriginalName();
                 $file->move(public_path('assets/backend-assets/images'), $filename);
-                $vehicledata['addimage'] = $filename;
+
+                // Update the image field
+                $vehicledata->addimage = $filename;
+                // Clear the video URL as it is an image
+                $vehicledata->videourl = null;
             }
+
+            // Save the updated data to the database
             $vehicledata->save();
+
+            // Log success message
             Log::info('Updated Successfully: ', ['attributes' => $vehicledata]);
-            return back()->with('success', "Updated..!!!");
+
+            // Redirect back with a success message
+            return back()->with('success', "Updated successfully!");
         } catch (Exception $e) {
-            return back()->with('error', $e->getMessage());
-            //return back()->with('error', 'Not Updated..Try Again.....');
+            // Log the error and return with an error message
+            Log::error('Update Failed: ', ['error' => $e->getMessage()]);
+            return back()->with('error', 'Update failed. Please try again.');
         }
     }
+
 
     public function insertcarlist(Request $request)
     {
@@ -760,9 +781,11 @@ class Store extends Controller
     }
     public function updatefeatures(Request $req)
     {
-        $formlabels = $req->input('types');
-        $featurenames = $req->input('featuresname');
-        $values = $req->input('valuesupdate');
+        //dd($req->all());
+        $formlabels = $req->input('formlabels');
+        $featurenames = $req->input('featurenames');
+        $values = $req->input('values');
+        $inputtypes = $req->input('inputtype');
         //dd($formlabels);
         // dd($values);
         foreach ($formlabels as $labels) {
@@ -770,8 +793,10 @@ class Store extends Controller
                 'type' => $labels,
                 'label' => $featurenames[$labels],
                 'value' => $values[$labels],
+                'inputtype' => $inputtypes
             ];
         }
+         //dd($allvalues);
         AddFeature::where('vehicleid', $req->vehicleid)->update([
             'features' => json_encode($allvalues),
         ]);
@@ -780,28 +805,43 @@ class Store extends Controller
 
     public function updatespecs(Request $req)
     {
+        //dd($req->all());  // To inspect the incoming request
+
+        // Get all the request data
         $formlabels = $req->input('formlabels');
         $Specificationname = $req->input('featurenames');
         $values = $req->input('values');
+        $inputtypes = $req->input('inputtype');
 
         $allspecifications = [];
+
         foreach ($formlabels as $labels) {
             foreach ($Specificationname[$labels] as $index => $name) {
+                // Check if the input type is an array or a single value
+                if (isset($inputtypes[$labels])) {
+                    $inputType = is_array($inputtypes[$labels]) ?
+                        ($inputtypes[$labels][$index] ?? 'text') :
+                        $inputtypes[$labels];
+                } else {
+                    $inputType = 'text';  // Default if not found
+                }
+
                 $allspecifications[] = [
                     'type' => $labels,
                     'label' => $name,
-                    'value' => $values[$labels][$index],
+                    'value' => $values[$labels][$index] ?? '',
+                    'inputTypes' => $inputType
                 ];
             }
         }
-
+        //dd($allspecifications); 
+        // Update the specifications in the database
         AddSpecification::where('vehicleid', $req->vehicleid)->update([
             'specifications' => json_encode($allspecifications),
         ]);
 
-        return back()->with('success', 'Specifications Updated.!!!!!!!!.');
+        return back()->with('success', 'Specifications Updated Successfully!');
     }
-
     public function insertbannerimages(Request $req)
     {
         try {
@@ -963,7 +1003,8 @@ class Store extends Controller
     public function insertcompare(Request $rq)
     {
 
-        $adminuser = Auth::user()->first();
+        $adminuser = Auth::user();
+        // dd(  $adminuser );
         try {
             $userdata = CompareVehicle::create([
                 'adminid' => $adminuser->id,

@@ -42,15 +42,15 @@
                             <div class="mb-3 row">
                                 <div class="col-lg-3">
                                     <label for="example-text-input" class="">Car Name</label>
-                                    <input class="form-control" placeholder="enter car name" name="carname"
-                                        type="text" value="" id="example-text-input" required>
+                                    <input class="form-control" placeholder="enter car name" name="carname" type="text"
+                                        value="" id="example-text-input" required>
                                 </div>
                                 <div class="col-lg-3">
                                     <label class="">Select Brand</label>
                                     <select name="brandname" class="form-select" id="subcategory" required>
                                         <option value="">--select brand--</option>
                                         @foreach ($masterdata as $row)
-                                            <option value="{{ $row->label }}">{{ $row->label }}</option>
+                                        <option value="{{ $row->label }}">{{ $row->label }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -73,8 +73,10 @@
                                 </div>
                             </form>
                             <div class="mt-2">
-                                <a class="mt-2 text-danger fw-bold" href="{{asset('assets/backend-assets/images/SampleExcel/carlist.xlsx')}}" download="Sample Data of Car List">Click to Download Sample Excel of Car List</a>
-                           </div>
+                                <a class="mt-2 text-danger fw-bold"
+                                    href="{{asset('assets/backend-assets/images/SampleExcel/carlist.xlsx')}}"
+                                    download="Sample Data of Car List">Click to Download Sample Excel of Car List</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -96,34 +98,36 @@
                             </thead>
                             <tbody id="table-body" class="customtable">
                                 @foreach ($carlistdata as $index => $row)
-                                    <tr>
-                                        <td>{{ $index + 1 }}</td>
-                                        <td>{{ $row->carname }}</td>
-                                        <td>{{ $row->brandname }}</td>
-                                        <td>
-                                            <ul class="list-inline mb-0">
-                                                <li class="list-inline-item">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModaledit"
-                                                        data-car-list="{{ json_encode($row) }}"
-                                                        class="px-2 text-primary editbtnmodal"><i
-                                                            class="uil uil-pen font-size-18" data-bs-toggle="tooltip"
-                                                            data-bs-placement="top" data-bs-title="Edit"></i></a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="#" onclick="confirmDelete('{{ $row->id }}')" class="px-2 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="uil uil-trash-alt font-size-18"></i></a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a href="#" data-bs-target="#exampleModalcolor"
-                                                        data-bs-toggle="modal" data-value="{{ json_encode($row) }}"
-                                                        class="px-2 text-info colorvariants"><i
-                                                            class="uil-palette font-size-18" data-bs-toggle="tooltip"
-                                                            data-bs-placement="top"
-                                                            data-bs-title="Add Color Variant"></i></a>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $row->carname }}</td>
+                                    <td>{{ $row->brandname }}</td>
+                                    <td>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaledit"
+                                                    data-car-list="{{ json_encode($row) }}"
+                                                    class="px-2 text-primary editbtnmodal"><i
+                                                        class="uil uil-pen font-size-18" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" data-bs-title="Edit"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#" data-bs-target="#exampleModalcolor" data-bs-toggle="modal"
+                                                    data-value="{{ json_encode($row) }}"
+                                                    class="px-2 text-info colorvariants"><i
+                                                        class="uil-palette font-size-18" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top"
+                                                        data-bs-title="Add Color Variant"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#" onclick="confirmDelete('{{ $row->id }}')"
+                                                    class="px-2 text-danger" data-bs-toggle="tooltip"
+                                                    data-bs-placement="top" data-bs-title="Delete"><i
+                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -159,8 +163,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModalcolor" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="exampleModalcolor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -175,10 +178,12 @@
                         <div class="">
                             <ul>
                                 <li>
-                                    <div class="mt-2 text-black" >NOTE : <span class="text-danger fs-5">Both Colors Must be Filled.</span></div>
+                                    <div class="mt-2 text-black">NOTE : <span class="text-danger fs-5">Both Colors Must
+                                            be Filled.</span></div>
                                 </li>
                                 <li>
-                                    <div class="mt-2 text-black" >NOTE : <span class="text-danger fs-5">In case of single color, fill both fields with same color.</span></div>
+                                    <div class="mt-2 text-black">NOTE : <span class="text-danger fs-5">In case of single
+                                            color, fill both fields with same color.</span></div>
                                 </li>
                             </ul>
                         </div>
@@ -209,19 +214,19 @@
 
 @push('scripts')
 @if (session('success'))
-    <script>
-        swal("Success", "{{ session('success') }}", "success");
-    </script>
+<script>
+    swal("Success", "{{ session('success') }}", "success");
+</script>
 @endif
 
 @if (session('error'))
-    <script>
-        swal("Error", "{{ session('error') }}", "error");
-    </script>
+<script>
+    swal("Error", "{{ session('error') }}", "error");
+</script>
 @endif
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-     function confirmDelete(id) {
+    function confirmDelete(id) {
         let smiley = '😊';
         swal({
             title: "Are you sure?",

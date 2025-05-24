@@ -278,7 +278,7 @@
                                                                 href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
                                                                 <img alt="Carz Choice"
-                                                                    src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                    src="{{ $data->addimage ? asset('assets/backend-assets/images/' . $data->addimage) : asset('assets/backend-assets/images/placeholder.png') }}"
                                                                     class="img-responsive">
                                                                 <div class="ribbon popular"></div>
                                                             </a>
@@ -291,6 +291,7 @@
 
                                                                     {{ $data->brandname }}
                                                                     {{ $data->carname }}
+                                                                   ({{ $data->carmodalname }})
                                                                 </a>
                                                             </h3>
                                                             <div class="ad-price">Rs. {{ $data->price }}
@@ -339,7 +340,7 @@
                                                                 href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
                                                                 <img alt="Carz Choice"
-                                                                    src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                    src="{{ $data->addimage ? asset('assets/backend-assets/images/' . $data->addimage) : asset('assets/backend-assets/images/placeholder.png') }}"
                                                                     class="img-responsive">
                                                                 <div class="ribbon popular"></div>
                                                             </a>
@@ -353,6 +354,7 @@
 
                                                                     {{ $data->brandname }}
                                                                     {{ $data->carname }}
+                                                                     ({{ $data->carmodalname }})
                                                                 </a>
                                                             </h3>
                                                             <div class="ad-price">Rs. {{ $data->price }}
@@ -404,7 +406,7 @@
                                                                 href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
 
                                                                 <img alt="Carz Choice"
-                                                                    src="{{ asset('assets/backend-assets/images/' . $data->addimage) }}"
+                                                                    src="{{ $data->addimage ? asset('assets/backend-assets/images/' . $data->addimage) : asset('assets/backend-assets/images/placeholder.png') }}"
                                                                     class="img-responsive">
                                                             </a>
                                                         </div>
@@ -417,6 +419,7 @@
 
                                                                     {{ $data->brandname }}
                                                                     {{ $data->carname }}
+                                                                    ({{ $data->carmodalname }})
                                                                 </a>
                                                             </h3>
                                                             <div class="ad-price">Rs. {{ $data->price }}
@@ -475,7 +478,7 @@
                                             </div> --}}
                                             <div class="image">
                                                 <img alt="Carz Choice"
-                                                    src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                    src="{{ $data->addimage ? asset('assets/backend-assets/images/' . $data->addimage) : asset('assets/backend-assets/images/placeholder.png') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
                                                 {{-- <div class="price-tag">
@@ -490,7 +493,7 @@
 
                                                 <h3>
                                                     <a title="" href="#">
-                                                        {{ $data->brandname }} {{ $data->carname }}
+                                                        {{ $data->brandname }} {{ $data->carname }} ({{ $data->carmodalname }})
                                                     </a>
                                                 </h3>
 
@@ -556,7 +559,7 @@
                                         <div class="category-grid-box-1">
                                             <div class="image">
                                                 <img alt="Carz Choice"
-                                                    src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
+                                                    src="{{ $data->addimage ? asset('assets/backend-assets/images/' . $data->addimage) : asset('assets/backend-assets/images/placeholder.png') }}"
                                                     class="img-responsive">
                                                 <div class="ribbon popular"></div>
                                             </div>
@@ -652,18 +655,10 @@
         <div class="container popular-cars card">
             <!-- Row -->
             <div class="row">
-
-
-
-
-                <!-- Middle Content Box -->
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="row">
-
-                        <!-- Heading Area -->
                         <div class="heading-panel">
                             <div class="col-xs-12 col-md-12 col-sm-12 left-side">
-                                <!-- Main Title -->
                                 <h1>Used cars <span class="heading-color"> In India</span> </h1>
                             </div>
                         </div>
@@ -700,11 +695,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Middle Content Box End -->
-
-                <!-- Row End -->
             </div>
-            <!-- Main Container End -->
         </div>
     </section>
     <!-- =-=-=-=-=-=-= Top Cars In India End =-=-=-=-=-=-= -->

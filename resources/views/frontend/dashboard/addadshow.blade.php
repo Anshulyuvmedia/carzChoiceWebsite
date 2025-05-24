@@ -348,6 +348,18 @@
                                                     required />
                                             </div>
                                             <div class="col-lg-4">
+                                                <label class="fieldlabels">Body Type</label>
+                                                <select class="form-control"
+                                                    name="bodytype" required>
+                                                    <option value="">--select body type --</option>
+                                                    @foreach ($bodytypes as $data)
+                                                        <option value="{{ $data->label }}">
+                                                            {{ $data->label }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-4">
                                                 <label class="fieldlabels">Registration year</label>
                                                 <input class="form-control" type="text" name="registeryear"
                                                     placeholder="enter registration year" required />

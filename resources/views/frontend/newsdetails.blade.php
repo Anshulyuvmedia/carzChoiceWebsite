@@ -49,10 +49,8 @@
                         <!-- Blog Archive -->
                         <div class="blog-post">
                             <div class="post-img">
-                                <a href="{{ asset('assets/backend-assets/images/' . $blogdata->blogimg) }}"
-                                    data-fancybox="group">
-                                    <img class="img-responsive large-img" alt={{ $blogdata->carname }}
-                                        src="{{ asset('assets/backend-assets/images/' . $blogdata->blogimg) }}">
+                                <a href="{{ asset('assets/backend-assets/images/' . $blogdata->blogimg) }}" data-fancybox="group">
+                                    <img class="img-responsive large-img" alt={{ $blogdata->carname }} src="{{ asset('assets/backend-assets/images/' . $blogdata->blogimg) }}">
                                 </a>
 
 
@@ -82,12 +80,10 @@
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs nav-fill border-0" role="tablist">
                                 <li role="presentation" class="nav-item active">
-                                    <a class="nav-link" aria-controls="cars" role="tab" data-toggle="tab"
-                                        href="#cars">Cars </a>
+                                    <a class="nav-link" aria-controls="cars" role="tab" data-toggle="tab" href="#cars">Cars </a>
                                 </li>
                                 <li role="presentation" class="nav-item">
-                                    <a class="nav-link" aria-controls="brands" role="tab" data-toggle="tab"
-                                        href="#brands">Brands</a>
+                                    <a class="nav-link" aria-controls="brands" role="tab" data-toggle="tab" href="#brands">Brands</a>
                                 </li>
 
                             </ul>
@@ -100,51 +96,48 @@
 
 
                                             @foreach ($variantdata as $data)
-                                                <div class="item">
-                                                    <div class="grid-style-2">
-                                                        <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
-                                                            <div class="category-grid-box-1">
-                                                                <div class="featured-ribbon">
-                                                                    <span>Trending</span>
-                                                                </div>
-                                                                <div class="image">
-                                                                    <img alt="Carz Choice"
-                                                                        src="{{ asset('assets/backend-assets/images/' . $imagesdata[0]) }}"
-                                                                        class="img-responsive">
-                                                                    <div class="ribbon popular"></div>
+                                            <div class="item">
+                                                <div class="grid-style-2">
+                                                    <div class="col-md-12 col-xs-12 col-sm-12 pe-2">
+                                                        <div class="category-grid-box-1">
+                                                            <div class="featured-ribbon">
+                                                                <span>Trending</span>
+                                                            </div>
+                                                            <div class="image">
+                                                                <img alt="Carz Choice" src="{{ isset($imagesdata[0]) && !empty($imagesdata[0]) ? asset('assets/backend-assets/images/' . $imagesdata[0]) : asset('assets/backend-assets/images/placeholder.png') }}" class="img-responsive">
 
-                                                                </div>
-                                                                <div class="short-description-1 clearfix">
+                                                                <div class="ribbon popular"></div>
 
-                                                                    <h3>
-                                                                        <a title="" href="#">
-                                                                            {{ $data->brandname }}
-                                                                            {{ $data->carname }}
-                                                                        </a>
-                                                                    </h3>
-                                                                    <div class="ad-price">Rs. {{ $data->price }}
-                                                                        <span class="text-muted ps-2">onwards</span>
-                                                                    </div>
+                                                            </div>
+                                                            <div class="short-description-1 clearfix">
 
-                                                                    <p class="location">
-                                                                        <i class="fa fa-map-marker"></i>
-                                                                        On-Road Price, Delhi
-                                                                    </p>
-
-                                                                    <a class=""
-                                                                        href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
-                                                                        <button
-                                                                            class="btn btn-theme rounded-4 btn-sm  ">
-                                                                            <i class="fa fa-phone"></i>
-                                                                            View Details.
-                                                                        </button>
+                                                                <h3>
+                                                                    <a title="" href="#">
+                                                                        {{ $data->brandname }}
+                                                                        {{ $data->carname }}
                                                                     </a>
-
+                                                                </h3>
+                                                                <div class="ad-price">Rs. {{ $data->price }}
+                                                                    <span class="text-muted ps-2">onwards</span>
                                                                 </div>
+
+                                                                <p class="location">
+                                                                    <i class="fa fa-map-marker"></i>
+                                                                    On-Road Price, Delhi
+                                                                </p>
+
+                                                                <a class="" href="{{ route('carlistingdetails', ['id' => $data->id]) }}">
+                                                                    <button class="btn btn-theme rounded-4 btn-sm  ">
+                                                                        <i class="fa fa-phone"></i>
+                                                                        View Details.
+                                                                    </button>
+                                                                </a>
+
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
                                             @endforeach
 
                                         </div>
@@ -154,18 +147,17 @@
                                     <!-- Middle Content Box -->
                                     <div class="col-md-12 col-xs-12 col-sm-12 p-0">
                                         @php
-                                            use App\Models\Master;
-                                            $brands = Master::where('type', 'Brand')->get();
-                                            // $bodytype = Master::where('type', 'Body Type')->get();
+                                        use App\Models\Master;
+                                        $brands = Master::where('type', 'Brand')->get();
+                                        // $bodytype = Master::where('type', 'Body Type')->get();
                                         @endphp
                                         <ul class="by-make d-flex flex-wrap justify-content-evenly">
                                             @foreach ($brands->take(12) as $data)
-                                                <li class="border m-2">
-                                                    <a href="javascript:void(0);" class="brandfilter" data-value="{{ $data->value }}">
-                                                        <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}"
-                                                            class="img-responsive" alt="Brand Image" width="100">
-                                                    </a>
-                                                </li>
+                                            <li class="border m-2">
+                                                <a href="javascript:void(0);" class="brandfilter" data-value="{{ $data->value }}">
+                                                    <img src="{{ asset('assets/backend-assets/images/' . $data->iconimage) }}" class="img-responsive" alt="Brand Image" width="100">
+                                                </a>
+                                            </li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -188,22 +180,19 @@
                             </div> --}}
 
                             @if ($blogdata->embed_url)
-                                <div class="widget">
+                            <div class="widget">
 
 
-                                    <div class="widget-heading">
-                                        <h4 class="panel-title"><a>Popular Videos</a></h4>
-                                    </div>
-                                    <div class="widget-content recent-ads">
-                                        <div>
-                                            <iframe width="560" height="315" src="{{ $blogdata->embed_url }}"
-                                                title="YouTube video player" frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                                            </iframe>
-                                        </div>
+                                <div class="widget-heading">
+                                    <h4 class="panel-title"><a>Popular Videos</a></h4>
+                                </div>
+                                <div class="widget-content recent-ads">
+                                    <div>
+                                        <iframe width="560" height="315" src="{{ $blogdata->embed_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                        </iframe>
                                     </div>
                                 </div>
+                            </div>
                             @endif
 
 

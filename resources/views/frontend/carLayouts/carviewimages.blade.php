@@ -62,19 +62,7 @@
                             <div class="row my-3">
                                 <div class="d-flex pb-4" style="width: 100%; overflow-x: auto; scrollbar-width: thin;">
                                     @php
-                                        // Define the specific types to show
-                                        $AllTypes = [
-                                            'Outer view',
-                                            'Outer lights',
-                                            'Outer Parts',
-                                            'Doors and Mirrors',
-                                            'Roof',
-                                            'Logo',
-                                            'Seat & seat adjustments',
-                                        ];
-
-                                        // Filter and get unique vehicle types
-                                        $uniqueTypes = $allcarimage->whereIn('type', $AllTypes)->unique('type');
+                                        $uniqueTypes = $allcarimage->where('type','!=', 'Colour Images')->unique('type');
                                     @endphp
 
                                     @foreach ($uniqueTypes as $imagedata)
@@ -320,6 +308,8 @@
                         $type = request()->query('type', 'All');
                         // Filter the collection to include only images with type "Outer view"
                         $outerViewImages = $allcarimage->where('type', 'Outer view');
+                        $ColourImages = $allcarimage->where('type', 'Colour Images')->select('addimage', 'type', 'color');
+                       //dd(   $ColourImages);
                     @endphp
 
 
@@ -328,25 +318,25 @@
                         <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="row">
 
-                                @if ($outerViewImages->isNotEmpty())
+                                @if ($ColourImages->isNotEmpty())
                                     <div class="featured-slider owl-carousel owl-theme">
-                                        @foreach ($outerViewImages as $imagedata)
+                                        @foreach ($ColourImages as $imagedata)
                                             <div class="item">
                                                 <div class="grid-style-2">
                                                     <!-- Listing Ad Grid -->
                                                     <div class="col-md-12 col-xs-12 col-sm-12 px-2">
                                                         <div class="category-grid-box-1 rounded-5">
                                                             <div class="image">
-                                                                <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                <a href="{{ asset('assets/backend-assets/images/' . $imagedata['addimage']) }}"
                                                                     data-fancybox="color">
                                                                     <img class="img-responsive"
-                                                                        src="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
+                                                                        src="{{ asset('assets/backend-assets/images/' . $imagedata['addimage']) }}"
                                                                         alt="Thumbnail" />
                                                                 </a>
                                                             </div>
                                                             <div class="short-description-1 d-flex justify-content-between ">
                                                                     @php
-                                                                        $colors = json_decode($imagedata->color, true);
+                                                                        $colors = json_decode($imagedata['color'], true);
                                                                         $labels = $colors['label'];
                                                                         $values = $colors['value'];
                                                                         // dd($values);
@@ -371,8 +361,8 @@
                                                                         @endif
 
 
-                                                                <a href="{{ asset('assets/backend-assets/images/' . $imagedata->addimage) }}"
-                                                                    download="{{ $imagedata->addimage }}" style="display: flex; align-items:center; ">
+                                                                <a href="{{ asset('assets/backend-assets/images/' .  $imagedata['addimage']) }}"
+                                                                    download="{{  $imagedata['addimage'] }}" style="display: flex; align-items:center; ">
                                                                     <span class="rounded-pill text-white pull-right"
                                                                         style="background-color: rgb(113 113 113);height: 29px;width: 30px;text-align: center;font-size: 15px;">
                                                                         <i class="bi bi-download"></i>

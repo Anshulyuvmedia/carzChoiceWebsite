@@ -315,7 +315,7 @@ class ApiMainController extends Controller
 
         $matchesoffer = $variantdata->whereIn('carname', $offer)->unique('carname');
         $matchesoffer = $matchesoffer->map(function ($item) use ($offerCarNames) {
-            $trendingItem = $offer->firstWhere('carname', $item->carname);
+        $trendingItem = $offer->firstWhere('carname', $item->carname);
             if ($trendingItem) {
                 $item->addimage = $trendingItem->addimage;
             }

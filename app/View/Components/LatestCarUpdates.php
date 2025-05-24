@@ -12,9 +12,12 @@ class LatestCarUpdates extends Component
     public $carnews, $expert , $videos;
     public function __construct()
     {
-        $this->carnews = Blog::orderBy('created_at','desc')->where('categorytype','=','Car News')->get();
-        $this->expert = Blog::orderBy('created_at','desc')->where('categorytype','=','Expert Reviews')->get();
-        $this->videos = Blog::orderBy('created_at','desc')->where('categorytype','=','Videos')->get();
+        $this->carnews = Blog::orderBy('created_at','desc')->where('categorytype','=','Car News')
+        ->where('status','=','1')->get();
+        $this->expert = Blog::orderBy('created_at','desc')->where('categorytype','=','Expert Reviews')
+        ->where('status','=','1')->get();
+        $this->videos = Blog::orderBy('created_at','desc')->where('categorytype','=','Videos')
+        ->where('status','=','1')->get();
     }
 
     public function render(): View|Closure|string

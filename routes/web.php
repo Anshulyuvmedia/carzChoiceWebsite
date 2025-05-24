@@ -35,7 +35,7 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('upcoming-car', 'upcomingcar');
     Route::get('new-car-launches', 'newcarlaunches');
     Route::get('electric-car', 'electriccar');
-    Route::get('used-car', 'usedcar');
+    Route::get('used-car', 'usedcar')->name('usedcar');
     Route::get('usedcar-bylocation/{filtertypenew}', 'usedcarbylocation')->name('usedcarbylocation');
     Route::get('car-loan', 'carloan')->name('carloan');
     Route::get('find-car/{filtertype}', 'findcar')->name('findcar');
@@ -46,6 +46,8 @@ Route::controller(frontViewController::class)->group(function () {
     Route::get('dealer-profile/{id}', 'dealerprofile')->name('dealerprofile');
     Route::get('dealer-showroom', 'dealershowroom');
     Route::get('dealer-location', 'dealerbylocation');
+    Route::get('usedcardetails/{id}', 'usedcardetails')->name('usedcardetails');
+
 
 
     //when user logged in

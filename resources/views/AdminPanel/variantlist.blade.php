@@ -18,7 +18,6 @@
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <div class="col-lg-4 d-flex align-items-end">
                         <h4 class="me-3">@yield('title')</h4>
-                        <a href="{{ route('addvariant') }}" class="btn btn-success waves-effect waves-light"><i class="uil-plus"></i> Add New Variant</a>
                     </div>
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -33,8 +32,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                <div class="card-header text-end">
+                      <a href="{{ route('addvariant') }}" class="btn btn-success waves-effect waves-light"><i class="uil-plus"></i> Add New Variant</a>
+                </div>
                     <div class="card-body table-responsive">
-                        <table id="example" class="table hover  table-bordered dt-responsive nowrap"
+                        <table id="example" class="table  table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
@@ -140,6 +142,8 @@
     </div>
 </div>
 @endsection
+
+
 
 @push('scripts')
 @if (session('success'))

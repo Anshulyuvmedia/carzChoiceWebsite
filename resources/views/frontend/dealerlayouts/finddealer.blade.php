@@ -52,7 +52,7 @@
                                     <div class="ad-archive-desc">
                                         <div class="d-flex justify-content-between ">
                                             <div class="">
-                                                <a href="/dealer-profile">
+                                                <a href="{{ route('dealerprofile',['id' => $data->id])}}">
                                                     <h3>{{$data->businessname}}</h3>
                                                 </a>
                                             </div>
@@ -153,7 +153,7 @@
                                     <div class="recent-ads-list">
                                         <div class="recent-ads-container">
                                             <div class="recent-ads-list-image">
-                                                <a href="#" class="recent-ads-list-image-inner">
+                                                <a href="{{route('addadshow')}}" class="recent-ads-list-image-inner">
                                                     <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/sell-car.svg"
                                                         alt="">
                                                 </a>
@@ -161,7 +161,7 @@
                                             <!-- /.recent-ads-list-image -->
                                             <div class="recent-ads-list-content">
                                                 <h3 class="recent-ads-list-title">
-                                                    <a href="#">Sell Car</a>
+                                                    <a href="{{route('addadshow')}}">Sell Car</a>
                                                 </h3>
                                                 <div class="recent-ads-list-location">
                                                     Sell your car at the best price, quickly and hassle free way
@@ -169,32 +169,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Ads -->
-                                    <div class="recent-ads-list">
-                                        <div class="recent-ads-container">
-                                            <div class="recent-ads-list-image">
-                                                <a href="#" class="recent-ads-list-image-inner">
-                                                    <img src="https://imgd.aeplcdn.com/0x0/cw/static/used_car_valuation.svg"
-                                                        alt="">
-                                                </a>
-                                            </div>
-                                            <!-- /.recent-ads-list-image -->
-                                            <div class="recent-ads-list-content">
-                                                <h3 class="recent-ads-list-title">
-                                                    <a href="#">Used Car Valuation</a>
-                                                </h3>
-
-                                                <div class="recent-ads-list-location">
-                                                    Check the price of a used car with our calculator
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     <div class="recent-ads-list">
                                         <div class="recent-ads-container">
                                             <div class="recent-ads-list-image">
-                                                <a href="#" class="recent-ads-list-image-inner">
+                                                <a href="{{route('usedcar')}}" class="recent-ads-list-image-inner">
                                                     <img src="https://imgd.aeplcdn.com/0x0/cw/static/icons/svg/tools/used-car.svg"
                                                         alt="">
                                                 </a>
@@ -202,7 +181,7 @@
                                             <!-- /.recent-ads-list-image -->
                                             <div class="recent-ads-list-content">
                                                 <h3 class="recent-ads-list-title">
-                                                    <a href="#">Explore Used Cars</a>
+                                                    <a href="{{route('usedcar')}}">Explore Used Cars</a>
                                                 </h3>
 
                                                 <div class="recent-ads-list-location">
@@ -408,7 +387,7 @@
                                     <div class="ad-archive-desc">
                                         <div class="d-flex justify-content-between ">
                                             <div class="">
-                                                <a href="/dealer-profile">
+                                                <a href="/dealer-profile/${row.id}">
                                                     <h3>${row.businessname}</h3>
                                                 </a>
                                             </div>
@@ -420,7 +399,7 @@
                                                 used cars available at dealership</span></div>
                                         <div class="d-flex mt-3">
                                             <div class="me-3">
-                                                <a href="/dealer-profile">
+                                                <a href="/dealer-profile/${row.id}  ">
                                                     <div class="btn btn-danger btn-sm rounded-3">View Detials</div>
                                                 </a>
                                             </div>
@@ -470,7 +449,7 @@
                                     <div class="ad-archive-desc">
                                         <div class="d-flex justify-content-between ">
                                             <div class="">
-                                                <a href="/dealer-profile">
+                                                <a href="/dealer-profile/${row.id}">
                                                     <h3>${row.businessname}</h3>
                                                 </a>
                                             </div>

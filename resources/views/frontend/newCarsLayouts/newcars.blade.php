@@ -299,7 +299,7 @@
                                             </div> --}}
                                                 <div class="image">
                                                     <img alt="Carz Choice"
-                                                        src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
+                                                        src="{{ $data->addimage ? asset('assets/backend-assets/images/' . $data->addimage) : asset('assets/backend-assets/images/placeholder.png') }}"
                                                         class="img-responsive">
                                                     <div class="ribbon popular"></div>
                                                     {{-- <div class="price-tag">
@@ -381,7 +381,7 @@
                                                     src="{{ asset('assets/frontend-assets/images/posting/15.jpg') }}"
                                                     class="img-responsive"> --}}
                                                     <img alt="Carz Choice"
-                                                        src="https://imgd.aeplcdn.com/272x153/cw/body/suv.jpg?v=1&q=80"
+                                                        src="{{ $data->addimage ? asset('assets/backend-assets/images/' . $data->addimage) : asset('assets/backend-assets/images/placeholder.png') }}"
                                                         class="img-responsive">
                                                     <div class="ribbon popular"></div>
                                                     {{-- <div class="price-tag">

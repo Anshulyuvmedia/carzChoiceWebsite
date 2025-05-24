@@ -163,16 +163,7 @@
             });
     }
 
-    $(document).ready(function() {
-        $('#example').DataTable({
-            layout: {
-                topStart: {
-                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-                }
-            },
 
-        });
-    });
 </script>
 <script>
     // Edit Functionality

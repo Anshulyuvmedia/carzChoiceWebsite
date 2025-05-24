@@ -32,7 +32,8 @@ use DB;
 
 class AdminView extends Controller
 {
-    public function dashboard(){
+    public function dashboard()
+    {
         $registeruserscount = RegisterUser::get()->count();
         $dealerscount = RegisterDealer::get()->count();
         $Leadscount = Lead::get()->count();
@@ -41,11 +42,12 @@ class AdminView extends Controller
         $registereddealers = RegisterDealer::orderBy('created_at', 'desc')->get();
         $loanenquiries = CarLoanEnquiry::orderBy('created_at', 'desc')->get();
         $insuranceenq = InsuranceLead::orderBy('created_at', 'desc')->get();
-        return view('AdminPanel.admindashboard',compact('registeruserscount','insuranceenq','dealerscount','Leadscount','allvariants','registeredusers','registereddealers','loanenquiries'));
+        return view('AdminPanel.admindashboard', compact('registeruserscount', 'insuranceenq', 'dealerscount', 'Leadscount', 'allvariants', 'registeredusers', 'registereddealers', 'loanenquiries'));
     }
     public function adminprofile()
     {
         $user = Auth::user();
+        //dd( $user);
         $registeredusers = RegisterUser::orderBy('created_at', 'desc')->get();
         return view('AdminPanel.adminprofile', compact('user', 'registeredusers'));
     }
@@ -76,14 +78,15 @@ class AdminView extends Controller
     public function bloglist()
     {
         $bloglistdata = Blog::orderBy('created_at', 'desc')->get();
-        return view('AdminPanel.bloglist', compact('bloglistdata'));
+        $blogcount = Blog::count();
+        return view('AdminPanel.bloglist', compact('bloglistdata', 'blogcount'));
     }
 
     public function editblog($id)
     {
         $blogdata = Blog::find($id);
         $masterdata = Master::where('type', '=', 'Blog')->get();
-        // dd($blogdata);
+        //dd($masterdata);
         $carname = CarList::get();
         return view('AdminPanel.editblog', compact('blogdata', 'masterdata', 'carname'));
     }
@@ -140,10 +143,10 @@ class AdminView extends Controller
     public function editvariant($id)
     {
         $variantdata = AddVariant::find($id);
-        $bodytypes = Master::where('type' , '=','Body Type')->get();
+        $bodytypes = Master::where('type', '=', 'Body Type')->get();
         //dd(vars: $bodytype);
         $carlistdata = CarList::get();
-        return view('AdminPanel.editvariant', compact('variantdata', 'carlistdata','bodytypes'));
+        return view('AdminPanel.editvariant', compact('variantdata', 'carlistdata', 'bodytypes'));
     }
 
     public function userslist()
@@ -152,55 +155,66 @@ class AdminView extends Controller
         return view('AdminPanel.userslist', compact('registeredusers'));
     }
 
-    public function addfeatures($id, $car,$variantname)
+    public function addfeatures($id, $car, $variantname)
     {
         $carname = $car;
         $variant = $variantname;
-        $carvariants = AddVariant::join('add_features','add_features.vehicleid','=','add_variants.id')
-        ->select('add_variants.*')
-        ->where('showhidestatus', '=', 1)
-        ->where('carname',$carname)->get();
-        // dd($carvariants);
+
+        $carvariants = AddVariant::join('add_features', 'add_features.vehicleid', '=', 'add_variants.id')
+            ->select('add_variants.*')
+            ->where('showhidestatus', '=', 1)
+            ->where('carname', $carname)
+            ->get();
+
         $features = FormAttribute::where('cartype', '=', 'features')->get();
         $featureslist = AddFeature::where('vehicleid', '=', $id)->get();
+        $masterfeatures = Master::where('type', '=', 'Features')->get();
+
         $grouped = [];
 
         if (count($featureslist) > 0) {
             $featuresData = json_decode($featureslist[0]->features);
-
             if ($featuresData) {
-                foreach ($featuresData as $index => $featureData) {
-                    $type = $featureData->type;
-                    $label = $featureData->label;
-                    $value = $featureData->value;
+                foreach ($featuresData as $featureGroup) {
+                    $type = $featureGroup->type;
+
                     if (!isset($grouped[$type])) {
                         $grouped[$type] = [];
                     }
-                    $grouped[$type][] = (object) [
-                        'label' => $label,
-                        'value' => $value,
-                    ];
+
+                    // Loop through each label to get the corresponding value and input type
+                    foreach ($featureGroup->label as $index => $label) {
+                        $grouped[$type][] = (object) [
+                            'label' => $label,
+                            'value' => $featureGroup->value[$index] ?? '',
+                            'inputtype' => $featureGroup->inputtype->{$type}[$index] ?? 'text',
+                        ];
+                    }
+
                 }
             }
         }
-        //DD( $grouped);
-        return view('AdminPanel.addfeatures', compact('features', 'featureslist', 'grouped','carvariants'))->with([
+        //dd($grouped);
+        return view('AdminPanel.addfeatures', compact('masterfeatures', 'features', 'featureslist', 'grouped', 'carvariants'))->with([
             'vehicleid' => $id,
             'carname' => $carname,
             'variant' => $variant,
         ]);
     }
 
-    public function addspecifications($id, $car,$variantname)
+
+
+    public function addspecifications($id, $car, $variantname)
     {
         $carname = $car;
         $variant = $variantname;
         $specifications = FormAttribute::where('cartype', '=', 'specifications')->get();
         $specificationslist = AddSpecification::where('vehicleid', '=', $id)->get();
-        $carvariants = AddVariant::join('add_specifications','add_specifications.vehicleid','=','add_variants.id')
-        ->select('add_variants.*')
-        ->where('showhidestatus', '=', 1)
-        ->where('carname',$carname)->get();
+        // dd(  $specificationslist );
+        $carvariants = AddVariant::join('add_specifications', 'add_specifications.vehicleid', '=', 'add_variants.id')
+            ->select('add_variants.*')
+            ->where('showhidestatus', '=', 1)
+            ->where('carname', $carname)->get();
         $groupedspecs = [];
 
         if (count($specificationslist) > 0) {
@@ -211,18 +225,20 @@ class AdminView extends Controller
                     $type = $specData->type;
                     $label = $specData->label;
                     $value = $specData->value;
+                    $inputTypes = $specData->inputTypes;
                     if (!isset($groupedspecs[$type])) {
                         $groupedspecs[$type] = [];
                     }
                     $groupedspecs[$type][] = (object) [
                         'label' => $label,
                         'value' => $value,
+                        'inputTypes' => $inputTypes,
                     ];
                 }
             }
         }
-
-        return view('AdminPanel.addspecifications', compact('specifications', 'specificationslist', 'groupedspecs','carvariants'))->with([
+        // dd(  $groupedspecs );
+        return view('AdminPanel.addspecifications', compact('specifications', 'specificationslist', 'groupedspecs', 'carvariants'))->with([
             'vehicleid' => $id,
             'carname' => $carname,
             'variant' => $variant,
@@ -266,12 +282,12 @@ class AdminView extends Controller
 
     public function prosandcons($id)
     {
-        $proscons = ProsCons::where('vehicleid',$id)->first();
+        $proscons = ProsCons::where('vehicleid', $id)->first();
         // dd($proscons);
         $pros = [];
         $cons = [];
         $vehicleid = $id;
-        if($proscons){
+        if ($proscons) {
             $pros = $proscons->pros;
             $cons = $proscons->cons;
             $vehicleid = $id;
@@ -281,7 +297,7 @@ class AdminView extends Controller
 
     public function variantfaqs($id, $carname)
     {
-        $faqs = VariantFaq::where('vehicleid',$id)->get();
+        $faqs = VariantFaq::where('vehicleid', $id)->get();
         $vehicleid = $id;
         $carnamedata = $carname;
         return view('AdminPanel.variantfaqs', compact('vehicleid', 'faqs', 'carnamedata'));
@@ -297,7 +313,7 @@ class AdminView extends Controller
         $carlistdata = CarList::get();
         $imageslist = CarList::where('carname', $data->carname)->get()->pluck('colors');
         $colors = isset($imageslist[0]) ? json_decode($imageslist[0]) : [];
-        //dd($colors);
+        //dd($mastercolordata);
         return view('AdminPanel.vehicleimages', compact('data', 'colors', 'imageslist', 'carnamedata', 'masterdata', 'mastercolordata', 'vehicleimgdata', 'carlistdata'));
     }
 
@@ -316,24 +332,28 @@ class AdminView extends Controller
         return view('AdminPanel.adddealerdetails', compact('brands', 'statedata'));
     }
 
-    public function viewreviews(){
+    public function viewreviews()
+    {
         $variantdata = AddVariant::all();
-        return view('AdminPanel.happycustomers',compact('variantdata'));
+        return view('AdminPanel.happycustomers', compact('variantdata'));
     }
 
-    public function allreviews(){
+    public function allreviews()
+    {
         $variantdata = AddVariant::all();
-        $allreviews = Review::orderBy('created_at','desc')->get();
-        return view('AdminPanel.allreviews',compact('allreviews','variantdata'));
+        $allreviews = Review::orderBy('created_at', 'desc')->get();
+        return view('AdminPanel.allreviews', compact('allreviews', 'variantdata'));
     }
 
-    public function allinsuranceleads(){
-        $leads = InsuranceLead::orderBy('created_at','desc')->get();
-        return view('AdminPanel.insuranceleads',compact('leads'));
+    public function allinsuranceleads()
+    {
+        $leads = InsuranceLead::orderBy('created_at', 'desc')->get();
+        return view('AdminPanel.insuranceleads', compact('leads'));
     }
 
-    public function dealeradposts($id){
-        $adposts = AdPost::where('userid',$id)->orderBy('created_at','DESC')->get();
-        return view('AdminPanel.dealeradposts',compact('adposts'));
+    public function dealeradposts($id)
+    {
+        $adposts = AdPost::where('userid', $id)->orderBy('created_at', 'DESC')->get();
+        return view('AdminPanel.dealeradposts', compact('adposts'));
     }
 }

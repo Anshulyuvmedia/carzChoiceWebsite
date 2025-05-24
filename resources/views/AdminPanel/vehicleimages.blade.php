@@ -3,6 +3,15 @@
 @section('main-section')
 @section('title', 'Add ' . $carnamedata . ' Images')
 <div class="page-content">
+ <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.css">
+    <style>
+        table.dataTable th.dt-type-numeric,
+        table.dataTable th.dt-type-date,
+        table.dataTable td.dt-type-numeric,
+        table.dataTable td.dt-type-date {
+            text-align: left !important;
+        }
+    </style>
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -55,14 +64,12 @@
                                 </div>
                                 <div class="col-md-2">
                                     <label for="example-search-input" class="">Title</label>
-                                    <input class="form-control" placeholder="enter value" name="title" type="text"
-                                        value="" id="labelval" onchange="labelValue()" required>
+                                    <input class="form-control" placeholder="enter value" name="title" type="text" value="" id="labelval" onchange="labelValue()" required>
                                 </div>
                                 <div class="col-md-2">
                                     <label class="form-label" for="inputGroupSelect01">Media Type</label>
                                     <div class="input-group">
-                                        <select class="form-select" id="type" onchange="files()" name="mediatype"
-                                            required>
+                                        <select class="form-select" id="type" onchange="files()" name="mediatype" required>
                                             <option value="default" selected>Choose...</option>
                                             <option value="image">Image</option>
                                             <option value="video">Video</option>
@@ -72,15 +79,13 @@
                                 <div class="col-md-2 d-none mt-0" id="uploadimage">
                                     <div>
                                         <label for="placeholderInput" class="form-label">Upload Image</label>
-                                        <input type="file" id="uploadimage" class="form-control"
-                                            placeholder="enter label" name="addimage" value="0">
+                                        <input type="file" id="uploadimage" class="form-control" placeholder="enter label" name="addimage" value="0">
                                     </div>
                                 </div>
                                 <div class="col-md-2 d-none mt-0" id="urlinput">
                                     <div>
                                         <label for="placeholderInput" class="form-label">Enter Youtube URL</label>
-                                        <input type="text" class="form-control" placeholder="enter video link"
-                                            name="videourl" id="videolink" value="https://dummy.com">
+                                        <input type="text" class="form-control" placeholder="enter video link" name="videourl" id="videolink" value="https://dummy.com">
                                     </div>
                                 </div>
                                 <div class="col-md-2 d-flex align-items-end">
@@ -92,10 +97,8 @@
                                         value="">
                                 </div> --}}
                             </div>
-                                <input class="form-control" placeholder="enter value" name="vehicle" type="hidden"
-                                    value="{{ $data->carname }}">
-                                <input class="form-control" placeholder="enter value" name="variantid" type="hidden"
-                                    value="{{ $data->id }}">
+                            <input class="form-control" placeholder="enter value" name="vehicle" type="hidden" value="{{ $data->carname }}">
+                            <input class="form-control" placeholder="enter value" name="variantid" type="hidden" value="{{ $data->id }}">
                         </form>
                     </div>
                 </div>
@@ -105,7 +108,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body table-responsive">
-                        <table id="datatable-buttons" class="table  table-bordered dt-responsive nowrap"
+                      <table id="example" class="table  table-bordered dt-responsive nowrap"
                             style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
@@ -129,52 +132,45 @@
                                     @endphp
                                     <td>
                                         @if (json_last_error() === JSON_ERROR_NONE && isset($color['label'], $color['value']))
-                                                @php
-                                                    // Split the labels by comma
-                                                    $labels = $color['label'];
-                                                    $values = $color['value'];
-                                                @endphp
+                                        @php
+                                        // Split the labels by comma
+                                        $labels = $color['label'];
+                                        $values = $color['value'];
+                                        @endphp
 
-                                                @if (count($values) != 0)
-                                                <p>{{$labels}}</p>
-                                                <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark"
-                                                     style="height: 50px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
+                                        @if (count($values) != 0)
+                                        <p>{{$labels}}</p>
+                                        <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark" style="height: 50px; background: linear-gradient(to bottom, {{ $values[0] }} 50%, {{ $values[1] }} 50%);">
 
-                                                </div>
-                                                @endif
-                                            @else
-                                                <li>
-                                                    <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark">
-                                                        Invalid color data
-                                                    </div>
-                                                </li>
-                                            @endif
+                                        </div>
+                                        @endif
+                                        @else
+                                        <li>
+                                            <div class="border shadow-sm m-1 p-2 text-center fw-bold text-dark">
+                                                Invalid color data
+                                            </div>
+                                        </li>
+                                        @endif
                                     </td>
                                     <td>{{ $row->vehicle }}</td>
                                     <td>{{ $row->title }}</td>
                                     <td>
                                         @if ($row->mediatype == 'image')
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
-                                            data-record-view="{{ json_encode($row) }}"
-                                            class="px-2 text-primary viewbtnmodal">
-                                            <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}"
-                                                alt="Thumbnail" width="100px" class="square-100">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal" data-record-view="{{ json_encode($row) }}" class="px-2 text-primary viewbtnmodal">
+                                            <img src="{{ asset('assets/backend-assets/images/' . $row->addimage) }}" alt="Thumbnail" width="100px" class="square-100">
                                         </a>
                                         @endif
                                         @if ($row->mediatype == 'video')
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal"
-                                            data-record-view="{{ json_encode($row) }}"
-                                            class="px-2 text-primary viewbtnmodal"><i
-                                                class="bi bi-youtube"></i>&nbsp;&nbsp;View Video</a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#viewmodal" data-record-view="{{ json_encode($row) }}" class="px-2 text-primary viewbtnmodal"><i class="bi bi-youtube"></i>&nbsp;&nbsp;View Video</a>
                                         @endif
                                     </td>
                                     <td>
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item">
-                                                <a href="#" onclick="confirmDelete('{{ $row->id }}')"
-                                                    class="px-2 text-danger" data-bs-toggle="tooltip"
-                                                    data-bs-placement="top" data-bs-title="Delete"><i
-                                                        class="uil uil-trash-alt font-size-18"></i></a>
+                                                <a href="#" data-recordedit='@json($row)' class="px-2 text-primary editbtnmodal" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="uil uil-edit-alt font-size-18" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"></i></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#" onclick="confirmDelete('{{ $row->id }}')" class="px-2 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"><i class="uil uil-trash-alt font-size-18"></i></a>
                                             </li>
                                         </ul>
                                     </td>
@@ -230,12 +226,14 @@
 @if (session('success'))
 <script>
     swal("Success", "{{ session('success') }}", "success");
+
 </script>
 @endif
 
 @if (session('error'))
 <script>
     swal("Error", "{{ session('error') }}", "error");
+
 </script>
 @endif
 
@@ -243,12 +241,12 @@
     function confirmDelete(id) {
         let smiley = '😊';
         swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this data!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
+                title: "Are you sure?"
+                , text: "Once deleted, you will not be able to recover this data!"
+                , icon: "warning"
+                , buttons: true
+                , dangerMode: true
+            , })
             .then((willDelete) => {
                 if (willDelete) {
                     window.location.href = "/deletevehicleimg/" + id;
@@ -257,37 +255,93 @@
                 }
             });
     }
+     $(document).ready(function() {
+        $('#example').DataTable({
+            pageLength: 10,
+            layout: {
+                topStart: {
+                    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+                }
+            },
+
+        });
+    });
 </script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    // Edit Functionality
-    var masterdata = @json($masterdata);
-    var mastercolordata = @json($mastercolordata);
-    console.log(mastercolordata);
-    var carlistdata = @json($carlistdata);
+    // Create a styled color bar based on the color values
+    function createColorBar(colorValues) {
+        if (!Array.isArray(colorValues)) return '';
+        let colorBar = `<div style="display: flex; height: 20px; border: 1px solid #ccc; margin-top: 5px;">`;
+        colorValues.forEach(color => {
+            colorBar += `<div style="flex: 1; background-color: ${color};"></div>`;
+        });
+        colorBar += `</div>`;
+        return colorBar;
+    }
 
     $('#table-body').on('click', '.editbtnmodal', function() {
-        var vehicledata = $(this).data('record');
-        console.log(vehicledata);
+        var vehicledata = $(this).data('recordedit');
+        if (typeof vehicledata === 'string') {
+            vehicledata = JSON.parse(vehicledata);
+        }
+
+        // Parse color if it's a JSON string
+        if (typeof vehicledata.color === 'string') {
+            try {
+                vehicledata.color = JSON.parse(vehicledata.color);
+            } catch (error) {
+                console.error("Error parsing color data:", error);
+            }
+        }
+
+        console.log("Parsed vehicle data:", vehicledata);
+
+        var masterdata = @json($masterdata);
+        var mastercolordata = @json($colors);
+        var carlistdata = @json($carlistdata);
         $('#modalbody').empty();
 
         var options = `<option value="">--select category--</option>`;
         masterdata.forEach(function(row) {
-            options +=
-                `<option value="${row.label}" ${vehicledata.type === row.label ? 'selected' : ''}>${row.label}</option>`;
+            options += `<option value="${row.label}" ${vehicledata.type === row.label ? 'selected' : ''}>${row.label}</option>`;
         });
 
         var color = `<option value="">--select color--</option>`;
         mastercolordata.forEach(function(row) {
-            color +=
-                `<option value="${row.label}" ${vehicledata.color === row.label ? 'selected' : ''}>${row.label}</option>`;
+            let encodedColor = JSON.stringify(row); 
+            let selectedColor = vehicledata.color?.label || vehicledata.color;
+            let isSelected = selectedColor === row.label ? 'selected' : '';
+            let colorValues = Array.isArray(row.value) ? row.value.join(', ') : row.value;
+            color += `<option value='${encodedColor}' ${isSelected}>${row.label} - ${colorValues}</option>`;
         });
 
-        // var carnames = `<option value="">--select color--</option>`;
-        // carlistdata.forEach(function(row) {
-        //     carnames +=
-        //         `<option value="${row.carname}" ${vehicledata.vehicle === row.carname ? 'selected' : ''}>${row.carname}</option>`;
-        // });
+
+        // Media type dropdown with onchange event
+        var mediatypeOptions = `
+            <option value="default">Choose...</option>
+            <option value="image" ${vehicledata.mediatype === 'image' ? 'selected' : ''}>Image</option>
+            <option value="video" ${vehicledata.mediatype === 'video' ? 'selected' : ''}>Video</option>
+        `;
+
+        var mediaTypeDropdown = `
+            <label class="form-label" for="inputGroupSelect01">Media Type</label>
+            <div class="input-group">
+                <select class="form-select" id="type" name="mediatype" required>
+                    ${mediatypeOptions}
+                </select>
+            </div>
+            <div class="mt-3 d-none" id="video-url-container">
+                <label for="videolink" class="form-label">Enter Video URL</label>
+                <input type="text" class="form-control" id="videolink" name="videourl" value="${vehicledata.videourl || ''}">
+            </div>
+            <div class="mt-3 d-none" id="image-upload-container">
+                <label for="imageupload" class="form-label">Upload Image</label>
+                <input type="file" class="form-control" id="imageupload" name="addimage" accept="image/*">
+            </div>
+        `;
+
+        var colorBar = createColorBar(vehicledata.color?.value || []);
 
         var modalbody = `
             <div class="card-body">
@@ -299,42 +353,22 @@
                                 ${options}
                             </select>
                         </div>
-                         <div>
-                        <label class="">Select Color</label>
-                        <select name="color" class="form-select mb-3" required>
-                             ${color}
-                        </select>
-                    </div>
+                        <div>
+                            <label class="">Select Color</label>
+                            <select name="color" class="form-select mb-3" required>
+                                ${color}
+                            </select>
+                            <div class="mt-2">
+                                ${colorBar}
+                                <p>${vehicledata.color?.label || ''}</p>
+                            </div>
+                        </div>
                         <label for="example-text-input" class="form-label">Title</label>
                         <div class="">
                             <input class="form-control mb-3" name="title" type="text" value="${vehicledata.title}" id="example-text-input">
                         </div>
-                        <input type="hidden" name="vehicleimgid" value="${vehicledata.id}" id="">
-                        <div class="">
-                                    <label class="form-label" for="inputGroupSelect01">Media Type</label>
-                                    <div class="input-group">
-                                        <select class="form-select" id="modaltype" onchange="filesmodal()" name="mediatype"
-                                            required>
-                                            <option value="default" selected>Choose...</option>
-                                            <option value="image" ${vehicledata.mediatype == 'image' ? 'selected' : ''}>Image</option>
-                                            <option value="video" ${vehicledata.mediatype == 'video' ? 'selected' : ''}>Video</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class=" d-none mt-3" id="uploadimagemodal">
-                                    <div>
-                                        <label for="placeholderInput" class="form-label">Upload Image</label>
-                                        <input type="file" id="uploadimage" class="form-control"
-                                            placeholder="enter label" name="addimage" value="0">
-                                    </div>
-                                </div>
-                                <div class=" d-none mt-3" id="urlinputmodal">
-                                    <div>
-                                        <label for="placeholderInput" class="form-label">Enter Youtube URL</label>
-                                        <input type="text" class="form-control" placeholder="enter video link"
-                                            name="videourl" id="videolink" value="https://dummy.com">
-                                    </div>
-                                </div>
+                        <input type="hidden" name="vehicleimgid" value="${vehicledata.id}">
+                        ${mediaTypeDropdown}
                     </div>
                     <div class="col-lg-6" id="media-container">
                         <!-- Media content will be inserted here -->
@@ -344,41 +378,44 @@
         `;
 
         $('#modalbody').append(modalbody);
-        var mediaContainer = document.getElementById('media-container');
+
+        var mediaContainer = $('#media-container');
         var mediaContent = '';
 
         if (vehicledata.mediatype === 'image') {
-            mediaContent =
-                `<img src="/assets/backend-assets/images/${vehicledata.addimage}" alt="Image" class="img-fluid">`;
+            mediaContent = `<img src="/assets/backend-assets/images/${vehicledata.addimage}" alt="Image" class="img-fluid">`;
+            $('#image-upload-container').removeClass('d-none');
         } else if (vehicledata.mediatype === 'video') {
-            // Extract video ID from YouTube URL
             var videoId = extractVideoId(vehicledata.videourl);
-
-            // Construct iframe tag with embedded YouTube video
-            mediaContent =
-                `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+            mediaContent = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+            $('#video-url-container').removeClass('d-none');
         }
 
-        mediaContainer.innerHTML = mediaContent;
-
+        mediaContainer.html(mediaContent);
 
         function extractVideoId(url) {
-            // Regex pattern to match both YouTube URL formats
             var regex = /[?&]?(?:v=|vi?=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-
-            // Extract video ID using regex
             var match = url.match(regex);
+            return match && match[1] ? match[1] : '';
+        }
+    });
 
-            if (match && match[1]) {
-                return match[1];
-            } else {
-                // Handle invalid URLs or fallback behavior
-                console.error('Invalid YouTube URL');
-                return ''; // or handle differently as per your application logic
-            }
+    // Event listener for media type change inside the modal
+    $(document).on('change', '#type', function() {
+        var selectedType = $(this).val();
+        if (selectedType === 'video') {
+            $('#video-url-container').removeClass('d-none');
+            $('#image-upload-container').addClass('d-none');
+        } else if (selectedType === 'image') {
+            $('#image-upload-container').removeClass('d-none');
+            $('#video-url-container').addClass('d-none');
+        } else {
+            $('#image-upload-container, #video-url-container').addClass('d-none');
         }
     });
 </script>
+
+
 <script>
     function files() {
         if (document.getElementById('type').value == 'image') {
@@ -425,6 +462,7 @@
             image.classList.add('d-none');
         }
     }
+
 </script>
 <script>
     $(document).ready(function() {
@@ -470,6 +508,7 @@
             return match && match[1] ? match[1] : '';
         }
     });
+
 </script>
 
 @endpush
