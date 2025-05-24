@@ -166,8 +166,8 @@ class frontViewController extends Controller
         }
 
         $cardetails->images = json_decode($images);
-        $cardetails->specificaitons = json_decode($spces);
-        $cardetails->features = json_decode($features);
+        $cardetails->specificaitons = $spces;
+        $cardetails->features = $features;
         $cardetails->variants = json_decode($variants);
 
         // dd($cardetails);
@@ -194,7 +194,7 @@ class frontViewController extends Controller
             ->get();
 
         $colorImages = VehicleImage::where('vehicle', $cardetails->carname)->where('type', '=', 'Colour Images')->select('addimage', 'type', 'color')->get();
-        //dd($colorImages);
+        // dd($cardetails);
         return view('frontend.carLayouts.carlistingdetails', compact('cardetails', 'pincodedata', 'pros', 'cons', 'variantsfaqs', 'similarcars', 'matchingDealers','colorImages'));
     }
     public function carlisting()
@@ -832,6 +832,7 @@ class frontViewController extends Controller
     public function usedcardetails($id)
     {
         $cardetails = AdPost::where('id', $id)->first();
+       
 
 
         if (!$cardetails) {
@@ -840,18 +841,15 @@ class frontViewController extends Controller
 
         // $images = VehicleImage::where('vehicle', $cardetails->carname)->get();
 
-        $modalname = $cardetails->modalname;
-
         // // Step 2: Find the vehicleid from add_variants using modalname
-        $vehicleid = AddVariant::where('carmodalname', $modalname)->value('id');
-
+        $vehicleid = AddVariant::where('carmodalname',  $cardetails->modalname)->value('id');
         if (!$vehicleid) {
             return response()->json(['error' => 'No matching vehicle found in variants'], 404);
         }
-
+        
         // // Step 3: Fetch features from add_features using vehicleid
         $features = AddFeature::where('vehicleid', $vehicleid)->pluck('features')->toArray();
-
+        //dd( $features);
         // // Step 4: Fetch specifications from add_specifications using vehicleid
         $specs = AddSpecification::where('vehicleid', $vehicleid)->pluck('specifications')->toArray();
 

@@ -297,21 +297,31 @@
                                 @php
                                 $features = json_decode($cardetails->features[0], true);
                                 @endphp
+
                                 @if (!empty($features))
                                 @foreach ($features as $category)
-                                @if (isset($category['type']) && isset($category['label']) && isset($category['value']))
+                                @if (isset($category['type'], $category['label'], $category['value']))
                                 <div class="feature-category mb-3">
                                     <h4 class="category-title text-primary fw-bold mb-2">{{ $category['type'] }}</h4>
                                     <ul class="list-unstyled">
                                         <div class="row">
                                             @foreach ($category['label'] as $index => $label)
-                                            @if ($category['value'][$index] == '1')
+                                            @php
+                                            $value = $category['value'][$index] ?? '';
+                                            @endphp
                                             <div class="col-md-6">
-                                                <li class="mb-2">
-                                                    <i class="bi bi-check-circle-fill text-success me-2"></i>{{ $label }}
+                                                <li class="mb-2 d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        @if (in_array($value, ['0', '1']))
+                                                        <i class="bi bi-{{ $value == '1' ? 'check-circle-fill text-success' : 'dash-circle text-muted' }} me-2"></i>
+                                                        @endif
+                                                        {{ $label }}
+                                                    </div>
+                                                    @if (!in_array($value, ['0', '1']))
+                                                    <strong>{{ $value }}</strong>
+                                                    @endif
                                                 </li>
                                             </div>
-                                            @endif
                                             @endforeach
                                         </div>
                                     </ul>
@@ -323,6 +333,7 @@
                                 @endif
                             </div>
                         </li>
+
                         <li>
                             <h3 class="accordion-title"><a href="#">Specifications</a></h3>
                             <div class="accordion-content">

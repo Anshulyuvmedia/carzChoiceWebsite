@@ -507,7 +507,7 @@ class Store extends Controller
         //dd( $request->all());
         try {
             // Fetch the existing vehicle image record by ID
-            $vehicledata = VehicleImage::where('id',$request->vehicleimgid)->first();
+            $vehicledata = VehicleImage::where('id', $request->vehicleimgid)->first();
             // Update the basic fields
             $vehicledata->type = $request->type;
             $vehicledata->color = $request->color ?? $vehicledata->color;
@@ -781,9 +781,11 @@ class Store extends Controller
     }
     public function updatefeatures(Request $req)
     {
-        $formlabels = $req->input('types');
-        $featurenames = $req->input('featuresname');
-        $values = $req->input('valuesupdate');
+        //dd($req->all());
+        $formlabels = $req->input('formlabels');
+        $featurenames = $req->input('featurenames');
+        $values = $req->input('values');
+        $inputtypes = $req->input('inputtype');
         //dd($formlabels);
         // dd($values);
         foreach ($formlabels as $labels) {
@@ -791,8 +793,10 @@ class Store extends Controller
                 'type' => $labels,
                 'label' => $featurenames[$labels],
                 'value' => $values[$labels],
+                'inputtype' => $inputtypes
             ];
         }
+         //dd($allvalues);
         AddFeature::where('vehicleid', $req->vehicleid)->update([
             'features' => json_encode($allvalues),
         ]);
@@ -801,28 +805,43 @@ class Store extends Controller
 
     public function updatespecs(Request $req)
     {
+        //dd($req->all());  // To inspect the incoming request
+
+        // Get all the request data
         $formlabels = $req->input('formlabels');
         $Specificationname = $req->input('featurenames');
         $values = $req->input('values');
+        $inputtypes = $req->input('inputtype');
 
         $allspecifications = [];
+
         foreach ($formlabels as $labels) {
             foreach ($Specificationname[$labels] as $index => $name) {
+                // Check if the input type is an array or a single value
+                if (isset($inputtypes[$labels])) {
+                    $inputType = is_array($inputtypes[$labels]) ?
+                        ($inputtypes[$labels][$index] ?? 'text') :
+                        $inputtypes[$labels];
+                } else {
+                    $inputType = 'text';  // Default if not found
+                }
+
                 $allspecifications[] = [
                     'type' => $labels,
                     'label' => $name,
-                    'value' => $values[$labels][$index],
+                    'value' => $values[$labels][$index] ?? '',
+                    'inputTypes' => $inputType
                 ];
             }
         }
-
+        //dd($allspecifications); 
+        // Update the specifications in the database
         AddSpecification::where('vehicleid', $req->vehicleid)->update([
             'specifications' => json_encode($allspecifications),
         ]);
 
-        return back()->with('success', 'Specifications Updated.!!!!!!!!.');
+        return back()->with('success', 'Specifications Updated Successfully!');
     }
-
     public function insertbannerimages(Request $req)
     {
         try {

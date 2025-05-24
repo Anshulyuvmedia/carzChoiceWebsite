@@ -205,9 +205,9 @@
                                         @foreach ($colorImages as $image)
                                         @php
                                         // Decode JSON into an associative array
-                                            $color = json_decode($image->color, true);
-                                            $values = $color['label'];
-                                            //dd( $color);
+                                        $color = json_decode($image->color, true);
+                                        $values = $color['label'];
+                                        //dd( $color);
                                         // dd($values);
                                         @endphp
                                         <li>
@@ -484,31 +484,43 @@
                             <ul class="accordion">
                                 <li>
                                     <h3 class="accordion-title"><a href="#">Features</a></h3>
-                                    <div class="accordion-content">
-                                        @if (!empty($cardetails->features))
-                                        @foreach ($cardetails->features as $feature)
+                                    <div class="accordion-content p-3 bg-light rounded">
                                         @php
-                                        $json = json_decode($feature->features, true);
+                                            $features = json_decode($cardetails->features[0], true);
                                         @endphp
-                                        @if (isset($json[0]['label']) && isset($json[0]['value']))
-                                        @foreach ($json as $category)
-                                        <div class="features">
-                                            <h4 class="category-title text-primary fw-bold mb-2">{{ $category['type'] }}</h3>
-                                                <ul>
-                                                    <div class="row">
-                                                        @foreach ($category['label'] as $index => $label)
-                                                        @if ($category['value'][$index] === '1')
-                                                        <div class="col-md-6">
-                                                            <li class="feature-item"><i class="bi bi-check-circle-fill text-success me-2"></i> {{ $label }}</li>
-                                                        </div>
-                                                        @endif
-                                                        @endforeach
+
+                                        @if (!empty($features))
+                                        @foreach ($features as $category)
+                                        @if (isset($category['type'], $category['label'], $category['value']))
+                                        <div class="feature-category mb-3">
+                                            <h4 class="category-title text-primary fw-bold mb-2">{{ $category['type'] }}</h4>
+                                            <ul class="list-unstyled">
+                                                <div class="row">
+                                                    @foreach ($category['label'] as $index => $label)
+                                                    @php
+                                                    $value = $category['value'][$index] ?? '';
+                                                    @endphp
+                                                    <div class="col-md-6">
+                                                        <li class="mb-2 d-flex justify-content-between align-items-center">
+                                                            <div>
+                                                                @if (in_array($value, ['0', '1']))
+                                                                <i class="bi bi-{{ $value == '1' ? 'check-circle-fill text-success' : 'dash-circle text-muted' }} me-2"></i>
+                                                                @endif
+                                                                {{ $label }}
+                                                            </div>
+                                                            @if (!in_array($value, ['0', '1']))
+                                                            <strong>{{ $value }}</strong>
+                                                            @endif
+                                                        </li>
                                                     </div>
-                                                </ul>
+                                                    @endforeach
+                                                </div>
+                                            </ul>
                                         </div>
-                                        @endforeach
                                         @endif
                                         @endforeach
+                                        @else
+                                        <p class="text-muted">No features available.</p>
                                         @endif
                                     </div>
                                 </li>
@@ -525,7 +537,8 @@
                                             @if ($json[$index]->value != null)
                                             <tr>
                                                 <th>{{ $item->label }}</th>
-                                                <td>{{ $item->value }}</td>
+                                                <td>{{ $item->value == 'on' ? '✅' : ($item->value == 'off' ? '❌' : $item->value) }}</td>
+
                                             </tr>
                                             @endif
                                             @endforeach
